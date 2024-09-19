@@ -1,0 +1,38 @@
+# Tested in Python 3.11.2 environment
+
+# data analysis
+numpy==2.1.1
+pandas==2.2.2
+scipy==1.14.1
+
+# ml
+scikit-learn==1.5.2
+statsmodels==0.14.3
+
+# data viz
+matplotlib==3.9.2
+seaborn==0.13.2
+plotly==5.24.1
+
+# db connectors
+SQLAlchemy==2.0.35
+psycopg2-binary==2.9.9
+PyMySQL==1.1.1
+
+# snowpark connectors
+snowflake-connector-python==3.12.2
+snowflake-snowpark-python==1.22.1
+
+# other file handling
+openpyxl==3.1.5
+pyarrow==17.0.0
+fastparquet==2024.5.0
+lxml==5.3.0
+
+# http
+requests==2.32.3
+beautifulsoup4==4.12.3
+
+# other utility
+cloudpickle==2.2.1
+python-dotenv==1.0.0
