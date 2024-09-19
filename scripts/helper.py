@@ -84,8 +84,6 @@ def load_csv_as_table(session, csv_path, table_name, database, schema):
     except Exception as e:
         print(f"Error creating table from CSV: {e}")
         raise
-import pandas as pd
-import sys
 
 def load_pq_as_table(session, parquet_path, table_name, database, schema):
     """
