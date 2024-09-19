@@ -1,0 +1,638 @@
+﻿ConditionID,ConditionName,PreparationCode,PreparationDescription
+5029,Lithium,*LGR8889NEMIS,*Lithium Carbonicum  Granules  
+5029,Lithium,*LLI8890NEMIS,*Lithium Carbonicum  Liquid  
+5029,Lithium,*LPI8892NEMIS,*Lithium Carbonicum  Pills (Sucrose)  
+5029,Lithium,*LPO8891NEMIS,*Lithium Carbonicum  Powder  
+5029,Lithium,*LTA8887NEMIS,*Lithium Carbonicum  Tablets  
+5029,Lithium,CATA468,Camcolit  Tablets  250 mg
+5029,Lithium,LIOI9663HILLI,Lithium Succinate  Ointment  
+5029,Lithium,LISU20374EMIS,Li-Liquid  Sugar free syrup  10.8 mmol/5 ml
+5029,Lithium,LISU20375EMIS,Li-Liquid  Sugar free syrup  5.4 mmol/5 ml
+5029,Lithium,LISU20378EMIS,Lithium Citrate  Sugar free syrup  10.8 mmol/5 ml
+5029,Lithium,LISU20379EMIS,Lithium Citrate  Sugar free syrup  5.4 mmol/5 ml
+5029,Lithium,LITA5093,Lithium Carbonate  M/R tablets  300 mg
+5029,Lithium,PHTA2225,Phasal  Tablets  300 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,AICA55,Alrheumat  Capsules  50 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ALEF41504NEMIS,Alka-Seltzer Classic  Effervescent tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ALIN7054,Alfentanil  Injection  500 micrograms/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ALSP23437NEMIS,Alfentanil  Spray solution  5 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,AMCA10448BRIDL,Amitriptyline Sr  Capsules  75 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,AMCA114,Amitriptyline Hydrochloride  Capsules  25 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,AMCA115,Amitriptyline Hydrochloride  Capsules  50 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,AMCA116,Amitriptyline Hydrochloride  Capsules  75 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,AMIN4586,Amitriptyline Hydrochloride  Injection  10mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,AMMI117,Amitriptyline Hydrochloride  Mixture  Sugar Free 10 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ANCA16110NEMIS,Anadin Ultra  Capsules  200 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ANDI9260HILLI,Antoin  Dispersible tablets
+5065,AnalgesicsOrOpiodsNotMigraineMedication,APEF9146HILLI,Apsifen F  Effervescent tablets  600 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,APTA194,Apsifen  Tablets  200 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,APTA195,Apsifen  Tablets  400 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,APTA196,Apsifen  Tablets  600 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ARCA211,Artracin  Capsules  25 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ARM/26311EMIS,Artracin Sr  M/R capsules  75 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ARTA4234NEMIS,Arthroxen  Tablets  250 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ARTA4235NEMIS,Arthroxen  Tablets  500 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ASCH6791,Aspirin  Chewable tablets  227 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ASE/26084EMIS,Aspirin  E/c tablets  600 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ASE/37491NEMIS,Aspirin Protect  E/c tablets  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ASEF39506NEMIS,Aspirin And Vitamin C  Effervescent tablets  330 mg + 200 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ASM/22792EMIS,Aspirin  M/R tablets  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ASPO24105NEMIS,Aspirin  Powder Sachets Lactose Free  75 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ASS/9158HILLI,Aspirin  E/c tablets  324 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ASTA10221BRIDL,Aspirin E/C  Tablets  300 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ASTA3199,Aspirin Paracetamol And Codeine  Tablets
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ASTA5694,Aspirin Dispersible Low Dose  Tablets  75 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ASTA5696,Aspergum  Chewable tablets  227 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ASTA6958,Aspirin  Tablets  500 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ASTA7014,Aspirin  Tablets  600 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ASTA9082HILLI,Aspirin E/C  Tablets  600 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,AVCA3205,Aventyl  Capsules  10 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,AVLI3206,Aventyl  Liquid  10mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,BUIN25488EMIS,Bupivacaine Hydrochloride  Injection  0.375 %
+5065,AnalgesicsOrOpiodsNotMigraineMedication,BUIN436,Buprenorphine  Injection  300 micrograms
+5065,AnalgesicsOrOpiodsNotMigraineMedication,BUIN7310,Bupivacaine Hydrochloride  Injection  0.75 %
+5065,AnalgesicsOrOpiodsNotMigraineMedication,CAIN8456EGTON,Calpol Paediatric  Suspension  120 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,CATA19665EMIS,Calpol Extra  Tablets
+5065,AnalgesicsOrOpiodsNotMigraineMedication,CATA9282HILLI,Cafadol  Tablets
+5065,AnalgesicsOrOpiodsNotMigraineMedication,COCA24278EMIS,Contraflam  Capsules  250 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,COCA27287EMIS,Co-Codamol 30/500  Caplets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,CODI8355EGTON,Co-Codamol 8/500  Dispersible tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,CODI9009BRIDL,Codis  Dispersible tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,COLI3331,Codeine Linctus Diabetic  Linctus  15 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,COLI705,Codeine Phosphate  Linctus  15 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,COTA27588EMIS,Contraflam  Tablets  500 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,COTA34395EMIS,Condrotec  Tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,COTA8469EGTON,Cosalgesic  Tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DASU14154NEMIS,Dafalgan  Suppositories  600 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DASU14155NEMIS,Dafalgan  Suppositories  300 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DASU14157NEMIS,Dafalgan  Suppositories  150 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DASU14158NEMIS,Dafalgan  Suppositories  80 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DEM/6709NEMIS,Defanac Sr  M/R tablets  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DFEL853,Df 118  Elixir  10 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DFINEGTON6736,Df 118  Injection  50 mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DFTA854,Df 118  Tablets  30 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DIE/8974DLSEM,Diclofenac + Misoprostol  E/c tablets
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DIEL3443,Dimotane With Codeine  Elixir  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DIEL3444,Dimotane With Codeine Paediatric  Elixir  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DIEL4839,Dihydrocodeine Tartrate  Elixir  10mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DIIN20367EMIS,Diaphine  Injection  10 mg/amp
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DIIN20368EMIS,Diaphine  Injection  100 mg/amp
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DIIN20369EMIS,Diaphine  Injection  30 mg/amp
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DIIN20370EMIS,Diaphine  Injection  5 mg/amp
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DIIN20371EMIS,Diaphine  Injection  500 mg/amp
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DIIN4520NEMIS,Diagesil  Injection  5 mg/ampoule
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DIIN4521NEMIS,Diagesil  Injection  10 mg/ampoule
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DIIN4522NEMIS,Diagesil  Injection  30 mg/ampoule
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DIIN4523NEMIS,Diagesil  Injection  100 mg/ampoule
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DIIN4524NEMIS,Diagesil  Injection  500 mg/ampoule
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DIIN859,Diamorphine Hydrochloride  Injection  10 mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DIIN863,Diamorphine Hydrochloride  Injection  5 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DIIN8812EGTON,Diamorphine Hydrochloride  Injection  500 mg/2 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DILI5892,Diarrest  Liquid  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DILI8980BRIDL,Diamorphine Hydrochloride  Linctus  3mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DIM/22788EMIS,Disprin Cv  M/R tablets  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DIM/26776EMIS,Dicloflex  M/R tablets  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DIM/4217NEMIS,Digenac Xl 100  M/R tablets  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DITA10235BRIDL,Diclofenac Retard  Tablets  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DITA4554NEMIS,Diocalm  Chewable tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DITA864,Diamorphine Hydrochloride  Tablets  10 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DITA885,Diclofenac Sodium  Tablets  25 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DITA886,Diclofenac Sodium  Tablets  50 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DITA911,Dihydrocodeine Tartrate  Tablets  30 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DITO6702NEMIS,Diclofenac Sodium  Topical solution  1.5 %
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DOCA9432HILLI,Doloxene Compound  Capsules
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DOTA3462,Domical  Tablets  10 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DOTA3463,Domical  Tablets  25 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DOTA3464,Domical  Tablets  50 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,DUIN3483,Duromorph  Injection  64mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,EBTA1019,Ebufac  Tablets  400 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,EFEF37270NEMIS,Efferalgan Vitamin C  Effervescent tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ELSO36943NEMIS,Elmetacin  Solution  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ELTA3500,Elavil  Tablets  10 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ELTA3501,Elavil  Tablets  25 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,EQTA8493BRID,Equagesic  Tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ETTA4908,Etodolac  Tablets  200 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,FEIN7080,Fentanyl Citrate  Injection  50 micrograms/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,FEIN7091,Fentanyl Citrate  Injection  2.5 mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,FESO126896NEMIS,Fentanyl  Solution for injection  100 micrograms/2 ml ampoule
+5065,AnalgesicsOrOpiodsNotMigraineMedication,FESP10451BRIDL,Feldene  Sports gel  0.5 %
+5065,AnalgesicsOrOpiodsNotMigraineMedication,FLCA24289EMIS,Flamatrol  Capsules  10 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,FLCA24290EMIS,Flamatrol  Capsules  20 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,FLTA24255EMIS,Flamrase  Tablets  25 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,FLTA24256EMIS,Flamrase  Tablets  50 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,FOCAEGTON6715,Fortral  Capsules  50 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,FOEL9540HILLI,Formulix  Elixir
+5065,AnalgesicsOrOpiodsNotMigraineMedication,FOINEGTON6716,Fortral  Injection  30 mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,FOTA28954EMIS,Fortagesic  Tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,GRTA26073EMIS,Grenoxal  Tablets  500 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,HYTA9618HILLI,Hypon  Tablets
+5065,AnalgesicsOrOpiodsNotMigraineMedication,IBCA1427,Ibuprofen  Capsules  300 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,IBSY1428,Ibuprofen  Syrup  100 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,IBTAEGTON6109,Ibular  Tablets  200 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,IBTAEGTON6111,Ibumetin  Tablets  200 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,IBTAEGTON6121,Ibular  Tablets  400 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,IBTAEGTON6124,Ibumetin  Tablets  400 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,IBTAEGTON6125,Ibumetin  Tablets  600 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,IMCA1438,Imbrilon  Capsules  25 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,IMCA1439,Imbrilon  Capsules  50 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,IMSU1440,Imbrilon  Suppositories  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,INCA10535BRIDL,Indomax-25  Capsules  25 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,INCA1463,Indoflex  Capsules  25 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,INCA5024,Indomethacin  Capsules  25 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,INCA5025,Indomethacin  Capsules  75 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,INCA6932,Indomethacin  Capsules  50 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,INS/9570EMIS,Indomethacin  M/R tablets  25 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,INS/9571EMIS,Indomethacin  M/R tablets  50 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,INS/9572EMIS,Indomethacin  M/R tablets  75 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,INSL10307BRIDL,Indomethacin  M/R capsules  25 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,INSL9953BRIDL,Indomethacin  M/R capsules  75 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,INSU5026,Indomethacin  Suppositories  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,INSU5027,Indomethacin  Suspension  25 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,JUSU9285BRIDL,Junifen  Suspension  100 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,KECA1570,Ketoprofen  Capsules  200 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,KECA33104EMIS,Kentene  Capsules  10 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,KECA33105EMIS,Kentene  Capsules  20 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,KEGE22661NEMIS,Ketoprofen  Gel (Pump Dispenser)  2.5 %
+5065,AnalgesicsOrOpiodsNotMigraineMedication,KEM/1548NEMIS,Ketil Cr  M/R capsules  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,KEM/1549NEMIS,Ketil Cr  M/R capsules  200 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,KETA33098EMIS,Kenosyn  Tablets  250 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,KETA33099EMIS,Kenosyn  Tablets  500 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,LACA1607,Larapam (Piroxicam)  Capsules  10 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,LACA1608,Larapam (Piroxicam)  Capsules  20 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,LATA1605,Laraflex  Tablets  250 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,LATA1606,Laraflex  Tablets  500 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,LATA36971NEMIS,Lagaflex  Tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,LATA5735,Laboprin Dl  Tablets
+5065,AnalgesicsOrOpiodsNotMigraineMedication,LESA37508NEMIS,Lemsip Max Flu Lemon  Sachets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,LETA3828,Levius  Tablets  500 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,LICA1662,Limbitrol 10  Capsules
+5065,AnalgesicsOrOpiodsNotMigraineMedication,LICA5690,Limbitrol 5  Capsules
+5065,AnalgesicsOrOpiodsNotMigraineMedication,LILI1663,Linctus Of Codeine  Linctus  15 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,LITA19741EMIS,Lidifen-F  Tablets  600 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,LITA9957BRIDL,Lidifen  Tablets  200 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,LITA9959BRIDL,Lidifen  Tablets  400 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,LOCA1682,Lodine  Capsules  200 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,LOCA9511BRIDL,Lodine  Capsules  300 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,LOTA10605BRIDL,Lobak  Tablets
+5065,AnalgesicsOrOpiodsNotMigraineMedication,LOTA10616BRIDL,Lodine  Tablets  200 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MAIN25486EMIS,Marcain  Injection  0.375 %
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MAINEGTON7313,Marcain  Injection  0.75 %
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MAM/26319EMIS,Maximet Sr  M/R capsules  75 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MEAU15528NEMIS,Mediject Morphine Sulfate  Auto-Injector  10 mg/1 ml pre-filled disposable injection
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MECA26322EMIS,Meflam  Capsules  250 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MECA33095EMIS,Mendys  Capsules  250 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MEDI7045,Mefenamic Acid  Dispersible tablets  250 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MEIN5130,Methadone Hydrochloride  Injection  10mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MEOR4518NEMIS,Methex  Oral solution  1 mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MEOR6353NEMIS,"Methadone Hydrochloride  Oral Solution, Sugar Free, Tartrazine Free  1 mg/1 ml"
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MEPA1752,Mefenamic Acid  Paediatric suspension  50 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MESU9683HILLI,Medised  Suspension  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,META26323EMIS,Meflam  Tablets  500 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,META9684HILLI,Medised  Tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MICA36981NEMIS,Migranerton  Capsules  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MIEF9028BRIDL,Migravess  Effervescent tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MIIN18043EMIS,Min-I-Jet Morphine Sulfate  Injection  10 mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MITA1833,Migravess  Forte tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MITA36984NEMIS,Miranax  Tablets  550 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MITA8305EGTON,Migravess  Tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,M-M/27330EMIS,M-Eslon  M/R capsules  10 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,M-M/27331EMIS,M-Eslon  M/R capsules  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,M-M/27332EMIS,M-Eslon  M/R capsules  30 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,M-M/27333EMIS,M-Eslon  M/R capsules  60 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOCAEGTON6138,Mobilan  Capsules  25 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOCAEGTON6139,Mobilan  Capsules  50 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOCO35147EMIS,Morphine Sulfate  Concentrated Oral Solution  20 mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOEF23713EMIS,Mobiflex  Effervescent tablets  20 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOEP31213EMIS,Morphine Sulfate  Epidural injection  2 mg/10 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOGR22483EMIS,Mobiflex  Granules  20 mg/sachet
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOIN24020EMIS,Mobiflex  Injection  20 mg/amp
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOIN30111EMIS,"Morphine Sulfate  Injection  1 mg/ml, 50 ml syringe"
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOIN30112EMIS,"Morphine Sulfate  Injection  2 mg/ml, 50 ml syringe"
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOIN30548NEMIS,Morphine Sulfate  Injection  10 mg/0.7 ml Auto-Injector
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOIN5177,Morphine  Injection  64mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOIN5712,Morphine Sulfate  Injection  10 mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOIN5713,Morphine Sulfate  Injection  15 mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOIN5714,Morphine Sulfate  Injection  30 mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOINEGTON6391,Morphine And Atropine  Injection  1 ml ampoule
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOMI1889,Morphine Hydrochloride  Mixture  916 micrograms
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOOR7007,Morphine  Oral solution  8.4 mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOSA22492EMIS,Morphine Sulfate  Sachets  20 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOSA22493EMIS,Morphine Sulfate  Sachets  30 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOSU20327EMIS,Morphine Hydrochloride  Suppositories  30 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOSU5161NEMIS,Morphine Sulfate  Suppositories  35 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOSU5162NEMIS,Morphine Sulfate  Suppositories  50 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOSU5163NEMIS,Morphine Sulfate  Suppositories  75 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOSU5164NEMIS,Morphine Sulfate  Suppositories  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOSU5166NEMIS,Moraxen  Suppositories  35 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOSU5167NEMIS,Moraxen  Suppositories  50 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOSU5168NEMIS,Moraxen  Suppositories  75 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOSU5169NEMIS,Moraxen  Suppositories  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MOTAEGTON6116,Motrin  Tablets  200 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,MUTA37009NEMIS,Muscadol  Tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,NAEY22503NEMIS,Naclof  Eye drops  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,NAGR1933,Naprosyn  Granules  500 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,NAGR5187,Naproxen  Granules  500 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,NAM/21940EMIS,Naproxen  M/R tablets  375 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,NASU9734HILLI,Nabumetone  Suspension  Sugar Free 500 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,NATA9272EMIS,Naprosyn  Tablets  375 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,NATA9274EMIS,Naproxen  Tablets  375 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,NEIN9741HILLI,Nepenthe  Injection  8.4 mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,NEOREGTON6732,Nepenthe  Oral solution  8.4 mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,NOLI5214,Nortriptyline  Liquid  10mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,NOTAEGTON6148,Norgesic  Tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,NUSU34990EMIS,Nurofen For Children  Sugar-free suspension  100 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,NUTA11316NEMIS,Nurofen Advance  Tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,NUTA2040,Nu-Seals Aspirin  E/c tablets  600 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,OPCA26353EMIS,Opustan  Capsules  250 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,OPTA26354EMIS,Opustan  Tablets  500 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ORCA2116,Oruvail  S/r capsules  200 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ORM/24189EMIS,Oramorph Sr  M/R tablets  10 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ORM/24190EMIS,Oramorph Sr  M/R tablets  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ORM/24191EMIS,Oramorph Sr  M/R tablets  30 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ORM/24192EMIS,Oramorph Sr  M/R tablets  60 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,OXSU27219EMIS,Oxycodone Pectinate  Suppositories  30 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PACA12515NEMIS,Paracetamol  Caplets  500 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PACA37235NEMIS,Panadol Night  Caplets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PACA37241NEMIS,Panadol Cold & Flu  Caplets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PACA37243NEMIS,Panadol Cold & Flu Day  Caplets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PACA37493NEMIS,Panadol Sinus  Caplets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PACA37495NEMIS,Panadol Actifast  Caplets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PADI10360BRIDL,Paracetamol & Codeine  Dispersible tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PAEL4113,Panadol  Elixir  120mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PAEL5244,Paracetamol  Sugar free elixir  120 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PAEL5703,Panaleve  Elixir  120mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PAEL75710NEMIS,Panadol  Elixir  240 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PAMI4114,Paracetamol  Mixture  250 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PAOR14478NEMIS,Paracetamol  Oral Suspension (Christies Formula)  500 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PAOR6370NEMIS,Paracetamol  Oral Suspension (Sugar-Free)  250 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PASA37239NEMIS,Panadol Cold & Flu Hot Lemon & Honey  Sachets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PASU10262BRIDL,Paracetamol  Sugar free mixture  250 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PASU14150NEMIS,Paracetamol  Suppositories  150 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PASU14151NEMIS,Paracetamol  Suppositories  350 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PASU14153NEMIS,Paracetamol  Suppositories  600 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PASU14156NEMIS,Paracetamol  Suppositories  300 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PASU14159NEMIS,Paracetamol  Suppositories  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PASU14160NEMIS,Paracetamol  Suppositories  200 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PASU2158,Paracetamol  Suspension  120 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PASY4106,Paldesic  Syrup  120mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PASY5246,Paracetamol  Syrup  120 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PATA10357BRIDL,Paracetamol & Codeine  Tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PATA15708NEMIS,Panadol Night  Tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PATA37237NEMIS,Panadol Extend  Tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PATA37257NEMIS,Panadol Extra  Tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PATA4105,Palaprin Forte  Tablets
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PATA5699,Paynocil  Tablets
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PATA5705,Panasorb  Tablets  500 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PATA5708,Pameton  Tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PATA8524EGTON,Paxalgesic  Tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PATA9006BRIDL,Panadol Soluble  Tablets  500 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PATA9015BRIDL,Panadeine  Tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PATA9022BRIDL,Parahypon  Tablets
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PATA9798HILLI,Parake  Tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PATA9804HILLI,Pardale  Tablets
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PATAEGTON6129,Paxofen  Tablets  200 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PATAEGTON6130,Paxofen  Tablets  400 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PATAEGTON6131,Paxofen  Tablets  600 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PEIN2218,Pethidine  Injection  50 mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PEIN2220,Pethidine Hydrochloride  Injection  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PEIN2223,Pethilorfan  Injection
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PEINEGTON6403,Pethidine  Injection  10 mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PEINEGTON6726,Pentazocine Lactate  Injection  30 mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PETA5255,Pethidine Hydrochloride  Tablets  25 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PETO6704NEMIS,Pennsaid  Topical solution  1.5 %
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PHIN4162,Physeptone  Injection  10mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PHLI2252,Physeptone  Linctus  2 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PHLI4148,Phensedyl  Linctus
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PICA26328EMIS,Piroflam  Capsules  10 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PICA26329EMIS,Piroflam  Capsules  20 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PISP18064EMIS,Piroxicam  Sports gel  0.5 %
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PLEF8526EGTON,Platet 300  Effervescent tablets  300 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PLEF8528EGTON,Platet  Effervescent tablets  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PODIEGTON6710,Ponstan Dispersible  Dispersible tablets  250 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,POE/24317EMIS,Postmi 300  E/c tablets  300 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,POGE22662NEMIS,Powergel  Gel (Pump Dispenser)  2.5 %
+5065,AnalgesicsOrOpiodsNotMigraineMedication,POPA2307,Ponstan  Paediatric suspension  50 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PRM/21936EMIS,Pranoxen Continus  M/R tablets  375 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PRM/21937EMIS,Pranoxen Continus  M/R tablets  500 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PRTA22246EMIS,Prosaid  Tablets  250 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,PRTA22247EMIS,Prosaid  Tablets  500 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,RAIN30107EMIS,"Rapiject  Injection  1 mg/ml, 50 ml syringe"
+5065,AnalgesicsOrOpiodsNotMigraineMedication,RAIN30108EMIS,"Rapiject  Injection  2 mg/ml, 50 ml syringe"
+5065,AnalgesicsOrOpiodsNotMigraineMedication,RAINEGTON6383,Rapifen  Injection  500 micrograms/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,RATA2430,Ramodar  Tablets  200 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,REEF29180EMIS,Remedeine  Effervescent tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,REFO29181EMIS,Remedeine  Forte effervescent tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,RESU9873HILLI,Relifex  Suspension  500 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,RHM/8969DLSEM,Rhumalgan  M/R tablets  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,RHM/8971DLSEM,Rhumalgan  M/R tablets  75 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,RHTAEGTON6134,Rhumalgan  Tablets  25 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,RHTAEGTON6135,Rhumalgan  Tablets  50 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ROTA2461,Robaxisal Forte  Tablets
+5065,AnalgesicsOrOpiodsNotMigraineMedication,SASY4305,Salzone  Syrup  120mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,SEEF37268NEMIS,Sedergine  Effervescent tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,SESU20319EMIS,Sevredol  Suppositories  10 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,SESU20320EMIS,Sevredol  Suppositories  20 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,SESU20321EMIS,Sevredol  Suppositories  30 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,SLM/30972EMIS,Slofenac Sr  M/R tablets  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,SOTA2636,Solpadeine  Tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,SOTA2638,Soluble Aspirin  Tablets  300 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,SOTA2639,Soluble Aspirin Paediatric  Tablets  75 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,SOTA5701,Solprin  Tablets  300 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,SRM/18032EMIS,Srm-Rhotard  M/R tablets  10 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,SRM/18033EMIS,Srm-Rhotard  M/R tablets  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,SRM/18034EMIS,Srm-Rhotard  M/R tablets  30 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,SRM/18035EMIS,Srm-Rhotard  M/R tablets  60 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,STLO14771NEMIS,Streflam  Lozenges  8.75 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,SUCA2743,Surgam  Capsules  300 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,SUINEGTON6742,Sublimaze  Injection  50 micrograms/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,SUSA2744,Surgam  Sachets  300 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,SUTA4349,Sudafed Co  Tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,SYIN11930NEMIS,"Synastone  Injection  10 mg/ml, 2 ml ampoule"
+5065,AnalgesicsOrOpiodsNotMigraineMedication,SYIN11931NEMIS,"Synastone  Injection  10 mg/ml, 3.5 ml ampoule"
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TEEF23715EMIS,Tenoxicam  Effervescent tablets  20 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TEEL4394,Tercoda  Elixir
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TEEL4397,Terpoin  Elixir  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TEGR22485EMIS,Tenoxicam  Granules  20 mg/sachet
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TEIN24022EMIS,Tenoxicam  Injection  20 mg/amp
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TEIN2796,Temgesic  Injection  300 micrograms
+5065,AnalgesicsOrOpiodsNotMigraineMedication,THINEGTON6744,Thalamonal  Injection  2.5 mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TIE/32937EMIS,Timpron 250 Ec  E/c tablets  250 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TIE/32939EMIS,Timpron 500 Ec  E/c tablets  500 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TIOR11325NEMIS,Tixymol  Oral suspension  120 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TISA5449,Tiaprofenic Acid  Sachets  300 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TITA24281EMIS,Timpron  Tablets  250 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TITA24282EMIS,Timpron  Tablets  500 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TRCA2948,Tryptizol  Capsules  75 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TRIN4466,Tryptizol  Injection  10mg/ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TRMI2949,Tryptizol  Mixture  10 mg/5 ml
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TRTA27585EMIS,Trimpron  Tablets  250 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TRTA27586EMIS,Trimpron  Tablets  500 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TRTA2950,Tryptizol  Tablets  10 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TRTA2951,Tryptizol  Tablets  25 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TRTA2952,Tryptizol  Tablets  50 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TRTA4459,Triogesic  Tablets  
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TYSU14162NEMIS,Tylenol  Suppositories  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TYSU14163NEMIS,Tylenol  Suppositories  200 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,TYSU14164NEMIS,Tylenol  Suppositories  350 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,VAE/9987HILLI,Valenac  Tablets  25 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,VAE/9988HILLI,Valenac  Tablets  50 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,VATA9991HILLI,Valrox  Tablets  250 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,VATA9992HILLI,Valrox  Tablets  500 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,VOM/28767EMIS,Volsaid Sr 75  M/R tablets  75 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,VOM/28769EMIS,Volsaid Sr 100  M/R tablets  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,VOPO37497NEMIS,Voltfast  Powder For Oral Solution  50 mg sachet
+5065,AnalgesicsOrOpiodsNotMigraineMedication,VOTA8338EGTON,Voltaren Retard  M/R tablets  100 mg
+5065,AnalgesicsOrOpiodsNotMigraineMedication,ZATA41302NEMIS,Zaldiar  Tablets  37.5 mg + 325 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,ALTA9251HILLI,Alka-Donna-P  Tablets
+5066,AntiEpilepticMedicationExceptBenzodiazepines,CACA39453NEMIS,Cannabis extract  Capsules  2.5 mg (delta-9-THC) + 1.25 mg (CBD)
+5066,AntiEpilepticMedicationExceptBenzodiazepines,CASU9011DLSEM,Carbamazepine  Sugar-free liquid  100mg/5ml
+5066,AntiEpilepticMedicationExceptBenzodiazepines,CASY486,Carbamazepine  Syrup  100 mg/5 ml
+5066,AntiEpilepticMedicationExceptBenzodiazepines,CATA487,Carbamazepine  Tablets  100 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,CATA488,Carbamazepine  Tablets  200 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,CATA489,Carbamazepine  Tablets  400 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,CATA9592BRIDL,Carbamazepine  C/r tablets  200 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,CATA9594BRIDL,Carbamazepine  C/r tablets  400 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,EPIN3520,Epanutin Ready Mixed Parenteral  Injection  50mg/ml
+5066,AntiEpilepticMedicationExceptBenzodiazepines,EPTA8948DLSEM,Epimaz  Tablets  100 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,EPTA8949DLSEM,Epimaz  Tablets  200 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,EPTA8951DLSEM,Epimaz  Tablets  400 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,GEMI11072NEMIS,Gentian Alkaline with Phenobarbitone  Mixture  BPC
+5066,AntiEpilepticMedicationExceptBenzodiazepines,LUTA3855,Luminal  Tablets  15 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,LUTA3856,Luminal  Tablets  30 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,LUTA3857,Luminal  Tablets  60 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PETA24285EMIS,Pentran  Tablets  100 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PETA24286EMIS,Pentran  Tablets  50 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHCA106120NEMIS,Phenytoin Sodium (Actavis)  Capsules  100 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHCA88596NEMIS,Phenytoin Sodium (Nrim)  Capsules  100 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHCH9822HILLI,Phenytoin Sodium  Chewable tablets  50 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHEL2230,Phenobarbitone  Elixir  15 mg/5 ml
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHIN4146,"Phenobarbitone  Injection  200mg/ml, 1 ml ampoule"
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHIN5263,Phenobarbitone Sodium  Injection  200mg/ml
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHOR11095NEMIS,Phenobarbitone  Oral Solution (alcohol free)  10 mg/1 ml
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHOR17463NEMIS,Phenobarbitone  Oral Suspension (Sugar-Free)  50 mg/5 ml
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHOR17814NEMIS,Phenobarbital  Oral Solution (alcohol free)  10 mg/1 ml
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHOR17816NEMIS,Phenobarbital  Oral Suspension Sugar Free  50 mg/5 ml
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHOR22812NEMIS,Phenobarbital  Oral Suspension (Sugar-Free)  100 mg/5 ml
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHOR29085NEMIS,"Phenobarbital Sodium (The Specials Labs)  Oral solution  Alcohol And Sugar Free, 25 mg/5 ml"
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHOR30054NEMIS,"Phenobarbital  Oral Solution, Sugar Free  20 mg/5 ml, Alcohol and Colour Free"
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHOR39041NEMIS,"Phenobarbital  Oral Suspension (Sugar-Free, Alcohol-Free)  15 mg/5 ml"
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHPA21174NEMIS,Phenobarbital  Paediatric Suspension (alcohol free)  25 mg/ml
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHPO27723EMIS,Phenobarbitone Sodium  Powder  bp
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHS/8959DLSEM,Phenytoin  S/f suspension  90 mg/5 ml
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHTA2231,Phenobarbitone  Tablets  100 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHTA2232,Phenobarbitone  Tablets  15 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHTA2233,Phenobarbitone  Tablets  30 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHTA2234,Phenobarbitone  Tablets  60 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHTA2235,Phenobarbitone Sodium  Tablets  30 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHTA2236,Phenobarbitone Sodium  Tablets  60 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHTA36528MGEMIS,Phenytoin Sodium  Tablets  100 mg (Teva UK)
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHTAEGTON7126,Phenytoin  Tablets  100 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,PHTAEGTON7127,Phenytoin  Tablets  50 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,SOLI2627,Sodium Valproate  Sugar-free liquid  200 mg/5 ml
+5066,AntiEpilepticMedicationExceptBenzodiazepines,SOSY2628,Sodium Valproate  Syrup  200 mg/5 ml
+5066,AntiEpilepticMedicationExceptBenzodiazepines,TEM/1957NEMIS,Teril Cr  M/R tablets  200 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,TEM/1958NEMIS,Teril Cr  M/R tablets  400 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,TIM/1960NEMIS,Timonil Retard  M/R tablets  200 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,TIM/1961NEMIS,Timonil Retard  M/R tablets  400 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,TOCA1010NEMIS,Topiramate  Capsules+e/c pellets  15 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,TOCA1011NEMIS,Topiramate  Capsules+e/c pellets  25 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,TOCA18898NEMIS,Topamax Sprinkle  Capsules  15 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,TOCA18899NEMIS,Topamax Sprinkle  Capsules  25 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,TOCA18900NEMIS,Topamax Sprinkle  Capsules  50 mg
+5066,AntiEpilepticMedicationExceptBenzodiazepines,TOCA5683NEMIS,Topiramate  Capsules+e/c pellets  50 mg
+5068,AntiSpasmodicMedication,ALGR10709BRIDL,Alvercol  Granules  
+5068,AntiSpasmodicMedication,COGR5849,Colven  Granules
+5068,AntiSpasmodicMedication,DILI5892,Diarrest  Liquid  
+5068,AntiSpasmodicMedication,DISY888,Dicyclomine Hydrochloride  Syrup  10 mg/5 ml
+5068,AntiSpasmodicMedication,DITA10374BRIDL,Dicyclomine Hydrochloride  Tablets  20 mg
+5068,AntiSpasmodicMedication,DITA889,Dicyclomine Hydrochloride  Tablets  10 mg
+5068,AntiSpasmodicMedication,FOTA19743EMIS,Fomac  Tablets  135 mg
+5068,AntiSpasmodicMedication,KOGE3809,Kolantyl  Gel  
+5068,AntiSpasmodicMedication,META10491BRIDL,Merbentyl 20  Tablets  20 mg
+5068,AntiSpasmodicMedication,NOGR4049,Normacol Antispasmodic  Granules
+5068,AntiSpasmodicMedication,PRTA4223,Propantheline  Tablets  15 mg
+5069,AntiEpilepticMedication,ALTA9251HILLI,Alka-Donna-P  Tablets
+5069,AntiEpilepticMedication,CACA39453NEMIS,Cannabis extract  Capsules  2.5 mg (delta-9-THC) + 1.25 mg (CBD)
+5069,AntiEpilepticMedication,CASU9011DLSEM,Carbamazepine  Sugar-free liquid  100mg/5ml
+5069,AntiEpilepticMedication,CASY486,Carbamazepine  Syrup  100 mg/5 ml
+5069,AntiEpilepticMedication,CATA487,Carbamazepine  Tablets  100 mg
+5069,AntiEpilepticMedication,CATA488,Carbamazepine  Tablets  200 mg
+5069,AntiEpilepticMedication,CATA489,Carbamazepine  Tablets  400 mg
+5069,AntiEpilepticMedication,CATA9592BRIDL,Carbamazepine  C/r tablets  200 mg
+5069,AntiEpilepticMedication,CATA9594BRIDL,Carbamazepine  C/r tablets  400 mg
+5069,AntiEpilepticMedication,CLIN4751,"Clonazepam  Injection  1mg/ml, 1 ml ampoule"
+5069,AntiEpilepticMedication,EPIN3520,Epanutin Ready Mixed Parenteral  Injection  50mg/ml
+5069,AntiEpilepticMedication,EPTA8948DLSEM,Epimaz  Tablets  100 mg
+5069,AntiEpilepticMedication,EPTA8949DLSEM,Epimaz  Tablets  200 mg
+5069,AntiEpilepticMedication,EPTA8951DLSEM,Epimaz  Tablets  400 mg
+5069,AntiEpilepticMedication,GEMI11072NEMIS,Gentian Alkaline with Phenobarbitone  Mixture  BPC
+5069,AntiEpilepticMedication,LUTA3855,Luminal  Tablets  15 mg
+5069,AntiEpilepticMedication,LUTA3856,Luminal  Tablets  30 mg
+5069,AntiEpilepticMedication,LUTA3857,Luminal  Tablets  60 mg
+5069,AntiEpilepticMedication,PETA24285EMIS,Pentran  Tablets  100 mg
+5069,AntiEpilepticMedication,PETA24286EMIS,Pentran  Tablets  50 mg
+5069,AntiEpilepticMedication,PHCA106120NEMIS,Phenytoin Sodium (Actavis)  Capsules  100 mg
+5069,AntiEpilepticMedication,PHCA88596NEMIS,Phenytoin Sodium (Nrim)  Capsules  100 mg
+5069,AntiEpilepticMedication,PHCH9822HILLI,Phenytoin Sodium  Chewable tablets  50 mg
+5069,AntiEpilepticMedication,PHEL2230,Phenobarbitone  Elixir  15 mg/5 ml
+5069,AntiEpilepticMedication,PHIN4146,"Phenobarbitone  Injection  200mg/ml, 1 ml ampoule"
+5069,AntiEpilepticMedication,PHIN5263,Phenobarbitone Sodium  Injection  200mg/ml
+5069,AntiEpilepticMedication,PHOR11095NEMIS,Phenobarbitone  Oral Solution (alcohol free)  10 mg/1 ml
+5069,AntiEpilepticMedication,PHOR17463NEMIS,Phenobarbitone  Oral Suspension (Sugar-Free)  50 mg/5 ml
+5069,AntiEpilepticMedication,PHOR17814NEMIS,Phenobarbital  Oral Solution (alcohol free)  10 mg/1 ml
+5069,AntiEpilepticMedication,PHOR17816NEMIS,Phenobarbital  Oral Suspension Sugar Free  50 mg/5 ml
+5069,AntiEpilepticMedication,PHOR22812NEMIS,Phenobarbital  Oral Suspension (Sugar-Free)  100 mg/5 ml
+5069,AntiEpilepticMedication,PHOR29085NEMIS,"Phenobarbital Sodium (The Specials Labs)  Oral solution  Alcohol And Sugar Free, 25 mg/5 ml"
+5069,AntiEpilepticMedication,PHOR30054NEMIS,"Phenobarbital  Oral Solution, Sugar Free  20 mg/5 ml, Alcohol and Colour Free"
+5069,AntiEpilepticMedication,PHOR39041NEMIS,"Phenobarbital  Oral Suspension (Sugar-Free, Alcohol-Free)  15 mg/5 ml"
+5069,AntiEpilepticMedication,PHPA21174NEMIS,Phenobarbital  Paediatric Suspension (alcohol free)  25 mg/ml
+5069,AntiEpilepticMedication,PHPO27723EMIS,Phenobarbitone Sodium  Powder  bp
+5069,AntiEpilepticMedication,PHS/8959DLSEM,Phenytoin  S/f suspension  90 mg/5 ml
+5069,AntiEpilepticMedication,PHTA2231,Phenobarbitone  Tablets  100 mg
+5069,AntiEpilepticMedication,PHTA2232,Phenobarbitone  Tablets  15 mg
+5069,AntiEpilepticMedication,PHTA2233,Phenobarbitone  Tablets  30 mg
+5069,AntiEpilepticMedication,PHTA2234,Phenobarbitone  Tablets  60 mg
+5069,AntiEpilepticMedication,PHTA2235,Phenobarbitone Sodium  Tablets  30 mg
+5069,AntiEpilepticMedication,PHTA2236,Phenobarbitone Sodium  Tablets  60 mg
+5069,AntiEpilepticMedication,PHTA36528MGEMIS,Phenytoin Sodium  Tablets  100 mg (Teva UK)
+5069,AntiEpilepticMedication,PHTAEGTON7126,Phenytoin  Tablets  100 mg
+5069,AntiEpilepticMedication,PHTAEGTON7127,Phenytoin  Tablets  50 mg
+5069,AntiEpilepticMedication,RIIN4290,"Rivotril  Injection  1mg/ml, 1 ml ampoule"
+5069,AntiEpilepticMedication,SOLI2627,Sodium Valproate  Sugar-free liquid  200 mg/5 ml
+5069,AntiEpilepticMedication,SOSY2628,Sodium Valproate  Syrup  200 mg/5 ml
+5069,AntiEpilepticMedication,TEM/1957NEMIS,Teril Cr  M/R tablets  200 mg
+5069,AntiEpilepticMedication,TEM/1958NEMIS,Teril Cr  M/R tablets  400 mg
+5069,AntiEpilepticMedication,TIM/1960NEMIS,Timonil Retard  M/R tablets  200 mg
+5069,AntiEpilepticMedication,TIM/1961NEMIS,Timonil Retard  M/R tablets  400 mg
+5069,AntiEpilepticMedication,TOCA1010NEMIS,Topiramate  Capsules+e/c pellets  15 mg
+5069,AntiEpilepticMedication,TOCA1011NEMIS,Topiramate  Capsules+e/c pellets  25 mg
+5069,AntiEpilepticMedication,TOCA18898NEMIS,Topamax Sprinkle  Capsules  15 mg
+5069,AntiEpilepticMedication,TOCA18899NEMIS,Topamax Sprinkle  Capsules  25 mg
+5069,AntiEpilepticMedication,TOCA18900NEMIS,Topamax Sprinkle  Capsules  50 mg
+5069,AntiEpilepticMedication,TOCA5683NEMIS,Topiramate  Capsules+e/c pellets  50 mg
+5070,AntiDepressantMedication,AMCA10448BRIDL,Amitriptyline Sr  Capsules  75 mg
+5070,AntiDepressantMedication,AMCA114,Amitriptyline Hydrochloride  Capsules  25 mg
+5070,AntiDepressantMedication,AMCA115,Amitriptyline Hydrochloride  Capsules  50 mg
+5070,AntiDepressantMedication,AMCA116,Amitriptyline Hydrochloride  Capsules  75 mg
+5070,AntiDepressantMedication,AMIN4586,Amitriptyline Hydrochloride  Injection  10mg/ml
+5070,AntiDepressantMedication,AMMI117,Amitriptyline Hydrochloride  Mixture  Sugar Free 10 mg/5 ml
+5070,AntiDepressantMedication,ANIN3166,Anafranil  Injection  12.5mg/ml
+5070,AntiDepressantMedication,AVCA3205,Aventyl  Capsules  10 mg
+5070,AntiDepressantMedication,AVLI3206,Aventyl  Liquid  10mg/5 ml
+5070,AntiDepressantMedication,BOTA390,Bolvidon  Tablets  10 mg
+5070,AntiDepressantMedication,BOTA391,Bolvidon  Tablets  20 mg
+5070,AntiDepressantMedication,BOTA392,Bolvidon  Tablets  30 mg
+5070,AntiDepressantMedication,CLIN4748,Clomipramine Hydrochloride  Injection  12.5mg/ml
+5070,AntiDepressantMedication,DOCA976,Dothiepin Hydrochloride  Capsules  25 mg
+5070,AntiDepressantMedication,DOOR11684NEMIS,Dothiepin Hydrochloride  Oral solution  25 mg/5 ml
+5070,AntiDepressantMedication,DOOR11685NEMIS,Dothiepin Hydrochloride  Oral solution  75 mg/5 ml
+5070,AntiDepressantMedication,DOTA3462,Domical  Tablets  10 mg
+5070,AntiDepressantMedication,DOTA3463,Domical  Tablets  25 mg
+5070,AntiDepressantMedication,DOTA3464,Domical  Tablets  50 mg
+5070,AntiDepressantMedication,DOTA977,Dothiepin Hydrochloride  Tablets  75 mg
+5070,AntiDepressantMedication,ELTA3500,Elavil  Tablets  10 mg
+5070,AntiDepressantMedication,ELTA3501,Elavil  Tablets  25 mg
+5070,AntiDepressantMedication,FLSY22536EMIS,Fluoxetine Hydrochloride  Liquid  20 mg/5 ml
+5070,AntiDepressantMedication,IMSY7192,Imipramine Hydrochloride  Syrup  25 mg/5 ml
+5070,AntiDepressantMedication,LICA1662,Limbitrol 10  Capsules
+5070,AntiDepressantMedication,LICA5690,Limbitrol 5  Capsules
+5070,AntiDepressantMedication,MATA3875,Marplan  Tablets  10 mg
+5070,AntiDepressantMedication,NOLI5214,Nortriptyline  Liquid  10mg/5 ml
+5070,AntiDepressantMedication,NOTA2035,Norval  Tablets  10 mg
+5070,AntiDepressantMedication,NOTA2036,Norval  Tablets  20 mg
+5070,AntiDepressantMedication,NOTA2037,Norval  Tablets  30 mg
+5070,AntiDepressantMedication,PATA19066NEMIS,Paxoran  Tablets  10 mg
+5070,AntiDepressantMedication,PATA19067NEMIS,Paxoran  Tablets  20 mg
+5070,AntiDepressantMedication,PATA19068NEMIS,Paxoran  Tablets  40 mg
+5070,AntiDepressantMedication,PATA2168,Parnate  Tablets  10 mg
+5070,AntiDepressantMedication,PATA4125,Parstelin  Tablets
+5070,AntiDepressantMedication,PRDE37158NEMIS,Prozac Weekly  Delayed Release Capsules  90 mg
+5070,AntiDepressantMedication,PRM/75749NEMIS,Pristiq  M/R tablets  50 mg
+5070,AntiDepressantMedication,PRTA4193,Praminil  Tablets  10 mg
+5070,AntiDepressantMedication,PRTA4194,Praminil  Tablets  25 mg
+5070,AntiDepressantMedication,SEM/36855NEMIS,Seroxat Cr  M/R tablets  12.5 mg
+5070,AntiDepressantMedication,SEM/47150NEMIS,Seroxat Cr  M/R tablets  25 mg
+5070,AntiDepressantMedication,TOTA2874,Tofranil  Tablets  10 mg
+5070,AntiDepressantMedication,TRCA2948,Tryptizol  Capsules  75 mg
+5070,AntiDepressantMedication,TRCA4508NEMIS,Tranquax  Capsules  10 mg
+5070,AntiDepressantMedication,TRCA4509NEMIS,Tranquax  Capsules  25 mg
+5070,AntiDepressantMedication,TRCA4510NEMIS,Tranquax  Capsules  50 mg
+5070,AntiDepressantMedication,TRIN4466,Tryptizol  Injection  10mg/ml
+5070,AntiDepressantMedication,TRMI2949,Tryptizol  Mixture  10 mg/5 ml
+5070,AntiDepressantMedication,TRTA2950,Tryptizol  Tablets  10 mg
+5070,AntiDepressantMedication,TRTA2951,Tryptizol  Tablets  25 mg
+5070,AntiDepressantMedication,TRTA2952,Tryptizol  Tablets  50 mg
+5070,AntiDepressantMedication,ZIOR16206NEMIS,Zispin  Orodispersible tablets  30 mg
+5071,Laxatives,AGGR3124,Agiolax  Granules
+5071,Laxatives,ALGR10709BRIDL,Alvercol  Granules  
+5071,Laxatives,ARSU40029NEMIS,Aralax  Suppositories  7.5 mg
+5071,Laxatives,CEGR511,Celevac  Granules  64 %
+5071,Laxatives,CETA3294,Cellucon  Tablets  500 mg
+5071,Laxatives,COGR5849,Colven  Granules
+5071,Laxatives,COMI717,Cologel  Mixture  900 mg/10 ml
+5071,Laxatives,COSU8986EGTON,Codalax  Suspension  
+5071,Laxatives,COSU8989EGTON,Codalax Forte  Strong Suspension  
+5071,Laxatives,DOCA972,Dorbanex  Capsules  
+5071,Laxatives,DOLI973,Dorbanex  Liquid  
+5071,Laxatives,DOLI974,Dorbanex Forte  Liquid  
+5071,Laxatives,DULI31105NEMIS,Dulcolax  Liquid  5 mg/5 ml
+5071,Laxatives,DUPO26616EMIS,Duphalac Dry  Powder  10 grams/sachet
+5071,Laxatives,DUTA3477,Dulcodos  Tablets
+5071,Laxatives,FLEN24018EMIS,Fleet Ready-To-Use  Enema  133 ml
+5071,Laxatives,FLOR28329EMIS,Fleet Phospho-Soda  Oral solution  
+5071,Laxatives,FYSA1270,Fybogel  Granules  3.5 grams/sachet
+5071,Laxatives,HYEY14284NEMIS,Hydroxypropylmethylcellulose  Eye Drops Unpreserved  0.065 % in Balanced Salt Solution
+5071,Laxatives,ISEF12644NEMIS,Ispaghula Husk Sugar and Gluten Free  Effervescent granules (orange)  3.5 grams/sachet
+5071,Laxatives,ISEF12645NEMIS,Ispaghula Husk Sugar and Gluten Free  Effervescent Granules (Lemon)  3.5 grams/sachet
+5071,Laxatives,ISEF12646NEMIS,Ispaghula Husk Sugar and Gluten Free  Effervescent Granules (Plain)  3.5 grams/sachet
+5071,Laxatives,ISEF13035NEMIS,Ispaghula Husk Sugar and Gluten Free  Effervescent granules (orange)  150 grams Bulk Pack
+5071,Laxatives,ISEF29711EMIS,Ispaghula Husk  Effervescent granules (orange)  
+5071,Laxatives,ISGR12640NEMIS,"Ispaghula Husk  Granules, Effervescent, Sugar and Gluten Free (Orange)  3.5 grams/sachet"
+5071,Laxatives,ISGR12641NEMIS,"Ispaghula Husk  Granules, Effervescent, Sugar and Gluten Free (Lemon)  3.5 grams/sachet"
+5071,Laxatives,ISGR12642NEMIS,"Ispaghula Husk  Granules, Effervescent, Sugar and Gluten Free (Plain)  3.5 grams/sachet"
+5071,Laxatives,ISGR20239NEMIS,"Ispaghula Husk  Granules for Oral Suspension  Natural, 3.5 grams/sachet"
+5071,Laxatives,ISGR20240NEMIS,"Ispaghula Husk  Granules for Oral Suspension  Orange, 3.5 grams/sachet"
+5071,Laxatives,ISPO1526,Ispaghula Husk  Powder  3.6 grams/sachet
+5071,Laxatives,ISPO18817EMIS,Ispaghula Husk  Powder  49 %
+5071,Laxatives,ISSA1073NEMIS,Ispaghula Husk  Sachets Sugar Free (Orange)  3.5 grams/sachet
+5071,Laxatives,ISSA1527,Ispaghula Husk  Sachets  3.5 g/sachet
+5071,Laxatives,ISSA18818EMIS,Ispaghula Husk  Sachets (orange)  3.5 g/sachet
+5071,Laxatives,ISSA25701EMIS,Ispaghula Husk  Sachets (flavoured)  3.4 grams/sachet
+5071,Laxatives,ISSA25807EMIS,Ispaghula Husk  Sachets (orange)  3.4 grams/sachet
+5071,Laxatives,ISSA25808EMIS,Ispaghula Husk  Sachets (sweetened)  3.4 grams/sachet
+5071,Laxatives,ISSA26488EMIS,Ispaghula Husk  Sachets (lemon)  3.5 grams/sachet
+5071,Laxatives,ISSA28577EMIS,Ispaghula Husk  Sachets (lemon/lime)  3.4 grams/sachet
+5071,Laxatives,KOSA25801EMIS,Konsyl  Sachets (orange)  3.4 grams/sachet
+5071,Laxatives,KOSA25802EMIS,Konsyl  Sachets (sweetened)  3.4 grams/sachet
+5071,Laxatives,LAEL3821,Laxoberal  Elixir  5mg/5 ml
+5071,Laxatives,LAPO26618EMIS,Lactulose  Powder  10 grams/sachet
+5071,Laxatives,LASY5071,Lactulose  Syrup  3.1-3.7 g/5 ml
+5071,Laxatives,MACO31052NEMIS,Macrogol  Compound Oral Powder  13.8 gram/sachet
+5071,Laxatives,MACO34391NEMIS,Macrogol  Compound Oral Powder  13.9 grams/sachet
+5071,Laxatives,MAOR13440NEMIS,Macrogol  Oral Powder (sachets)  4000
+5071,Laxatives,MEGR5141,Methylcellulose  Granules  64 %
+5071,Laxatives,MEMI14468NEMIS,Methylcellulose  Mixture  4 %
+5071,Laxatives,MEMI1794,Methylcellulose '450'  Mixture  900 mg/10 ml
+5071,Laxatives,MEMIEGTON6653,Methylcellulose  Mixture  900 mg/10 ml
+5071,Laxatives,MEPO3892,Metamucil  Powder  49 %
+5071,Laxatives,META5143,Methylcellulose  Tablets  400 mg
+5071,Laxatives,NITA4034,Nilstim  Tablets  400 mg
+5071,Laxatives,NOGR4049,Normacol Antispasmodic  Granules
+5071,Laxatives,NOGR4050,Normacol Special  Granules  62 %
+5071,Laxatives,NOGR4051,Normacol Standard  Granules
+5071,Laxatives,ORMO19272NEMIS,Oramoist  Mouth Moistening Lozenges  
+5071,Laxatives,OSSO19531EMIS,Osmolax  Solution  3.34 g/5 ml
+5071,Laxatives,PHEN5093NEMIS,Phosphates  Enema  
+5071,Laxatives,PHMI4158,Phosphates Enema Formula B  Mixture  
+5071,Laxatives,PHTA9122BRIDL,Phosphate-Sandoz  Tablets  
+5071,Laxatives,PRGR2332,Prefil  Granules  55 %
+5071,Laxatives,RESA2441,Regulan  Sachets  3.6 grams/sachet
+5071,Laxatives,RESA25699EMIS,Regulan  Sachets (flavoured)  3.4 grams/sachet
+5071,Laxatives,SKOR48435NEMIS,Skilax  Oral drops  
+5071,Laxatives,SOCA12875NEMIS,Sodium Picosulphate  Capsules  2.5 mg
+5071,Laxatives,SOEL4328,Sodium Picosulphate  Elixir  Sugar Free 5 mg/5 ml
+5071,Laxatives,SOOR17900NEMIS,Sodium Picosulfate  Oral powder  10 mg/sachet
+5071,Laxatives,SOPO5387,Sodium Picosulphate  Powder  10 mg/sachet
+5071,Laxatives,STGR2696,Sterculia  Granules  55 %
+5071,Laxatives,THSU31049NEMIS,The Magic Bullet  Suppositories  10 mg
+5071,Laxatives,VIGR4502,Vi-Siblin  Granules  66 %
