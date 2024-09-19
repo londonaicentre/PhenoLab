@@ -44,7 +44,7 @@ def select_database_schema(session, database, schema):
         session.sql(f"USE SCHEMA {schema}").collect()
         print(f"Using database: {database}, schema: {schema}")
     except Exception as e:
-        print(f"Error using database or schema: {e}")
+        print(f"Error connecting: {e}")
         sys.exit(1)
 
 def load_csv_as_table(session, csv_path, table_name, database, schema):

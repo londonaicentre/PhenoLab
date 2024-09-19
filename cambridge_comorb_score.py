@@ -9,7 +9,6 @@ def create_unioned_dbid_table(session, dbid_table_name):
     Creates a DBID lookup table for the 2022 Cambridge co-morbidity score.
     """ 
     try:
-        # SQL query
         sql_query = """
         WITH UNIONED AS (
             SELECT 
@@ -39,8 +38,9 @@ def create_unioned_dbid_table(session, dbid_table_name):
         session.sql(f"CREATE OR REPLACE TABLE INTELLIGENCE_DEV.AI_CENTRE_DEV.{dbid_table_name} AS ({sql_query})").collect()
         
         print(f"Table '{dbid_table_name}' created or replaced successfully.")
+        
     except Exception as e:
-        print(f"Error creating or replacing table: {e}")
+        print(f"Error creating table: {e}")
         raise
 
 def analyse_missing_dbid(session, dbid_table_name):
@@ -68,7 +68,7 @@ def analyse_missing_dbid(session, dbid_table_name):
         return df
     
     except Exception as e:
-        print(f"Error analyzing missing DBID: {e}")
+        print(f"Error quantifying missing DBID: {e}")
         raise
 
 def main():
