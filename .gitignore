@@ -1,5 +1,4 @@
 .env
 .DS_Store
 .pyc
-scripts/__pycache__
-ontoserver/__pycache__
+__pycache__
