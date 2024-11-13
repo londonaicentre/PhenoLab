@@ -38,4 +38,4 @@ if __name__ == "__main__":
 
     snowsesh.load_parquet_as_table(f"data/{pq_name}", "BSA_BNF_LOOKUP")
     
-    snowsesh.close()
+    snowsesh.session.close()

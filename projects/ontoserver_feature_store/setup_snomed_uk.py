@@ -4,7 +4,7 @@ import json
 import pandas as pd
 from dotenv import load_dotenv
 from phmlondon.onto_utils import FHIRTerminologyClient
-from phmlondon.snow_utils import confirm_env_vars, create_snowflake_session, select_database_schema
+from phmlondon.snow_utils import SnowflakeConnection
 import sys
 
 def retrieve_megalith(url):
@@ -25,55 +25,59 @@ def retrieve_megalith(url):
                            'CONCEPT_CODE')
         print("Refsets retrieved successfully")
         return refsets
+    
     except Exception as e:
         print(f"Error retrieving refsets: {e}")
         sys.exit(1)
 
-def main():
-    ## ensure environmental variables are set up
-    load_dotenv()
-
-    env_vars = ["CLIENT_ID", "CLIENT_SECRET", 
-                "SNOWFLAKE_SERVER", "SNOWFLAKE_USER", "SNOWFLAKE_USERGROUP"]
-    confirm_env_vars(env_vars)
-
-    ## sets up snowflake connection and schema location
-    session = create_snowflake_session()
-    
-    select_database_schema(session, "INTELLIGENCE_DEV", "AI_CENTRE_DEV")
-    
-    ## retrieves SNOMED UK megalith 
-    url = 'http://snomed.info/xsct/999000011000230102/version/20230705?fhir_vs=refset'
-    refsets = retrieve_megalith(url)
-    
-    ## creates/confirms table and loads megalith 
-    create_table_query = """
-    CREATE TABLE IF NOT EXISTS SNOMED_UK_MEGALITH (
-        MEGALITH VARCHAR(255),
-        URL VARCHAR(255),
-        REFSET_NAME VARCHAR(255),
-        REFSET_CODE VARCHAR(255),
-        CONCEPT_NAME VARCHAR(255),
-        CONCEPT_CODE VARCHAR(255)
-    )
+def load_megalith_to_snowflake(session, refsets_df):
     """
-    try:
-        session.sql(create_table_query).collect()
-        print("Table created successfully.")
-    except Exception as e:
-        print(f"Error creating table: {e}")
-        sys.exit(1)
+    Creates table and loads megalith data into Snowflake
+        snowsesh: active snowflake connection class
+        refsets_df: DataFrame containing megalith data
+    """
+    create_table_query = """
+        CREATE TABLE IF NOT EXISTS SNOMED_UK_MEGALITH (
+            MEGALITH VARCHAR(255),
+            URL VARCHAR(255),
+            REFSET_NAME VARCHAR(255),
+            REFSET_CODE VARCHAR(255),
+            CONCEPT_NAME VARCHAR(255),
+            CONCEPT_CODE VARCHAR(255)
+        )
+    """
     
     try:
-        session.write_pandas(refsets, 
-                             table_name="SNOMED_UK_MEGALITH", 
-                             database="INTELLIGENCE_DEV", 
-                             schema="AI_CENTRE_DEV",
-                             overwrite=True)
-        print("Data written to Snowflake successfully.")
+        snowsesh.execute_query(create_table_query)
+        
+        snowsesh.session.create_dataframe(refsets_df).write.save_as_table(
+            "SNOMED_UK_MEGALITH",
+            mode="overwrite"
+        )
+
+        print("Table written to Snowflake successfully.")
+        
     except Exception as e:
-        print(f"Error writing data to Snowflake: {e}")
-        sys.exit(1)
+        print(f"Error loading data to Snowflake")
+        raise e
 
 if __name__ == "__main__":
-    main()
+    load_dotenv()
+
+    snowsesh = SnowflakeConnection()
+    snowsesh.use_database("INTELLIGENCE_DEV")
+    snowsesh.use_schema("AI_CENTRE_DEV")
+
+    try:
+        # Retrieve megalith data
+        url = 'http://snomed.info/xsct/999000011000230102/version/20230705?fhir_vs=refset'
+        refsets = retrieve_megalith(url)
+        
+        # Load data to Snowflake
+        load_megalith_to_snowflake(snowsesh, refsets)
+        
+    except Exception as e:
+        print(f"Error in main process: {e}")
+        raise e
+        
+    snowsesh.session.close()
