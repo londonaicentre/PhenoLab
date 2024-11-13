@@ -21,18 +21,6 @@ class SnowflakeConnection:
         self._confirm_env_vars()
         self._create_session()
 
-    def close(self):
-        """
-        Close session
-        """
-        if self.session:
-            try:
-                self.session.close()
-                print("Snowflake session closed.")
-            except Exception as e:
-                print(f"Error closing session")
-                raise e
-
     def _confirm_env_vars(self):
         """
         Confirms that necessary env vars are set correctly.
@@ -86,14 +74,24 @@ class SnowflakeConnection:
             print(f"Error setting schema")
             raise e
 
+    def _validate_database_schema(self, schema_required=True):
+        """
+        Internal method to validate database and schema are set
+            schema_required (bool): If true validates db and schema
+        """
+        if not self.current_database:
+            raise ValueError("Database must be set first. Try use_database()")
+        
+        if schema_required and not self.current_schema:
+            raise ValueError("Schema must be set first. Try use_schema()")
+        
     def load_csv_as_table(self, csv_path, table_name):
         """
         Loads a CSV file as a pandas DataFrame and creates a table in Snowflake.
             csv_path: path to the CSV file
             table_name: name of the table to be created
         """
-        if not self.current_database or not self.current_schema:
-            raise ValueError("Database and schema must be set before loading data")
+        self._validate_database_schema(schema_required=True)
             
         try:
             df = pd.read_csv(csv_path)
@@ -124,8 +122,7 @@ class SnowflakeConnection:
             parquet_path: path to the Parquet file
             table_name: name of the table to be created
         """
-        if not self.current_database or not self.current_schema:
-            raise ValueError("Database and schema must be set before loading data")
+        self._validate_database_schema(schema_required=True)
             
         try:
             df = pd.read_parquet(parquet_path)
@@ -156,6 +153,8 @@ class SnowflakeConnection:
             table_name: name of the table to preview
             limit: number of rows to show (default: 10)
         """
+        self._validate_database_schema(schema_required=True)
+                
         try:
             query = f"SELECT * FROM {self.current_database}.{self.current_schema}.{table_name} LIMIT {limit}"
             result = self.session.sql(query).collect()
@@ -170,8 +169,7 @@ class SnowflakeConnection:
         """
         Lists all tables in the current database and schema.
         """
-        if not self.current_database or not self.current_schema:
-            raise ValueError("Database and schema must be set before listing tables")
+        self._validate_database_schema(schema_required=True)
             
         try:
             query = f"SHOW TABLES IN {self.current_database}.{self.current_schema}"
@@ -186,4 +184,28 @@ class SnowflakeConnection:
             return table_names
         except Exception as e:
             print(f"Error listing tables")
+            raise e
+        
+    def execute_query(self, query):
+        """
+        Executes a SQL query without returning results
+            query: predefined query
+        """ 
+        try:
+            self.session.sql(query).collect()
+            print("Query executed successfully.")
+        except Exception as e:
+            print(f"Error executing query")
+            raise e
+
+    def execute_query_to_df(self, query):
+        """
+        Executes a SQL query and returns results as a pandas DataFrame
+            query: predefined query
+        """
+        try:
+            result = self.session.sql(query).collect()
+            return pd.DataFrame(result)
+        except Exception as e:
+            print(f"Error executing query")
             raise e
