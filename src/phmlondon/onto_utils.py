@@ -29,28 +29,14 @@ def auto_refresh_token(func) -> Callable:
 class FHIRTerminologyClient:
     """
     A client for querying FHIR terminology services, such as the OneLondon terminology server.
-
-    Attributes:
-        client_id: client ID for the FHIR server as environmental variable
-        client_secret: client secret for the FHIR server as environment variable
-        endpoint: the endpoint URL for the FHIR server (default: OneLondon authoring endpoint)
-        open_id_token_url: the URL for the OpenID token endpoint (default: OneLondon OpenID endpoint)
-
-    Methods:
-        retrieve_concept_codes_from_id: retrieves a list of concept codes from a value set ID
-        retrieve_concept_codes_from_url: retrieves a list of concept codes from a value set URL
     """
-    
-    # class level attribute
-    client_id = os.getenv("CLIENT_ID")
-    client_secret = os.getenv("CLIENT_SECRET")    
-
     def __init__(
         self,
         endpoint_type: str = 'authoring',
         open_id_token_url: str = _ONELONDON_OPENID_ENDPOINT,
+        env_vars=None
     ):
-                
+        
         if endpoint_type not in ['authoring', 'production']:
             raise ValueError("Invalid endpoint_type. Use 'authoring' or 'production'.")
 
@@ -59,6 +45,15 @@ class FHIRTerminologyClient:
         else:
             self.endpoint = _ONELONDON_AUTHOR_ENDPOINT
 
+        self.env_vars = env_vars or [
+            "CLIENT_ID",
+            "CLIENT_SECRET"
+        ]
+
+        self._confirm_env_vars()
+        self._client_id = os.getenv("CLIENT_ID")
+        self._client_secret = os.getenv("CLIENT_SECRET")
+                            
         self._open_id_token_url: str = open_id_token_url
         self._access_token: str
         self._access_token_expire_time: int
@@ -68,14 +63,23 @@ class FHIRTerminologyClient:
     def _initialise_access_token(self):
         self._access_token, self._access_token_expire_time = self._get_access_token()
 
+    def _confirm_env_vars(self):
+        """
+        Confirms that necessary env vars are set correctly.
+        """
+        for var in self.env_vars:
+            if not os.getenv(var):
+                print(f"Error: Environment variable {var} not set.")
+                raise
+
     def _get_access_token(self) -> tuple[str, int]:
         # define request contents
         headers = {"Content-Type": "application/x-www-form-urlencoded"}
 
         data = {
             "grant_type": "client_credentials",
-            "client_id": FHIRTerminologyClient.client_id,
-            "client_secret": FHIRTerminologyClient.client_secret,
+            "client_id": self._client_id,
+            "client_secret": self._client_secret,
         }
 
         # Request access token
