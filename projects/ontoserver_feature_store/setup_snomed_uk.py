@@ -3,8 +3,8 @@ import requests
 import json
 import pandas as pd
 from dotenv import load_dotenv
-from ontoserver.onto import FHIRTerminologyClient
-from scripts.helper import confirm_env_vars, create_snowflake_session, select_database_schema
+from phmlondon.onto_utils import FHIRTerminologyClient
+from phmlondon.snow_utils import confirm_env_vars, create_snowflake_session, select_database_schema
 import sys
 
 def retrieve_megalith(url):
