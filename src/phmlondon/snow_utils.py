@@ -142,3 +142,28 @@ def list_tables(session, database, schema):
     except Exception as e:
         print(f"Error listing tables: {e}")
         sys.exit(1)
+
+def query_to_df(session, query, print_preview=True):
+    """
+    Executes a SQL query and returns the results as a pandas DataFrame.
+        session: Snowflake session
+        query: SQL query string to execute
+        print_preview: If True, prints first 5 rows of the result (default: True)
+    """
+    try:
+        # Execute query and collect results
+        result = session.sql(query).collect()
+        
+        # Convert to pandas DataFrame
+        df = pd.DataFrame([row.as_dict() for row in result])
+        
+        if print_preview and not df.empty:
+            print("Results preview:")
+            print(df.head())
+            print(f"Total rows: {len(df)}")
+        
+        return df
+        
+    except Exception as e:
+        print(f"Error executing query: {e}")
+        raise
