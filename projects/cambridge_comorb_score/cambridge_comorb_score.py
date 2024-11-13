@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 from dotenv import load_dotenv
-from scripts.helper import confirm_env_vars, create_snowflake_session, select_database_schema, load_pq_as_table, list_tables
+from phmlondon.snow_utils import confirm_env_vars, create_snowflake_session, select_database_schema, load_pq_as_table, list_tables
 import sys
 
 def create_unioned_dbid_table(session, dbid_table_name):
