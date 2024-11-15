@@ -87,6 +87,16 @@ if __name__ == "__main__":
         "CAMBRIDGE_COMORB_2022_SNOMED"
     )
 
+    snowsesh.load_parquet_as_table(
+        "data/pq/CMM weights.parquet",
+        "CAMBRIDGE_COMORB_2022_WEIGHTS"
+    )
+
+    snowsesh.load_parquet_as_table(
+        "data/pq/Method table.parquet",
+        "CAMBRIDGE_COMORB_2022_METHOD_TABLE"
+    )
+    
     snowsesh.execute_query(query_dbid_union)
 
     snowsesh.list_tables()
