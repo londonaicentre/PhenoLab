@@ -23,8 +23,12 @@ def excel_to_parquet(excel_path, output_dir):
 excel_path = "BJGP.2022.0235_suppl_Appendix_1.xlsx"
 output_dir = "pq"
 
+# Tables pulled from the PDF
+excel_path2 = "BJGP.2022.0235_suppl_Appendix_2.xlsx"
+
 def main():
     excel_to_parquet(excel_path, output_dir)
+    excel_to_parquet(excel_path2, output_dir)
 
 if __name__ == "__main__":
     main()
