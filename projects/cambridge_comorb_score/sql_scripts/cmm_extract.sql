@@ -79,7 +79,7 @@ SELECT  pmi.sk_patientid,
         fs.ltc_chronic_liver_disease,
 
         flags.constipation,
-        0 as ltc_constip, --missing
+        0 as ltc_constip, --not in segmentation
 
         flags.copd,
         fs.ltc_chronic_obstructive_pulmonary_disease,
@@ -91,7 +91,7 @@ SELECT  pmi.sk_patientid,
         fs.ltc_diabetes,
 
         flags.disorderofprostate,
-        0 as prostate, -- missing
+        0 as prostate, -- not in segmentation
 
         flags.epilepsy,
         fs.ltc_epilepsy,
@@ -119,7 +119,6 @@ SELECT  pmi.sk_patientid,
 
         flags.psychoactivesubstancemisuse,
         psychoactive.substance_dependence,
-        -- Rachel will update changes Monday
 
         flags.schizophreniaorbipolardisorder,
         fs.smi_serious_mental_illness,
