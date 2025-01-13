@@ -7,7 +7,7 @@ Project to look into extracting phenotype libraries via existing APIs
 - [Python client for API](https://github.com/SwanseaUniversityMedical/pyconceptlibraryclient)
 - [Phenotype search engine](https://conceptlibrary.saildatabank.com/phenotypes/) - includes links to relevant papers 
 - ??[very similar but slightly different version of the documentation](https://conceptlibrary.saildatabank.com)
-- [API explorer/documentation](https://phenotypes.healthdatagateway.org/api/v1/)
+- [API explorer/documentation](https://phenotypes.healthdatagateway.org/api/v1/) and [also here](https://github.com/SwanseaUniversityMedical/concept-library/wiki/Concept-Library-API) and see also [here](https://phenotypes.healthdatagateway.org/about/hdruk_about_technical_details/)
 
 ## NHS England Terminology Server giving access to the Human Phenotype Ontology
 - [Website](https://digital.nhs.uk/services/terminology-server)
