@@ -8,8 +8,7 @@ client = Client(public=True)
 search_results = client.phenotypes.get(
   search='asthma')
 
-
-asthma_pheno = [item for item in search_results if 'asthma' in item['name'].lower()]
+asthma_pheno = [item for item in search_results['data'] if 'asthma' in item['name'].lower()]
 
 # Initialize an empty list to store codelists
 codelists = []
@@ -33,4 +32,3 @@ combined_codelist = pd.DataFrame(codelists)
 
 # Display the combined codelist
 print(combined_codelist)
-

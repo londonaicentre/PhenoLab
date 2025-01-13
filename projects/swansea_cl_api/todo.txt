@@ -1,0 +1,4 @@
+X check swansea API working
+- add error catch
+- ?what extra do we get with permission API
+- 
