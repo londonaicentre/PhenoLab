@@ -1,4 +1,5 @@
 X check swansea API working
+X read up on phenotype libraries
 - add error catch
 - ?what extra do we get with permission API
 - 
