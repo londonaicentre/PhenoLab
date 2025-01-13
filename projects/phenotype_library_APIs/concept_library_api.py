@@ -1,7 +1,7 @@
 from pyconceptlibraryclient import Client # pip install git+https://github.com/SwanseaUniversityMedical/pyconceptlibraryclient.git@v1.0.0
 import pandas as pd
 
-def get_phenotype_ids(search_term: str) -> pd.DataFrame:
+def get_code_ids(search_term: str) -> pd.DataFrame:
   client = Client(public=True)
 
   search_results = client.phenotypes.get(search=search_term)
@@ -29,7 +29,7 @@ def get_phenotype_ids(search_term: str) -> pd.DataFrame:
   return pd.DataFrame(codelists)
 
 if __name__ == '__main__':
-  combined_codelist = get_phenotype_ids('asthma')
+  combined_codelist = get_code_ids('asthma')
 
   # Display the combined codelist
   print(combined_codelist)
