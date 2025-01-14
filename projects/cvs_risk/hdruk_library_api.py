@@ -1,4 +1,4 @@
-from pyconceptlibraryclient import Client # pip install git+https://github.com/SwanseaUniversityMedical/pyconceptlibraryclient.git@v1.0.0
+from pyconceptlibraryclient import Client
 import pandas as pd
 
 def get_phenotype_codelist(phenotype_id: str, version_id: int, full_output: bool=False) -> pd.DataFrame:
