@@ -3,6 +3,8 @@ Project to look into extracting phenotype libraries via existing APIs
 # Existing phenotype libraries
 
 ## HDR UK Phenotype Library (code managed by the University of Swansea)
+- Extensive, wide choice of phenotypes, close links to underlying publications, covers codes across coding systems and a single phenotype includes codes from multiple systems 
+- API has already failed once when I've been using it due to their servers going down. Any model needs to cover for this possibility if phenotype definitions not stored locally. 
 - [Website](https://phenotypes.healthdatagateway.org)
 - [Python client for API](https://github.com/SwanseaUniversityMedical/pyconceptlibraryclient)
 - [Phenotype search engine](https://conceptlibrary.saildatabank.com/phenotypes/) - includes links to relevant papers 

@@ -1,7 +1,34 @@
 from pyconceptlibraryclient import Client # pip install git+https://github.com/SwanseaUniversityMedical/pyconceptlibraryclient.git@v1.0.0
 import pandas as pd
 
-def get_code_ids(search_term: str) -> pd.DataFrame:
+def get_phenotype_codelist(phenotype_id: str, version_id: int, full_output: bool=False) -> pd.DataFrame:
+  """
+  For a given phenotype ID and version ID, returns the codes from all concepts belonging to the phenotype.
+  
+  Args:
+  phenotype_id: str
+  version_id: int
+  full_output: bool - If true, returns a dataframe which is the flattened full output of the API call (i.e. includes nested information on the
+  attributes and coding system. If false, returns a dataframe with just the code and description.)
+  """
+  client = Client(public=True)
+  
+  # Alternative method - codelist is nested depeer
+  # phenotype_codelist = client.phenotypes.get_detail(
+  #   phenotype_id,
+  #   version_id=version_id
+  # )
+
+  codelist_api_return = client.phenotypes.get_codelist(phenotype_id, version_id=version_id)
+  if full_output:
+    return pd.json_normalize(codelist_api_return, sep='_')
+  else:
+    codes = {"Code": [codedict['code'] for codedict in codelist_api_return], 
+                   "Description": [codedict['description'] for codedict in codelist_api_return]}
+ 
+  return pd.DataFrame(codes)
+
+def get_codelist_from_search_term(search_term: str) -> pd.DataFrame:
   client = Client(public=True)
 
   search_results = client.phenotypes.get(search=search_term)
@@ -29,7 +56,10 @@ def get_code_ids(search_term: str) -> pd.DataFrame:
   return pd.DataFrame(codelists)
 
 if __name__ == '__main__':
-  combined_codelist = get_code_ids('asthma')
+  # combined_codelist = get_codelist_from_search_term('asthma')
 
-  # Display the combined codelist
-  print(combined_codelist)
+  # # Display the combined codelist
+  # print(combined_codelist)
+
+  print(get_phenotype_codelist('PH189', version_id=378, full_output=True))
+
