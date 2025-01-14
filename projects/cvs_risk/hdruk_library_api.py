@@ -4,12 +4,12 @@ import pandas as pd
 def get_phenotype_codelist(phenotype_id: str, version_id: int, full_output: bool=False) -> pd.DataFrame:
   """
   For a given phenotype ID and version ID, returns the codes from all concepts belonging to the phenotype.
-  
-  Args:
-  phenotype_id: str
-  version_id: int
-  full_output: bool - If true, returns a dataframe which is the flattened full output of the API call (i.e. includes nested information on the
-  attributes and coding system. If false, returns a dataframe with just the code and description.)
+
+  :param phenotype_id: str
+  :param version_id: int
+  :param full_output: bool - If true, returns a dataframe which is the flattened full output of the API call (i.e. includes nested information on the
+                         attributes and coding system. If false, returns a dataframe with just the code and description.)
+  :return: pd.DataFrame
   """
   client = Client(public=True)
 
@@ -29,23 +29,38 @@ def get_phenotype_codelist(phenotype_id: str, version_id: int, full_output: bool
  
   return pd.DataFrame(codes)
 
-def get_phenotpelist_from_search_term(search_term: str) -> pd.DataFrame:
+def get_phenotypelist_from_search_term(search_term: str) -> pd.DataFrame:
+  """
+  For a given search term, returns a dataframe with the phenotype_id and name of all phenotypes that match the search term.
+  
+  Note that you can use this system to search for phenotypes relating to a particular coding system (coding_system) - e.g. "SNOMED CT", "ICD-10", etc.
+  :param search_term: str
+  :return: pd.DataFrame
+  """
+
   client = Client(public=True)
 
-  search_results = client.phenotypes.get(search=search_term)
-  page = search_results.get('page')
-  total_pages = search_results.get('total_pages')
-  search_data = search_results.get('data')
+  try:
+    search_results = client.phenotypes.get(search=search_term)
+    if search_results is None:
+      raise ValueError("API returned None for the given search_term")
+    
+    page = search_results.get('page')
+    total_pages = search_results.get('total_pages')
+    search_data = search_results.get('data')
+    
+    # Retrieve all pages for this search term
+    while page < total_pages:
+      page += 1
+      next_page = client.phenotypes.get(search=search_term, page=page)
+      search_data.extend(next_page.get('data'))
+    
+    df = pd.json_normalize(search_data, sep='_')
+    return df[['phenotype_id', 'name']]
   
-  while page < total_pages:
-    page += 1
-    next_page = client.phenotypes.get(search=search_term, page=page)
-    search_data.extend(next_page.get('data'))
-
-  df = pd.json_normalize(search_data, sep='_')
-  return df[['phenotype_id', 'name']]
-
-# TODO: Add in handling of empty search
+  except Exception as e:
+    print(f"An error occurred: {e}")
+    return pd.DataFrame()
 
 if __name__ == '__main__':
   combined_list = get_phenotypelist_from_search_term('asthma')
