@@ -12,14 +12,15 @@ def get_phenotype_codelist(phenotype_id: str, version_id: int, full_output: bool
   attributes and coding system. If false, returns a dataframe with just the code and description.)
   """
   client = Client(public=True)
-  
-  # Alternative method - codelist is nested depeer
-  # phenotype_codelist = client.phenotypes.get_detail(
-  #   phenotype_id,
-  #   version_id=version_id
-  # )
 
-  codelist_api_return = client.phenotypes.get_codelist(phenotype_id, version_id=version_id)
+  try:
+    codelist_api_return = client.phenotypes.get_codelist(phenotype_id, version_id=version_id)
+    if codelist_api_return is None:
+      raise ValueError("API returned None for the given phenotype_id and version_id")
+  except Exception as e:
+    print(f"An error occurred: {e}")
+    return pd.DataFrame()  # Return an empty DataFrame in case of error
+
   if full_output:
     return pd.json_normalize(codelist_api_return, sep='_')
   else:

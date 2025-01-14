@@ -1,5 +1,5 @@
 X check swansea API working
 X read up on phenotype libraries
-- add error catch
+X add error catch
 X ?what extra do we get with permission API
 X phenotype to table with codes etc
