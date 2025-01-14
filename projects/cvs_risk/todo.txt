@@ -4,3 +4,5 @@ X add error catch
 X ?what extra do we get with permission API
 X phenotype to table with codes etc
 - Try to get phenoflow to load - https://kclhi.org/phenoflow/
+- See if can get list of phenotypes using SNOMED codes
+- Check other guidelines
