@@ -1,4 +1,5 @@
 import pandas as pd
+import pprint
 
 class Phenotype:
     def __init__(self, df):
@@ -12,4 +13,7 @@ class Phenotype:
         """Check the colums in the dataframe match those we want to put in the SQL table"""
         print('Verifying data structure')
         return set(df.columns) == {'phenotype_id', 'phenotype_version', 'phenotype_name', 
-                                    'concept_code', 'coding_system', 'clinical_code'}
+                                    'concept_code', 'coding_system', 'clinical_code', 'code_description'}
+    
+    def show(self):
+        pprint.pprint(self.df)

@@ -19,6 +19,7 @@ class PhenotypeStorageManager:
                 concept_code VARCHAR(30),
                 coding_system VARCHAR(30),
                 clinical_code VARCHAR(50)
+                code_description VARCHAR(255)
             )
         ''')
         self.conn.commit()
