@@ -1,7 +1,7 @@
 from pyconceptlibraryclient import Client
 import pandas as pd
 
-def get_phenotype_codelist(phenotype_id: str, version_id: int, full_output: bool=False) -> pd.DataFrame:
+def get_phenotype_codelist(phenotype_id: str, version_id: int, full_output: bool=False, format_for_db: bool=True) -> pd.DataFrame:
   """
   For a given phenotype ID and version ID, returns the codes from all concepts belonging to the phenotype.
 
@@ -9,6 +9,7 @@ def get_phenotype_codelist(phenotype_id: str, version_id: int, full_output: bool
   :param version_id: int
   :param full_output: bool - If true, returns a dataframe which is the flattened full output of the API call (i.e. includes nested information on the
                          attributes and coding system. If false, returns a dataframe with just the code and description.)
+  :param format_for_db: bool - If true, returns a dataframe with the columns !!!!
   :return: pd.DataFrame
   """
   client = Client(public=True)
