@@ -2,3 +2,4 @@ results.txt
 *.ipynb
 *.yaml
 /notebooks
+/data
