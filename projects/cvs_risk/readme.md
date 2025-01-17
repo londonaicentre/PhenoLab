@@ -13,6 +13,14 @@ diabetes = Phenotype(dm_codes)
 diabetes.show()
 ~~~
 
+Example for adding a phenotype object to the database:
+
+~~~python
+from phenotype_storage_manager import PhenotypeStorageManager
+dbmanager = PhenotypeStorageManager('data/phenotype.db')
+dbmanager.add_phenotype(diabetes)
+~~~
+
 Example for running a search on the API and returning the phenotypes that fit that search:
 ~~~python
 from hdruk_library_api import get_phenotypelist_from_search_term
