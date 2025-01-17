@@ -1,5 +1,24 @@
 Project to predict risk of a cardiovascular event from primary care data
 
+# Repository code
+Example for calling the HDRUK API for a particular phenotype and creating a phenotype object from it:
+
+~~~python
+from phenotype_class import Phenotype
+from hdruk_library_api import get_phenotype_codelist
+
+#  PH24 / 48 Diabetes
+dm_codes = get_phenotype_codelist('PH24', version_id=48, full_output=True)
+diabetes = Phenotype(dm_codes)
+diabetes.show()
+~~~
+
+Example for running a search on the API and returning the phenotypes that fit that search:
+~~~python
+from hdruk_library_api import get_phenotypelist_from_search_term
+get_phenotypelist_from_search_term('diabetes')
+~~~
+
 # Existing phenotype libraries
 
 Project to look into extracting phenotype libraries via existing APIs
