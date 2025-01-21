@@ -1,14 +1,28 @@
-import sqlite3
+from abc import ABC, abstractmethod
 from phenotype_class import Phenotype
+import sqlite3
+from dotenv import load_dotenv
+from phmlondon.snow_utils import SnowflakeConnection
 
-class PhenotypeStorageManager:
-    """Class to create a SQL database and add new phenotypes to it"""
+class DatabaseManager(ABC):
+    """Abstract class to create a SQL phenotypes table and add phenotypes to it"""
+    @abstractmethod
+    def _create_table(self):
+        pass
 
+    @abstractmethod
+    def add_phenotype(self, phenotype: Phenotype):
+        pass
+
+    @abstractmethod
+    def get_all_phenotypes(self):
+        pass
+
+class LocalDatabaseManager(DatabaseManager):
+    """Class to use SQLite to create a local database - use for development"""
     def __init__(self, database_filename: str):
-        # eventually this will become a snowflake database connection
         self.conn = sqlite3.connect(database_filename)
         self._create_table()
-        print("PhenotypeStorageManager class initialised")
 
     def _create_table(self):
         print("Create table method called")
@@ -44,3 +58,21 @@ class PhenotypeStorageManager:
         rows = cursor.fetchall()
         cursor.close
         return rows  # may need tidying - consider this as a TODO once snowflake connected
+
+class SnowflakeDatabaseManager(DatabaseManager):
+    """Class for creating table and adding phenotypes on snowflake"""
+    def __init__(self, database: str, schema: str):
+        super().__init__()
+        load_dotenv()
+        self.snowsesh = SnowflakeConnection()
+        self.snowsesh.use_database(database)
+        self.snowsesh.use_schema(schema)
+
+    def _create_table(self):
+        # TODO: create the table
+
+    def add_phenotype(self, phenotype: Phenotype):
+        # TODO
+
+    def get_all_phenotypes(self):
+        # TODO 
