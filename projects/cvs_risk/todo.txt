@@ -3,7 +3,7 @@ X read up on phenotype libraries
 X add error catch
 X ?what extra do we get with permission API
 X phenotype to table with codes etc
-- Add version IDs to output of get_phenotype_list_from_search_term
 - Try to get phenoflow to load - https://kclhi.org/phenoflow/
-- See if can get list of phenotypes using SNOMED codes
-- Check other guidelines
+X See if can get list of phenotypes using SNOMED codes
+X Connect to snowflake
+- Refactor code to use snowflake (+ local option?)
