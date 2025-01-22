@@ -10,3 +10,6 @@ diabetes.show()
 # dbmanager = LocalDatabaseManager('data/phenotype.db')
 dbmanager = SnowflakeDatabaseManager('INTELLIGENCE_DEV', 'AI_CENTRE_DEV')
 dbmanager.add_phenotype(diabetes)
+# data = dbmanager.get_all_phenotypes()
+# print(data)
+
