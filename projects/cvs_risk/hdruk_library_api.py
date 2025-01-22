@@ -29,7 +29,7 @@ def get_phenotype_codelist(
             raise ValueError(
                 "API returned None for the given phenotype_id and version_id"
             )
-    except Exception as e:
+    except ValueError as e:
         print(f"An error occurred: {e}")
         return pd.DataFrame()  # Return an empty DataFrame in case of error
 
@@ -97,7 +97,7 @@ def get_phenotypelist_from_search_term(search_term: str) -> pd.DataFrame:
         df = pd.json_normalize(search_data, sep="_")
         return df[["phenotype_id", "name"]]
 
-    except Exception as e:
+    except ValueError as e:
         print(f"An error occurred: {e}")
         return pd.DataFrame()
 
