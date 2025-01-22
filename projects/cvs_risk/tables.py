@@ -1,5 +1,4 @@
-class TableQueries:
-    queries = {'cvs_risk_phenotypes':"""CREATE TABLE IF NOT EXISTS cvs_risk_phenotypes (
+queries = {'cvs_risk_phenotypes':"""CREATE TABLE IF NOT EXISTS cvs_risk_phenotypes (
                 record_id INTEGER PRIMARY KEY AUTOINCREMENT,
                 phenotype_id VARCHAR(30) NOT NULL,
                 phenotype_version VARCHAR(30),
@@ -9,5 +8,3 @@ class TableQueries:
                 clinical_code VARCHAR(50),
                 code_description VARCHAR(255)
             )"""}
-    
-    

@@ -3,7 +3,7 @@ from phenotype_class import Phenotype
 import sqlite3
 from dotenv import load_dotenv
 from phmlondon.snow_utils import SnowflakeConnection
-from tables import TableQueries
+from tables import queries
 from snowflake.snowpark import Row
 
 class DatabaseManager(ABC):
@@ -17,7 +17,7 @@ class DatabaseManager(ABC):
         print(f"Phenotype {Phenotype} added to database")
 
     @abstractmethod
-    def get_all_phenotypes(self) -> list:
+    def get_all_phenotypes(self) -> list[tuple]:
         pass
 
 class LocalDatabaseManager(DatabaseManager):
@@ -30,7 +30,7 @@ class LocalDatabaseManager(DatabaseManager):
     def _create_table(self):
         """Creates the self.table_name table"""
         cursor = self.conn.cursor()
-        cursor.execute(TableQueries.queries[self.table_name])
+        cursor.execute(queries[self.table_name])
         self.conn.commit()
         cursor.close
 
@@ -62,7 +62,7 @@ class SnowflakeDatabaseManager(DatabaseManager):
 
     def _create_table(self):
         super()._create_table()
-        self.snowsesh.sql(TableQueries.queries[self.table_name]).collect()
+        self.snowsesh.sql(queries[self.table_name]).collect()
 
     def add_phenotype(self, phenotype: Phenotype):
         phenotype.df.columns = phenotype.df.columns.str.upper()
@@ -73,7 +73,7 @@ class SnowflakeDatabaseManager(DatabaseManager):
         snowpark_df.show()
         snowpark_df.write.save_as_table(self.table_name, mode="append", column_order="name")
 
-    def get_all_phenotypes(self) -> list[Row]:
+    def get_all_phenotypes(self) -> list[tuple]:
         df = self.snowsesh.table(self.table_name)
         rows = df.collect()
         return rows
