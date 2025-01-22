@@ -13,11 +13,19 @@ diabetes = Phenotype(dm_codes)
 diabetes.show()
 ~~~
 
-Example for adding a phenotype object to the database:
+Example for adding a phenotype object to the database using a local SQLite database:
 
 ~~~python
-from phenotype_storage_manager import PhenotypeStorageManager
-dbmanager = PhenotypeStorageManager('data/phenotype.db')
+from database_magangers import LocalDatabaseManager
+dbmanager = LocalDatabaseManager('data/phenotype.db', 'cvs_risk_phenotypes')
+dbmanager.add_phenotype(diabetes)
+~~~
+
+Same as the above but with the tables on Snowflake instead:
+
+~~~python
+from database_managers import SnowflakeDatabaseManager
+dbmanager = SnowflakeDatabaseManager('INTELLIGENCE_DEV', 'AI_CENTRE_DEV', 'cvs_risk_phenotypes')
 dbmanager.add_phenotype(diabetes)
 ~~~
 
