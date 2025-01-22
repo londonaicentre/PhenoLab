@@ -7,7 +7,11 @@ class Phenotype:
             self.df = df
         else:
             raise ValueError("Data structure does not match expected format")
-        print("Phenotype object initialised")
+        self.phenotype_id = df['phenotype_id'].unique().tolist()
+        self.phenotype_version = df['phenotype_version'].unique().tolist()
+        if len(self.phenotype_id) > 1 or len(self.phenotype_version) > 1:
+            raise ValueError("Trying to add more than one phenotype at once")
+        print(f"Phenotype object initialised - ID is {self.phenotype_id[0]} and version is {self.phenotype_version[0]}")
 
     def verify_data_structure(self, df: pd.DataFrame) -> bool:
         """Check the colums in the dataframe match those we want to put in the SQL table"""

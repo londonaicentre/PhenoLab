@@ -14,4 +14,3 @@ dbmanager.add_phenotype(diabetes)
 data = dbmanager.get_all_phenotypes()
 for row in data:
     pprint(row)
-
