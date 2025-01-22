@@ -22,19 +22,21 @@ class DatabaseManager(ABC):
 
 class LocalDatabaseManager(DatabaseManager):
     """Class to use SQLite to create a local database - use for development"""
-    def __init__(self, database_filename: str):
+    def __init__(self, database_filename: str, table_name: str):
         self.conn = sqlite3.connect(database_filename)
+        self.table_name = table_name
         self._create_table()
 
     def _create_table(self):
+        """Creates the self.table_name table"""
         cursor = self.conn.cursor()
-        cursor.execute(TableQueries.queries['cvs_risk_phenotypes'])
+        cursor.execute(TableQueries.queries[self.table_name])
         self.conn.commit()
         cursor.close
 
     def add_phenotype(self, phenotype: Phenotype):
-        """Takes the data in a Phenotype object and adds it to the database"""
-        phenotype.df.to_sql("phenotypes", self.conn, if_exists="append",
+        """Takes the data in a Phenotype object and adds it to the database table"""
+        phenotype.df.to_sql(self.table_name, self.conn, if_exists="append",
                             index=False)
         super().add_phenotype(phenotype)
         #  Note that currently the phenotype will be readded the database each
@@ -42,25 +44,25 @@ class LocalDatabaseManager(DatabaseManager):
 
     def get_all_phenotypes(self) -> list[tuple]:
         cursor = self.conn.cursor()
-        cursor.execute("SELECT * FROM phenotypes")
+        cursor.execute(f"SELECT * FROM {self.table_name}")
         rows = cursor.fetchall()
         cursor.close
         return rows
 
 class SnowflakeDatabaseManager(DatabaseManager):
     """Class for creating table and adding phenotypes on snowflake"""
-    def __init__(self, database: str, schema: str):
+    def __init__(self, database: str, schema: str, table_name: str):
         load_dotenv()
         self.snowconnection = SnowflakeConnection()
         self.snowconnection.use_database(database)
         self.snowconnection.use_schema(schema)
         self.snowsesh = self.snowconnection.session
+        self.table_name = table_name
         self._create_table()
 
     def _create_table(self):
         super()._create_table()
-        self.table_name = 'cvs_risk_phenotypes'
-        self.snowsesh.sql(TableQueries.queries['cvs_risk_phenotypes']).collect()
+        self.snowsesh.sql(TableQueries.queries[self.table_name]).collect()
 
     def add_phenotype(self, phenotype: Phenotype):
         phenotype.df.columns = phenotype.df.columns.str.upper()

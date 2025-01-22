@@ -9,6 +9,6 @@ X Connect to snowflake
 X Refactor code to use snowflake (+ local option?)
 X Fix issue with not being able to add data
 X Do the get_phenotypes method
-- Sort out the repeated use of tablename thing!
+X Sort out the repeated use of tablename thing!
 - Need to think about the issue re same phenotype getting appended over and over - mode ignore/errorifexists?
 - Readme update
