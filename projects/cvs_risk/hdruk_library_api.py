@@ -7,7 +7,7 @@ def get_phenotype_codelist(
     version_id: int,
     full_output: bool = False,
     format_for_db: bool = True,
-    print_raw_output_to_file=True,
+    print_raw_output_to_file=False,
 ) -> pd.DataFrame:
     """
     For a given phenotype ID and version ID, returns the codes from all concepts belonging to the phenotype.
