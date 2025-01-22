@@ -7,8 +7,8 @@ X Try to get phenoflow to load - https://kclhi.org/phenoflow/
 X See if can get list of phenotypes using SNOMED codes
 X Connect to snowflake
 X Refactor code to use snowflake (+ local option?)
-- Fix issue with not being able to add data
-- Do the get_phenotypes method
+X Fix issue with not being able to add data
+X Do the get_phenotypes method
 - Sort out the repeated use of tablename thing!
 - Need to think about the issue re same phenotype getting appended over and over - mode ignore/errorifexists?
 - Readme update

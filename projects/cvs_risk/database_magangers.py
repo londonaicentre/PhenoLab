@@ -4,6 +4,7 @@ import sqlite3
 from dotenv import load_dotenv
 from phmlondon.snow_utils import SnowflakeConnection
 from tables import TableQueries
+from snowflake.snowpark import Row
 
 class DatabaseManager(ABC):
     """Abstract class to create a SQL phenotypes table and add phenotypes to it"""
@@ -16,7 +17,7 @@ class DatabaseManager(ABC):
         print(f"Phenotype {Phenotype} added to database")
 
     @abstractmethod
-    def get_all_phenotypes(self):
+    def get_all_phenotypes(self) -> list:
         pass
 
 class LocalDatabaseManager(DatabaseManager):
@@ -44,7 +45,7 @@ class LocalDatabaseManager(DatabaseManager):
         cursor.execute("SELECT * FROM phenotypes")
         rows = cursor.fetchall()
         cursor.close
-        return rows  # may need tidying - consider this as a TODO once snowflake connected
+        return rows
 
 class SnowflakeDatabaseManager(DatabaseManager):
     """Class for creating table and adding phenotypes on snowflake"""
@@ -65,11 +66,12 @@ class SnowflakeDatabaseManager(DatabaseManager):
         phenotype.df.columns = phenotype.df.columns.str.upper()
         # snowflake converts any table and column names that aren't in quotes to uppercase. But for some reason doesn't do this
         # when creating a datframe from a pandas df in the line below. So we need to manually convert to uppercase otherwise 
-        # appending the data to the table fails due to case mismatch.
+        # appending the data to the table fails due to case
         snowpark_df = self.snowsesh.create_dataframe(phenotype.df) # converts pandas dataframe to snowpark dataframe (confusing)
         snowpark_df.show()
         snowpark_df.write.save_as_table(self.table_name, mode="append", column_order="name")
 
-    def get_all_phenotypes(self):
-        # TODO
-        pass
+    def get_all_phenotypes(self) -> list[Row]:
+        df = self.snowsesh.table(self.table_name)
+        rows = df.collect()
+        return rows
