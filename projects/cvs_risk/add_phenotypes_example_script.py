@@ -1,6 +1,6 @@
 from phenotype_class import Phenotype
 from hdruk_library_api import get_phenotype_codelist
-from database_magangers import LocalDatabaseManager, SnowflakeDatabaseManager
+from database_managers import LocalDatabaseManager, SnowflakeDatabaseManager
 from pprint import pprint
 
 #  PH24 / 48 Diabetes
