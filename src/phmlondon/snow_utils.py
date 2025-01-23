@@ -56,7 +56,7 @@ class SnowflakeConnection:
             self.current_database = database
             print(f"Using database: {database}")
         except Exception as e:
-            print(f"Error setting database")
+            print(f"Error setting database: {e}")
             raise e
 
     def use_schema(self, schema):
@@ -64,14 +64,14 @@ class SnowflakeConnection:
         Sets the schema for session if desired
         """
         if not self.current_database:
-            raise ValueError("Database must be set first. Try use_database()")
+            raise ValueError("Database must be set first. Try use_database(database_name)")
             
         try:
             self.session.sql(f"USE SCHEMA {schema}").collect()
             self.current_schema = schema
             print(f"Using schema: {schema}")
         except Exception as e:
-            print(f"Error setting schema")
+            print(f"Error setting schema {e}")
             raise e
 
     def _validate_database_schema(self, schema_required=True):
@@ -80,72 +80,98 @@ class SnowflakeConnection:
             schema_required (bool): If true validates db and schema
         """
         if not self.current_database:
-            raise ValueError("Database must be set first. Try use_database()")
+            raise ValueError("Database must be set first. Try use_database(database_name)")
         
         if schema_required and not self.current_schema:
-            raise ValueError("Schema must be set first. Try use_schema()")
-        
-    def load_csv_as_table(self, csv_path, table_name):
+            raise ValueError("Schema must be set first. Try use_schema(schema_name)")
+    
+    def _load_dataframe_to_snowflake(self, df, table_name, mode="overwrite", table_type=""):
         """
-        Loads a CSV file as a pandas DataFrame and creates a table in Snowflake.
-            csv_path: path to the CSV file
-            table_name: name of the table to be created
+        Internal method to handle loading of DataFrames to Snowflake with standardized options.
+            df: dataFrame to load
+            table_name: target table name
+            mode: "overwrite" or "append"
+            table_type: "temporary" (note empty string = permanent)
         """
         self._validate_database_schema(schema_required=True)
+        
+        # https://docs.snowflake.com/en/developer-guide/snowpark/reference/python/latest/snowpark/api/snowflake.snowpark.DataFrameWriter.save_as_table
+        valid_modes = ["overwrite", "append"] 
+        valid_table_types = ["", "temporary"]
+        
+        if mode not in valid_modes:
+            raise ValueError(f"Invalid mode, please use: {valid_modes}")
+        if table_type not in valid_table_types:
+            raise ValueError(f"Invalid table type, please use: {valid_table_types}")
             
+        try:
+            self.session.create_dataframe(df).write.save_as_table(
+                table_name,
+                mode=mode,
+                table_type=table_type
+            )
+            print(f"Data loaded successfully")
+
+            return table_name
+            
+        except Exception as e:
+            print(f"Error loading dataframe to snowflake table: {e}")
+            raise e
+
+    def load_csv_as_table(self, csv_path, table_name, mode="overwrite", table_type=""):
+        """
+        Loads a CSV file as a table in Snowflake.
+            csv_path: path to the CSV file
+            table_name: name of target table
+            mode: "overwrite" or "append"
+            table_type: "temporary", empty string is permanent
+        """
         try:
             df = pd.read_csv(csv_path)
-            
-            temp_table_name = f"TEMP_{table_name}"
-            self.session.create_dataframe(df).write.save_as_table(
-                temp_table_name, 
-                mode="overwrite", 
-                table_type="temporary"
+            return self._load_dataframe_to_snowflake(
+                df=df,
+                table_name=table_name,
+                mode=mode,
+                table_type=table_type,
             )
-            
-            table_query = f"""
-            CREATE OR REPLACE TABLE {self.current_database}.{self.current_schema}.{table_name} AS
-            SELECT * FROM {temp_table_name};
-            """
-
-            self.session.sql(table_query).collect()
-            print(f"Table '{table_name}' created successfully in {self.current_database}.{self.current_schema}")
-            self.preview_table(table_name)
-
         except Exception as e:
-            print(f"Error creating table from CSV: {e}")
-            raise
+            print(f"Error loading CSV file: {e}")
+            raise e
 
-    def load_parquet_as_table(self, parquet_path, table_name):
+    def load_parquet_as_table(self, parquet_path, table_name, mode="overwrite", table_type=""):
         """
-        Loads a Parquet file as a pandas DataFrame and creates a table in Snowflake.
+        Loads a parquet file as a table in Snowflake.
             parquet_path: path to the Parquet file
-            table_name: name of the table to be created
+            table_name: name of target table
+            mode: "overwrite" or "append"
+            table_type: "temporary", empty string is permanent
         """
-        self._validate_database_schema(schema_required=True)
-            
         try:
             df = pd.read_parquet(parquet_path)
-            
-            temp_table_name = f"TEMP_{table_name}"
-            self.session.create_dataframe(df).write.save_as_table(
-                temp_table_name, 
-                mode="overwrite", 
-                table_type="temporary"
+            return self._load_dataframe_to_snowflake(
+                df=df,
+                table_name=table_name,
+                mode=mode,
+                table_type=table_type,
             )
-            
-            table_query = f"""
-            CREATE OR REPLACE TABLE {self.current_database}.{self.current_schema}.{table_name} AS
-            SELECT * FROM {temp_table_name};
-            """
-
-            self.session.sql(table_query).collect()
-            print(f"Table '{table_name}' created successfully in {self.current_database}.{self.current_schema}")
-            self.preview_table(table_name)
-
         except Exception as e:
-            print(f"Error creating table from Parquet: {e}")
-            raise
+            print(f"Error loading Parquet file: {e}")
+            raise e
+
+    def load_dataframe_to_table(self, df, table_name, mode="overwrite", table_type=""):
+        """
+        Loads a pandas DataFrame directly into snowflake table.
+            df: dataFrame to load
+            table_name: name of target table
+            mode: "overwrite" or "append"
+            table_type: "temporary", empty string is permanent
+        """
+        return self._load_dataframe_to_snowflake(
+            df=df,
+            table_name=table_name,
+            mode=mode,
+            table_type=table_type,
+        )
 
     def preview_table(self, table_name, limit=10):
         """
@@ -162,7 +188,7 @@ class SnowflakeConnection:
             for row in result:
                 print(row)
         except Exception as e:
-            print(f"Error loading preview")
+            print(f"Error loading preview: {e}")
             raise e
 
     def list_tables(self):
@@ -183,7 +209,7 @@ class SnowflakeConnection:
                 
             return table_names
         except Exception as e:
-            print(f"Error listing tables")
+            print(f"Error listing tables: {e}")
             raise e
         
     def execute_query(self, query):
@@ -195,7 +221,7 @@ class SnowflakeConnection:
             self.session.sql(query).collect()
             print("Query executed successfully.")
         except Exception as e:
-            print(f"Error executing query")
+            print(f"Error executing query :{e}")
             raise e
 
     def execute_query_to_df(self, query):
@@ -207,5 +233,31 @@ class SnowflakeConnection:
             result = self.session.sql(query).collect()
             return pd.DataFrame(result)
         except Exception as e:
-            print(f"Error executing query")
+            print(f"Error executing query: {e}")
             raise e
+        
+    def execute_sql_file(self, sql_file_path):
+        """
+        Reads and executes a sql file.
+            sql_file_path: path to the sql file
+        Note: this splits by ';' because snowpark execute_query doesn't support multi-part queries.
+        This will break if individual queries contain ';', e.g. in strings
+        """
+        try:
+            with open(sql_file_path, 'r') as file:
+                sql_commands = file.read()
+            
+            commands = sql_commands.split(';')
+            
+            for command in commands:
+                if command.strip():
+                    self.execute_query(command)
+                    
+            print(f"'{sql_file_path}' executed successfully.")
+            
+        except FileNotFoundError as f:
+            print(f"Unable to find sql file: {f}")
+            raise
+        except Exception as e:
+            print(f"Error executing sql file: {e}")
+            raise
