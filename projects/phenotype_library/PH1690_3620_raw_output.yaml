@@ -1,0 +1,3196 @@
+- attributes: null
+  code: J458
+  codelist_history_id: 11358
+  codelist_id: 9868
+  coding_system:
+    description: ICD10 Codes
+    id: 4
+    name: ICD10 codes
+  component_history_id: 12211
+  component_id: 9868
+  concept_history_date: '2025-01-17T21:04:10.329455Z'
+  concept_history_id: 11396
+  concept_id: 4041
+  concept_name: Asthma (ICD-10)
+  concept_version_id: 11396
+  description: Mixed asthma
+  id: 486455
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: J450
+  codelist_history_id: 11358
+  codelist_id: 9868
+  coding_system:
+    description: ICD10 Codes
+    id: 4
+    name: ICD10 codes
+  component_history_id: 12211
+  component_id: 9868
+  concept_history_date: '2025-01-17T21:04:10.329455Z'
+  concept_history_id: 11396
+  concept_id: 4041
+  concept_name: Asthma (ICD-10)
+  concept_version_id: 11396
+  description: Predominantly allergic asthma
+  id: 486453
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: J459
+  codelist_history_id: 11358
+  codelist_id: 9868
+  coding_system:
+    description: ICD10 Codes
+    id: 4
+    name: ICD10 codes
+  component_history_id: 12211
+  component_id: 9868
+  concept_history_date: '2025-01-17T21:04:10.329455Z'
+  concept_history_id: 11396
+  concept_id: 4041
+  concept_name: Asthma (ICD-10)
+  concept_version_id: 11396
+  description: Asthma, unspecified
+  id: 486456
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: J45
+  codelist_history_id: 11358
+  codelist_id: 9868
+  coding_system:
+    description: ICD10 Codes
+    id: 4
+    name: ICD10 codes
+  component_history_id: 12211
+  component_id: 9868
+  concept_history_date: '2025-01-17T21:04:10.329455Z'
+  concept_history_id: 11396
+  concept_id: 4041
+  concept_name: Asthma (ICD-10)
+  concept_version_id: 11396
+  description: Asthma
+  id: 486452
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: J46
+  codelist_history_id: 11358
+  codelist_id: 9868
+  coding_system:
+    description: ICD10 Codes
+    id: 4
+    name: ICD10 codes
+  component_history_id: 12211
+  component_id: 9868
+  concept_history_date: '2025-01-17T21:04:10.329455Z'
+  concept_history_id: 11396
+  concept_id: 4041
+  concept_name: Asthma (ICD-10)
+  concept_version_id: 11396
+  description: Status asthmaticus
+  id: 486457
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: J451
+  codelist_history_id: 11358
+  codelist_id: 9868
+  coding_system:
+    description: ICD10 Codes
+    id: 4
+    name: ICD10 codes
+  component_history_id: 12211
+  component_id: 9868
+  concept_history_date: '2025-01-17T21:04:10.329455Z'
+  concept_history_id: 11396
+  concept_id: 4041
+  concept_name: Asthma (ICD-10)
+  concept_version_id: 11396
+  description: Nonallergic asthma
+  id: 486454
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H330.12
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Childhood asthma
+  id: 486464
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H331z00
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Intrinsic asthma NOS
+  id: 486477
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H33z111
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Asthma attack NOS
+  id: 486485
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H331.11
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Late onset asthma
+  id: 486473
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H330100
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Extrinsic asthma with status asthmaticus
+  id: 486469
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H47y000
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Detergent asthma
+  id: 486490
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H330011
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Hay fever with asthma
+  id: 486468
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H312011
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Chronic wheezy bronchitis
+  id: 486459
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H33zz11
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Exercise induced asthma
+  id: 486488
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H330z00
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Extrinsic asthma NOS
+  id: 486471
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H331100
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Intrinsic asthma with status asthmaticus
+  id: 486475
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H33zz12
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Allergic asthma NEC
+  id: 486489
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H330.14
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Pollen asthma
+  id: 486466
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H333.00
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Acute exacerbation of asthma
+  id: 486479
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H33z100
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Asthma attack
+  id: 486484
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H331111
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Intrinsic asthma with asthma attack
+  id: 486476
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H330111
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Extrinsic asthma with asthma attack
+  id: 486470
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H33z000
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Status asthmaticus NOS
+  id: 486482
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H33z200
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Late-onset asthma
+  id: 486486
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H332.00
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Mixed asthma
+  id: 486478
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H330000
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Extrinsic asthma without status asthmaticus
+  id: 486467
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H33zz00
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Asthma NOS
+  id: 486487
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H33..00
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Asthma
+  id: 486460
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H330.13
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Hay fever with asthma
+  id: 486465
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H330.11
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Allergic asthma
+  id: 486463
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H330.00
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Extrinsic (atopic) asthma
+  id: 486462
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H331.00
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Intrinsic asthma
+  id: 486472
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H312000
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Chronic asthmatic bronchitis
+  id: 486458
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H33z011
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Severe asthma attack
+  id: 486483
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H33..11
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Bronchial asthma
+  id: 486461
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H334.00
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Brittle asthma
+  id: 486480
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H33z.00
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Asthma unspecified
+  id: 486481
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: H331000
+  codelist_history_id: 11359
+  codelist_id: 9869
+  coding_system:
+    description: Read codes v2
+    id: 5
+    name: Read codes v2
+  component_history_id: 12212
+  component_id: 9869
+  concept_history_date: '2025-01-17T21:04:10.612091Z'
+  concept_history_id: 11397
+  concept_id: 4042
+  concept_name: Asthma (Read v2)
+  concept_version_id: 11397
+  description: Intrinsic asthma without status asthmaticus
+  id: 486474
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '10675991000119100'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute severe exacerbation of mild persistent allergic asthma co-occurrent
+    with allergic rhinitis
+  id: 486501
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '63088003'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Allergic asthma without status asthmaticus
+  id: 486570
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '16584951000119101'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Oral steroid-dependent asthma
+  id: 486520
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '72301000119103'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Asthma in pregnancy
+  id: 486589
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '56968009'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Asthma caused by wood dust
+  id: 486567
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '370220003'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Occasional asthma
+  id: 486542
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '733858005'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute severe refractory exacerbation of asthma
+  id: 486590
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '703954005'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Allergic asthma caused by Dermatophagoides farinae
+  id: 486572
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '57607007'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Occupational asthma
+  id: 486568
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '59786004'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Weavers' cough
+  id: 486569
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '707979007'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute severe exacerbation of severe persistent asthma
+  id: 486580
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '707512002'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Uncomplicated moderate persistent asthma
+  id: 486578
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '233688007'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Sulfite-induced asthma
+  id: 486533
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '195967001'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Asthma
+  id: 486525
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '424643009'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Immunoglobulin E-mediated allergic asthma
+  id: 486557
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '404808000'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Isocyanate induced asthma
+  id: 486549
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '734904007'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Life threatening acute exacerbation of asthma
+  id: 486591
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '708090002'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute severe exacerbation of asthma
+  id: 486584
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '195977004'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Mixed asthma
+  id: 486526
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '427295004'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Moderate persistent asthma
+  id: 486561
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '404806001'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Cheese-makers' asthma
+  id: 486548
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '10675751000119107'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Severe uncontrolled persistent asthma
+  id: 486498
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '10675911000119109'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute severe exacerbation of mild persistent allergic asthma
+  id: 486500
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '829976001'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Thunderstorm asthma
+  id: 486599
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '281239006'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Exacerbation of asthma
+  id: 486536
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '782513000'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute severe exacerbation of allergic asthma
+  id: 486596
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '735588005'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Uncomplicated allergic asthma
+  id: 486593
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '233687002'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Colophony asthma
+  id: 486532
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '707446004'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Exacerbation of moderate persistent asthma
+  id: 486575
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '10676511000119109'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute severe exacerbation of moderate persistent asthma co-occurrent
+    with allergic rhinitis
+  id: 486504
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '124991000119109'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Severe persistent asthma co-occurrent with allergic rhinitis
+  id: 486514
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '427603009'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Intermittent asthma
+  id: 486562
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '12428000'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Intrinsic asthma without status asthmaticus
+  id: 486513
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '1751000119100'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute exacerbation of chronic obstructive airways disease with asthma
+  id: 486522
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '125021000119107'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Intermittent asthma co-occurrent with allergic rhinitis
+  id: 486517
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '34015007'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Bakers' asthma
+  id: 486539
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '55570000'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Asthma without status asthmaticus
+  id: 486566
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '41553006'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Detergent asthma
+  id: 486553
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '195949008'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Chronic asthmatic bronchitis
+  id: 486524
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '135181000119109'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute exacerbation of mild persistent asthma
+  id: 486519
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '1086711000000100'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Life threatening acute exacerbation of intrinsic asthma
+  id: 486510
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '442025000'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute exacerbation of chronic asthmatic bronchitis
+  id: 486564
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '762521001'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Exacerbation of allergic asthma
+  id: 486595
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '10674711000119105'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute severe exacerbation of asthma co-occurrent with allergic rhinitis
+  id: 486492
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '92807009'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Chemical-induced asthma
+  id: 486601
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '407674008'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Aspirin-induced asthma
+  id: 486551
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '782520007'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Exacerbation of allergic asthma due to infection
+  id: 486597
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '735589002'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Uncomplicated non-allergic asthma
+  id: 486594
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '401000119107'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Asthma with irreversible airway obstruction
+  id: 486546
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '10692681000119108'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Aspirin exacerbated respiratory disease
+  id: 486505
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '389145006'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Allergic asthma
+  id: 486545
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '10692761000119107'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Asthma-chronic obstructive pulmonary disease overlap syndrome
+  id: 486507
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '405944004'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Asthmatic bronchitis
+  id: 486550
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '10742121000119104'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Asthma in mother complicating childbirth
+  id: 486508
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '370218001'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Mild asthma
+  id: 486540
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '2360001000004109'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Steroid dependent asthma
+  id: 486534
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '233679003'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Late onset asthma
+  id: 486530
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '10675471000119109'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute severe exacerbation of severe persistent allergic asthma
+  id: 486496
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '708038006'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute exacerbation of asthma
+  id: 486583
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '424199006'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Substance induced asthma
+  id: 486556
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '10674991000119104'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Intermittent allergic asthma
+  id: 486493
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '426979002'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Mild persistent asthma
+  id: 486560
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '266361008'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Non-allergic asthma
+  id: 486535
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '125001000119103'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Moderate persistent asthma co-occurrent with allergic rhinitis
+  id: 486515
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '10675551000119104'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute severe exacerbation of severe persistent asthma co-occurrent
+    with allergic rhinitis
+  id: 486497
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '423889005'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Non-immunoglobulin E mediated allergic asthma
+  id: 486555
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '304527002'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute asthma
+  id: 486537
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '708093000'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute exacerbation of immunoglobulin E-mediated allergic asthma
+  id: 486585
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '707981009'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute severe exacerbation of mild persistent asthma
+  id: 486582
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '11641008'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Millers' asthma
+  id: 486512
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '93432008'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Drug-induced asthma
+  id: 486602
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '37981002'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Allergic bronchopulmonary aspergillosis
+  id: 486544
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '404804003'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Platinum asthma
+  id: 486547
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '125011000119100'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Mild persistent asthma co-occurrent with allergic rhinitis
+  id: 486516
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '703953004'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Allergic asthma caused by Dermatophagoides pteronyssinus
+  id: 486571
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '708094006'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute exacerbation of intrinsic asthma
+  id: 486586
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '445427006'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Seasonal asthma
+  id: 486565
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '418395004'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Tea-makers' asthma
+  id: 486554
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '31387002'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Exercise-induced asthma
+  id: 486538
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '19849005'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Meat-wrappers' asthma
+  id: 486527
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '99031000119107'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute exacerbation of asthma co-occurrent with allergic rhinitis
+  id: 486603
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '10675871000119106'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Mild persistent allergic asthma
+  id: 486499
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '707511009'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Uncomplicated mild persistent asthma
+  id: 486577
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '10692721000119102'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Chronic obstructive asthma co-occurrent with acute exacerbation of
+    asthma
+  id: 486506
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '10675431000119106'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Severe persistent allergic asthma
+  id: 486495
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '707444001'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Uncomplicated asthma
+  id: 486573
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '10676391000119108'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Moderate persistent allergic asthma
+  id: 486502
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '707980005'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute severe exacerbation of moderate persistent asthma
+  id: 486581
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '409663006'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Cough variant asthma
+  id: 486552
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '866881000000101'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Chronic asthma with fixed airflow obstruction
+  id: 486600
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '425969006'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Exacerbation of intermittent asthma
+  id: 486558
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '786836003'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Near fatal asthma
+  id: 486598
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '708095007'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute severe exacerbation of immunoglobin E-mediated allergic asthma
+  id: 486587
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '10676431000119103'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute severe exacerbation of moderate persistent allergic asthma
+  id: 486503
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '370219009'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Moderate asthma
+  id: 486541
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '1741000119102'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Intermittent asthma uncontrolled
+  id: 486521
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '707447008'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Exacerbation of severe persistent asthma
+  id: 486576
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '426656000'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Severe persistent asthma
+  id: 486559
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '1103911000000103'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Severe asthma with fungal sensitisation
+  id: 486511
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '707513007'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Uncomplicated severe persistent asthma
+  id: 486579
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '233683003'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Hay fever with asthma
+  id: 486531
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '135171000119106'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute exacerbation of moderate persistent asthma
+  id: 486518
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '10675391000119101'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Severe controlled persistent asthma
+  id: 486494
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '734905008'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Moderate acute exacerbation of asthma
+  id: 486592
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '18041002'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Printers' asthma
+  id: 486523
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '233678006'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Childhood asthma
+  id: 486529
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '225057002'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Brittle asthma
+  id: 486528
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '427679007'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Mild intermittent asthma
+  id: 486563
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '103781000119103'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Allergic bronchopulmonary mycosis
+  id: 486491
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '707445000'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Exacerbation of mild persistent asthma
+  id: 486574
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '370221004'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Severe asthma
+  id: 486543
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '708096008'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Acute severe exacerbation of intrinsic asthma
+  id: 486588
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
+- attributes: null
+  code: '1086701000000102'
+  codelist_history_id: 11360
+  codelist_id: 9870
+  coding_system:
+    description: SNOMED CT codes
+    id: 9
+    name: SNOMED  CT codes
+  component_history_id: 12213
+  component_id: 9870
+  concept_history_date: '2025-01-17T21:04:11.376152Z'
+  concept_history_id: 11398
+  concept_id: 4043
+  concept_name: Asthma (SNOMED-CT)
+  concept_version_id: 11398
+  description: Life threatening acute exacerbation of allergic asthma
+  id: 486509
+  logical_type: 1
+  phenotype_id: PH1690
+  phenotype_name: 'Chronic paediatric conditions: Asthma'
+  phenotype_version_id: 3620
