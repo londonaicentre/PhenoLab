@@ -5,6 +5,7 @@ description = "Helper functions for population health data science on OneLondon 
 authors = [
     { name = "Joe Zhang", email = "joe.zhang@gstt.nhs.uk" },
     { name = "Lawrence Adams", email = "lawrence.adams@gstt.nhs.uk" },
+    { name = "Isobel Weinberg", email = "isobel.weinberg@kcl.ac.uk" }
 ]
 readme = "README.md"
 requires-python = ">=3.11.2"
