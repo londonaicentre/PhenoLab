@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from functools import wraps
 from typing import Callable, Literal, Optional
 import requests
+from tqdm import tqdm
 
 # Token endpoint url (see https://ontology.onelondon.online/)
 _ONELONDON_OPENID_ENDPOINT = "https://ontology.onelondon.online/authorisation/auth/realms/terminology/protocol/openid-connect/token"
@@ -221,7 +222,7 @@ class FHIRTerminologyClient:
                 code_column = []
                 name_column = []
 
-                for refset in ref_list:
+                for refset in tqdm(ref_list):
                     ref_url = f'http://snomed.info/xsct/999000011000230102/version/20230705?fhir_vs=refset/{refset}'
                     
                     try:

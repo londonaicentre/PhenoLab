@@ -1,0 +1,14 @@
+# Tested in Python 3.11.2 environment
+-e ../../
+numpy
+pandas
+scipy
+scikit-learn
+statsmodels
+matplotlib
+seaborn
+plotly
+pyarrow
+fastparquet
+lxml
+python-dotenv
