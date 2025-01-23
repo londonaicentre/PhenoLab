@@ -8,7 +8,7 @@ def create_phenotype_table(snowsesh):
     """
     query = """
     CREATE OR REPLACE TABLE NEL_SEGMENT_PHENOTYPES AS
-    SELECT DISTINCT 
+    SELECT DISTINCT
         CONDITION_UPPER,
         DBID,
         CODE,
@@ -18,26 +18,26 @@ def create_phenotype_table(snowsesh):
     WHERE SCHEME IN ('SNOMED', 'ICD10')
     ORDER BY CONDITION_UPPER
     """
-    
+
     try:
         snowsesh.execute_query(query)
         print("Table created successfully")
-        
+
     except Exception as e:
         print(f"Error creating NEL segment phenotype table: {e}")
         raise e
 
 if __name__ == "__main__":
     load_dotenv()
-    
+
     try:
         snowsesh = SnowflakeConnection()
-        
+
         snowsesh.use_database("INTELLIGENCE_DEV")
         snowsesh.use_schema("AI_CENTRE_PHENOTYPE_LIBRARY")
-        
+
         create_phenotype_table(snowsesh)
-        
+
     except Exception as e:
         print(f"Error creating phenotype table: {e}")
         raise e
