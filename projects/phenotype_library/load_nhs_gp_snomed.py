@@ -62,16 +62,34 @@ def retrieve_and_load_phenotypes(snowsesh, url):
         print("DataFrame preview before load:")
         print(df.head())
 
+        # load to temporary table
+        temp_table = "TEMP_NHS_GP_SNOMED_REFSETS"
         snowsesh.load_dataframe_to_table(
             df=df,
-            table_name="NHS_GP_SNOMED_REFSETS",
-            mode="append"
+            table_name=temp_table,
+            mode="overwrite",
+            table_type="temporary"
         )
-        print("Phenotypes loaded to database")
+        print("Loaded data to temporary table")
+
+        # Execute merge operation
+        snowsesh.execute_sql_file('sql/merge_nhs_gp_snomed.sql')
+        print("Merged data into main table")
+
+        # Drop temporary table
+        snowsesh.execute_query(f"DROP TABLE IF EXISTS {temp_table}")
+        print("Dropped temporary table")
 
     except Exception as e:
         print(f"Error processing phenotypes: {e}")
         raise e
+    finally:
+        # Clean sweep
+        try:
+            snowsesh.execute_query(f"DROP TABLE IF EXISTS {temp_table}")
+            print("Cleaned up temporary table")
+        except Exception as e:
+            print(f"Failed to clean up temporary table: {e}")
 
 def main():
     load_dotenv()
@@ -88,7 +106,7 @@ def main():
         # process different SNOMED refsets
         refsets = [
             {
-                'name': 'UK SNOMED Diagnoses 2023-07',
+                'name': 'UK SNOMED Diagnoses 2023-07 Experimental',
                 'url': 'http://snomed.info/xsct/999000011000230102/version/20230705?fhir_vs=refset'
             }
         ]
