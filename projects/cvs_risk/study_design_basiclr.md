@@ -2,13 +2,15 @@
 Simple study design to start with - can build on study design, cohort definitation and variables
 
 ## To do:
-- [ ] find the phenotypes for variables that require (see table)
+- [ ] please add/refine to variables list as you please
+- [ ] find the phenotypes for variables that require them (see table) use HDRUK/PCD Refset or NHS England TRUD
 - [ ] create tables for each phenotype for the defined cohort (i.e make feature table)
-- [ ] explore each feature with a dashboard - check missingness, plausiblility of values and unadjusted associations
+- [ ] explore each feature with a dashboard - counts, check missingness, plausiblility of values and unadjusted associations
+- [ ] Create a tableone (summary table with each variable, means/medians, SD/range)
 - [ ] create basic logistic regression : Outcome ~ predictors ? use train test if using for prediction
 
 ## Study design:
-Retrospective cohort study
+Retrospective cohort stuyady
 
 ## Cohort:
 - Start date/index date: lastest from date turn 18 or date registered
