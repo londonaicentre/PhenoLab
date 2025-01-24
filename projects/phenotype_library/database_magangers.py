@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from phenotype_class import Phenotype
+from src.phenotype import Phenotype
 import sqlite3
 from dotenv import load_dotenv
 from phmlondon.snow_utils import SnowflakeConnection

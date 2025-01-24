@@ -79,17 +79,23 @@ class HDRUKLibraryClient:
                     "phenotype_id": "phenotype_id",
                     "phenotype_version": "phenotype_version_id",
                     "phenotype_name": "phenotype_name",
-                    "concept_code": "concept_id",
-                    "clinical_code": "code",
+                    "code": "code",
                     "code_description": "description",
+                    "codelist_id": "concept_id",
+                    "codelist_name": "concept_name",
+                    "codelist_version": "concept_version_id",
                 }.items()
             }
-            codes["coding_system"] = [
+
+            codes["vocabulary"] = [
                 codedict["coding_system"]["name"] for codedict in codelist_api_return
             ]  # need a separate line for this as it is nested one layer deeper than the rest of the output
+            
+            codes["phenotype_source"] = ['HDRUK'] * len(codes['code'])
+
             return pd.DataFrame(codes)
         except Exception as e:
-            print(f"Error formatting codelist for database: {e}")
+            print(f"Error formatting codelist for database: {type(e).__name__}, {e}")
             return pd.DataFrame()
 
     def _format_codelist_basic(self, codelist_api_return: List[Dict]) -> pd.DataFrame:
