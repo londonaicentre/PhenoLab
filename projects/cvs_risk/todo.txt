@@ -13,5 +13,5 @@ X Sort out the repeated use of tablename thing!
 - Need to think about the issue re same phenotype getting appended over and over
 X Readme update
 - Add in code and codelist classes
-- Concepts -> codes (and update readme)
-- Check readme for cvs_risk
+X Concepts -> codes (and update readme)
+- Update readme for cvs_risk and add_phenotypes_example_script

@@ -24,8 +24,8 @@ class PhenotypeSource(Enum):
 @dataclass
 class Code:
     # concept level (See README.md)
-    concept_code: str
-    concept_name: str
+    code: str
+    code_description: str
 
 @dataclass
 class Codelist:
@@ -59,8 +59,8 @@ class Phenotype:
         for codelist in cls.codelists:
             for code in codelist:
                 record = {
-                    'CONCEPT_CODE': code.concept_code,
-                    'CONCEPT_NAME': code.concept_name,
+                    'CODE': code.code,
+                    'CODE_DESCRIPTION': code.code_description,
                     'VOCABULARY': codelist.vocabulary.value,
                     'CODELIST_ID': codelist.codelist_id,
                     'CODELIST_NAME': codelist.codelist_name,
