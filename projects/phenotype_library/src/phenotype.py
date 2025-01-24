@@ -22,52 +22,57 @@ class PhenotypeSource(Enum):
     ICB_NEL = "North East London ICB Local Definition"
 
 @dataclass
-class Phenotype:
-    """
-    Representation of Phenotype components that captures concept, codelist and phenotype relationships
-    Used to map directly to database tables while maintaining hierarchical information
-    """
+class Code:
     # concept level (See README.md)
     concept_code: str
     concept_name: str
+
+@dataclass
+class Codelist:
     # codelist level (See REAME.md)
     vocabulary: VocabularyType
     codelist_id: str
     codelist_name: str
     codelist_version: str
+    codes: list[Code]
+
+@dataclass
+class Phenotype:
+    """
+    Representation of Phenotype components that captures concept, codelist and phenotype relationships
+    Used to map directly to database tables while maintaining hierarchical information
+    """
     # phenotype level (See README.md)
     phenotype_id: str
     phenotype_name: str
     phenotype_version: str
     phenotype_source: PhenotypeSource
+    codelists: list[Codelist]
     # omop for reference
     omop_concept_id: Optional[int] = None
     # validity
     version_datetime: Optional[datetime] = None
     uploaded_datetime: Optional[datetime] = None
 
-    @classmethod
-    def to_dataframe(cls, phenotypes: List['Phenotype']) -> pd.DataFrame:
-        """
-        Convert a list of Phenotype objects to a pandas DataFrame
-        """
+    def to_dataframe(self):
         phenotype_records = []
-        for p in phenotypes:
-            record = {
-                'CONCEPT_CODE': p.concept_code,
-                'CONCEPT_NAME': p.concept_name,
-                'VOCABULARY': p.vocabulary.value,
-                'CODELIST_ID': p.codelist_id,
-                'CODELIST_NAME': p.codelist_name,
-                'CODELIST_VERSION': p.codelist_version,
-                'PHENOTYPE_ID': p.phenotype_id,
-                'PHENOTYPE_NAME': p.phenotype_name,
-                'PHENOTYPE_VERSION': p.phenotype_version,
-                'PHENOTYPE_SOURCE': p.phenotype_source.value,
-                'OMOP_CONCEPT_ID': p.omop_concept_id,
-                'VERSION_DATETIME': p.version_datetime,
-                'UPLOADED_DATETIME': p.uploaded_datetime,
-            }
-            phenotype_records.append(record)
-
+        for codelist in cls.codelists:
+            for code in codelist:
+                record = {
+                    'CONCEPT_CODE': code.concept_code,
+                    'CONCEPT_NAME': code.concept_name,
+                    'VOCABULARY': codelist.vocabulary.value,
+                    'CODELIST_ID': codelist.codelist_id,
+                    'CODELIST_NAME': codelist.codelist_name,
+                    'CODELIST_VERSION': codelist.codelist_version,
+                    'PHENOTYPE_ID': self.phenotype_id,
+                    'PHENOTYPE_NAME': self.phenotype_name,
+                    'PHENOTYPE_VERSION': self.phenotype_version,
+                    'PHENOTYPE_SOURCE': self.phenotype_source.value,
+                    'OMOP_CONCEPT_ID': self.omop_concept_id,
+                    'VERSION_DATETIME': self.version_datetime,
+                    'UPLOADED_DATETIME': self.uploaded_datetime,
+                    }
+                phenotype_records.append(record)
+                
         return pd.DataFrame(phenotype_records)
