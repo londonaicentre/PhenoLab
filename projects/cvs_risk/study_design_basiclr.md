@@ -32,8 +32,8 @@ Retrospective cohort stuyady
 
 
 
-| Variable\Feature | Definition  | Phenotypes/variables needed |Variable type | Phenotype required|
-|------------|------------|------------|-----------|-----------|
+| Variable\Feature | Definition  | Phenotypes/variables needed |Variable type | Phenotype required| Task Status (empty if not started)|
+|------------|------------|------------|-----------|-----------|-----------|
 | Registration date| Date registered to the GP|Episode of care table (date registered?) - need to explore this table more| Date| |
 | Date of death | If dead, what date| Patient table (date of death) | Date| |
 | Deregistration or administrative end date | Administrative censoring date| Unsure - need to check episode of care table?| Date| |
@@ -54,7 +54,7 @@ Retrospective cohort stuyady
 | Alcohol | ? average weekly units OR heavy drinker binary code | Observation table (core concept_id for acohol units weekly) | ?categorical vs cont vs binary| Y|
 | Admissions | number hosp admissions | ? Encounter table - need to explore | cont?| |
 | FH_CHD | family history of CHD | Observation table (core_concept_id) | binary| Y|
-| HTN |HTN after index date | Observation table?(core_concept_ID for HTN codes) HDRUK=PH26 version=52| Binary (for now)|  Y|
+| HTN |HTN after index date | Observation table?(core_concept_ID for HTN codes) HDRUK=PH26 version=52| Binary (for now)|  Y| Used PCD refsets for HTN to create mini dashboard on snowflake|
 | Familial Hypercholesterolaemia | f_hyp after index date | Observation table?(core_concept_ID for f_hyp codes) | Binary (for now)|  Y|
 | Hypercholesterolaemia |  hyp after index date | Observation table?(core_concept_ID for hyp codes) | Binary (for now)|  Y|
 | QRISK | ?qrisk at baseline | Observation table?(core_concept_ID for qrisk codes) | Binary (for now)|  Y|
