@@ -3,6 +3,7 @@ from datetime import datetime
 from typing import List, Optional
 from enum import Enum
 import pandas as pd
+from pprint import pprint
 
 class VocabularyType(Enum):
     """
@@ -137,8 +138,14 @@ class Phenotype:
                                     vocabulary=vocab_mappings[codelist_df['vocabulary'].iloc[0]])
                 codelists.append(codelist)
 
+            # NB need to deal with     omop_concept_id, version_datetime, uploaded_datetime
+            # Need to extract them from the dataframe if exist and otherwise return none
+
         return cls(phenotype_id=phenotype_id, 
                    phenotype_name=phenotype_name, 
                    phenotype_version=phenotype_version, 
                    phenotype_source=phenotype_source, 
                    codelists=codelists)
+    
+    def show(self):
+        pprint(self.df)
