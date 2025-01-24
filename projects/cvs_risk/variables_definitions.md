@@ -1,29 +1,29 @@
 # Study design and variable definitions table for logistic regression CVS risk
 Simple study design to start with - can build on study design, cohort definitation and variables
 
-To do:
-[] find the phenotypes for variables that require (see table)
-[] create tables for each phenotype for the defined cohort (i.e make feature table)
-[] explore each feature with a dashboard - check missingness, plausiblility of values and unadjusted associations
-[] create basic logistic regression : Outcome ~ predictors ? use train test if using for prediction
+## To do:
+- [ ] find the phenotypes for variables that require (see table)
+- [ ] create tables for each phenotype for the defined cohort (i.e make feature table)
+- [ ] explore each feature with a dashboard - check missingness, plausiblility of values and unadjusted associations
+- [ ] create basic logistic regression : Outcome ~ predictors ? use train test if using for prediction
 
-Study design:
+## Study design:
 Retrospective cohort study
 
-Cohort:
+## Cohort:
 - Start date/index date: lastest from date turn 18 or date registered
 - End date: earliest from date of death, date deregistred or today/most recent administerative date
 - At least one year registration for look back period
 - No histroy of CVD outcome on index date
 
-Outcome:
+## Outcome:
 - CVD (Stroke, TIA, MI, CHD, AF, HF, PAD?)
 - Taken from first hosp admission with primary admission reason
 
-Predictors:
+## Predictors:
 - See table below
 
-Analysis:
+## Analysis:
 - Logistic regression: Outcome ~ predictors
 - Adjusted Odds Ratios for each ?binary CVS predictor
 - No temporal assocation, just outcome ~ predictor association
