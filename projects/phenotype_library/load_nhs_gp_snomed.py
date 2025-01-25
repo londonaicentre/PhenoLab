@@ -1,37 +1,74 @@
 from dotenv import load_dotenv
 from phmlondon.onto_utils import FHIRTerminologyClient
 from phmlondon.snow_utils import SnowflakeConnection
-from src.phenotype import Phenotype, VocabularyType, PhenotypeSource
+from src.phenotype import Code, Codelist, Phenotype, VocabularyType, PhenotypeSource
 from datetime import datetime
+from src.load_tables import load_phenotypes_to_snowflake
+import pandas as pd
 
-def transform_fhir_to_phenotypes(refsets_df, version_date):
+################################################################################################
+# SNOMED Monoliths for retrieval
+refsets = [
+    {
+        'name': 'UK SNOMED Diagnoses 2023-07 Experimental',
+        'url': 'http://snomed.info/xsct/999000011000230102/version/20230705?fhir_vs=refset'
+    },
+    {
+        'name': 'UK SNOMED Diagnoses 2025-03 Experimental',
+        'url': 'http://snomed.info/xsct/83821000000107/version/20250115?fhir_vs=refset'
+    }
+]
+################################################################################################
+
+def transform_fhir_to_phenotypes(
+        refsets_df,
+        version_date
+        ):
     """
     Transform FHIR refsets dataframe into list of Phenotype objects
     """
     phenotypes = []
     current_datetime = datetime.now()
 
-    for _, row in refsets_df.iterrows():
+    # group by refset to create phenotypes
+    for refset_code, refset_group in refsets_df.groupby('refset_code'):
+
+        # sample row for refset level info
+        first_row = refset_group.iloc[0]
 
         # get refset name based on naming structure
         try:
-            parsed_name = row['refset_name'].split('-')[2].strip()
+            parsed_name = first_row['refset_name'].split('-')[2].strip()
         except IndexError:
             print(f"Warning: Could not parse refset_name")
-            parsed_name = row['refset_name']  # fallback to original name
+            parsed_name = first_row['refset_name']  # fallback to original name
 
-        phenotype = Phenotype(
-            concept_code=row['concept_code'],
-            concept_name=row['concept_name'],
-            vocabulary=VocabularyType.SNOMED,
-            codelist_id=row['refset_code'],
+        # create list of code objects
+        codes = [
+            Code(
+                code=row['concept_code'],
+                code_description=row['concept_name'],
+                code_vocabulary=VocabularyType.SNOMED # we define this as it is not a field in the source data
+            )
+            for _, row in refset_group.iterrows()
+        ]
+
+        # Create Codelist object
+        codelist = Codelist(
+            codelist_id=refset_code,
             codelist_name=parsed_name,
-            codelist_version=row['url'],
-            phenotype_id=row['refset_code'],
-            phenotype_name=row['refset_name'],
-            phenotype_version=row['url'],
+            codelist_vocabulary=VocabularyType.SNOMED,
+            codelist_version=first_row['url'],
+            codes=codes
+        )
+
+        # Create Phenotype object
+        phenotype = Phenotype(
+            phenotype_id=refset_code,
+            phenotype_name=first_row['refset_name'],
+            phenotype_version=first_row['url'],
             phenotype_source=PhenotypeSource.LONDON,
-            omop_concept_id=None,
+            codelists=[codelist],  # For NHS GP refsets, this will be a single codelist
             version_datetime=version_date,
             uploaded_datetime=current_datetime
         )
@@ -39,9 +76,16 @@ def transform_fhir_to_phenotypes(refsets_df, version_date):
 
     return phenotypes
 
-def retrieve_and_load_phenotypes(snowsesh, url):
+def retrieve_snomed_phenotypes(
+        url: str
+        ) -> pd.DataFrame:
     """
-    Retrieves FHIR data, transforms to phenotypes, and loads to Snowflake
+    Retrieves phenotypes from OneLondon Terminology server and transforms to a DataFrame.
+    Args:
+        url (str):
+            url to retrieve data from
+    Returns:
+        DataFrame containing phenotype data
     """
     try:
         fhir_client = FHIRTerminologyClient(endpoint_type='authoring')
@@ -57,39 +101,18 @@ def retrieve_and_load_phenotypes(snowsesh, url):
         phenotypes = transform_fhir_to_phenotypes(refsets, version_date)
         print(f"Created {len(phenotypes)} phenotype objects")
 
-        # create dataframe
-        df = Phenotype.to_dataframe(phenotypes)
-        print("DataFrame preview before load:")
+        # create combined dataframe from all phenotypes
+        df = pd.concat([p.to_dataframe() for p in phenotypes], ignore_index=True)
+        df.columns = df.columns.str.upper()
+
+        print("DataFrame preview:")
         print(df.head())
 
-        # load to temporary table
-        temp_table = "TEMP_NHS_GP_SNOMED_REFSETS"
-        snowsesh.load_dataframe_to_table(
-            df=df,
-            table_name=temp_table,
-            mode="overwrite",
-            table_type="temporary"
-        )
-        print("Loaded data to temporary table")
-
-        # Execute merge operation
-        snowsesh.execute_sql_file('sql/merge_nhs_gp_snomed.sql')
-        print("Merged data into main table")
-
-        # Drop temporary table
-        snowsesh.execute_query(f"DROP TABLE IF EXISTS {temp_table}")
-        print("Dropped temporary table")
+        return df
 
     except Exception as e:
-        print(f"Error processing phenotypes: {e}")
+        print(f"Error retrieving phenotypes: {e}")
         raise e
-    finally:
-        # Clean sweep
-        try:
-            snowsesh.execute_query(f"DROP TABLE IF EXISTS {temp_table}")
-            print("Cleaned up temporary table")
-        except Exception as e:
-            print(f"Failed to clean up temporary table: {e}")
 
 def main():
     load_dotenv()
@@ -99,21 +122,19 @@ def main():
     snowsesh.use_schema("AI_CENTRE_PHENOTYPE_LIBRARY")
 
     try:
-        # always create table if not exist
-        snowsesh.execute_sql_file('sql/ddl_nhs_gp_snomed.sql')
-        print("Table structure ensured")
-
-        # process different SNOMED refsets
-        refsets = [
-            {
-                'name': 'UK SNOMED Diagnoses 2023-07 Experimental',
-                'url': 'http://snomed.info/xsct/999000011000230102/version/20230705?fhir_vs=refset'
-            }
-        ]
-
         for refset in refsets:
             print(f"Processing {refset['name']}...")
-            retrieve_and_load_phenotypes(snowsesh, refset['url'])
+
+            # Retrieve phenotypes
+            df = retrieve_snomed_phenotypes(refset['url'])
+
+            # Load to Snowflake
+            load_phenotypes_to_snowflake(
+                snowsesh=snowsesh,
+                df=df,
+                table_name="NHS_GP_SNOMED_REFSETS"
+            )
+
             print(f"Completed processing {refset['name']}")
 
     except Exception as e:
