@@ -12,3 +12,9 @@ X Do the get_phenotypes method
 X Sort out the repeated use of tablename thing!
 - Need to think about the issue re same phenotype getting appended over and over
 X Readme update
+X Add in code and codelist classes
+X Concepts -> codes (and update readme)
+- Update readme for cvs_risk and add_phenotypes_example_script
+- Once readme updated, move folders and combine with phenotype_library readme
+- Change table class to SQL scripts, or..
+- ORM implementation of moving to database??
