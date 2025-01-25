@@ -90,7 +90,13 @@ class HDRUKLibraryClient:
             codes["vocabulary"] = [
                 codedict["coding_system"]["name"] for codedict in codelist_api_return
             ]  # need a separate line for this as it is nested one layer deeper than the rest of the output
-            
+
+            # add version datetime - parse from concept_history_date
+            codes["version_datetime"] = [
+                pd.to_datetime(codedict["concept_history_date"])
+                for codedict in codelist_api_return
+            ]
+
             codes["phenotype_source"] = ['HDRUK'] * len(codes['code'])
 
             return pd.DataFrame(codes)
