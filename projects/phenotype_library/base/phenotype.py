@@ -31,7 +31,8 @@ vocab_mappings = {
     'SNOMED  CT codes': VocabularyType.SNOMED, #HDRUK
     'ICD10 codes': VocabularyType.ICD10, # HDRUK
     'Read codes v2': VocabularyType.READV2, #HDRUK
-    'Med codes': VocabularyType.MEDCODE #HDRUK
+    'Med codes': VocabularyType.MEDCODE, #HDRUK
+    'BNF codes': VocabularyType.BNF #HDRUK
 }
 
 @dataclass

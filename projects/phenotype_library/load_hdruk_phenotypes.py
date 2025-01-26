@@ -1,15 +1,57 @@
 from dotenv import load_dotenv
 from phmlondon.snow_utils import SnowflakeConnection
 from phmlondon.hdruk_api import HDRUKLibraryClient
-from src.phenotype import Phenotype
+from base.phenotype import Phenotype
 from datetime import datetime
 import pandas as pd
-from src.load_tables import load_phenotypes_to_snowflake
+from base.load_tables import load_phenotypes_to_snowflake
 
 #######################################################
 # Active phenotypes for retrieval from HDR-UK library #
 phenotype_list = [
-    ("PH152", 304),  # Diabetes, any
+    ("PH152", 304),  # Diabetes, any (ICD10, READV2)
+    ("PH189", 378),  # Hypertension (ICD10, READV2)
+    ("PH717", 1434),  # Diabetes, T1 (READV2)
+    ("PH753", 1506),  # Diabetes, T2 (READV2)
+    ("PH88", 176),  # Transient ischaemic attack (ICD10, READV2)
+    ("PH56", 112),  # Ischaemic stroke (ICD10, READV2)
+    ("PH182", 364),  # Heart failure (ICD10, READV2)
+    ("PH576", 1152),  # Ischaemic heart disease (ICD10, READV2)
+    ("PH215", 430),  # Myocardial infarction (ICD10, READV2)
+    ("PH315", 630),  # Stable angina (ICD10, READV2)
+    ("PH329", 658),  # Unstable angina (ICD10, READV2)
+    ("PH221", 442),  # Obesity (ICD10, READV2)
+    ("PH149", 298),  # Depression (ICD10, READV2)
+    ("PH104", 208),  # Anxiety Disorders (ICD10, READV2)
+    ("PH285", 570),  # Schizophrenia, schizotypal, delusional (ICD10, READV2)
+    ("PH94", 188),  # Alcohol problems (ICD10, READV2)
+    ("PH43", 86),  # Chronic Obstructive Pulmonary Disease (ICD10, READV2)
+    ("PH109", 218),  # Asthma (ICD10, READV2)
+    ("PH211", 422),  # Migraine (ICD10, READV2)
+    ("PH990", 2168),  # BHF Chronic kidney disease (ICD10, SNOMED)
+    ("PH1018", 2196),  # BHF Stroke (ICD10, SNOMED)
+    ("PH947", 2125),  # BHF Obesity (SNOMED)
+    ("PH970", 2148),  # BHF Hypertension (SNOMED)
+    ("PH956", 2134),  # BHF Angina (ICD10, SNOMED, READV2)
+    ("PH986", 2164),  # BHF Unstable angina (ICD10, SNOMED, READV2)
+    ("PH978", 2156),  # BHF Pulmonary embolism (ICD10, SNOMED, READV2)
+    ("PH1016", 2194),  # BHF Peripheral arterial disease (SNOMED)
+    ("PH1017", 2195),  # BHF Smoking status (SNOMED)
+    ("PH942", 2120),  # BHF Acute myocardial infarction (ICD10, SNOMED)
+    ("PH1005", 2183),  # BHF Depression (ICD10, SNOMED)
+    ("PH981", 2159),  # BHF Pregnancy and birth (SNOMED)
+    ("PH1004", 2182),  # BHF Dementia (ICD10, SNOMED)
+    ("PH1006", 2184),  # BHF Diabetes (SNOMED)
+    ("PH990", 2168),  # BHF Chronic kidney disease (ICD10, SNOMED)
+    ("PH993", 2171),  # BHF Heart failure (ICD10, SNOMED)
+    ("PH945", 2123),  # BHF Diabetes (ICD10, SNOMED)
+    ("PH989", 2167),  # BHF Obesity (SNOMED)
+    ("PH1010", 2188),  # BHF Hypertension (SNOMED)
+    ("PH987", 2165),  # BHF Atrial fibrillation (ICD10, SNOMED)
+    ("PH991", 2169),  # BHF Chronic obstructive pulmonary disease (ICD10, SNOMED)
+    ("PH960", 2138),  # BHF Cancer (ICD10, SNOMED, READV2)
+    ("PH1009", 2187),  # BHF Hypercholesterolaemia (SNOMED)
+    ("PH1001", 2179), # BHF Cancer (ICD10, SNOMED)
 ]
 #######################################################
 

@@ -1,9 +1,9 @@
 from dotenv import load_dotenv
 from phmlondon.onto_utils import FHIRTerminologyClient
 from phmlondon.snow_utils import SnowflakeConnection
-from src.phenotype import Code, Codelist, Phenotype, VocabularyType, PhenotypeSource
+from base.phenotype import Code, Codelist, Phenotype, VocabularyType, PhenotypeSource
 from datetime import datetime
-from src.load_tables import load_phenotypes_to_snowflake
+from base.load_tables import load_phenotypes_to_snowflake
 import pandas as pd
 
 ################################################################################################
