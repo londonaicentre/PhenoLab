@@ -12,7 +12,7 @@ LOADER_CONFIG = {
         'func': load_hdruk,
         'table': 'HDRUK_PHENOTYPES'
     },
-    'snomed': {
+    'gpsnomed': {
         'func': load_snomed,
         'table': 'NHS_GP_SNOMED_REFSETS'
     },
@@ -28,20 +28,37 @@ LOADER_CONFIG = {
 
 def create_phenostore_view(snowsesh):
     """
-    Creates unified view of all phenotype tables
+    Creates unified view of all phenotype tables with DBID mappings
     Args:
         snowsesh:
             Active Snowflake session
     """
     view_sql = f"""
     CREATE OR REPLACE VIEW PHENOSTORE AS
-    {' UNION ALL '.join(
-        f"SELECT *, '{name}' as SOURCE_SYSTEM FROM {config['table']}"
-        for name, config in LOADER_CONFIG.items()
-    )}
+    WITH phenotype_union AS (
+        {' UNION ALL '.join(
+            f"SELECT *, '{name}' as SOURCE_SYSTEM FROM {config['table']}"
+            for name, config in LOADER_CONFIG.items()
+        )}
+    )
+    SELECT
+        p.*,
+        c.DBID,
+        CASE c.MAPPING_TYPE
+            WHEN 'Core SNOMED' THEN c.DBID
+            WHEN 'Non Core Mapped to SNOMED' THEN cm.CORE
+            ELSE NULL
+        END as CORE_CONCEPT_ID
+    FROM phenotype_union p
+    LEFT JOIN PROD_DWH.ANALYST_PRIMARY_CARE.CONCEPT c
+        ON p.CODE = c.CODE
+        AND p.VOCABULARY = c.SCHEME_NAME
+    LEFT JOIN PROD_DWH.ANALYST_PRIMARY_CARE.CONCEPT_MAP cm
+        ON c.DBID = cm.LEGACY
+        AND c.MAPPING_TYPE = 'Non Core Mapped to SNOMED'
     """
     snowsesh.execute_query(view_sql)
-    print("Created PHENOSTORE view")
+    print("Created PHENOSTORE view with DBID mappings")
 
 def run_loaders(loader_flags: Dict[str, bool]):
     """

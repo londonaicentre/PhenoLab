@@ -9,10 +9,10 @@ import pandas as pd
 ################################################################################################
 # SNOMED Monoliths for retrieval
 refsets = [
-    {
-        'name': 'UK SNOMED Diagnoses 2023-07 Experimental',
-        'url': 'http://snomed.info/xsct/999000011000230102/version/20230705?fhir_vs=refset'
-    },
+    # {
+    #     'name': 'UK SNOMED Diagnoses 2023-07 Experimental',
+    #     'url': 'http://snomed.info/xsct/999000011000230102/version/20230705?fhir_vs=refset'
+    # },
     {
         'name': 'UK SNOMED Diagnoses 2025-03 Experimental',
         'url': 'http://snomed.info/xsct/83821000000107/version/20250115?fhir_vs=refset'
@@ -38,7 +38,7 @@ def transform_fhir_to_phenotypes(
 
         # get refset name based on naming structure
         try:
-            parsed_name = first_row['refset_name'].split('-')[2].strip()
+            parsed_name = first_row['refset_name'].split('-')[2].strip().capitalize()
         except IndexError:
             print(f"Warning: Could not parse refset_name")
             parsed_name = first_row['refset_name']  # fallback to original name
@@ -65,7 +65,7 @@ def transform_fhir_to_phenotypes(
         # Create Phenotype object
         phenotype = Phenotype(
             phenotype_id=refset_code,
-            phenotype_name=first_row['refset_name'],
+            phenotype_name=parsed_name,
             phenotype_version=first_row['url'],
             phenotype_source=PhenotypeSource.LONDON,
             codelists=[codelist],  # For NHS GP refsets, this will be a single codelist
