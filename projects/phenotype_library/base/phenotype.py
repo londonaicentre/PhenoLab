@@ -8,12 +8,13 @@ from pprint import pprint
 class VocabularyType(Enum):
     """
     Supported vocabulary types
+    These match scheme naming in NEL ICB Compass
     """
     SNOMED = "SNOMED" #SNOMED-CT
     ICD10 = "ICD10"
     BNF = "BNF"
-    READV2 = "READV2"
-    DMD = "DMD" #DM+D
+    READV2 = "READ 2"
+    DMD = "DM+D code scheme" #DM+D
     MEDCODE = "MEDCODE" #HDRUK CPRD 'Med Code' - these do not appear in London vocabulary
 
 class PhenotypeSource(Enum):
@@ -23,6 +24,7 @@ class PhenotypeSource(Enum):
     HDRUK = "HDRUK" #HDR UK Library
     LONDON = "LONDON" #One London terminology server
     ICB_NEL = "ICB_NEL" #North East London ICB Local Definition
+    NHSBSA = "NHSBSA" # NHS Business Services Authority
 
 """
 This dictionary deals with the problem that different APIs return different strings for their vocabularies and we want to standardise things
