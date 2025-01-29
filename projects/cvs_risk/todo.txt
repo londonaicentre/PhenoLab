@@ -1,0 +1,17 @@
+[X] extract diabetes codes
+[X] use these to extract events
+[X] use these to extract patients
+[X] connect to snowflake and create view
+[ ] also find people via HbA1c
+[X] plot patient ages
+[X] fix ages
+[X] plot genders
+[ ] ethnicity
+[ ] plot top comorbidites
+[ ] plot uncoded people
+[ ] nice colours on dashboard 
+[ ] date filter
+[ ] scatterplot home address
+[ ] date/time new diagnoses
+
+[ ] (another branch:) add a pheno ID output to the streamlit dashboad
