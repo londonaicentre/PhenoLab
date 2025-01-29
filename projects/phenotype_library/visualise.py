@@ -1,3 +1,7 @@
+"""
+Script to run a streamlit app which allows browsin of the stored phenotypes via dropdown menus
+"""
+
 import streamlit as st
 import pandas as pd
 from dotenv import load_dotenv

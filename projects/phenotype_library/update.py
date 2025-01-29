@@ -1,3 +1,8 @@
+"""
+Script to update phenotypes from a particular source (HDRUK, GP refsets, BNF, NEL) - the source
+is specified as an input
+"""
+
 from dotenv import load_dotenv
 import argparse
 from phmlondon.snow_utils import SnowflakeConnection
