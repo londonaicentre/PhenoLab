@@ -78,6 +78,7 @@ def merge_phenotype_tables(
     AND target.CODE_DESCRIPTION = source.CODE_DESCRIPTION
     AND target.VOCABULARY = source.VOCABULARY
     AND target.CODELIST_VERSION = source.CODELIST_VERSION
+    AND target.PHENOTYPE_NAME = source.PHENOTYPE_NAME
     AND target.PHENOTYPE_VERSION = source.PHENOTYPE_VERSION
     WHEN NOT MATCHED THEN
         INSERT (
