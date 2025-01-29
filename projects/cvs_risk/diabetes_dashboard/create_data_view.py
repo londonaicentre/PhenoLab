@@ -1,5 +1,6 @@
 """
-Run this script to create the data view the dashboard is based on
+Run this script to create the data views the dashboard is based on
+Note all data views will be rebuilt and overwrite the existing!
 """
 
 from phmlondon.snow_utils import SnowflakeConnection
@@ -53,4 +54,52 @@ ON patient_info.gender_concept_id = con.DBID
 JOIN PROD_DWH.ANALYST_PRIMARY_CARE.CONCEPT AS ethnicity
 ON patient_info.ethnic_code_concept_id = ethnicity.DBID;
 """
+).collect()
+
+
+conn.session.sql(
+    """
+CREATE OR REPLACE VIEW observations_with_t2dm AS
+    WITH code_list AS (
+    SELECT code
+    FROM INTELLIGENCE_DEV.AI_CENTRE_PHENOTYPE_LIBRARY.PHENOSTORE
+    WHERE phenotype_source = 'LONDON' 
+    AND Phenotype_id = '999010771000230109'
+), 
+mapped_ids AS (
+    SELECT con.DBID
+    FROM PROD_DWH.ANALYST_PRIMARY_CARE.CONCEPT AS con
+    JOIN code_list cl 
+    ON con.code = cl.code
+),
+obervation_list AS (
+    SELECT *
+    FROM PROD_DWH.ANALYST_PRIMARY_CARE.OBSERVATION AS obs
+    JOIN mapped_ids mi
+    ON obs.core_concept_id = mi.DBID)
+SELECT *
+FROM obervation_list o;"""
+).collect()
+
+conn.session.sql(
+    """
+CREATE OR REPLACE VIEW hba1c_levels AS
+    WITH code_list AS (
+    SELECT code
+    FROM INTELLIGENCE_DEV.AI_CENTRE_PHENOTYPE_LIBRARY.PHENOSTORE
+    WHERE phenotype_source = 'LONDON' 
+    AND Phenotype_id = '999023291000230101'
+), 
+mapped_ids AS (
+    SELECT con.DBID
+    FROM PROD_DWH.ANALYST_PRIMARY_CARE.CONCEPT AS con
+    JOIN code_list cl 
+    ON con.code = cl.code
+), 
+obs_list AS (
+    SELECT *
+    FROM PROD_DWH.ANALYST_PRIMARY_CARE.OBSERVATION AS obs
+    JOIN mapped_ids mi
+    ON obs.core_concept_id = mi.DBID)
+SELECT * FROM obs_list;"""
 ).collect()
