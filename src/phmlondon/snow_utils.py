@@ -17,7 +17,7 @@ class SnowflakeConnection:
         self.session = None
         self.current_database = None
         self.current_schema = None
-        
+
         self._confirm_env_vars()
         self._create_session()
 
@@ -65,7 +65,7 @@ class SnowflakeConnection:
         """
         if not self.current_database:
             raise ValueError("Database must be set first. Try use_database(database_name)")
-            
+
         try:
             self.session.sql(f"USE SCHEMA {schema}").collect()
             self.current_schema = schema
@@ -81,10 +81,10 @@ class SnowflakeConnection:
         """
         if not self.current_database:
             raise ValueError("Database must be set first. Try use_database(database_name)")
-        
+
         if schema_required and not self.current_schema:
             raise ValueError("Schema must be set first. Try use_schema(schema_name)")
-    
+
     def _load_dataframe_to_snowflake(self, df, table_name, mode="overwrite", table_type=""):
         """
         Internal method to handle loading of DataFrames to Snowflake with standardized options.
@@ -94,16 +94,16 @@ class SnowflakeConnection:
             table_type: "temporary" (note empty string = permanent)
         """
         self._validate_database_schema(schema_required=True)
-        
+
         # https://docs.snowflake.com/en/developer-guide/snowpark/reference/python/latest/snowpark/api/snowflake.snowpark.DataFrameWriter.save_as_table
-        valid_modes = ["overwrite", "append"] 
+        valid_modes = ["overwrite", "append"]
         valid_table_types = ["", "temporary"]
-        
+
         if mode not in valid_modes:
             raise ValueError(f"Invalid mode, please use: {valid_modes}")
         if table_type not in valid_table_types:
             raise ValueError(f"Invalid table type, please use: {valid_table_types}")
-            
+
         try:
             self.session.create_dataframe(df).write.save_as_table(
                 table_name,
@@ -113,7 +113,7 @@ class SnowflakeConnection:
             print(f"Data loaded successfully")
 
             return table_name
-            
+
         except Exception as e:
             print(f"Error loading dataframe to snowflake table: {e}")
             raise e
@@ -180,7 +180,7 @@ class SnowflakeConnection:
             limit: number of rows to show (default: 10)
         """
         self._validate_database_schema(schema_required=True)
-                
+
         try:
             query = f"SELECT * FROM {self.current_database}.{self.current_schema}.{table_name} LIMIT {limit}"
             result = self.session.sql(query).collect()
@@ -196,27 +196,27 @@ class SnowflakeConnection:
         Lists all tables in the current database and schema.
         """
         self._validate_database_schema(schema_required=True)
-            
+
         try:
             query = f"SHOW TABLES IN {self.current_database}.{self.current_schema}"
             result = self.session.sql(query).collect()
-            
+
             table_names = [row['name'] for row in result]
-            
+
             print(f"Tables in {self.current_database}.{self.current_schema}:")
             for table in table_names:
                 print(f"- {table}")
-                
+
             return table_names
         except Exception as e:
             print(f"Error listing tables: {e}")
             raise e
-        
+
     def execute_query(self, query):
         """
         Executes a SQL query without returning results
             query: predefined query
-        """ 
+        """
         try:
             self.session.sql(query).collect()
             print("Query executed successfully.")
@@ -235,7 +235,7 @@ class SnowflakeConnection:
         except Exception as e:
             print(f"Error executing query: {e}")
             raise e
-        
+
     def execute_sql_file(self, sql_file_path):
         """
         Reads and executes a sql file.
@@ -246,15 +246,15 @@ class SnowflakeConnection:
         try:
             with open(sql_file_path, 'r') as file:
                 sql_commands = file.read()
-            
+
             commands = sql_commands.split(';')
-            
+
             for command in commands:
                 if command.strip():
                     self.execute_query(command)
-                    
+
             print(f"'{sql_file_path}' executed successfully.")
-            
+
         except FileNotFoundError as f:
             print(f"Unable to find sql file: {f}")
             raise
