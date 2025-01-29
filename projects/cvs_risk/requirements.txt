@@ -1,5 +1,0 @@
--e ../../
-git+https://github.com/SwanseaUniversityMedical/pyconceptlibraryclient.git@v1.0.0
-pandas>=2, <3
-PyYAML>=6, <7
-python-dotenv
