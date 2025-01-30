@@ -1,0 +1,5 @@
+*.ipynb
+*.db
+*.yaml
+*.txt
+data/
