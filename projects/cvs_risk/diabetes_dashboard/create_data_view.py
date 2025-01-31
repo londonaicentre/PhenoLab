@@ -103,3 +103,26 @@ obs_list AS (
     ON obs.core_concept_id = mi.DBID)
 SELECT * FROM obs_list;"""
 ).collect()
+
+# from data exploration, it seems that results value doesn't match the units or each other 
+# e.g. having 63 mmol/L and 7.1 mmol/L!!! 7 mmol/mol and 81 mmol/mol
+# so we need to allocate units by number!!! as the units seem to be a total mess!!
+
+# https://www.ncbi.nlm.nih.gov/books/NBK348987/#:~:text=TABLE%2085&text=IFCC%2C%20International%20Federation%20of%20Clinical,)%20–%2023.5%20mmol/mol.
+
+conn.session.sql(
+    """
+create or replace view hba1c_levels_with_corrected_units AS
+select *,
+    CASE 
+        WHEN result_value BETWEEN 4 AND 14 THEN '%'  
+        WHEN result_value BETWEEN 19 and 140 THEN 'mmol/mol'
+        ELSE 'invalid'
+    END AS result_value_inferred_units,
+    CASE 
+        WHEN result_value BETWEEN 4 and 15 THEN ROUND((result_value*10.93) - 23.5, 2)
+        WHEN result_value BETWEEN 19 and 140 THEN result_value
+        ELSE NULL -- invalid values set to null
+    END AS result_value_cleaned_and_converted_to_mmol_per_mol
+from INTELLIGENCE_DEV.AI_CENTRE_DEV.HBA1C_LEVELS;"""
+).collect()
