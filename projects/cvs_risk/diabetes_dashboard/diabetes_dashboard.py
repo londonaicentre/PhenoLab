@@ -7,6 +7,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from datetime import datetime, timedelta
 
 @st.cache_resource
 def connect() -> SnowflakeConnection:
@@ -28,9 +29,11 @@ st.title("NEL Diabetes Dashboard")
 conn = connect()
 df1 = load_data(conn, "PATIENTS_WITH_T2DM")
 df2 = load_data(conn, "HBA1C_LEVELS_WITH_CORRECTED_UNITS")
+df3 = load_data(conn, "UNDIAGNOSED_PATIENTS_WITH_T2DM")
 
 box1, box2 = st.columns(2, border=True, vertical_alignment="bottom")
 box3, box4 = st.columns(2, border=True, vertical_alignment="bottom")
+box5, box6 = st.columns(2, border=True, vertical_alignment="bottom")
 
 colours = ["#003f5c", "#444e86", "#955196", "#dd5182", "#ff6e54", "#ffa600"]
 
@@ -87,3 +90,54 @@ with box3:
 
     st.pyplot(fig)
 
+with box4:
+    st.subheader("Undiagnosed patients")
+    add_commas = lambda x: f"{x:,}"
+    st.metric(label="Patients with a code indicating type 2 diabetes", value=add_commas(df1.shape[0]))
+    st.metric(label="Patients with no diabetes code but a diabetic HbA1c", value=add_commas(df3.shape[0]))
+
+with box5:
+    st.subheader("Max HbA1c in the unlablled patients")
+    fig, ax = plt.subplots()
+    ax.hist(df3["max_hba1c"], edgecolor="white", color=colours[5], bins=50)
+    ax.set_xlabel('HbA1c level (mmol/mol))')
+    ax.set_ylabel("Frequency")
+    st.pyplot(fig)
+
+with box6:
+
+    @st.cache_data
+    def bin_diagnoses_by_month():
+        df1["diagnosis_date"] = pd.to_datetime(df1["diagnosis_date"])
+        df1["year_month"] = df1["diagnosis_date"].dt.to_period("M")
+        monthly_counts = df1.groupby("year_month").size().reset_index(name="num_diagnoses")
+        monthly_counts["year_month"] = monthly_counts["year_month"].dt.to_timestamp()
+        return monthly_counts
+    
+    monthly_counts = bin_diagnoses_by_month()
+
+    overall_start = datetime(1980, 1, 1)
+    default_start = datetime(2010, 1, 1)
+    today = datetime.today()
+    first_day_of_month = today.replace(day=1)
+    default_end = first_day_of_month - timedelta(days=1)
+
+    st.subheader("New diagnoses by month")
+
+    start_date = st.date_input("Select Start Date", value=default_start, min_value=overall_start, max_value=default_end)
+    end_date = st.date_input("Select End Date", value=default_end, min_value=default_start, max_value=default_end)
+
+    start_date = pd.to_datetime(start_date)
+    end_date = pd.to_datetime(end_date)
+
+    filtered_data = monthly_counts[(monthly_counts['year_month'] >= start_date) & 
+        (monthly_counts['year_month'] <= end_date)]
+
+    fig, ax = plt.subplots()
+    ax.plot(filtered_data['year_month'], filtered_data['num_diagnoses'], marker='o', linestyle='-', color=colours[0])
+
+    ax.set_xlabel("Month")
+    ax.set_ylabel("New Diagnoses")
+    ax.grid(True)
+
+    st.pyplot(fig)

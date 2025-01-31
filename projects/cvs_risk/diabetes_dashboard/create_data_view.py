@@ -27,7 +27,7 @@ mapped_ids AS (
     ON con.code = cl.code
 ), 
 patient_list AS (
-    SELECT obs.patient_id, obs.person_id
+    SELECT obs.patient_id, obs.person_id, min(date_recorded) AS diagnosis_date
     FROM PROD_DWH.ANALYST_PRIMARY_CARE.OBSERVATION AS obs
     JOIN mapped_ids mi
     ON obs.core_concept_id = mi.DBID
@@ -45,7 +45,8 @@ SELECT
     CASE 
         WHEN patient_info.date_of_death IS NOT NULL THEN patient_info.approx_current_age
         ELSE NULL 
-    END AS age_if_patient_living
+    END AS age_if_patient_living,
+    patient_list.diagnosis_date
 FROM PROD_DWH.ANALYST_PRIMARY_CARE.PATIENT AS patient_info
 JOIN patient_list
 ON patient_info.person_ID = patient_list.person_id
@@ -126,3 +127,18 @@ select *,
     END AS result_value_cleaned_and_converted_to_mmol_per_mol
 from INTELLIGENCE_DEV.AI_CENTRE_DEV.HBA1C_LEVELS;"""
 ).collect()
+
+conn.session.sql(
+    """
+CREATE OR REPLACE VIEW undiagnosed_patients_with_T2DM AS
+WITH diabetic_hba1c_patients AS (
+    SELECT person_id, MAX(result_value_cleaned_and_converted_to_mmol_per_mol) AS max_hba1c
+    FROM INTELLIGENCE_DEV.AI_CENTRE_DEV.HBA1C_LEVELS_WITH_CORRECTED_UNITS
+    WHERE result_value_cleaned_and_converted_to_mmol_per_mol >= 48
+    GROUP BY person_id
+)
+SELECT h.person_id, h.max_hba1c
+FROM diabetic_hba1c_patients h
+LEFT JOIN INTELLIGENCE_DEV.AI_CENTRE_DEV.PATIENTS_WITH_T2DM p ON h.person_id = p.person_id
+WHERE p.person_id IS NULL;"""
+)
