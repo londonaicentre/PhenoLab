@@ -1,8 +1,13 @@
 """
 Streamlit app for diabetes dashboard
 """
-from phmlondon.snow_utils import SnowflakeConnection
-from dotenv import load_dotenv
+local = True #True = running from own computer; false = running from snowflake interface
+
+if local:
+    from phmlondon.snow_utils import SnowflakeConnection, Session
+    from dotenv import load_dotenv
+from snowflake.snowpark import Session
+from snowflake.snowpark.context import get_active_session
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -10,30 +15,42 @@ import numpy as np
 from datetime import datetime, timedelta
 
 @st.cache_resource
-def connect() -> SnowflakeConnection:
-    load_dotenv()
-    conn = SnowflakeConnection()
-    conn.use_database("INTELLIGENCE_DEV")
-    conn.use_schema("AI_CENTRE_DEV")
-    return conn
+def connect(local: bool) -> Session:
+    if local:
+        load_dotenv()
+        conn = SnowflakeConnection()
+        conn.use_database("INTELLIGENCE_DEV")
+        conn.use_schema("AI_CENTRE_DEV")
+        return conn.session
+    else:
+        session = get_active_session()
+        return session
+        
 
 @st.cache_data
-def load_data(_conn, table_name: str) -> pd.DataFrame:
-    df = conn.session.table(table_name)
+def load_data(_session: Session, table_name: str) -> pd.DataFrame:
+    df = _session.table(table_name)
     df = df.to_pandas()
     df.columns = df.columns.str.lower()
     return df
 
 st.title("NEL Diabetes Dashboard")
 
-conn = connect()
+conn = connect(local)
 df1 = load_data(conn, "PATIENTS_WITH_T2DM")
 df2 = load_data(conn, "HBA1C_LEVELS_WITH_CORRECTED_UNITS")
 df3 = load_data(conn, "UNDIAGNOSED_PATIENTS_WITH_T2DM")
 
-box1, box2 = st.columns(2, border=True, vertical_alignment="bottom")
-box3, box4 = st.columns(2, border=True, vertical_alignment="bottom")
-box5, box6 = st.columns(2, border=True, vertical_alignment="bottom")
+if local:
+    box1, box2 = st.columns(2, border=True, vertical_alignment="bottom")
+    box3, box4 = st.columns(2, border=True, vertical_alignment="bottom")
+    box5, box6 = st.columns(2, border=True, vertical_alignment="bottom")
+else:
+    # snowflake runs an out of date version of streamlit which doesn't have the border
+    # parameter for this function :(
+    box1, box2 = st.columns(2, vertical_alignment="bottom")
+    box3, box4 = st.columns(2, vertical_alignment="bottom")
+    box5, box6 = st.columns(2, vertical_alignment="bottom")
 
 colours = ["#003f5c", "#444e86", "#955196", "#dd5182", "#ff6e54", "#ffa600"]
 
