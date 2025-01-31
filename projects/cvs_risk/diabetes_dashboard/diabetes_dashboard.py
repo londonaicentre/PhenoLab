@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 
 @st.cache_resource
 def connect() -> SnowflakeConnection:
@@ -26,7 +27,7 @@ st.title("NEL Diabetes Dashboard")
 
 conn = connect()
 df1 = load_data(conn, "PATIENTS_WITH_T2DM")
-df2 = load_data(conn, "HBA1C_LEVELS")
+df2 = load_data(conn, "HBA1C_LEVELS_WITH_CORRECTED_UNITS")
 
 box1, box2 = st.columns(2, border=True, vertical_alignment="bottom")
 box3, box4 = st.columns(2, border=True, vertical_alignment="bottom")
@@ -69,9 +70,19 @@ with box2:
 with box3:
     st.subheader('HbA1c levels')
 
-    fig, ax = plt.subplots()
-    ax.hist(df2['result_value'], bins=50, edgecolor='white', color=colours[2], range=(4,16))
-    ax.set_xlabel('HbA1c level (%)')
+    threshold = 48
+    data = df2['result_value_cleaned_and_converted_to_mmol_per_mol'].dropna()
+
+    bins = np.histogram_bin_edges(data, bins=50)
+
+    fig, ax = plt.subplots()    
+    n, bins, patches = ax.hist(data, bins=bins, edgecolor='white')
+    for patch, bin_edge in zip(patches, bins[:-1]):
+        if bin_edge>=threshold:
+            patch.set_facecolor(colours[2])
+        else:
+            patch.set_facecolor(colours[4])
+    ax.set_xlabel('HbA1c level (mmol/mol))')
     ax.set_ylabel("Frequency")
 
     st.pyplot(fig)
