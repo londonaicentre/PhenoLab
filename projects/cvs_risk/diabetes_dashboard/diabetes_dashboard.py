@@ -55,8 +55,10 @@ with box1:
 
 with box2:
     st.subheader('Gender and ethnicity')
-
+    st.write("")
+    
     plot_choice = st.segmented_control("Select which to plot:", ["Gender", "Ethnicity"], default='Ethnicity')
+    st.write("")
 
     col_name = {'Gender': 'gender_as_text', 'Ethnicity': 'ethnicity_as_text_code'}
 
@@ -92,14 +94,22 @@ with box3:
 
 with box4:
     st.subheader("Undiagnosed patients")
+    st.write("")
+    st.write("")
+    
     add_commas = lambda x: f"{x:,}"
     st.metric(label="Patients with a code indicating type 2 diabetes", value=add_commas(df1.shape[0]))
+    st.write("")
+    
     st.metric(label="Patients with no diabetes code but a diabetic HbA1c", value=add_commas(df3.shape[0]))
+    st.write("")
 
 with box5:
     st.subheader("Max HbA1c in the unlablled patients")
+    bins = st.slider("Number of bins:", min_value=5, max_value=100, value=50)
+    max_value = st.number_input("Enter Max Value:", min_value=0, max_value=140, value=100, step=1)
     fig, ax = plt.subplots()
-    ax.hist(df3["max_hba1c"], edgecolor="white", color=colours[5], bins=50)
+    ax.hist(df3["max_hba1c"], edgecolor="white", color=colours[5], bins=bins, range=(48, max_value))
     ax.set_xlabel('HbA1c level (mmol/mol))')
     ax.set_ylabel("Frequency")
     st.pyplot(fig)
@@ -123,7 +133,7 @@ with box6:
     default_end = first_day_of_month - timedelta(days=1)
 
     st.subheader("New diagnoses by month")
-
+    st.write("")
     start_date = st.date_input("Select Start Date", value=default_start, min_value=overall_start, max_value=default_end)
     end_date = st.date_input("Select End Date", value=default_end, min_value=default_start, max_value=default_end)
 
