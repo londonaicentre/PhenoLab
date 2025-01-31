@@ -64,7 +64,7 @@ with box1:
     fig, ax = plt.subplots()
     ax.hist(df1[data_column], bins=bins, edgecolor='white', color=colours[0])
     ax.set_xlabel(data_column)
-    ax.set_ylabel("Frequency")
+    ax.set_ylabel("Count")
 
     st.pyplot(fig)
 
@@ -72,19 +72,22 @@ with box1:
 
 with box2:
     st.subheader('Gender and ethnicity')
-    st.write("")
+    # st.write("")
     
     plot_choice = st.segmented_control("Select which to plot:", ["Gender", "Ethnicity"], default='Ethnicity')
-    st.write("")
+    if plot_choice == 'Gender':
+        st.write("")
 
-    col_name = {'Gender': 'gender_as_text', 'Ethnicity': 'ethnicity_as_text_code'}
+    col_name = {'Gender': 'gender_as_text', 'Ethnicity': 'ethnic_category'} 
+    #or could do ethnicity_description which is more fine-grained e.g. 'bangladeshi' rather than 'south asian'
 
     counts = df1[col_name[plot_choice]].value_counts()
 
     fig2, ax2 = plt.subplots()
     ax2.bar(counts.index, counts.values, edgecolor=None, color=colours)
-    ax2.set_xlabel(plot_choice)
+    # ax2.set_xlabel(plot_choice)
     ax2.set_ylabel("Count")
+    ax2.tick_params(axis='x', rotation=45) 
     # ax2.set_title("Male vs Female Distribution")
 
     st.pyplot(fig2)
@@ -105,7 +108,7 @@ with box3:
         else:
             patch.set_facecolor(colours[4])
     ax.set_xlabel('HbA1c level (mmol/mol))')
-    ax.set_ylabel("Frequency")
+    ax.set_ylabel("Count")
 
     st.pyplot(fig)
 
@@ -124,11 +127,11 @@ with box4:
 with box5:
     st.subheader("Max HbA1c in the unlablled patients")
     bins = st.slider("Number of bins:", min_value=5, max_value=100, value=50)
-    max_value = st.number_input("Enter Max Value:", min_value=0, max_value=140, value=100, step=1)
+    max_value = st.number_input("Enter max value:", min_value=0, max_value=140, value=100, step=1)
     fig, ax = plt.subplots()
     ax.hist(df3["max_hba1c"], edgecolor="white", color=colours[5], bins=bins, range=(48, max_value))
     ax.set_xlabel('HbA1c level (mmol/mol))')
-    ax.set_ylabel("Frequency")
+    ax.set_ylabel("Count")
     st.pyplot(fig)
 
 with box6:
@@ -151,8 +154,8 @@ with box6:
 
     st.subheader("New diagnoses by month")
     st.write("")
-    start_date = st.date_input("Select Start Date", value=default_start, min_value=overall_start, max_value=default_end)
-    end_date = st.date_input("Select End Date", value=default_end, min_value=default_start, max_value=default_end)
+    start_date = st.date_input("Select start Date", value=default_start, min_value=overall_start, max_value=default_end)
+    end_date = st.date_input("Select end Date", value=default_end, min_value=default_start, max_value=default_end)
 
     start_date = pd.to_datetime(start_date)
     end_date = pd.to_datetime(end_date)
