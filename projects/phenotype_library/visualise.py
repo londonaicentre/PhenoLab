@@ -72,11 +72,13 @@ def main():
             final_where += f" AND CODELIST_NAME = '{selected_codelist}'"
 
         codes_query = f"""
-        SELECT DISTINCT
+        SELECT DISTINCT 
             CODE,
             CODE_DESCRIPTION,
-            VOCABULARY
-        FROM PHENOSTORE
+            VOCABULARY,
+            PHENOTYPE_ID, 
+            CODELIST_VERSION
+        FROM INTELLIGENCE_DEV.AI_CENTRE_PHENOTYPE_LIBRARY.PHENOSTORE
         {final_where}
         ORDER BY VOCABULARY, CODE
         """
@@ -86,7 +88,9 @@ def main():
         if not codes_df.empty:
             st.write(f"Selected Codes:")
             st.write(f"Total codes: {len(codes_df)}")
-            st.dataframe(codes_df)
+            st.write("Phenotype IDs:")
+            st.dataframe(codes_df.loc[:, ['PHENOTYPE_ID', 'CODELIST_VERSION']].drop_duplicates())
+            st.dataframe(codes_df.loc[:, ['CODE', 'CODE_DESCRIPTION', 'VOCABULARY']])
         else:
             st.write("No codes found for the selected criteria.")
 
