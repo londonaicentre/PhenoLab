@@ -125,7 +125,7 @@ def main():
                                 x = 'age', 
                                 color = 'currently_registered', 
                                 nbins = died_bins, #Slider from above
-                                category_orders=dict(currently_registered = [True, False])
+                                category_orders=dict(currently_registered = [False, True])
                                 )
         st.plotly_chart(fig_died)
 
@@ -167,6 +167,8 @@ def main():
 
     st.markdown('### Calculate standardised mortality')
     st.plotly_chart(barplot)
+
+    #This is quite low. Would be interesting to do a mortality rate for each age bracket
 
 if __name__ == "__main__":
     main()
