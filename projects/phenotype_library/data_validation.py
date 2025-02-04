@@ -41,6 +41,7 @@ def main():
     source_query = """
     select *
     from INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.PERSON_NEL_MASTER_INDEX
+    LIMIT 10000000
     """
     nel_index = pull_df(source_query, snowsesh)
 
