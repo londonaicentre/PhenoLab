@@ -7,3 +7,5 @@ fastparquet
 lxml
 python-dotenv
 streamlit
+matplotlib
+datetime
