@@ -41,7 +41,6 @@ def main():
     source_query = """
     select *
     from INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.PERSON_NEL_MASTER_INDEX
-    LIMIT 1000000
     """
     nel_index = pull_df(source_query, snowsesh)
 
@@ -163,11 +162,10 @@ def main():
     sm_df = pd.DataFrame(standardised_mortality, index = [0])
     sm_df = sm_df.transpose().reset_index()
     sm_df.columns = ['registration', 'standardised_mortality']
+    barplot = px.bar(sm_df, x= 'registration', y = 'standardised_mortality')
 
-    st.markdown("""### Calculate standardised mortality
-                We can calculate standardised mortality by working out deaths in unregistered patients vs deaths in registered patinents 
-                divided by the total number of patient years either registered or unregistered""")
-    st.dataframe(sm_df)
+    st.markdown('### Calculate standardised mortality')
+    st.plotly_chart(barplot)
 
 if __name__ == "__main__":
     main()
