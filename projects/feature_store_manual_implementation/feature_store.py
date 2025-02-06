@@ -22,12 +22,13 @@ class FeatureStoreManager:
         Raises an Exception if the table already exists.
         """
         session = self.conn.session
+        self.table_names = table_names = ['FEATURE_REGISTRY', 'FEATURE_VERSION_REGISTRY', '{table_names[2]}']
         try:
-            # Check if the FEATURE_REGISTRY already exists
-            master_table_exists = session.sql("SHOW TABLES LIKE 'FEATURE_REGISTRY'").collect()
+            self._check_table_exists(table_names[0])
+            master_table_exists = session.sql(f"SHOW TABLES LIKE {table_names[0]}").collect()
             if not master_table_exists:
-                session.sql("""
-                    CREATE TABLE IF NOT EXISTS feature_registry (
+                session.sql(f"""
+                    CREATE TABLE IF NOT EXISTS {table_names[0]} (
                         feature_id PRIMARY KEY,
                         feature_name VARCHAR NOT NULL,
                         feature_desc VARCHAR,
@@ -35,23 +36,38 @@ class FeatureStoreManager:
                         table_name VARCHAR,
                         date_feature_registered DATETIME,
                         ) """).collect()
-                print("FEATURE_REGISTRY created successfully.")
+                print(f"{table_names[0]} created successfully.")
             else:
-                raise ValueError("FEATURE_REGISTRY already exists.")
+                raise ValueError(f"{table_names[0]} already exists.")
 
-            feature_version_table_exists = session.sql("SHOW TABLES LIKE 'FEATURE_VERSION_REGISTRY'").collect()
+            feature_version_table_exists = session.sql(f"SHOW TABLES LIKE {table_names[1]}'").collect()
             if not feature_version_table_exists:
-                session.sql("""
-                    CREATE TABLE IF NOT EXISTS feature_version_registry (
+                session.sql(f"""
+                    CREATE TABLE IF NOT EXISTS {table_names[1]} (
                         feature_ID INT,
                         feature_version INT,
                         sql_query TEXT,
                         change_description VARCHAR,
                         date_version_registered DATETIME,
                     ) """).collect()
-                print("FEATURE_VERSION_REGISTRY created successfully.")
+                print(f"{table_names[1]} created successfully.")
             else:
-                raise ValueError("FEATURE_VERSION_REGISTRY already exists.")
+                raise ValueError(f"{table_names[1]} already exists.")
+            
+            live_feature_table_exists = session.sql(f"SHOW TABLES LIKE {table_names[2]}").collect()
+            if not live_feature_table_exists:
+                session.sql(f"""
+                    CREATE TABLE IF NOT EXISTS {table_names[2]} (
+                            feature_id INT,
+                            feature_version INT,
+                            model_id INT,
+                            model_version INT,
+                            date_registered_as_live DATETIME,
+                            """) # every active model should register a new entry, even if using the same feature
+                print(f"{table_names[2]} created successfully.")
+            else:
+                raise ValueError(f"{table_names[2]} already exists.")
+
                             
         except Exception as e:
             print(e)
@@ -60,7 +76,6 @@ class FeatureStoreManager:
                         feature_name: str, 
                         feature_desc: str, 
                         feature_format: str,
-                        table_name: str, 
                         sql_select_query_to_generate_feature: str,
                         target_lag: str = '1 day') -> tuple[int, int]:
         """
@@ -81,19 +96,16 @@ class FeatureStoreManager:
             # if    table_name not in table_names:
             #     raise ValueError(f"Feature location   table_name} does not seem to be created by your query.")
 
+            table_name = feature_name + '1' #hard-coding that this is the first version, which is probably not ideal as check programatically later on
+
             feature_table_exists = session.sql(f"SHOW TABLES LIKE {table_name}").collect()
             if feature_table_exists:
                 raise ValueError(f"Feature table {table_name} already exists.")
+            if table_name in self.table_names:
+                raise ValueError(f"Feature table name {table_name} is a reserved name.")
             
-            # should also check table name isn't the same as one of the feature store registry table names
-
-            full_query = f"""
-                CREATE DYNAMIC TABLE {feature_name}
-                TARGET_LAG = '{target_lag}'
-                WAREHOUSE = INTELLIGENCE_XS
-                AS
-                {sql_select_query_to_generate_feature}
-            """     
+            # Generate the full sql query
+            full_query = self._create_table_creation_query_from_select_query(table_name, target_lag, sql_select_query_to_generate_feature)
             
             # Create the table
             session.sqr(full_query).collect()
@@ -109,6 +121,36 @@ class FeatureStoreManager:
                 VALUES ('{feature_name}', '{feature_desc}', '{feature_format}', '{table_name}', CURRENT_TIMESTAMP)
                 RETURNING feature_id
             """).collect() # vulnerable to SQL injection - never expose externally
+
+            feature_version = self._add_new_feature_version(feature_id, full_query, "Initial version")
+
+            return feature_id, feature_version
+
+        except Exception as e:
+            print(e)
+
+    def _check_table_exists(self, table_name: str):
+
+        session = self.conn.session
+        table_exists = session.sql(f"SHOW TABLES LIKE {table_name}").collect()
+        raise ValueError(f"{table_name} already exists.") if table_exists else False
+
+    def _create_table_creation_query_from_select_query(self, 
+                                                       table_name: str, 
+                                                       target_lag: str, 
+                                                       select_query: str) -> str:
+
+        full_query = f"""
+                CREATE DYNAMIC TABLE {table_name}
+                TARGET_LAG = '{target_lag}'
+                WAREHOUSE = INTELLIGENCE_XS
+                AS
+                {select_query}
+            """   
+        return full_query
+
+    def _add_new_feature_version(self, feature_id: int, sql_query: str, change_description: str) -> int:
+            session = self.conn.session
 
             # Create the first version of the feature in the feature version registry
             result = session.sql(f"""
@@ -126,17 +168,14 @@ class FeatureStoreManager:
                         change_description, 
                         date_version_registered)
                 VALUES (
-                    (SELECT feature_id FROM feature_registry WHERE feature_name = '{feature_name}'),
+                    ({feature_id},
                     {feature_version},
-                    '{sql_select_query_to_generate_feature}',
-                    'Initial version',
+                    '{sql_query}',
+                    '{change_description}',
                     CURRENT_TIMESTAMP)
             """).collect()
 
-        except Exception as e:
-            print(e)
-        
-        return feature_id, feature_version
+            return feature_version
 
     def update_feature(self, feature_id :int, new_sql_select_query: str, change_description: str):
         """
@@ -147,6 +186,11 @@ class FeatureStoreManager:
         """
         session = self.conn.session
         try:
+            self._add_new_feature_version(feature_id, new_sql_select_query, change_description)
+
+            # create new feature
+            # suspend old one
+            # update feature version registry
 
         
 
@@ -154,8 +198,11 @@ class FeatureStoreManager:
 
     # def get_data
 
+    # def deprecate_feature
+
     #  serve current version of feature
     # data drift
+
 
 if __name__ == "__main__":
     DATABASE = "INTELLIGENCE_DEV"
