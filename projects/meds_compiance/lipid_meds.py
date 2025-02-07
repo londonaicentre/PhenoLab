@@ -13,7 +13,8 @@ import plotly.graph_objects as go
 
 # This code when ran with streamlit run, will open a prototype dashboard that looks at lipid lowering medication prescriptions in those who are eligible for lipid lowring meds.
 # So far the code looks at 2 NICE guidance criteria, High Qrisk over 10 and Type 1 Diabetes (T1DM)
-# Will be updating dashboard with Proportion days covered calculations and menu to choos from BNF drug classes.
+# Will be updating dashboard with Proportion Days Covered (PDC) calculations and menu to choos from BNF drug classes.
+# code also needs a lot of tidying, cleaning and commenting!
 
 load_dotenv()
 
