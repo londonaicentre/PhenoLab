@@ -1,0 +1,10 @@
+altair==5.5.0
+folium==0.19.4
+geopandas==1.0.1
+numpy==2.2.2
+pandas==2.2.3
+plotly==6.0.0
+python-dotenv==1.0.1
+scipy==1.15.1
+streamlit==1.41.1
+streamlit_folium==0.24.0
