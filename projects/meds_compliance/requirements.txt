@@ -1,0 +1,11 @@
+-e ../../
+altair
+folium
+geopandas
+numpy
+pandas
+plotly
+python-dotenv
+scipy
+streamlit
+streamlit_folium
