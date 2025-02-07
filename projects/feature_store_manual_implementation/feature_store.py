@@ -140,6 +140,8 @@ class FeatureStoreManager:
                 CREATE DYNAMIC TABLE {table_name}
                 TARGET_LAG = '{target_lag}'
                 WAREHOUSE = INTELLIGENCE_XS
+                REFRESH_MODE = INCREMENTAL
+                INITIALIZE = ON_CREATE
                 AS
                 {select_query}
             """   
@@ -291,10 +293,10 @@ if __name__ == "__main__":
     SCHEMA = "TEST_FEATURE_STORE_IW_2"
     feature_store_manager = FeatureStoreManager(conn, DATABASE, SCHEMA)
     # feature_store_manager.create_feature_store()
-    # feature_store_manager.add_new_feature("feature2", "description of feature 1", "continuous", 
-                                        #   "SELECT * FROM INTELLIGENCE_DEV.AI_CENTRE_DEV.BSA_BNF_LOOKUP LIMIT 10") 
+    feature_store_manager.add_new_feature("hypertension", "patients with a high BP phenotype", "continuous", 
+                                          "SELECT * FROM INTELLIGENCE_DEV.AI_CENTRE_DEV.BSA_BNF_LOOKUP") 
     # feature_store_manager.update_feature(1, "SELECT * FROM INTELLIGENCE_DEV.AI_CENTRE_DEV.BSA_BNF_LOOKUP LIMIT 5", "test update")
-    feature_version = feature_store_manager.update_feature(1, 
-                                                           "SELECT * FROM INTELLIGENCE_DEV.AI_CENTRE_DEV.BSA_BNF_LOOKUP LIMIT 3", 
-                                                           "another test update")
-    print(feature_version)
+    # feature_version = feature_store_manager.update_feature(1, 
+    #                                                        "SELECT * FROM INTELLIGENCE_DEV.AI_CENTRE_DEV.BSA_BNF_LOOKUP LIMIT 3", 
+    #                                                        "another test update")
+    # print(feature_version)
