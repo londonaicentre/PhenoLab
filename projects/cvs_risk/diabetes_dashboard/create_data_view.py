@@ -41,8 +41,8 @@ SELECT
     patient_info.CURRENT_ADDRESS_ID, 
     patient_info.ETHNIC_CODE_CONCEPT_ID,
     ethnicity.code AS ethnicity_as_text_code,
-    demographics.ethnicity_description AS ethnicity_description,
-    demographics.ethnic_category AS ethnic_category,
+    demographics.ethnicity_detail AS ethnicity_description,
+    demographics.ethnicity_main_category  AS ethnic_category,
     patient_info.registered_practice_organization_id, 
     CASE 
         WHEN patient_info.date_of_death IS NOT NULL THEN patient_info.approx_current_age
@@ -56,7 +56,7 @@ JOIN PROD_DWH.ANALYST_PRIMARY_CARE.CONCEPT AS con
 ON patient_info.gender_concept_id = con.DBID
 JOIN PROD_DWH.ANALYST_PRIMARY_CARE.CONCEPT AS ethnicity
 ON patient_info.ethnic_code_concept_id = ethnicity.DBID
-JOIN intelligence_dev.ai_centre_feature_store.person_demographics AS demographics
+JOIN intelligence_dev.ai_centre_feature_store.person_nel_master_index AS demographics
 ON patient_info.person_id = demographics.person_id;
 """
 ).collect()
