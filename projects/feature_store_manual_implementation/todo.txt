@@ -1,7 +1,7 @@
 x add live features table
 x update_feature
 - get_data
-- deprecate feature
+- deprecate feature (remove all live versions)
 x debug/check functionality
 - integrate Joe's code +/- move
 - serve current version of feature
