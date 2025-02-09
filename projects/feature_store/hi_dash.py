@@ -20,22 +20,22 @@ import plotly.graph_objects as go
 
 # Hard code arrays for demo
 # We should define better way to choose phenotypes for feature stores
-PHENOTYPE_MAPPER = {
-    "ASTHMA": "Asthma diagnoses simple reference set",
-    "COPD": "Chronic obstructive pulmonary disorder, emphysema, and associated lung diseases simple reference set",
-    "DIABETES_ANY": "Diabetes diagnoses simple reference set",
-    "DIABETES_T2": "Diabetes type 2 diagnoses simple reference set",
-    "DIABETES_T1": "Diabetes type 1 diagnoses simple reference set",
-    "HYPERTENSION": "Systemic hypertension diagnoses simple reference set",
-    "ANGINA_CHD": "Angina and coronary heart disease diagnoses simple reference set",
-    "MYOCARDIAL_INFARCTION": "Myocardial infarction diagnoses simple reference set",
-    "TIA": "Transient ischaemic attack diagnoses simple reference set",
-    "NON_HAEMORRHAGIC_STROKE": "Non haemorrhagic strokes simple reference set",
-    "CKD_1": "Chronic kidney disease 1",
-    "CKD_3": "Chronic kidney disease 3",
-    "DEPRESSION": "Depression diagnoses simple reference set",
-    "PSYCHOSIS_SCHIZOPHRENIA_BIPOLAR": "Psychosis, schizophrenia and bipolar affective disorder simple reference set"
-}
+# PHENOTYPE_MAPPER = {
+#     "ASTHMA": "Asthma diagnoses simple reference set",
+#     "COPD": "Chronic obstructive pulmonary disorder, emphysema, and associated lung diseases simple reference set",
+#     "DIABETES_ANY": "Diabetes diagnoses simple reference set",
+#     "DIABETES_T2": "Diabetes type 2 diagnoses simple reference set",
+#     "DIABETES_T1": "Diabetes type 1 diagnoses simple reference set",
+#     "HYPERTENSION": "Systemic hypertension diagnoses simple reference set",
+#     "ANGINA_CHD": "Angina and coronary heart disease diagnoses simple reference set",
+#     "MYOCARDIAL_INFARCTION": "Myocardial infarction diagnoses simple reference set",
+#     "TIA": "Transient ischaemic attack diagnoses simple reference set",
+#     "NON_HAEMORRHAGIC_STROKE": "Non haemorrhagic strokes simple reference set",
+#     "CKD_1": "Chronic kidney disease 1",
+#     "CKD_3": "Chronic kidney disease 3",
+#     "DEPRESSION": "Depression diagnoses simple reference set",
+#     "PSYCHOSIS_SCHIZOPHRENIA_BIPOLAR": "Psychosis, schizophrenia and bipolar affective disorder simple reference set"
+# }
 
 # Order of demographic variables to display
 DEMOGRAPHIC_ORDER = {
@@ -61,10 +61,14 @@ GENDER_COLOURS = {
 
 # Helper functions
 def load_phenotypes():
+    """
+    Loads phenotype configuration from JSON file
+    Returns the phenotype keys (short names) used consistently across the feature store
+    """
     with open("phenoconfig.json", "r") as f:
-        arr = json.load(f)
-    print(arr)
-    return arr
+        pheno_dict = json.load(f)
+        print(list(pheno_dict.keys()))
+    return list(pheno_dict.keys())
 
 def convert_decimal_columns(df):
     """
@@ -190,14 +194,13 @@ def get_onset_age_data(snowsesh, phenotype):
 
     df = df[df['GENDER'].isin(['Male', 'Female'])]
 
-    # trying to set order using dataframe doesn't seem to work
-    # ethnicity_order = ['White', 'South Asian', 'Black', 'East Or Other Asian']
-    # df = df[df['ETHNIC_AIC_CATEGORY'].isin(ethnicity_order)]
-    # df['ETHNIC_AIC_CATEGORY'] = pd.Categorical(
-    #     df['ETHNIC_AIC_CATEGORY'],
-    #     categories=ethnicity_order,
-    #     ordered=True
-    # )
+    ethnicity_order = ['White', 'South Asian', 'Black', 'East Or Other Asian']
+    df = df[df['ETHNIC_AIC_CATEGORY'].isin(ethnicity_order)]
+    df['ETHNIC_AIC_CATEGORY'] = pd.Categorical(
+        df['ETHNIC_AIC_CATEGORY'],
+        categories=ethnicity_order,
+        ordered=True
+    )
 
     df['AGE_AT_ONSET'] = pd.to_numeric(df['AGE_AT_ONSET'], errors='coerce')
     df = df[df['AGE_AT_ONSET'] > 0]
@@ -254,17 +257,17 @@ def create_faceted_onset_chart(snowsesh, phenotype, demographic_col, title):
     st.altair_chart(chart, use_container_width=False)
 
 # Effects modification chart for risk of phenotype
-def get_adjusted_effects(snowsesh, phenotype_db_name):
+def get_adjusted_effects(snowsesh, phenotype):
     """
     Gets adjusted effects data for a specific phenotype from Snowflake
     """
-    # Map from DB name to short name using reverse mapping
-    phenotype_short = {v: k for k, v in PHENOTYPE_MAPPER.items()}[phenotype_db_name]
+    # # Map from DB name to short name using reverse mapping
+    # phenotype_short = {v: k for k, v in PHENOTYPE_MAPPER.items()}[phenotype_db_name]
 
     query = f"""
     SELECT *
     FROM INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.PHENOTYPE_ADJUSTED_EFFECTS
-    WHERE "phenotype" = '{phenotype_short}'
+    WHERE "phenotype" = '{phenotype}'
     """
     df = snowsesh.execute_query_to_df(query)
     return df
@@ -527,9 +530,8 @@ def main():
 
         try:
             df_risk = get_risk_data(snowsesh)
-            phenotype_short = {v: k for k, v in PHENOTYPE_MAPPER.items()}[phenotype]
 
-            df_risk = df_risk[df_risk['phenotype'] == phenotype_short]
+            df_risk = df_risk[df_risk['phenotype'] == phenotype]
 
             # Read and merge geojson (should keep this on Snowflake)
             gdf = gpd.read_file("geostore/uk_lsoa.geojson")
