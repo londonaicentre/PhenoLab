@@ -27,7 +27,7 @@ WITH demographic_groups AS (
         END as AGE_GROUP,
         ETHNIC_AIC_CATEGORY as ETHNIC_GROUP,
         CAST(IMD_QUINTILE as VARCHAR) as IMD_GROUP,
-        {', '.join([f'"{p}"' for p in PHENOTYPES])}
+        {phenotype_columns}
     FROM INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.PERSON_5YEAR_PHENOTYPE
 ),
 gender_counts AS (
@@ -75,10 +75,11 @@ all_counts AS (
 SELECT
     ac.*,
     dd.PERSON_COUNT as DEMOGRAPHIC_DENOMINATOR,
-    {', '.join([
-        f'ROUND(100.0 * "{p}_COUNT" / dd.PERSON_COUNT, 2) as "{p}_PREVALENCE"'
-        for p in PHENOTYPES
-    ])}
+    {prevalence_calculations}
+    -- {', '.join([
+    --     f'ROUND(100.0 * "{p}_COUNT" / dd.PERSON_COUNT, 2) as "{p}_PREVALENCE"'
+    --     for p in PHENOTYPES
+    -- ])}
 FROM all_counts ac
 LEFT JOIN INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.DEMOGRAPHIC_DENOMINATOR_COUNT dd
     ON ac.DEMOGRAPHIC_TYPE = dd.DEMOGRAPHIC_TYPE
@@ -94,10 +95,13 @@ ORDER BY
 """
 
 def load_phenotypes():
+    """
+    Loads phenotype configuration from JSON file
+    Returns list of column names
+    """
     with open("phenoconfig.json", "r") as f:
-        arr = json.load(f)
-    print(arr)
-    return arr
+        pheno_dict = json.load(f)
+    return list(pheno_dict.keys())
 
 # def get_demographic_denominators(snowsesh):
 #     """
@@ -130,7 +134,7 @@ def generate_phenotype_sum_columns(phenotypes):
     Generates SQL for summing phenotype columns
     """
     return ",\n".join([
-        f'SUM("{phenotype}") as "{phenotype}_COUNT"'
+        f'SUM({phenotype}) as "{phenotype}_COUNT"'
         for phenotype in phenotypes
     ])
 
@@ -139,11 +143,25 @@ def create_demographic_prevalence_table(snowsesh):
     Creates table containing demographic prevalence calculations
     """
     PHENOTYPES = load_phenotypes()
+
+    # prepare dynamic parts
     phenotype_sums = generate_phenotype_sum_columns(PHENOTYPES)
-    create_table_sql = PHENOTYPE_DEMOGRAPHIC_SQL.format(
-        phenotype_sums=phenotype_sums
-        )
-    snowsesh.execute_query(create_table_sql)
+    phenotype_columns = ', '.join([f'"{p}"' for p in PHENOTYPES])
+
+    prevalence_calculations = ', '.join([
+        f'ROUND(100.0 * "{p}_COUNT" / dd.PERSON_COUNT, 2) as "{p}_PREVALENCE"'
+        for p in PHENOTYPES
+    ])
+
+    print(phenotype_sums)
+    print(phenotype_columns)
+    print(prevalence_calculations)  # Debugging: see the generated string
+
+    sql = PHENOTYPE_DEMOGRAPHIC_SQL.replace("{phenotype_columns}", phenotype_columns) \
+                                     .replace("{phenotype_sums}", phenotype_sums) \
+                                     .replace("{prevalence_calculations}", prevalence_calculations)
+
+    snowsesh.execute_query(sql)
     print("Created phenotype prevalence table")
 
 def main():
