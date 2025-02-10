@@ -18,25 +18,6 @@ import plotly.graph_objects as go
 # 4) Synthetic patient panel
 # POC for now - needs heavy, heavy refacctoring!!
 
-# Hard code arrays for demo
-# We should define better way to choose phenotypes for feature stores
-# PHENOTYPE_MAPPER = {
-#     "ASTHMA": "Asthma diagnoses simple reference set",
-#     "COPD": "Chronic obstructive pulmonary disorder, emphysema, and associated lung diseases simple reference set",
-#     "DIABETES_ANY": "Diabetes diagnoses simple reference set",
-#     "DIABETES_T2": "Diabetes type 2 diagnoses simple reference set",
-#     "DIABETES_T1": "Diabetes type 1 diagnoses simple reference set",
-#     "HYPERTENSION": "Systemic hypertension diagnoses simple reference set",
-#     "ANGINA_CHD": "Angina and coronary heart disease diagnoses simple reference set",
-#     "MYOCARDIAL_INFARCTION": "Myocardial infarction diagnoses simple reference set",
-#     "TIA": "Transient ischaemic attack diagnoses simple reference set",
-#     "NON_HAEMORRHAGIC_STROKE": "Non haemorrhagic strokes simple reference set",
-#     "CKD_1": "Chronic kidney disease 1",
-#     "CKD_3": "Chronic kidney disease 3",
-#     "DEPRESSION": "Depression diagnoses simple reference set",
-#     "PSYCHOSIS_SCHIZOPHRENIA_BIPOLAR": "Psychosis, schizophrenia and bipolar affective disorder simple reference set"
-# }
-
 # Order of demographic variables to display
 DEMOGRAPHIC_ORDER = {
     'ethnicity': ['White', 'South Asian', 'Black', 'East Or Other Asian'],
@@ -240,8 +221,7 @@ def create_faceted_onset_chart(snowsesh, phenotype, demographic_col, title):
                      scale=alt.Scale(domain=list(ETHNICITY_COLOURS.keys()),
                                    range=list(ETHNICITY_COLOURS.values()))
                      if demographic_col == 'ETHNIC_AIC_CATEGORY' else
-                     alt.Scale(scheme='lightorange'),
-                     legend=None),
+                     alt.Scale(scheme='lightorange')),
             alt.value('steelblue')
         ),
         row=alt.Row(f'{demographic_col}:N', sort=sort_order),
@@ -272,7 +252,7 @@ def get_adjusted_effects(snowsesh, phenotype):
     df = snowsesh.execute_query_to_df(query)
     return df
 
-def create_effect_modification_chart(df, effect_type, title):
+def create_effect_modification_chart(df, effect_type, title, show_legend=True):
     """
     Creates chart showing effect modification with confidence intervals
     """
@@ -333,7 +313,7 @@ def create_effect_modification_chart(df, effect_type, title):
                 title='Ethnic Group',
                 titleFontSize=12,
                 labelFontSize=12
-            )
+            ) if show_legend else None
         )
     )
     # confidence interval band
@@ -451,6 +431,93 @@ def create_choropleth_map(gdf, value_column, title, color_scheme='YlOrRd', rever
 
     return m
 
+@st.cache_data
+def load_segment_data():
+    df_3d = pd.read_csv('ppmi_3d.csv')
+    df_2d = pd.read_csv('ppmi_2d.csv', index_col=0)
+    max_ppmi_3d = df_3d['ppmi'].max()
+    return df_3d, df_2d, max_ppmi_3d
+
+def show_segdash(selected_condition):
+    # Load the data
+    data_3d, data_2d, max_ppmi_3d = load_segment_data()
+
+    # Get unique conditions
+    conditions = sorted(data_2d.columns)
+
+    # Prepare 2D data for visualization
+    two_d_data = data_2d[selected_condition].reset_index()
+    two_d_data.columns = ['condition', 'ppmi']
+    two_d_data = two_d_data[two_d_data['condition'] != selected_condition]  # Remove self-comparison
+    two_d_data = two_d_data.sort_values('ppmi', ascending=False)  # Sort for better visualization
+    two_d_data = two_d_data.head(10)
+
+    # Create 2D bar chart
+    st.subheader(f'Pairwise Relationships with {selected_condition}')
+    bar_chart = alt.Chart(two_d_data).mark_bar().encode(
+        y=alt.Y('condition:N',
+                title='Condition',
+                sort='-x',
+                axis=alt.Axis(labelLimit=200)),  # Sort by PPMI value
+        x=alt.X('ppmi:Q',
+                title='PPMI Score'),
+        color=alt.Color('ppmi:Q',
+                    scale=alt.Scale(scheme='viridis', domain=[0, 5]),
+                    title='PPMI Score'),
+        tooltip=[
+            alt.Tooltip('condition:N', title='Condition'),
+            alt.Tooltip('ppmi:Q', title='PPMI', format='.3f')
+        ]
+    ).properties(
+        width=800,
+        height=400
+    )
+
+    st.altair_chart(bar_chart, use_container_width=True)
+
+    # 3D data filtering
+    filtered_data = data_3d[
+        (data_3d['condition3'] == selected_condition) &
+        (data_3d['condition1'] != data_3d['condition2']) &
+        (data_3d['condition1'] != selected_condition) &
+        (data_3d['condition2'] != selected_condition) &
+        (data_3d['condition1'] < data_3d['condition2'])
+    ].copy()
+
+    conditions_subset = [c for c in conditions if c != selected_condition]
+
+    col1, col2 = st.columns([2, 1])
+    with col1:
+        st.subheader(f'Three-way PPMI Heatmap for {selected_condition}')
+        heatmap = alt.Chart(filtered_data).mark_rect().encode(
+            x=alt.X('condition1:N',
+                    title='Condition 1',
+                    sort=conditions_subset),
+            y=alt.Y('condition2:N',
+                    title='Condition 2',
+                    sort=conditions_subset),
+            color=alt.Color('ppmi:Q',
+                        scale=alt.Scale(scheme='viridis', domain=[0, 5]),
+                        title='PPMI Score'),
+            tooltip=[
+                alt.Tooltip('condition1:N', title='Condition 1'),
+                alt.Tooltip('condition2:N', title='Condition 2'),
+                alt.Tooltip('ppmi:Q', title='PPMI', format='.3f'),
+                alt.Tooltip('count:Q', title='Count', format=',')
+            ]
+        ).properties(
+            width=600,
+            height=600
+        )
+        st.altair_chart(heatmap, use_container_width=True)
+
+    with col2:
+        st.subheader('Top 10 Strongest Relationships')
+        top_relationships = filtered_data.nlargest(10, 'ppmi')
+        top_relationships = top_relationships[['condition1', 'condition2', 'ppmi', 'count']]
+        top_relationships = top_relationships.round({'ppmi': 3})
+        st.dataframe(top_relationships, height=400)
+
 def main():
     load_dotenv()
 
@@ -467,10 +534,11 @@ def main():
 
     # Phenotype selector in the sidebar
     with st.sidebar:  # Add the selectbox to the sidebar
-        st.title("Health Inequalities Viewfinder")
+        st.title("PRISM - Personalised Risk, Insights, Stratification and Modelling")
         selected_view = st.radio("Select View", ["Demographic Breakdown",
                                                  "Ethnicity Inequality",
                                                  "Underdiagnosis Risk",
+                                                 "Statistical Segmentation",
                                                  "Personalised Profile"])
         phenotype = st.selectbox(
             "Select Phenotype",
@@ -478,7 +546,42 @@ def main():
             format_func=lambda x: x.replace(" simple reference set", "").replace(" diagnoses", "")
         )
 
-    if selected_view == "Ethnicity Inequality":
+
+    # Display simple demographic breakdown charts
+    if selected_view == "Demographic Breakdown":
+        st.title(f"Descriptive Demographic Breakdown")
+        st.write("""
+            This view shows the prevalence of selected conditions across different demographic groups in the NEL population.
+            Prevalence is broken down by: ethnic groups (including age of onset), socioeconomic deprivation, age bands, and gender.
+            Views are generated by live SQL query execution in a Snowflake Database containing data for 2.5 million individuals.
+        """)
+
+        st.text("")
+
+        if phenotype:
+            cols = st.columns([3,2], gap="small")
+            with cols[0]:
+               create_faceted_onset_chart(snowsesh, phenotype, 'ETHNIC_AIC_CATEGORY', f'Age of Onset by Ethnicity')
+            with cols[1]:
+               create_simple_prevalence_chart(snowsesh, phenotype, 'ethnicity', 'Prevalence - Ethnic Subgroup')
+
+            st.text("")
+
+            # cols = st.columns(2, gap="small")
+            # with cols[0]:
+            #     create_simple_prevalence_chart(snowsesh, phenotype, 'ethnicity', 'Prevalence - Ethnic Subgroup')
+            # with cols[1]:
+            #     create_simple_prevalence_chart(snowsesh, phenotype, 'london_imd', 'Prevalence - Deprivation Quintile')
+
+            cols = st.columns(3, gap="large")
+            with cols[0]:
+                create_simple_prevalence_chart(snowsesh, phenotype, 'age_band', 'Prevalence - Age Group')
+            with cols[1]:
+                create_simple_prevalence_chart(snowsesh, phenotype, 'london_imd', 'Prevalence - Deprivation Quintile')
+            with cols[2]:
+                create_simple_prevalence_chart(snowsesh, phenotype, 'gender', 'Prevalence - Gender')
+
+    elif selected_view == "Ethnicity Inequality":
         st.title(f"Multivariate Adjusted Risk Profile")
         effects_df = get_adjusted_effects(snowsesh, phenotype)
         if phenotype:
@@ -488,41 +591,37 @@ def main():
                 imd_chart = create_effect_modification_chart(
                     effects_df,
                     'imd_rank',
-                    'Ethnicity Effect Modification by Deprivation'
+                    'Ethnicity Effect Modification by Deprivation',
+                    show_legend=True
                 )
                 st.altair_chart(imd_chart, use_container_width=True)
 
-            # Second row: Ethnicity age and prevalence
+            # Second row: Effect modification plot 2
             cols = st.columns([3,2], gap="small")
             with cols[0]:
-                create_faceted_onset_chart(snowsesh, phenotype, 'ETHNIC_AIC_CATEGORY', f'Age of Onset by Ethnicity')
+                imd_chart = create_effect_modification_chart(
+                    effects_df,
+                    'age_band',
+                    'Ethnicity Effect Modification by Age',
+                    show_legend=False
+                )
+                st.altair_chart(imd_chart, use_container_width=True)
             with cols[1]:
-                create_simple_prevalence_chart(snowsesh, phenotype, 'ethnicity', 'Prevalence - Ethnic Subgroup')
+               create_simple_prevalence_chart(snowsesh, phenotype, 'ethnicity', 'Prevalence - Ethnic Subgroup')
 
-            # # Third row: Deprivation age and prevalence
+            # Second row: Ethnicity age and prevalence
+            # cols = st.columns([3,2], gap="small")
+            # with cols[0]:
+            #    create_faceted_onset_chart(snowsesh, phenotype, 'ETHNIC_AIC_CATEGORY', f'Age of Onset by Ethnicity')
+            # with cols[1]:
+            #    create_simple_prevalence_chart(snowsesh, phenotype, 'ethnicity', 'Prevalence - Ethnic Subgroup')
+
+            # Third row: Deprivation age and prevalence
             # cols = st.columns([3,2], gap="small")
             # with cols[0]:
             #     create_faceted_onset_chart(snowsesh, phenotype, 'IMD_QUINTILE', f'Age of Onset by Deprivation Decile')
             # with cols[1]:
             #     create_simple_prevalence_chart(snowsesh, phenotype, 'london_imd', 'Prevalence - Deprivation Quintile')
-
-    # Display simple demographic breakdown charts
-    elif selected_view == "Demographic Breakdown":
-        st.title(f"Descriptive Demographic Breakdown")
-        if phenotype:
-            cols = st.columns(2, gap="small")
-            with cols[0]:
-                create_simple_prevalence_chart(snowsesh, phenotype, 'ethnicity', 'Prevalence - Ethnic Subgroup')
-            with cols[1]:
-                create_simple_prevalence_chart(snowsesh, phenotype, 'london_imd', 'Prevalence - Deprivation Quintile')
-
-            st.text("")
-
-            cols = st.columns(2, gap="large")
-            with cols[0]:
-                create_simple_prevalence_chart(snowsesh, phenotype, 'age_band', 'Prevalence - Age Group')
-            with cols[1]:
-                create_simple_prevalence_chart(snowsesh, phenotype, 'gender', 'Prevalence - Gender')
 
     # Display geospatial visualisations
     elif selected_view == "Underdiagnosis Risk":
@@ -561,6 +660,13 @@ def main():
         except Exception as e:
             st.error(f"Error creating maps: {e}")
             st.write("Please ensure you have the required geojson file and data access.")
+
+    # Display statistical segmentation page
+    elif selected_view == "Statistical Segmentation":
+        st.title(f"Statistical Segmentation")
+        cols = st.columns(1)
+        with cols[0]:
+            show_segdash(phenotype)
 
     # Display individual profiler
     elif selected_view == "Personalised Profile":
