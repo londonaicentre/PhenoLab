@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import altair as alt
 
-# Set page configuration
 st.set_page_config(page_title="Multimorbidity Phenotype Analysis", layout="wide")
 
 # Load the data
@@ -12,8 +11,6 @@ def load_data():
     df_2d = pd.read_csv('ppmi_2d.csv', index_col=0)
     max_ppmi_3d = df_3d['ppmi'].max()
     return df_3d, df_2d, max_ppmi_3d
-
-# Load the data
 data_3d, data_2d, max_ppmi_3d = load_data()
 
 # Get unique conditions
@@ -32,7 +29,7 @@ selected_condition = st.selectbox(
 two_d_data = data_2d[selected_condition].reset_index()
 two_d_data.columns = ['condition', 'ppmi']
 two_d_data = two_d_data[two_d_data['condition'] != selected_condition]  # Remove self-comparison
-two_d_data = two_d_data.sort_values('ppmi', ascending=False)  # Sort for better visualization
+two_d_data = two_d_data.sort_values('ppmi', ascending=False)
 two_d_data = two_d_data.head(10)
 
 # Create 2D bar chart
@@ -70,12 +67,10 @@ filtered_data = data_3d[
 # Remove the selected condition from both axes
 conditions_subset = [c for c in conditions if c != selected_condition]
 
-# Create two columns with 2:1 ratio
 col1, col2 = st.columns([2, 1])
 
 with col1:
     st.subheader(f'Three-way PPMI Heatmap for {selected_condition}')
-    # Create heatmap using Altair with fixed scale
     heatmap = alt.Chart(filtered_data).mark_rect().encode(
         x=alt.X('condition1:N',
                 title='Condition 1',
@@ -96,12 +91,9 @@ with col1:
         width=600,
         height=600
     )
-
-    # Display the heatmap
     st.altair_chart(heatmap, use_container_width=True)
 
 with col2:
-    # Show statistics
     st.subheader('Top 10 Strongest Relationships')
     top_relationships = filtered_data.nlargest(10, 'ppmi')
     top_relationships = top_relationships[['condition1', 'condition2', 'ppmi', 'count']]
