@@ -63,6 +63,25 @@ def main():
     #Order by start of month, then drop duplicate patients
     nel_index = nel_index.sort_values('END_OF_MONTH', ascending = False)
     nel_index = nel_index[~nel_index.PERSON_ID.duplicated()]
+
+    def years_between(later_years: pd.Series, earlier_years: pd.Series) -> pd.Series:
+        """Function to calculate a time difference in years
+        later_years: pd.Series of the later dates (in datetime)
+        earlier_years: pd.Series of the earlier dates (in datetime)
+        Returns another series of type float in years
+        """
+        #Some sensible error messages for type checking - pd.series
+        if not isinstance(later_years, pd.Series) and not (isinstance, earlier_years, pd.Series):
+            raise TypeError('Both inputs must be series')
+        
+        #Errors for datetime
+        later_years_dt = later_years.apply(lambda x: isinstance(x, datetime)).all()
+        earlier_years_dt = earlier_years.apply(lambda x: isinstance(x, datetime)).all()
+        if not earlier_years_dt and not later_years_dt:
+            raise TypeError('Both series must only contain datetimes')
+        
+        years_inbetween = later_years - earlier_years
+        return years_inbetween.dt.days/365.25
     
     #Fix issue with some registration dates being before birth
     registered_before_birth = nel_index.REGISTRATION_START_DATE < nel_index.DATE_OF_BIRTH
@@ -75,7 +94,15 @@ def main():
 
     #Now mark patients if registered at death - registration end date ends within 2 months of death (arbitrarily)
     nel_index.loc[registration_death.dt.days <= 60, 'currently_registered'] = True 
-    
+
+    #Get ages
+    nel_index['age'] = np.nan
+
+    died = ~nel_index.DATE_OF_DEATH.isna()
+    nel_index.loc[died, 'age'] = years_between(nel_index.DATE_OF_DEATH[died], nel_index.DATE_OF_BIRTH[died])
+    nel_index.loc[~died, 'age'] = years_between(nel_index.END_OF_MONTH[~died], nel_index.DATE_OF_BIRTH[~died])
+
+    #nel_index.loc[nel_index.age > 125, ['DATE_OF_BIRTH', 'REGISTRATION_START_DATE', 'REGISTRATION_END_DATE', 'END_OF_MONTH']]
     #First validation plots
     st.markdown('## Plotting time from registration to death or other')
     col1, col2 = st.columns(2)
@@ -104,18 +131,7 @@ def main():
 
     st.plotly_chart(fig)
 
-    #Get ages
-    nel_index['age'] = np.nan
-    died = ~nel_index.DATE_OF_DEATH.isna()
-    #died = nel_index.PATIENT_STATUS == 'DEATH'
-    death_ages = nel_index.DATE_OF_DEATH[died] - nel_index.DATE_OF_BIRTH[died]
-    nel_index.loc[died, 'age'] = death_ages.dt.days/365.25
-
-    survived_ages = nel_index.END_OF_MONTH[~died] - nel_index.DATE_OF_BIRTH[~died]
-    nel_index.loc[~died, 'age'] = survived_ages.dt.days/365.25
-
-
-    #Can either plot ages at death or do some sort of standardised mortality rate? Prob makes sense to do both
+   #Can either plot ages at death or do some sort of standardised mortality rate? Prob makes sense to do both
 
     #Plot time from registration to death
     newcol1, newcol2 = st.columns(2)
@@ -168,7 +184,53 @@ def main():
     st.markdown('### Calculate standardised mortality')
     st.plotly_chart(barplot)
 
-    #This is quite low. Would be interesting to do a mortality rate for each age bracket
+    ### This is quite low. Would be interesting to do a mortality rate for each age bracket
+    age_brackets = np.array([(i+1)*5 for i in range(25)])
+    
+    #Work out the time spent in each age bracket and then number of deaths
+    #First annoyingly need to assume that age at registration where not filled is birth and age at deregistration now/ death
+    nel_index.loc[nel_index.REGISTRATION_START_DATE.isna(), 'REGISTRATION_START_DATE'] = nel_index.DATE_OF_BIRTH
+    nel_index.loc[nel_index.REGISTRATION_END_DATE.isna(), 'REGISTRATION_START_DATE'] = nel_index.END_OF_MONTH
+
+    #Make age at registration and at deregistration
+    nel_index['age_registration'] = years_between(nel_index.REGISTRATION_START_DATE, nel_index.DATE_OF_BIRTH)
+    nel_index['age_deregistration'] = years_between(nel_index.REGISTRATION_END_DATE, nel_index.DATE_OF_BIRTH)
+    nel_index.loc[died_registered, 'age_deregistration'] = nel_index.age
+    nel_index.loc[alive_registered, 'age_deregistration'] = nel_index.age
+
+    #For now bin patients where DOB before 1900
+    nel_index = nel_index.drop(nel_index.DATE_OF_BIRTH < datetime(1900, 1,1))
+
+    #Now get times in each age bracket
+    registered_age_df = pd.DataFrame(columns=age_brackets, index=nel_index.index)
+    deregistered_age_df = pd.DataFrame(columns=age_brackets, index=nel_index.index)
+
+    def years_between_brackets(start_age: float, end_age: float, brackets: np.array) -> np.array:
+        """Function to return the years spent in each bracket"""
+
+        #Enforce rules
+        bracket_size = np.unique(np.diff(brackets))
+        if not len(bracket_size) == 1:
+            raise ValueError('Brackets must be equal distances apart')
+        
+        #Get start and end
+        start_bracket = brackets[brackets > start_age][0]
+        end_bracket = brackets[brackets > end_age][0]
+
+        #Set up some storage, get start and end
+        age_in_brackets = np.zeros(len(brackets))
+        age_in_brackets[brackets == start_bracket] = start_bracket - start_age
+        age_in_brackets[brackets == end_bracket] = end_age - (end_bracket - bracket_size[0])
+
+        #Fill in the gaps
+        middle_brackets = [i for i in range(start_bracket + bracket_size[0], end_bracket, bracket_size[0])]
+        age_in_brackets[np.isin(brackets, middle_brackets)] = 5
+
+        return(age_in_brackets)
+    
+    #for i in tqdm(range(10000)):
+    #    a = nel_index.loc[nel_index.index[0:i], :].apply(lambda x: years_between_brackets(x.age_registration, x.age_deregistration, age_brackets), axis = 1)
+
 
 if __name__ == "__main__":
     main()
