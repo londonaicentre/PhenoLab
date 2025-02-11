@@ -64,6 +64,10 @@ def main():
     nel_index = nel_index.sort_values('END_OF_MONTH', ascending = False)
     nel_index = nel_index[~nel_index.PERSON_ID.duplicated()]
 
+    #For now bin patients where DOB before 1900
+    nel_index = nel_index.loc[nel_index.DATE_OF_BIRTH > datetime(1900, 1,1), :]
+    nel_index = nel_index.reset_index().iloc[:, 1:]
+
     def years_between(later_years: pd.Series, earlier_years: pd.Series) -> pd.Series:
         """Function to calculate a time difference in years
         later_years: pd.Series of the later dates (in datetime)
@@ -190,21 +194,15 @@ def main():
     #Work out the time spent in each age bracket and then number of deaths
     #First annoyingly need to assume that age at registration where not filled is birth and age at deregistration now/ death
     nel_index.loc[nel_index.REGISTRATION_START_DATE.isna(), 'REGISTRATION_START_DATE'] = nel_index.DATE_OF_BIRTH
-    nel_index.loc[nel_index.REGISTRATION_END_DATE.isna(), 'REGISTRATION_START_DATE'] = nel_index.END_OF_MONTH
+    nel_index.loc[nel_index.REGISTRATION_END_DATE.isna(), 'REGISTRATION_END_DATE'] = nel_index.END_OF_MONTH
 
     #Make age at registration and at deregistration
     nel_index['age_registration'] = years_between(nel_index.REGISTRATION_START_DATE, nel_index.DATE_OF_BIRTH)
     nel_index['age_deregistration'] = years_between(nel_index.REGISTRATION_END_DATE, nel_index.DATE_OF_BIRTH)
-    nel_index.loc[died_registered, 'age_deregistration'] = nel_index.age
-    nel_index.loc[alive_registered, 'age_deregistration'] = nel_index.age
-
-    #For now bin patients where DOB before 1900
-    nel_index = nel_index.drop(nel_index.DATE_OF_BIRTH < datetime(1900, 1,1))
+    nel_index.loc[died_registered, 'age_deregistration'] = nel_index.age[died_registered]
+    nel_index.loc[alive_registered, 'age_deregistration'] = nel_index.age[alive_registered]
 
     #Now get times in each age bracket
-    registered_age_df = pd.DataFrame(columns=age_brackets, index=nel_index.index)
-    deregistered_age_df = pd.DataFrame(columns=age_brackets, index=nel_index.index)
-
     def years_between_brackets(start_age: float, end_age: float, brackets: np.array) -> np.array:
         """Function to return the years spent in each bracket"""
 
@@ -228,9 +226,59 @@ def main():
 
         return(age_in_brackets)
     
-    #for i in tqdm(range(10000)):
-    #    a = nel_index.loc[nel_index.index[0:i], :].apply(lambda x: years_between_brackets(x.age_registration, x.age_deregistration, age_brackets), axis = 1)
+    @st.cache_data
+    def explode_rows(sheet: pd.DataFrame)-> pd.DataFrame:
+        """Function to take vectorised output from applied years_between_brackets 
+        and convert to a dataframe"""
+        return sheet.apply(lambda x: x.explode(1), axis = 1)
+    
+    @st.cache_data
+    def return_brackets_df(sheet: pd.DataFrame, start_age: str, end_age: str, brackets: np.array, from_birth = False) -> pd.DataFrame:
+        """Function to put all of this together"""
+        if not from_birth:
+            new_sheet = sheet.apply(lambda x: years_between_brackets(x[start_age], x[end_age], brackets), axis = 1)
+        else: 
+            new_sheet = sheet.apply(lambda x: years_between_brackets(0, x[end_age], brackets), axis = 1)
+        new_sheet = pd.DataFrame(new_sheet)
+        return explode_rows(new_sheet)
 
+    registered_age_df = return_brackets_df(nel_index, 'age_registration', 'age_deregistration', age_brackets)
+    preregistered_age_df = return_brackets_df(nel_index, 'birth', 'age_registration', age_brackets, from_birth=True)
+    postregistered_age_df = return_brackets_df(nel_index, 'age_deregistration', 'age', age_brackets)
+
+    #Add up the times
+    registered_age_bracket_sums = registered_age_df.sum(axis = 0)
+    prereg_age_bracket_sums = preregistered_age_df.sum(axis = 0)
+    postreg_age_bracket_sums =  postregistered_age_df.sum(axis = 0)
+    unreg_age_bracket_sums = postreg_age_bracket_sums + prereg_age_bracket_sums
+
+    #Now get mortality by age
+    registered_death_brackets = pd.cut(nel_index.loc[died_registered, 'age'], age_brackets - 5).value_counts()
+    registered_death_brackets_np = registered_death_brackets.sort_index().to_numpy()
+    unregistered_death_brackets = pd.cut(nel_index.loc[died_deregistered, 'age'], age_brackets - 5).value_counts()
+    unregistered_death_brackets_np = unregistered_death_brackets.sort_index().to_numpy()
+    
+    #Now calculate the standardised mortality rate
+    age_stratified_mortality_registered = np.append(registered_death_brackets_np, 0)/registered_age_bracket_sums
+    age_strat_mort_reg_df = pd.DataFrame({'age': age_brackets,
+                                          'standardised_mortality': age_stratified_mortality_registered
+                                          })
+    age_stratified_mortality_unregistered = np.append(unregistered_death_brackets_np, 0)/unreg_age_bracket_sums
+    age_strat_mort_unreg_df = pd.DataFrame({'age': age_brackets,
+                                          'standardised_mortality': age_stratified_mortality_unregistered
+                                          })
+
+    registered_barplot = px.bar(age_strat_mort_reg_df,x= 'age', y = 'standardised_mortality')
+    unregistered_barplot = px.bar(age_strat_mort_unreg_df,x= 'age', y = 'standardised_mortality')
+
+    regcol1, regcol2 = st.columns(2)
+    with regcol1:
+        st.markdown('Age stratified mortality in registered patients')
+        st.plotly_chart(registered_barplot)
+
+    with regcol2:
+        st.markdown('Age stratified mortality in unregistered patients')
+        st.plotly_chart(unregistered_barplot, color = 'red')
 
 if __name__ == "__main__":
     main()
