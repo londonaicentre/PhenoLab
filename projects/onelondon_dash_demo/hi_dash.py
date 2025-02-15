@@ -11,13 +11,16 @@ from streamlit_folium import folium_static
 import geopandas as gpd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+import plotly.graph_objects as go
 
 # This generates a tabbed streamlit dashboard with:
 # 1) Descriptive prevalence
 # 2) Adjusted risk + age of onset
 # 3) Geospatial predicted risk
-# 4) Synthetic patient panel
-# POC for now - needs heavy, heavy refacctoring!!
+# 4) PPMI based segmentation
+# 5) Demonstration of subsegment timelines
+# 6) Synthetic patient panel
+# POC for now - would need heavy, heavy refactoring if we ever bring into production!
 
 # Order of demographic variables to display
 DEMOGRAPHIC_ORDER = {
@@ -41,13 +44,13 @@ GENDER_COLOURS = {
     'Female': '#98fb98' # pale green
 }
 
-# Helper functions
+### HELPER FUNCTIONS ###
 def load_phenotypes():
     """
     Loads phenotype configuration from JSON file
     Returns the phenotype keys (short names) used consistently across the feature store
     """
-    with open("phenoconfig.json", "r") as f:
+    with open("../feature_store/phenoconfig.json", "r") as f:
         pheno_dict = json.load(f)
         print(list(pheno_dict.keys()))
     return list(pheno_dict.keys())
@@ -63,7 +66,7 @@ def convert_decimal_columns(df):
             continue
     return df
 
-# Descriptive prevalence charts
+### DESCRIPTIVE PREVALENCE CHARTS ###
 def get_prevalence(snowsesh, phenotype, demographic):
     """
     Gets prevalence data for a specific phenotype and selected demographic
@@ -104,7 +107,6 @@ def create_simple_prevalence_chart(snowsesh, phenotype, demographic, title):
     """
     df = get_prevalence(snowsesh, phenotype, demographic)
 
-    # Format prevalence for display
     df['PREVALENCE_FORMATTED'] = df['PREVALENCE'].round(1).astype(str) + '%'
 
     if demographic == 'ethnicity':
@@ -124,15 +126,14 @@ def create_simple_prevalence_chart(snowsesh, phenotype, demographic, title):
                                                type='linear'),
                                  legend=None)
 
-    # Create Altair chart from df
     base = alt.Chart(df).encode(
         y=alt.Y('DEMOGRAPHIC_SUBGROUP:N',
                 title=None,
                 sort=None,
-                axis=alt.Axis(orient='right')),  # Use pre-sorted order
+                axis=alt.Axis(orient='right')),
         x=alt.X('PREVALENCE:Q',
                 title='Prevalence Within Subgroup (%)',
-                scale=alt.Scale(domain=[0, df['PREVALENCE'].max() * 1.2])),  # Add 20% padding
+                scale=alt.Scale(domain=[0, df['PREVALENCE'].max() * 1.2])),
         color=color_encoding,
         tooltip=[
             alt.Tooltip('DEMOGRAPHIC_SUBGROUP', title='Group'),
@@ -140,7 +141,6 @@ def create_simple_prevalence_chart(snowsesh, phenotype, demographic, title):
         ]
     )
 
-    # Create layered bars and text
     chart = alt.layer(
         base.mark_bar(opacity=0.7),
         base.encode(
@@ -162,7 +162,7 @@ def create_simple_prevalence_chart(snowsesh, phenotype, demographic, title):
 
     st.altair_chart(chart, use_container_width=False)
 
-# Age of Onset chart (faceted area chart)
+### AGE OF ONSET CHART (FACETED) ###
 def get_onset_age_data(snowsesh, phenotype):
     """
     Gets age of onset data for a specific phenotype
@@ -237,14 +237,11 @@ def create_faceted_onset_chart(snowsesh, phenotype, demographic_col, title):
     )
     st.altair_chart(chart, use_container_width=False)
 
-# Effects modification chart for risk of phenotype
+### EFFECTS MODIFICATION CHART FOR RISK OF PHENOTYPE ###
 def get_adjusted_effects(snowsesh, phenotype):
     """
     Gets adjusted effects data for a specific phenotype from Snowflake
     """
-    # # Map from DB name to short name using reverse mapping
-    # phenotype_short = {v: k for k, v in PHENOTYPE_MAPPER.items()}[phenotype_db_name]
-
     query = f"""
     SELECT *
     FROM INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.PHENOTYPE_ADJUSTED_EFFECTS
@@ -273,7 +270,7 @@ def create_effect_modification_chart(df, effect_type, title, show_legend=True):
             )
         )
     else:
-        # Continuous axis for IMD with custom marks
+        # Continuous axis for IMD
         x_encoding = alt.X(
             'modifier_value:Q',
             title='IMD Rank (0=Most Deprived, 1=Least Deprived)',
@@ -322,9 +319,9 @@ def create_effect_modification_chart(df, effect_type, title, show_legend=True):
         y='lower_ci:Q',
         y2='upper_ci:Q'
     )
-    # Line for main effect
+    # line for main effect
     lines = base.mark_line(size=2)
-    # combine above layers
+    # combine layers
     chart = (ci_bands + lines).properties(
         title=alt.Title(
             text=title,
@@ -339,7 +336,7 @@ def create_effect_modification_chart(df, effect_type, title, show_legend=True):
     )
     return chart
 
-# Predicted geospatial risk
+### GEOSPATIAL RISK ###
 def get_risk_data(snowsesh):
     """
     Retrieves predicted risk data and IMD ranks by LSOA
@@ -376,14 +373,14 @@ def create_choropleth_map(gdf, value_column, title, color_scheme='YlOrRd', rever
     """
     Creates a Folium choropleth map for the specified metric
     """
-    # Create base map
+    # base map
     m = folium.Map(
         location=[gdf.geometry.centroid.y.mean(), gdf.geometry.centroid.x.mean()],
         zoom_start=12.9,
         tiles='CartoDB dark_matter' # dark mode
     )
 
-    # Create choropleth layer
+    # choropleth layer
     folium.Choropleth(
         geo_data=gdf.__geo_interface__,
         name='choropleth',
@@ -397,11 +394,11 @@ def create_choropleth_map(gdf, value_column, title, color_scheme='YlOrRd', rever
         reverse=reverse
     ).add_to(m)
 
-    #Add hover tooltips
+    # tooltips
     tooltip_fields = ['LSOA11NM', value_column]
     tooltip_aliases = ['LSOA Name:', f'{title}:']
 
-    #Add population and case counts for context
+    # population and case counts for context
     if value_column not in ['population', 'actual_cases']:
         tooltip_fields.extend(['population', 'actual_cases'])
         tooltip_aliases.extend(['Population:', 'Actual Cases:'])
@@ -432,6 +429,7 @@ def create_choropleth_map(gdf, value_column, title, color_scheme='YlOrRd', rever
 
     return m
 
+### STATISTICAL SEGMENTATION DATA ###
 @st.cache_data
 def load_segment_data():
     df_3d = pd.read_csv('clustering_segment_risk/ppmi_3d.csv')
@@ -440,14 +438,11 @@ def load_segment_data():
     df_2d_1834 = pd.read_csv('clustering_segment_risk/ppmi_2d_age18-34.csv', index_col=0)
     df_3d_3564 = pd.read_csv('clustering_segment_risk/ppmi_3d_age35-64.csv')
     df_2d_3564 = pd.read_csv('clustering_segment_risk/ppmi_2d_age35-64.csv', index_col=0)
-    df_3d_6584 = pd.read_csv('clustering_segment_risk/ppmi_3d_age65-84.csv')
-    df_2d_6584 = pd.read_csv('clustering_segment_risk/ppmi_2d_age65-84.csv', index_col=0)
     #max_ppmi_3d = df_3d['ppmi'].max()
-    return df_3d, df_2d, df_3d_1834, df_2d_1834, df_3d_3564, df_2d_3564, df_3d_6584, df_2d_6584
+    return df_3d, df_2d, df_3d_1834, df_2d_1834, df_3d_3564, df_2d_3564
 
 def show_segdash(selected_condition):
-    # Load the data
-    df_3d, df_2d, df_3d_1834, df_2d_1834, df_3d_3564, df_2d_3564, df_3d_6584, df_2d_6584 = load_segment_data()
+    df_3d, df_2d, df_3d_1834, df_2d_1834, df_3d_3564, df_2d_3564  = load_segment_data()
 
     age_group = st.radio(
         "Age Group",
@@ -469,20 +464,19 @@ def show_segdash(selected_condition):
 
     conditions = sorted(data_2d.columns)
 
-    # Prepare 2D data for visualization
     two_d_data = data_2d[selected_condition].reset_index()
     two_d_data.columns = ['condition', 'ppmi']
     two_d_data = two_d_data[two_d_data['condition'] != selected_condition]  # Remove self-comparison
     two_d_data = two_d_data.sort_values('ppmi', ascending=False)
     two_d_data = two_d_data.head(10)
 
-    # Create 2D bar chart
+    # 2d bar chart
     st.subheader(f'Dual Condition Multi-Morbidity with {selected_condition}')
     bar_chart = alt.Chart(two_d_data).mark_bar().encode(
         y=alt.Y('condition:N',
                 title='Condition',
                 sort='-x',
-                axis=alt.Axis(labelLimit=200)),  # Sort by PPMI value
+                axis=alt.Axis(labelLimit=200)),
         x=alt.X('ppmi:Q',
                 title='PPMI Score'),
         color=alt.Color('ppmi:Q',
@@ -499,7 +493,7 @@ def show_segdash(selected_condition):
 
     st.altair_chart(bar_chart, use_container_width=True)
 
-    # 3D data filtering
+    # 3d data
     filtered_data = data_3d[
         (data_3d['condition3'] == selected_condition) &
         (data_3d['condition1'] != data_3d['condition2']) &
@@ -542,7 +536,7 @@ def show_segdash(selected_condition):
         top_relationships = top_relationships.round({'ppmi': 3})
         st.dataframe(top_relationships, height=400)
 
-
+### SYNTHETIC PATIENT TIMELINE ###
 def create_patient_timeline():
     df = pd.read_csv('prisk0.csv')
 
@@ -559,7 +553,7 @@ def create_patient_timeline():
     # base chart for encounters (bars)
     bars = alt.Chart(encounters_df).mark_bar().encode(
         x=alt.X('DATE:T', title='Date'),
-        xOffset='Care Type:N',  # This creates the side-by-side bars
+        xOffset='Care Type:N',  # side by side bars
         y=alt.Y('Encounters:Q', title='Number of Encounters'),
         color=alt.Color('Care Type:N',
                        scale=alt.Scale(
@@ -591,7 +585,7 @@ def create_patient_timeline():
         opacity=alt.value(0)
     )
 
-    # Line chart for risk score
+    # line chart for risk score
     line = alt.Chart(df).mark_line(
         color='#FF6B6B',
         strokeWidth=2
@@ -606,7 +600,7 @@ def create_patient_timeline():
         ]
     )
 
-    # Combine charts
+    # combine
     combined = alt.layer(bars, acute_tooltips, line).resolve_scale(
         y='independent'
     ).properties(
@@ -620,8 +614,8 @@ def create_patient_timeline():
 
     return combined
 
+### PLOTLY SANKEY FOR HYPERTENSION ###
 def create_hypertension_sankey():
-    # Define nodes and their positions
     nodes = dict(
         pad=15,
         thickness=20,
@@ -650,7 +644,7 @@ def create_hypertension_sankey():
         ]
     )
 
-    # Define the flows with adjusted proportions
+    # flows + proportions
     links = dict(
         source=[0, 0, 0, 0, 1, 1, 1],
         target=[1, 5, 6, 7, 2, 3, 4],
@@ -666,14 +660,12 @@ def create_hypertension_sankey():
         ]
     )
 
-    # Create the figure
     fig = go.Figure(data=[go.Sankey(
         node=nodes,
         link=links,
         arrangement="fixed"
     )])
 
-    # Update layout for dark theme
     fig.update_layout(
         font_size=12,
         font_color="white",
@@ -686,8 +678,8 @@ def create_hypertension_sankey():
 
     return fig
 
+### HYPERTENSION HR FOREST PLOT ###
 def create_hypertension_forest_plot():
-    # Define the phenotypes and their hazard ratios with CIs
     phenotypes = [
         'Simple HTN, Monitored',
         'HTN, Poor Control',
@@ -697,22 +689,18 @@ def create_hypertension_forest_plot():
         'HTN w/ Severe Organ Dysfunction'
     ]
 
-    # Clinically plausible hazard ratios and CIs
     hazard_ratios = [1.2, 1.8, 1.6, 2.1, 3.4, 4.8]
     ci_lower = [0.7, 0.8, 1.0, 1.8, 2.8, 3.7]
     ci_upper = [1.3, 2.2, 1.9, 2.5, 4.2, 6.2]
 
-    # Calculate error bars
     error_minus = np.array(hazard_ratios) - np.array(ci_lower)
     error_plus = np.array(ci_upper) - np.array(hazard_ratios)
 
-    # Create figure
     fig = go.Figure()
 
-    # Add vertical line at HR = 1
+    # vertical line at HR = 1
     fig.add_vline(x=1, line_width=1, line_dash="dash", line_color="white", opacity=0.5)
 
-    # Add the forest plot points and error bars
     fig.add_trace(go.Scatter(
         x=hazard_ratios,
         y=phenotypes,
@@ -734,10 +722,10 @@ def create_hypertension_forest_plot():
         name='Hazard Ratio'
     ))
 
-    # Add text annotations for HRs and CIs
+    # text annotations
     for i, (hr, lower, upper) in enumerate(zip(hazard_ratios, ci_lower, ci_upper)):
         fig.add_annotation(
-            x=upper + 0.5,  # Position text to the right of error bars
+            x=upper + 0.5,
             y=i,
             text=f'HR: {hr:.1f} ({lower:.1f}-{upper:.1f})',
             showarrow=False,
@@ -745,7 +733,6 @@ def create_hypertension_forest_plot():
             xanchor='left'
         )
 
-    # Update layout
     fig.update_layout(
         title=dict(
             text='',
@@ -758,7 +745,7 @@ def create_hypertension_forest_plot():
             showgrid=True,
             gridcolor='rgba(255, 255, 255, 0.1)',
             zeroline=False,
-            range=[0, 7],  # Adjust range based on your max CI
+            range=[0, 7],  # per max CI
             tickfont=dict(color='white'),
             titlefont=dict(color='white')
         ),
@@ -774,15 +761,14 @@ def create_hypertension_forest_plot():
         showlegend=False,
         width=900,
         height=400,
-        margin=dict(l=20, r=200, t=50, b=50)  # Extra right margin for HR text
+        margin=dict(l=20, r=200, t=50, b=50)  # right margin
     )
 
     return fig
 
+### DISEASE PROGRESSION GRAPH ###
 def create_disease_progression():
-    import plotly.graph_objects as go
 
-    # Define colors
     colors = {
         'high_risk': 'rgba(220, 53, 69, 0.8)',  # red
         'medium_risk': 'rgba(255, 145, 0, 0.8)',  # orange
@@ -791,10 +777,8 @@ def create_disease_progression():
         'text': 'white'
     }
 
-    # Create figure with custom layout
     fig = go.Figure()
 
-    # Set up the base layout
     fig.update_layout(
         plot_bgcolor=colors['background'],
         paper_bgcolor=colors['background'],
@@ -804,12 +788,12 @@ def create_disease_progression():
         margin=dict(l=20, r=20, t=40, b=20)
     )
 
-    # Define y-positions
-    main_y = 0.3  # Move main flow up
-    node_spacing = 0.25  # Space between nodes
-    base_node_y = -0.3  # Starting y position for nodes
+    # y pos
+    main_y = 0.3
+    node_spacing = 0.25  # space between nodes
+    base_node_y = -0.3  # starting y for nodes
 
-    # Define stages and their conditions
+    # stages def
     stages = [
         {
             'name': 'Simple HTN',
@@ -833,7 +817,7 @@ def create_disease_progression():
         }
     ]
 
-    # Add main flow arrows between stages
+    # flow arrow between stages
     for i in range(len(stages)-1):
         fig.add_trace(go.Scatter(
             x=[i+0, i+1],
@@ -843,11 +827,10 @@ def create_disease_progression():
             hoverinfo='none'
         ))
 
-    # Add stages and their condition nodes
+    # add nodes
     for stage in stages:
         x_pos = stage['x']
 
-        # Add main stage box
         fig.add_shape(
             type="rect",
             x0=x_pos-0.2, x1=x_pos+0.2,
@@ -862,11 +845,10 @@ def create_disease_progression():
             font=dict(color="white", size=10)
         )
 
-        # Add condition nodes - all below main line
+        # add condition nodes
         for i, condition in enumerate(stage['conditions']):
             y_pos = base_node_y - (i * node_spacing)
 
-            # Add node
             fig.add_shape(
                 type="circle",
                 x0=x_pos-0.15, x1=x_pos+0.15,
@@ -874,36 +856,31 @@ def create_disease_progression():
                 fillcolor=colors['standard'],
                 line=dict(color="white", width=1),
             )
-
-            # Add condition label
             fig.add_annotation(
                 x=x_pos, y=y_pos,
                 text=condition,
                 showarrow=False,
                 font=dict(color="white", size=10)
             )
-
-            # Add arrow from node to main stage box
             fig.add_trace(go.Scatter(
                 x=[x_pos, x_pos],
-                y=[y_pos+0.1, main_y-0.1],  # Adjust connection points
+                y=[y_pos+0.1, main_y-0.1],
                 mode='lines',
                 line=dict(color='gray', width=1),
                 hoverinfo='none'
             ))
 
-    # Add risk boxes
+    # terminal risk boxes
     risks = [
         ('Progression {End Stage Renal Failure}: MEDIUM', colors['medium_risk']),
         ('Progression {TIA/Stroke}: MEDIUM', colors['medium_risk']),
         ('Progression {Heart Failure}: HIGH', colors['high_risk'])
     ]
 
-    # Add arrows and risk boxes
+    # arrows and risk boxes
     for i, (risk, color) in enumerate(risks):
-        y_pos = 0.6 - (i * 0.3)  # Spread risk boxes vertically
+        y_pos = 0.6 - (i * 0.3)  # spread boxes vertically
 
-        # Add arrow from last stage to risk box
         fig.add_trace(go.Scatter(
             x=[3.2, 3.7],
             y=[main_y, y_pos],
@@ -911,8 +888,6 @@ def create_disease_progression():
             line=dict(color='gray', width=2),
             hoverinfo='none'
         ))
-
-        # Add risk box
         fig.add_shape(
             type="rect",
             x0=3.7, x1=4.3,
@@ -927,7 +902,7 @@ def create_disease_progression():
             font=dict(color="white", size=10)
         )
 
-    # Update axes with adjusted ranges to accommodate all elements
+    # adjust axes
     fig.update_xaxes(
         showgrid=False,
         zeroline=False,
@@ -943,6 +918,7 @@ def create_disease_progression():
 
     return fig
 
+### CREATE STREAMLIT DASHBOARD ###
 def main():
     load_dotenv()
 
@@ -1221,7 +1197,6 @@ def main():
             text=tooltips,
         ))
 
-        # Update layout
         fig_radar.update_layout(
             polar=dict(
                 radialaxis=dict(
@@ -1246,7 +1221,7 @@ def main():
             ),
             height=700,
             width=800,
-            margin=dict(b=80)  # Add bottom margin for legend
+            margin=dict(b=80)  # bottom margin for legend
         )
 
         left_col, right_col = st.columns([2, 1])
