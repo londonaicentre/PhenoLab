@@ -20,7 +20,7 @@ WITH phenotype_concepts AS (
         PHENOTYPE_NAME,
         CORE_CONCEPT_ID
     FROM INTELLIGENCE_DEV.AI_CENTRE_PHENOTYPE_LIBRARY.PHENOSTORE
-    WHERE PHENOTYPE_SOURCE = 'LONDON'
+    WHERE (PHENOTYPE_SOURCE = 'LONDON' OR PHENOTYPE_SOURCE = 'ICB_NEL')
     AND PHENOTYPE_NAME IN ({phenotype_list})
     AND CORE_CONCEPT_ID IS NOT NULL
 ),
@@ -115,7 +115,7 @@ WITH phenotype_concepts AS (
         PHENOTYPE_NAME,
         CORE_CONCEPT_ID
     FROM INTELLIGENCE_DEV.AI_CENTRE_PHENOTYPE_LIBRARY.PHENOSTORE
-    WHERE PHENOTYPE_SOURCE = 'LONDON'
+    WHERE (PHENOTYPE_SOURCE = 'LONDON' OR PHENOTYPE_SOURCE = 'ICB_NEL')
     AND PHENOTYPE_NAME IN ({phenotype_list})
     AND CORE_CONCEPT_ID IS NOT NULL
 ),
@@ -123,7 +123,10 @@ first_observations AS (
     -- Get first observation date for each person-phenotype combination
     SELECT
         o.PERSON_ID,
-        pc.PHENOTYPE_NAME,
+        --pc.PHENOTYPE_NAME,
+        CASE pc.PHENOTYPE_NAME
+            {phenotype_case_statement}
+        END as PHENOTYPE_NAME,
         MIN(o.CLINICAL_EFFECTIVE_DATE) as FIRST_OBSERVATION_DATE,
         pd.DATE_OF_BIRTH,
         pd.GENDER,
@@ -176,28 +179,44 @@ FROM first_observations
 """
 
 def load_phenotypes():
+    """
+    Loads phenotype configuration from JSON file
+    Returns tuple of (column_names, phenotype_definitions)
+    """
     with open("phenoconfig.json", "r") as f:
-        arr = json.load(f)
-    print(arr)
-    return arr
+        pheno_dict = json.load(f)
+    return list(pheno_dict.keys()), list(pheno_dict.values())
 
-def generate_phenotype_columns(phenotypes):
+def generate_phenotype_columns(column_names, phenotype_definitions):
     """
     Generate SQL for pivoting phenotypes into columns
+    Rename columns using imported dict
     """
     return ",\n    ".join([
-        f"MAX(CASE WHEN PHENOTYPE_NAME = '{phenotype}' THEN 1 ELSE 0 END) as \"{phenotype}\""
-        for phenotype in phenotypes
+        f"MAX(CASE WHEN PHENOTYPE_NAME = '{pheno_def}' THEN 1 ELSE 0 END) as {col_name}"
+        for col_name, pheno_def in zip(column_names, phenotype_definitions)
     ])
 
-def generate_phenotype_window_columns(phenotypes):
+def generate_phenotype_window_columns(column_names):
     """
     Generate the SQL for creating 5-year window columns
     """
     return ",\n    ".join([
-        f"MAX(\"{phenotype}\") as \"{phenotype}\""
-        for phenotype in phenotypes
+        f"MAX({col_name}) as {col_name}"
+        for col_name in column_names
     ])
+
+def generate_phenotype_mapping_case(column_names, phenotype_definitions):
+    """
+    Generate CASE statement for mapping long phenotype names to short names
+    """
+    # Create case statements from the column names and definitions
+    case_parts = []
+    for short_name, long_name in zip(column_names, phenotype_definitions):
+        case_parts.append(f"WHEN '{long_name}' THEN '{short_name}'")
+
+    return "\n            ".join(case_parts)
+
 
 def main():
     load_dotenv()
@@ -206,12 +225,14 @@ def main():
         snowsesh.use_database("INTELLIGENCE_DEV")
         snowsesh.use_schema("AI_CENTRE_FEATURE_STORE")
 
-        PHENOTYPES = load_phenotypes()
+        # Load both column names and phenotype definitions
+        COLUMN_NAMES, PHENOTYPES = load_phenotypes()
 
         phenotype_list_sql = ", ".join([f"'{p}'" for p in PHENOTYPES])
+        phenotype_case_statement = generate_phenotype_mapping_case(COLUMN_NAMES, PHENOTYPES)
 
-        phenotype_columns = generate_phenotype_columns(PHENOTYPES)
-        phenotype_window_columns = generate_phenotype_window_columns(PHENOTYPES)
+        phenotype_columns = generate_phenotype_columns(COLUMN_NAMES, PHENOTYPES)
+        phenotype_window_columns = generate_phenotype_window_columns(COLUMN_NAMES)
 
         # create yearly table
         print("Creating PERSON_PHENOTYPE_BY_YEAR table...")
@@ -228,10 +249,11 @@ def main():
         )
         snowsesh.execute_query(current_sql)
 
-        # create age of onset table
+        # create age of onset table with mapped names
         print("Creating PERSON_PHENOTYPE_AGE_OF_ONSET table...")
         onset_sql = CREATE_AGE_ONSET_TABLE_SQL.format(
-            phenotype_list=phenotype_list_sql
+            phenotype_list=phenotype_list_sql,
+            phenotype_case_statement=phenotype_case_statement
         )
         snowsesh.execute_query(onset_sql)
 
