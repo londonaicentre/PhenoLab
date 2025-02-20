@@ -1,15 +1,7 @@
 import streamlit as st
-import pandas as pd
-from scipy import stats
-import numpy as np
-import altair as alt
 from dotenv import load_dotenv
 from phmlondon.snow_utils import SnowflakeConnection
-import json
-import folium
-from streamlit_folium import folium_static
-import geopandas as gpd
-import plotly.graph_objects as go
+
 
 # This code when ran with streamlit run, will open a dashboard that looks at lipid reglating drug prescriptions to explore ways of measuring compliance
 def main():
