@@ -25,7 +25,7 @@ class PhenotypeSource(Enum):
     LONDON = "LONDON" #One London terminology server
     ICB_NEL = "ICB_NEL" #North East London ICB Local Definition
     NHSBSA = "NHSBSA" # NHS Business Services Authority
-    OXFORD = "OXFORD" # https://www.bennett.ox.ac.uk/blog/2023/11/bnf-to-dictionary-of-medicines-and-devices-dm-d-map-now-available/
+
 
 """
 This dictionary deals with the problem that different APIs return different strings for their vocabularies and we want to standardise things
