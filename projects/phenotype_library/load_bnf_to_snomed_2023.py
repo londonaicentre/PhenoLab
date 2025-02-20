@@ -8,24 +8,32 @@ from base.phenotype import Code, Codelist, Phenotype, VocabularyType, PhenotypeS
 from base.load_tables import load_phenotypes_to_snowflake
 from datetime import datetime
 
+################################################################################################
+# Source of mapping file:
 
+    # {
+    #     'name': 'NHSBSA BNF SNOMED Mapping 2023',
+    #     'url': 'https://www.nhsbsa.nhs.uk/prescription-data/understanding-our-data/bnf-snomed-mapping'
+    # },
+ 
+################################################################################################
 
 def transform_to_phenotype(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Transform BNF to dm+d (SNOMED) mapping data into phenotype objects.
+    Transform BNF mapped to SNOMED codes data into phenotype objects.
     """
     phenotypes = []
     current_datetime = datetime.now()
 
-    # Group by BNF Code (Each BNF code represents a phenotype)
+    # group by bnf code
     for (bnf_code, bnf_name), bnf_group in df.groupby(['BNF Code', 'BNF Name']):
 
-        # Extract SNOMED codes as Codelists (SNOMED Code and Description)
+        # group by snomed code
         codes = [
             Code(
                 code=row['SNOMED Code'],
                 code_description=row['DM+D: Product Description'],
-                code_vocabulary=VocabularyType.SNOMED  # Assuming SNOMED vocabulary
+                code_vocabulary=VocabularyType.SNOMED  
             )
             for _, row in bnf_group.iterrows()
         ]
@@ -34,7 +42,7 @@ def transform_to_phenotype(df: pd.DataFrame) -> pd.DataFrame:
         codelist = Codelist(
             codelist_id=str(bnf_code),
             codelist_name=bnf_name,
-            codelist_vocabulary=VocabularyType.SNOMED,  # Assuming SNOMED
+            codelist_vocabulary=VocabularyType.SNOMED,  # is actually BNF but won't allow me thave different vocabs for codes and codelists
             codelist_version="1.0",
             codes=codes
         )
@@ -44,7 +52,7 @@ def transform_to_phenotype(df: pd.DataFrame) -> pd.DataFrame:
             phenotype_id=str(bnf_code),
             phenotype_name=bnf_name,
             phenotype_version="1.0",
-            phenotype_source=PhenotypeSource.OXFORD,
+            phenotype_source=PhenotypeSource.NHSBSA,
             codelists=[codelist],  
             version_datetime=current_datetime,
             uploaded_datetime=current_datetime
