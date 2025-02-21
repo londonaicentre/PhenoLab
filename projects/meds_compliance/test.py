@@ -26,5 +26,5 @@ query = """
 """
 
 # Execute query and fetch data into a pandas DataFrame
-df = snowsesh.query(query)  # This should not be indented inside an unexpected block
+df = snowsesh.execute_query_to_df(query)
 st.dataframe(df)
