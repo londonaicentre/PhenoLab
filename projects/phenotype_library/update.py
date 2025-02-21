@@ -6,10 +6,11 @@ is specified as an input
 from dotenv import load_dotenv
 import argparse
 from phmlondon.snow_utils import SnowflakeConnection
-from load_hdruk_phenotypes import main as load_hdruk
-from load_nhs_gp_snomed import main as load_snomed
-from nel_segments import main as load_nel
-from load_bsa_bnf import main as load_bnf
+from loaders.load_hdruk_phenotypes import main as load_hdruk
+from loaders.load_nhs_gp_snomed import main as load_snomed
+from loaders.load_nel_segments import main as load_nel
+from loaders.load_bsa_bnf import main as load_bsa_bnf
+from loaders.load_bnf_to_snomed import main as load_bsa_bnf_snomed
 from typing import Dict
 
 LOADER_CONFIG = {
@@ -22,12 +23,16 @@ LOADER_CONFIG = {
         'table': 'NHS_GP_SNOMED_REFSETS'
     },
     'bsabnf': {
-        'func': load_bnf,
-        'table': 'BSA_BNF_MAPPINGS'
+        'func': load_bsa_bnf,
+        'table': 'BSA_BNF_HIERARCHY'
     },
     'nelseg': {
         'func': load_nel,
         'table': 'NEL_SEGMENT_PHENOTYPES'
+    },
+    'bsabnfsnomed': {
+        'func': load_bsa_bnf_snomed,
+        'table': 'BSA_BNF_SNOMED_MAPPINGS'
     }
 }
 
