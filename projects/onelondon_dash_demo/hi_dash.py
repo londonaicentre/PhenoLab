@@ -747,14 +747,14 @@ def create_hypertension_forest_plot():
             zeroline=False,
             range=[0, 7],  # per max CI
             tickfont=dict(color='white'),
-            titlefont=dict(color='white')
+            title_font=dict(color='white')
         ),
         yaxis=dict(
             title='Phenotype',
             showgrid=False,
             zeroline=False,
             tickfont=dict(color='white'),
-            titlefont=dict(color='white')
+            title_font=dict(color='white')
         ),
         plot_bgcolor='rgba(17, 17, 17, 1)',
         paper_bgcolor='rgba(17, 17, 17, 1)',
