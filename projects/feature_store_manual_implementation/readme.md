@@ -1,4 +1,0 @@
-Project to test a manually coded feature store for data science on NEL snowflake.
-
-## Notes
-- Feature tables will be dynamic tables i.e. will update automatically on a fixed refresh schedule. Other option would be event-driven updates, by having static tables, and then setting up a snowflake stream to detect updates and a snowflake task to merge the updates into the existing tables. However, this is more complex to setup, so would require more prior knowledge on part of user, or otherwise would have to script these commands somehow. (If used views, would have to recompute the query from scratch each time. From what I have understood, storage is much cheaper than compute in snowflake so this doesn't make sense.)
