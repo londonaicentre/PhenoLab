@@ -1,9 +1,12 @@
-from dotenv import load_dotenv
-from phmlondon.snow_utils import SnowflakeConnection
-from base.phenotype import Phenotype, Code, Codelist, VocabularyType, PhenotypeSource
-from base.load_tables import load_phenotypes_to_snowflake
 from datetime import datetime
+
 import pandas as pd
+from base.load_tables import load_phenotypes_to_snowflake
+from base.phenotype import Code, Codelist, Phenotype, PhenotypeSource, VocabularyType
+from dotenv import load_dotenv
+
+from phmlondon.snow_utils import SnowflakeConnection
+
 
 def fetch_segmentation_codes(snowsesh) -> pd.DataFrame:
     """
@@ -27,6 +30,7 @@ def fetch_segmentation_codes(snowsesh) -> pd.DataFrame:
     df.columns = df.columns.str.lower()
     return df
 
+
 def transform_to_phenotype_model(df: pd.DataFrame) -> pd.DataFrame:
     """
     Transforms segmentation data into phenotype model
@@ -43,19 +47,19 @@ def transform_to_phenotype_model(df: pd.DataFrame) -> pd.DataFrame:
     phenotypes = []
     current_datetime = datetime.now()
 
-    for phenotype_name, group in df.groupby('phenotype_name'):
+    for phenotype_name, group in df.groupby("phenotype_name"):
         print(f"Processing phenotype: {phenotype_name}")
         # group by vocabulary for codelists
         codelists = []
-        for vocab, vocab_group in group.groupby('vocabulary'):
+        for vocab, vocab_group in group.groupby("vocabulary"):
             print(f"Processing vocabulary: {vocab}")
-            vocabulary = VocabularyType.SNOMED if vocab == 'SNOMED' else VocabularyType.ICD10
+            vocabulary = VocabularyType.SNOMED if vocab == "SNOMED" else VocabularyType.ICD10
 
             codes = [
                 Code(
-                    code=row['code'],
-                    code_description=row['code_description'],
-                    code_vocabulary=vocabulary
+                    code=row["code"],
+                    code_description=row["code_description"],
+                    code_vocabulary=vocabulary,
                 )
                 for _, row in vocab_group.iterrows()
             ]
@@ -65,7 +69,7 @@ def transform_to_phenotype_model(df: pd.DataFrame) -> pd.DataFrame:
                 codelist_name=f"{phenotype_name} {vocabulary.value}",
                 codelist_vocabulary=vocabulary,
                 codelist_version="1.0",
-                codes=codes
+                codes=codes,
             )
             codelists.append(codelist)
 
@@ -76,7 +80,7 @@ def transform_to_phenotype_model(df: pd.DataFrame) -> pd.DataFrame:
             phenotype_source=PhenotypeSource.ICB_NEL,
             codelists=codelists,
             version_datetime=current_datetime,
-            uploaded_datetime=current_datetime
+            uploaded_datetime=current_datetime,
         )
         phenotypes.append(phenotype)
 
@@ -88,6 +92,7 @@ def transform_to_phenotype_model(df: pd.DataFrame) -> pd.DataFrame:
     print(result_df.head())
 
     return result_df
+
 
 def main():
     load_dotenv()
@@ -108,9 +113,7 @@ def main():
         # Load to target table
         print("Loading to Snowflake...")
         load_phenotypes_to_snowflake(
-            snowsesh=snowsesh,
-            df=phenotype_df,
-            table_name="NEL_SEGMENT_PHENOTYPES"
+            snowsesh=snowsesh, df=phenotype_df, table_name="NEL_SEGMENT_PHENOTYPES"
         )
 
         print("NEL segment phenotypes loaded successfully")
@@ -120,6 +123,7 @@ def main():
         raise e
     finally:
         snowsesh.session.close()
+
 
 if __name__ == "__main__":
     main()

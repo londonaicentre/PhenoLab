@@ -1,9 +1,9 @@
 import os
 import time
-import pandas as pd
-from dataclasses import dataclass
 from functools import wraps
-from typing import Callable, Literal, Optional
+from typing import Callable, Optional
+
+import pandas as pd
 import requests
 from tqdm import tqdm
 
@@ -14,10 +14,12 @@ _ONELONDON_OPENID_ENDPOINT = "https://ontology.onelondon.online/authorisation/au
 _ONELONDON_AUTHOR_ENDPOINT = "https://ontology.onelondon.online/authoring/fhir/"
 _ONELONDON_PROD_ENDPOINT = "https://ontology.onelondon.online/production1/fhir/"
 
+
 def auto_refresh_token(func) -> Callable:
     """
     This function decorator checks if the access token has expired and refreshes it if necessary.
     """
+
     @wraps(func)
     def wrap(self, *args, **kwargs):
         if time.time() > self._access_token_expire_time:
@@ -27,29 +29,27 @@ def auto_refresh_token(func) -> Callable:
 
     return wrap
 
+
 class FHIRTerminologyClient:
     """
     A client for querying FHIR terminology services, such as the OneLondon terminology server.
     """
+
     def __init__(
         self,
-        endpoint_type: str = 'authoring',
+        endpoint_type: str = "authoring",
         open_id_token_url: str = _ONELONDON_OPENID_ENDPOINT,
-        env_vars=None
+        env_vars=None,
     ):
-
-        if endpoint_type not in ['authoring', 'production']:
+        if endpoint_type not in ["authoring", "production"]:
             raise ValueError("Invalid endpoint_type. Use 'authoring' or 'production'.")
 
-        if endpoint_type == 'production':
+        if endpoint_type == "production":
             self.endpoint = _ONELONDON_PROD_ENDPOINT
         else:
             self.endpoint = _ONELONDON_AUTHOR_ENDPOINT
 
-        self.env_vars = env_vars or [
-            "CLIENT_ID",
-            "CLIENT_SECRET"
-        ]
+        self.env_vars = env_vars or ["CLIENT_ID", "CLIENT_SECRET"]
 
         self._confirm_env_vars()
         self._client_id = os.getenv("CLIENT_ID")
@@ -85,9 +85,7 @@ class FHIRTerminologyClient:
 
         # Request access token
         try:
-            response = requests.post(
-                self._open_id_token_url, headers=headers, data=data
-            )
+            response = requests.post(self._open_id_token_url, headers=headers, data=data)
 
             # check HTTP status code
             response.raise_for_status()
@@ -104,7 +102,7 @@ class FHIRTerminologyClient:
         except requests.RequestException as e:
             print(f"Unable to request: {e}")
             print("Check client_id or client_secret, or connectivity.")
-            raise ValueError("Failed to retrieve access token.")
+            raise ValueError("Failed to retrieve access token.") from e
 
     @auto_refresh_token
     def retrieve_concept_codes_from_id(self, value_set_id: str) -> list[Optional[str]]:
@@ -125,9 +123,7 @@ class FHIRTerminologyClient:
             value_set = response.json()
 
             # extract list of codes
-            concepts = (
-                value_set.get("compose", {}).get("include", [])[0].get("concept", [])
-            )
+            concepts = value_set.get("compose", {}).get("include", [])[0].get("concept", [])
             code_list = [item.get("code", "no code listed") for item in concepts]
 
             return code_list
@@ -154,14 +150,17 @@ class FHIRTerminologyClient:
             value_set = value_response.json()
 
             try:
-                code_list = [item['code'] for item in value_set.get('expansion', {}).get('contains', [])]
+                code_list = [
+                    item["code"] for item in value_set.get("expansion", {}).get("contains", [])
+                ]
                 return code_list
             except IndexError:
                 print("No entries found in bundle.")
                 return []
         else:
             print(
-                f"Failed to retrieve value set: {value_response.status_code} - {value_response.text}"
+                f"""Failed to retrieve value set:
+                    {value_response.status_code} - {value_response.text}"""
             )
             return []
 
@@ -184,23 +183,24 @@ class FHIRTerminologyClient:
             value_set = value_response.json()
 
             try:
-                name_list = [item['display'] for item in value_set.get('expansion', {}).get('contains', [])]
+                name_list = [
+                    item["display"] for item in value_set.get("expansion", {}).get("contains", [])
+                ]
                 return name_list
             except IndexError:
                 print("No entries found in bundle.")
                 return []
         else:
             print(
-                f"Failed to retrieve value set: {value_response.status_code} - {value_response.text}"
+                f"""Failed to retrieve value set:
+                    {value_response.status_code} - {value_response.text}"""
             )
             return []
 
     @auto_refresh_token
     def retrieve_refsets_from_megalith(
-        self,
-        url: str,
-        name_filter: Optional[str] = None
-        ) -> Optional[pd.DataFrame]:
+        self, url: str, name_filter: Optional[str] = None
+    ) -> Optional[pd.DataFrame]:
         """
         Retrieves all reference sets and their codesets that are found in a megalith.
             url: url of the megalith
@@ -216,53 +216,56 @@ class FHIRTerminologyClient:
         if mega_response.status_code == 200:
             megalith = mega_response.json()
             try:
-                meganame = megalith.get('name')
-                codeurl = megalith.get('url')
+                meganame = megalith.get("name")
+                codeurl = megalith.get("url")
 
                 # get all refsets
-                contains = megalith.get('expansion', {}).get('contains', [])
+                contains = megalith.get("expansion", {}).get("contains", [])
 
                 # filter refsets if name_filter is provided
                 if name_filter:
                     contains = [
-                        item for item in contains
-                        if name_filter.lower() in item.get('display', '').lower()
+                        item
+                        for item in contains
+                        if name_filter.lower() in item.get("display", "").lower()
                     ]
 
                     if not contains:
                         raise ValueError(f"No refsets found matching filter: '{name_filter}'")
 
-                display_list = [item['display'] for item in contains]
-                ref_list = [item['code'] for item in contains]
+                display_list = [item["display"] for item in contains]
+                ref_list = [item["code"] for item in contains]
 
                 code_column = []
                 name_column = []
 
                 for refset in tqdm(ref_list):
-                    ref_url = f'{url}/{refset}'
+                    ref_url = f"{url}/{refset}"
 
                     try:
                         code_list = self.retrieve_concept_codes_from_url(ref_url)
                         code_column.append(code_list)
                     except Exception as e:
-                        code_column.append(f'unable to retrieve: {e}')
+                        code_column.append(f"unable to retrieve: {e}")
 
                     try:
                         name_list = self.retrieve_concept_names_from_url(ref_url)
                         name_column.append(name_list)
                     except Exception as e:
-                        name_column.append(f'unable to retrieve: {e}')
+                        name_column.append(f"unable to retrieve: {e}")
 
-                df = pd.DataFrame({
-                    'megalith': [meganame] * len(ref_list),
-                    'url': [codeurl] * len(ref_list),
-                    'refset_name': display_list,
-                    'refset_code': ref_list,
-                    'concept_name': name_column,
-                    'concept_code': code_column
-                })
+                df = pd.DataFrame(
+                    {
+                        "megalith": [meganame] * len(ref_list),
+                        "url": [codeurl] * len(ref_list),
+                        "refset_name": display_list,
+                        "refset_code": ref_list,
+                        "concept_name": name_column,
+                        "concept_code": code_column,
+                    }
+                )
 
-                df = df.explode(['concept_name', 'concept_code']).reset_index(drop=True)
+                df = df.explode(["concept_name", "concept_code"]).reset_index(drop=True)
 
                 return df
 
