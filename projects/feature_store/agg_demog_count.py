@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+
 from phmlondon.snow_utils import SnowflakeConnection
 
 CREATE_DENOMINATOR_VIEW_SQL = """
@@ -93,6 +94,7 @@ ORDER BY --unsure why ordering isn't working
     END
 """
 
+
 def main():
     """
     Creates a view of demographic denominators from the master person index
@@ -111,6 +113,7 @@ def main():
         raise e
     finally:
         snowsesh.session.close()
+
 
 if __name__ == "__main__":
     main()

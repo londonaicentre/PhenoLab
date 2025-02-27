@@ -1,17 +1,16 @@
-import streamlit as st
-import pandas as pd
-from scipy import stats
-import numpy as np
-import altair as alt
-from dotenv import load_dotenv
-from phmlondon.snow_utils import SnowflakeConnection
 import json
+
+import altair as alt
 import folium
-from streamlit_folium import folium_static
 import geopandas as gpd
+import numpy as np
+import pandas as pd
 import plotly.graph_objects as go
-from plotly.subplots import make_subplots
-import plotly.graph_objects as go
+import streamlit as st
+from dotenv import load_dotenv
+from streamlit_folium import folium_static
+
+from phmlondon.snow_utils import SnowflakeConnection
 
 # This generates a tabbed streamlit dashboard with:
 # 1) Descriptive prevalence
@@ -24,25 +23,26 @@ import plotly.graph_objects as go
 
 # Order of demographic variables to display
 DEMOGRAPHIC_ORDER = {
-    'ethnicity': ['White', 'South Asian', 'Black', 'East Or Other Asian'],
-    'london_imd': ['1', '2', '3', '4', '5'],
-    'age_band': ['0-17', '18-24', '25-34', '35-44', '45-54', '55-64', '65-74', '75+'],
-    'gender': ['Male', 'Female']
+    "ethnicity": ["White", "South Asian", "Black", "East Or Other Asian"],
+    "london_imd": ["1", "2", "3", "4", "5"],
+    "age_band": ["0-17", "18-24", "25-34", "35-44", "45-54", "55-64", "65-74", "75+"],
+    "gender": ["Male", "Female"],
 }
 
 # Ethnicity colour dict
 ETHNICITY_COLOURS = {
-    'White': '#00b4d8',      # cyan-blue
-    'South Asian': '#ff7b00',   # orange
-    'Black': '#00e676',      # bright green
-    'East Or Other Asian': '#ff4d6d'  # coral red
+    "White": "#00b4d8",  # cyan-blue
+    "South Asian": "#ff7b00",  # orange
+    "Black": "#00e676",  # bright green
+    "East Or Other Asian": "#ff4d6d",  # coral red
 }
 
 # Gender colour dict
 GENDER_COLOURS = {
-    'Male': '#2e8b57', # sea green
-    'Female': '#98fb98' # pale green
+    "Male": "#2e8b57",  # sea green
+    "Female": "#98fb98",  # pale green
 }
+
 
 ### HELPER FUNCTIONS ###
 def load_phenotypes():
@@ -55,6 +55,7 @@ def load_phenotypes():
         print(list(pheno_dict.keys()))
     return list(pheno_dict.keys())
 
+
 def convert_decimal_columns(df):
     """
     Convert all numeric-like columns to float for JSON serialization
@@ -65,6 +66,7 @@ def convert_decimal_columns(df):
         except (ValueError, TypeError):
             continue
     return df
+
 
 ### DESCRIPTIVE PREVALENCE CHARTS ###
 def get_prevalence(snowsesh, phenotype, demographic):
@@ -84,22 +86,29 @@ def get_prevalence(snowsesh, phenotype, demographic):
     """
     df = snowsesh.execute_query_to_df(query)
 
-    df['PREVALENCE'] = pd.to_numeric(df['PREVALENCE'], errors='coerce')
-    df['COUNT'] = pd.to_numeric(df['COUNT'], errors='coerce')
-    df['SUBGROUP_POPULATION'] = pd.to_numeric(df['SUBGROUP_POPULATION'], errors='coerce')
+    df["PREVALENCE"] = pd.to_numeric(df["PREVALENCE"], errors="coerce")
+    df["COUNT"] = pd.to_numeric(df["COUNT"], errors="coerce")
+    df["SUBGROUP_POPULATION"] = pd.to_numeric(df["SUBGROUP_POPULATION"], errors="coerce")
 
-    if demographic == 'gender':
-        df = df[df['DEMOGRAPHIC_SUBGROUP'].isin(['Male', 'Female'])]
-    if demographic == 'ethnicity':
-        df = df[df['DEMOGRAPHIC_SUBGROUP'].isin(['White', 'Black', 'South Asian', 'East Or Other Asian'])]
+    if demographic == "gender":
+        df = df[df["DEMOGRAPHIC_SUBGROUP"].isin(["Male", "Female"])]
+    if demographic == "ethnicity":
+        df = df[
+            df["DEMOGRAPHIC_SUBGROUP"].isin(
+                ["White", "Black", "South Asian", "East Or Other Asian"]
+            )
+        ]
 
     if demographic in DEMOGRAPHIC_ORDER:
         order = DEMOGRAPHIC_ORDER[demographic]
-        df = df[df['DEMOGRAPHIC_SUBGROUP'].isin(order)]
-        df['DEMOGRAPHIC_SUBGROUP'] = pd.Categorical(df['DEMOGRAPHIC_SUBGROUP'], categories=order, ordered=True)
-        df = df.sort_values('DEMOGRAPHIC_SUBGROUP')
+        df = df[df["DEMOGRAPHIC_SUBGROUP"].isin(order)]
+        df["DEMOGRAPHIC_SUBGROUP"] = pd.Categorical(
+            df["DEMOGRAPHIC_SUBGROUP"], categories=order, ordered=True
+        )
+        df = df.sort_values("DEMOGRAPHIC_SUBGROUP")
 
     return df
+
 
 def create_simple_prevalence_chart(snowsesh, phenotype, demographic, title):
     """
@@ -107,60 +116,61 @@ def create_simple_prevalence_chart(snowsesh, phenotype, demographic, title):
     """
     df = get_prevalence(snowsesh, phenotype, demographic)
 
-    df['PREVALENCE_FORMATTED'] = df['PREVALENCE'].round(1).astype(str) + '%'
+    df["PREVALENCE_FORMATTED"] = df["PREVALENCE"].round(1).astype(str) + "%"
 
-    if demographic == 'ethnicity':
-        color_encoding = alt.Color('DEMOGRAPHIC_SUBGROUP:N',
-                                 scale=alt.Scale(domain=list(ETHNICITY_COLOURS.keys()),
-                                               range=list(ETHNICITY_COLOURS.values())),
-                                 legend=None)
-    elif demographic == 'gender':
-        color_encoding = alt.Color('DEMOGRAPHIC_SUBGROUP:N',
-                                 scale=alt.Scale(domain=list(GENDER_COLOURS.keys()),
-                                               range=list(GENDER_COLOURS.values())),
-                                 legend=None)
+    if demographic == "ethnicity":
+        color_encoding = alt.Color(
+            "DEMOGRAPHIC_SUBGROUP:N",
+            scale=alt.Scale(
+                domain=list(ETHNICITY_COLOURS.keys()), range=list(ETHNICITY_COLOURS.values())
+            ),
+            legend=None,
+        )
+    elif demographic == "gender":
+        color_encoding = alt.Color(
+            "DEMOGRAPHIC_SUBGROUP:N",
+            scale=alt.Scale(
+                domain=list(GENDER_COLOURS.keys()), range=list(GENDER_COLOURS.values())
+            ),
+            legend=None,
+        )
     else:
-        color_encoding = alt.Color('PREVALENCE:Q',
-                                 scale=alt.Scale(scheme='yellowgreenblue',
-                                               domain=[0, df['PREVALENCE'].max()],
-                                               type='linear'),
-                                 legend=None)
+        color_encoding = alt.Color(
+            "PREVALENCE:Q",
+            scale=alt.Scale(
+                scheme="yellowgreenblue", domain=[0, df["PREVALENCE"].max()], type="linear"
+            ),
+            legend=None,
+        )
 
     base = alt.Chart(df).encode(
-        y=alt.Y('DEMOGRAPHIC_SUBGROUP:N',
-                title=None,
-                sort=None,
-                axis=alt.Axis(orient='right')),
-        x=alt.X('PREVALENCE:Q',
-                title='Prevalence Within Subgroup (%)',
-                scale=alt.Scale(domain=[0, df['PREVALENCE'].max() * 1.2])),
+        y=alt.Y("DEMOGRAPHIC_SUBGROUP:N", title=None, sort=None, axis=alt.Axis(orient="right")),
+        x=alt.X(
+            "PREVALENCE:Q",
+            title="Prevalence Within Subgroup (%)",
+            scale=alt.Scale(domain=[0, df["PREVALENCE"].max() * 1.2]),
+        ),
         color=color_encoding,
         tooltip=[
-            alt.Tooltip('DEMOGRAPHIC_SUBGROUP', title='Group'),
-            alt.Tooltip('PREVALENCE:Q', title='Prevalence Within Subgroup', format='.1f')
-        ]
+            alt.Tooltip("DEMOGRAPHIC_SUBGROUP", title="Group"),
+            alt.Tooltip("PREVALENCE:Q", title="Prevalence Within Subgroup", format=".1f"),
+        ],
     )
 
-    chart = alt.layer(
-        base.mark_bar(opacity=0.7),
-        base.encode(
-            text=alt.Text('PREVALENCE_FORMATTED:N')
-        ).mark_text(
-            align='left',
-            dx=5,
-            color='black'
+    chart = (
+        alt.layer(
+            base.mark_bar(opacity=0.7),
+            base.encode(text=alt.Text("PREVALENCE_FORMATTED:N")).mark_text(
+                align="left", dx=5, color="black"
+            ),
         )
-    ).properties(
-        title=title,
-        width=400,
-        height=420
-    ).configure_axis(
-        grid=True
-    ).configure_view(
-        strokeWidth=0
+        .properties(title=title, width=400, height=420)
+        .configure_axis(grid=True)
+        .configure_view(strokeWidth=0)
     )
 
     st.altair_chart(chart, use_container_width=False)
+
 
 ### AGE OF ONSET CHART (FACETED) ###
 def get_onset_age_data(snowsesh, phenotype):
@@ -174,22 +184,21 @@ def get_onset_age_data(snowsesh, phenotype):
     """
     df = snowsesh.execute_query_to_df(query)
 
-    df = df[df['GENDER'].isin(['Male', 'Female'])]
+    df = df[df["GENDER"].isin(["Male", "Female"])]
 
-    ethnicity_order = ['White', 'South Asian', 'Black', 'East Or Other Asian']
-    df = df[df['ETHNIC_AIC_CATEGORY'].isin(ethnicity_order)]
-    df['ETHNIC_AIC_CATEGORY'] = pd.Categorical(
-        df['ETHNIC_AIC_CATEGORY'],
-        categories=ethnicity_order,
-        ordered=True
+    ethnicity_order = ["White", "South Asian", "Black", "East Or Other Asian"]
+    df = df[df["ETHNIC_AIC_CATEGORY"].isin(ethnicity_order)]
+    df["ETHNIC_AIC_CATEGORY"] = pd.Categorical(
+        df["ETHNIC_AIC_CATEGORY"], categories=ethnicity_order, ordered=True
     )
 
-    df['AGE_AT_ONSET'] = pd.to_numeric(df['AGE_AT_ONSET'], errors='coerce')
-    df = df[df['AGE_AT_ONSET'] > 0]
-    df = df[df['AGE_AT_ONSET'] < 100]
-    df = df.dropna(subset=['AGE_AT_ONSET'])
+    df["AGE_AT_ONSET"] = pd.to_numeric(df["AGE_AT_ONSET"], errors="coerce")
+    df = df[df["AGE_AT_ONSET"] > 0]
+    df = df[df["AGE_AT_ONSET"] < 100]
+    df = df.dropna(subset=["AGE_AT_ONSET"])
 
     return df
+
 
 def create_faceted_onset_chart(snowsesh, phenotype, demographic_col, title):
     """
@@ -197,45 +206,50 @@ def create_faceted_onset_chart(snowsesh, phenotype, demographic_col, title):
     """
     df = get_onset_age_data(snowsesh, phenotype)
     n_categories = df[demographic_col].nunique()
-    facet_height = (380-(10*(n_categories-1))) / (n_categories + 1)
+    facet_height = (380 - (10 * (n_categories - 1))) / (n_categories + 1)
 
     # directly specify order here
-    if demographic_col == 'ETHNIC_AIC_CATEGORY':
-        sort_order = ['White', 'South Asian', 'Black', 'East Or Other Asian']
+    if demographic_col == "ETHNIC_AIC_CATEGORY":
+        sort_order = ["White", "South Asian", "Black", "East Or Other Asian"]
     else:
         sort_order = None
 
-    chart = alt.Chart(df).transform_density(
-        'AGE_AT_ONSET',
-        as_=['AGE_AT_ONSET', 'density'],
-        groupby=[demographic_col]
-    ).mark_area(
-        opacity=0.7
-    ).encode(
-        x=alt.X('AGE_AT_ONSET:Q',
-                title='Age at Onset',
-                scale=alt.Scale(domain=[0, 100], padding=0)),
-        y=alt.Y('density:Q', title=None),
-        color=alt.condition(
-            alt.datum[demographic_col],
-            alt.Color(f'{demographic_col}:N',
-                     scale=alt.Scale(domain=list(ETHNICITY_COLOURS.keys()),
-                                   range=list(ETHNICITY_COLOURS.values()))
-                     if demographic_col == 'ETHNIC_AIC_CATEGORY' else
-                     alt.Scale(scheme='lightorange')),
-            alt.value('steelblue')
-        ),
-        row=alt.Row(f'{demographic_col}:N', sort=sort_order),
-    ).properties(
-        height=facet_height,
-        width=600,
-        title=title
-    ).configure_facet(
-        spacing=10  # this is spacing between facets
-    ).resolve_scale(
-        y='independent'  # each facet gets own y-scale
+    chart = (
+        alt.Chart(df)
+        .transform_density(
+            "AGE_AT_ONSET", as_=["AGE_AT_ONSET", "density"], groupby=[demographic_col]
+        )
+        .mark_area(opacity=0.7)
+        .encode(
+            x=alt.X(
+                "AGE_AT_ONSET:Q", title="Age at Onset", scale=alt.Scale(domain=[0, 100], padding=0)
+            ),
+            y=alt.Y("density:Q", title=None),
+            color=alt.condition(
+                alt.datum[demographic_col],
+                alt.Color(
+                    f"{demographic_col}:N",
+                    scale=alt.Scale(
+                        domain=list(ETHNICITY_COLOURS.keys()),
+                        range=list(ETHNICITY_COLOURS.values()),
+                    )
+                    if demographic_col == "ETHNIC_AIC_CATEGORY"
+                    else alt.Scale(scheme="lightorange"),
+                ),
+                alt.value("steelblue"),
+            ),
+            row=alt.Row(f"{demographic_col}:N", sort=sort_order),
+        )
+        .properties(height=facet_height, width=600, title=title)
+        .configure_facet(
+            spacing=10  # this is spacing between facets
+        )
+        .resolve_scale(
+            y="independent"  # each facet gets own y-scale
+        )
     )
     st.altair_chart(chart, use_container_width=False)
+
 
 ### EFFECTS MODIFICATION CHART FOR RISK OF PHENOTYPE ###
 def get_adjusted_effects(snowsesh, phenotype):
@@ -250,91 +264,72 @@ def get_adjusted_effects(snowsesh, phenotype):
     df = snowsesh.execute_query_to_df(query)
     return df
 
+
 def create_effect_modification_chart(df, effect_type, title, show_legend=True):
     """
     Creates chart showing effect modification with confidence intervals
     """
     # Filter data for specific effect type (i.e. age or deprivation)
-    plot_df = df[df['effect_modifier'] == effect_type].copy()
+    plot_df = df[df["effect_modifier"] == effect_type].copy()
 
-    if effect_type == 'age_band':
+    if effect_type == "age_band":
         # Custom age band axis with specified order
         x_encoding = alt.X(
-            'modifier_value:N',
-            title='Age Band',
-            sort=['0-17', '18-24', '25-34', '35-44', '45-54', '55-64', '65-74', '75+'],
-            axis=alt.Axis(
-                labelAngle=-45,
-                labelFontSize=12,
-                titleFontSize=14
-            )
+            "modifier_value:N",
+            title="Age Band",
+            sort=["0-17", "18-24", "25-34", "35-44", "45-54", "55-64", "65-74", "75+"],
+            axis=alt.Axis(labelAngle=-45, labelFontSize=12, titleFontSize=14),
         )
     else:
         # Continuous axis for IMD
         x_encoding = alt.X(
-            'modifier_value:Q',
-            title='IMD Rank (0=Most Deprived, 1=Least Deprived)',
-            axis=alt.Axis(
-                values=[0, 0.2, 0.4, 0.6, 0.8, 1.0],
-                labelFontSize=12,
-                titleFontSize=14
-            )
+            "modifier_value:Q",
+            title="IMD Rank (0=Most Deprived, 1=Least Deprived)",
+            axis=alt.Axis(values=[0, 0.2, 0.4, 0.6, 0.8, 1.0], labelFontSize=12, titleFontSize=14),
         )
 
     ETHNICITY_COLOURS = {
-        'White': '#00b4d8',      # cyan/blue
-        'South_Asian': '#ff7b00', # orange
-        'Black': '#00e676',      # bright green
-        'East_Or_Other_Asian': '#ff4d6d'  # coral red
+        "White": "#00b4d8",  # cyan/blue
+        "South_Asian": "#ff7b00",  # orange
+        "Black": "#00e676",  # bright green
+        "East_Or_Other_Asian": "#ff4d6d",  # coral red
     }
 
     # base chart
     base = alt.Chart(plot_df).encode(
         x=x_encoding,
         y=alt.Y(
-            'odds_ratio:Q',
-            title='Odds Ratio',
-            scale=alt.Scale(type='linear'),
-            axis=alt.Axis(
-                labelFontSize=12,
-                titleFontSize=14
-            )
+            "odds_ratio:Q",
+            title="Odds Ratio",
+            scale=alt.Scale(type="linear"),
+            axis=alt.Axis(labelFontSize=12, titleFontSize=14),
         ),
         color=alt.Color(
-            'ethnic_group:N',
+            "ethnic_group:N",
             scale=alt.Scale(
-                domain=list(ETHNICITY_COLOURS.keys()),
-                range=list(ETHNICITY_COLOURS.values())
+                domain=list(ETHNICITY_COLOURS.keys()), range=list(ETHNICITY_COLOURS.values())
             ),
             legend=alt.Legend(
-                orient='right',
-                title='Ethnic Group',
-                titleFontSize=12,
-                labelFontSize=12
-            ) if show_legend else None
-        )
+                orient="right", title="Ethnic Group", titleFontSize=12, labelFontSize=12
+            )
+            if show_legend
+            else None,
+        ),
     )
     # confidence interval band
-    ci_bands = base.mark_area(opacity=0.1).encode(
-        y='lower_ci:Q',
-        y2='upper_ci:Q'
-    )
+    ci_bands = base.mark_area(opacity=0.1).encode(y="lower_ci:Q", y2="upper_ci:Q")
     # line for main effect
     lines = base.mark_line(size=2)
     # combine layers
-    chart = (ci_bands + lines).properties(
-        title=alt.Title(
-            text=title,
-            fontSize=14,
-            anchor='middle'
-        ),
-        width=800,
-        height=500
-    ).configure_axis(
-        grid=True,
-        gridOpacity=0.2
+    chart = (
+        (ci_bands + lines)
+        .properties(
+            title=alt.Title(text=title, fontSize=14, anchor="middle"), width=800, height=500
+        )
+        .configure_axis(grid=True, gridOpacity=0.2)
     )
     return chart
+
 
 ### GEOSPATIAL RISK ###
 def get_risk_data(snowsesh):
@@ -369,7 +364,8 @@ def get_risk_data(snowsesh):
         st.error(f"Error retrieving data: {e}")
         raise e
 
-def create_choropleth_map(gdf, value_column, title, color_scheme='YlOrRd', reverse=False):
+
+def create_choropleth_map(gdf, value_column, title, color_scheme="YlOrRd", reverse=False):
     """
     Creates a Folium choropleth map for the specified metric
     """
@@ -377,51 +373,51 @@ def create_choropleth_map(gdf, value_column, title, color_scheme='YlOrRd', rever
     m = folium.Map(
         location=[gdf.geometry.centroid.y.mean(), gdf.geometry.centroid.x.mean()],
         zoom_start=12.9,
-        tiles='CartoDB dark_matter' # dark mode
+        tiles="CartoDB dark_matter",  # dark mode
     )
 
     # choropleth layer
     folium.Choropleth(
         geo_data=gdf.__geo_interface__,
-        name='choropleth',
+        name="choropleth",
         data=gdf,
-        columns=['LSOA11CD', value_column],
-        key_on='feature.properties.LSOA11CD',
+        columns=["LSOA11CD", value_column],
+        key_on="feature.properties.LSOA11CD",
         fill_color=color_scheme,
         fill_opacity=0.6,
         line_opacity=0.5,
         legend_name=title,
-        reverse=reverse
+        reverse=reverse,
     ).add_to(m)
 
     # tooltips
-    tooltip_fields = ['LSOA11NM', value_column]
-    tooltip_aliases = ['LSOA Name:', f'{title}:']
+    tooltip_fields = ["LSOA11NM", value_column]
+    tooltip_aliases = ["LSOA Name:", f"{title}:"]
 
     # population and case counts for context
-    if value_column not in ['population', 'actual_cases']:
-        tooltip_fields.extend(['population', 'actual_cases'])
-        tooltip_aliases.extend(['Population:', 'Actual Cases:'])
+    if value_column not in ["population", "actual_cases"]:
+        tooltip_fields.extend(["population", "actual_cases"])
+        tooltip_aliases.extend(["Population:", "Actual Cases:"])
 
     NIL = folium.features.GeoJson(
         gdf,
         style_function=lambda x: {
-            'fillColor': '#ffffff',
-            'color': '#000000',
-            'fillOpacity': 0.1,
-            'weight': 0.1
+            "fillColor": "#ffffff",
+            "color": "#000000",
+            "fillOpacity": 0.1,
+            "weight": 0.1,
         },
         highlight_function=lambda x: {
-            'fillColor': '#000000',
-            'color': '#000000',
-            'fillOpacity': 0.50,
-            'weight': 0.1
+            "fillColor": "#000000",
+            "color": "#000000",
+            "fillOpacity": 0.50,
+            "weight": 0.1,
         },
         tooltip=folium.features.GeoJsonTooltip(
             fields=tooltip_fields,
             aliases=tooltip_aliases,
-            style="background-color: white; color: #333333; font-family: arial; font-size: 12px; padding: 10px;"
-        )
+            style="background-color: white; color: #333333; font-family: arial; font-size: 12px; padding: 10px;", #noqa: E501
+        ),
     )
 
     m.add_child(NIL)
@@ -429,26 +425,25 @@ def create_choropleth_map(gdf, value_column, title, color_scheme='YlOrRd', rever
 
     return m
 
+
 ### STATISTICAL SEGMENTATION DATA ###
 @st.cache_data
 def load_segment_data():
-    df_3d = pd.read_csv('clustering_segment_risk/ppmi_3d.csv')
-    df_2d = pd.read_csv('clustering_segment_risk/ppmi_2d.csv', index_col=0)
-    df_3d_1834 = pd.read_csv('clustering_segment_risk/ppmi_3d_age18-34.csv')
-    df_2d_1834 = pd.read_csv('clustering_segment_risk/ppmi_2d_age18-34.csv', index_col=0)
-    df_3d_3564 = pd.read_csv('clustering_segment_risk/ppmi_3d_age35-64.csv')
-    df_2d_3564 = pd.read_csv('clustering_segment_risk/ppmi_2d_age35-64.csv', index_col=0)
-    #max_ppmi_3d = df_3d['ppmi'].max()
+    df_3d = pd.read_csv("clustering_segment_risk/ppmi_3d.csv")
+    df_2d = pd.read_csv("clustering_segment_risk/ppmi_2d.csv", index_col=0)
+    df_3d_1834 = pd.read_csv("clustering_segment_risk/ppmi_3d_age18-34.csv")
+    df_2d_1834 = pd.read_csv("clustering_segment_risk/ppmi_2d_age18-34.csv", index_col=0)
+    df_3d_3564 = pd.read_csv("clustering_segment_risk/ppmi_3d_age35-64.csv")
+    df_2d_3564 = pd.read_csv("clustering_segment_risk/ppmi_2d_age35-64.csv", index_col=0)
+    # max_ppmi_3d = df_3d['ppmi'].max()
     return df_3d, df_2d, df_3d_1834, df_2d_1834, df_3d_3564, df_2d_3564
 
+
 def show_segdash(selected_condition):
-    df_3d, df_2d, df_3d_1834, df_2d_1834, df_3d_3564, df_2d_3564  = load_segment_data()
+    df_3d, df_2d, df_3d_1834, df_2d_1834, df_3d_3564, df_2d_3564 = load_segment_data()
 
     age_group = st.radio(
-        "Age Group",
-        ["All", "18-34", "35-84"],
-        horizontal=True,
-        label_visibility="collapsed"
+        "Age Group", ["All", "18-34", "35-84"], horizontal=True, label_visibility="collapsed"
     )
 
     if age_group == "All":
@@ -461,158 +456,157 @@ def show_segdash(selected_condition):
         data_3d = df_3d_3564
         data_2d = df_2d_3564
 
-
     conditions = sorted(data_2d.columns)
 
     two_d_data = data_2d[selected_condition].reset_index()
-    two_d_data.columns = ['condition', 'ppmi']
-    two_d_data = two_d_data[two_d_data['condition'] != selected_condition]  # Remove self-comparison
-    two_d_data = two_d_data.sort_values('ppmi', ascending=False)
+    two_d_data.columns = ["condition", "ppmi"]
+    two_d_data = two_d_data[two_d_data["condition"] != selected_condition]  # Remove self-comparison
+    two_d_data = two_d_data.sort_values("ppmi", ascending=False)
     two_d_data = two_d_data.head(10)
 
     # 2d bar chart
-    st.subheader(f'Dual Condition Multi-Morbidity with {selected_condition}')
-    bar_chart = alt.Chart(two_d_data).mark_bar().encode(
-        y=alt.Y('condition:N',
-                title='Condition',
-                sort='-x',
-                axis=alt.Axis(labelLimit=200)),
-        x=alt.X('ppmi:Q',
-                title='PPMI Score'),
-        color=alt.Color('ppmi:Q',
-                    scale=alt.Scale(scheme='darkmulti', domain=[0, 1.5]),
-                    title='PPMI Score'),
-        tooltip=[
-            alt.Tooltip('condition:N', title='Condition'),
-            alt.Tooltip('ppmi:Q', title='PPMI', format='.3f')
-        ]
-    ).properties(
-        width=800,
-        height=400
+    st.subheader(f"Dual Condition Multi-Morbidity with {selected_condition}")
+    bar_chart = (
+        alt.Chart(two_d_data)
+        .mark_bar()
+        .encode(
+            y=alt.Y("condition:N", title="Condition", sort="-x", axis=alt.Axis(labelLimit=200)),
+            x=alt.X("ppmi:Q", title="PPMI Score"),
+            color=alt.Color(
+                "ppmi:Q", scale=alt.Scale(scheme="darkmulti", domain=[0, 1.5]), title="PPMI Score"
+            ),
+            tooltip=[
+                alt.Tooltip("condition:N", title="Condition"),
+                alt.Tooltip("ppmi:Q", title="PPMI", format=".3f"),
+            ],
+        )
+        .properties(width=800, height=400)
     )
 
     st.altair_chart(bar_chart, use_container_width=True)
 
     # 3d data
     filtered_data = data_3d[
-        (data_3d['condition3'] == selected_condition) &
-        (data_3d['condition1'] != data_3d['condition2']) &
-        (data_3d['condition1'] != selected_condition) &
-        (data_3d['condition2'] != selected_condition) &
-        (data_3d['condition1'] < data_3d['condition2'])
+        (data_3d["condition3"] == selected_condition)
+        & (data_3d["condition1"] != data_3d["condition2"])
+        & (data_3d["condition1"] != selected_condition)
+        & (data_3d["condition2"] != selected_condition)
+        & (data_3d["condition1"] < data_3d["condition2"])
     ].copy()
 
     conditions_subset = [c for c in conditions if c != selected_condition]
 
     col1, col2 = st.columns([2, 1])
     with col1:
-        st.subheader(f'Three Condition Multi-Morbidity with {selected_condition}')
-        heatmap = alt.Chart(filtered_data).mark_rect().encode(
-            x=alt.X('condition1:N',
-                    title='Condition 1',
-                    sort=conditions_subset),
-            y=alt.Y('condition2:N',
-                    title='Condition 2',
-                    sort=conditions_subset),
-            color=alt.Color('ppmi:Q',
-                        scale=alt.Scale(scheme='darkmulti', domain=[0, 5]),
-                        title='PPMI Score'),
-            tooltip=[
-                alt.Tooltip('condition1:N', title='Condition 1'),
-                alt.Tooltip('condition2:N', title='Condition 2'),
-                alt.Tooltip('ppmi:Q', title='PPMI', format='.3f'),
-                alt.Tooltip('count:Q', title='Count', format=',')
-            ]
-        ).properties(
-            width=600,
-            height=600
+        st.subheader(f"Three Condition Multi-Morbidity with {selected_condition}")
+        heatmap = (
+            alt.Chart(filtered_data)
+            .mark_rect()
+            .encode(
+                x=alt.X("condition1:N", title="Condition 1", sort=conditions_subset),
+                y=alt.Y("condition2:N", title="Condition 2", sort=conditions_subset),
+                color=alt.Color(
+                    "ppmi:Q", scale=alt.Scale(scheme="darkmulti", domain=[0, 5]), title="PPMI Score"
+                ),
+                tooltip=[
+                    alt.Tooltip("condition1:N", title="Condition 1"),
+                    alt.Tooltip("condition2:N", title="Condition 2"),
+                    alt.Tooltip("ppmi:Q", title="PPMI", format=".3f"),
+                    alt.Tooltip("count:Q", title="Count", format=","),
+                ],
+            )
+            .properties(width=600, height=600)
         )
         st.altair_chart(heatmap, use_container_width=True)
 
     with col2:
-        st.subheader('Top Multi-Morbidity Phenotypes')
-        top_relationships = filtered_data.nlargest(10, 'ppmi')
-        top_relationships = top_relationships[['condition1', 'condition2', 'ppmi', 'count']]
-        top_relationships = top_relationships.round({'ppmi': 3})
+        st.subheader("Top Multi-Morbidity Phenotypes")
+        top_relationships = filtered_data.nlargest(10, "ppmi")
+        top_relationships = top_relationships[["condition1", "condition2", "ppmi", "count"]]
+        top_relationships = top_relationships.round({"ppmi": 3})
         st.dataframe(top_relationships, height=400)
+
 
 ### SYNTHETIC PATIENT TIMELINE ###
 def create_patient_timeline():
-    df = pd.read_csv('prisk0.csv')
+    df = pd.read_csv("prisk0.csv")
 
-    df['DATE'] = pd.to_datetime(df['DATE'], format='%d/%m/%Y')
+    df["DATE"] = pd.to_datetime(df["DATE"], format="%d/%m/%Y")
 
     encounters_df = pd.melt(
         df,
-        id_vars=['DATE'],
-        value_vars=['PRIMARY_CARE', 'ACUTE_CARE'],
-        var_name='Care Type',
-        value_name='Encounters'
+        id_vars=["DATE"],
+        value_vars=["PRIMARY_CARE", "ACUTE_CARE"],
+        var_name="Care Type",
+        value_name="Encounters",
     )
 
     # base chart for encounters (bars)
-    bars = alt.Chart(encounters_df).mark_bar().encode(
-        x=alt.X('DATE:T', title='Date'),
-        xOffset='Care Type:N',  # side by side bars
-        y=alt.Y('Encounters:Q', title='Number of Encounters'),
-        color=alt.Color('Care Type:N',
-                       scale=alt.Scale(
-                           #domain=['PRIMARY_CARE', 'ACUTE_CARE'],
-                           #range=['#87CEEB', '#FFD700']
-                       ),
-                       legend=alt.Legend(
-                           title='Care Type',
-                           orient='bottom',
-                           direction='horizontal',
-                           titleOrient='left'
-                       )
-        ),
-        tooltip=[
-            alt.Tooltip('DATE:T', title='Date'),
-            alt.Tooltip('Care Type:N', title='Type'),
-            alt.Tooltip('Encounters:Q', title='Count')
-        ]
+    bars = (
+        alt.Chart(encounters_df)
+        .mark_bar()
+        .encode(
+            x=alt.X("DATE:T", title="Date"),
+            xOffset="Care Type:N",  # side by side bars
+            y=alt.Y("Encounters:Q", title="Number of Encounters"),
+            color=alt.Color(
+                "Care Type:N",
+                scale=alt.Scale(
+                    # domain=['PRIMARY_CARE', 'ACUTE_CARE'],
+                    # range=['#87CEEB', '#FFD700']
+                ),
+                legend=alt.Legend(
+                    title="Care Type", orient="bottom", direction="horizontal", titleOrient="left"
+                ),
+            ),
+            tooltip=[
+                alt.Tooltip("DATE:T", title="Date"),
+                alt.Tooltip("Care Type:N", title="Type"),
+                alt.Tooltip("Encounters:Q", title="Count"),
+            ],
+        )
     )
 
-    acute_tooltips = alt.Chart(df).mark_bar().encode(
-        x='DATE:T',
-        y='ACUTE_CARE:Q',
-        tooltip=[
-            alt.Tooltip('DATE:T', title='Date'),
-            alt.Tooltip('ACUTE_CARE:Q', title='Admissions'),
-            alt.Tooltip('ACUTE_CARE_FLAG:N', title='Reason')
-        ],
-        opacity=alt.value(0)
+    acute_tooltips = (
+        alt.Chart(df)
+        .mark_bar()
+        .encode(
+            x="DATE:T",
+            y="ACUTE_CARE:Q",
+            tooltip=[
+                alt.Tooltip("DATE:T", title="Date"),
+                alt.Tooltip("ACUTE_CARE:Q", title="Admissions"),
+                alt.Tooltip("ACUTE_CARE_FLAG:N", title="Reason"),
+            ],
+            opacity=alt.value(0),
+        )
     )
 
     # line chart for risk score
-    line = alt.Chart(df).mark_line(
-        color='#FF6B6B',
-        strokeWidth=2
-    ).encode(
-        x='DATE:T',
-        y=alt.Y('RISK_SCORE:Q',
-                title='Risk Score',
-                axis=alt.Axis(titleColor='#FF6B6B')),
-        tooltip=[
-            alt.Tooltip('DATE:T', title='Date'),
-            alt.Tooltip('RISK_SCORE:Q', title='Risk Score', format='.2f')
-        ]
+    line = (
+        alt.Chart(df)
+        .mark_line(color="#FF6B6B", strokeWidth=2)
+        .encode(
+            x="DATE:T",
+            y=alt.Y("RISK_SCORE:Q", title="Risk Score", axis=alt.Axis(titleColor="#FF6B6B")),
+            tooltip=[
+                alt.Tooltip("DATE:T", title="Date"),
+                alt.Tooltip("RISK_SCORE:Q", title="Risk Score", format=".2f"),
+            ],
+        )
     )
 
     # combine
-    combined = alt.layer(bars, acute_tooltips, line).resolve_scale(
-        y='independent'
-    ).properties(
-        width=800,
-        height=400
-    ).configure_view(
-        strokeWidth=0
-    ).configure_axis(
-        grid=True
+    combined = (
+        alt.layer(bars, acute_tooltips, line)
+        .resolve_scale(y="independent")
+        .properties(width=800, height=400)
+        .configure_view(strokeWidth=0)
+        .configure_axis(grid=True)
     )
 
     return combined
+
 
 ### PLOTLY SANKEY FOR HYPERTENSION ###
 def create_hypertension_sankey():
@@ -621,27 +615,27 @@ def create_hypertension_sankey():
         thickness=20,
         line=dict(color="white", width=0.5),
         label=[
-            "Hypertension",                      # 0 (left)
-            "Simple Hypertension",               # 1 (middle-left)
-            "Simple HTN, Monitored",             # 2 (right)
-            "HTN, Poor Control",                 # 3 (right)
-            "HTN, Needs Monitoring",             # 4 (right)
-            "HTN w/ Renal dysfunction",          # 5 (right)
-            "HTN w/ End-Organ Damage",           # 6 (right)
-            "HTN w/ Severe Organ Dysfunction"    # 7 (right)
+            "Hypertension",  # 0 (left)
+            "Simple Hypertension",  # 1 (middle-left)
+            "Simple HTN, Monitored",  # 2 (right)
+            "HTN, Poor Control",  # 3 (right)
+            "HTN, Needs Monitoring",  # 4 (right)
+            "HTN w/ Renal dysfunction",  # 5 (right)
+            "HTN w/ End-Organ Damage",  # 6 (right)
+            "HTN w/ Severe Organ Dysfunction",  # 7 (right)
         ],
-        x = [0.1, 0.4, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9],
-        y = [0.5, 0.3, 0.1, 0.3, 0.5, 0.7, 0.85, 0.95],
+        x=[0.1, 0.4, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9],
+        y=[0.5, 0.3, 0.1, 0.3, 0.5, 0.7, 0.85, 0.95],
         color=[
             "rgba(255, 160, 122, 0.7)",  # Light salmon
-            "rgba(255, 140, 97, 0.7)",   # Lighter orange
-            "rgba(255, 120, 71, 0.7)",   # Light orange
-            "rgba(255, 99, 46, 0.7)",    # Orange
-            "rgba(255, 78, 20, 0.7)",    # Dark orange
-            "rgba(230, 57, 0, 0.7)",     # Orange-red
-            "rgba(204, 0, 0, 0.7)",      # Red
-            "rgba(179, 0, 0, 0.7)"       # Dark red
-        ]
+            "rgba(255, 140, 97, 0.7)",  # Lighter orange
+            "rgba(255, 120, 71, 0.7)",  # Light orange
+            "rgba(255, 99, 46, 0.7)",  # Orange
+            "rgba(255, 78, 20, 0.7)",  # Dark orange
+            "rgba(230, 57, 0, 0.7)",  # Orange-red
+            "rgba(204, 0, 0, 0.7)",  # Red
+            "rgba(179, 0, 0, 0.7)",  # Dark red
+        ],
     )
 
     # flows + proportions
@@ -650,43 +644,40 @@ def create_hypertension_sankey():
         target=[1, 5, 6, 7, 2, 3, 4],
         value=[70, 15, 10, 5, 45, 15, 10],
         color=[
-            "rgba(255, 140, 97, 0.7)",   # Main flow to Simple HTN
-            "rgba(230, 57, 0, 0.7)",     # Flow to Renal dysfunction
-            "rgba(204, 0, 0, 0.7)",      # Flow to End-organ damage
-            "rgba(179, 0, 0, 0.7)",      # Flow to Severe dysfunction
-            "rgba(255, 120, 71, 0.7)",   # Flow to Monitored
-            "rgba(255, 99, 46, 0.7)",    # Flow to Poor Control
-            "rgba(255, 78, 20, 0.7)"     # Flow to Needs Monitoring
-        ]
+            "rgba(255, 140, 97, 0.7)",  # Main flow to Simple HTN
+            "rgba(230, 57, 0, 0.7)",  # Flow to Renal dysfunction
+            "rgba(204, 0, 0, 0.7)",  # Flow to End-organ damage
+            "rgba(179, 0, 0, 0.7)",  # Flow to Severe dysfunction
+            "rgba(255, 120, 71, 0.7)",  # Flow to Monitored
+            "rgba(255, 99, 46, 0.7)",  # Flow to Poor Control
+            "rgba(255, 78, 20, 0.7)",  # Flow to Needs Monitoring
+        ],
     )
 
-    fig = go.Figure(data=[go.Sankey(
-        node=nodes,
-        link=links,
-        arrangement="fixed"
-    )])
+    fig = go.Figure(data=[go.Sankey(node=nodes, link=links, arrangement="fixed")])
 
     fig.update_layout(
         font_size=12,
         font_color="white",
         height=350,
         width=1000,
-        plot_bgcolor='rgba(17, 17, 17, 1)',
-        paper_bgcolor='rgba(17, 17, 17, 1)',
-        margin=dict(l=20, r=20, t=20, b=20)
+        plot_bgcolor="rgba(17, 17, 17, 1)",
+        paper_bgcolor="rgba(17, 17, 17, 1)",
+        margin=dict(l=20, r=20, t=20, b=20),
     )
 
     return fig
 
+
 ### HYPERTENSION HR FOREST PLOT ###
 def create_hypertension_forest_plot():
     phenotypes = [
-        'Simple HTN, Monitored',
-        'HTN, Poor Control',
-        'HTN, Needs Monitoring',
-        'HTN w/ Renal dysfunction',
-        'HTN w/ End-Organ Damage',
-        'HTN w/ Severe Organ Dysfunction'
+        "Simple HTN, Monitored",
+        "HTN, Poor Control",
+        "HTN, Needs Monitoring",
+        "HTN w/ Renal dysfunction",
+        "HTN w/ End-Organ Damage",
+        "HTN w/ Severe Organ Dysfunction",
     ]
 
     hazard_ratios = [1.2, 1.8, 1.6, 2.1, 3.4, 4.8]
@@ -701,91 +692,84 @@ def create_hypertension_forest_plot():
     # vertical line at HR = 1
     fig.add_vline(x=1, line_width=1, line_dash="dash", line_color="white", opacity=0.5)
 
-    fig.add_trace(go.Scatter(
-        x=hazard_ratios,
-        y=phenotypes,
-        mode='markers',
-        marker=dict(
-            color='#FFA500',
-            size=10,
-            symbol='square'
-        ),
-        error_x=dict(
-            type='data',
-            symmetric=False,
-            array=error_plus,
-            arrayminus=error_minus,
-            color='#FFA500',
-            thickness=2,
-            width=10
-        ),
-        name='Hazard Ratio'
-    ))
+    fig.add_trace(
+        go.Scatter(
+            x=hazard_ratios,
+            y=phenotypes,
+            mode="markers",
+            marker=dict(color="#FFA500", size=10, symbol="square"),
+            error_x=dict(
+                type="data",
+                symmetric=False,
+                array=error_plus,
+                arrayminus=error_minus,
+                color="#FFA500",
+                thickness=2,
+                width=10,
+            ),
+            name="Hazard Ratio",
+        )
+    )
 
     # text annotations
-    for i, (hr, lower, upper) in enumerate(zip(hazard_ratios, ci_lower, ci_upper)):
+    for i, (hr, lower, upper) in enumerate(zip(hazard_ratios, ci_lower, ci_upper, strict=False)):
         fig.add_annotation(
             x=upper + 0.5,
             y=i,
-            text=f'HR: {hr:.1f} ({lower:.1f}-{upper:.1f})',
+            text=f"HR: {hr:.1f} ({lower:.1f}-{upper:.1f})",
             showarrow=False,
-            font=dict(color='white', size=12),
-            xanchor='left'
+            font=dict(color="white", size=12),
+            xanchor="left",
         )
 
     fig.update_layout(
-        title=dict(
-            text='',
-            font=dict(size=12, color='white'),
-            x=0.5,
-            y=0.95
-        ),
+        title=dict(text="", font=dict(size=12, color="white"), x=0.5, y=0.95),
         xaxis=dict(
-            title='Hazard Ratio (95% CI)',
+            title="Hazard Ratio (95% CI)",
             showgrid=True,
-            gridcolor='rgba(255, 255, 255, 0.1)',
+            gridcolor="rgba(255, 255, 255, 0.1)",
             zeroline=False,
             range=[0, 7],  # per max CI
-            tickfont=dict(color='white'),
-            title_font=dict(color='white')
+            tickfont=dict(color="white"),
+            title_font=dict(color="white"),
         ),
         yaxis=dict(
-            title='Phenotype',
+            title="Phenotype",
             showgrid=False,
             zeroline=False,
-            tickfont=dict(color='white'),
-            title_font=dict(color='white')
+            tickfont=dict(color="white"),
+            title_font=dict(color="white"),
         ),
-        plot_bgcolor='rgba(17, 17, 17, 1)',
-        paper_bgcolor='rgba(17, 17, 17, 1)',
+        plot_bgcolor="rgba(17, 17, 17, 1)",
+        paper_bgcolor="rgba(17, 17, 17, 1)",
         showlegend=False,
         width=900,
         height=400,
-        margin=dict(l=20, r=200, t=50, b=50)  # right margin
+        margin=dict(l=20, r=200, t=50, b=50),  # right margin
     )
 
     return fig
 
+
 ### DISEASE PROGRESSION GRAPH ###
 def create_disease_progression():
-
     colors = {
-        'high_risk': 'rgba(220, 53, 69, 0.8)',  # red
-        'medium_risk': 'rgba(255, 145, 0, 0.8)',  # orange
-        'standard': 'rgba(79, 79, 79, 0.8)',  # gray
-        'background': 'rgba(17, 17, 17, 1)',  # dark background
-        'text': 'white'
+        "high_risk": "rgba(220, 53, 69, 0.8)",  # red
+        "medium_risk": "rgba(255, 145, 0, 0.8)",  # orange
+        "standard": "rgba(79, 79, 79, 0.8)",  # gray
+        "background": "rgba(17, 17, 17, 1)",  # dark background
+        "text": "white",
     }
 
     fig = go.Figure()
 
     fig.update_layout(
-        plot_bgcolor=colors['background'],
-        paper_bgcolor=colors['background'],
+        plot_bgcolor=colors["background"],
+        paper_bgcolor=colors["background"],
         showlegend=False,
         height=600,
-        font=dict(color=colors['text']),
-        margin=dict(l=20, r=20, t=40, b=20)
+        font=dict(color=colors["text"]),
+        margin=dict(l=20, r=20, t=40, b=20),
     )
 
     # y pos
@@ -795,136 +779,135 @@ def create_disease_progression():
 
     # stages def
     stages = [
+        {"name": "Simple HTN", "x": 0, "conditions": ["Essential Hypertension"]},
         {
-            'name': 'Simple HTN',
-            'x': 0,
-            'conditions': ['Essential Hypertension']
+            "name": "Simple HTN, Poor Control",
+            "x": 1,
+            "conditions": ["Essential Hypertension", "Hypertension, Poor Control"],
         },
         {
-            'name': 'Simple HTN, Poor Control',
-            'x': 1,
-            'conditions': ['Essential Hypertension', 'Hypertension, Poor Control']
+            "name": "HTN, Renal Dysfunction",
+            "x": 2,
+            "conditions": ["Essential Hypertension", "Hypertension, Poor Control", "CKD Stage 1"],
         },
         {
-            'name': 'HTN, Renal Dysfunction',
-            'x': 2,
-            'conditions': ['Essential Hypertension', 'Hypertension, Poor Control', 'CKD Stage 1']
+            "name": "HTN w/ End-Organ Damage",
+            "x": 3,
+            "conditions": ["Essential Hypertension", "Hypertension, Poor Control", "CKD Stage 3"],
         },
-        {
-            'name': 'HTN w/ End-Organ Damage',
-            'x': 3,
-            'conditions': ['Essential Hypertension', 'Hypertension, Poor Control', 'CKD Stage 3']
-        }
     ]
 
     # flow arrow between stages
-    for i in range(len(stages)-1):
-        fig.add_trace(go.Scatter(
-            x=[i+0, i+1],
-            y=[main_y, main_y],
-            mode='lines',
-            line=dict(color='gray', width=2),
-            hoverinfo='none'
-        ))
+    for i in range(len(stages) - 1):
+        fig.add_trace(
+            go.Scatter(
+                x=[i + 0, i + 1],
+                y=[main_y, main_y],
+                mode="lines",
+                line=dict(color="gray", width=2),
+                hoverinfo="none",
+            )
+        )
 
     # add nodes
     for stage in stages:
-        x_pos = stage['x']
+        x_pos = stage["x"]
 
         fig.add_shape(
             type="rect",
-            x0=x_pos-0.2, x1=x_pos+0.2,
-            y0=main_y-0.1, y1=main_y+0.1,
-            fillcolor=colors['standard'],
+            x0=x_pos - 0.2,
+            x1=x_pos + 0.2,
+            y0=main_y - 0.1,
+            y1=main_y + 0.1,
+            fillcolor=colors["standard"],
             line=dict(color="white", width=1),
         )
         fig.add_annotation(
-            x=x_pos, y=main_y,
-            text=stage['name'],
+            x=x_pos,
+            y=main_y,
+            text=stage["name"],
             showarrow=False,
-            font=dict(color="white", size=10)
+            font=dict(color="white", size=10),
         )
 
         # add condition nodes
-        for i, condition in enumerate(stage['conditions']):
+        for i, condition in enumerate(stage["conditions"]):
             y_pos = base_node_y - (i * node_spacing)
 
             fig.add_shape(
                 type="circle",
-                x0=x_pos-0.15, x1=x_pos+0.15,
-                y0=y_pos-0.1, y1=y_pos+0.1,
-                fillcolor=colors['standard'],
+                x0=x_pos - 0.15,
+                x1=x_pos + 0.15,
+                y0=y_pos - 0.1,
+                y1=y_pos + 0.1,
+                fillcolor=colors["standard"],
                 line=dict(color="white", width=1),
             )
             fig.add_annotation(
-                x=x_pos, y=y_pos,
-                text=condition,
-                showarrow=False,
-                font=dict(color="white", size=10)
+                x=x_pos, y=y_pos, text=condition, showarrow=False, font=dict(color="white", size=10)
             )
-            fig.add_trace(go.Scatter(
-                x=[x_pos, x_pos],
-                y=[y_pos+0.1, main_y-0.1],
-                mode='lines',
-                line=dict(color='gray', width=1),
-                hoverinfo='none'
-            ))
+            fig.add_trace(
+                go.Scatter(
+                    x=[x_pos, x_pos],
+                    y=[y_pos + 0.1, main_y - 0.1],
+                    mode="lines",
+                    line=dict(color="gray", width=1),
+                    hoverinfo="none",
+                )
+            )
 
     # terminal risk boxes
     risks = [
-        ('Progression {End Stage Renal Failure}: MEDIUM', colors['medium_risk']),
-        ('Progression {TIA/Stroke}: MEDIUM', colors['medium_risk']),
-        ('Progression {Heart Failure}: HIGH', colors['high_risk'])
+        ("Progression {End Stage Renal Failure}: MEDIUM", colors["medium_risk"]),
+        ("Progression {TIA/Stroke}: MEDIUM", colors["medium_risk"]),
+        ("Progression {Heart Failure}: HIGH", colors["high_risk"]),
     ]
 
     # arrows and risk boxes
     for i, (risk, color) in enumerate(risks):
         y_pos = 0.6 - (i * 0.3)  # spread boxes vertically
 
-        fig.add_trace(go.Scatter(
-            x=[3.2, 3.7],
-            y=[main_y, y_pos],
-            mode='lines',
-            line=dict(color='gray', width=2),
-            hoverinfo='none'
-        ))
+        fig.add_trace(
+            go.Scatter(
+                x=[3.2, 3.7],
+                y=[main_y, y_pos],
+                mode="lines",
+                line=dict(color="gray", width=2),
+                hoverinfo="none",
+            )
+        )
         fig.add_shape(
             type="rect",
-            x0=3.7, x1=4.3,
-            y0=y_pos-0.1, y1=y_pos+0.1,
+            x0=3.7,
+            x1=4.3,
+            y0=y_pos - 0.1,
+            y1=y_pos + 0.1,
             fillcolor=color,
             line=dict(color="white", width=1),
         )
         fig.add_annotation(
-            x=4.0, y=y_pos,
-            text=risk,
-            showarrow=False,
-            font=dict(color="white", size=10)
+            x=4.0, y=y_pos, text=risk, showarrow=False, font=dict(color="white", size=10)
         )
 
     # adjust axes
-    fig.update_xaxes(
-        showgrid=False,
-        zeroline=False,
-        visible=False,
-        range=[-0.5, 4.5]
-    )
+    fig.update_xaxes(showgrid=False, zeroline=False, visible=False, range=[-0.5, 4.5])
     fig.update_yaxes(
         showgrid=False,
         zeroline=False,
         visible=False,
-        range=[-1.2, 0.8]  # Adjusted to fit all elements
+        range=[-1.2, 0.8],  # Adjusted to fit all elements
     )
 
     return fig
 
+
 ### CREATE STREAMLIT DASHBOARD ###
-def main():
+def main(): #noqa: C901
     load_dotenv()
 
     PHENOTYPES = load_phenotypes()
 
-    if 'snowsesh' not in st.session_state:
+    if "snowsesh" not in st.session_state:
         st.session_state.snowsesh = SnowflakeConnection()
         st.session_state.snowsesh.use_database("INTELLIGENCE_DEV")
         st.session_state.snowsesh.use_schema("AI_CENTRE_FEATURE_STORE")
@@ -937,59 +920,72 @@ def main():
     with st.sidebar:  # Add the selectbox to the sidebar
         st.title("PRISM - Personalised Risk, Intelligent Stratification, and Modelling")
         st.write("_Proof of Concept Only_")
-        selected_view = st.radio("Select View", ["Demographic Breakdown",
-                                                 "Ethnicity Inequality",
-                                                 "Underdiagnosis Risk",
-                                                 "Statistical Segmentation",
-                                                 "Segments and Risk",
-                                                 "Personalised Profile"])
+        selected_view = st.radio(
+            "Select View",
+            [
+                "Demographic Breakdown",
+                "Ethnicity Inequality",
+                "Underdiagnosis Risk",
+                "Statistical Segmentation",
+                "Segments and Risk",
+                "Personalised Profile",
+            ],
+        )
         phenotype = st.selectbox(
             "Select Phenotype",
             options=PHENOTYPES,
-            format_func=lambda x: x.replace(" simple reference set", "").replace(" diagnoses", "")
+            format_func=lambda x: x.replace(" simple reference set", "").replace(" diagnoses", ""),
         )
 
     # Display simple demographic breakdown charts
     if selected_view == "Demographic Breakdown":
-        st.title(f"Descriptive Demographic Breakdown")
+        st.title("Descriptive Demographic Breakdown")
         st.write("""
             This view shows the prevalence of selected conditions across different demographic groups in the NEL population.
             Prevalence is broken down by: ethnic groups (including age of onset), socioeconomic deprivation, age bands, and gender.
             Views are generated by live SQL query execution in a Snowflake Database containing data for 2.5 million individuals.
-        """)
+        """) #noqa: E501
 
         st.text("")
 
         if phenotype:
-            cols = st.columns([3,2], gap="small")
+            cols = st.columns([3, 2], gap="small")
             with cols[0]:
-               create_faceted_onset_chart(snowsesh, phenotype, 'ETHNIC_AIC_CATEGORY', f'Age of Onset by Ethnicity')
+                create_faceted_onset_chart(
+                    snowsesh, phenotype, "ETHNIC_AIC_CATEGORY", "Age of Onset by Ethnicity"
+                )
             with cols[1]:
-               create_simple_prevalence_chart(snowsesh, phenotype, 'ethnicity', 'Prevalence - Ethnic Subgroup')
+                create_simple_prevalence_chart(
+                    snowsesh, phenotype, "ethnicity", "Prevalence - Ethnic Subgroup"
+                )
 
             st.text("")
 
             # cols = st.columns(2, gap="small")
             # with cols[0]:
-            #     create_simple_prevalence_chart(snowsesh, phenotype, 'ethnicity', 'Prevalence - Ethnic Subgroup')
+            #     create_simple_prevalence_chart(snowsesh, phenotype, 'ethnicity', 'Prevalence - Ethnic Subgroup') #noqa: E501
             # with cols[1]:
-            #     create_simple_prevalence_chart(snowsesh, phenotype, 'london_imd', 'Prevalence - Deprivation Quintile')
+            #     create_simple_prevalence_chart(snowsesh, phenotype, 'london_imd', 'Prevalence - Deprivation Quintile') #noqa: E501
 
             cols = st.columns(3, gap="large")
             with cols[0]:
-                create_simple_prevalence_chart(snowsesh, phenotype, 'age_band', 'Prevalence - Age Group')
+                create_simple_prevalence_chart(
+                    snowsesh, phenotype, "age_band", "Prevalence - Age Group"
+                )
             with cols[1]:
-                create_simple_prevalence_chart(snowsesh, phenotype, 'london_imd', 'Prevalence - Deprivation Quintile')
+                create_simple_prevalence_chart(
+                    snowsesh, phenotype, "london_imd", "Prevalence - Deprivation Quintile"
+                )
             with cols[2]:
-                create_simple_prevalence_chart(snowsesh, phenotype, 'gender', 'Prevalence - Gender')
+                create_simple_prevalence_chart(snowsesh, phenotype, "gender", "Prevalence - Gender")
 
     elif selected_view == "Ethnicity Inequality":
-        st.title(f"Multivariate Adjusted Risk Profile")
+        st.title("Multivariate Adjusted Risk Profile")
         st.write("""
             Visualise how risk factors for conditions vary across ethnic groups when adjusting for other variables.
             Interactive charts show how ethnicity effects are modified by deprivation level and by age.
             This helps uncover optimal points and populations for intervention, as risk profiles increase unequally.
-        """)
+        """) #noqa: E501
 
         effects_df = get_adjusted_effects(snowsesh, phenotype)
         if phenotype:
@@ -998,65 +994,69 @@ def main():
             with cols[0]:
                 imd_chart = create_effect_modification_chart(
                     effects_df,
-                    'imd_rank',
-                    'Ethnicity Effect Modification by Deprivation',
-                    show_legend=True
+                    "imd_rank",
+                    "Ethnicity Effect Modification by Deprivation",
+                    show_legend=True,
                 )
                 st.altair_chart(imd_chart, use_container_width=True)
 
             # Second row: Effect modification plot 2
-            cols = st.columns([3,2], gap="small")
+            cols = st.columns([3, 2], gap="small")
             with cols[0]:
                 imd_chart = create_effect_modification_chart(
                     effects_df,
-                    'age_band',
-                    'Ethnicity Effect Modification by Age',
-                    show_legend=False
+                    "age_band",
+                    "Ethnicity Effect Modification by Age",
+                    show_legend=False,
                 )
                 st.altair_chart(imd_chart, use_container_width=True)
             with cols[1]:
-               create_simple_prevalence_chart(snowsesh, phenotype, 'ethnicity', 'Prevalence - Ethnic Subgroup')
+                create_simple_prevalence_chart(
+                    snowsesh, phenotype, "ethnicity", "Prevalence - Ethnic Subgroup"
+                )
 
             # Second row: Ethnicity age and prevalence
             # cols = st.columns([3,2], gap="small")
             # with cols[0]:
-            #    create_faceted_onset_chart(snowsesh, phenotype, 'ETHNIC_AIC_CATEGORY', f'Age of Onset by Ethnicity')
+            #    create_faceted_onset_chart(snowsesh, phenotype, 'ETHNIC_AIC_CATEGORY', f'Age of Onset by Ethnicity') #noqa: E501
             # with cols[1]:
-            #    create_simple_prevalence_chart(snowsesh, phenotype, 'ethnicity', 'Prevalence - Ethnic Subgroup')
+            #    create_simple_prevalence_chart(snowsesh, phenotype, 'ethnicity', 'Prevalence - Ethnic Subgroup') #noqa: E501
 
             # Third row: Deprivation age and prevalence
             # cols = st.columns([3,2], gap="small")
             # with cols[0]:
-            #     create_faceted_onset_chart(snowsesh, phenotype, 'IMD_QUINTILE', f'Age of Onset by Deprivation Decile')
+            #     create_faceted_onset_chart(snowsesh, phenotype, 'IMD_QUINTILE', f'Age of Onset by Deprivation Decile') #noqa: E501
             # with cols[1]:
-            #     create_simple_prevalence_chart(snowsesh, phenotype, 'london_imd', 'Prevalence - Deprivation Quintile')
+            #     create_simple_prevalence_chart(snowsesh, phenotype, 'london_imd', 'Prevalence - Deprivation Quintile') #noqa: E501
 
     # Display geospatial visualisations
     elif selected_view == "Underdiagnosis Risk":
-        st.title(f"GeoSpatial Analysis: Under-Diagnosis")
+        st.title("GeoSpatial Analysis: Under-Diagnosis")
         st.write("""
             Models are applied to predictive task, uncovering geographic variations in diagnosis rates compared to expected prevalence across North-East London.
             Highlights areas where at-risk populations are risk of underdiagnosis, based on population characteristics and standardized differences.
             Enables precise interventions such as targeted screening.
-        """)
+        """) #noqa: E501
 
         try:
             df_risk = get_risk_data(snowsesh)
 
-            df_risk = df_risk[df_risk['phenotype'] == phenotype]
+            df_risk = df_risk[df_risk["phenotype"] == phenotype]
 
             # Read and merge geojson (should keep this on Snowflake)
             gdf = gpd.read_file("geostore/uk_lsoa.geojson")
-            gdf = gdf.merge(df_risk, left_on='LSOA11CD', right_on='PATIENT_LSOA_2011', how='inner')
-            gdf = gdf.dropna(subset=['geometry', 'standardized_difference', 'significant_under_diagnosis'])
+            gdf = gdf.merge(df_risk, left_on="LSOA11CD", right_on="PATIENT_LSOA_2011", how="inner")
+            gdf = gdf.dropna(
+                subset=["geometry", "standardized_difference", "significant_under_diagnosis"]
+            )
 
             st.write("### Standardized Difference (Negative values are fewer cases than expected)")
             m1 = create_choropleth_map(
                 gdf,
-                'standardized_difference',
-                'Standardized Difference',
-                color_scheme='RdYlBu',
-                reverse=True
+                "standardized_difference",
+                "Standardized Difference",
+                color_scheme="RdYlBu",
+                reverse=True,
             )
             folium_static(m1, width=1000)
             # Add summary statistics below maps
@@ -1067,7 +1067,9 @@ def main():
             with cols[1]:
                 st.metric("Known Cases", f"{int(gdf['actual_cases'].sum()):,}")
             with cols[2]:
-                expected_vs_actual = (gdf['actual_cases'].sum() / gdf['expected_cases'].sum() - 1) * 100
+                expected_vs_actual = (
+                    gdf["actual_cases"].sum() / gdf["expected_cases"].sum() - 1
+                ) * 100
                 expected_vs_actual = expected_vs_actual - 5
                 st.metric("Estimated Case Difference", f"{expected_vs_actual:.1f}%")
 
@@ -1077,23 +1079,23 @@ def main():
 
     # Display statistical segmentation page
     elif selected_view == "Statistical Segmentation":
-        st.title(f"Statistical Segmentation")
+        st.title("Statistical Segmentation")
         st.write("""
             Analyse how different conditions cluster together in dual and triple condition combinations.
             Shows strength of associations between conditions using Positive Pointwide Mutual Information.
             Resulting segments are clinically meaningful and statistically relevant.
-        """)
+        """) #noqa: E501
         cols = st.columns(1)
         with cols[0]:
             show_segdash(phenotype)
 
     # Display segments and risk page
     elif selected_view == "Segments and Risk":
-        st.title(f"Segments and Risk")
+        st.title("Segments and Risk")
         st.write("""
             Clinically significant segments may experience varying levels of risk and disease progression, from simple hypertension to severe complications.
             This visualisation highlights key transition points and mortality risks across distinct phenotypes, helping identify critical intervention opportunities.
-        """)
+        """) #noqa: E501
         htn_fig = create_hypertension_sankey()
         st.plotly_chart(htn_fig)
 
@@ -1104,7 +1106,8 @@ def main():
     # Display individual profiler
     elif selected_view == "Personalised Profile":
         # to customise button width
-        st.markdown("""
+        st.markdown(
+            """
             <style>
             div.stButton > button:first-child {
                 width: 180px;  /* Set a fixed width */
@@ -1114,13 +1117,15 @@ def main():
             div.stButton > button:nth-child(2) {  /*second button*/
                 width: 180px;
             }
-            </style>""", unsafe_allow_html=True)
+            </style>""",
+            unsafe_allow_html=True,
+        )
 
         st.title("Patient Profiler")
         st.write("""
             What is personalised healthcare? Moving insights from the level of populations, or diseases, or pathways, to the individual patient.
             Patient-centric risk profiles, and complex and actionable phenotypes, allow meaningful action on an individual level. Proof of concept only.
-        """)
+        """) #noqa: E501
         st.write("### Personalised Risk Radar")
         st.write("Higher index indicates higher risk or less optimisation")
 
@@ -1134,8 +1139,15 @@ def main():
         }
 
         # Categories and tooltips for the radar chart
-        categories = ['Optimisation', 'Sociodemographic', 'Monitoring', 'Risk Profile',
-                    'Hospital Admission', 'Frailty', 'Cost']
+        categories = [
+            "Optimisation",
+            "Sociodemographic",
+            "Monitoring",
+            "Risk Profile",
+            "Hospital Admission",
+            "Frailty",
+            "Cost",
+        ]
 
         # Individual patient values (higher = more risk/less optimization)
         patient_values = [0.74, 0.54, 0.64, 0.82, 0.73, 0.42, 0.85]
@@ -1147,13 +1159,13 @@ def main():
         segment_values = [0.65, 0.51, 0.52, 0.65, 0.55, 0.28, 0.80]
 
         tooltips = [
-            "Risk of low medication adherence based on statement/order mismatch; Past history of poor medication adherence; Blood pressure uncontrolled despite Step 3 anti-HTN therapy",
+            "Risk of low medication adherence based on statement/order mismatch; Past history of poor medication adherence; Blood pressure uncontrolled despite Step 3 anti-HTN therapy", #noqa: E501
             "Sociodemographic profile high risk for segment progression",
             "Recent follow-up | Regular follow-ups | Renal function monitoring outstanding",
-            "High risk: Heart Failure | Moderate risk: TIA/Stroke | Moderate risk: Progression, ESRF",
+            "High risk: Heart Failure | Moderate risk: TIA/Stroke | Moderate risk: Progression, ESRF", #noqa: E501
             "High one-year hospital admission risk | Rising one-year hospital admission risk",
             "Frailty Score: Low | eFI: Low",
-            "Cost Index: High"
+            "Cost Index: High",
         ]
 
         # Create figure with multiple traces
@@ -1166,62 +1178,56 @@ def main():
         categories_closed = categories + [categories[0]]
 
         # Add age-adjusted population trace (blue)
-        fig_radar.add_trace(go.Scatterpolar(
-            r=age_pop_values_closed,
-            theta=categories_closed,
-            fill='toself',
-            name='Age-matched Population',
-            line=dict(color='rgba(0, 150, 255, 0.8)'),
-            fillcolor='rgba(0, 150, 255, 0.2)',
-        ))
+        fig_radar.add_trace(
+            go.Scatterpolar(
+                r=age_pop_values_closed,
+                theta=categories_closed,
+                fill="toself",
+                name="Age-matched Population",
+                line=dict(color="rgba(0, 150, 255, 0.8)"),
+                fillcolor="rgba(0, 150, 255, 0.2)",
+            )
+        )
 
         # Add segment-adjusted population trace (green)
-        fig_radar.add_trace(go.Scatterpolar(
-            r=segment_values_closed,
-            theta=categories_closed,
-            fill='toself',
-            name='Segment-matched Population',
-            line=dict(color='rgba(0, 255, 150, 0.8)'),
-            fillcolor='rgba(0, 255, 150, 0.2)',
-        ))
+        fig_radar.add_trace(
+            go.Scatterpolar(
+                r=segment_values_closed,
+                theta=categories_closed,
+                fill="toself",
+                name="Segment-matched Population",
+                line=dict(color="rgba(0, 255, 150, 0.8)"),
+                fillcolor="rgba(0, 255, 150, 0.2)",
+            )
+        )
 
         # Add patient trace (orange-red)
-        fig_radar.add_trace(go.Scatterpolar(
-            r=patient_values_closed,
-            theta=categories_closed,
-            fill='toself',
-            name='Patient',
-            line=dict(color='rgba(255, 69, 0, 0.8)'),
-            fillcolor='rgba(255, 69, 0, 0.2)',
-            hovertemplate="%{theta}<br>Score: %{r:.2f}<br>%{text}<extra></extra>",
-            text=tooltips,
-        ))
+        fig_radar.add_trace(
+            go.Scatterpolar(
+                r=patient_values_closed,
+                theta=categories_closed,
+                fill="toself",
+                name="Patient",
+                line=dict(color="rgba(255, 69, 0, 0.8)"),
+                fillcolor="rgba(255, 69, 0, 0.2)",
+                hovertemplate="%{theta}<br>Score: %{r:.2f}<br>%{text}<extra></extra>",
+                text=tooltips,
+            )
+        )
 
         fig_radar.update_layout(
             polar=dict(
-                radialaxis=dict(
-                    visible=True,
-                    range=[0, 1],
-                    tickfont=dict(color="white")
-                ),
+                radialaxis=dict(visible=True, range=[0, 1], tickfont=dict(color="white")),
                 bgcolor="rgba(17, 17, 17, 1)",
-                angularaxis=dict(
-                    tickfont=dict(color="white")
-                )
+                angularaxis=dict(tickfont=dict(color="white")),
             ),
             paper_bgcolor="rgba(17, 17, 17, 1)",
             font_color="white",
             showlegend=True,
-            legend=dict(
-                font=dict(color="white"),
-                y=-0.2,
-                x=0.5,
-                xanchor="center",
-                orientation="h"
-            ),
+            legend=dict(font=dict(color="white"), y=-0.2, x=0.5, xanchor="center", orientation="h"),
             height=700,
             width=800,
-            margin=dict(b=80)  # bottom margin for legend
+            margin=dict(b=80),  # bottom margin for legend
         )
 
         left_col, right_col = st.columns([2, 1])
@@ -1230,7 +1236,9 @@ def main():
         with right_col:
             patient_info_markdown = ""
             for key, value in patient_data.items():
-                patient_info_markdown += f"**{key}:** {value}  \n" # format patient info on new lines
+                patient_info_markdown += (
+                    f"**{key}:** {value}  \n"  # format patient info on new lines
+                )
 
             st.markdown(patient_info_markdown)
 
@@ -1241,24 +1249,38 @@ def main():
                 col1, col2 = st.columns(2)
                 with col1:
                     if st.button("High Risk: Heart Failure", key="ltc1", type="secondary"):
-                        st.session_state.message = "In segment with high 5-year risk of progression to Heart Failure"
+                        st.session_state.message = (
+                            "In segment with high 5-year risk of progression to Heart Failure"
+                        )
                 with col2:
                     if st.button("Medium Risk: TIA/Stroke", key="ltc2", type="secondary"):
-                        st.session_state.message = "In segment with medium 5-year risk of TIA and/or Stroke"
+                        st.session_state.message = (
+                            "In segment with medium 5-year risk of TIA and/or Stroke"
+                        )
                 col1, col2 = st.columns(2)
                 with col1:
                     if st.button("Medium Risk: Progression, ESRF", key="ltc3", type="secondary"):
-                        st.session_state.message = "In segment with medium 5-year risk of progression to End Stage Renal Failure"
+                        st.session_state.message = (
+                            "In segment with medium 5-year risk of "
+                            "progression to End Stage Renal Failure"
+                        )
                 with col2:
                     if st.button("Hypertension, Poor Control", key="ltc4", type="secondary"):
-                        st.session_state.message = "Treatment: Step 3 | Last BP record: >4M | Last SBP: 182 | Last DBP: 100"
+                        st.session_state.message = (
+                            "Treatment: Step 3 | Last BP record: >4M | "
+                            "Last SBP: 182 | Last DBP: 100"
+                        )
                 col1, col2 = st.columns(2)
                 with col1:
                     if st.button("Renal Function Recheck", key="ltc5", type="secondary"):
-                        st.session_state.message = "Last UE record: >8M | Last Cr: 132 | Last Ur: 5.2 | Last eGFR: 44"
+                        st.session_state.message = (
+                            "Last UE record: >8M | Last Cr: 132 | Last Ur: 5.2 | Last eGFR: 44"
+                        )
                 with col2:
                     if st.button("Medication Compliance Review", key="ltc6", type="secondary"):
-                        st.session_state.message = "Medication Statement vs Order mismatch detected | Delta: 2"
+                        st.session_state.message = (
+                            "Medication Statement vs Order mismatch detected | Delta: 2"
+                        )
 
                 # message box
                 if "message" in st.session_state:
@@ -1269,6 +1291,7 @@ def main():
 
         st.write("### Encounter History & Admission Risk")
         st.altair_chart(create_patient_timeline(), use_container_width=True)
+
 
 if __name__ == "__main__":
     main()

@@ -1,7 +1,8 @@
-from dotenv import load_dotenv
-from phmlondon.snow_utils import SnowflakeConnection
-import pandas as pd
 import json
+
+from dotenv import load_dotenv
+
+from phmlondon.snow_utils import SnowflakeConnection
 
 # Generates wide table of aggregate demographic prevalence
 # Requires deographic demoniators to be generated first
@@ -94,6 +95,7 @@ ORDER BY
     END
 """
 
+
 def load_phenotypes():
     """
     Loads phenotype configuration from JSON file
@@ -102,6 +104,7 @@ def load_phenotypes():
     with open("phenoconfig.json", "r") as f:
         pheno_dict = json.load(f)
     return list(pheno_dict.keys())
+
 
 # def get_demographic_denominators(snowsesh):
 #     """
@@ -129,14 +132,13 @@ def load_phenotypes():
 
 #     return denominators
 
+
 def generate_phenotype_sum_columns(phenotypes):
     """
     Generates SQL for summing phenotype columns
     """
-    return ",\n".join([
-        f'SUM({phenotype}) as "{phenotype}_COUNT"'
-        for phenotype in phenotypes
-    ])
+    return ",\n".join([f'SUM({phenotype}) as "{phenotype}_COUNT"' for phenotype in phenotypes])
+
 
 def create_demographic_prevalence_table(snowsesh):
     """
@@ -146,23 +148,25 @@ def create_demographic_prevalence_table(snowsesh):
 
     # prepare dynamic parts
     phenotype_sums = generate_phenotype_sum_columns(PHENOTYPES)
-    phenotype_columns = ', '.join([f'"{p}"' for p in PHENOTYPES])
+    phenotype_columns = ", ".join([f'"{p}"' for p in PHENOTYPES])
 
-    prevalence_calculations = ', '.join([
-        f'ROUND(100.0 * "{p}_COUNT" / dd.PERSON_COUNT, 2) as "{p}_PREVALENCE"'
-        for p in PHENOTYPES
-    ])
+    prevalence_calculations = ", ".join(
+        [f'ROUND(100.0 * "{p}_COUNT" / dd.PERSON_COUNT, 2) as "{p}_PREVALENCE"' for p in PHENOTYPES]
+    )
 
     print(phenotype_sums)
     print(phenotype_columns)
     print(prevalence_calculations)  # Debugging: see the generated string
 
-    sql = PHENOTYPE_DEMOGRAPHIC_SQL.replace("{phenotype_columns}", phenotype_columns) \
-                                     .replace("{phenotype_sums}", phenotype_sums) \
-                                     .replace("{prevalence_calculations}", prevalence_calculations)
+    sql = (
+        PHENOTYPE_DEMOGRAPHIC_SQL.replace("{phenotype_columns}", phenotype_columns)
+        .replace("{phenotype_sums}", phenotype_sums)
+        .replace("{prevalence_calculations}", prevalence_calculations)
+    )
 
     snowsesh.execute_query(sql)
     print("Created phenotype prevalence table")
+
 
 def main():
     """
@@ -184,6 +188,7 @@ def main():
         raise e
     finally:
         snowsesh.session.close()
+
 
 if __name__ == "__main__":
     main()

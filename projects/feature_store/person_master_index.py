@@ -1,6 +1,7 @@
-from dotenv import load_dotenv
-from phmlondon.snow_utils import SnowflakeConnection
 import pandas as pd
+from dotenv import load_dotenv
+
+from phmlondon.snow_utils import SnowflakeConnection
 
 # Generates INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.PERSON_NEL_MASTER_INDEX
 # This contains the following two classes of PERSON:
@@ -9,40 +10,23 @@ import pandas as pd
 
 # UK Census-aligned ethnicity groupings with addition of East Asian
 ETHNICITY_MAPPING = {
-    'White': [
-        'British',
-        'Irish',
-        'Any Other White Background'
+    "White": ["British", "Irish", "Any Other White Background"],
+    "Mixed": [
+        "White And Black Caribbean",
+        "White And Black African",
+        "White And Asian",
+        "Any Other Mixed Background",
     ],
-    'Mixed': [
-        'White And Black Caribbean',
-        'White And Black African',
-        'White And Asian',
-        'Any Other Mixed Background'
+    "South Asian": [
+        "Indian",
+        "Pakistani",
+        "Bangladeshi",
     ],
-    'South Asian': [
-        'Indian',
-        'Pakistani',
-        'Bangladeshi',
-    ],
-    'East Or Other Asian': [
-        'Chinese',
-        'Any Other Asian Background'
-    ],
-    'Black': [
-        'African',
-        'Caribbean',
-        'Any Other Black Background'
-    ],
-    'Other': [
-        'Any Other Ethnic Group'
-    ],
-    'Not Stated': [
-        'Not Stated'
-    ],
-    'Unknown': [
-        'Not Known'
-    ]
+    "East Or Other Asian": ["Chinese", "Any Other Asian Background"],
+    "Black": ["African", "Caribbean", "Any Other Black Background"],
+    "Other": ["Any Other Ethnic Group"],
+    "Not Stated": ["Not Stated"],
+    "Unknown": ["Not Known"],
 }
 
 CREATE_MASTER_INDEX_SQL = """
@@ -147,6 +131,7 @@ ON lpr.PERSON_ID = dob.PERSON_ID
 ORDER BY lpr.START_OF_MONTH DESC;
 """
 
+
 def create_ethnicity_mapping_case_statement():
     """
     Creates a CASE statement for mapping detailed ethnicity information to categories
@@ -158,40 +143,37 @@ def create_ethnicity_mapping_case_statement():
 
     return f"""
     CASE
-        {' '.join(case_parts)}
+        {" ".join(case_parts)}
         ELSE 'MISSING'
     END as ETHNIC_AIC_CATEGORY
     """
+
 
 def load_imd_data(snowsesh):
     """
     Loads imd2019london data from CSV into Snowflake table
     """
     try:
-        df = pd.read_csv('data/imd2019london.csv')
+        df = pd.read_csv("data/imd2019london.csv")
         df.columns = [col.upper() for col in df.columns]
 
-        snowsesh.load_dataframe_to_table(
-            df=df,
-            table_name='IMD2019LONDON',
-            mode='overwrite'
-        )
+        snowsesh.load_dataframe_to_table(df=df, table_name="IMD2019LONDON", mode="overwrite")
         print("IMD2019LONDON loaded successfully")
     except Exception as e:
         print(f"Error loading data into IMD2019LONDON: {e}")
         raise e
 
+
 def create_master_person_table(snowsesh):
     ethnicity_case = create_ethnicity_mapping_case_statement()
-    master_person_sql = CREATE_MASTER_INDEX_SQL.format(
-            ethnicity_case=ethnicity_case
-        )
+    master_person_sql = CREATE_MASTER_INDEX_SQL.format(ethnicity_case=ethnicity_case)
     try:
         snowsesh.execute_query(master_person_sql)
         print("Current master person table written successfully")
     except Exception as e:
         print(f"Error updating table: {e}")
         raise e
+
 
 def main():
     load_dotenv()
@@ -211,6 +193,7 @@ def main():
         raise e
     finally:
         snowsesh.session.close()
+
 
 if __name__ == "__main__":
     main()

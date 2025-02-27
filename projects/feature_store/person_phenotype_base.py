@@ -1,8 +1,8 @@
-from dotenv import load_dotenv
-from phmlondon.snow_utils import SnowflakeConnection
-from datetime import datetime
-import pandas as pd
 import json
+
+from dotenv import load_dotenv
+
+from phmlondon.snow_utils import SnowflakeConnection
 
 # Generates the following PERSON_PHENOTYPE tables
 # INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.PERSON_PHENOTYPE_BY_YEAR
@@ -178,6 +178,7 @@ SELECT
 FROM first_observations
 """
 
+
 def load_phenotypes():
     """
     Loads phenotype configuration from JSON file
@@ -187,24 +188,26 @@ def load_phenotypes():
         pheno_dict = json.load(f)
     return list(pheno_dict.keys()), list(pheno_dict.values())
 
+
 def generate_phenotype_columns(column_names, phenotype_definitions):
     """
     Generate SQL for pivoting phenotypes into columns
     Rename columns using imported dict
     """
-    return ",\n    ".join([
-        f"MAX(CASE WHEN PHENOTYPE_NAME = '{pheno_def}' THEN 1 ELSE 0 END) as {col_name}"
-        for col_name, pheno_def in zip(column_names, phenotype_definitions)
-    ])
+    return ",\n    ".join(
+        [
+            f"MAX(CASE WHEN PHENOTYPE_NAME = '{pheno_def}' THEN 1 ELSE 0 END) as {col_name}"
+            for col_name, pheno_def in zip(column_names, phenotype_definitions, strict=False)
+        ]
+    )
+
 
 def generate_phenotype_window_columns(column_names):
     """
     Generate the SQL for creating 5-year window columns
     """
-    return ",\n    ".join([
-        f"MAX({col_name}) as {col_name}"
-        for col_name in column_names
-    ])
+    return ",\n    ".join([f"MAX({col_name}) as {col_name}" for col_name in column_names])
+
 
 def generate_phenotype_mapping_case(column_names, phenotype_definitions):
     """
@@ -212,7 +215,7 @@ def generate_phenotype_mapping_case(column_names, phenotype_definitions):
     """
     # Create case statements from the column names and definitions
     case_parts = []
-    for short_name, long_name in zip(column_names, phenotype_definitions):
+    for short_name, long_name in zip(column_names, phenotype_definitions, strict=False):
         case_parts.append(f"WHEN '{long_name}' THEN '{short_name}'")
 
     return "\n            ".join(case_parts)
@@ -237,8 +240,7 @@ def main():
         # create yearly table
         print("Creating PERSON_PHENOTYPE_BY_YEAR table...")
         yearly_sql = CREATE_YEARLY_TABLE_SQL.format(
-            phenotype_list=phenotype_list_sql,
-            phenotype_columns=phenotype_columns
+            phenotype_list=phenotype_list_sql, phenotype_columns=phenotype_columns
         )
         snowsesh.execute_query(yearly_sql)
 
@@ -252,8 +254,7 @@ def main():
         # create age of onset table with mapped names
         print("Creating PERSON_PHENOTYPE_AGE_OF_ONSET table...")
         onset_sql = CREATE_AGE_ONSET_TABLE_SQL.format(
-            phenotype_list=phenotype_list_sql,
-            phenotype_case_statement=phenotype_case_statement
+            phenotype_list=phenotype_list_sql, phenotype_case_statement=phenotype_case_statement
         )
         snowsesh.execute_query(onset_sql)
 
@@ -264,6 +265,7 @@ def main():
         raise e
     finally:
         snowsesh.session.close()
+
 
 if __name__ == "__main__":
     main()
