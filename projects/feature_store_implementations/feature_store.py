@@ -1,18 +1,16 @@
+
 from dotenv import load_dotenv
+
 from phmlondon.snow_utils import SnowflakeConnection
-import logging # optional, for debugging
-import pdb
 
 # logging.basicConfig(level=logging.DEBUG) # optional, for debugging
 
 load_dotenv()
 conn = SnowflakeConnection()
-    
+
+
 class FeatureStoreManager:
-    def __init__(self, 
-                 connection: SnowflakeConnection, 
-                 database: str, 
-                 schema: str):
+    def __init__(self, connection: SnowflakeConnection, database: str, schema: str):
         """
         The schema where you want to create the feature store should already exist
         """
@@ -21,15 +19,15 @@ class FeatureStoreManager:
         self.schema = schema
         self.conn.use_database(self.database)
         self.conn.use_schema(self.schema)
-        self.table_names = ['FEATURE_REGISTRY', 'FEATURE_VERSION_REGISTRY', 'ACTIVE_FEATURES']
-    
+        self.table_names = ["FEATURE_REGISTRY", "FEATURE_VERSION_REGISTRY", "ACTIVE_FEATURES"]
+
     def create_feature_store(self):
         """
         Creates the FEATURE_REGISTRY if it doesn't exist.
         Raises an Exception if the table already exists.
         """
         session = self.conn.session
-        
+
         table_names = self.table_names
 
         self._check_table_exists(table_names[0])
@@ -66,15 +64,17 @@ class FeatureStoreManager:
                     model_id INT,
                     model_version INT,
                     date_registered_as_active TIMESTAMP
-                )  """).collect() # every active model should register a new entry, even if using the same feature
+                )  """).collect()  # every active model should register a new entry, even if using the same feature
         print(f"{table_names[2]} created successfully.")
 
-    def add_new_feature(self, 
-                        feature_name: str, 
-                        feature_desc: str, 
-                        feature_format: str,
-                        sql_select_query_to_generate_feature: str,
-                        target_lag: str = '1 day') -> tuple[int, int]:
+    def add_new_feature(
+        self,
+        feature_name: str,
+        feature_desc: str,
+        feature_format: str,
+        sql_select_query_to_generate_feature: str,
+        target_lag: str = "1 day",
+    ) -> tuple[int, int]:
         """
         Executes the input query and add the feature to the feature registry and the version registry
         feature_name: name of the feature, str
@@ -95,20 +95,28 @@ class FeatureStoreManager:
                     feature_format, 
                     date_feature_registered)
             VALUES ('{feature_name}', '{feature_desc}', '{feature_format}', CURRENT_TIMESTAMP)
-        """).collect() # vulnerable to SQL injection - never expose externally
+        """).collect()  # vulnerable to SQL injection - never expose externally
         feature_id = session.sql(f"""SELECT MAX(feature_id)
                                   FROM feature_registry
-                                  WHERE feature_name = '{feature_name}'""").collect()[0]['MAX(FEATURE_ID)']
-        print(f'Feature {feature_name}, ID {feature_id}, added to the feature registry; table not created yet')
+                                  WHERE feature_name = '{feature_name}'""").collect()[0][
+            "MAX(FEATURE_ID)"
+        ]
+        print(
+            f"Feature {feature_name}, ID {feature_id}, added to the feature registry; table not created yet"
+        )
 
         try:
-            table_name = self._create_feature_table(feature_name, feature_id, target_lag, sql_select_query_to_generate_feature)
+            table_name = self._create_feature_table(
+                feature_name, feature_id, target_lag, sql_select_query_to_generate_feature
+            )
             print(sql_select_query_to_generate_feature)
-            feature_version = self._add_new_feature_version_to_version_registry(feature_id, 
-                                                                                table_name, 
-                                                                                sql_select_query_to_generate_feature,
-                                                                                target_lag, 
-                                                                                "Initial version")
+            feature_version = self._add_new_feature_version_to_version_registry(
+                feature_id,
+                table_name,
+                sql_select_query_to_generate_feature,
+                target_lag,
+                "Initial version",
+            )
 
         except Exception as e:
             print(f"Error creating table: {e}. Registry entry will now be deleted")
@@ -120,22 +128,21 @@ class FeatureStoreManager:
 
         return feature_id, feature_version
 
-    def _check_table_exists(self, 
-                            table_name: str):
-
+    def _check_table_exists(self, table_name: str):
         session = self.conn.session
-        existing_tables = [r.as_dict()['TABLE_NAME'] for r in session.sql(f"""SELECT TABLE_NAME
+        existing_tables = [
+            r.as_dict()["TABLE_NAME"]
+            for r in session.sql(f"""SELECT TABLE_NAME
                                                                                 FROM INFORMATION_SCHEMA.TABLES
                                                                                 WHERE TABLE_CATALOG = '{self.database}'
-                                                                                AND TABLE_SCHEMA = '{self.schema}';""").collect()] # returns empty list if no tables
-        if table_name in existing_tables: 
+                                                                                AND TABLE_SCHEMA = '{self.schema}';""").collect()
+        ]  # returns empty list if no tables
+        if table_name in existing_tables:
             raise ValueError(f"{self.database}.{self.schema}.{table_name} already exists.")
 
-    def _create_table_creation_query_from_select_query(self, 
-                                                       table_name: str, 
-                                                       target_lag: str, 
-                                                       select_query: str) -> str:
-
+    def _create_table_creation_query_from_select_query(
+        self, table_name: str, target_lag: str, select_query: str
+    ) -> str:
         full_query = f"""
                 CREATE DYNAMIC TABLE {table_name}
                 TARGET_LAG = '{target_lag}'
@@ -144,26 +151,19 @@ class FeatureStoreManager:
                 INITIALIZE = ON_CREATE
                 AS
                 {select_query}
-            """   
+            """
         return full_query
-    
-    def _get_feature_table_name(self,
-                                feature_name: str,
-                                feature_id: int) -> str:
+
+    def _get_feature_table_name(self, feature_name: str, feature_id: int) -> str:
         feature_version = self._get_current_feature_version(feature_id)[1]
         return self._table_naming_convention(feature_name, feature_version)
-    
-    def _table_naming_convention(self,
-                                 feature_name: str,
-                                 feature_version: int) -> str:
+
+    def _table_naming_convention(self, feature_name: str, feature_version: int) -> str:
         return f"{feature_name}_v{feature_version}"
 
-    def _create_feature_table(self,
-                             feature_name: str,
-                             feature_id: int,
-                             target_lag: str,
-                             select_query: str):
-        
+    def _create_feature_table(
+        self, feature_name: str, feature_id: int, target_lag: str, select_query: str
+    ):
         session = self.conn.session
         table_name = self._get_feature_table_name(feature_name, feature_id)
 
@@ -171,10 +171,12 @@ class FeatureStoreManager:
         self._check_table_exists(table_name)
         if table_name in self.table_names:
             raise ValueError(f"{table_name} is a reserved name.")
-            
+
         # Generate the full sql query
-        full_query = self._create_table_creation_query_from_select_query(table_name, target_lag, select_query)
-        
+        full_query = self._create_table_creation_query_from_select_query(
+            table_name, target_lag, select_query
+        )
+
         # Create the table
         session.sql(full_query).collect()
 
@@ -182,9 +184,7 @@ class FeatureStoreManager:
 
         return table_name
 
-    
-    def _get_current_feature_version(self, 
-                                     feature_id: int) -> tuple[int, int]:
+    def _get_current_feature_version(self, feature_id: int) -> tuple[int, int]:
         session = self.conn.session
 
         result = session.sql(f"""
@@ -192,24 +192,21 @@ class FeatureStoreManager:
                 FROM feature_version_registry
                 WHERE feature_id = {feature_id}
                 """).collect()
-        current_version = result[0]['MAX_VERSION']
+        current_version = result[0]["MAX_VERSION"]
         next_version = current_version + 1
 
         return current_version, next_version
 
-    def _add_new_feature_version_to_version_registry(self, 
-                                 feature_id: int,
-                                 table_name: str, 
-                                 sql_query: str,
-                                 lag: str, 
-                                 change_description: str) -> int:
-            session = self.conn.session
+    def _add_new_feature_version_to_version_registry(
+        self, feature_id: int, table_name: str, sql_query: str, lag: str, change_description: str
+    ) -> int:
+        session = self.conn.session
 
-            feature_version = self._get_current_feature_version(feature_id)[1]
+        feature_version = self._get_current_feature_version(feature_id)[1]
 
-            live_updating = True #hardcode that whenevr a new feature is added, it is live updating
+        live_updating = True  # hardcode that whenevr a new feature is added, it is live updating
 
-            session.sql(f"""INSERT INTO feature_version_registry (
+        session.sql(f"""INSERT INTO feature_version_registry (
                         feature_ID,
                         feature_version,
                         table_name,
@@ -229,15 +226,19 @@ class FeatureStoreManager:
                     CURRENT_TIMESTAMP)
             """).collect()
 
-            print(f"Feature {feature_id} version {feature_version} added to the feature version registry")
+        print(
+            f"Feature {feature_id} version {feature_version} added to the feature version registry"
+        )
 
-            return feature_version
+        return feature_version
 
-    def update_feature(self, 
-                       feature_id :int, 
-                       new_sql_select_query: str, 
-                       change_description: str,
-                       target_lag: str = '') -> int:
+    def update_feature(
+        self,
+        feature_id: int,
+        new_sql_select_query: str,
+        change_description: str,
+        target_lag: str = "",
+    ) -> int:
         """
         Updates the feature in the feature version registry with the new query and description
         feature_id: id of the feature, int
@@ -246,14 +247,15 @@ class FeatureStoreManager:
         """
         session = self.conn.session
 
-        if not session.sql(f"""SELECT feature_id FROM feature_registry WHERE feature_id = {feature_id}""").collect():
+        if not session.sql(
+            f"""SELECT feature_id FROM feature_registry WHERE feature_id = {feature_id}"""
+        ).collect():
             raise ValueError(f"Feature {feature_id} does not exist.")
         else:
             feature_name = session.sql(
                 f"""SELECT feature_name FROM feature_registry WHERE feature_id = {feature_id}"""
-                ).collect()[0]['FEATURE_NAME']
+            ).collect()[0]["FEATURE_NAME"]
             print(f"Updating feature {feature_name}, with ID {feature_id}")
-    
 
         if not target_lag:
             # if no target lag given to the update function, use the same lag as the most recent
@@ -263,23 +265,36 @@ class FeatureStoreManager:
                 WHERE feature_id = {feature_id}
                 ORDER BY date_version_registered DESC
                 LIMIT 1
-            """).collect()[0]['LAG']
+            """).collect()[0]["LAG"]
 
         # Create new feature and add to registry
-        table_name = self._create_feature_table(feature_name, feature_id, target_lag, new_sql_select_query)
-        feature_version = self._add_new_feature_version_to_version_registry(feature_id, table_name, new_sql_select_query, target_lag, change_description)
+        table_name = self._create_feature_table(
+            feature_name, feature_id, target_lag, new_sql_select_query
+        )
+        feature_version = self._add_new_feature_version_to_version_registry(
+            feature_id, table_name, new_sql_select_query, target_lag, change_description
+        )
 
         # Stop live updating on the old version of the feature
         old_version = feature_version - 1
         old_table_name = session.sql(f"""
                                  SELECT table_name FROM feature_version_registry 
-                                 WHERE feature_id = {feature_id} AND feature_version = {old_version}""").collect()[0]['TABLE_NAME']
-        session.sql(f"""ALTER DYNAMIC TABLE {old_table_name} SUSPEND;""").collect() # existing data still exists
-        print(f"Table {old_table_name.upper()} has been suspended: data exists but no new data will be added")
+                                 WHERE feature_id = {feature_id} AND feature_version = {old_version}""").collect()[
+            0
+        ]["TABLE_NAME"]
+        session.sql(
+            f"""ALTER DYNAMIC TABLE {old_table_name} SUSPEND;"""
+        ).collect()  # existing data still exists
+        print(
+            f"Table {old_table_name.upper()} has been suspended: data exists but no new data will be added"
+        )
         # note dynamic tables can be resumed if wanted
-        session.sql(f"""UPDATE feature_version_registry SET live_updating = FALSE WHERE feature_id = {feature_id} AND feature_version = {old_version}""").collect()
-    
+        session.sql(
+            f"""UPDATE feature_version_registry SET live_updating = FALSE WHERE feature_id = {feature_id} AND feature_version = {old_version}"""
+        ).collect()
+
         return feature_version
+
     # def get_data
 
     # def deprecate_feature
@@ -293,10 +308,14 @@ if __name__ == "__main__":
     SCHEMA = "TEST_FEATURE_STORE_IW_2"
     feature_store_manager = FeatureStoreManager(conn, DATABASE, SCHEMA)
     # feature_store_manager.create_feature_store()
-    feature_store_manager.add_new_feature("hypertension", "patients with a high BP phenotype", "continuous", 
-                                          "SELECT * FROM INTELLIGENCE_DEV.AI_CENTRE_DEV.BSA_BNF_LOOKUP") 
+    feature_store_manager.add_new_feature(
+        "hypertension",
+        "patients with a high BP phenotype",
+        "continuous",
+        "SELECT * FROM INTELLIGENCE_DEV.AI_CENTRE_DEV.BSA_BNF_LOOKUP",
+    )
     # feature_store_manager.update_feature(1, "SELECT * FROM INTELLIGENCE_DEV.AI_CENTRE_DEV.BSA_BNF_LOOKUP LIMIT 5", "test update")
-    # feature_version = feature_store_manager.update_feature(1, 
-    #                                                        "SELECT * FROM INTELLIGENCE_DEV.AI_CENTRE_DEV.BSA_BNF_LOOKUP LIMIT 3", 
+    # feature_version = feature_store_manager.update_feature(1,
+    #                                                        "SELECT * FROM INTELLIGENCE_DEV.AI_CENTRE_DEV.BSA_BNF_LOOKUP LIMIT 3",
     #                                                        "another test update")
     # print(feature_version)

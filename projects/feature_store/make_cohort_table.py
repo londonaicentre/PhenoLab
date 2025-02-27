@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
+
 from phmlondon.snow_utils import SnowflakeConnection
-import pandas as pd
 
 # Generates INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.COHORT_TABLE
 
@@ -32,9 +32,9 @@ where nel_index.person_id is not null and sus_pc.sk_patientid is not null
 order by person_id, admission_date
 """
 
+
 def main():
     load_dotenv()
-
 
     try:
         snowsesh = SnowflakeConnection()
@@ -50,6 +50,7 @@ def main():
         raise e
     finally:
         snowsesh.session.close()
+
 
 if __name__ == "__main__":
     main()
