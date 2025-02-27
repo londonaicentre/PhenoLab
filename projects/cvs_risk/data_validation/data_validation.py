@@ -60,7 +60,6 @@ def main():
     # Order by start of month, then drop duplicate patients
     nel_index = nel_index.sort_values("END_OF_MONTH", ascending=False)
     nel_index = nel_index[~nel_index.PERSON_ID.duplicated()]
-<<<<<<< HEAD
 
     #For now bin patients where DOB before 1900
     nel_index = nel_index.loc[nel_index.DATE_OF_BIRTH > datetime(1900, 1,1), :]
@@ -88,8 +87,6 @@ def main():
     #Fix issue with some registration dates being before birth
     registered_before_birth = nel_index.REGISTRATION_START_DATE < nel_index.DATE_OF_BIRTH
     nel_index.loc[registered_before_birth, 'REGISTRATION_START_DATE'] = nel_index.DATE_OF_BIRTH[registered_before_birth]
-=======
->>>>>>> apply-ruff
 
     # Fix issue with some registration dates being before birth
     registered_before_birth = nel_index.REGISTRATION_START_DATE < nel_index.DATE_OF_BIRTH
@@ -102,7 +99,6 @@ def main():
     registration_death = nel_index.DATE_OF_DEATH - nel_index.REGISTRATION_END_DATE
     nel_index["currently_registered"] = registration_now.dt.days < 0
 
-<<<<<<< HEAD
     #Now mark patients if registered at death - registration end date ends within 2 months of death (arbitrarily)
     nel_index.loc[registration_death.dt.days <= 60, 'currently_registered'] = True 
 
@@ -116,14 +112,6 @@ def main():
     #nel_index.loc[nel_index.age > 125, ['DATE_OF_BIRTH', 'REGISTRATION_START_DATE', 'REGISTRATION_END_DATE', 'END_OF_MONTH']]
     #First validation plots
     st.markdown('## Plotting time from registration to death or other')
-=======
-    # Now mark patients if registered at death - registration end date ends within 2 months of death
-    #  (arbitrarily)
-    nel_index.loc[registration_death.dt.days <= 60, "currently_registered"] = True
-
-    # First validation plots
-    st.markdown("## Plotting time from registration to death or other")
->>>>>>> apply-ruff
     col1, col2 = st.columns(2)
     with col1:
         xlimits = st.slider("Select x-limits", -75, 75, (-75, 75))
@@ -154,26 +142,9 @@ def main():
 
     st.plotly_chart(fig)
 
-<<<<<<< HEAD
    #Can either plot ages at death or do some sort of standardised mortality rate? Prob makes sense to do both
 
     #Plot time from registration to death
-=======
-    # Get ages
-    nel_index["age"] = np.nan
-    died = ~nel_index.DATE_OF_DEATH.isna()
-    # died = nel_index.PATIENT_STATUS == 'DEATH'
-    death_ages = nel_index.DATE_OF_DEATH[died] - nel_index.DATE_OF_BIRTH[died]
-    nel_index.loc[died, "age"] = death_ages.dt.days / 365.25
-
-    survived_ages = nel_index.END_OF_MONTH[~died] - nel_index.DATE_OF_BIRTH[~died]
-    nel_index.loc[~died, "age"] = survived_ages.dt.days / 365.25
-
-    # Can either plot ages at death or do some sort of standardised mortality rate? Prob makes sense
-    #  to do both
-
-    # Plot time from registration to death
->>>>>>> apply-ruff
     newcol1, newcol2 = st.columns(2)
     with newcol1:
         died_bins = st.slider("Bins (Deaths)", 0, 100, 20)
@@ -235,7 +206,6 @@ def main():
     st.markdown("### Calculate standardised mortality")
     st.plotly_chart(barplot)
 
-<<<<<<< HEAD
     ### This is quite low. Would be interesting to do a mortality rate for each age bracket
     age_brackets = np.array([(i+1)*5 for i in range(25)])
     
@@ -327,10 +297,6 @@ def main():
     with regcol2:
         st.markdown('Age stratified mortality in unregistered patients')
         st.plotly_chart(unregistered_barplot, color = 'red')
-=======
-    # This is quite low. Would be interesting to do a mortality rate for each age bracket
-
->>>>>>> apply-ruff
 
 if __name__ == "__main__":
     main()
