@@ -3,7 +3,6 @@ Script to update phenotypes from a particular source (HDRUK, GP refsets, BNF, NE
 is specified as an input
 """
 
-from dotenv import load_dotenv
 import argparse
 from phmlondon.snow_utils import SnowflakeConnection
 from loaders.load_hdruk_phenotypes import main as load_hdruk
@@ -36,6 +35,7 @@ LOADER_CONFIG = {
     }
 }
 
+
 def create_phenostore_view(snowsesh):
     """
     Creates unified view of all phenotype tables with DBID mappings
@@ -46,10 +46,12 @@ def create_phenostore_view(snowsesh):
     view_sql = f"""
     CREATE OR REPLACE VIEW PHENOSTORE AS
     WITH phenotype_union AS (
-        {' UNION ALL '.join(
+        {
+        " UNION ALL ".join(
             f"SELECT *, '{name}' as SOURCE_SYSTEM FROM {config['table']}"
             for name, config in LOADER_CONFIG.items()
-        )}
+        )
+    }
     )
     SELECT
         p.*,
@@ -70,6 +72,7 @@ def create_phenostore_view(snowsesh):
     snowsesh.execute_query(view_sql)
     print("Created PHENOSTORE view with DBID mappings")
 
+
 def run_loaders(loader_flags: Dict[str, bool]):
     """
     Runs selected phenotype loaders and recreates unified view
@@ -86,7 +89,7 @@ def run_loaders(loader_flags: Dict[str, bool]):
         for loader_name, run_loader in loader_flags.items():
             if run_loader and loader_name in LOADER_CONFIG:
                 print(f"Running {loader_name} loader...")
-                LOADER_CONFIG[loader_name]['func']()
+                LOADER_CONFIG[loader_name]["func"]()
                 print(f"{loader_name} loader completed")
 
         # Always create view regardless of which loaders ran
@@ -98,14 +101,16 @@ def run_loaders(loader_flags: Dict[str, bool]):
     finally:
         snowsesh.session.close()
 
+
 def main():
-    parser = argparse.ArgumentParser(description='Run phenotype loaders')
+    parser = argparse.ArgumentParser(description="Run phenotype loaders")
 
     for loader_name in LOADER_CONFIG:
-        parser.add_argument(f'--{loader_name}', action='store_true')
+        parser.add_argument(f"--{loader_name}", action="store_true")
 
     args = vars(parser.parse_args())
     run_loaders(args)
+
 
 if __name__ == "__main__":
     main()
