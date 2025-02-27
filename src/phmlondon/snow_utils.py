@@ -1,7 +1,8 @@
 import os
-import sys
+
 import pandas as pd
 from snowflake.snowpark import Session
+
 
 class SnowflakeConnection:
     def __init__(self, env_vars=None):
@@ -9,11 +10,7 @@ class SnowflakeConnection:
         Initialise SnowflakeConnection and connect.
             env_vars: list of required environment variable names
         """
-        self.env_vars = env_vars or [
-            "SNOWFLAKE_SERVER",
-            "SNOWFLAKE_USER",
-            "SNOWFLAKE_USERGROUP"
-        ]
+        self.env_vars = env_vars or ["SNOWFLAKE_SERVER", "SNOWFLAKE_USER", "SNOWFLAKE_USERGROUP"]
         self.session = None
         self.current_database = None
         self.current_schema = None
@@ -38,13 +35,13 @@ class SnowflakeConnection:
             "account": os.getenv("SNOWFLAKE_SERVER"),
             "user": os.getenv("SNOWFLAKE_USER"),
             "role": os.getenv("SNOWFLAKE_USERGROUP"),
-            "authenticator": "externalbrowser"
+            "authenticator": "externalbrowser",
         }
         try:
             self.session = Session.builder.configs(connection_parameters).create()
             print("Snowflake session created successfully.")
         except Exception as e:
-            print(f"Error creating Snowflake session.")
+            print("Error creating Snowflake session.")
             raise e
 
     def use_database(self, database):
@@ -106,11 +103,9 @@ class SnowflakeConnection:
 
         try:
             self.session.create_dataframe(df).write.save_as_table(
-                table_name,
-                mode=mode,
-                table_type=table_type
+                table_name, mode=mode, table_type=table_type
             )
-            print(f"Data loaded successfully")
+            print("Data loaded successfully")
 
             return table_name
 
@@ -182,7 +177,8 @@ class SnowflakeConnection:
         self._validate_database_schema(schema_required=True)
 
         try:
-            query = f"SELECT * FROM {self.current_database}.{self.current_schema}.{table_name} LIMIT {limit}"
+            query = f"""SELECT *
+                FROM {self.current_database}.{self.current_schema}.{table_name} LIMIT {limit}"""
             result = self.session.sql(query).collect()
             print(f"Top {limit} rows of {table_name}:")
             for row in result:
@@ -201,7 +197,7 @@ class SnowflakeConnection:
             query = f"SHOW TABLES IN {self.current_database}.{self.current_schema}"
             result = self.session.sql(query).collect()
 
-            table_names = [row['name'] for row in result]
+            table_names = [row["name"] for row in result]
 
             print(f"Tables in {self.current_database}.{self.current_schema}:")
             for table in table_names:
@@ -244,10 +240,10 @@ class SnowflakeConnection:
         This will break if individual queries contain ';', e.g. in strings
         """
         try:
-            with open(sql_file_path, 'r') as file:
+            with open(sql_file_path, "r") as file:
                 sql_commands = file.read()
 
-            commands = sql_commands.split(';')
+            commands = sql_commands.split(";")
 
             for command in commands:
                 if command.strip():
