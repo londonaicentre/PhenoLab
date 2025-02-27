@@ -7,14 +7,12 @@ from phmlondon.snow_utils import SnowflakeConnection
 def main():
     load_dotenv()
 
-
-    if 'snowsesh' not in st.session_state:
-            st.session_state.snowsesh = SnowflakeConnection()
-            st.session_state.snowsesh.use_database("INTELLIGENCE_DEV")
-            st.session_state.snowsesh.use_schema("AI_CENTRE_FEATURE_STORE")
+    if "snowsesh" not in st.session_state:
+        st.session_state.snowsesh = SnowflakeConnection()
+        st.session_state.snowsesh.use_database("INTELLIGENCE_DEV")
+        st.session_state.snowsesh.use_schema("AI_CENTRE_FEATURE_STORE")
 
     snowsesh = st.session_state.snowsesh
-
 
     st.title("Lipid Regulating Drugs (LRDs) Compliance exploration")
     st.write(
@@ -36,30 +34,28 @@ def main():
         ON o.person_id = m.person_id  
     """
 
-
     # Fetch the data into a Snowpark DataFrame
     df_demo = snowsesh.execute_query_to_df(query)
     df_demo.columns = df_demo.columns.str.lower()
 
-    gender_data = df_demo['gender'].value_counts()
+    gender_data = df_demo["gender"].value_counts()
 
     # Display the Gender distribution using st.bar_chart
     st.subheader("Gender Distribution")
     st.bar_chart(gender_data)
 
     # Plot Ethnicity distribution
-    ethnicity_data = df_demo['ethnicity'].value_counts()
+    ethnicity_data = df_demo["ethnicity"].value_counts()
 
     # Display the Ethnicity distribution using st.bar_chart
     st.subheader("Ethnicity Distribution")
     st.bar_chart(ethnicity_data)
 
-    imd_data = df_demo['imd_decile'].value_counts().sort_index(ascending=True)
+    imd_data = df_demo["imd_decile"].value_counts().sort_index(ascending=True)
 
     # Display the Ethnicity distribution using st.bar_chart
     st.subheader("IMD_Decile Distribution")
     st.bar_chart(imd_data)
-
 
     st.subheader("Number of different LRDs prescribed per person")
     st.write(
@@ -75,10 +71,12 @@ def main():
     df_orders = snowsesh.execute_query_to_df(query)
     df_orders.columns = df_orders.columns.str.lower()
 
-    drugcount_data = df_orders.groupby('person_id', as_index=False)['drug_count'].first()
+    drugcount_data = df_orders.groupby("person_id", as_index=False)[
+        "drug_count"
+    ].first()
 
     # Count occurrences of each unique drug_count value
-    drugcount_distribution = drugcount_data['drug_count'].value_counts().sort_index()
+    drugcount_distribution = drugcount_data["drug_count"].value_counts().sort_index()
 
     # Display the Ethnicity distribution using st.bar_chart
     st.subheader("Number of different drugs")
@@ -86,7 +84,7 @@ def main():
 
     st.subheader("Top 10 Drugs Prescribed")
 
-    drug_data = df_orders.groupby('drug')['person_id'].nunique()
+    drug_data = df_orders.groupby("drug")["person_id"].nunique()
 
     # Sort in descending order and keep the top 10
     top_10_drugs = drug_data.sort_values(ascending=False).head(10)
@@ -107,7 +105,9 @@ def main():
     Please note, some order_durations were set to 0 (clearly an incorrect entry) so these will not be included in the calcuations
     """)
 
-    slider_value = st.slider("Select gap threshold (in days)", min_value=30, max_value=365, value=120, step=1)
+    slider_value = st.slider(
+        "Select gap threshold (in days)", min_value=30, max_value=365, value=120, step=1
+    )
 
     query = f"""
     WITH ordered_orders AS (
@@ -183,19 +183,20 @@ def main():
     ORDER BY person_id, drug, period_id;
     """
 
-    df= snowsesh.execute_query_to_df(query)
+    df = snowsesh.execute_query_to_df(query)
     df.columns = df.columns.str.lower()
 
     top_10_drugs = top_10_drugs.index.tolist()
-    df_filtered = df[df['drug'].isin(top_10_drugs)]
-    pdc_summary = df_filtered.groupby('drug').agg(
-        duration_orders_sum=('duration_orders', 'sum'),
-        duration_period_sum=('duration_period', 'sum')
+    df_filtered = df[df["drug"].isin(top_10_drugs)]
+    pdc_summary = df_filtered.groupby("drug").agg(
+        duration_orders_sum=("duration_orders", "sum"),
+        duration_period_sum=("duration_period", "sum"),
     )
 
-
     # Calculate PDC as duration_orders_sum / duration_period_sum
-    pdc_summary['pdc'] = pdc_summary['duration_orders_sum'] / pdc_summary['duration_period_sum']
+    pdc_summary["pdc"] = (
+        pdc_summary["duration_orders_sum"] / pdc_summary["duration_period_sum"]
+    )
 
     st.subheader("Treatment switchers vs concurrent drug users")
     st.write("""It's difficult to accurately ascertain a treatment switch vs concurrent drug prescription accuratly.
@@ -214,8 +215,8 @@ def main():
         "Select the gap threshold (days) for a treatment switch",
         min_value=1,
         max_value=365,  # Adjust based on your data's typical gap
-        value=30,       # Default value (30 days)
-        step=1
+        value=30,  # Default value (30 days)
+        step=1,
     )
 
     # Slider for the small overlap threshold (e.g., 5 days)
@@ -223,8 +224,8 @@ def main():
         "Select the small overlap threshold (days) for a treatment switch",
         min_value=0,
         max_value=60,  # Typically a smaller threshold, like 0 to 5 or 0 to 30
-        value=5,       # Default value (5 days of overlap)
-        step=1
+        value=5,  # Default value (5 days of overlap)
+        step=1,
     )
 
     query = f"""
@@ -276,28 +277,44 @@ def main():
     ORDER BY person_id, usage_type;
     """
 
-    df_classified= snowsesh.execute_query_to_df(query)
+    df_classified = snowsesh.execute_query_to_df(query)
     df_classified.columns = df_classified.columns.str.lower()
 
-    usage_counts = df_classified.groupby(['usage_type']).size().reset_index(name='count')
+    usage_counts = (
+        df_classified.groupby(["usage_type"]).size().reset_index(name="count")
+    )
 
     # Bar chart for the number of switchers vs concurrent users
-    st.bar_chart(usage_counts.set_index('usage_type')['count'])
+    st.bar_chart(usage_counts.set_index("usage_type")["count"])
 
     # Most common switch and concurrent drugs
-    most_common_switches = df_classified[df_classified['usage_type'] == 'switch'].groupby(['drug', 'next_drug'])['drug_count'].sum().reset_index(name='count')
-    most_common_concurrent = df_classified[df_classified['usage_type'] == 'concurrent'].groupby('drug')['drug_count'].sum().reset_index(name='count')
+    most_common_switches = (
+        df_classified[df_classified["usage_type"] == "switch"]
+        .groupby(["drug", "next_drug"])["drug_count"]
+        .sum()
+        .reset_index(name="count")
+    )
+    most_common_concurrent = (
+        df_classified[df_classified["usage_type"] == "concurrent"]
+        .groupby("drug")["drug_count"]
+        .sum()
+        .reset_index(name="count")
+    )
 
     # Most common treatment switch (e.g., drug A to drug B)
     if not most_common_switches.empty:
-        most_common_switch = most_common_switches.loc[most_common_switches['count'].idxmax()]
+        most_common_switch = most_common_switches.loc[
+            most_common_switches["count"].idxmax()
+        ]
         switch_sentence = f"The most common treatment switch is from {most_common_switch['drug']} to {most_common_switch['next_drug']}."
     else:
         switch_sentence = "No significant treatment switch found."
 
     # Most common concurrently prescribed drugs
     if not most_common_concurrent.empty:
-        most_common_concurrent = most_common_concurrent.sort_values('count', ascending=False).head(2)
+        most_common_concurrent = most_common_concurrent.sort_values(
+            "count", ascending=False
+        ).head(2)
         concurrent_sentence = f"The most common concurrently prescribed drugs are {', '.join(most_common_concurrent['drug'].values)}."
     else:
         concurrent_sentence = "No significant concurrent drugs found."
