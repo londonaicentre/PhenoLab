@@ -27,3 +27,18 @@ allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/phmlondon"]
+
+[tool.ruff]
+ line-length = 100
+
+ target-version = "py311"
+
+ [tool.ruff.lint]
+ select = [
+     "E",   # pycodestyle: bad formatting
+     "W",   # pycodestyle: warnings
+     "F",   # pyflakes: common errors
+     "I",   # isort: handles badly setup imports, and orders
+     "B",   # flake8-bugbear: common bugs/footguns
+     "C90", # mccabe cyclomatic complexity: for badly nested conditional statements that makes logic hard to follow
+ ]

@@ -1,13 +1,16 @@
-from pyconceptlibraryclient import Client
+from typing import Dict, List, Literal
+
 import pandas as pd
-from typing import Optional, Dict, List, Union, Literal
 import yaml
+from pyconceptlibraryclient import Client
+
 
 class HDRUKLibraryClient:
     """
     Client for interacting with the HDR UK Phenotype Library.
     Provides methods to search and retrieve phenotype definitions.
     """
+
     def __init__(self, public=True):
         """
         Initialize the HDR UK Library client.
@@ -19,31 +22,33 @@ class HDRUKLibraryClient:
         try:
             self.client = Client(public=public)
         except Exception as e:
-            raise Exception(f"Failed to initialise the HDR UK Library client: {e}")
+            raise RuntimeError(f"Failed to initialise the HDR UK Library client: {e}") from e
 
     def get_phenotype_codelist(
         self,
         phenotype_id: str,
         version_id: int,
         output_format: Literal["full", "db", "basic"] = "db",
-        print_raw_output_to_file=False
+        print_raw_output_to_file=False,
     ) -> pd.DataFrame:
         """
-        For a given phenotype ID and version ID, returns the codes from all concepts belonging to the phenotype.
+        For a given phenotype ID and version ID, returns the codes from all concepts belonging to
+        the phenotype.
 
         :param phenotype_id: str
         :param version_id: int
         :param output_format: ["full", "db", "basic"]
-            - If full, returns a dataframe which is the flattened full output of the API call (i.e. includes nested information on the attributes and coding system.
+            - If full, returns a dataframe which is the flattened full output of the API call (i.e.
+            includes nested information on the attributes and coding system.
             - If db, returns a dataframe with the columns expected by the Phenotype class
             - If basic, returns just the code and description.)
-        :param print_raw_output_to_file: bool - If true, sends the RAW api output to a file (use for debugging)
+        :param print_raw_output_to_file: bool - If true, sends the RAW api output to a file (use for
+          debugging)
         :return: pd.DataFrame
         """
         try:
             codelist_api_return = self.client.phenotypes.get_codelist(
-                phenotype_id,
-                version_id=version_id
+                phenotype_id, version_id=version_id
             )
 
             if codelist_api_return is None:
@@ -89,15 +94,15 @@ class HDRUKLibraryClient:
 
             codes["vocabulary"] = [
                 codedict["coding_system"]["name"] for codedict in codelist_api_return
-            ]  # need a separate line for this as it is nested one layer deeper than the rest of the output
+            ]  # need a separate line for this as it is nested one layer deeper than
+            # the rest of the output
 
             # add version datetime - parse from concept_history_date
             codes["version_datetime"] = [
-                pd.to_datetime(codedict["concept_history_date"])
-                for codedict in codelist_api_return
+                pd.to_datetime(codedict["concept_history_date"]) for codedict in codelist_api_return
             ]
 
-            codes["phenotype_source"] = ['HDRUK'] * len(codes['code'])
+            codes["phenotype_source"] = ["HDRUK"] * len(codes["code"])
 
             return pd.DataFrame(codes)
         except Exception as e:
@@ -111,22 +116,20 @@ class HDRUKLibraryClient:
         try:
             codes = {
                 "Code": [codedict["code"] for codedict in codelist_api_return],
-                "Description": [
-                    codedict["description"] for codedict in codelist_api_return
-                ]
+                "Description": [codedict["description"] for codedict in codelist_api_return],
             }
             return pd.DataFrame(codes)
         except Exception as e:
             print(f"Error formatting basic codelist: {e}")
             return pd.DataFrame()
 
-    def get_phenotypelist_from_search_term(
-            self,
-            search_term: str.capitalize) -> pd.DataFrame:
+    def get_phenotypelist_from_search_term(self, search_term: str.capitalize) -> pd.DataFrame:
         """
-        For a given search term, returns a dataframe with the phenotype_id and name of all phenotypes that match the search term.
+        For a given search term, returns a dataframe with the phenotype_id and name of all
+        phenotypes that match the search term.
 
-        Note that you can use this system to search for phenotypes relating to a particular coding system (coding_system) - e.g. "SNOMED CT", "ICD-10", etc.
+        Note that you can use this system to search for phenotypes relating to a particular coding
+        system (coding_system) - e.g. "SNOMED CT", "ICD-10", etc.
         :param search_term: str
         :return: pd.DataFrame
         """
