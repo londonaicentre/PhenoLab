@@ -1,10 +1,7 @@
-from typing import Optional
 import pandas as pd
 
-def create_phenotype_table(
-        snowsesh,
-        table_name: str
-        ):
+
+def create_phenotype_table(snowsesh, table_name: str):
     """
     Creates a phenotype table if it doesn't exist.
     Args:
@@ -32,11 +29,8 @@ def create_phenotype_table(
     snowsesh.execute_query(create_table_sql)
     print("Target table ensured")
 
-def create_temp_phenotype_table(
-        snowsesh,
-        df: pd.DataFrame,
-        table_name: str
-        ):
+
+def create_temp_phenotype_table(snowsesh, df: pd.DataFrame, table_name: str):
     """
     Creates a temporary table from a pandas DataFrame.
     The temporary table name will be prefixed with TEMP_.
@@ -51,17 +45,15 @@ def create_temp_phenotype_table(
     temp_table = f"TEMP_{table_name}"
 
     snowsesh.load_dataframe_to_table(
-        df=df,
-        table_name=temp_table,
-        mode="overwrite",
-        table_type="temporary"
+        df=df, table_name=temp_table, mode="overwrite", table_type="temporary"
     )
     print("Loaded data to temporary table")
 
+
 def merge_phenotype_tables(
-        snowsesh,
-        table_name: str,
-        ):
+    snowsesh,
+    table_name: str,
+):
     """
     Merges data from a source table into a target table.
 
@@ -99,10 +91,8 @@ def merge_phenotype_tables(
     snowsesh.execute_query(merge_sql)
     print("Merged data into main table")
 
-def load_phenotypes_to_snowflake(
-        snowsesh,
-        df: pd.DataFrame,
-        table_name: str):
+
+def load_phenotypes_to_snowflake(snowsesh, df: pd.DataFrame, table_name: str):
     """
     Loads phenotype data to Snowflake using staging pattern.
     Args:
