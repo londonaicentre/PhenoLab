@@ -1,10 +1,12 @@
-from dotenv import load_dotenv
-from phmlondon.snow_utils import SnowflakeConnection
-from phmlondon.hdruk_api import HDRUKLibraryClient
-from base.phenotype import Phenotype
 from datetime import datetime
+
 import pandas as pd
 from base.load_tables import load_phenotypes_to_snowflake
+from base.phenotype import Phenotype
+from dotenv import load_dotenv
+
+from phmlondon.hdruk_api import HDRUKLibraryClient
+from phmlondon.snow_utils import SnowflakeConnection
 
 #######################################################
 # Active phenotypes for retrieval from HDR-UK library #
@@ -51,14 +53,12 @@ phenotype_list = [
     ("PH991", 2169),  # BHF Chronic obstructive pulmonary disease (ICD10, SNOMED)
     ("PH960", 2138),  # BHF Cancer (ICD10, SNOMED, READV2)
     ("PH1009", 2187),  # BHF Hypercholesterolaemia (SNOMED)
-    ("PH1001", 2179), # BHF Cancer (ICD10, SNOMED)
+    ("PH1001", 2179),  # BHF Cancer (ICD10, SNOMED)
 ]
 #######################################################
 
-def retrieve_hdruk_phenotypes(
-        phenotype_id: str,
-        version_id: int
-        ) -> pd.DataFrame:
+
+def retrieve_hdruk_phenotypes(phenotype_id: str, version_id: int) -> pd.DataFrame:
     """
     Retrieves phenotype data from HDRUK API and returns as a DataFrame.
     Args:
@@ -76,9 +76,7 @@ def retrieve_hdruk_phenotypes(
 
         # Get codelist data from API
         codelist_df = hdr_client.get_phenotype_codelist(
-            phenotype_id=phenotype_id,
-            version_id=version_id,
-            output_format="db"
+            phenotype_id=phenotype_id, version_id=version_id, output_format="db"
         )
 
         # Transform to phenotype object
@@ -99,6 +97,7 @@ def retrieve_hdruk_phenotypes(
         print(f"Error retrieving phenotype {phenotype_id}: {e}")
         raise e
 
+
 def main():
     load_dotenv()
 
@@ -110,11 +109,7 @@ def main():
         for phenotype_id, version_id in phenotype_list:
             df = retrieve_hdruk_phenotypes(phenotype_id, version_id)
 
-            load_phenotypes_to_snowflake(
-                snowsesh=snowsesh,
-                df=df,
-                table_name="HDRUK_PHENOTYPES"
-            )
+            load_phenotypes_to_snowflake(snowsesh=snowsesh, df=df, table_name="HDRUK_PHENOTYPES")
             print(f"Completed processing phenotype {phenotype_id}")
 
     except Exception as e:
@@ -122,6 +117,7 @@ def main():
         raise e
     finally:
         snowsesh.session.close()
+
 
 if __name__ == "__main__":
     main()
