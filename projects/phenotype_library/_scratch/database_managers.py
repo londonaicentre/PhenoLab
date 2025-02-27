@@ -1,13 +1,16 @@
-from abc import ABC, abstractmethod
-from src.phenotype import Phenotype
 import sqlite3
+from abc import ABC, abstractmethod
+
 from dotenv import load_dotenv
-from phmlondon.snow_utils import SnowflakeConnection
 from tables import queries
-from snowflake.snowpark import Row
+
+from phmlondon.snow_utils import SnowflakeConnection
+from src.phenotype import Phenotype
+
 
 class DatabaseManager(ABC):
     """Abstract class to create a SQL phenotypes table and add phenotypes to it"""
+
     @abstractmethod
     def _create_table(self):
         print("Create table method called")
@@ -20,8 +23,10 @@ class DatabaseManager(ABC):
     def get_all_phenotypes(self) -> list[tuple]:
         pass
 
+
 class LocalDatabaseManager(DatabaseManager):
     """Class to use SQLite to create a local database - use for development"""
+
     def __init__(self, database_filename: str, table_name: str):
         self.conn = sqlite3.connect(database_filename)
         self.table_name = table_name
@@ -32,12 +37,11 @@ class LocalDatabaseManager(DatabaseManager):
         cursor = self.conn.cursor()
         cursor.execute(queries[self.table_name])
         self.conn.commit()
-        cursor.close
+        cursor.close()
 
     def add_phenotype(self, phenotype: Phenotype):
         """Takes the data in a Phenotype object and adds it to the database table"""
-        phenotype.df.to_sql(self.table_name, self.conn, if_exists="append",
-                            index=False)
+        phenotype.df.to_sql(self.table_name, self.conn, if_exists="append", index=False)
         super().add_phenotype(phenotype)
         #  Note that currently the phenotype will be readded the database each
         #  time this method is called for the same phenotype
@@ -46,11 +50,13 @@ class LocalDatabaseManager(DatabaseManager):
         cursor = self.conn.cursor()
         cursor.execute(f"SELECT * FROM {self.table_name}")
         rows = cursor.fetchall()
-        cursor.close
+        cursor.close()
         return rows
+
 
 class SnowflakeDatabaseManager(DatabaseManager):
     """Class for creating table and adding phenotypes on snowflake"""
+
     def __init__(self, database: str, schema: str, table_name: str):
         load_dotenv()
         self.snowconnection = SnowflakeConnection()
@@ -66,10 +72,14 @@ class SnowflakeDatabaseManager(DatabaseManager):
 
     def add_phenotype(self, phenotype: Phenotype):
         phenotype.df.columns = phenotype.df.columns.str.upper()
-        # snowflake converts any table and column names that aren't in quotes to uppercase. But for some reason doesn't do this
-        # when creating a datframe from a pandas df in the line below. So we need to manually convert to uppercase otherwise 
+        # snowflake converts any table and column names that aren't in quotes to uppercase. But for
+        # some reason doesn't do this
+        # when creating a datframe from a pandas df in the line below. So we need to manually
+        # convert to uppercase otherwise
         # appending the data to the table fails due to case
-        snowpark_df = self.snowsesh.create_dataframe(phenotype.df) # converts pandas dataframe to snowpark dataframe (confusing)
+        snowpark_df = self.snowsesh.create_dataframe(
+            phenotype.df
+        )  # converts pandas dataframe to snowpark dataframe (confusing)
         snowpark_df.show()
         snowpark_df.write.save_as_table(self.table_name, mode="append", column_order="name")
 
