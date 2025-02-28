@@ -297,23 +297,54 @@ class FeatureStoreManager:
 
     # def get_data
 
-    # def deprecate_feature
+    def deprecate_feature(self, feature_id: int):
+        """
+        Deprecate a feature by setting the live_updating flag to False
+        """
+        session = self.conn.session
+        table_names = [r["TABLE_NAME"] for r in session.sql(
+            f"""SELECT table_name
+            FROM feature_version_registry 
+            WHERE feature_id = {feature_id}
+            AND live_updating = TRUE;"""
+        ).collect()]
+        print(f"The following tables are live: {table_names}")
 
-    #  serve current version of feature
-    # data drift
+        session.sql(
+            f"""UPDATE feature_version_registry 
+            SET live_updating = FALSE 
+            WHERE feature_id = {feature_id};"""
+        ).collect()
 
+        for table_name in table_names:
+            session.sql(
+                f"""alter dynamic table {table_name} suspend;"""
+            ).collect()  # existing table frozen
+        print(f"Feature {feature_id} has been deprecated")
+    
+    def get_latest_feature_version(self, feature_id: int) -> int:
+        session = self.conn.session
+        latest_version = session.sql(
+            f"""SELECT COALESCE(MAX(feature_version), 0) AS max_version
+            FROM feature_version_registry
+            WHERE feature_id = {feature_id}"""
+        ).collect()[0]["MAX_VERSION"]
+        return latest_version
 
 if __name__ == "__main__":
     DATABASE = "INTELLIGENCE_DEV"
     SCHEMA = "TEST_FEATURE_STORE_IW_2"
     feature_store_manager = FeatureStoreManager(conn, DATABASE, SCHEMA)
     # feature_store_manager.create_feature_store()
-    feature_store_manager.add_new_feature(
-        "hypertension",
-        "patients with a high BP phenotype",
-        "continuous",
-        "SELECT * FROM INTELLIGENCE_DEV.AI_CENTRE_DEV.BSA_BNF_LOOKUP",
-    )
+    # feature_store_manager.deprecate_feature(1)
+    print(feature_store_manager.get_latest_feature_version(1))
+
+    # feature_store_manager.add_new_feature(
+    #     "hypertension",
+    #     "patients with a high BP phenotype",
+    #     "continuous",
+    #     "SELECT * FROM INTELLIGENCE_DEV.AI_CENTRE_DEV.BSA_BNF_LOOKUP",
+    # )
     # feature_store_manager.update_feature(1, "SELECT * FROM INTELLIGENCE_DEV.AI_CENTRE_DEV.BSA_BNF_LOOKUP LIMIT 5", "test update")
     # feature_version = feature_store_manager.update_feature(1,
     #                                                        "SELECT * FROM INTELLIGENCE_DEV.AI_CENTRE_DEV.BSA_BNF_LOOKUP LIMIT 3",

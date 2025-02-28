@@ -1,9 +1,12 @@
 x add live features table
 x update_feature
-- get_data
-- deprecate feature (remove all live versions)
+x get_data
+x deprecate feature (remove all live versions)
+X current version of feature
 x debug/check functionality
-- integrate Joe's code +/- move
+- integrate Joe's code +/- move -> loader script
+- documentation
+- phenotypes -> features
 - serve current version of feature
 - data drift
 - If we go on to use this, do proper documentation of inputs
