@@ -4,13 +4,16 @@ is specified as an input
 """
 
 import argparse
-from phmlondon.snow_utils import SnowflakeConnection
-from loaders.load_hdruk_phenotypes import main as load_hdruk
-from loaders.load_nhs_gp_snomed import main as load_snomed
-from loaders.load_nel_segments import main as load_nel
-from loaders.load_bsa_bnf import main as load_bsa_bnf
-from loaders.load_bnf_to_snomed import main as load_bsa_bnf_snomed
 from typing import Dict
+
+from dotenv import load_dotenv
+from loaders.load_bnf_to_snomed import main as load_bsa_bnf_snomed
+from loaders.load_bsa_bnf import main as load_bsa_bnf
+from loaders.load_hdruk_phenotypes import main as load_hdruk
+from loaders.load_nel_segments import main as load_nel
+from loaders.load_nhs_gp_snomed import main as load_snomed
+
+from phmlondon.snow_utils import SnowflakeConnection
 
 LOADER_CONFIG = {
     'hdruk': {
