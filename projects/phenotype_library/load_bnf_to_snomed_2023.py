@@ -1,12 +1,12 @@
-import zipfile
-from io import BytesIO
-import pandas as pd
-from pathlib import Path
-from dotenv import load_dotenv
-from phmlondon.snow_utils import SnowflakeConnection
-from base.phenotype import Code, Codelist, Phenotype, VocabularyType, PhenotypeSource
-from base.load_tables import load_phenotypes_to_snowflake
 from datetime import datetime
+from pathlib import Path
+
+import pandas as pd
+from base.load_tables import load_phenotypes_to_snowflake
+from base.phenotype import Code, Codelist, Phenotype, PhenotypeSource, VocabularyType
+from dotenv import load_dotenv
+
+from phmlondon.snow_utils import SnowflakeConnection
 
 ################################################################################################
 # Source of mapping file:
@@ -15,7 +15,7 @@ from datetime import datetime
     #     'name': 'NHSBSA BNF SNOMED Mapping 2023',
     #     'url': 'https://www.nhsbsa.nhs.uk/prescription-data/understanding-our-data/bnf-snomed-mapping'
     # },
- 
+
 ################################################################################################
 
 def transform_to_phenotype(df: pd.DataFrame) -> pd.DataFrame:
@@ -33,7 +33,7 @@ def transform_to_phenotype(df: pd.DataFrame) -> pd.DataFrame:
             Code(
                 code=row['SNOMED Code'],
                 code_description=row['DM+D: Product Description'],
-                code_vocabulary=VocabularyType.SNOMED  
+                code_vocabulary=VocabularyType.SNOMED
             )
             for _, row in bnf_group.iterrows()
         ]
@@ -42,18 +42,18 @@ def transform_to_phenotype(df: pd.DataFrame) -> pd.DataFrame:
         codelist = Codelist(
             codelist_id=str(bnf_code),
             codelist_name=bnf_name,
-            codelist_vocabulary=VocabularyType.SNOMED,  # is actually BNF but won't allow me thave different vocabs for codes and codelists
+            codelist_vocabulary=VocabularyType.SNOMED,  # is actually BNF but won't allow me
             codelist_version="1.0",
             codes=codes
         )
 
-        # Create a phenotype 
+        # Create a phenotype
         phenotype = Phenotype(
             phenotype_id=str(bnf_code),
             phenotype_name=bnf_name,
             phenotype_version="1.0",
             phenotype_source=PhenotypeSource.NHSBSA,
-            codelists=[codelist],  
+            codelists=[codelist],
             version_datetime=current_datetime,
             uploaded_datetime=current_datetime
         )
@@ -72,9 +72,9 @@ def main():
     snowsesh.use_database("INTELLIGENCE_DEV")
     snowsesh.use_schema("AI_CENTRE_PHENOTYPE_LIBRARY")
 
- 
+
 # Define the file path
-    xlsx_path = Path("data/20230220_bnf_snomed_mapping.xlsx")  
+    xlsx_path = Path("data/20230220_bnf_snomed_mapping.xlsx")
 
 # Load Excel file into Pandas DataFrame
     if xlsx_path.exists():
