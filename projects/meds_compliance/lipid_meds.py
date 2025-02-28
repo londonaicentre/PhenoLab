@@ -1,11 +1,13 @@
 import streamlit as st
 from dotenv import load_dotenv
+
 from phmlondon.snow_utils import SnowflakeConnection
 
-
-# This code when ran with streamlit run, will open a prototype dashboard that looks at lipid lowering medication prescriptions in those who are eligible for lipid lowring meds.
+# This code when ran with streamlit run, will open a prototype dashboard that looks at lipid
+# lowering medication prescriptions in those who are eligible for lipid lowring meds.
 # So far the code looks at 2 NICE guidance criteria, High Qrisk over 10 and Type 1 Diabetes (T1DM)
-# Will be updating dashboard with Proportion Days Covered (PDC) calculations and menu to choos from BNF drug classes.
+# Will be updating dashboard with Proportion Days Covered (PDC) calculations and menu to choos from
+# BNF drug classes.
 # code also needs a lot of tidying, cleaning and commenting!
 
 load_dotenv()
@@ -20,14 +22,16 @@ snowsesh = st.session_state.snowsesh
 # Title and description
 st.title("Lipid Lowering Meds - Prototype")
 st.write(
-    """This app explores the NICE guidance for prescribing lipid-lowering medications for primary prevention of CVD.
-    Currently, eligibility is based on two simple refsets to determine eligibility for primary prevention prescription and limited to 1000 patients.
+    """
+    This app explores the NICE guidance for prescribing lipid-lowering
+    medications for primary prevention of CVD. Currently, eligibility is based on two simple refsets
+    to determine eligibility for primary prevention prescription and limited to 1000 patients.
     """
 )
 
 # Execute the SQL query to get the data from the view
 query = """
-SELECT * 
+SELECT *
 FROM intelligence_dev.ai_centre_dev.lipid_meds_explore
 LIMIT 1000
 """
