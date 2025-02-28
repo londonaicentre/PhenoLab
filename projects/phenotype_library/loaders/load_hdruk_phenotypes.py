@@ -1,17 +1,16 @@
 ## prevents load from failing
 import sys
-from pathlib import Path
-sys.path.append(str(Path(__file__).parent.parent))
 
 ## Must be run from update.py
-from dotenv import load_dotenv
-from phmlondon.snow_utils import SnowflakeConnection
-from phmlondon.hdruk_api import HDRUKLibraryClient
-from loaders.base.phenotype import Phenotype
 from datetime import datetime
 
 import pandas as pd
+from dotenv import load_dotenv
+
 from loaders.base.load_tables import load_phenotypes_to_snowflake
+from loaders.base.phenotype import Phenotype
+from phmlondon.hdruk_api import HDRUKLibraryClient
+from phmlondon.snow_utils import SnowflakeConnection
 
 #######################################################
 # Active phenotypes for retrieval from HDR-UK library #

@@ -1,20 +1,14 @@
 ## prevents load from failing
 import sys
-from pathlib import Path
-sys.path.append(str(Path(__file__).parent.parent))
 
 ## Must be run from update.py
-from dotenv import load_dotenv
-from phmlondon.snow_utils import SnowflakeConnection
-from loaders.base.phenotype import Phenotype, Code, Codelist, VocabularyType, PhenotypeSource
-from loaders.base.load_tables import load_phenotypes_to_snowflake
 from datetime import datetime
 
 import pandas as pd
-from base.load_tables import load_phenotypes_to_snowflake
-from base.phenotype import Code, Codelist, Phenotype, PhenotypeSource, VocabularyType
 from dotenv import load_dotenv
 
+from loaders.base.load_tables import load_phenotypes_to_snowflake
+from loaders.base.phenotype import Code, Codelist, Phenotype, PhenotypeSource, VocabularyType
 from phmlondon.snow_utils import SnowflakeConnection
 
 
@@ -136,6 +130,6 @@ def main():
 
 
 if __name__ == "__main__":
-    print(f"ERROR: This script should not be run directly.")
+    print("ERROR: This script should not be run directly.")
     print("Please run from update.py using the appropriate flag.")
     sys.exit(1)

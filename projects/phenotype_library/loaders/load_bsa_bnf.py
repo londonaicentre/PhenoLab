@@ -1,25 +1,16 @@
 ## prevents load from failing
 import sys
-from pathlib import Path
-sys.path.append(str(Path(__file__).parent.parent))
 
 ## Must be run from update.py
 import zipfile
-from io import BytesIO
-import pandas as pd
-from pathlib import Path
-from dotenv import load_dotenv
-from phmlondon.snow_utils import SnowflakeConnection
-from loaders.base.phenotype import Code, Codelist, Phenotype, VocabularyType, PhenotypeSource
-from loaders.base.load_tables import load_phenotypes_to_snowflake
 from datetime import datetime
 from io import BytesIO
 
 import pandas as pd
-from base.load_tables import load_phenotypes_to_snowflake
-from base.phenotype import Code, Codelist, Phenotype, PhenotypeSource, VocabularyType
 from dotenv import load_dotenv
 
+from loaders.base.load_tables import load_phenotypes_to_snowflake  # noqa: F811
+from loaders.base.phenotype import Code, Codelist, Phenotype, PhenotypeSource, VocabularyType
 from phmlondon.snow_utils import SnowflakeConnection
 
 

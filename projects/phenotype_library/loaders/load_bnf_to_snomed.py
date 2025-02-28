@@ -1,18 +1,22 @@
 ## prevents load from failing
 import sys
 from pathlib import Path
+
 sys.path.append(str(Path(__file__).parent.parent))
 
 ## Must be run from update.py
-import pandas as pd
-from pathlib import Path
-from dotenv import load_dotenv
-from phmlondon.snow_utils import SnowflakeConnection
-from loaders.base.phenotype import Code, Codelist, Phenotype, VocabularyType, PhenotypeSource
-from loaders.base.load_tables import load_phenotypes_to_snowflake
-from datetime import datetime
 import zipfile
+from datetime import datetime
 from io import BytesIO
+from pathlib import Path
+
+import pandas as pd
+from dotenv import load_dotenv
+
+from loaders.base.load_tables import load_phenotypes_to_snowflake
+from loaders.base.phenotype import Code, Codelist, Phenotype, PhenotypeSource, VocabularyType
+from phmlondon.snow_utils import SnowflakeConnection
+
 
 def process_snomed_mappings(xlsx_files):
     """
@@ -31,7 +35,8 @@ def build_phenotypes(zip_name, mapping_files):
         csv_name = zip_ref.namelist()[0]
         with zip_ref.open(csv_name) as csv_file:
             bnf_df = pd.read_csv(BytesIO(csv_file.read()))
-    chemical_substances = bnf_df[['BNF Chemical Substance', 'BNF Chemical Substance Code']].drop_duplicates()
+    chemical_substances = bnf_df[['BNF Chemical Substance',
+                                  'BNF Chemical Substance Code']].drop_duplicates()
 
     # process different years of BNF SNOMED mapping files
     mappings = process_snomed_mappings(mapping_files)
@@ -108,6 +113,6 @@ def main():
     snowsesh.session.close()
 
 if __name__ == "__main__":
-    print(f"ERROR: This script should not be run directly.")
+    print("ERROR: This script should not be run directly.")
     print("Please run from update.py using the appropriate flag.")
     sys.exit(1)
