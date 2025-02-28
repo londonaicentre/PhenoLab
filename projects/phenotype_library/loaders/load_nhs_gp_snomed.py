@@ -1,17 +1,16 @@
 ## prevents load from failing
 import sys
-from pathlib import Path
-sys.path.append(str(Path(__file__).parent.parent))
 
 ## Must be run from update.py
+from datetime import datetime
+
+import pandas as pd
 from dotenv import load_dotenv
 
+from loaders.base.load_tables import load_phenotypes_to_snowflake
+from loaders.base.phenotype import Code, Codelist, Phenotype, PhenotypeSource, VocabularyType
 from phmlondon.onto_utils import FHIRTerminologyClient
 from phmlondon.snow_utils import SnowflakeConnection
-from loaders.base.phenotype import Code, Codelist, Phenotype, VocabularyType, PhenotypeSource
-from datetime import datetime
-from loaders.base.load_tables import load_phenotypes_to_snowflake
-import pandas as pd
 
 ################################################################################################
 # SNOMED Monoliths for retrieval
