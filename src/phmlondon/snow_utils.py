@@ -232,7 +232,7 @@ class SnowflakeConnection:
         except Exception as e:
             print(f"Error executing query: {e}")
             raise e
-        
+
     def execute_query_to_polars(self, query: str) -> pl.DataFrame:
         """
         Executes a SQL query and returns results as a polars DataFrame
@@ -244,7 +244,7 @@ class SnowflakeConnection:
                 cur.execute(query)
                 arrow_tab = cur.fetch_arrow_all()
                 return pl.from_arrow(arrow_tab)
-    
+
         except Exception as e:
             print(f"Error executing query: {e}")
             raise e
