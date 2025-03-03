@@ -5,10 +5,6 @@ from phmlondon.snow_utils import SnowflakeConnection
 
 # logging.basicConfig(level=logging.DEBUG) # optional, for debugging
 
-load_dotenv()
-conn = SnowflakeConnection()
-
-
 class FeatureStoreManager:
     def __init__(self, connection: SnowflakeConnection, database: str, schema: str):
         """
@@ -74,6 +70,7 @@ class FeatureStoreManager:
         feature_format: str,
         sql_select_query_to_generate_feature: str,
         target_lag: str = "1 day",
+        refresh_mode: str = "INCREMENTAL",
     ) -> tuple[int, int]:
         """
         Executes the input query and add the feature to the feature registry and the version registry
@@ -83,7 +80,7 @@ class FeatureStoreManager:
         table_name: table_name of the feature, str
         sql_select_query_to_generate_feature: SQL query that generates the feature, str
         target_lag: how often the feature should refresh from the underlying tables e.g. '5 minutes', '1 hour', '1 day'. Default is '1 day'
-
+        refresh_mode: 'FULL' or 'INCREMENTAL'. Default is 'INCREMENTAL'. Whether the table refreshes fully or only on new data. Any 'non-deterministic functions' e.g. using the current date/time require full refresh.
         """
         session = self.conn.session
 
@@ -107,7 +104,7 @@ class FeatureStoreManager:
 
         try:
             table_name = self._create_feature_table(
-                feature_name, feature_id, target_lag, sql_select_query_to_generate_feature
+                feature_name, feature_id, target_lag, sql_select_query_to_generate_feature, refresh_mode=refresh_mode
             )
             print(sql_select_query_to_generate_feature)
             feature_version = self._add_new_feature_version_to_version_registry(
@@ -141,13 +138,23 @@ class FeatureStoreManager:
             raise ValueError(f"{self.database}.{self.schema}.{table_name} already exists.")
 
     def _create_table_creation_query_from_select_query(
-        self, table_name: str, target_lag: str, select_query: str
+        self,
+        table_name: str,
+        target_lag: str,
+        select_query: str,
+        refresh_mode: str,
     ) -> str:
+        
+        refresh_mode = refresh_mode.upper()
+        if refresh_mode not in ["FULL", "INCREMENTAL"]:
+            # don't allow 'AUTO' as a refresh value
+            raise ValueError("Refresh mode must be either 'FULL' or 'INCREMENTAL'")
+
         full_query = f"""
                 CREATE DYNAMIC TABLE {table_name}
                 TARGET_LAG = '{target_lag}'
                 WAREHOUSE = INTELLIGENCE_XS
-                REFRESH_MODE = INCREMENTAL
+                REFRESH_MODE = {refresh_mode}
                 INITIALIZE = ON_CREATE
                 AS
                 {select_query}
@@ -162,7 +169,7 @@ class FeatureStoreManager:
         return f"{feature_name}_v{feature_version}"
 
     def _create_feature_table(
-        self, feature_name: str, feature_id: int, target_lag: str, select_query: str
+        self, feature_name: str, feature_id: int, target_lag: str, select_query: str, refresh_mode: str,
     ):
         session = self.conn.session
         table_name = self._get_feature_table_name(feature_name, feature_id)
@@ -174,7 +181,7 @@ class FeatureStoreManager:
 
         # Generate the full sql query
         full_query = self._create_table_creation_query_from_select_query(
-            table_name, target_lag, select_query
+            table_name, target_lag, select_query, refresh_mode=refresh_mode
         )
 
         # Create the table
@@ -332,6 +339,8 @@ class FeatureStoreManager:
         return latest_version
 
 if __name__ == "__main__":
+    load_dotenv()
+    conn = SnowflakeConnection()
     DATABASE = "INTELLIGENCE_DEV"
     SCHEMA = "TEST_FEATURE_STORE_IW_2"
     feature_store_manager = FeatureStoreManager(conn, DATABASE, SCHEMA)
