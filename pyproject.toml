@@ -29,7 +29,7 @@ allow-direct-references = true
 packages = ["src/phmlondon"]
 
 [tool.ruff]
- line-length = 100
+ line-length = 120
 
  target-version = "py311"
 
