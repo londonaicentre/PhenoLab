@@ -18,7 +18,7 @@ def return_version_id_from_open_codelist_url(url: str) -> tuple[str, str, str, s
         # is 6 items long and sometimes 5
     else:
         raise ValueError("Unexpected number of sidebar items")
-    
+
     codelist_name = soup.find("h1").text
 
     date_string = soup.find("span", class_="created d-block p-0").text
