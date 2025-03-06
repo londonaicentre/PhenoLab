@@ -9,10 +9,16 @@ def return_version_id_from_open_codelist_url(url: str) -> tuple[str, str, str, s
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
 
-    vocabulary, _, _, codelist_id, _, version_id = [
-        e.text for e in soup.find_all("dd", class_="pb-2 border-bottom")
-    ]
-
+    sidebar_items = [e.text for e in soup.find_all("dd", class_="pb-2 border-bottom")]
+    if len(sidebar_items) == 6:
+        vocabulary, _, _, codelist_id, _, version_id = sidebar_items
+    elif len(sidebar_items) == 5:
+        vocabulary, _, _, codelist_id, version_id = sidebar_items
+        # this is pretty hacky, but it seems some codelists have a version tag and some don't, so sometimes the sidebar 
+        # is 6 items long and sometimes 5
+    else:
+        raise ValueError("Unexpected number of sidebar items")
+    
     codelist_name = soup.find("h1").text
 
     date_string = soup.find("span", class_="created d-block p-0").text

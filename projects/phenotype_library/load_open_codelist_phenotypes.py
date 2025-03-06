@@ -10,11 +10,14 @@ from phmlondon.snow_utils import SnowflakeConnection
 
 phenotypes_to_load = {
     "https://www.opencodelists.org/codelist/opensafely/hypertension-snomed/2020-04-28/":
-    "data/open_codelist_csvs/opensafely-hypertension-snomed-2020-04-28.csv",
+        "data/open_codelist_csvs/opensafely-hypertension-snomed-2020-04-28.csv",
     "https://www.opencodelists.org/codelist/nhsd-primary-care-domain-refsets/abpm_cod/20241205/":
-    "data/open_codelist_csvs/nhsd-primary-care-domain-refsets-abpm_cod-20241205.csv",
+        "data/open_codelist_csvs/nhsd-primary-care-domain-refsets-abpm_cod-20241205.csv",
+    "https://www.opencodelists.org/codelist/opensafely/height-snomed/3b4a3891/":
+        "data/open_codelist_csvs/opensafely-height-snomed-3b4a3891.csv",
+    "https://www.opencodelists.org/codelist/opensafely/weight-snomed/5459abc6/":
+        "data/open_codelist_csvs/opensafely-weight-snomed-5459abc6.csv"
 }
-
 
 def open_codelists_url_and_csv_to_phenotype(url: str, csv_path: str) -> pd.DataFrame:
     vocabulary, codelist_name, codelist_id, version_id, version_datetime = return_version_id_from_open_codelist_url(url)
