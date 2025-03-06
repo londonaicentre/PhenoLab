@@ -1,11 +1,11 @@
 from datetime import datetime
 
 import pandas as pd
-from loaders.base.load_tables import load_phenotypes_to_snowflake
-from loaders.base.phenotype import Phenotype
 from dotenv import load_dotenv
 from scrape_open_codelists import return_version_id_from_open_codelist_url
 
+from loaders.base.load_tables import load_phenotypes_to_snowflake
+from loaders.base.phenotype import Phenotype
 from phmlondon.snow_utils import SnowflakeConnection
 
 phenotypes_to_load = {
@@ -20,6 +20,16 @@ phenotypes_to_load = {
 }
 
 def open_codelists_url_and_csv_to_phenotype(url: str, csv_path: str) -> pd.DataFrame:
+    """
+    Given an OpenCodelists URL and a local CSV file path, retrieve the codelist metadata and transform the CSV into a
+    Phenotype object, then return the Phenotype as a DataFrame
+
+    Args:
+        url (str): URL of the OpenCodelists codelist
+        csv_path (str): Local path to the CSV file
+    Returns:
+        pd.DataFrame: DataFrame representation of the Phenotype
+    """
     vocabulary, codelist_name, codelist_id, version_id, version_datetime = return_version_id_from_open_codelist_url(url)
     # print(vocabulary)
     # print(version_id)
