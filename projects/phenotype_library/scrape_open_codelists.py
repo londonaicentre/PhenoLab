@@ -6,6 +6,15 @@ from bs4 import BeautifulSoup
 
 
 def return_version_id_from_open_codelist_url(url: str) -> tuple[str, str, str, str, str]:
+    """
+    Given a URL to an open codelist, scrape the HTML to return the vocabulary, codelist name, codelist id, version id,
+    and version datetime.
+
+    Args:
+        url (str): URL of the OpenCodelists codelist
+    Returns:
+        tuple[str, str, str, str, str]: vocabulary, codelist_name, codelist_id, version_id, version_datetime
+    """
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
 
@@ -14,7 +23,7 @@ def return_version_id_from_open_codelist_url(url: str) -> tuple[str, str, str, s
         vocabulary, _, _, codelist_id, _, version_id = sidebar_items
     elif len(sidebar_items) == 5:
         vocabulary, _, _, codelist_id, version_id = sidebar_items
-        # this is pretty hacky, but it seems some codelists have a version tag and some don't, so sometimes the sidebar 
+        # this is pretty hacky, but it seems some codelists have a version tag and some don't, so sometimes the sidebar
         # is 6 items long and sometimes 5
     else:
         raise ValueError("Unexpected number of sidebar items")
