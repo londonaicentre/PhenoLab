@@ -13,6 +13,8 @@ Please install the requirements and set up an env (see env.example).
 ## Current file status
 |File|Status|Task|Task owner|
 |-----|-----|-----|------|
-|lipid_meds.py|work in progress|add PDC calc and med finder| Jasjot|
+|lipid_meds.py|retired|built new app, see below| Jasjot|
+|lrd_compliance.py|work in progress|continue work on PDC and treatment switching| Jasjot|
+|pdc_analysis.py|work in progress|analysing PDC data| Jasjot|
 |
   

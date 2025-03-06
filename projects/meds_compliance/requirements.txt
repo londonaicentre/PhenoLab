@@ -1,11 +1,10 @@
 -e ../../
-altair
-folium
-geopandas
+
+statsmodels
 numpy
 pandas
 plotly
 python-dotenv
 scipy
 streamlit
-streamlit_folium
+

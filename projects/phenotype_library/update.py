@@ -7,20 +7,35 @@ import argparse
 from typing import Dict
 
 from dotenv import load_dotenv
-from load_bsa_bnf import main as load_bnf
-from load_hdruk_phenotypes import main as load_hdruk
-from load_nhs_gp_snomed import main as load_snomed
-from nel_segments import main as load_nel
-from load_open_codelist_phenotypes import main as load_open_codelist
+from loaders.load_bnf_to_snomed import main as load_bsa_bnf_snomed
+from loaders.load_bsa_bnf import main as load_bsa_bnf
+from loaders.load_hdruk_phenotypes import main as load_hdruk
+from loaders.load_nel_segments import main as load_nel
+from loaders.load_nhs_gp_snomed import main as load_snomed
 
 from phmlondon.snow_utils import SnowflakeConnection
 
 LOADER_CONFIG = {
-    "hdruk": {"func": load_hdruk, "table": "HDRUK_PHENOTYPES"},
-    "gpsnomed": {"func": load_snomed, "table": "NHS_GP_SNOMED_REFSETS"},
-    "bsabnf": {"func": load_bnf, "table": "BSA_BNF_MAPPINGS"},
-    "nelseg": {"func": load_nel, "table": "NEL_SEGMENT_PHENOTYPES"},
-    "opencodelist": {"func": load_open_codelist, "table": "OPEN_CODELIST_PHENOTYPES"},
+    'hdruk': {
+        'func': load_hdruk,
+        'table': 'HDRUK_PHENOTYPES'
+    },
+    'gpsnomed': {
+        'func': load_snomed,
+        'table': 'NHS_GP_SNOMED_REFSETS'
+    },
+    'bsabnf': {
+        'func': load_bsa_bnf,
+        'table': 'BSA_BNF_HIERARCHY'
+    },
+    'nelseg': {
+        'func': load_nel,
+        'table': 'NEL_SEGMENT_PHENOTYPES'
+    },
+    'bsabnfsnomed': {
+        'func': load_bsa_bnf_snomed,
+        'table': 'BSA_BNF_SNOMED_MAPPINGS'
+    }
 }
 
 
