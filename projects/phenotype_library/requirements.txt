@@ -7,3 +7,4 @@ fastparquet
 lxml
 python-dotenv
 streamlit
+openpyxl
