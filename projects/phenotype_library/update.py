@@ -11,6 +11,7 @@ from load_bsa_bnf import main as load_bnf
 from load_hdruk_phenotypes import main as load_hdruk
 from load_nhs_gp_snomed import main as load_snomed
 from nel_segments import main as load_nel
+from load_open_codelist_phenotypes import main as load_open_codelist
 
 from phmlondon.snow_utils import SnowflakeConnection
 
@@ -19,6 +20,7 @@ LOADER_CONFIG = {
     "gpsnomed": {"func": load_snomed, "table": "NHS_GP_SNOMED_REFSETS"},
     "bsabnf": {"func": load_bnf, "table": "BSA_BNF_MAPPINGS"},
     "nelseg": {"func": load_nel, "table": "NEL_SEGMENT_PHENOTYPES"},
+    "opencodelist": {"func": load_open_codelist, "table": "OPEN_CODELIST_PHENOTYPES"},
 }
 
 
