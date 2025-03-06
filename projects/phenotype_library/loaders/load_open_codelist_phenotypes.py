@@ -1,8 +1,8 @@
 from datetime import datetime
 
 import pandas as pd
-from base.load_tables import load_phenotypes_to_snowflake
-from base.phenotype import Phenotype
+from loaders.base.load_tables import load_phenotypes_to_snowflake
+from loaders.base.phenotype import Phenotype
 from dotenv import load_dotenv
 from scrape_open_codelists import return_version_id_from_open_codelist_url
 
