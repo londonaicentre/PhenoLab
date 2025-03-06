@@ -12,6 +12,7 @@ from loaders.load_bsa_bnf import main as load_bsa_bnf
 from loaders.load_hdruk_phenotypes import main as load_hdruk
 from loaders.load_nel_segments import main as load_nel
 from loaders.load_nhs_gp_snomed import main as load_snomed
+from loaders.load_open_codelist_phenotypes import main as load_open_codelist_phenotypes
 
 from phmlondon.snow_utils import SnowflakeConnection
 
@@ -35,7 +36,11 @@ LOADER_CONFIG = {
     'bsabnfsnomed': {
         'func': load_bsa_bnf_snomed,
         'table': 'BSA_BNF_SNOMED_MAPPINGS'
-    }
+    },
+    'opencodelists': {
+        'func': load_open_codelist_phenotypes,
+        'table': 'OPEN_CODELISTS_PHENOTYPES'
+    },
 }
 
 
