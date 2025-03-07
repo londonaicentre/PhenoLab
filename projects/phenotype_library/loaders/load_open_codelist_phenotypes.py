@@ -16,7 +16,9 @@ phenotypes_to_load = {
     "https://www.opencodelists.org/codelist/opensafely/height-snomed/3b4a3891/":
         "data/open_codelist_csvs/opensafely-height-snomed-3b4a3891.csv",
     "https://www.opencodelists.org/codelist/opensafely/weight-snomed/5459abc6/":
-        "data/open_codelist_csvs/opensafely-weight-snomed-5459abc6.csv"
+        "data/open_codelist_csvs/opensafely-weight-snomed-5459abc6.csv",
+    "https://www.opencodelists.org/codelist/opensafely/medication-reviews-all-types/69f99fda/":
+        "data/open_codelist_csvs/opensafely-medication-reviews-all-types-69f99fda.csv"
 }
 
 def open_codelists_url_and_csv_to_phenotype(url: str, csv_path: str) -> pd.DataFrame:
@@ -80,4 +82,5 @@ def main():
         snowsesh.session.close()
 
 if __name__ == "__main__":
-    main()
+    print("ERROR: This script should not be run directly.")
+    print("Please run from update.py using the appropriate flag.")
