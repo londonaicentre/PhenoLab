@@ -7,4 +7,6 @@ plotly
 python-dotenv
 scipy
 streamlit
+ipykernel
+matplotlib
 
