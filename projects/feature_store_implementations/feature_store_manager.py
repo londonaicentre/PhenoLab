@@ -1,14 +1,21 @@
+"""
+Feature store manager class for managing a snowflake schema that will be used as a feature stoe, containing static 
+tables of features plus metadata tables to manage versioning and record the query that created them.
+"""
 
 from dotenv import load_dotenv
 
 from phmlondon.snow_utils import SnowflakeConnection
 
-# logging.basicConfig(level=logging.DEBUG) # optional, for debugging
-
 class FeatureStoreManager:
     def __init__(self, connection: SnowflakeConnection, database: str, schema: str):
         """
         The schema where you want to create the feature store should already exist
+
+        Args:
+            connection (SnowflakeConnection): a connection to the snowflake database
+            database (str): the database where the feature store will be created (already exists)
+            schema (str): the schema where the feature store will be created (already exists)
         """
         self.conn = connection
         self.database = database
@@ -69,14 +76,19 @@ class FeatureStoreManager:
         feature_desc: str,
         feature_format: str,
         sql_select_query_to_generate_feature: str,
-    ) -> tuple[int, int]:
+    ) -> tuple[str, int]:
         """
         Executes the input query and add the feature to the feature registry and the version registry
-        feature_name: name of the feature, str
-        feature_desc: description of the feature, str
-        feature_format: format of the feature e.g. one-hot, binary, continuous; str
-        table_name: table_name of the feature, str
-        sql_select_query_to_generate_feature: SQL query that generates the feature, str
+
+        Args:
+            feature_name (str): name of the feature
+            feature_desc (str): description of the feature
+            feature_format (str): format of the feature e.g. one-hot, binary, continuous
+            table_name (str): table_name of the feature, str
+            sql_select_query_to_generate_feature (str): SQL query that generates the feature
+        
+        Returns:
+            tuple[str, int]: feature_id and feature_version
         """
         session = self.conn.session
 
@@ -224,9 +236,14 @@ class FeatureStoreManager:
     ) -> int:
         """
         Updates the feature in the feature version registry with the new query and description
-        feature_id: uuid of the feature, str
-        new_sql_select_query: new SQL query that generates the feature, str
-        change_description: description of the change, str
+
+        Args:
+            feature_id (str): uuid of the feature
+            new_sql_select_query (str): new SQL query that generates the feature
+            change_description (str): description of the change
+
+        Returns:
+            int: the new feature version
         """
         session = self.conn.session
 
