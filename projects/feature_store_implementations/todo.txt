@@ -5,14 +5,14 @@ x deprecate feature (remove all live versions)
 x current version of feature
 x debug/check functionality
 - integrate Joe's code +/- move -> loader script
-- documentation - readme and docstrings
+x documentation - readme and docstrings
 x phenotypes -> features
 x refactor to be static tables
 - tests?
 x put aside dynamic code and snowflake code
-- readme update with usage
+x readme update with usage
 
 - utility functions for codelist comparison and thresholding
 - start adding other features
-- If we go on to use this, do proper documentation of inputs
+x If we go on to use this, do proper documentation of inputs
 - delete functionality?

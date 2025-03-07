@@ -42,7 +42,6 @@ class FeatureStoreManager:
                     feature_name VARCHAR NOT NULL,
                     feature_desc VARCHAR,
                     feature_format VARCHAR,
-                    table_name VARCHAR,
                     date_feature_registered TIMESTAMP
                     ) """).collect()
         print(f"{table_names[0]} created successfully.")
