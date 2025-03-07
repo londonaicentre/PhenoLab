@@ -2,14 +2,17 @@ x add live features table
 x update_feature
 x get_data
 x deprecate feature (remove all live versions)
-X current version of feature
+x current version of feature
 x debug/check functionality
 - integrate Joe's code +/- move -> loader script
 - documentation - readme and docstrings
-- phenotypes -> features
+x phenotypes -> features
+x refactor to be static tables
+- tests?
+x put aside dynamic code and snowflake code
+- readme update with usage
+
 - utility functions for codelist comparison and thresholding
-- check if query already in feature store
 - start adding other features
 - If we go on to use this, do proper documentation of inputs
 - delete functionality?
-- tests
