@@ -110,9 +110,9 @@ categorised_data AS (
             WHEN value IS NULL AND code_description ILIKE '%normal%' THEN 'Healthy weight'
             WHEN value IS NULL AND code_description ILIKE '%healthy%' THEN 'Healthy weight'
             WHEN value IS NULL AND code_description ILIKE '%overweight%' THEN 'Overweight'
-            WHEN value IS NULL AND code_description ILIKE '%obese class I%' THEN 'Obese Class I'
-            WHEN value IS NULL AND code_description ILIKE '%obese class II%' THEN 'Obese Class II'
             WHEN value IS NULL AND code_description ILIKE '%obese class III%' THEN 'Obese Class III'
+            WHEN value IS NULL AND code_description ILIKE '%obese class II%' THEN 'Obese Class II'
+            WHEN value IS NULL AND code_description ILIKE '%obese class I%' THEN 'Obese Class I'
             WHEN value IS NULL AND code_description ILIKE '%obes%' THEN 'Obese Unclassified'
             
             ELSE 'Unknown' 
