@@ -17,14 +17,14 @@ class DataQuality:
         Choose a database manager - default is pandas, supports polars, needs to be in format either pd or pl
         - Note that the functions may behave slightly differently depending on if you use polars or pandas
         """
-        self.conn = connection()
+        self.conn = connection
         self.conn.current_database = database.upper()
         self.conn.current_schema = schema.upper()
         self.df_type = df_type
         self.schema_list = self.show_schemas()
         self.database_list = self.show_databases()
         self.table_list = self.show_tables()
-        self.current_table = None
+        self._current_table = None
         self.column = None
 
     def execute_query_to_table(self, query: str) -> pl.DataFrame | pd.DataFrame:
@@ -62,7 +62,7 @@ class DataQuality:
 
     @current_schema.setter
     def current_schema(self, schema: str) -> None:
-        self.table_list = self.show_tables() 
+        self.table_list = self.show_tables()
         if schema.upper() not in self.schema_list:
             raise ValueError(f'Schema must in list of schemas within {self.current_database}:\n'
                              f' {[i for i in self.schema_list]}')
@@ -78,35 +78,37 @@ class DataQuality:
 
     @property
     def current_table(self) -> str:
-        return self.conn.current_table
+        return self._current_table
 
     @current_table.setter
     def current_table(self, table: str) -> None:
-        self.column_list = self.show_columns()
-        if table.upper() not in self.table_list:
-            raise ValueError(f'Table must in list of tables within {self.current_schema}:\n'
-                             f' {[i for i in self.table_list]}')
-        else:
-            self.conn.current_table = table.upper()
+        if table is not None:
+            self.column_list = self.show_columns(table)
+            if table.upper() not in self.table_list:
+                raise ValueError(f'Table must in list of tables within {self.current_schema}:\n'
+                                f' {[i for i in self.table_list]}')
+            else:
+                self._current_table = table.upper()
 
-        self.column_list = self.show_columns()
-        if self.current_table not in self.table_list:
-            warnings.warn(f'Column {self.current_column} not in table {table}. '
-                          f'Column needs to be one of {[i for i in self.column_list]}.',
-                          stacklevel=2)
+            self.column_list = self.show_columns(table)
+            if self._current_table not in self.table_list:
+                warnings.warn(f'Column {self.current_column} not in table {table}. '
+                            f'Column needs to be one of {[i for i in self.column_list]}.',
+                            stacklevel=2)
 
     @property
     def current_column(self) -> str:
-        return self.conn.current_column
+        return self.current_column
 
     @current_column.setter
     def current_column(self, column: str) -> None:
-        self.column_list = self.show_columns() #Update the table list if we change the schema
-        if column.upper() not in self.column_list:
-            raise ValueError(f'Column must in list of columns within {self.current_table}:\n'
-                             f' {[i for i in self.column_list]}')
-        else:
-            self.conn.current_column = column.upper()
+        if column is not None:
+            self.column_list = self.show_columns() #Update the table list if we change the schema
+            if column.upper() not in self.column_list:
+                raise ValueError(f'Column must in list of columns within {self.current_table}:\n'
+                                f' {[i for i in self.column_list]}')
+            else:
+                self.current_column = column.upper()
 
     def show_tables(self, all: bool = False) -> pd.Series:
         if not all:
@@ -115,8 +117,15 @@ class DataQuality:
             query = f'show tables in database {self.conn.current_database}'
 
         #Unfortunately we have to use pandas here because the polars method doesn't work with show tables
-        self.table_list = [i for i in self.conn.execute_query_to_df(query).name]
-        return self.table_list
+        try:
+            self.table_list = [i for i in self.conn.execute_query_to_df(query).name]
+            return self.table_list
+        except Exception as e:
+            print(e)
+
+
+    def long_table(self, table: str) -> str:
+        return f'{self.conn.current_database}.{self.conn.current_schema}.{table}'
 
     def show_schemas(self) -> pd.Series:
         query = f'show schemas in database {self.conn.current_database}'
@@ -126,21 +135,33 @@ class DataQuality:
         return [i for i in self.conn.execute_query_to_df('show databases').name]
 
     def show_columns(self, table: str) -> pd.Series:
-        query = f'select * from {self.conn.current_database}.{self.conn.current_schema}.{table} limit 1'
+        query = f'select * from {self.long_table(table)} limit 1'
         return [i for i in self.conn.execute_query_to_df(query).columns]
 
-    def query(self) -> None:
-        query = f'SELECT {self.column} FROM {self.table}'
-        self.query = query
+    def dtype(self, table: str, column: str):
+        query = f'DESCRIBE TABLE {self.long_table(table)}'
+        tab = self.execute_query_to_table(query)
+        return tab[tab.name == column.upper()].type
 
-    def dtype(self):
-        tab = self.data_quality.execute_query_to_table(self.query)
-        return tab.dtypes
+    def count_null(self, table: str, column: str):
+        null_query = f'SELECT COUNT({column}) as null_count FROM {self.long_table(table)}'
+        tab =  self.execute_query_to_table(null_query)
+        return tab.NULL_COUNT
 
-    def mean(self, table: str, col: str) -> float:
-        mean_query = f'SELECT AVG({col}) FROM {table}'
-        return self.data_quality.execute_query_to_table(mean_query)
+    def table_length(self, table: str):
+        length_query = f'SELECT COUNT(*) as total_count FROM {self.long_table(table)}'
+        tab = self.execute_query_to_table(length_query)
+        return tab.TOTAL_COUNT
 
+    def proportion_null(self, table: str, column: str):
+        return self.count_null(table, column)/ self.table_length(table)
+
+    def mean(self, table: str, column: str) -> float:
+        mean_query = f'SELECT AVG({column}) FROM {self.long_table(table)}'
+        return self.execute_query_to_table(mean_query)
+    
+    def wrong_dtype(self, table: str, column: str):
+        print('wrong_dtype')
 
 def main():
     load_dotenv()
@@ -158,10 +179,14 @@ def main():
     data_qual = DataQuality(SnowflakeConnection, 'INTELLIGENCE_DEV', 'AI_CENTRE_FEATURE_STORE')
     tabs = data_qual.show_tables()
     cols = data_qual.show_columns('cohort_table')
+    data_qual.mean('cohort_table', 'LOS_UNADJUSTED_DAYS')
+    data_qual.dtype('cohort_table', 'date_of_birth')
+    data_qual.proportion_null('cohort_table', 'admission_time')
     one_col = data_qual.OneColumn('cohort_table', 'person_id', data_qual)
     initial_data_pl = snowsesh.execute_query_to_polars(source_query)
     initial_data_df = snowsesh.execute_query_to_df(source_query)
     initial_data_df.dtypes
     initial_data_pl.dtypes
-    
 
+if __name__ == '__main__':
+    main()
