@@ -14,8 +14,8 @@ Please install the requirements and set up an env (see env.example).
 |File|Status|Task|Task owner|
 |-----|-----|-----|------|
 |lipid_meds.py|retired|built new app, see below| Jasjot|
-|lrd_compliance.py|work in progress|continue work on PDC and treatment switching| Jasjot|
-|pdc_analysis.py|work in progress|analysing PDC data, need to put into notebook with wrapped sql and further analysis| Jasjot|
-|sql_table/pdc_tables.sql|work in progress, need to put into notebook with python analysis|Jasjot|
-|
+|lrd_compliance.py|work paused|continue work on PDC and treatment switching| Jasjot|
+|pdc_analysis.py|retired |analysing PDC data, need to put into notebook with wrapped sql and further analysis - done| Jasjot|
+|sql_table/pdc_tables.sql|archive|sql embedded in notebook below|Jasjot|
+|pdc_analysis.ipynb|work in progress|continue pdc analysis|Jasjot|
   
