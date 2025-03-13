@@ -11,13 +11,18 @@ from phmlondon.snow_utils import SnowflakeConnection
 
 
 class DataQuality:
-    def __init__(self, connection: SnowflakeConnection, database: str, schema: str, df_type: str = 'pd') -> None:
+    def __init__(self,
+                 database: str,
+                 schema: str,
+                 df_type: str = 'pd',
+                 ) -> None:
         """
         Set up a connection and the files we are looking at
         Choose a database manager - default is pandas, supports polars, needs to be in format either pd or pl
         - Note that the functions may behave slightly differently depending on if you use polars or pandas
         """
-        self.conn = connection
+
+        self.conn = SnowflakeConnection()
         self.conn.current_database = database.upper()
         self.conn.current_schema = schema.upper()
         self.df_type = df_type
@@ -161,6 +166,7 @@ class DataQuality:
         return self.execute_query_to_table(mean_query)
     
     def wrong_dtype(self, table: str, column: str):
+        
         print('wrong_dtype')
 
 def main():
@@ -176,13 +182,12 @@ def main():
     from INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.PERSON_NEL_MASTER_INDEX
     LIMIT 100000
     """
-    data_qual = DataQuality(SnowflakeConnection, 'INTELLIGENCE_DEV', 'AI_CENTRE_FEATURE_STORE')
+    data_qual = DataQuality('INTELLIGENCE_DEV', 'AI_CENTRE_FEATURE_STORE')
     tabs = data_qual.show_tables()
     cols = data_qual.show_columns('cohort_table')
     data_qual.mean('cohort_table', 'LOS_UNADJUSTED_DAYS')
     data_qual.dtype('cohort_table', 'date_of_birth')
     data_qual.proportion_null('cohort_table', 'admission_time')
-    one_col = data_qual.OneColumn('cohort_table', 'person_id', data_qual)
     initial_data_pl = snowsesh.execute_query_to_polars(source_query)
     initial_data_df = snowsesh.execute_query_to_df(source_query)
     initial_data_df.dtypes
