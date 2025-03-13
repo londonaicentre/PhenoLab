@@ -5,7 +5,7 @@ import git
 import os
 from pathlib import Path
 from dotenv import load_dotenv
-from scrape_open_codelists import return_version_id_from_open_codelist_url
+from loaders.base.scrape_open_codelists import return_version_id_from_open_codelist_url
 
 from loaders.base.load_tables import load_phenotypes_to_snowflake
 from loaders.base.phenotype import Phenotype
