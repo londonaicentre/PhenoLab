@@ -17,6 +17,7 @@ class VocabularyType(Enum):
     ICD10 = "ICD10"
     BNF = "BNF"
     READV2 = "READ 2"
+    READV3 = "READ 3"
     DMD = "DM+D code scheme"  # DM+D
     MEDCODE = "MEDCODE"  # HDRUK CPRD 'Med Code' - these do not appear in London vocabulary
 
@@ -30,6 +31,7 @@ class PhenotypeSource(Enum):
     LONDON = "LONDON"  # One London terminology server
     ICB_NEL = "ICB_NEL"  # North East London ICB Local Definition
     NHSBSA = "NHSBSA"  # NHS Business Services Authority
+    OPEN_CODELISTS = "OPEN_CODELISTS"  # OpenCodelists.org
 
 
 
@@ -43,6 +45,11 @@ vocab_mappings = {
     "Read codes v2": VocabularyType.READV2,  # HDRUK
     "Med codes": VocabularyType.MEDCODE,  # HDRUK
     "BNF codes": VocabularyType.BNF,  # HDRUK
+    "SNOMED CT": VocabularyType.SNOMED,  # Open Codelists
+    "Read V2": VocabularyType.READV2,  # Open Codelists
+    "CTV3 (Read V3)": VocabularyType.READV3,  # Open Codelists
+    "ICD-10": VocabularyType.ICD10,  # Open Codelists
+    "Dictionary of Medicines and Devices": VocabularyType.DMD,  # Open Codelists
 }
 
 

@@ -8,3 +8,5 @@ lxml
 python-dotenv
 streamlit
 openpyxl
+bs4
+gitpython
