@@ -1,0 +1,120 @@
+import datetime
+import os
+
+import pandas as pd
+import streamlit as st
+from dotenv import load_dotenv
+
+from phmlondon.snow_utils import SnowflakeConnection
+
+
+def load_concept_list(file_path):
+    """
+    Load a concept list from a parquet file
+    """
+    try:
+        df = pd.read_parquet(file_path)
+        return df
+    except Exception as e:
+        st.error(f"Unable to load concept list: {e}")
+        raise e
+
+
+def generate_concept_list():
+    """
+    Generate a new concept list from Snowflake (OBSERVATIONS table)
+    """
+    try:
+        snowsesh = SnowflakeConnection()
+
+        snowsesh.use_database("PROD_DWH")
+        snowsesh.use_schema("ANALYST_PRIMARY_CARE")
+
+        query = """
+        SELECT o.CORE_CONCEPT_ID, c.NAME AS CONCEPT_NAME, c.CODE AS CONCEPT_CODE,
+               COUNT(*) AS CONCEPT_COUNT, 'OBSERVATION' AS CONCEPT_TYPE,
+               c.SCHEME_NAME AS VOCABULARY
+        FROM PROD_DWH.ANALYST_PRIMARY_CARE.OBSERVATION o
+        LEFT JOIN PROD_DWH.ANALYST_PRIMARY_CARE.CONCEPT c
+        ON o.CORE_CONCEPT_ID = c.DBID
+        GROUP BY o.CORE_CONCEPT_ID, c.NAME, c.CODE, c.SCHEME_NAME
+        ORDER BY CONCEPT_COUNT DESC
+        """
+
+        # save to parquet
+        df = snowsesh.execute_query_to_df(query)
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        file_name = f"concepts_{timestamp}.parquet"
+        file_path = os.path.join("data/concepts", file_name)
+
+        os.makedirs("data/concepts", exist_ok=True)
+        df.to_parquet(file_path)
+
+        return df, file_path
+    except Exception as e:
+        st.error(f"Unable to generate concept list: {e}")
+        raise e
+
+
+def main():
+    st.set_page_config(page_title="Concept List Creator", layout="wide")
+
+    st.title("Concept List Creator")
+
+    load_dotenv()
+
+    # session state variables
+    if "concepts" not in st.session_state:
+        st.session_state.concepts = None
+
+    # display layout
+    col1, col2 = st.columns([1, 1])
+
+    with col1:
+        # list for dropdown component
+        concept_files = []
+        try:
+            if os.path.exists("data/concepts"):
+                concept_files = [f for f in os.listdir("data/concepts") if f.endswith(".parquet")]
+        except Exception as e:
+            st.error(f"Can't list concept files: {e}")
+
+        # component: concept list dropdown
+        selected_file = st.selectbox(
+            "Concept list", options=concept_files, index=0 if concept_files else None
+        )
+
+        # component: load concept file
+        if selected_file and st.button("Load concept list"):
+            with st.spinner("Loading concept list..."):
+                file_path = os.path.join("data/concepts", selected_file)
+                st.session_state.concepts = load_concept_list(file_path)
+                st.success(f"Loaded concept list: {selected_file}")
+
+    with col2:
+        # component: create new concept list
+        if st.button("Regenerate concept list"):
+            with st.spinner("Generating new concept list from Snowflake..."):
+                try:
+                    df, file_path = generate_concept_list()
+                    st.session_state.concepts = df
+                    st.success(
+                        f"Generated new concept list and saved to {os.path.basename(file_path)}"
+                    )
+                except Exception as e:
+                    st.error(f"Failed to generate concept list: {e}")
+
+    # display the concept list
+    if st.session_state.concepts is not None:
+        st.subheader("Concept List")
+        df_display = st.session_state.concepts.head(100)
+        st.dataframe(df_display, use_container_width=True)
+
+        total_concepts = len(st.session_state.concepts)
+        st.info(f"Showing top 100 of {total_concepts} total concepts")
+    else:
+        st.info("Please load an existing concept list or generate a new one.")
+
+
+if __name__ == "__main__":
+    main()

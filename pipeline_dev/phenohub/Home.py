@@ -1,8 +1,4 @@
-import os
-
 import streamlit as st
-
-from phmlondon.snow_utils import SnowflakeConnection
 
 st.set_page_config(page_title="PhenoHub", layout="wide", initial_sidebar_state="expanded")
 
