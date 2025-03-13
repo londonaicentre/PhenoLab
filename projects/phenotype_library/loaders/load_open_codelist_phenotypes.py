@@ -1,6 +1,9 @@
 from datetime import datetime
 
 import pandas as pd
+import git
+import os
+from pathlib import Path
 from dotenv import load_dotenv
 from scrape_open_codelists import return_version_id_from_open_codelist_url
 
@@ -16,8 +19,22 @@ phenotypes_to_load = {
     "https://www.opencodelists.org/codelist/opensafely/height-snomed/3b4a3891/":
         "data/open_codelist_csvs/opensafely-height-snomed-3b4a3891.csv",
     "https://www.opencodelists.org/codelist/opensafely/weight-snomed/5459abc6/":
-        "data/open_codelist_csvs/opensafely-weight-snomed-5459abc6.csv"
+        "data/open_codelist_csvs/opensafely-weight-snomed-5459abc6.csv",
+    "https://www.opencodelists.org/codelist/opensafely/stroke-snomed/2020-04-21/#full-list":
+        "data/open_codelist_csvs/opensafely-stroke-snomed-2020-04-21.csv",
 }
+
+def get_git_root(path: str) -> str:
+    """
+    Given a path, return the root directory of the Git repository
+
+    Args:
+        path (str): Path to a file within a Git repository
+    Returns:
+        str: Root directory of the Git repository
+    """
+    repo = git.Repo(path, search_parent_directories=True)
+    return str(repo.working_tree_dir)
 
 def open_codelists_url_and_csv_to_phenotype(url: str, csv_path: str) -> pd.DataFrame:
     """
@@ -34,7 +51,8 @@ def open_codelists_url_and_csv_to_phenotype(url: str, csv_path: str) -> pd.DataF
     # print(vocabulary)
     # print(version_id)
 
-    df_from_file = pd.read_csv(csv_path)
+    full_file_path = Path(get_git_root(os.getcwd())) / Path('projects/phenotype_library/') /  Path(csv_path)
+    df_from_file = pd.read_csv(full_file_path)
     # print(df_from_file)
 
     df_to_create_phenotype = df_from_file.iloc[:, [0, 1]].set_axis(["code", "code_description"], axis=1)
