@@ -9,4 +9,5 @@ scipy
 streamlit
 ipykernel
 matplotlib
-
+word2number
+tableone
