@@ -20,8 +20,13 @@ phenotypes_to_load = {
         "data/open_codelist_csvs/opensafely-height-snomed-3b4a3891.csv",
     "https://www.opencodelists.org/codelist/opensafely/weight-snomed/5459abc6/":
         "data/open_codelist_csvs/opensafely-weight-snomed-5459abc6.csv",
+<<<<<<< HEAD
     "https://www.opencodelists.org/codelist/opensafely/stroke-snomed/2020-04-21/#full-list":
         "data/open_codelist_csvs/opensafely-stroke-snomed-2020-04-21.csv",
+=======
+    "https://www.opencodelists.org/codelist/opensafely/medication-reviews-all-types/69f99fda/":
+        "data/open_codelist_csvs/opensafely-medication-reviews-all-types-69f99fda.csv"
+>>>>>>> open-codelist
 }
 
 def get_git_root(path: str) -> str:
@@ -98,4 +103,5 @@ def main():
         snowsesh.session.close()
 
 if __name__ == "__main__":
-    main()
+    print("ERROR: This script should not be run directly.")
+    print("Please run from update.py using the appropriate flag.")

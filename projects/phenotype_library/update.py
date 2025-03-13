@@ -1,6 +1,6 @@
 """
 Script to update phenotypes from a particular source (HDRUK, GP refsets, BNF, NEL) - the source
-is specified as an input
+is specified as an input. Run with the flag of the source you'd like to update e.g. `python update.py --opencodelists`
 """
 
 import argparse
