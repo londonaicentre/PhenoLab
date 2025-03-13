@@ -1,11 +1,12 @@
 """
-Script to run a streamlit app which allows browsin of the stored definitions via dropdown menus
+Script to run a streamlit app which allows browsing of the stored definitions via dropdown menus
 """
 
 import streamlit as st
 from dotenv import load_dotenv
 
 from phmlondon.snow_utils import SnowflakeConnection
+
 
 def main():
     load_dotenv()
@@ -27,19 +28,19 @@ def main():
 
     # DROPDOWN ONE: SOURCE LIBRARY
     source_query = """
-    SELECT DISTINCT DEFINITION_SOURCE
+    SELECT DISTINCT SOURCE_SYSTEM
     FROM DEFINITIONSTORE
-    ORDER BY DEFINITION_SOURCE
+    ORDER BY SOURCE_SYSTEM
     """
     sources = snowsesh.execute_query_to_df(source_query)
-    source_options = ["Select", "All"] + sources["DEFINITION_SOURCE"].tolist()
+    source_options = ["Select", "All"] + sources["SOURCE_SYSTEM"].tolist()
     selected_source = st.selectbox("Select Definition Source:", source_options)
 
     # dynamic query creation based on what sources are selected
     where_clause = "WHERE 1=1 "
     if selected_source != "Select":
         if selected_source != "All":
-            where_clause += f"AND DEFINITION_SOURCE = '{selected_source}'"
+            where_clause += f"AND SOURCE_SYSTEM = '{selected_source}'"
 
     # DROPDOWN TWO: DEFINITION
     definition_query = f"""
