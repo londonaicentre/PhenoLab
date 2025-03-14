@@ -261,7 +261,7 @@ def main():
     # 3. get unique concept types for filtering
     concept_types = ["All"] + list(st.session_state.concepts["CONCEPT_TYPE"].unique())
 
-    # 3. display main row: a. concept searcher & b. selected concepts
+    # 4. display main row: a. concept searcher & b. selected concepts
     col1, col2 = st.columns([1, 1])
 
     with col1:
