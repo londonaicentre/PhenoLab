@@ -118,8 +118,7 @@ def display_definition_panel() -> str:
     with col3:
         if new_definition_name and st.button("Create new definition"):
             st.session_state.current_definition = Definition(
-                definition_name=new_definition_name, definition_type="OBSERVATION"
-                # change when additional types
+                definition_name=new_definition_name
             )
             st.session_state.selected_concepts = []
             st.success(f"Created new definition: {new_definition_name}")
@@ -215,7 +214,7 @@ def display_selected_concepts():
         if st.session_state.current_definition:
             definition = st.session_state.current_definition
             st.write(f"Definition: **{definition.definition_name}**")
-            st.caption(f"Type: {definition.definition_type} | ID: {definition.definition_id}")
+            st.caption(f"ID: {definition.definition_id}")
 
             # component: save button
             if st.button("Save Definition"):

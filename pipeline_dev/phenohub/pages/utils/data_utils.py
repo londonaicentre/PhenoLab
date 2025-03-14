@@ -3,6 +3,7 @@ import hashlib
 import json
 import os
 from dataclasses import dataclass, field
+from enum import Enum
 from typing import Dict, List
 
 """
@@ -24,6 +25,7 @@ class Code:
     """
     Single EHR medical code representing a single concept, from a standard vocabulary
     """
+
     code: str
     code_description: str
     vocabulary: str
@@ -34,11 +36,12 @@ class Codelist:
     """
     Collection of codes from the same vocabulary that define a single broad clinical concept
     """
+
     codelist_name: str
     codes: List[Code] = field(default_factory=list)
     codelist_id: str = field(default=None)
     codelist_version: str = field(default=None)
-    _modified: bool = field(default=True) # flag updates
+    _modified: bool = field(default=True)  # flag updates
 
     def __post_init__(self):
         """
@@ -72,13 +75,14 @@ class Codelist:
         """
         self._modified = True
 
+
 @dataclass
 class Definition:
     """
     Collection of codelists that define the same broad clinical concept
     """
+
     definition_name: str
-    definition_type: str = "OBSERVATION" # only this one for now - enum later
     codelists: Dict[str, Codelist] = field(default_factory=dict)
     definition_source: str = "CUSTOM"
     # created_datetime should be immutable
@@ -86,7 +90,7 @@ class Definition:
     updated_datetime: str = field(default=None)
     definition_id: str = field(default=None)
     definition_version: str = field(default=None)
-    _modified: bool = field(default=True) # flag updates
+    _modified: bool = field(default=True)  # flag updates
 
     def __post_init__(self):
         """
@@ -192,7 +196,6 @@ class Definition:
             "definition_source": self.definition_source,
             "created_datetime": self.created_datetime,
             "updated_datetime": self.updated_datetime,
-            "definition_type": self.definition_type,
             "codelists": [],
         }
 
@@ -249,6 +252,7 @@ class Definition:
 
         return filepath
 
+
 # could be @classmethod?
 def definition_from_dict(data: dict) -> Definition:
     """
@@ -257,13 +261,12 @@ def definition_from_dict(data: dict) -> Definition:
     """
     definition = Definition(
         definition_name=data["definition_name"],
-        definition_type=data.get("definition_type", "OBSERVATION"),
         definition_source=data.get("definition_source", "CUSTOM"),
         created_datetime=data.get("created_datetime"),
         updated_datetime=data.get("updated_datetime"),
         definition_id=data.get("definition_id"),
         definition_version=data.get("definition_version"),
-        _modified=False  # fresh load
+        _modified=False,  # fresh load
     )
 
     # load codelists
@@ -272,7 +275,7 @@ def definition_from_dict(data: dict) -> Definition:
             codelist_name=codelist_data["codelist_name"],
             codelist_id=codelist_data.get("codelist_id"),
             codelist_version=codelist_data.get("codelist_version"),
-            _modified=False  # fresh load
+            _modified=False,  # fresh load
         )
 
         # load codes
@@ -289,6 +292,7 @@ def definition_from_dict(data: dict) -> Definition:
             definition.codelists[codelist.codes[0].vocabulary] = codelist
 
     return definition
+
 
 # could be @classmethod?
 def load_definition_from_json(filepath: str) -> Definition:
