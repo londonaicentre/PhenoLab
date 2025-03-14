@@ -154,11 +154,35 @@ def display_concept_search_panel(concept_types: List[str]) -> Tuple[pd.DataFrame
     # SCROLLING CONTAINER
     with st.container(height=450):
         if not filtered_concepts.empty:
+            st.write(f"Found {len(filtered_concepts)} concepts")
             for idx, row in filtered_concepts.head(1000).iterrows():
                 col1a, col1b = st.columns([4, 1])
                 with col1a:
                     st.text(f"{row['CONCEPT_NAME']} ({row['VOCABULARY']})")
-                    st.caption(f"Code: {row['CONCEPT_CODE']} | Count: {row['CONCEPT_COUNT']}")
+
+                    # display summary stats
+                    basic_info = []
+                    if 'CONCEPT_CODE' in row and pd.notna(row['CONCEPT_CODE']):
+                        basic_info.append(f"Code: {row['CONCEPT_CODE']}")
+
+                    if 'CONCEPT_COUNT' in row and pd.notna(row['CONCEPT_COUNT']):
+                        basic_info.append(f"Count: {row['CONCEPT_COUNT']}")
+
+                    if 'MEDIAN_AGE' in row and pd.notna(row['MEDIAN_AGE']):
+                        basic_info.append(f"MedianAge: {row['MEDIAN_AGE']:.1f}")
+
+                    if 'MEDIAN_VALUE' in row and pd.notna(row['MEDIAN_VALUE']):
+                        # change label per concept type
+                        if row['CONCEPT_TYPE'] in ['SUS_APC', 'SUS_APC_PROC']:
+                            basic_info.append(f"MedianLOS: {row['MEDIAN_VALUE']:.1f}")
+                        else:
+                            basic_info.append(f"MedianValue: {row['MEDIAN_VALUE']:.1f}")
+
+                    if 'PERCENT_HAS_RESULT_VALUE' in row and pd.notna(row['PERCENT_HAS_RESULT_VALUE']):
+                        basic_info.append(f"Has Result: {row['PERCENT_HAS_RESULT_VALUE']:.1f}%")
+
+                    if basic_info:
+                        st.caption(" | ".join(basic_info))
 
                 with col1b:
                     is_selected = any(
@@ -173,6 +197,8 @@ def display_concept_search_panel(concept_types: List[str]) -> Tuple[pd.DataFrame
                             if st.session_state.current_definition:
                                 st.session_state.current_definition.add_code(code)
                             st.rerun()
+        else:
+            st.info("No concepts found matching the search criteria")
 
     return filtered_concepts, search_term, concept_type
 
