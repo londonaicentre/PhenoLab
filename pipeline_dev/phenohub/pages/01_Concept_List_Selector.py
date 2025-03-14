@@ -83,7 +83,20 @@ def generate_concept_list():
                             'CONCEPT_NAME',
                             'CONCEPT_COUNT',
                             'VOCABULARY',
-                            'CONCEPT_TYPE']
+                            'CONCEPT_TYPE',
+                            'LQ_VALUE',
+                            'MEDIAN_VALUE',
+                            'UQ_VALUE',
+                            'PERCENT_HAS_RESULT_VALUE',
+                            'RESULT_UNITS_ARRAY',
+                            'LQ_AGE',
+                            'MEDIAN_AGE',
+                            'UQ_AGE',
+                            'PCT_2015_2016',
+                            'PCT_2017_2018',
+                            'PCT_2019_2020',
+                            'PCT_2021_2022',
+                            'PCT_2023_2024']
         for col in required_columns:
             if col not in combined_df.columns:
                 status_placeholder.error(f"Missing required column: {col}")

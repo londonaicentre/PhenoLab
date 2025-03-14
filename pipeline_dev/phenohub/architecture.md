@@ -1,5 +1,9 @@
 # PhenoHub design outline
 
+## TO DO
+- Add canonical SNOMED / ICD10 / OPCS-4 vocabularies (Probably from Athena!)
+- Add search logic to concept filtering
+
 ## Page 1 - Concept List Creator
 
 "Concept list" drop down & "Load concept list" button:
