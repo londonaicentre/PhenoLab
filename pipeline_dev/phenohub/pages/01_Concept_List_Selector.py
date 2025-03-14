@@ -19,42 +19,81 @@ def load_concept_list(file_path):
         st.error(f"Unable to load concept list: {e}")
         raise e
 
-
 def generate_concept_list():
     """
-    Generate a new concept list from Snowflake (OBSERVATIONS table)
+    Generate a new concept list from multiple data sources:
+    - Primary care observations
+    - Secondary care diagnoses (ICD10)
     """
     try:
-        snowsesh = SnowflakeConnection()
+        # updating status (previously boxes were stacking)
+        status_placeholder = st.empty()
 
+        snowsesh = SnowflakeConnection()
         snowsesh.use_database("PROD_DWH")
+
+        concept_dfs = []
+
+        # 1. primary care observations
+        status_placeholder.info("Extracting primary care observation concepts...")
         snowsesh.use_schema("ANALYST_PRIMARY_CARE")
 
-        query = """
-        SELECT o.CORE_CONCEPT_ID, c.NAME AS CONCEPT_NAME, c.CODE AS CONCEPT_CODE,
-               COUNT(*) AS CONCEPT_COUNT, 'OBSERVATION' AS CONCEPT_TYPE,
-               c.SCHEME_NAME AS VOCABULARY
-        FROM PROD_DWH.ANALYST_PRIMARY_CARE.OBSERVATION o
-        LEFT JOIN PROD_DWH.ANALYST_PRIMARY_CARE.CONCEPT c
-        ON o.CORE_CONCEPT_ID = c.DBID
-        GROUP BY o.CORE_CONCEPT_ID, c.NAME, c.CODE, c.SCHEME_NAME
-        ORDER BY CONCEPT_COUNT DESC
-        """
+        with open("sql/observation_concepts.sql", "r") as file:
+            observation_query = file.read()
 
-        # save to parquet
-        df = snowsesh.execute_query_to_df(query)
+        observation_df = snowsesh.execute_query_to_df(observation_query)
+        concept_dfs.append(observation_df)
+        status_placeholder.success(f"Extracted {len(observation_df)} primary care observation concepts")
+
+        # 2. ICD10 from SUS
+        status_placeholder.info("Extracting secondary care ICD10 diagnosis concepts...")
+        snowsesh.use_schema("ANALYST_FACTS_UNIFIED_SUS")
+
+        with open("sql/icd10_concepts.sql", "r") as file:
+            icd10_query = file.read()
+
+        icd10_df = snowsesh.execute_query_to_df(icd10_query)
+        concept_dfs.append(icd10_df)
+        status_placeholder.success(f"Extracted {len(icd10_df)} ICD10 diagnosis concepts")
+
+        # 3. OPCS-4 procedures from SUS
+        status_placeholder.info("Extracting secondary care OPCS-4 procedure concepts...")
+        with open("sql/opcs4_concepts.sql", "r") as file:
+            opcs4_query = file.read()
+
+        opcs4_df = snowsesh.execute_query_to_df(opcs4_query)
+        concept_dfs.append(opcs4_df)
+        status_placeholder.success(f"Extracted {len(opcs4_df)} OPCS-4 procedure concepts")
+
+        # 4. union
+        status_placeholder.info("Combining concepts from all sources...")
+        combined_df = pd.concat(concept_dfs, ignore_index=True)
+
+        # 5. validate
+        required_columns = ['CONCEPT_CODE',
+                            'CONCEPT_NAME',
+                            'CONCEPT_COUNT',
+                            'VOCABULARY',
+                            'CONCEPT_TYPE']
+        for col in required_columns:
+            if col not in combined_df.columns:
+                status_placeholder.error(f"Missing required column: {col}")
+                raise ValueError(f"Missing required column: {col}")
+
+        # 5. save
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         file_name = f"concepts_{timestamp}.parquet"
         file_path = os.path.join("data/concepts", file_name)
 
         os.makedirs("data/concepts", exist_ok=True)
-        df.to_parquet(file_path)
+        combined_df.to_parquet(file_path)
 
-        return df, file_path
+        status_placeholder.success(f"Generated combined concept list with {len(combined_df)} total concepts")
+        return combined_df, file_path
+
     except Exception as e:
         st.error(f"Unable to generate concept list: {e}")
         raise e
-
 
 def main():
     st.set_page_config(page_title="Concept List Creator", layout="wide")
