@@ -130,53 +130,49 @@ def display_definition_panel() -> str:
 
 
 def display_concept_search_panel(concept_types: List[str]) -> Tuple[pd.DataFrame, str, str]:
-    """
-    Display the concept search panel (left panel)
-    Returns:
-        Tuple:
-            Dataframe: filtered concepts dataframe
-            str: search term
-            str: concept type
-    """
     st.subheader("Find Concepts")
-    search_col1, search_col2 = st.columns([3, 1])
 
-    # component: search inputs
-    with search_col1:
-        search_term = st.text_input("Filter concepts")
+    # FIXED CONTAINER
+    with st.container(height=150):
+        search_col1, search_col2 = st.columns([3, 1])
 
-    with search_col2:
-        concept_type = st.selectbox("Concept type", options=concept_types)
+        # components: search inputs
+        with search_col1:
+            search_term = st.text_input("Filter concepts")
 
-    # filtered concepts based on search inputs
-    filtered_concepts = filter_concepts(st.session_state.concepts, search_term, concept_type)
+        with search_col2:
+            concept_type = st.selectbox("Concept type", options=concept_types)
 
-    # display filtered concepts + selections
-    if not filtered_concepts.empty:
-        st.write(f"Found {len(filtered_concepts)} concepts")
-        for idx, row in filtered_concepts.head(100).iterrows():
-            col1a, col1b = st.columns([4, 1])
-            with col1a:
-                st.text(f"{row['CONCEPT_NAME']} ({row['VOCABULARY']})")
-                st.caption(f"Code: {row['CONCEPT_CODE']} | Count: {row['CONCEPT_COUNT']}")
+        # Filter the concepts
+        filtered_concepts = filter_concepts(st.session_state.concepts, search_term, concept_type)
+        if not filtered_concepts.empty:
+            st.write(f"Found {len(filtered_concepts)} concepts")
+        else:
+            st.info("No concepts found matching the search criteria")
+            return filtered_concepts, search_term, concept_type
 
-            with col1b:
-                # check if already selected and display 'Add' if NOT
-                is_selected = any(
-                    c.code == row["CONCEPT_CODE"] and c.vocabulary == row["VOCABULARY"]
-                    for c in st.session_state.selected_concepts
-                )
+    # SCROLLING CONTAINER
+    with st.container(height=450):
+        if not filtered_concepts.empty:
+            for idx, row in filtered_concepts.head(1000).iterrows():
+                col1a, col1b = st.columns([4, 1])
+                with col1a:
+                    st.text(f"{row['CONCEPT_NAME']} ({row['VOCABULARY']})")
+                    st.caption(f"Code: {row['CONCEPT_CODE']} | Count: {row['CONCEPT_COUNT']}")
 
-                if not is_selected:
-                    # component: add button
-                    if st.button("Add", key=f"add_{idx}"):
-                        code = create_code_from_row(row)
-                        st.session_state.selected_concepts.append(code)
-                        if st.session_state.current_definition:
-                            st.session_state.current_definition.add_code(code)
-                        st.rerun()
-    else:
-        st.info("No concepts found matching the search criteria")
+                with col1b:
+                    is_selected = any(
+                        c.code == row["CONCEPT_CODE"] and c.vocabulary == row["VOCABULARY"]
+                        for c in st.session_state.selected_concepts
+                    )
+
+                    if not is_selected:
+                        if st.button("Add", key=f"add_{idx}"):
+                            code = create_code_from_row(row)
+                            st.session_state.selected_concepts.append(code)
+                            if st.session_state.current_definition:
+                                st.session_state.current_definition.add_code(code)
+                            st.rerun()
 
     return filtered_concepts, search_term, concept_type
 
@@ -187,52 +183,52 @@ def display_selected_concepts():
     """
     st.subheader("Selected Concepts")
 
-    # current definition information
-    if st.session_state.current_definition:
-        definition = st.session_state.current_definition
-        st.write(f"Definition: **{definition.definition_name}**")
-        st.caption(f"Type: {definition.definition_type} | ID: {definition.definition_id}")
-
-        # component: save button
-        if st.button("Save Definition"):
-            try:
-                filepath = definition.save_to_json()
-                st.success(f"Definition saved to: {filepath}")
-            except Exception as e:
-                st.error(f"Error saving definition: {e}")
-
-        st.markdown("---")
-
-    # display concepts
-    if st.session_state.selected_concepts:
-        # grouping by vocab (i.e. codelist)
-        concepts_by_vocab = {}
-        for code in st.session_state.selected_concepts:
-            if code.vocabulary not in concepts_by_vocab:
-                concepts_by_vocab[code.vocabulary] = []
-            concepts_by_vocab[code.vocabulary].append(code)
-
-        for vocabulary, codes in concepts_by_vocab.items():
-            st.write(f"**{vocabulary}** ({len(codes)} codes)")
-            for idx, code in enumerate(codes):
-                col2a, col2b = st.columns([4, 1])
-                with col2a:
-                    st.text(f"{code.code_description}")
-                    st.caption(f"Code: {code.code}")
-
-                with col2b:
-                    if st.button("Remove", key=f"remove_{vocabulary}_{idx}"):
-                        st.session_state.selected_concepts.remove(code)
-                        if st.session_state.current_definition:
-                            st.session_state.current_definition.remove_code(code)
-                        st.rerun()
-
-            st.markdown("---")
-    else:
+    # FIXED CONTAINER
+    with st.container(height=150):
+        # current definition information
         if st.session_state.current_definition:
-            st.info("No concepts selected. Find and add concepts wit the search panel.")
+            definition = st.session_state.current_definition
+            st.write(f"Definition: **{definition.definition_name}**")
+            st.caption(f"Type: {definition.definition_type} | ID: {definition.definition_id}")
+
+            # component: save button
+            if st.button("Save Definition"):
+                try:
+                    filepath = definition.save_to_json()
+                    st.success(f"Definition saved to: {filepath}")
+                except Exception as e:
+                    st.error(f"Error saving definition: {e}")
         else:
             st.info("Create or load a definition first.")
+
+    # SCROLLING CONTAINER
+    with st.container(height=450):
+        if st.session_state.selected_concepts:
+            # grouping by vocab (i.e. codelist)
+            concepts_by_vocab = {}
+            for code in st.session_state.selected_concepts:
+                if code.vocabulary not in concepts_by_vocab:
+                    concepts_by_vocab[code.vocabulary] = []
+                concepts_by_vocab[code.vocabulary].append(code)
+
+            for vocabulary, codes in concepts_by_vocab.items():
+                st.write(f"**{vocabulary}** ({len(codes)} codes)")
+                for idx, code in enumerate(codes):
+                    col2a, col2b = st.columns([4, 1])
+                    with col2a:
+                        st.text(f"{code.code_description}")
+                        st.caption(f"Code: {code.code}")
+
+                    with col2b:
+                        if st.button("Remove", key=f"remove_{vocabulary}_{idx}"):
+                            st.session_state.selected_concepts.remove(code)
+                            if st.session_state.current_definition:
+                                st.session_state.current_definition.remove_code(code)
+                            st.rerun()
+
+                st.markdown("---")
+        elif st.session_state.current_definition:
+            st.info("No concepts selected. Find and add concepts with the search panel.")
 
 
 def main():
