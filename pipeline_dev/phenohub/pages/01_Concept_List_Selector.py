@@ -65,11 +65,20 @@ def generate_concept_list():
         concept_dfs.append(opcs4_df)
         status_placeholder.success(f"Extracted {len(opcs4_df)} OPCS-4 procedure concepts")
 
-        # 4. union
+        # 4. SNOMED from ECDS
+        status_placeholder.info("Extracting emergency care SNOMED concepts...")
+        with open("sql/ecds_snomed_concepts.sql", "r") as file:
+            ecds_query = file.read()
+
+        ecds_df = snowsesh.execute_query_to_df(ecds_query)
+        concept_dfs.append(ecds_df)
+        status_placeholder.success(f"Extracted {len(ecds_df)} SNOMED emergency care concepts")
+
+        # 5. Union
         status_placeholder.info("Combining concepts from all sources...")
         combined_df = pd.concat(concept_dfs, ignore_index=True)
 
-        # 5. validate
+        # 6. Validate
         required_columns = ['CONCEPT_CODE',
                             'CONCEPT_NAME',
                             'CONCEPT_COUNT',
