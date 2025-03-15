@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 from phmlondon.snow_utils import SnowflakeConnection
 
 
+@st.cache_data(ttl=3600)  # cache for 1hr
 def load_concept_list(file_path):
     """
     Load a concept list from a parquet file
