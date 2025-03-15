@@ -34,7 +34,7 @@ def generate_concept_list():
 
         concept_dfs = []
 
-        # 1. primary care observations
+        # 1. Primary care observations
         status_placeholder.info("Extracting primary care observation concepts...")
         snowsesh.use_schema("ANALYST_PRIMARY_CARE")
 
@@ -74,11 +74,44 @@ def generate_concept_list():
         concept_dfs.append(ecds_df)
         status_placeholder.success(f"Extracted {len(ecds_df)} SNOMED emergency care concepts")
 
-        # 5. Union
+        # 5. Add Athena reference ICD10/OPCS4 concepts
+        status_placeholder.info("Loading reference ICD10/OPCS4 concepts...")
+        try:
+            athena_concepts_path = "data/athena/2025_ICD10_OPCS4.parquet"
+            athena_df = pd.read_parquet(athena_concepts_path)
+            athena_df = athena_df[athena_df['valid_end_date'] == 20991231]
+
+            reference_df = pd.DataFrame({
+                'CONCEPT_CODE': athena_df['concept_code'],
+                'CONCEPT_NAME': athena_df['concept_name'],
+                'CONCEPT_COUNT': 1,  # reference concepts
+                'VOCABULARY': athena_df['vocabulary_id'],
+                'CONCEPT_TYPE': 'REFERENCE_ICD10_OPCS4',
+                # reference concepts
+                'LQ_VALUE': None,
+                'MEDIAN_VALUE': None,
+                'UQ_VALUE': None,
+                'PERCENT_HAS_RESULT_VALUE': None,
+                'RESULT_UNITS_ARRAY': None,
+                'LQ_AGE': None,
+                'MEDIAN_AGE': None,
+                'UQ_AGE': None,
+                'PCT_2015_2016': None,
+                'PCT_2017_2018': None,
+                'PCT_2019_2020': None,
+                'PCT_2021_2022': None,
+                'PCT_2023_2024': None
+            })
+            concept_dfs.append(reference_df)
+            status_placeholder.success(f"Loaded {len(reference_df)} reference ICD10/OPCS4 concepts")
+        except Exception as e:
+            status_placeholder.warning(f"Could not load reference ICD10/OPCS4 concepts: {e}")
+
+        # 6. Union
         status_placeholder.info("Combining concepts from all sources...")
         combined_df = pd.concat(concept_dfs, ignore_index=True)
 
-        # 6. Validate
+        # 7. Validate
         required_columns = ['CONCEPT_CODE',
                             'CONCEPT_NAME',
                             'CONCEPT_COUNT',
@@ -102,7 +135,7 @@ def generate_concept_list():
                 status_placeholder.error(f"Missing required column: {col}")
                 raise ValueError(f"Missing required column: {col}")
 
-        # 5. save
+        # 5. Save
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         file_name = f"concepts_{timestamp}.parquet"
         file_path = os.path.join("data/concepts", file_name)

@@ -2,6 +2,7 @@
 
 ## TO DO
 - Add canonical SNOMED / ICD10 / OPCS-4 vocabularies (Probably from Athena!)
+- Add detailed concept explorer
 - Add search logic to concept filtering
 
 ## Page 1 - Concept List Creator

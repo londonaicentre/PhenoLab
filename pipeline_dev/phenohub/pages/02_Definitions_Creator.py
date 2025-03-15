@@ -37,6 +37,115 @@ def load_definition(file_path: str) -> Optional[Definition]:
         return None
 
 
+def parse_search_query(query):
+    """
+    **NEEDS REFINEMENT**
+    This parses a search query to identify logical operators and extract terms.
+    Supports patterns:
+    - (term1) AND (term2)
+    - (term1) OR (term2)
+    - (term1) NOT (term2)
+    - (term) - single term in parentheses
+    - term - single term without parentheses
+
+    Returns:
+        dict: Contains 'operator' (AND/OR/NOT/None) and 'terms' (list of extracted terms)
+    """
+    result = {
+        'operator': None,
+        'terms': []
+    }
+
+    query = query.strip()
+
+    if not query:
+        return result
+
+    # check for logical operators
+    if " AND " in query:
+        result['operator'] = "AND"
+        parts = query.split(" AND ")
+    elif " OR " in query:
+        result['operator'] = "OR"
+        parts = query.split(" OR ")
+    elif " NOT " in query:
+        result['operator'] = "NOT"
+        parts = query.split(" NOT ")
+    else:
+        # no operator, treat as single term
+        result['terms'] = [query]
+        return result
+
+    # extract terms
+    for part in parts:
+        part = part.strip()
+        # remove brackets
+        if part.startswith('(') and part.endswith(')'):
+            part = part[1:-1].strip()
+        result['terms'].append(part)
+
+    return result
+
+
+def apply_search_filters(df, parsed_query, search_columns=['CONCEPT_NAME', 'CONCEPT_CODE']):
+    """
+    Apply filters to the DataFrame based on parsed search query.
+
+    Args:
+        df (pd.DataFrame):
+            DataFrame to filter
+        parsed_query (dict):
+            Result from parse_search_query containing 'operator' and 'terms'
+        search_columns (list):
+            Columns to search in (will be CONCEPT_NAME and CONCEPT_CODE)
+
+    Returns:
+        pd.DataFrame:
+            Filtered DataFrame!
+    """
+    if not parsed_query['terms']:
+        return df
+
+    operator = parsed_query['operator']
+    terms = parsed_query['terms']
+
+    # workhorse function for applying filter
+    def _term_filter(df, term):
+        mask = pd.Series(False, index=df.index)
+        for col in search_columns:
+            mask = mask | df[col].str.contains(term, case=False, na=False)
+        return mask
+
+    # single term search only
+    if operator is None:
+        return df[_term_filter(df, terms[0])]
+
+    # AND
+    elif operator == "AND":
+        mask = _term_filter(df, terms[0])
+        for term in terms[1:]:
+            mask = mask & _term_filter(df, term)
+        return df[mask]
+
+    # OR
+    elif operator == "OR":
+        mask = _term_filter(df, terms[0])
+        for term in terms[1:]:
+            mask = mask | _term_filter(df, term)
+        return df[mask]
+
+    # FIRST term, EXCLUDE if second term
+    elif operator == "NOT":
+        if len(terms) >= 2:
+            mask = _term_filter(df, terms[0]) & ~_term_filter(df, terms[1])
+            return df[mask]
+        else:
+            # handle edge case where only one term provided with NOT then treat as single term
+            return df[_term_filter(df, terms[0])]
+
+    # otherwise return original
+    return df
+
 def filter_concepts(df: pd.DataFrame, search_term: str, concept_type: str) -> pd.DataFrame:
     """
     Filter concepts dataframe based on search term and concept type
@@ -45,26 +154,22 @@ def filter_concepts(df: pd.DataFrame, search_term: str, concept_type: str) -> pd
         df(pd.DataFrame):
             concept dataframe held in state from the concept list selector
         search_term(str):
-            Term in search term box
+            Term in search term box (supports logical operators AND, OR, NOT)
         concept_type(str):
             Type selected from drop down (e.g. OBSERVATION)
     """
     filtered_df = df.copy()
 
-    # apply filter
+    # apply type filter first
     if concept_type and concept_type != "All":
         filtered_df = filtered_df[filtered_df["CONCEPT_TYPE"] == concept_type]
 
-    # apply search term
+    # apply search term logic
     if search_term:
-        # make case insensitive
-        filtered_df = filtered_df[
-            filtered_df["CONCEPT_NAME"].str.contains(search_term, case=False)
-            | filtered_df["CONCEPT_CODE"].str.contains(search_term, case=False)
-        ]
+        parsed_query = parse_search_query(search_term)
+        filtered_df = apply_search_filters(filtered_df, parsed_query)
 
     return filtered_df.sort_values("CONCEPT_COUNT", ascending=False)
-
 
 def create_code_from_row(row: pd.Series) -> Code:
     """
@@ -137,7 +242,11 @@ def display_concept_search_panel(concept_types: List[str]) -> Tuple[pd.DataFrame
 
         # components: search inputs
         with search_col1:
-            search_term = st.text_input("Filter concepts")
+            search_term = st.text_input(
+                "Filter concepts",
+                placeholder="Simple search or use (term1) AND/OR/NOT (term2)",
+                help="Examples: 'diabetes', '(heart) AND (failure)', '(cardiac) NOT (surgery)'"
+            )
 
         with search_col2:
             concept_type = st.selectbox("Concept type", options=concept_types)
