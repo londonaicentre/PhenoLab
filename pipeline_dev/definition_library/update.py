@@ -35,6 +35,9 @@ LOADER_CONFIG = {
     'bsabnfsnomed': {
         'func': load_bsa_bnf_snomed,
         'table': 'BSA_BNF_SNOMED_MAPPINGS'
+    },
+    'aicentre': {
+        'table': 'AIC_DEFINITIONS'
     }
 }
 
