@@ -1,0 +1,42 @@
+{
+  "definition_id": "9e09e18f",
+  "definition_name": "systolic_blood_pressure_gp",
+  "definition_version": "systolic_blood_pressure_gp_20250315_140646",
+  "definition_source": "CUSTOM",
+  "created_datetime": "2025-03-15T14:00:27.430968",
+  "updated_datetime": "2025-03-15T14:06:46.972260",
+  "codelists": [
+    {
+      "codelist_id": "e5ce7892",
+      "codelist_name": "systolic_blood_pressure_gp_SNOMED",
+      "codelist_version": "systolic_blood_pressure_gp_SNOMED_20250315_140646",
+      "codes": [
+        {
+          "code": "163030003",
+          "code_description": "On examination - Systolic blood pressure reading (finding)",
+          "vocabulary": "SNOMED"
+        },
+        {
+          "code": "72313002",
+          "code_description": "Systolic arterial pressure (observable entity)",
+          "vocabulary": "SNOMED"
+        },
+        {
+          "code": "407554009",
+          "code_description": "Sitting systolic blood pressure (observable entity)",
+          "vocabulary": "SNOMED"
+        },
+        {
+          "code": "407556006",
+          "code_description": "Lying systolic blood pressure (observable entity)",
+          "vocabulary": "SNOMED"
+        },
+        {
+          "code": "271649006",
+          "code_description": "Systolic blood pressure (observable entity)",
+          "vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

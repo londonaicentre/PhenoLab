@@ -146,6 +146,7 @@ def apply_search_filters(df, parsed_query, search_columns=['CONCEPT_NAME', 'CONC
     # otherwise return original
     return df
 
+@st.cache_data(ttl=1800, max_entries=10) #cache for 30mins
 def filter_concepts(df: pd.DataFrame, search_term: str, concept_type: str) -> pd.DataFrame:
     """
     Filter concepts dataframe based on search term and concept type
@@ -263,7 +264,7 @@ def display_concept_search_panel(concept_types: List[str]) -> Tuple[pd.DataFrame
     with st.container(height=450):
         if not filtered_concepts.empty:
             st.write(f"Found {len(filtered_concepts)} concepts")
-            for idx, row in filtered_concepts.head(1000).iterrows():
+            for idx, row in filtered_concepts.head(500).iterrows():
                 col1a, col1b = st.columns([4, 1])
                 with col1a:
                     st.text(f"{row['CONCEPT_NAME']} ({row['VOCABULARY']})")
