@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 
 from loaders.base.definition import Code, Codelist, Definition, DefinitionSource, VocabularyType
 from loaders.base.load_tables import load_definitions_to_snowflake  # noqa: F811
-from phmlondon.snow_utils import SnowflakeConnection
+from phenolab.snow_utils import SnowflakeConnection
 
 
 def transform_to_definition(df: pd.DataFrame) -> pd.DataFrame:
@@ -69,7 +69,7 @@ def main():
     snowsesh.use_schema("AI_CENTRE_DEFINITION_LIBRARY")
 
     zip_name = "20241101_bsa_bnf.zip"
-    with zipfile.ZipFile(f"loaders/data/{zip_name}", 'r') as zip_ref:
+    with zipfile.ZipFile(f"loaders/data/bsa_bnf/{zip_name}", 'r') as zip_ref:
         csv_name = zip_ref.namelist()[0]
         with zip_ref.open(csv_name) as csv_file:
             df = pd.read_csv(BytesIO(csv_file.read()))

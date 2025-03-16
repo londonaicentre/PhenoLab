@@ -1,0 +1,29 @@
+{
+  "phenotype_id": "701e6a44",
+  "phenotype_name": "htn_on_bp",
+  "phenotype_version": "htn_on_bp_20250316_111709",
+  "description": "Inferred HTN based on serial BP checks",
+  "created_datetime": "2025-03-16T11:16:19.463598",
+  "updated_datetime": "2025-03-16T11:17:09.368282",
+  "condition_blocks": {
+    "A": {
+      "label": "A",
+      "definition_id": "2c23d6f5",
+      "definition_name": "diastolic_blood_pressure_gp",
+      "condition_type": "MEASURE",
+      "comparison_operator": ">",
+      "threshold_value": 90.0,
+      "threshold_unit": "mmHg"
+    },
+    "B": {
+      "label": "B",
+      "definition_id": "9e09e18f",
+      "definition_name": "systolic_blood_pressure_gp",
+      "condition_type": "MEASURE",
+      "comparison_operator": ">",
+      "threshold_value": 140.0,
+      "threshold_unit": "mmHg"
+    }
+  },
+  "expression": "A OR B"
+}

@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 
 from loaders.base.definition import Code, Codelist, Definition, DefinitionSource, VocabularyType
 from loaders.base.load_tables import load_definitions_to_snowflake
-from phmlondon.snow_utils import SnowflakeConnection
+from phenolab.snow_utils import SnowflakeConnection
 
 
 def process_snomed_mappings(xlsx_files):
@@ -29,7 +29,7 @@ def build_definitions(zip_name, mapping_files):
     Build definitions from BNF chemical substances and SNOMED mappings
     """
     # BSA BNF hierarchy
-    with zipfile.ZipFile(f"loaders/data/{zip_name}", "r") as zip_ref:
+    with zipfile.ZipFile(f"loaders/data/bsa_bnf/{zip_name}", "r") as zip_ref:
         csv_name = zip_ref.namelist()[0]
         with zip_ref.open(csv_name) as csv_file:
             bnf_df = pd.read_csv(BytesIO(csv_file.read()))
@@ -100,7 +100,7 @@ def main():
     snowsesh.use_database("INTELLIGENCE_DEV")
     snowsesh.use_schema("AI_CENTRE_DEFINITION_LIBRARY")
 
-    mapping_files = Path("loaders/data").glob("*.xlsx")
+    mapping_files = Path("loaders/data/bnf_to_snomed/").glob("*.xlsx")
     definition_df = build_definitions("20241101_bsa_bnf.zip", mapping_files)
     definition_df.columns = definition_df.columns.str.upper()
 

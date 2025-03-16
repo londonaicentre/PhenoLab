@@ -15,8 +15,8 @@ from loaders.base.definition import (
     VocabularyType,
 )
 from loaders.base.load_tables import load_definitions_to_snowflake
-from phmlondon.onto_utils import FHIRTerminologyClient
-from phmlondon.snow_utils import SnowflakeConnection
+from phenolab.onto_utils import FHIRTerminologyClient
+from phenolab.snow_utils import SnowflakeConnection
 
 ################################################################################################
 # SNOMED Monoliths for retrieval
