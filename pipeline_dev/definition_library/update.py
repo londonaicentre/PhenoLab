@@ -13,7 +13,7 @@ from loaders.load_hdruk import main as load_hdruk
 from loaders.load_nel_segments import main as load_nel
 from loaders.load_nhs_gp_snomed import main as load_snomed
 
-from phmlondon.snow_utils import SnowflakeConnection
+from phenolab.snow_utils import SnowflakeConnection
 
 LOADER_CONFIG = {
     'hdruk': {
@@ -54,7 +54,7 @@ def create_definitionstore_view(snowsesh):
     WITH definition_union AS (
         {
         " UNION ALL ".join(
-            f"SELECT *, '{name}' as SOURCE_SYSTEM FROM {config['table']} WHERE CODE IS NOT NULL"
+            f"SELECT *, '{name}' as SOURCE_LOADER FROM {config['table']} WHERE CODE IS NOT NULL"
             for name, config in LOADER_CONFIG.items()
         )
     }

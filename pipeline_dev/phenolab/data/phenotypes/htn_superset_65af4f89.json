@@ -1,0 +1,29 @@
+{
+  "phenotype_id": "65af4f89",
+  "phenotype_name": "htn_superset",
+  "phenotype_version": "htn_superset_20250316_192819",
+  "description": "Combination of different Hypertension definitions",
+  "created_datetime": "2025-03-16T19:26:00.788722",
+  "updated_datetime": "2025-03-16T19:28:19.435498",
+  "condition_blocks": {
+    "A": {
+      "label": "A",
+      "definition_id": "HYPERTENSION",
+      "definition_name": "HYPERTENSION",
+      "condition_type": "HAS"
+    },
+    "B": {
+      "label": "B",
+      "definition_id": "999006611000230105",
+      "definition_name": "Systemic hypertension diagnoses simple reference set",
+      "condition_type": "HAS"
+    },
+    "C": {
+      "label": "C",
+      "definition_id": "PH189",
+      "definition_name": "Hypertension",
+      "condition_type": "HAS"
+    }
+  },
+  "expression": "A OR B OR C"
+}
