@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 
 from loaders.base.definition import Code, Codelist, Definition, DefinitionSource, VocabularyType
 from loaders.base.load_tables import load_definitions_to_snowflake
-from phenolab.snow_utils import SnowflakeConnection
+from phmlondon.snow_utils import SnowflakeConnection
 
 
 def process_snomed_mappings(xlsx_files):

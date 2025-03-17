@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 
 from loaders.base.definition import Code, Codelist, Definition, DefinitionSource, VocabularyType
 from loaders.base.load_tables import load_definitions_to_snowflake  # noqa: F811
-from phenolab.snow_utils import SnowflakeConnection
+from phmlondon.snow_utils import SnowflakeConnection
 
 
 def transform_to_definition(df: pd.DataFrame) -> pd.DataFrame:
