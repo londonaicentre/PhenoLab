@@ -5,7 +5,7 @@ Script to run a streamlit app which allows browsing of the stored definitions vi
 import streamlit as st
 from dotenv import load_dotenv
 
-from phenolab.snow_utils import SnowflakeConnection
+from phmlondon.snow_utils import SnowflakeConnection
 
 
 def main():

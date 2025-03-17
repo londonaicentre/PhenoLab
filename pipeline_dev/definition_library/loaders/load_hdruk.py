@@ -9,8 +9,8 @@ from dotenv import load_dotenv
 
 from loaders.base.definition import Definition
 from loaders.base.load_tables import load_definitions_to_snowflake
-from phenolab.hdruk_api import HDRUKLibraryClient
-from phenolab.snow_utils import SnowflakeConnection
+from phmlondon.hdruk_api import HDRUKLibraryClient
+from phmlondon.snow_utils import SnowflakeConnection
 
 """
 Note that HDRUK refers to groupings of codelists as phenotypes

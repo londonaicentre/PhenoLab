@@ -13,7 +13,7 @@ from loaders.load_hdruk import main as load_hdruk
 from loaders.load_nel_segments import main as load_nel
 from loaders.load_nhs_gp_snomed import main as load_snomed
 
-from phenolab.snow_utils import SnowflakeConnection
+from phmlondon.snow_utils import SnowflakeConnection
 
 LOADER_CONFIG = {
     'hdruk': {

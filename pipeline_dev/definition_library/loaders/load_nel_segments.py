@@ -15,7 +15,7 @@ from loaders.base.definition import (
     VocabularyType,
 )
 from loaders.base.load_tables import load_definitions_to_snowflake
-from phenolab.snow_utils import SnowflakeConnection
+from phmlondon.snow_utils import SnowflakeConnection
 
 
 def fetch_segmentation_codes(snowsesh) -> pd.DataFrame:
