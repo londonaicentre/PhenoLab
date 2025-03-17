@@ -63,6 +63,7 @@ class ConditionBlock:
     label: str  # e.g., "A", "B", "C"
     definition_id: str
     definition_name: str
+    definition_source: str  # Added definition source
     condition_type: ConditionType
     comparison_operator: Optional[ComparisonOperator] = None
     threshold_value: Optional[float] = None
@@ -76,6 +77,7 @@ class ConditionBlock:
             "label": self.label,
             "definition_id": self.definition_id,
             "definition_name": self.definition_name,
+            "definition_source": self.definition_source,  # Added to dictionary output
             "condition_type": self.condition_type,
         }
 
@@ -95,6 +97,7 @@ class ConditionBlock:
             label=data["label"],
             definition_id=data["definition_id"],
             definition_name=data["definition_name"],
+            definition_source=data.get("definition_source", "UNKNOWN"),  # Default for backward compatibility
             condition_type=data["condition_type"],
             comparison_operator=data.get("comparison_operator"),
             threshold_value=data.get("threshold_value"),
@@ -105,10 +108,11 @@ class ConditionBlock:
         """
         Return a human-readable description of this block for the UI
         """
+        source_info = f" ({self.definition_source})" if self.definition_source else ""
         if self.condition_type == ConditionType.HAS_DEFINITION:
-            return f"Has any code from '{self.definition_name}'"
+            return f"Has any code from '{self.definition_name}'{source_info}"
         else:
-            return f"'{self.definition_name}' {self.comparison_operator} {self.threshold_value} {self.threshold_unit}"
+            return f"'{self.definition_name}'{source_info} {self.comparison_operator} {self.threshold_value} {self.threshold_unit}"
 
 
 @dataclass
@@ -160,10 +164,11 @@ class Phenotype:
         self._modified = True
 
     def add_condition_block(self, definition_id: str, definition_name: str,
-                           condition_type: ConditionType,
-                           comparison_operator: Optional[ComparisonOperator] = None,
-                           threshold_value: Optional[float] = None,
-                           threshold_unit: Optional[str] = None) -> str:
+                        definition_source: str,
+                        condition_type: ConditionType,
+                        comparison_operator: Optional[ComparisonOperator] = None,
+                        threshold_value: Optional[float] = None,
+                        threshold_unit: Optional[str] = None) -> str:
         """
         Add a new condition block to the phenotype
 
@@ -172,6 +177,8 @@ class Phenotype:
                 ID of the definition
             definition_name:
                 Name of the definition
+            definition_source:
+                Source of the definition (e.g., "HDRUK", "CUSTOM")
             condition_type:
                 Type of condition (HAS or MEASURE)
             comparison_operator:
@@ -197,6 +204,7 @@ class Phenotype:
             label=next_label,
             definition_id=definition_id,
             definition_name=definition_name,
+            definition_source=definition_source,  # Added parameter
             condition_type=condition_type,
             comparison_operator=comparison_operator,
             threshold_value=threshold_value,

@@ -2,7 +2,7 @@
   "definition_id": "2c23d6f5",
   "definition_name": "diastolic_blood_pressure_gp",
   "definition_version": "diastolic_blood_pressure_gp_20250315_140750",
-  "definition_source": "CUSTOM",
+  "definition_source": "AICENTRE",
   "created_datetime": "2025-03-15T14:06:53.615132",
   "updated_datetime": "2025-03-15T14:07:50.431965",
   "codelists": [

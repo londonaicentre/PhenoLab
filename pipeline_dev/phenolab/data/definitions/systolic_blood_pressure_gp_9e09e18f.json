@@ -2,7 +2,7 @@
   "definition_id": "9e09e18f",
   "definition_name": "systolic_blood_pressure_gp",
   "definition_version": "systolic_blood_pressure_gp_20250315_140646",
-  "definition_source": "CUSTOM",
+  "definition_source": "AICENTRE",
   "created_datetime": "2025-03-15T14:00:27.430968",
   "updated_datetime": "2025-03-15T14:06:46.972260",
   "codelists": [
