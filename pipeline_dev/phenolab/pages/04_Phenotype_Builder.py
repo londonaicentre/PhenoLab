@@ -196,7 +196,8 @@ def display_panel_2_definition_selection():
                     if st.button("Add", key=f"add_{idx}"):
                         st.session_state.selected_definition = {
                             "id": row["DEFINITION_ID"],
-                            "name": row["DEFINITION_NAME"]
+                            "name": row["DEFINITION_NAME"],
+                            "source": row["DEFINITION_SOURCE"]
                         }
                         st.rerun()
 
@@ -210,8 +211,8 @@ def display_panel_3_condition_configuration():
         st.write("""
         **Configuring Conditions**
         - Choose the condition type:
-          - HAS: Patient has a code from this definition
-          - MEASURE: Measurement from this definition meets specified criteria
+        - HAS: Patient has a code from this definition
+        - MEASURE: Measurement from this definition meets specified criteria
         - For MEASURE type, set comparison operator, threshold value, and unit
         - Click "Add to phenotype" to add this as a condition block
         """)
@@ -261,10 +262,13 @@ def display_panel_3_condition_configuration():
                     threshold_value = None
                     threshold_unit = None
 
+                definition_source = st.session_state.selected_definition.get("source", "CUSTOM")
+
                 # add the condition block to the phenotype
                 st.session_state.current_phenotype.add_condition_block(
                     definition_id=st.session_state.selected_definition["id"],
                     definition_name=st.session_state.selected_definition["name"],
+                    definition_source=definition_source,
                     condition_type=condition_type,
                     comparison_operator=comparison_operator,
                     threshold_value=threshold_value,

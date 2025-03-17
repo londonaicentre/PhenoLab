@@ -2,6 +2,7 @@ import datetime
 import glob
 import json
 import os
+import subprocess
 import sys
 
 import pandas as pd
@@ -121,6 +122,30 @@ def upload_definitions_to_snowflake():
                     mode="overwrite"
                 )
                 st.success("Successfully uploaded to Definition Library")
+
+                # run update.py script to refresh DEFINITIONSTORE
+                with st.spinner("Updating DEFINITIONSTORE..."):
+                    try:
+                        current_dir = os.path.dirname(os.path.abspath(__file__))
+                        update_script_path = os.path.normpath(os.path.join(
+                            current_dir, "../../definition_library/update.py"
+                        ))
+
+                        if not os.path.exists(update_script_path):
+                            raise FileNotFoundError(f"Update script not found at {update_script_path}")
+
+                        result = subprocess.run(
+                            [sys.executable, update_script_path],
+                            capture_output=True,
+                            text=True,
+                            check=True
+                        )
+                        st.success("Definition store updated successfully")
+                    except subprocess.CalledProcessError as e:
+                        st.error(f"Error updating definition store: {e.stderr}")
+                    except Exception as e:
+                        st.error(f"Error executing update script: {str(e)}")
+
             except Exception as e:
                 st.error(f"Error uploading to Snowflake: {e}")
     else:

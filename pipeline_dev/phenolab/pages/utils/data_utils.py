@@ -84,7 +84,7 @@ class Definition:
 
     definition_name: str
     codelists: Dict[str, Codelist] = field(default_factory=dict)
-    definition_source: str = "CUSTOM"
+    definition_source: str = "AICENTRE"
     # created_datetime should be immutable
     created_datetime: str = field(default_factory=lambda: datetime.datetime.now().isoformat())
     updated_datetime: str = field(default=None)
@@ -261,7 +261,7 @@ def definition_from_dict(data: dict) -> Definition:
     """
     definition = Definition(
         definition_name=data["definition_name"],
-        definition_source=data.get("definition_source", "CUSTOM"),
+        definition_source=data.get("definition_source", "AICENTRE"),
         created_datetime=data.get("created_datetime"),
         updated_datetime=data.get("updated_datetime"),
         definition_id=data.get("definition_id"),
