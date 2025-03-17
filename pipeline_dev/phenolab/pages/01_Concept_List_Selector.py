@@ -5,7 +5,7 @@ import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
 
-from phenolab.snow_utils import SnowflakeConnection
+from phmlondon.snow_utils import SnowflakeConnection
 
 
 @st.cache_data(ttl=3600)  # cache for 1hr
