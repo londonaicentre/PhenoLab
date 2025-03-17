@@ -87,7 +87,7 @@ def parse_search_query(query):
     return result
 
 
-def apply_search_filters(df, parsed_query, search_columns=['CONCEPT_NAME', 'CONCEPT_CODE']):
+def apply_search_filters(df, parsed_query, search_columns=['CODE_DESCRIPTION', 'CODE']):
     """
     Apply filters to the DataFrame based on parsed search query.
 
@@ -97,7 +97,7 @@ def apply_search_filters(df, parsed_query, search_columns=['CONCEPT_NAME', 'CONC
         parsed_query (dict):
             Result from parse_search_query containing 'operator' and 'terms'
         search_columns (list):
-            Columns to search in (will be CONCEPT_NAME and CONCEPT_CODE)
+            Columns to search in (will be CODE_DESCRIPTION and CODE)
 
     Returns:
         pd.DataFrame:
@@ -147,37 +147,37 @@ def apply_search_filters(df, parsed_query, search_columns=['CONCEPT_NAME', 'CONC
     return df
 
 @st.cache_data(ttl=1800, max_entries=10) #cache for 30mins
-def filter_concepts(df: pd.DataFrame, search_term: str, concept_type: str) -> pd.DataFrame:
+def filter_codes(df: pd.DataFrame, search_term: str, code_type: str) -> pd.DataFrame:
     """
-    Filter concepts dataframe based on search term and concept type
+    Filter codes dataframe based on search term and code type
 
     Args:
         df(pd.DataFrame):
-            concept dataframe held in state from the concept list selector
+            code dataframe held in state from the code list selector
         search_term(str):
             Term in search term box (supports logical operators AND, OR, NOT)
-        concept_type(str):
+        code_type(str):
             Type selected from drop down (e.g. OBSERVATION)
     """
     filtered_df = df.copy()
 
     # apply type filter first
-    if concept_type and concept_type != "All":
-        filtered_df = filtered_df[filtered_df["CONCEPT_TYPE"] == concept_type]
+    if code_type and code_type != "All":
+        filtered_df = filtered_df[filtered_df["CODE_TYPE"] == code_type]
 
     # apply search term logic
     if search_term:
         parsed_query = parse_search_query(search_term)
         filtered_df = apply_search_filters(filtered_df, parsed_query)
 
-    return filtered_df.sort_values("CONCEPT_COUNT", ascending=False)
+    return filtered_df.sort_values("CODE_COUNT", ascending=False)
 
 def create_code_from_row(row: pd.Series) -> Code:
     """
     Create a Code object from dataframe row
     """
     return Code(
-        code=row["CONCEPT_CODE"], code_description=row["CONCEPT_NAME"], vocabulary=row["VOCABULARY"]
+        code=row["CODE"], code_description=row["CODE_DESCRIPTION"], vocabulary=row["VOCABULARY"]
     )
 
 # STREAMLIT FUNCTIONS
@@ -211,10 +211,10 @@ def display_definition_panel() -> str:
                     st.success(f"Loaded definition: {definition.definition_name}")
 
                     # load definition codes into the session state for tracking
-                    st.session_state.selected_concepts = []
+                    st.session_state.selected_codes = []
                     for codelist in definition.codelists.values():
                         for code in codelist.codes:
-                            st.session_state.selected_concepts.append(code)
+                            st.session_state.selected_codes.append(code)
 
     # new definition name input
     with col2:
@@ -226,7 +226,7 @@ def display_definition_panel() -> str:
             st.session_state.current_definition = Definition(
                 definition_name=new_definition_name
             )
-            st.session_state.selected_concepts = []
+            st.session_state.selected_codes = []
             st.success(f"Created new definition: {new_definition_name}")
 
     st.markdown("---")
@@ -234,8 +234,8 @@ def display_definition_panel() -> str:
     return new_definition_name
 
 
-def display_concept_search_panel(concept_types: List[str]) -> Tuple[pd.DataFrame, str, str]:
-    st.subheader("Find Concepts")
+def display_code_search_panel(code_types: List[str]) -> Tuple[pd.DataFrame, str, str]:
+    st.subheader("Find Codes")
 
     # FIXED CONTAINER
     with st.container(height=150):
@@ -244,45 +244,45 @@ def display_concept_search_panel(concept_types: List[str]) -> Tuple[pd.DataFrame
         # components: search inputs
         with search_col1:
             search_term = st.text_input(
-                "Filter concepts",
+                "Filter codes",
                 placeholder="Simple search or use (term1) AND/OR/NOT (term2)",
                 help="Examples: 'diabetes', '(heart) AND (failure)', '(cardiac) NOT (surgery)'"
             )
 
         with search_col2:
-            concept_type = st.selectbox("Concept type", options=concept_types)
+            code_type = st.selectbox("Code type", options=code_types)
 
-        # Filter the concepts
-        filtered_concepts = filter_concepts(st.session_state.concepts, search_term, concept_type)
-        if not filtered_concepts.empty:
-            st.write(f"Found {len(filtered_concepts)} concepts")
+        # Filter the codes
+        filtered_codes = filter_codes(st.session_state.codes, search_term, code_type)
+        if not filtered_codes.empty:
+            st.write(f"Found {len(filtered_codes)} codes")
         else:
-            st.info("No concepts found matching the search criteria")
-            return filtered_concepts, search_term, concept_type
+            st.info("No codes found matching the search criteria")
+            return filtered_codes, search_term, code_type
 
     # SCROLLING CONTAINER
     with st.container(height=450):
-        if not filtered_concepts.empty:
-            st.write(f"Found {len(filtered_concepts)} concepts")
-            for idx, row in filtered_concepts.head(500).iterrows():
+        if not filtered_codes.empty:
+            st.write(f"Found {len(filtered_codes)} codes")
+            for idx, row in filtered_codes.head(500).iterrows():
                 col1a, col1b = st.columns([4, 1])
                 with col1a:
-                    st.text(f"{row['CONCEPT_NAME']} ({row['VOCABULARY']})")
+                    st.text(f"{row['CODE_DESCRIPTION']} ({row['VOCABULARY']})")
 
                     # display summary stats
                     basic_info = []
-                    if 'CONCEPT_CODE' in row and pd.notna(row['CONCEPT_CODE']):
-                        basic_info.append(f"Code: {row['CONCEPT_CODE']}")
+                    if 'CODE' in row and pd.notna(row['CODE']):
+                        basic_info.append(f"Code: {row['CODE']}")
 
-                    if 'CONCEPT_COUNT' in row and pd.notna(row['CONCEPT_COUNT']):
-                        basic_info.append(f"Count: {row['CONCEPT_COUNT']}")
+                    if 'CODE_COUNT' in row and pd.notna(row['CODE_COUNT']):
+                        basic_info.append(f"Count: {row['CODE_COUNT']}")
 
                     if 'MEDIAN_AGE' in row and pd.notna(row['MEDIAN_AGE']):
                         basic_info.append(f"MedianAge: {row['MEDIAN_AGE']:.1f}")
 
                     if 'MEDIAN_VALUE' in row and pd.notna(row['MEDIAN_VALUE']):
-                        # change label per concept type
-                        if row['CONCEPT_TYPE'] in ['SUS_APC', 'SUS_APC_PROC']:
+                        # change label per code type
+                        if row['CODE_TYPE'] in ['SUS_APC', 'SUS_APC_PROC']:
                             basic_info.append(f"MedianLOS: {row['MEDIAN_VALUE']:.1f}")
                         else:
                             basic_info.append(f"MedianValue: {row['MEDIAN_VALUE']:.1f}")
@@ -295,28 +295,28 @@ def display_concept_search_panel(concept_types: List[str]) -> Tuple[pd.DataFrame
 
                 with col1b:
                     is_selected = any(
-                        c.code == row["CONCEPT_CODE"] and c.vocabulary == row["VOCABULARY"]
-                        for c in st.session_state.selected_concepts
+                        c.code == row["CODE"] and c.vocabulary == row["VOCABULARY"]
+                        for c in st.session_state.selected_codes
                     )
 
                     if not is_selected:
                         if st.button("Add", key=f"add_{idx}"):
                             code = create_code_from_row(row)
-                            st.session_state.selected_concepts.append(code)
+                            st.session_state.selected_codes.append(code)
                             if st.session_state.current_definition:
                                 st.session_state.current_definition.add_code(code)
                             st.rerun()
         else:
-            st.info("No concepts found matching the search criteria")
+            st.info("No codes found matching the search criteria")
 
-    return filtered_concepts, search_term, concept_type
+    return filtered_codes, search_term, code_type
 
 
-def display_selected_concepts():
+def display_selected_codes():
     """
-    Display the selected concepts panel (right panel)
+    Display the selected codes panel (right panel)
     """
-    st.subheader("Selected Concepts")
+    st.subheader("Selected Codes")
 
     # FIXED CONTAINER
     with st.container(height=150):
@@ -338,15 +338,15 @@ def display_selected_concepts():
 
     # SCROLLING CONTAINER
     with st.container(height=450):
-        if st.session_state.selected_concepts:
+        if st.session_state.selected_codes:
             # grouping by vocab (i.e. codelist)
-            concepts_by_vocab = {}
-            for code in st.session_state.selected_concepts:
-                if code.vocabulary not in concepts_by_vocab:
-                    concepts_by_vocab[code.vocabulary] = []
-                concepts_by_vocab[code.vocabulary].append(code)
+            codes_by_vocab = {}
+            for code in st.session_state.selected_codes:
+                if code.vocabulary not in codes_by_vocab:
+                    codes_by_vocab[code.vocabulary] = []
+                codes_by_vocab[code.vocabulary].append(code)
 
-            for vocabulary, codes in concepts_by_vocab.items():
+            for vocabulary, codes in codes_by_vocab.items():
                 st.write(f"**{vocabulary}** ({len(codes)} codes)")
                 for idx, code in enumerate(codes):
                     col2a, col2b = st.columns([4, 1])
@@ -356,14 +356,14 @@ def display_selected_concepts():
 
                     with col2b:
                         if st.button("Remove", key=f"remove_{vocabulary}_{idx}"):
-                            st.session_state.selected_concepts.remove(code)
+                            st.session_state.selected_codes.remove(code)
                             if st.session_state.current_definition:
                                 st.session_state.current_definition.remove_code(code)
                             st.rerun()
 
                 st.markdown("---")
         elif st.session_state.current_definition:
-            st.info("No concepts selected. Find and add concepts with the search panel.")
+            st.info("No codes selected. Find and add codes with the search panel.")
 
 
 def main():
@@ -375,33 +375,33 @@ def main():
     if "current_definition" not in st.session_state:
         st.session_state.current_definition = None
     ## actively selected codes that are part of the current definition
-    if "selected_concepts" not in st.session_state:
-        st.session_state.selected_concepts = []
-    ## all concepts in source data pulled in from selector
-    if "concepts" not in st.session_state:
-        st.session_state.concepts = None
+    if "selected_codes" not in st.session_state:
+        st.session_state.selected_codes = []
+    ## all codes in source data pulled in from selector
+    if "codes" not in st.session_state:
+        st.session_state.codes = None
 
-    # 1. check if concepts are loaded
-    if st.session_state.concepts is None:
-        st.warning("Please load a concept list from the Concept List Creator page first.")
+    # 1. check if codes are loaded
+    if st.session_state.codes is None:
+        st.warning("Please load a code list from the Code List Creator page first.")
         return
 
     # 2. display top row: definition selector & creator
     display_definition_panel()
 
-    # 3. get unique concept types for filtering
-    concept_types = ["All"] + list(st.session_state.concepts["CONCEPT_TYPE"].unique())
+    # 3. get unique code types for filtering
+    code_types = ["All"] + list(st.session_state.codes["CODE_TYPE"].unique())
 
-    # 4. display main row: a. concept searcher & b. selected concepts
+    # 4. display main row: a. code searcher & b. selected codes
     col1, col2 = st.columns([1, 1])
 
     with col1:
-        # concept searcher
-        display_concept_search_panel(concept_types)
+        # code searcher
+        display_code_search_panel(code_types)
 
     with col2:
-        # selected concepts
-        display_selected_concepts()
+        # selected codes
+        display_selected_codes()
 
 
 if __name__ == "__main__":
