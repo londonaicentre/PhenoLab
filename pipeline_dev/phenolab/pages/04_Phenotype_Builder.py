@@ -8,7 +8,7 @@ if os.path.dirname(os.path.abspath(__file__)) not in sys.path:
     sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from utils.phenotype import ComparisonOperator, ConditionType, Phenotype, load_phenotype_from_json
 
-from phenolab.snow_utils import SnowflakeConnection
+from phmlondon.snow_utils import SnowflakeConnection
 
 load_dotenv()
 
