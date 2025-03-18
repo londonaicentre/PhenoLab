@@ -8,14 +8,7 @@ from phmlondon.snow_utils import SnowflakeConnection
 CREATE_DATA_TYPE_TABLE = """
 CREATE OR REPLACE TABLE INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.DATA_TYPES AS
 SELECT data_type,
-COUNT(*) AS COUNT,
---CASE 
---WHEN data_type = NUMBER then float64
---WHEN data_type = VARCHAR then str
---WHEN data_type = TIME then strptime
---WHEN data_type = DATE then date
---WHEN data_type = TEXT then str
---
+COUNT(*) AS COUNT
 FROM (
     SELECT data_type FROM intelligence_dev.information_schema.columns
     UNION ALL
