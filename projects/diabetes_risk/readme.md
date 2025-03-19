@@ -24,3 +24,16 @@ Results:
 To Do:
 - This is quite a challenging task as the blinded period prior to the outcome HbA1c is long (5 years). Try with shorter outcome periods
 - Incorporate further predictor variables e.g. medication use, smoking status
+- Bin patients into low/medium/high HbA1c and evaluate performance that way
+
+## To do
+
+- complications
+- death??
+- look again at ethnicity
+- BMI
+- renal function
+- smoking
+- alcohol use
+- medications
+- plotting!! (also the other vars)
