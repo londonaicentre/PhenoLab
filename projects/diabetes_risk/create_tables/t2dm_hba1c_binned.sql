@@ -14,7 +14,7 @@ with hba1cs as (
 corrected_hba1cs as (
     select *,
         CASE
-            WHEN result_value BETWEEN 4 AND 14 THEN '%'
+            WHEN result_value BETWEEN 4 AND 15 THEN '%'
             WHEN result_value BETWEEN 19 and 140 THEN 'mmol/mol'
             ELSE 'invalid'
         END AS result_value_inferred_units,
