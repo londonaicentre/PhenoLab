@@ -24,16 +24,11 @@ def load_and_process_data(conn: SnowflakeConnection) -> tuple[pd.DataFrame, pd.D
         sql = fid.read()
         conn.session.sql(sql).collect()
     
-    # patients = conn.session.sql("""
-    # select *
-    # from INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.T2DM_PATIENTS_WITH_HBA1C_BINS
-    # where mod(abs(hash(person_id)), 100) < 100
-    # """).to_pandas()
-
     patients = conn.session.sql("""
     select *
-    from INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.T2DM_PATIENTS_WITH_HBA1C_BINS;
-    """).to_pandas()
+    from INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.T2DM_PATIENTS_WITH_HBA1C_BINS
+    where mod(abs(hash(person_id)), 100) < 100
+    """).to_pandas() # change the number after the < to vary the percentage of data selected
 
     print('Data of size', patients.shape, 'loaded')
 
