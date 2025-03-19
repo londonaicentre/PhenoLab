@@ -24,16 +24,24 @@ def load_and_process_data(conn: SnowflakeConnection) -> tuple[pd.DataFrame, pd.D
         sql = fid.read()
         conn.session.sql(sql).collect()
     
+    # patients = conn.session.sql("""
+    # select *
+    # from INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.T2DM_PATIENTS_WITH_HBA1C_BINS
+    # where mod(abs(hash(person_id)), 100) < 100
+    # """).to_pandas()
+
     patients = conn.session.sql("""
     select *
-    from INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.T2DM_PATIENTS_WITH_HBA1C_BINS
-    where mod(abs(hash(person_id)), 100) < 10
+    from INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.T2DM_PATIENTS_WITH_HBA1C_BINS;
     """).to_pandas()
 
     print('Data of size', patients.shape, 'loaded')
 
     print('Data:')
     print(patients.head())
+
+    print('NaN count per column:')
+    print(patients.isna().sum())
 
     X = patients.drop(["PERSON_ID", "DOB", "DOD", "DOD_INC_CODES", 
                    "APPROX_CURRENT_AGE", "FINAL_HBA1C"], axis=1)
@@ -53,12 +61,14 @@ def load_and_process_data(conn: SnowflakeConnection) -> tuple[pd.DataFrame, pd.D
 def model_fit_and_evaluate(X_train: pd.DataFrame, X_test: pd.DataFrame, y_train: pd.Series, y_test: pd.Series):
     model = XGBRegressor()
     model.fit(X_train, y_train)
+    print('XGBoost regressor fitted')
     y_pred = model.predict(X_test)
     mse = mean_squared_error(y_test, y_pred)
     r2 = r2_score(y_test, y_pred)
     print(f"Mean Squared Error: {mse}")
     print(f"R^2: {r2}")
 
+    plt.figure()
     plt.scatter(y_pred, y_test, s=2, color='lightcoral')
     plt.xlabel("Predicted HbA1c (mmol/mol)")
     plt.ylabel("True HbA1c (mmol/mol)")
@@ -73,7 +83,8 @@ def model_fit_and_evaluate(X_train: pd.DataFrame, X_test: pd.DataFrame, y_train:
     ax.set_xlim(lims)
     ax.set_ylim(lims)
     plt.text(100, 20, f"R^2: {r2:.2f}")
-    plt.show()
+    plt.title("Model performance")
+
 
 def plot_sample_of_data(patients: pd.DataFrame):
     plt.figure()
@@ -96,13 +107,15 @@ def plot_sample_of_data(patients: pd.DataFrame):
     ax.set_xlim([-10, 0])
     plt.xlabel('Years prior to final HbA1c')
     plt.ylabel('HbA1c (mmol/mol)')
+    plt.title('Sample of binned HbA1c data')
 
 if __name__ == "__main__":
     load_dotenv()
     conn = SnowflakeConnection()
-    # create_tables(conn)
+    create_tables(conn)
     X_train, X_test, y_train, y_test = load_and_process_data(conn)
     model_fit_and_evaluate(X_train, X_test, y_train, y_test)
+    plt.show()
     
 
 
