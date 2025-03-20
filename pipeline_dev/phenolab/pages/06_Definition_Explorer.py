@@ -1,5 +1,6 @@
-# see all codes in a DEFINITION, 
-# compare two lists
+"""
+This script is used to explore clinical codes within phenotype definitions.
+"""
 
 import streamlit as st
 from dotenv import load_dotenv
