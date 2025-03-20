@@ -236,27 +236,26 @@ def display_definition_panel() -> str:
 
 
 def display_code_search_panel(code_types: List[str]) -> Tuple[pd.DataFrame, str, str]:
-    st.subheader("Find Codes")
+    st.subheader("Find codes via search")
 
     # FIXED CONTAINER
-    with st.container(height=150):
-        search_col1, search_col2 = st.columns([3, 1])
+    with st.container(height=210):
+        # search_col1, search_col2 = st.columns([3, 1])
 
         # components: search inputs
-        with search_col1:
-            search_term = st.text_input(
-                "Filter codes",
-                placeholder="Simple search or use (term1) AND/OR/NOT (term2)",
-                help="Examples: 'diabetes', '(heart) AND (failure)', '(cardiac) NOT (surgery)'"
-            )
+        # with search_col1:
+        search_term = st.text_input(
+            "Filter codes",
+            placeholder="Simple search or use (term1) AND/OR/NOT (term2)",
+            help="Examples: 'diabetes', '(heart) AND (failure)', '(cardiac) NOT (surgery)'"
+        )
 
-        with search_col2:
-            code_type = st.selectbox("Code type", options=code_types)
+        code_type = st.selectbox("Code type", options=code_types, label_visibility="collapsed")
 
         # Filter the codes
         filtered_codes = filter_codes(st.session_state.codes, search_term, code_type)
         if not filtered_codes.empty:
-            st.write(f"Found {len(filtered_codes)} codes")
+            st.write(f"Found {len(filtered_codes):,} codes")
         else:
             st.info("No codes found matching the search criteria")
             return filtered_codes, search_term, code_type
@@ -276,7 +275,7 @@ def display_code_search_panel(code_types: List[str]) -> Tuple[pd.DataFrame, str,
                         basic_info.append(f"Code: {row['CODE']}")
 
                     if 'CODE_COUNT' in row and pd.notna(row['CODE_COUNT']):
-                        basic_info.append(f"Count: {row['CODE_COUNT']}")
+                        basic_info.append(f"Count: {row['CODE_COUNT']:,}")
 
                     if 'MEDIAN_AGE' in row and pd.notna(row['MEDIAN_AGE']):
                         basic_info.append(f"MedianAge: {row['MEDIAN_AGE']:.1f}")
@@ -320,7 +319,7 @@ def display_selected_codes():
     st.subheader("Selected Codes")
 
     # FIXED CONTAINER
-    with st.container(height=150):
+    with st.container(height=210):
         # current definition information
         if st.session_state.current_definition:
             definition = st.session_state.current_definition
