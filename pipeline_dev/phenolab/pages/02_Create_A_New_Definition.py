@@ -265,7 +265,7 @@ def display_code_search_panel(code_types: List[str]) -> Tuple[pd.DataFrame, str,
         if not filtered_codes.empty:
             st.write(f"Found {len(filtered_codes)} codes")
             for idx, row in filtered_codes.head(500).iterrows():
-                col1a, col1b = st.columns([4, 1])
+                col1a, col1b = st.columns([9, 1])
                 with col1a:
                     st.text(f"{row['CODE_DESCRIPTION']} ({row['VOCABULARY']})")
 
@@ -299,13 +299,18 @@ def display_code_search_panel(code_types: List[str]) -> Tuple[pd.DataFrame, str,
                         for c in st.session_state.selected_codes
                     )
 
+                    checkbox_ticked = st.checkbox("Any", key=f"add_{idx}", value=is_selected, label_visibility="collapsed")
+
                     if not is_selected:
-                        if st.button("Add", key=f"add_{idx}"):
-                            code = create_code_from_row(row)
+                        code = create_code_from_row(row)
+                        if checkbox_ticked:
                             st.session_state.selected_codes.append(code)
                             if st.session_state.current_definition:
                                 st.session_state.current_definition.add_code(code)
                             st.rerun()
+                        else:
+                            if code in st.session_state.selected_codes:
+                                st.session_state.selected_codes.remove(code)
         else:
             st.info("No codes found matching the search criteria")
 
@@ -334,7 +339,7 @@ def display_selected_codes():
                 except Exception as e:
                     st.error(f"Error saving definition: {e}")
         else:
-            st.info("Create or load a definition first.")
+            st.info("Create a definition first.")
 
     # SCROLLING CONTAINER
     with st.container(height=450):
