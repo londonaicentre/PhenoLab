@@ -8,15 +8,16 @@ import re
 
 from phmlondon.snow_utils import SnowflakeConnection
 
-def main():
-    load_dotenv()
+load_dotenv()
 
-    if "snowsesh" not in st.session_state:
-        st.session_state.snowsesh = SnowflakeConnection()
-        st.session_state.snowsesh.use_database("INTELLIGENCE_DEV")
-        st.session_state.snowsesh.use_schema("AI_CENTRE_DEFINITION_LIBRARY")
+if "snowsesh" not in st.session_state:
+    st.session_state.snowsesh = SnowflakeConnection()
+    st.session_state.snowsesh.use_database("INTELLIGENCE_DEV")
+    st.session_state.snowsesh.use_schema("AI_CENTRE_DEFINITION_LIBRARY")
 
-    snowsesh = st.session_state.snowsesh
+snowsesh = st.session_state.snowsesh
+
+def search_boxes():
 
     st.title("Phenotype Code Explorer")
     st.write(
@@ -96,7 +97,8 @@ def main():
         else:
             st.write("No codes found for the selected criteria.")
 
-
+def compare_2_definitions():
+    st.title("Definition Comparer")
     st.write("Compare two defintions:")
     comparison_query = f"""
     SELECT DISTINCT DEFINITION_SOURCE, DEFINITION_ID, DEFINITION_NAME
@@ -106,7 +108,7 @@ def main():
     comparison_defintions = snowsesh.execute_query_to_df(comparison_query)
 
     list_of_all_definitions = [f"[{row['DEFINITION_SOURCE']}] [{row['DEFINITION_ID']}] {row['DEFINITION_NAME']}" 
-                             for i, row in comparison_defintions.iterrows()]
+                                for i, row in comparison_defintions.iterrows()]
 
     selected_for_comparison = st.multiselect(label="Choose two definitions to compare", 
                                             options=list_of_all_definitions,
@@ -116,40 +118,40 @@ def main():
             st.write("Please select two definitions to compare")
         elif len(selected_for_comparison) >2:
             st.write("Please select a maximum of two definitions to compare")
-        
-        print(selected_for_comparison)
+        elif len(selected_for_comparison) == 2:
+            print(selected_for_comparison)
 
-        definition_ids = [re.match(r"\[[^\]]+\] \[([^\]]+)\]", selected_for_comparison[i]).group(1) 
-                        for i in range(2)]
-        print(definition_ids)
+            definition_ids = [re.match(r"\[[^\]]+\] \[([^\]]+)\]", selected_for_comparison[i]).group(1) 
+                            for i in range(2)]
+            print(definition_ids)
 
-        lists_of_codes_for_comparison = []
-        for definition_id in definition_ids:
-            codes_as_list = snowsesh.session.sql(f"""
-            SELECT DISTINCT
-                CODE,
-                CODE_DESCRIPTION,
-                VOCABULARY,
-                DEFINITION_ID,
-                CODELIST_VERSION
-            FROM INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.DEFINITIONSTORE
-            WHERE DEFINITION_ID = '{definition_id}'
-            ORDER BY VOCABULARY, CODE
-            """).collect()
-            codes_as_set = set(codes_as_list)
-            lists_of_codes_for_comparison.append(codes_as_set)
-            # st.write(codes_as_list)
+            lists_of_codes_for_comparison = []
+            for definition_id in definition_ids:
+                codes_as_list = snowsesh.session.sql(f"""
+                SELECT DISTINCT
+                    CODE,
+                    CODE_DESCRIPTION,
+                    VOCABULARY,
+                    DEFINITION_ID,
+                    CODELIST_VERSION
+                FROM INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.DEFINITIONSTORE
+                WHERE DEFINITION_ID = '{definition_id}'
+                ORDER BY VOCABULARY, CODE
+                """).collect()
+                codes_as_set = set(codes_as_list)
+                lists_of_codes_for_comparison.append(codes_as_set)
+                # st.write(codes_as_list)
 
-        shared_codes = lists_of_codes_for_comparison[0] & lists_of_codes_for_comparison[1]
-        list_1_only_codes = lists_of_codes_for_comparison[0] - lists_of_codes_for_comparison[1]
-        list_2_only_codes = lists_of_codes_for_comparison[1] - lists_of_codes_for_comparison[0]
+            shared_codes = lists_of_codes_for_comparison[0] & lists_of_codes_for_comparison[1]
+            list_1_only_codes = lists_of_codes_for_comparison[0] - lists_of_codes_for_comparison[1]
+            list_2_only_codes = lists_of_codes_for_comparison[1] - lists_of_codes_for_comparison[0]
 
-        st.write("Shared Codes:")
-        st.write(list(shared_codes))
-        st.write("Codes in Definition 1 only:")
-        st.write(list(list_1_only_codes))
-        st.write("Codes in Definition 2 only:")    
-        st.write(list(list_2_only_codes))
+            st.write("Shared Codes:")
+            st.write(list(shared_codes))
+            st.markdown(f"Codes in **{selected_for_comparison[0]}** only:")
+            st.write(list(list_1_only_codes))
+            st.markdown(f"Codes in **{selected_for_comparison[1]}** only:")    
+            st.write(list(list_2_only_codes))
 
-if __name__ == "__main__":
-    main()
+search_boxes()
+compare_2_definitions()
