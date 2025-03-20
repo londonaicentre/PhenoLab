@@ -7,7 +7,6 @@ from dotenv import load_dotenv
 
 from phmlondon.snow_utils import SnowflakeConnection
 
-
 def main():
     load_dotenv()
 
