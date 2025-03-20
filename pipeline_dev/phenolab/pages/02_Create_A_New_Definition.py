@@ -190,44 +190,45 @@ def display_definition_panel() -> str:
         str:
             New definition name
     """
-    st.subheader("Manage Definitions")
-    col1, col2, col3 = st.columns([2, 1, 1])
+    st.subheader("Enter definition name:")
+    col1, col2 = st.columns([2, 1])
 
-    # components: existing definition selector
-    with col1:
-        definitions_list = load_definitions_list()
-        selected_definition_file = st.selectbox(
-            "Custom definition list",
-            options=definitions_list,
-            index=0 if definitions_list else None,
-        )
-        # component: edit button
-        if selected_definition_file and st.button("Edit definition"):
-            with st.spinner("Loading definition..."):
-                file_path = os.path.join("data/definitions", selected_definition_file)
-                definition = load_definition(file_path)
-                if definition:
-                    st.session_state.current_definition = definition
-                    st.success(f"Loaded definition: {definition.definition_name}")
+    # # components: existing definition selector
+    # with col1:
+    #     definitions_list = load_definitions_list()
+    #     selected_definition_file = st.selectbox(
+    #         "Custom definition list",
+    #         options=definitions_list,
+    #         index=0 if definitions_list else None,
+    #     )
+    #     # component: edit button
+    #     if selected_definition_file and st.button("Edit definition"):
+    #         with st.spinner("Loading definition..."):
+    #             file_path = os.path.join("data/definitions", selected_definition_file)
+    #             definition = load_definition(file_path)
+    #             if definition:
+    #                 st.session_state.current_definition = definition
+    #                 st.success(f"Loaded definition: {definition.definition_name}")
 
-                    # load definition codes into the session state for tracking
-                    st.session_state.selected_codes = []
-                    for codelist in definition.codelists.values():
-                        for code in codelist.codes:
-                            st.session_state.selected_codes.append(code)
+    #                 # load definition codes into the session state for tracking
+    #                 st.session_state.selected_codes = []
+    #                 for codelist in definition.codelists.values():
+    #                     for code in codelist.codes:
+    #                         st.session_state.selected_codes.append(code)
 
     # new definition name input
-    with col2:
-        new_definition_name = st.text_input("New definition name")
+    with col1:
+        new_definition_name = st.text_input("New definition name", label_visibility="collapsed")
 
     # component: new definition button
-    with col3:
-        if new_definition_name and st.button("Create new definition"):
+    with col2:
+        if st.button("Create definition") and new_definition_name:
             st.session_state.current_definition = Definition(
                 definition_name=new_definition_name
             )
             st.session_state.selected_codes = []
-            st.success(f"Created new definition: {new_definition_name}")
+            with col1:
+                st.success(f"Created new definition: {new_definition_name}")
 
     st.markdown("---")
 
@@ -365,10 +366,9 @@ def display_selected_codes():
         elif st.session_state.current_definition:
             st.info("No codes selected. Find and add codes with the search panel.")
 
-
 def main():
-    st.set_page_config(page_title="Definition Creator", layout="wide")
-    st.title("Definition Creator")
+    st.set_page_config(page_title="Create a new definition", layout="wide")
+    st.title("Create a new definition")
 
     # state variables
     ## the definition that is loaded (or created) and currently being worked on
@@ -383,7 +383,7 @@ def main():
 
     # 1. check if codes are loaded
     if st.session_state.codes is None:
-        st.warning("Please load a code list from the Code List Creator page first.")
+        st.warning("Please load a vocabulary from the Load Vocabulary page first.")
         return
 
     # 2. display top row: definition selector & creator
@@ -403,6 +403,4 @@ def main():
         # selected codes
         display_selected_codes()
 
-
-if __name__ == "__main__":
-    main()
+main()
