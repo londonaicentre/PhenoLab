@@ -144,6 +144,7 @@ if selected_for_comparison:
         print(definition_ids)
 
         lists_of_codes_for_comparison = []
+        full_code_data_for_comparison_display = []
         for definition_id in definition_ids:
             query = f"""
             SELECT DISTINCT
@@ -156,7 +157,9 @@ if selected_for_comparison:
             WHERE DEFINITION_ID = '{definition_id}'
             ORDER BY VOCABULARY, CODE
             """
-            codes_as_list = get_data_from_snowflake_to_list(snowsesh, query)
+            # codes_as_list = get_data_from_snowflake_to_list(snowsesh, query)
+            codes_as_df = get_data_from_snowflake_to_dataframe(snowsesh, query)
+            full_code_data_for_comparison_display.append(codes_as_df)
             # codes_as_list = snowsesh.session.sql(f"""
             # SELECT DISTINCT
             #     CODE,
@@ -168,9 +171,12 @@ if selected_for_comparison:
             # WHERE DEFINITION_ID = '{definition_id}'
             # ORDER BY VOCABULARY, CODE
             # """).collect()
-            print(codes_as_list)
-            codes_as_set = set(codes_as_list)
-            lists_of_codes_for_comparison.append(codes_as_set)
+
+            # print(codes_as_list)
+            # codes_as_set = set(codes_as_list)
+            # lists_of_codes_for_comparison.append(codes_as_set)
+            lists_of_codes_for_comparison.append(set(codes_as_df['CODE']))
+            
             # st.write(codes_as_list)
 
         shared_codes = lists_of_codes_for_comparison[0] & lists_of_codes_for_comparison[1]
@@ -179,8 +185,14 @@ if selected_for_comparison:
 
         st.markdown(f'**Comparing {selected_for_comparison[0]} and {selected_for_comparison[1]}**')
         st.write("Shared Codes:")
-        st.write(list(shared_codes))
+        # st.write(list(shared_codes))
+        st.dataframe(full_code_data_for_comparison_display[0].loc
+                    [full_code_data_for_comparison_display[0]['CODE'].isin(list(shared_codes))])
         st.markdown(f"Codes in **{selected_for_comparison[0]}** only:")
-        st.write(list(list_1_only_codes))
+        # st.write(list(list_1_only_codes))
+        st.dataframe(full_code_data_for_comparison_display[0].loc
+                    [full_code_data_for_comparison_display[0]['CODE'].isin(list(list_1_only_codes))])
         st.markdown(f"Codes in **{selected_for_comparison[1]}** only:")    
-        st.write(list(list_2_only_codes))
+        # st.write(list(list_2_only_codes))
+        st.dataframe(full_code_data_for_comparison_display[1].loc
+                    [full_code_data_for_comparison_display[1]['CODE'].isin(list(list_2_only_codes))])
