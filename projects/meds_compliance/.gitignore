@@ -1,3 +1,4 @@
 *.db
 *.yaml
 data/
+*.ipynb
