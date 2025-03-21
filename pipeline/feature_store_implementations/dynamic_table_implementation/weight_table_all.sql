@@ -122,3 +122,4 @@ categorised_data AS (
 )
 SELECT * FROM categorised_data
 where calculated_weight_class <> 'Unknown'
+;
