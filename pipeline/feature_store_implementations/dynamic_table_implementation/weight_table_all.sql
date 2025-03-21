@@ -25,7 +25,6 @@ WITH coded_weight_class AS (
     WHERE pheno.PHENOTYPE_ID IN ('999016011000230101', '999016051000230102', 
     '999016131000230105', '999016091000230107', '999011051000230106', 
     '999020771000230102') -- NHS PCD Refsets for coded weight status (healthy, under, over, and obese classes)
-AND (obs.result_value IS NULL OR obs.result_value BETWEEN 50 AND 150)
 
     UNION ALL
 
@@ -47,7 +46,6 @@ AND (obs.result_value IS NULL OR obs.result_value BETWEEN 50 AND 150)
         ON concept.CODE = pheno.code
     WHERE pheno.PHENOTYPE_ID IN ('999011171000230101') -- BMI coded with associated value NHS PCD refset
     AND obs.result_value IS NOT NULL
-    AND obs.result_value BETWEEN 50 AND 150 
 
     UNION ALL
 
@@ -66,9 +64,9 @@ AND (obs.result_value IS NULL OR obs.result_value BETWEEN 50 AND 150)
             THEN ROUND(w.result_value / POWER((h.result_value / 100), 2),2)  -- Convert cm to meters before squaring
 
             WHEN w.age_at_event >= 18  -- Apply validation only for adults
-                 AND h.result_value_units = 'm'  
+                 AND h.result_value_units = 'm' 
                  AND w.result_value BETWEEN 30 AND 300
-                 AND h.result_value BETWEEN 0.5 AND 2.5
+                 AND h.result_value BETWEEN 0.5 AND 2.5 
             THEN ROUND(w.result_value / POWER(h.result_value, 2),2)  -- Use meters directly
 
             ELSE NULL  
