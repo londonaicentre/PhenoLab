@@ -1,0 +1,119 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+
+
+def preprocess_orders(df):
+    """ Fills missing duration values and generates covered days for each order. """
+    df['days_supply'] = df['calculated_duration'].fillna(df['duration_days']).fillna(0).astype(int)  # Ensures no NaNs
+    print(df.head())
+
+    # Expand covered days
+    df['covered_days'] = df.apply(lambda row: pd.date_range(row['order_date'], periods=row['days_supply']), axis=1)
+    print(df.head())
+    # Explode into individual covered days & reset index
+    return df.explode('covered_days', ignore_index=True)[['person_id', 'drug', 'covered_days']]
+
+def compute_pdc(df, start_date, end_date):
+    """ Computes PDC for a given time window. """
+    total_days = (end_date - start_date).days + 1
+    covered_days = df[(df['covered_days'] >= start_date) & (df['covered_days'] <= end_date)]['covered_days'].nunique()
+    return covered_days / total_days if total_days > 0 else 0
+
+def calculate_moving_pdc(df, window_size='12M', step_size='1M'):
+    """ Calculates moving window PDC for all patients & drugs. """
+    results = []
+    patients_drugs = df[['person_id', 'drug']].drop_duplicates()
+
+    for _, row in patients_drugs.iterrows():
+        patient, drug = row['person_id'], row['drug']
+        subset = df[(df['person_id'] == patient) & (df['drug'] == drug)]
+
+        # Define time range
+        min_date, max_date = subset['covered_days'].min(), subset['covered_days'].max()
+        start_dates = pd.date_range(start=min_date, end=max_date, freq=step_size)
+
+        for start in start_dates:
+            end = start + pd.DateOffset(months=int(window_size[:-1])) - pd.Timedelta(days=1)
+            pdc = compute_pdc(subset, start, end)
+            results.append({'person_id': patient, 'drug': drug, 'start_window': start, 'end_window': end, 'PDC': pdc})
+
+    return pd.DataFrame(results)
+
+
+
+def plot_pdc_trend(df_patient):
+    """
+    Plots PDC over time for a patient, showing each drug's trend on the same graph.
+    Takes only the patient-specific dataframe.
+    """
+    # Get the unique drugs for this patient
+    unique_drugs = df_patient['drug'].unique()
+
+    # Create the plot
+    plt.figure(figsize=(10, 5))
+
+    # Loop through each drug and plot the PDC trend with different colors
+    for idx, drug in enumerate(unique_drugs):
+        drug_pdc = df_patient[df_patient['drug'] == drug]
+        plt.plot(drug_pdc['start_window'], drug_pdc['PDC'], marker='o', linestyle='-', label=drug, color=plt.cm.tab10(idx % 10))  
+
+    # Get the earliest start_date and latest end_date for the patient (across all drugs)
+    overall_start_date = df_patient['start_date'].min()
+    overall_end_date = df_patient['end_date'].max()
+
+    # Add vertical dashed red lines for start and end dates
+    plt.axvline(x=overall_start_date, color='red', linestyle='--', label=f'Start Date: {overall_start_date.date()}')
+    plt.axvline(x=overall_end_date, color='red', linestyle='--', label=f'End Date: {overall_end_date.date()}')
+
+    # Title with drug names
+    drug_names_str = ', '.join(unique_drugs)  
+    plt.title(f'PDC Over Time for Patient {df_patient["person_id"].iloc[0]} - Drugs: {drug_names_str}')
+
+    # Labels and Formatting
+    plt.xlabel('Time (Start Window)')
+    plt.ylabel('Proportion of Days Covered (PDC)')
+    plt.legend(title='Drugs', loc='upper left', bbox_to_anchor=(1,1))
+    plt.xticks(rotation=45)
+    plt.grid(True)
+    plt.show()
+
+def poi_analysis(df, start_poi, end_poi, window_size='12M', step_size='1M'):
+    """
+    Filters the data based on a given Period of Interest (POI) and computes PDC for that period.
+
+    Parameters:
+    - df: The original dataframe containing medication order data.
+    - start_poi: Start date of the period of interest (e.g., '2024-01-01').
+    - end_poi: End date of the period of interest (e.g., '2024-12-31').
+    - window_size: Window size for moving PDC calculation (e.g., '12M').
+    - step_size: Step size for the moving window (e.g., '1M').
+
+    Returns:
+    - pdc_df: DataFrame with moving window PDC calculations, including first and last order dates for each person_drug combination.
+    """
+
+    # Convert start_poi and end_poi to datetime if they are not already
+    start_poi = pd.to_datetime(start_poi)
+    end_poi = pd.to_datetime(end_poi)
+
+    # Step 1: Preprocess the orders to generate 'covered_days'
+    covered_days_df = preprocess_orders(df)
+    print(covered_days_df.head())
+
+    # Step 2: Filter the data based on the POI
+    df_poi = covered_days_df[(covered_days_df['covered_days'] >= start_poi) & (covered_days_df['covered_days'] <= end_poi)]
+
+    # Step 3: Calculate the moving window PDC for the filtered period
+    pdc_df = calculate_moving_pdc(df_poi, window_size=window_size, step_size=step_size)
+
+    # Step 4: Get first and last order dates for each person_drug combo
+    first_last_order_dates = df.groupby(['person_id', 'drug']).agg(
+        start_date=('order_date', 'min'),
+        end_date = ('order_enddate', 'max')
+    ).reset_index()
+
+    # Step 5: Merge first and last order dates with the PDC data
+    pdc_df = pdc_df.merge(first_last_order_dates, on=['person_id', 'drug'], how='left')
+
+    return pdc_df
+
