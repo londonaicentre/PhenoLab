@@ -83,11 +83,12 @@ if selected_codelist != "Select":
     codes_df = get_data_from_snowflake_to_dataframe(snowsesh, codes_query)
 
     if not codes_df.empty:
-        st.write("Selected Codes:")
-        st.write(f"Total codes: {len(codes_df)}")
-        st.write("Phenotype IDs:")
-        st.dataframe(codes_df.loc[:, ["DEFINITION_ID", "CODELIST_VERSION"]].drop_duplicates())
+        st.divider()
+        st.write("Definition details:")
+        st.dataframe(codes_df.loc[:, ["DEFINITION_ID", "CODELIST_VERSION", "VOCABULARY"]].drop_duplicates())
+        st.write("Codes:")
         st.dataframe(codes_df.loc[:, ["CODE", "CODE_DESCRIPTION", "VOCABULARY"]])
+        st.write(f"Total codes: {len(codes_df)}")
     else:
         st.write("No codes found for the selected criteria.")
 
