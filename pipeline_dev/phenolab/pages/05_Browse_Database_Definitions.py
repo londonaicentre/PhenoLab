@@ -14,7 +14,7 @@ st.title("Browse database definitions")
 st.write(
     """
     Explore clinical codes within phenotype definitions. Select a source, phenotype, and
-    codelist to view the included codes.
+    codelist to view the included codes. Start typing to search.
     """
 )
 
@@ -91,14 +91,17 @@ if selected_codelist != "Select":
     else:
         st.write("No codes found for the selected criteria.")
 
+st.divider()
+
 # Second part of the page
-st.title("Definition Comparer")
-st.write("Compare two defintions:")
+st.title("Compare definitions")
+st.write("Choose two definitions to compare:")
 
 _, list_of_all_definitions = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(snowsesh)
 
 selected_for_comparison = st.multiselect(label="Choose two definitions to compare", 
                                         options=list_of_all_definitions,
+                                        label_visibility="collapsed",
                                         max_selections=2)
 if selected_for_comparison:
     if len(selected_for_comparison) <2:
