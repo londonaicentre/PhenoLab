@@ -5,7 +5,7 @@ This script is used to explore clinical codes within phenotype definitions.
 import streamlit as st
 import re
 
-from phenolab_utils import connect_to_snowflake, get_data_from_snowflake_to_dataframe, get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list
+from utils.database_utils import connect_to_snowflake, get_data_from_snowflake_to_dataframe, get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list
 
 # Main page
 snowsesh = connect_to_snowflake()

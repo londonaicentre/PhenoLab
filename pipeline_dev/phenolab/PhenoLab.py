@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="PhenoHub", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="PhenoLab", layout="wide", initial_sidebar_state="expanded")
 
 st.title("PhenoLab: Clinical Definitions and Phenotype Creator")
 
