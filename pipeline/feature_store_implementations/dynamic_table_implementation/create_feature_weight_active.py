@@ -26,16 +26,5 @@ feature_store_manager.add_new_feature(
     feature_format="Binary/categorical",
     sql_select_query_to_generate_feature=query)
 
-# fid = feature_store_manager.get_feature_id_from_table_name('hypertension_v1')
-# print(fid)
 
-# v = feature_store_manager.get_latest_feature_version(fid)
-# print(v)
-
-# v2 = feature_store_manager.update_feature(
-#     feature_id=fid,
-#     new_sql_select_query=query,
-#     change_description="A test update; same query"
-# )
-# print(v2)
 
