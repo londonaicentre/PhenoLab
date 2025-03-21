@@ -9,7 +9,7 @@ if os.path.dirname(os.path.abspath(__file__)) not in sys.path:
     sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from utils.data_utils import Code, Definition, load_definition_from_json
 
-from phenolab_utils import connect_to_snowflake, get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list, get_data_from_snowflake_to_dataframe
+from phenolab_utils import connect_to_snowflake, get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list, get_data_from_snowflake_to_dataframe, return_codes_for_given_definition_id_as_df
 
 # HELPER FUNCTIONS
 
@@ -313,6 +313,13 @@ def display_code_search_panel(code_types: List[str]) -> Tuple[pd.DataFrame, str,
                         else:
                             if code in st.session_state.selected_codes:
                                 st.session_state.selected_codes.remove(code)
+                    elif is_selected and not checkbox_ticked:
+                        code = create_code_from_row(row)
+                        st.session_state.selected_codes.remove(code)
+                        if st.session_state.current_definition:
+                            st.session_state.current_definition.remove_code(code)
+                        st.rerun()
+
         else:
             st.info("No codes found matching the search criteria")
 
@@ -323,7 +330,7 @@ def display_selected_codes():
     """
     Display the selected codes panel (right panel)
     """
-    st.subheader("Selected Codes")
+    st.subheader("Selected codes")
 
     # FIXED CONTAINER
     with st.container(height=210):
@@ -390,29 +397,40 @@ def find_codes_from_existing_phenotypes():
         if chosen_definition:
                 chosen_definition_id = id_list[definitions_list.index(chosen_definition)]
 
-                codes_query = f"""
-                    SELECT DISTINCT
-                        CODE,
-                        CODE_DESCRIPTION,
-                        VOCABULARY,
-                        DEFINITION_ID,
-                        CODELIST_VERSION
-                    FROM INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.DEFINITIONSTORE
-                    WHERE DEFINITION_ID = '{chosen_definition_id}'
-                    ORDER BY VOCABULARY, CODE
-                    """
-                chosen_definition_codes_df = get_data_from_snowflake_to_dataframe(conn, codes_query)
+                chosen_definition_codes_df = return_codes_for_given_definition_id_as_df(conn, chosen_definition_id)
 
-                chosen_definition_codes = [f"{row['CODE_DESCRIPTION']} ({row['VOCABULARY']}) ({row['CODE']})" 
-                                for i, row in chosen_definition_codes_df.iterrows()]
-                
+                # chosen_definition_codes = [f"{row['CODE_DESCRIPTION']} ({row['VOCABULARY']}) ({row['CODE']})" 
+                #                 for i, row in chosen_definition_codes_df.iterrows()]
 
-                for idx, code in enumerate(chosen_definition_codes):
+                for idx, row in chosen_definition_codes_df.iterrows():
+                    code = create_code_from_row(row)
                     with col2a:
-                        st.write(code)
+                        # st.write(code)
+                        st.text(f"{row['CODE_DESCRIPTION']} ({row['VOCABULARY']}) ({row['CODE']})")
                     with col2b:
-                        checkbox_ticked = st.checkbox("Any", key=idx, label_visibility="collapsed")
-    
+                        is_selected = any(
+                            c.code == row["CODE"] and c.vocabulary == row["VOCABULARY"]
+                            for c in st.session_state.selected_codes
+                        )   
+
+                        checkbox_ticked = st.checkbox("Any", key=idx, value=is_selected, label_visibility="collapsed")
+                    
+                        if not is_selected:
+                            if checkbox_ticked:
+                                st.session_state.selected_codes.append(code)
+                                if st.session_state.current_definition:
+                                    st.session_state.current_definition.add_code(code)
+                                st.rerun()
+                            else:
+                                if code in st.session_state.selected_codes:
+                                    st.session_state.selected_codes.remove(code)
+                        elif is_selected and not checkbox_ticked:
+                            code = create_code_from_row(row)
+                            st.session_state.selected_codes.remove(code)
+                            if st.session_state.current_definition:
+                                st.session_state.current_definition.remove_code(code)
+                            st.rerun()
+        
 def main():
     st.set_page_config(page_title="Create a new definition", layout="wide")
     st.title("Create a new definition")
