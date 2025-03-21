@@ -4,8 +4,6 @@ import sys
 import streamlit as st
 from dotenv import load_dotenv
 
-if os.path.dirname(os.path.abspath(__file__)) not in sys.path:
-    sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from utils.phenotype import ComparisonOperator, ConditionType, Phenotype, load_phenotype_from_json
 
 from phmlondon.snow_utils import SnowflakeConnection
@@ -396,8 +394,8 @@ def display_panel_5_expression_builder():
                 st.error(f"Cannot save: {message}")
 
 def main():
-    st.set_page_config(page_title="Phenotype Builder", layout="wide")
-    st.title("Phenotype Builder")
+    st.set_page_config(page_title="Build A Phenotype", layout="wide")
+    st.title("Build a phenotype")
 
     if "current_phenotype" not in st.session_state:
         st.session_state.current_phenotype = None
