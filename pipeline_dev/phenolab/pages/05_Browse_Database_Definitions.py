@@ -10,7 +10,7 @@ from utils.database_utils import connect_to_snowflake, get_data_from_snowflake_t
 # Main page
 snowsesh = connect_to_snowflake()
 
-st.title("Phenotype Code Explorer")
+st.title("Browse database definitions")
 st.write(
     """
     Explore clinical codes within phenotype definitions. Select a source, phenotype, and

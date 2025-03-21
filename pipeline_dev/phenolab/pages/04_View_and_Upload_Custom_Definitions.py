@@ -153,8 +153,8 @@ def upload_definitions_to_snowflake():
 
 
 def main():
-    st.set_page_config(page_title="Definition Uploader", layout="wide")
-    st.title("Definition Uploader")
+    st.set_page_config(page_title="View and upload custom definitions", layout="wide")
+    st.title("View and upload custom definitions")
     st.markdown("Note: This page will upload all definitions to `AI_CENTRE_DEFINITION_LIBRARY.AIC_DEFINITIONS`.")
     st.markdown("Current default behaviour is to overwrite")
 
