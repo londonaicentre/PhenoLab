@@ -36,3 +36,18 @@ def get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(_se
 
     return comparison_definitions['DEFINITION_ID'].to_list(), [f"[{row['DEFINITION_SOURCE']}] [{row['DEFINITION_ID']}] {row['DEFINITION_NAME']}" 
                                 for i, row in comparison_definitions.iterrows()]
+
+@st.cache_data(show_spinner='Searching for codes for this definition...')
+def return_codes_for_given_definition_id_as_df(_conn: SnowflakeConnection, chosen_definition_id: str) -> pd.DataFrame:
+    codes_query = f"""
+        SELECT DISTINCT
+            CODE,
+            CODE_DESCRIPTION,
+            VOCABULARY,
+            DEFINITION_ID,
+            CODELIST_VERSION
+        FROM INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.DEFINITIONSTORE
+        WHERE DEFINITION_ID = '{chosen_definition_id}'
+        ORDER BY VOCABULARY, CODE
+        """
+    return get_data_from_snowflake_to_dataframe(_conn, codes_query)
