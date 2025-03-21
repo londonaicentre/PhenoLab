@@ -27,7 +27,6 @@ WITH coded_weight_class AS (
     WHERE pheno.PHENOTYPE_ID IN ('999016011000230101', '999016051000230102', 
     '999016131000230105', '999016091000230107', '999011051000230106', 
     '999020771000230102') -- NHS PCD Refsets for coded weight status (healthy, under, over, and obese classes)
-AND (obs.result_value IS NULL OR obs.result_value BETWEEN 50 AND 150)
 
     UNION ALL
 
@@ -49,7 +48,6 @@ AND (obs.result_value IS NULL OR obs.result_value BETWEEN 50 AND 150)
         ON concept.CODE = pheno.code
     WHERE pheno.PHENOTYPE_ID IN ('999011171000230101') -- BMI coded with associated value NHS PCD refset
     AND obs.result_value IS NOT NULL
-    AND obs.result_value BETWEEN 50 AND 150 
 
     UNION ALL
 
