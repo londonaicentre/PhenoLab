@@ -3,33 +3,9 @@ This script is used to explore clinical codes within phenotype definitions.
 """
 
 import streamlit as st
-from dotenv import load_dotenv
-
 import re
 
-import pandas as pd
-from phmlondon.snow_utils import SnowflakeConnection
-
-@st.cache_resource(show_spinner='Connecting to Snowflake...')
-def connect_to_snowflake() -> SnowflakeConnection:
-    load_dotenv()
-
-    if "snowsesh" not in st.session_state:
-        st.session_state.snowsesh = SnowflakeConnection()
-        st.session_state.snowsesh.use_database("INTELLIGENCE_DEV")
-        st.session_state.snowsesh.use_schema("AI_CENTRE_DEFINITION_LIBRARY")
-
-    snowsesh = st.session_state.snowsesh
-    return snowsesh
-
-@st.cache_data(show_spinner='Reading from database...')
-def get_data_from_snowflake_to_dataframe(_session: SnowflakeConnection, query: str) -> pd.DataFrame:
-    return _session.execute_query_to_df(query)
-
-@st.cache_data
-def get_data_from_snowflake_to_list(_session: SnowflakeConnection, query: str) -> list:
-    return _session.session.sql(query).collect()
-
+from phenolab_utils import connect_to_snowflake, get_data_from_snowflake_to_dataframe, get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list
 
 # Main page
 snowsesh = connect_to_snowflake()
@@ -118,16 +94,8 @@ if selected_codelist != "Select":
 # Second part of the page
 st.title("Definition Comparer")
 st.write("Compare two defintions:")
-comparison_query = f"""
-SELECT DISTINCT DEFINITION_SOURCE, DEFINITION_ID, DEFINITION_NAME
-FROM INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.DEFINITIONSTORE
-ORDER BY DEFINITION_NAME
-"""
-# comparison_defintions = snowsesh.execute_query_to_df(comparison_query)
-comparison_defintions = get_data_from_snowflake_to_dataframe(snowsesh, comparison_query)
 
-list_of_all_definitions = [f"[{row['DEFINITION_SOURCE']}] [{row['DEFINITION_ID']}] {row['DEFINITION_NAME']}" 
-                            for i, row in comparison_defintions.iterrows()]
+_, list_of_all_definitions = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(snowsesh)
 
 selected_for_comparison = st.multiselect(label="Choose two definitions to compare", 
                                         options=list_of_all_definitions,

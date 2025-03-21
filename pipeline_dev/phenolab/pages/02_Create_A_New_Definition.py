@@ -9,6 +9,8 @@ if os.path.dirname(os.path.abspath(__file__)) not in sys.path:
     sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from utils.data_utils import Code, Definition, load_definition_from_json
 
+from phenolab_utils import connect_to_snowflake, get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list, get_data_from_snowflake_to_dataframe
+
 # HELPER FUNCTIONS
 
 def load_definitions_list() -> List[str]:
@@ -370,6 +372,47 @@ def display_selected_codes():
         elif st.session_state.current_definition:
             st.info("No codes selected. Find and add codes with the search panel.")
 
+def find_codes_from_existing_phenotypes():
+    """
+    Find codes from existing definitions
+    """
+    st.subheader("Find codes from existing definitions")
+
+    # FIXED CONTAINER
+    with st.container(height=100):
+        conn = connect_to_snowflake()
+        id_list, definitions_list = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(conn)
+        chosen_definition = st.selectbox(label="Choose an existing definition (start typing to search)", options=definitions_list)
+
+    # CONTAINER
+    with st.container(height=450):
+        col2a, col2b = st.columns([9, 1])
+        if chosen_definition:
+                chosen_definition_id = id_list[definitions_list.index(chosen_definition)]
+
+                codes_query = f"""
+                    SELECT DISTINCT
+                        CODE,
+                        CODE_DESCRIPTION,
+                        VOCABULARY,
+                        DEFINITION_ID,
+                        CODELIST_VERSION
+                    FROM INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.DEFINITIONSTORE
+                    WHERE DEFINITION_ID = '{chosen_definition_id}'
+                    ORDER BY VOCABULARY, CODE
+                    """
+                chosen_definition_codes_df = get_data_from_snowflake_to_dataframe(conn, codes_query)
+
+                chosen_definition_codes = [f"{row['CODE_DESCRIPTION']} ({row['VOCABULARY']}) ({row['CODE']})" 
+                                for i, row in chosen_definition_codes_df.iterrows()]
+                
+
+                for idx, code in enumerate(chosen_definition_codes):
+                    with col2a:
+                        st.write(code)
+                    with col2b:
+                        checkbox_ticked = st.checkbox("Any", key=idx, label_visibility="collapsed")
+    
 def main():
     st.set_page_config(page_title="Create a new definition", layout="wide")
     st.title("Create a new definition")
@@ -406,5 +449,9 @@ def main():
     with col2:
         # selected codes
         display_selected_codes()
+
+    # 5. find codes from existing defintions
+    with col1:
+        find_codes_from_existing_phenotypes()
 
 main()
