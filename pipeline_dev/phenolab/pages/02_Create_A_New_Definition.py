@@ -337,8 +337,11 @@ def display_selected_codes():
         # current definition information
         if st.session_state.current_definition:
             definition = st.session_state.current_definition
-            st.write(f"Definition: **{definition.definition_name}**")
-            st.caption(f"ID: {definition.definition_id}")
+            col2c, col2d = st.columns([3, 1])
+            with col2c:
+                st.write(f"Definition: **{definition.definition_name}**")
+            with col2d:
+                st.caption(f"ID: {definition.definition_id}")
 
             # component: save button
             if st.button("Save Definition"):
@@ -351,7 +354,7 @@ def display_selected_codes():
             st.info("Create a definition first.")
 
     # SCROLLING CONTAINER
-    with st.container(height=450):
+    with st.container(height=1090):
         if st.session_state.selected_codes:
             # grouping by vocab (i.e. codelist)
             codes_by_vocab = {}
@@ -393,7 +396,6 @@ def find_codes_from_existing_phenotypes():
 
     # CONTAINER
     with st.container(height=450):
-        col2a, col2b = st.columns([9, 1])
         if chosen_definition:
                 chosen_definition_id = id_list[definitions_list.index(chosen_definition)]
 
@@ -403,6 +405,7 @@ def find_codes_from_existing_phenotypes():
                 #                 for i, row in chosen_definition_codes_df.iterrows()]
 
                 for idx, row in chosen_definition_codes_df.iterrows():
+                    col2a, col2b = st.columns([9, 1])
                     code = create_code_from_row(row)
                     with col2a:
                         # st.write(code)
