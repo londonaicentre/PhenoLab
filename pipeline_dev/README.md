@@ -1,1 +1,0 @@
-This folder contains pipeline code in development and/or testing.
