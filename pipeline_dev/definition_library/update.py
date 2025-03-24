@@ -12,6 +12,7 @@ from loaders.load_bsa_bnf import main as load_bsa_bnf
 from loaders.load_hdruk import main as load_hdruk
 from loaders.load_nel_segments import main as load_nel
 from loaders.load_nhs_gp_snomed import main as load_snomed
+from loaders.load_open_codelists import main as load_open_codelists
 
 from phmlondon.snow_utils import SnowflakeConnection
 
@@ -38,7 +39,11 @@ LOADER_CONFIG = {
     },
     'aicentre': {
         'table': 'AIC_DEFINITIONS'
-    }
+    },
+    'opencodelists': {
+        'func': load_open_codelists,
+        'table': 'OPEN_CODELISTS'
+    },
 }
 
 
@@ -86,7 +91,6 @@ def run_loaders(loader_flags: Dict[str, bool]):
         loader_flags: dictionary of loader names + flags
     """
     load_dotenv()
-
     snowsesh = SnowflakeConnection()
     snowsesh.use_database("INTELLIGENCE_DEV")
     snowsesh.execute_query("CREATE SCHEMA IF NOT EXISTS AI_CENTRE_DEFINITION_LIBRARY")

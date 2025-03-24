@@ -9,8 +9,6 @@ import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
 
-if os.path.dirname(os.path.abspath(__file__)) not in sys.path:
-    sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from utils.data_utils import load_definition_from_json
 
 from phmlondon.snow_utils import SnowflakeConnection

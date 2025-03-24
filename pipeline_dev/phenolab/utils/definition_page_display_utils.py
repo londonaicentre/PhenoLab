@@ -177,59 +177,6 @@ def create_code_from_row(row: pd.Series) -> Code:
 
 # STREAMLIT FUNCTIONS
 
-def display_definition_panel() -> str:
-    """
-    Display top panel
-    Compoents for existing definition selection, and new definition creation
-    Returns:
-        str:
-            New definition name
-    """
-    st.subheader("Enter definition name:")
-    col1, col2 = st.columns([2, 1])
-
-    # # components: existing definition selector
-    # with col1:
-    #     definitions_list = load_definitions_list()
-    #     selected_definition_file = st.selectbox(
-    #         "Custom definition list",
-    #         options=definitions_list,
-    #         index=0 if definitions_list else None,
-    #     )
-    #     # component: edit button
-    #     if selected_definition_file and st.button("Edit definition"):
-    #         with st.spinner("Loading definition..."):
-    #             file_path = os.path.join("data/definitions", selected_definition_file)
-    #             definition = load_definition(file_path)
-    #             if definition:
-    #                 st.session_state.current_definition = definition
-    #                 st.success(f"Loaded definition: {definition.definition_name}")
-
-    #                 # load definition codes into the session state for tracking
-    #                 st.session_state.selected_codes = []
-    #                 for codelist in definition.codelists.values():
-    #                     for code in codelist.codes:
-    #                         st.session_state.selected_codes.append(code)
-
-    # new definition name input
-    with col1:
-        new_definition_name = st.text_input("New definition name", label_visibility="collapsed")
-
-    # component: new definition button
-    with col2:
-        if st.button("Create definition") and new_definition_name:
-            st.session_state.current_definition = Definition(
-                definition_name=new_definition_name
-            )
-            st.session_state.selected_codes = []
-            with col1:
-                st.success(f"Created new definition: {new_definition_name}")
-
-    st.markdown("---")
-
-    return new_definition_name
-
-
 def display_code_search_panel(code_types: List[str]) -> Tuple[pd.DataFrame, str, str]:
     st.subheader("Find codes via search")
 

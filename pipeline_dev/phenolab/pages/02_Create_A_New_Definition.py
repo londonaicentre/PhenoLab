@@ -5,9 +5,6 @@ import streamlit as st
 from utils.data_utils import Definition
 from utils.definition_page_display_utils import display_code_search_panel, display_selected_codes, find_codes_from_existing_phenotypes
 
-if os.path.dirname(os.path.abspath(__file__)) not in sys.path:
-    sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-
 def display_definition_panel() -> str:
     """
     Display top panel

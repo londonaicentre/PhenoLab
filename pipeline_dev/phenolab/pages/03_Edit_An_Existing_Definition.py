@@ -3,8 +3,6 @@ import sys
 
 import streamlit as st
 
-if os.path.dirname(os.path.abspath(__file__)) not in sys.path:
-    sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from utils.definition_page_display_utils import load_definitions_list, load_definition, display_code_search_panel, display_selected_codes, find_codes_from_existing_phenotypes
 
 def display_definition_panel() -> str:
