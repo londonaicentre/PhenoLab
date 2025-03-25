@@ -1,0 +1,27 @@
+{
+  "definition_id": "61e0cf62",
+  "definition_name": "haemoglobin_gp",
+  "definition_version": "haemoglobin_gp_20250325_112501",
+  "definition_source": "AICENTRE",
+  "created_datetime": "2025-03-25T11:22:51.281487",
+  "updated_datetime": "2025-03-25T11:25:01.559285",
+  "codelists": [
+    {
+      "codelist_id": "9c611955",
+      "codelist_name": "haemoglobin_gp_SNOMED",
+      "codelist_version": "haemoglobin_gp_SNOMED_20250325_112501",
+      "codes": [
+        {
+          "code": "1022431000000105",
+          "code_description": "Haemoglobin estimation (observable entity)",
+          "vocabulary": "SNOMED"
+        },
+        {
+          "code": "275806002",
+          "code_description": "Hb estimation (procedure)",
+          "vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}
