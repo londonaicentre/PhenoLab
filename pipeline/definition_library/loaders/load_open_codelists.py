@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 from loaders.base.scrape_open_codelists import return_version_id_from_open_codelist_url
 
 from loaders.base.load_tables import load_definitions_to_snowflake
-from loaders.base.definition import Definition
+from phmlondon.definition import Definition
 from phmlondon.snow_utils import SnowflakeConnection
 
 definitions_to_load = {
