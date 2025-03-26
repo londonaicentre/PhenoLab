@@ -27,6 +27,7 @@ class ConditionType(str, Enum):
         HAS_DEFINITION indicates a simple inclusion criteria based on codelists
         MEASUREMENT indicates comparison against a threshold
     """
+
     HAS_DEFINITION = "HAS"
     MEASUREMENT = "MEASURE"
 
@@ -35,6 +36,7 @@ class LogicalOperator(str, Enum):
     """
     Logical operators for phenotype expressions
     """
+
     AND = "AND"
     OR = "OR"
     NOT = "NOT"
@@ -44,6 +46,7 @@ class ComparisonOperator(str, Enum):
     """
     Comparison operators for measurement conditions
     """
+
     GREATER_THAN = ">"
     LESS_THAN = "<"
     EQUAL_TO = "="
@@ -60,6 +63,7 @@ class ConditionBlock:
     Each condition is either a simple HAS_DEFINITION, or is a MEASUREMENT.
     Blocks are joined together by LogicalOperators.
     """
+
     label: str  # e.g., "A", "B", "C"
     definition_id: str
     definition_name: str
@@ -89,7 +93,7 @@ class ConditionBlock:
         return result
 
     @classmethod
-    def from_dict(cls, data: dict) -> 'ConditionBlock':
+    def from_dict(cls, data: dict) -> "ConditionBlock":
         """
         Create a ConditionBlock from a dict
         """
@@ -101,7 +105,7 @@ class ConditionBlock:
             condition_type=data["condition_type"],
             comparison_operator=data.get("comparison_operator"),
             threshold_value=data.get("threshold_value"),
-            threshold_unit=data.get("threshold_unit")
+            threshold_unit=data.get("threshold_unit"),
         )
 
     def to_dsl_description(self) -> str:
@@ -120,6 +124,7 @@ class Phenotype:
     """
     Represents a phenotype composed of ConditionBlocks and LogicalOperators
     """
+
     phenotype_name: str
     description: str
     condition_blocks: Dict[str, ConditionBlock] = field(default_factory=dict)
@@ -163,12 +168,16 @@ class Phenotype:
         """
         self._modified = True
 
-    def add_condition_block(self, definition_id: str, definition_name: str,
-                        definition_source: str,
-                        condition_type: ConditionType,
-                        comparison_operator: Optional[ComparisonOperator] = None,
-                        threshold_value: Optional[float] = None,
-                        threshold_unit: Optional[str] = None) -> str:
+    def add_condition_block(
+        self,
+        definition_id: str,
+        definition_name: str,
+        definition_source: str,
+        condition_type: ConditionType,
+        comparison_operator: Optional[ComparisonOperator] = None,
+        threshold_value: Optional[float] = None,
+        threshold_unit: Optional[str] = None,
+    ) -> str:
         """
         Add a new condition block to the phenotype
 
@@ -208,7 +217,7 @@ class Phenotype:
             condition_type=condition_type,
             comparison_operator=comparison_operator,
             threshold_value=threshold_value,
-            threshold_unit=threshold_unit
+            threshold_unit=threshold_unit,
         )
 
         # add to condition blocks
@@ -234,7 +243,7 @@ class Phenotype:
         """
         Update the logical expression for this phenotype
         """
-        self.expression = expression # DSL expression (e.g., "(A AND B) OR C")
+        self.expression = expression  # DSL expression (e.g., "(A AND B) OR C")
         self.mark_modified()
 
     def validate_expression(self) -> Tuple[bool, str]:
@@ -251,7 +260,7 @@ class Phenotype:
 
         # 1. Labels in DSL must equal labels of condition blocks
         valid_labels = set(self.condition_blocks.keys())
-        used_labels = set(re.findall(r'\b[A-Z]\b', self.expression))
+        used_labels = set(re.findall(r"\b[A-Z]\b", self.expression))
 
         invalid_labels = used_labels - valid_labels
         if invalid_labels:
@@ -262,7 +271,7 @@ class Phenotype:
             return False, f"Unused condition blocks: {', '.join(unused_labels)}"
 
         # 2. Check for valid operators (AND, OR, NOT)
-        operators = re.findall(r'\b(AND|OR|NOT)\b', self.expression)
+        operators = re.findall(r"\b(AND|OR|NOT)\b", self.expression)
         for op in operators:
             if op not in [o.value for o in LogicalOperator]:
                 return False, f"Invalid operator in expression: {op}"
@@ -279,9 +288,9 @@ class Phenotype:
         """
         stack = []
         for char in expression:
-            if char == '(':
+            if char == "(":
                 stack.append(char)
-            elif char == ')':
+            elif char == ")":
                 if not stack:
                     return False
                 stack.pop()
@@ -297,7 +306,7 @@ class Phenotype:
 
         expanded = self.expression
         for label, block in self.condition_blocks.items():
-            expanded = re.sub(r'\b' + label + r'\b', f"[{block.to_dsl_description()}]", expanded)
+            expanded = re.sub(r"\b" + label + r"\b", f"[{block.to_dsl_description()}]", expanded)
 
         return expanded
 
@@ -312,9 +321,7 @@ class Phenotype:
             "description": self.description,
             "created_datetime": self.created_datetime,
             "updated_datetime": self.updated_datetime,
-            "condition_blocks": {
-                label: block.to_dict() for label, block in self.condition_blocks.items()
-            },
+            "condition_blocks": {label: block.to_dict() for label, block in self.condition_blocks.items()},
             "expression": self.expression,
         }
 
@@ -345,6 +352,7 @@ class Phenotype:
 
         return filepath
 
+
 def phenotype_from_dict(data: dict) -> Phenotype:
     """
     Create a Phenotype object from a dictionary
@@ -357,7 +365,7 @@ def phenotype_from_dict(data: dict) -> Phenotype:
         phenotype_id=data.get("phenotype_id"),
         phenotype_version=data.get("phenotype_version"),
         expression=data.get("expression", ""),
-        _modified=False  # fresh load
+        _modified=False,  # fresh load
     )
 
     # load in condition blocks

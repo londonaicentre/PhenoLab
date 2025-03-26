@@ -1,8 +1,14 @@
 import os
 
 import streamlit as st
+from utils.definition_page_display_utils import (
+    display_code_search_panel,
+    display_selected_codes,
+    find_codes_from_existing_phenotypes,
+    load_definition,
+    load_definitions_list,
+)
 
-from utils.definition_page_display_utils import load_definitions_list, load_definition, display_code_search_panel, display_selected_codes, find_codes_from_existing_phenotypes
 
 def display_definition_panel() -> str:
     """
@@ -42,6 +48,7 @@ def display_definition_panel() -> str:
                             st.session_state.selected_codes.append(code)
 
     st.markdown("---")
+
 
 def main():
     st.set_page_config(page_title="Edit an existing definition", layout="wide")
@@ -83,6 +90,7 @@ def main():
     # 5. find codes from existing defintions
     with col1:
         find_codes_from_existing_phenotypes()
+
 
 if __name__ == "__main__":
     main()

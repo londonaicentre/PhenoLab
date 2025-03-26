@@ -2,10 +2,14 @@
 This script is used to explore clinical codes within phenotype definitions.
 """
 
-import streamlit as st
 import re
 
-from utils.database_utils import connect_to_snowflake, get_data_from_snowflake_to_dataframe, get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list
+import streamlit as st
+from utils.database_utils import (
+    connect_to_snowflake,
+    get_data_from_snowflake_to_dataframe,
+    get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list,
+)
 
 # Main page
 snowsesh = connect_to_snowflake()
@@ -100,20 +104,21 @@ st.write("Choose two definitions to compare:")
 
 _, list_of_all_definitions = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(snowsesh)
 
-selected_for_comparison = st.multiselect(label="Choose two definitions to compare", 
-                                        options=list_of_all_definitions,
-                                        label_visibility="collapsed",
-                                        max_selections=2)
+selected_for_comparison = st.multiselect(
+    label="Choose two definitions to compare",
+    options=list_of_all_definitions,
+    label_visibility="collapsed",
+    max_selections=2,
+)
 if selected_for_comparison:
-    if len(selected_for_comparison) <2:
+    if len(selected_for_comparison) < 2:
         st.write("Please select two definitions to compare")
-    elif len(selected_for_comparison) >2:
+    elif len(selected_for_comparison) > 2:
         st.write("Please select a maximum of two definitions to compare")
     elif len(selected_for_comparison) == 2:
         print(selected_for_comparison)
 
-        definition_ids = [re.match(r"\[[^\]]+\] \[([^\]]+)\]", selected_for_comparison[i]).group(1) 
-                        for i in range(2)]
+        definition_ids = [re.match(r"\[[^\]]+\] \[([^\]]+)\]", selected_for_comparison[i]).group(1) for i in range(2)]
         print(definition_ids)
 
         lists_of_codes_for_comparison = []
@@ -148,24 +153,33 @@ if selected_for_comparison:
             # print(codes_as_list)
             # codes_as_set = set(codes_as_list)
             # lists_of_codes_for_comparison.append(codes_as_set)
-            lists_of_codes_for_comparison.append(set(codes_as_df['CODE']))
-            
+            lists_of_codes_for_comparison.append(set(codes_as_df["CODE"]))
+
             # st.write(codes_as_list)
 
         shared_codes = lists_of_codes_for_comparison[0] & lists_of_codes_for_comparison[1]
         list_1_only_codes = lists_of_codes_for_comparison[0] - lists_of_codes_for_comparison[1]
         list_2_only_codes = lists_of_codes_for_comparison[1] - lists_of_codes_for_comparison[0]
 
-        st.markdown(f'**Comparing {selected_for_comparison[0]} and {selected_for_comparison[1]}**')
+        st.markdown(f"**Comparing {selected_for_comparison[0]} and {selected_for_comparison[1]}**")
         st.write("Shared Codes:")
         # st.write(list(shared_codes))
-        st.dataframe(full_code_data_for_comparison_display[0].loc
-                    [full_code_data_for_comparison_display[0]['CODE'].isin(list(shared_codes))])
+        st.dataframe(
+            full_code_data_for_comparison_display[0].loc[
+                full_code_data_for_comparison_display[0]["CODE"].isin(list(shared_codes))
+            ]
+        )
         st.markdown(f"Codes in **{selected_for_comparison[0]}** only:")
         # st.write(list(list_1_only_codes))
-        st.dataframe(full_code_data_for_comparison_display[0].loc
-                    [full_code_data_for_comparison_display[0]['CODE'].isin(list(list_1_only_codes))])
-        st.markdown(f"Codes in **{selected_for_comparison[1]}** only:")    
+        st.dataframe(
+            full_code_data_for_comparison_display[0].loc[
+                full_code_data_for_comparison_display[0]["CODE"].isin(list(list_1_only_codes))
+            ]
+        )
+        st.markdown(f"Codes in **{selected_for_comparison[1]}** only:")
         # st.write(list(list_2_only_codes))
-        st.dataframe(full_code_data_for_comparison_display[1].loc
-                    [full_code_data_for_comparison_display[1]['CODE'].isin(list(list_2_only_codes))])
+        st.dataframe(
+            full_code_data_for_comparison_display[1].loc[
+                full_code_data_for_comparison_display[1]["CODE"].isin(list(list_2_only_codes))
+            ]
+        )

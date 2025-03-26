@@ -20,6 +20,7 @@ def load_vocab_list(file_path):
         st.error(f"Unable to load vocabulary: {e}")
         raise e
 
+
 def generate_vocab_list():
     """
     Generate a new vocabulary from multiple data sources:
@@ -81,29 +82,31 @@ def generate_vocab_list():
         try:
             athena_codes_path = "data/athena/2025_ICD10_OPCS4.parquet"
             athena_df = pd.read_parquet(athena_codes_path)
-            athena_df = athena_df[athena_df['valid_end_date'] == 20991231]
+            athena_df = athena_df[athena_df["valid_end_date"] == 20991231]
 
-            reference_df = pd.DataFrame({
-                'CODE': athena_df['concept_code'],
-                'CODE_DESCRIPTION': athena_df['concept_name'],
-                'CODE_COUNT': 1,  # reference codes
-                'VOCABULARY': athena_df['vocabulary_id'],
-                'CODE_TYPE': 'REFERENCE_ICD10_OPCS4',
-                # reference codes
-                'LQ_VALUE': None,
-                'MEDIAN_VALUE': None,
-                'UQ_VALUE': None,
-                'PERCENT_HAS_RESULT_VALUE': None,
-                'RESULT_UNITS_ARRAY': None,
-                'LQ_AGE': None,
-                'MEDIAN_AGE': None,
-                'UQ_AGE': None,
-                'PCT_2015_2016': None,
-                'PCT_2017_2018': None,
-                'PCT_2019_2020': None,
-                'PCT_2021_2022': None,
-                'PCT_2023_2024': None
-            })
+            reference_df = pd.DataFrame(
+                {
+                    "CODE": athena_df["concept_code"],
+                    "CODE_DESCRIPTION": athena_df["concept_name"],
+                    "CODE_COUNT": 1,  # reference codes
+                    "VOCABULARY": athena_df["vocabulary_id"],
+                    "CODE_TYPE": "REFERENCE_ICD10_OPCS4",
+                    # reference codes
+                    "LQ_VALUE": None,
+                    "MEDIAN_VALUE": None,
+                    "UQ_VALUE": None,
+                    "PERCENT_HAS_RESULT_VALUE": None,
+                    "RESULT_UNITS_ARRAY": None,
+                    "LQ_AGE": None,
+                    "MEDIAN_AGE": None,
+                    "UQ_AGE": None,
+                    "PCT_2015_2016": None,
+                    "PCT_2017_2018": None,
+                    "PCT_2019_2020": None,
+                    "PCT_2021_2022": None,
+                    "PCT_2023_2024": None,
+                }
+            )
             concept_dfs.append(reference_df)
             status_placeholder.success(f"Loaded {len(reference_df)} reference ICD10/OPCS4 codes")
         except Exception as e:
@@ -114,24 +117,26 @@ def generate_vocab_list():
         combined_df = pd.concat(concept_dfs, ignore_index=True)
 
         # 7. Validate
-        required_columns = ['CODE',
-                            'CODE_DESCRIPTION',
-                            'CODE_COUNT',
-                            'VOCABULARY',
-                            'CODE_TYPE',
-                            'LQ_VALUE',
-                            'MEDIAN_VALUE',
-                            'UQ_VALUE',
-                            'PERCENT_HAS_RESULT_VALUE',
-                            'RESULT_UNITS_ARRAY',
-                            'LQ_AGE',
-                            'MEDIAN_AGE',
-                            'UQ_AGE',
-                            'PCT_2015_2016',
-                            'PCT_2017_2018',
-                            'PCT_2019_2020',
-                            'PCT_2021_2022',
-                            'PCT_2023_2024']
+        required_columns = [
+            "CODE",
+            "CODE_DESCRIPTION",
+            "CODE_COUNT",
+            "VOCABULARY",
+            "CODE_TYPE",
+            "LQ_VALUE",
+            "MEDIAN_VALUE",
+            "UQ_VALUE",
+            "PERCENT_HAS_RESULT_VALUE",
+            "RESULT_UNITS_ARRAY",
+            "LQ_AGE",
+            "MEDIAN_AGE",
+            "UQ_AGE",
+            "PCT_2015_2016",
+            "PCT_2017_2018",
+            "PCT_2019_2020",
+            "PCT_2021_2022",
+            "PCT_2023_2024",
+        ]
         for col in required_columns:
             if col not in combined_df.columns:
                 status_placeholder.error(f"Missing required column: {col}")
@@ -151,6 +156,7 @@ def generate_vocab_list():
     except Exception as e:
         st.error(f"Unable to generate vocabulary: {e}")
         raise e
+
 
 def main():
     st.set_page_config(page_title="Load or Generate Vocabulary", layout="wide")
@@ -196,9 +202,7 @@ def main():
                 try:
                     df, file_path = generate_vocab_list()
                     st.session_state.codes = df
-                    st.success(
-                        f"Generated new vocabulary and saved to {os.path.basename(file_path)}"
-                    )
+                    st.success(f"Generated new vocabulary and saved to {os.path.basename(file_path)}")
                 except Exception as e:
                     st.error(f"Failed to generate vocabulary: {e}")
 

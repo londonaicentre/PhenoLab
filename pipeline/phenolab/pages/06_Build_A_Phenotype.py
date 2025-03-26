@@ -1,14 +1,13 @@
 import os
-import sys
 
 import streamlit as st
 from dotenv import load_dotenv
-
 from utils.phenotype import ComparisonOperator, ConditionType, Phenotype, load_phenotype_from_json
 
 from phmlondon.snow_utils import SnowflakeConnection
 
 load_dotenv()
+
 
 def load_phenotypes_list():
     """
@@ -23,6 +22,7 @@ def load_phenotypes_list():
 
     return phenotypes_list
 
+
 def load_phenotype(file_path):
     """
     Load phenotype from json file
@@ -33,6 +33,7 @@ def load_phenotype(file_path):
     except Exception as e:
         st.error(f"Unable to load phenotype: {e}")
         return None
+
 
 def query_definition_store(snowsesh, search_term, source_system):
     """
@@ -72,6 +73,7 @@ def query_definition_store(snowsesh, search_term, source_system):
         st.error(f"Error querying DEFINITIONSTORE: {e}")
         return None
 
+
 def display_panel_1_phenotype_management():
     """
     Panel 1: Phenotype creation and selection
@@ -94,7 +96,7 @@ def display_panel_1_phenotype_management():
             "Select existing phenotype",
             options=phenotypes_list,
             index=0 if phenotypes_list else None,
-            key="phenotype_selector"
+            key="phenotype_selector",
         )
 
         if selected_phenotype_file and st.button("Edit phenotype"):
@@ -114,11 +116,11 @@ def display_panel_1_phenotype_management():
         new_phenotype_desc = st.text_input("Description")
         if new_phenotype_name and st.button("Create new phenotype"):
             st.session_state.current_phenotype = Phenotype(
-                phenotype_name=new_phenotype_name,
-                description=new_phenotype_desc
+                phenotype_name=new_phenotype_name, description=new_phenotype_desc
             )
             st.success(f"Created new phenotype: {new_phenotype_name}")
             st.rerun()
+
 
 def display_panel_2_definition_selection():
     """
@@ -161,10 +163,7 @@ def display_panel_2_definition_selection():
             st.session_state.source_systems = ["All"]
 
     # filter controls
-    source_system = st.selectbox(
-        "Source system",
-        options=st.session_state.source_systems
-    )
+    source_system = st.selectbox("Source system", options=st.session_state.source_systems)
 
     search_term = st.text_input("Search definitions")
 
@@ -187,7 +186,9 @@ def display_panel_2_definition_selection():
 
                 with col1:
                     st.write(f"**{row['DEFINITION_NAME']}**")
-                    st.caption(f"ID: {row['DEFINITION_ID']} | Source: {row['DEFINITION_SOURCE']} | Codes: {row['CODE_COUNT']}")
+                    st.caption(
+                        f"ID: {row['DEFINITION_ID']} | Source: {row['DEFINITION_SOURCE']} | Codes: {row['CODE_COUNT']}"
+                    )
 
                 with col2:
                     # form to configure condition
@@ -195,9 +196,10 @@ def display_panel_2_definition_selection():
                         st.session_state.selected_definition = {
                             "id": row["DEFINITION_ID"],
                             "name": row["DEFINITION_NAME"],
-                            "source": row["DEFINITION_SOURCE"]
+                            "source": row["DEFINITION_SOURCE"],
                         }
                         st.rerun()
+
 
 def display_panel_3_condition_configuration():
     """
@@ -225,31 +227,20 @@ def display_panel_3_condition_configuration():
 
         with st.form(key="condition_form"):
             condition_type = st.radio(
-                "Condition type",
-                options=[ConditionType.HAS_DEFINITION.value, ConditionType.MEASUREMENT.value]
+                "Condition type", options=[ConditionType.HAS_DEFINITION.value, ConditionType.MEASUREMENT.value]
             )
 
             # always show measurement parameters
             # **couldn't get conditional display to work**
             st.markdown("### Measurement Parameters (only used for MEASURE type)")
 
-            comparison_operator = st.selectbox(
-                "Comparison operator",
-                options=[op.value for op in ComparisonOperator]
-            )
+            comparison_operator = st.selectbox("Comparison operator", options=[op.value for op in ComparisonOperator])
 
             col1, col2 = st.columns([2, 1])
             with col1:
-                threshold_value = st.number_input(
-                    "Threshold value",
-                    value=0.0,
-                    step=0.1
-                )
+                threshold_value = st.number_input("Threshold value", value=0.0, step=0.1)
             with col2:
-                threshold_unit = st.text_input(
-                    "Unit (e.g., mmHg)",
-                    value=""
-                )
+                threshold_unit = st.text_input("Unit (e.g., mmHg)", value="")
 
             submit_button = st.form_submit_button("Add to phenotype")
 
@@ -270,7 +261,7 @@ def display_panel_3_condition_configuration():
                     condition_type=condition_type,
                     comparison_operator=comparison_operator,
                     threshold_value=threshold_value,
-                    threshold_unit=threshold_unit
+                    threshold_unit=threshold_unit,
                 )
 
                 # clear deftiniion at end
@@ -278,6 +269,7 @@ def display_panel_3_condition_configuration():
                 st.rerun()
     else:
         st.info("Select a Definition to configure it as a condition")
+
 
 def display_panel_4_condition_blocks():
     """
@@ -319,6 +311,7 @@ def display_panel_4_condition_blocks():
                         st.rerun()
 
                 st.markdown("---")
+
 
 def display_panel_5_expression_builder():
     """
@@ -393,6 +386,7 @@ def display_panel_5_expression_builder():
             else:
                 st.error(f"Cannot save: {message}")
 
+
 def main():
     st.set_page_config(page_title="Build A Phenotype", layout="wide")
     st.title("Build a phenotype")
@@ -420,6 +414,7 @@ def main():
 
     # Panel 5: Expression Builder
     display_panel_5_expression_builder()
+
 
 if __name__ == "__main__":
     main()

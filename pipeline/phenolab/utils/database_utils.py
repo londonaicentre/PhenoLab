@@ -1,10 +1,11 @@
-import streamlit as st
 import pandas as pd
+import streamlit as st
 from dotenv import load_dotenv
 
 from phmlondon.snow_utils import SnowflakeConnection
 
-@st.cache_resource(show_spinner='Connecting to Snowflake...')
+
+@st.cache_resource(show_spinner="Connecting to Snowflake...")
 def connect_to_snowflake() -> SnowflakeConnection:
     load_dotenv()
 
@@ -16,17 +17,22 @@ def connect_to_snowflake() -> SnowflakeConnection:
     snowsesh = st.session_state.snowsesh
     return snowsesh
 
-@st.cache_data(show_spinner='Reading from database...')
+
+@st.cache_data(show_spinner="Reading from database...")
 def get_data_from_snowflake_to_dataframe(_session: SnowflakeConnection, query: str) -> pd.DataFrame:
     return _session.execute_query_to_df(query)
+
 
 @st.cache_data
 def get_data_from_snowflake_to_list(_session: SnowflakeConnection, query: str) -> list:
     return _session.session.sql(query).collect()
 
+
 @st.cache_data
-def get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(_session: SnowflakeConnection) -> tuple[list, list]:
-    comparison_query = f"""
+def get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(
+    _session: SnowflakeConnection,
+) -> tuple[list, list]:
+    comparison_query = """
     SELECT DISTINCT DEFINITION_SOURCE, DEFINITION_ID, DEFINITION_NAME
     FROM INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.DEFINITIONSTORE
     ORDER BY DEFINITION_NAME
@@ -34,10 +40,13 @@ def get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(_se
     # comparison_defintions = snowsesh.execute_query_to_df(comparison_query)
     comparison_definitions = get_data_from_snowflake_to_dataframe(_session, comparison_query)
 
-    return comparison_definitions['DEFINITION_ID'].to_list(), [f"[{row['DEFINITION_SOURCE']}] [{row['DEFINITION_ID']}] {row['DEFINITION_NAME']}" 
-                                for i, row in comparison_definitions.iterrows()]
+    return comparison_definitions["DEFINITION_ID"].to_list(), [
+        f"[{row['DEFINITION_SOURCE']}] [{row['DEFINITION_ID']}] {row['DEFINITION_NAME']}"
+        for i, row in comparison_definitions.iterrows()
+    ]
 
-@st.cache_data(show_spinner='Searching for codes for this definition...')
+
+@st.cache_data(show_spinner="Searching for codes for this definition...")
 def return_codes_for_given_definition_id_as_df(_conn: SnowflakeConnection, chosen_definition_id: str) -> pd.DataFrame:
     codes_query = f"""
         SELECT DISTINCT

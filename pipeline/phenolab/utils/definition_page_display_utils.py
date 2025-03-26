@@ -1,10 +1,16 @@
 import os
-import streamlit as st
-from typing import Optional, List, Tuple
-import pandas as pd
+from typing import List, Optional, Tuple
 
-from utils.database_utils import connect_to_snowflake, get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list, return_codes_for_given_definition_id_as_df
-from phmlondon.definition import VocabularyType, Definition, Code
+import pandas as pd
+import streamlit as st
+from utils.database_utils import (
+    connect_to_snowflake,
+    get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list,
+    return_codes_for_given_definition_id_as_df,
+)
+
+from phmlondon.definition import Code, Definition, VocabularyType
+
 
 def load_definitions_list() -> List[str]:
     """
@@ -46,10 +52,7 @@ def parse_search_query(query):
     Returns:
         dict: Contains 'operator' (AND/OR/NOT/None) and 'terms' (list of extracted terms)
     """
-    result = {
-        'operator': None,
-        'terms': []
-    }
+    result = {"operator": None, "terms": []}
 
     query = query.strip()
 
@@ -58,31 +61,31 @@ def parse_search_query(query):
 
     # check for logical operators
     if " AND " in query:
-        result['operator'] = "AND"
+        result["operator"] = "AND"
         parts = query.split(" AND ")
     elif " OR " in query:
-        result['operator'] = "OR"
+        result["operator"] = "OR"
         parts = query.split(" OR ")
     elif " NOT " in query:
-        result['operator'] = "NOT"
+        result["operator"] = "NOT"
         parts = query.split(" NOT ")
     else:
         # no operator, treat as single term
-        result['terms'] = [query]
+        result["terms"] = [query]
         return result
 
     # extract terms
     for part in parts:
         part = part.strip()
         # remove brackets
-        if part.startswith('(') and part.endswith(')'):
+        if part.startswith("(") and part.endswith(")"):
             part = part[1:-1].strip()
-        result['terms'].append(part)
+        result["terms"].append(part)
 
     return result
 
 
-def apply_search_filters(df, parsed_query, search_columns=['CODE_DESCRIPTION', 'CODE']):
+def apply_search_filters(df, parsed_query, search_columns=["CODE_DESCRIPTION", "CODE"]):
     """
     Apply filters to the DataFrame based on parsed search query.
 
@@ -98,11 +101,11 @@ def apply_search_filters(df, parsed_query, search_columns=['CODE_DESCRIPTION', '
         pd.DataFrame:
             Filtered DataFrame!
     """
-    if not parsed_query['terms']:
+    if not parsed_query["terms"]:
         return df
 
-    operator = parsed_query['operator']
-    terms = parsed_query['terms']
+    operator = parsed_query["operator"]
+    terms = parsed_query["terms"]
 
     # workhorse function for applying filter
     def _term_filter(df, term):
@@ -141,7 +144,8 @@ def apply_search_filters(df, parsed_query, search_columns=['CODE_DESCRIPTION', '
     # otherwise return original
     return df
 
-@st.cache_data(ttl=1800, max_entries=10) #cache for 30mins
+
+@st.cache_data(ttl=1800, max_entries=10)  # cache for 30mins
 def filter_codes(df: pd.DataFrame, search_term: str, code_type: str) -> pd.DataFrame:
     """
     Filter codes dataframe based on search term and code type
@@ -167,20 +171,21 @@ def filter_codes(df: pd.DataFrame, search_term: str, code_type: str) -> pd.DataF
 
     return filtered_df.sort_values("CODE_COUNT", ascending=False)
 
+
 def create_code_from_row(row: pd.Series) -> Code:
     """
     Create a Code object from dataframe row
     """
     vocabulary_as_enum = VocabularyType(row["VOCABULARY"])
-    return Code(
-        code=row["CODE"], code_description=row["CODE_DESCRIPTION"], code_vocabulary=vocabulary_as_enum
-    )
+    return Code(code=row["CODE"], code_description=row["CODE_DESCRIPTION"], code_vocabulary=vocabulary_as_enum)
 
     # return Code(
     #     code=row["CODE"], code_description=row["CODE_DESCRIPTION"], vocabulary=row["VOCABULARY"]
     # )
 
+
 # STREAMLIT FUNCTIONS
+
 
 def display_code_search_panel(code_types: List[str]) -> Tuple[pd.DataFrame, str, str]:
     st.subheader("Find codes via search")
@@ -194,7 +199,7 @@ def display_code_search_panel(code_types: List[str]) -> Tuple[pd.DataFrame, str,
         search_term = st.text_input(
             "Filter codes",
             placeholder="Simple search or use (term1) AND/OR/NOT (term2)",
-            help="Examples: 'diabetes', '(heart) AND (failure)', '(cardiac) NOT (surgery)'"
+            help="Examples: 'diabetes', '(heart) AND (failure)', '(cardiac) NOT (surgery)'",
         )
 
         code_type = st.selectbox("Code type", options=code_types, label_visibility="collapsed")
@@ -218,23 +223,23 @@ def display_code_search_panel(code_types: List[str]) -> Tuple[pd.DataFrame, str,
 
                     # display summary stats
                     basic_info = []
-                    if 'CODE' in row and pd.notna(row['CODE']):
+                    if "CODE" in row and pd.notna(row["CODE"]):
                         basic_info.append(f"Code: {row['CODE']}")
 
-                    if 'CODE_COUNT' in row and pd.notna(row['CODE_COUNT']):
+                    if "CODE_COUNT" in row and pd.notna(row["CODE_COUNT"]):
                         basic_info.append(f"Count: {row['CODE_COUNT']:,}")
 
-                    if 'MEDIAN_AGE' in row and pd.notna(row['MEDIAN_AGE']):
+                    if "MEDIAN_AGE" in row and pd.notna(row["MEDIAN_AGE"]):
                         basic_info.append(f"MedianAge: {row['MEDIAN_AGE']:.1f}")
 
-                    if 'MEDIAN_VALUE' in row and pd.notna(row['MEDIAN_VALUE']):
+                    if "MEDIAN_VALUE" in row and pd.notna(row["MEDIAN_VALUE"]):
                         # change label per code type
-                        if row['CODE_TYPE'] in ['SUS_APC', 'SUS_APC_PROC']:
+                        if row["CODE_TYPE"] in ["SUS_APC", "SUS_APC_PROC"]:
                             basic_info.append(f"MedianLOS: {row['MEDIAN_VALUE']:.1f}")
                         else:
                             basic_info.append(f"MedianValue: {row['MEDIAN_VALUE']:.1f}")
 
-                    if 'PERCENT_HAS_RESULT_VALUE' in row and pd.notna(row['PERCENT_HAS_RESULT_VALUE']):
+                    if "PERCENT_HAS_RESULT_VALUE" in row and pd.notna(row["PERCENT_HAS_RESULT_VALUE"]):
                         basic_info.append(f"Has Result: {row['PERCENT_HAS_RESULT_VALUE']:.1f}%")
 
                     if basic_info:
@@ -246,7 +251,9 @@ def display_code_search_panel(code_types: List[str]) -> Tuple[pd.DataFrame, str,
                         for c in st.session_state.selected_codes
                     )
 
-                    checkbox_ticked = st.checkbox("Any", key=f"add_{idx}", value=is_selected, label_visibility="collapsed")
+                    checkbox_ticked = st.checkbox(
+                        "Any", key=f"add_{idx}", value=is_selected, label_visibility="collapsed"
+                    )
 
                     if not is_selected:
                         code = create_code_from_row(row)
@@ -329,6 +336,7 @@ def display_selected_codes():
         elif st.session_state.current_definition:
             st.info("No codes selected. Find and add codes with the search panel.")
 
+
 def find_codes_from_existing_phenotypes():
     """
     Find codes from existing definitions
@@ -339,44 +347,46 @@ def find_codes_from_existing_phenotypes():
     with st.container(height=100):
         conn = connect_to_snowflake()
         id_list, definitions_list = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(conn)
-        chosen_definition = st.selectbox(label="Choose an existing definition (start typing to search)", options=definitions_list)
+        chosen_definition = st.selectbox(
+            label="Choose an existing definition (start typing to search)", options=definitions_list
+        )
 
     # CONTAINER
     with st.container(height=450):
         if chosen_definition:
-                chosen_definition_id = id_list[definitions_list.index(chosen_definition)]
+            chosen_definition_id = id_list[definitions_list.index(chosen_definition)]
 
-                chosen_definition_codes_df = return_codes_for_given_definition_id_as_df(conn, chosen_definition_id)
+            chosen_definition_codes_df = return_codes_for_given_definition_id_as_df(conn, chosen_definition_id)
 
-                # chosen_definition_codes = [f"{row['CODE_DESCRIPTION']} ({row['VOCABULARY']}) ({row['CODE']})" 
-                #                 for i, row in chosen_definition_codes_df.iterrows()]
+            # chosen_definition_codes = [f"{row['CODE_DESCRIPTION']} ({row['VOCABULARY']}) ({row['CODE']})"
+            #                 for i, row in chosen_definition_codes_df.iterrows()]
 
-                for idx, row in chosen_definition_codes_df.iterrows():
-                    col2a, col2b = st.columns([9, 1])
-                    code = create_code_from_row(row)
-                    with col2a:
-                        # st.write(code)
-                        st.text(f"{row['CODE_DESCRIPTION']} ({row['VOCABULARY']}) ({row['CODE']})")
-                    with col2b:
-                        is_selected = any(
-                            c.code == row["CODE"] and c.code_vocabulary == VocabularyType(row["VOCABULARY"])
-                            for c in st.session_state.selected_codes
-                        )   
+            for idx, row in chosen_definition_codes_df.iterrows():
+                col2a, col2b = st.columns([9, 1])
+                code = create_code_from_row(row)
+                with col2a:
+                    # st.write(code)
+                    st.text(f"{row['CODE_DESCRIPTION']} ({row['VOCABULARY']}) ({row['CODE']})")
+                with col2b:
+                    is_selected = any(
+                        c.code == row["CODE"] and c.code_vocabulary == VocabularyType(row["VOCABULARY"])
+                        for c in st.session_state.selected_codes
+                    )
 
-                        checkbox_ticked = st.checkbox("Any", key=idx, value=is_selected, label_visibility="collapsed")
-                    
-                        if not is_selected:
-                            if checkbox_ticked:
-                                st.session_state.selected_codes.append(code)
-                                if st.session_state.current_definition:
-                                    st.session_state.current_definition.add_code(code)
-                                st.rerun()
-                            else:
-                                if code in st.session_state.selected_codes:
-                                    st.session_state.selected_codes.remove(code)
-                        elif is_selected and not checkbox_ticked:
-                            code = create_code_from_row(row)
-                            st.session_state.selected_codes.remove(code)
+                    checkbox_ticked = st.checkbox("Any", key=idx, value=is_selected, label_visibility="collapsed")
+
+                    if not is_selected:
+                        if checkbox_ticked:
+                            st.session_state.selected_codes.append(code)
                             if st.session_state.current_definition:
-                                st.session_state.current_definition.remove_code(code)
+                                st.session_state.current_definition.add_code(code)
                             st.rerun()
+                        else:
+                            if code in st.session_state.selected_codes:
+                                st.session_state.selected_codes.remove(code)
+                    elif is_selected and not checkbox_ticked:
+                        code = create_code_from_row(row)
+                        st.session_state.selected_codes.remove(code)
+                        if st.session_state.current_definition:
+                            st.session_state.current_definition.remove_code(code)
+                        st.rerun()
