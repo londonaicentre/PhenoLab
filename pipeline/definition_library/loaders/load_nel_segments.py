@@ -7,7 +7,7 @@ from datetime import datetime
 import pandas as pd
 from dotenv import load_dotenv
 
-from loaders.base.definition import (
+from phmlondon.definition import (
     Code,
     Codelist,
     Definition,

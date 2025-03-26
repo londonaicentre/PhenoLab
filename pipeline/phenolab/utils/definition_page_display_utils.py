@@ -3,8 +3,8 @@ import streamlit as st
 from typing import Optional, List, Tuple
 import pandas as pd
 
-from utils.data_utils import Code, Definition, load_definition_from_json
 from utils.database_utils import connect_to_snowflake, get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list, return_codes_for_given_definition_id_as_df
+from phmlondon.definition import VocabularyType, Definition, Code
 
 def load_definitions_list() -> List[str]:
     """
@@ -25,7 +25,7 @@ def load_definition(file_path: str) -> Optional[Definition]:
     Load definition from json
     """
     try:
-        definition = load_definition_from_json(file_path)
+        definition = Definition.from_json(file_path)
         return definition
     except Exception as e:
         st.error(f"Unable to load definition: {e}")
@@ -171,9 +171,14 @@ def create_code_from_row(row: pd.Series) -> Code:
     """
     Create a Code object from dataframe row
     """
+    vocabulary_as_enum = VocabularyType(row["VOCABULARY"])
     return Code(
-        code=row["CODE"], code_description=row["CODE_DESCRIPTION"], vocabulary=row["VOCABULARY"]
+        code=row["CODE"], code_description=row["CODE_DESCRIPTION"], code_vocabulary=vocabulary_as_enum
     )
+
+    # return Code(
+    #     code=row["CODE"], code_description=row["CODE_DESCRIPTION"], vocabulary=row["VOCABULARY"]
+    # )
 
 # STREAMLIT FUNCTIONS
 
@@ -237,7 +242,7 @@ def display_code_search_panel(code_types: List[str]) -> Tuple[pd.DataFrame, str,
 
                 with col1b:
                     is_selected = any(
-                        c.code == row["CODE"] and c.vocabulary == row["VOCABULARY"]
+                        c.code == row["CODE"] and c.code_vocabulary == VocabularyType(row["VOCABULARY"])
                         for c in st.session_state.selected_codes
                     )
 
@@ -259,6 +264,7 @@ def display_code_search_panel(code_types: List[str]) -> Tuple[pd.DataFrame, str,
                         if st.session_state.current_definition:
                             st.session_state.current_definition.remove_code(code)
                         st.rerun()
+                    # print(code)
 
         else:
             st.info("No codes found matching the search criteria")
@@ -290,6 +296,7 @@ def display_selected_codes():
                     st.success(f"Definition saved to: {filepath}")
                 except Exception as e:
                     st.error(f"Error saving definition: {e}")
+                    raise e
         else:
             st.info("Create a definition first.")
 
@@ -299,12 +306,12 @@ def display_selected_codes():
             # grouping by vocab (i.e. codelist)
             codes_by_vocab = {}
             for code in st.session_state.selected_codes:
-                if code.vocabulary not in codes_by_vocab:
-                    codes_by_vocab[code.vocabulary] = []
-                codes_by_vocab[code.vocabulary].append(code)
+                if code.code_vocabulary not in codes_by_vocab:
+                    codes_by_vocab[code.code_vocabulary] = []
+                codes_by_vocab[code.code_vocabulary].append(code)
 
             for vocabulary, codes in codes_by_vocab.items():
-                st.write(f"**{vocabulary}** ({len(codes)} codes)")
+                st.write(f"**{vocabulary.value}** ({len(codes)} codes)")
                 for idx, code in enumerate(codes):
                     col2a, col2b = st.columns([4, 1])
                     with col2a:
@@ -352,7 +359,7 @@ def find_codes_from_existing_phenotypes():
                         st.text(f"{row['CODE_DESCRIPTION']} ({row['VOCABULARY']}) ({row['CODE']})")
                     with col2b:
                         is_selected = any(
-                            c.code == row["CODE"] and c.vocabulary == row["VOCABULARY"]
+                            c.code == row["CODE"] and c.code_vocabulary == VocabularyType(row["VOCABULARY"])
                             for c in st.session_state.selected_codes
                         )   
 

@@ -1,9 +1,6 @@
-import os
-import sys
-
 import streamlit as st
-from utils.data_utils import Definition
 from utils.definition_page_display_utils import display_code_search_panel, display_selected_codes, find_codes_from_existing_phenotypes
+from phmlondon.definition import Definition
 
 def display_definition_panel() -> str:
     """
@@ -23,7 +20,7 @@ def display_definition_panel() -> str:
     # component: new definition button
     with col2:
         if st.button("Create definition") and new_definition_name:
-            st.session_state.current_definition = Definition(
+            st.session_state.current_definition = Definition.from_scratch(
                 definition_name=new_definition_name
             )
             st.session_state.selected_codes = []

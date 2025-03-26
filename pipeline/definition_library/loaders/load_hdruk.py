@@ -7,7 +7,7 @@ from datetime import datetime
 import pandas as pd
 from dotenv import load_dotenv
 
-from loaders.base.definition import Definition
+from phmlondon.definition import Definition
 from loaders.base.load_tables import load_definitions_to_snowflake
 from phmlondon.hdruk_api import HDRUKLibraryClient
 from phmlondon.snow_utils import SnowflakeConnection

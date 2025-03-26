@@ -1,6 +1,5 @@
 import datetime
 import glob
-import json
 import os
 import subprocess
 import sys
@@ -9,9 +8,8 @@ import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
 
-from utils.data_utils import load_definition_from_json
-
 from phmlondon.snow_utils import SnowflakeConnection
+from phmlondon.definition import Definition
 
 load_dotenv()
 
@@ -33,7 +31,7 @@ def display_definition_content(definition_file):
     """
     try:
         file_path = os.path.join("data/definitions", definition_file)
-        definition = load_definition_from_json(file_path)
+        definition = Definition.from_json(file_path)
 
         # definition info
         st.subheader(f"Definition: {definition.definition_name}")
@@ -42,8 +40,8 @@ def display_definition_content(definition_file):
 
         # codelists and codes
         total_codes = 0
-        for vocabulary, codelist in definition.codelists.items():
-            with st.expander(f"{vocabulary} ({len(codelist.codes)} codes)"):
+        for codelist in definition.codelists:
+            with st.expander(f"{codelist.codelist_vocabulary.value} ({len(codelist.codes)} codes)"):
                 for code in codelist.codes:
                     st.text(f"{code.code}: {code.code_description}")
                 total_codes += len(codelist.codes)
@@ -53,7 +51,7 @@ def display_definition_content(definition_file):
         return definition
     except Exception as e:
         st.error(f"Error loading definition: {e}")
-        return None
+        raise e
 
 
 def upload_definitions_to_snowflake():

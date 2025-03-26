@@ -1,5 +1,4 @@
 import os
-import sys
 
 import streamlit as st
 
@@ -38,7 +37,7 @@ def display_definition_panel() -> str:
 
                     # load definition codes into the session state for tracking
                     st.session_state.selected_codes = []
-                    for codelist in definition.codelists.values():
+                    for codelist in definition.codelists:
                         for code in codelist.codes:
                             st.session_state.selected_codes.append(code)
 

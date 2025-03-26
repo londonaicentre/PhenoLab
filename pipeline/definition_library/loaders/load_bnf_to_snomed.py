@@ -10,7 +10,7 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-from loaders.base.definition import Code, Codelist, Definition, DefinitionSource, VocabularyType
+from phmlondon.definition import Code, Codelist, Definition, DefinitionSource, VocabularyType
 from loaders.base.load_tables import load_definitions_to_snowflake
 from phmlondon.snow_utils import SnowflakeConnection
 
