@@ -8,10 +8,11 @@ import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
 
-from phmlondon.snow_utils import SnowflakeConnection
 from phmlondon.definition import Definition
+from phmlondon.snow_utils import SnowflakeConnection
 
 load_dotenv()
+
 
 def get_definitions_list():
     """
@@ -75,7 +76,7 @@ def upload_definitions_to_snowflake():
             st.error(f"Failed to connect to Snowflake: {e}")
             return
 
-    upload_time = datetime.datetime.now()
+    # upload_time = datetime.datetime.now() 
     all_rows = []
     processed_files = []
 
@@ -83,9 +84,9 @@ def upload_definitions_to_snowflake():
         for def_file in definition_files:
             try:
                 file_path = os.path.join("data/definitions", def_file)
-                definition = load_definition_from_json(file_path)
+                definition = Definition.from_json(file_path)
 
-                for vocabulary, codelist in definition.codelists.items():
+                for codelist in definition.codelists:
                     for code in codelist.codes:
                         row = {
                             "CODE": code.code,
@@ -98,8 +99,8 @@ def upload_definitions_to_snowflake():
                             "DEFINITION_NAME": definition.definition_name,
                             "DEFINITION_VERSION": definition.definition_version,
                             "DEFINITION_SOURCE": definition.definition_source,
-                            "VERSION_DATETIME": definition.updated_datetime,
-                            "UPLOADED_DATETIME": upload_time
+                            "VERSION_DATETIME": definition.version_datetime,
+                            "UPLOADED_DATETIME": definition.uploaded_datetime,
                         }
                         all_rows.append(row)
                 processed_files.append(def_file)
@@ -112,29 +113,22 @@ def upload_definitions_to_snowflake():
         with st.spinner(f"Uploading {len(all_rows)} rows to Snowflake..."):
             try:
                 df = pd.DataFrame(all_rows)
-                snowsesh.load_dataframe_to_table(
-                    df=df,
-                    table_name="AIC_DEFINITIONS",
-                    mode="overwrite"
-                )
+                snowsesh.load_dataframe_to_table(df=df, table_name="AIC_DEFINITIONS", mode="overwrite")
                 st.success("Successfully uploaded to Definition Library")
 
                 # run update.py script to refresh DEFINITIONSTORE
                 with st.spinner("Updating DEFINITIONSTORE..."):
                     try:
                         current_dir = os.path.dirname(os.path.abspath(__file__))
-                        update_script_path = os.path.normpath(os.path.join(
-                            current_dir, "../../definition_library/update.py"
-                        ))
+                        update_script_path = os.path.normpath(
+                            os.path.join(current_dir, "../../definition_library/update.py")
+                        )
 
                         if not os.path.exists(update_script_path):
                             raise FileNotFoundError(f"Update script not found at {update_script_path}")
 
                         result = subprocess.run(
-                            [sys.executable, update_script_path],
-                            capture_output=True,
-                            text=True,
-                            check=True
+                            [sys.executable, update_script_path], capture_output=True, text=True, check=True
                         )
                         st.success("Definition store updated successfully")
                     except subprocess.CalledProcessError as e:
@@ -164,13 +158,10 @@ def main():
         if not definition_files:
             st.info("No definition files found. Create some definitions first.")
         else:
-            selected_definition = st.selectbox(
-                "Select a definition to view",
-                options=definition_files
-            )
+            selected_definition = st.selectbox("Select a definition to view", options=definition_files)
 
     with col2:
-        if 'selected_definition' in locals() and selected_definition:
+        if "selected_definition" in locals() and selected_definition:
             display_definition_content(selected_definition)
         else:
             st.info("Select a definition from the list to view its contents")

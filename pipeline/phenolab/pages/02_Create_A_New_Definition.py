@@ -1,6 +1,12 @@
 import streamlit as st
-from utils.definition_page_display_utils import display_code_search_panel, display_selected_codes, find_codes_from_existing_phenotypes
+from utils.definition_page_display_utils import (
+    display_code_search_panel,
+    display_selected_codes,
+    find_codes_from_existing_phenotypes,
+)
+
 from phmlondon.definition import Definition
+
 
 def display_definition_panel() -> str:
     """
@@ -20,9 +26,7 @@ def display_definition_panel() -> str:
     # component: new definition button
     with col2:
         if st.button("Create definition") and new_definition_name:
-            st.session_state.current_definition = Definition.from_scratch(
-                definition_name=new_definition_name
-            )
+            st.session_state.current_definition = Definition.from_scratch(definition_name=new_definition_name)
             st.session_state.selected_codes = []
             with col1:
                 st.success(f"Created new definition: {new_definition_name}")
@@ -30,6 +34,7 @@ def display_definition_panel() -> str:
     st.markdown("---")
 
     return new_definition_name
+
 
 def main():
     st.set_page_config(page_title="Create a new definition", layout="wide")
@@ -71,5 +76,6 @@ def main():
     # 5. find codes from existing defintions
     with col1:
         find_codes_from_existing_phenotypes()
+
 
 main()
