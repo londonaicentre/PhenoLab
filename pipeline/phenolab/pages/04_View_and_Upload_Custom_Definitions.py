@@ -77,7 +77,6 @@ def upload_definitions_to_snowflake():
             return
 
     # upload_time = datetime.datetime.now() 
-    all_rows = []
     processed_files = []
 
     with st.spinner(f"Processing {len(definition_files)} definition files..."):
@@ -85,34 +84,40 @@ def upload_definitions_to_snowflake():
             try:
                 file_path = os.path.join("data/definitions", def_file)
                 definition = Definition.from_json(file_path)
-
-                for codelist in definition.codelists:
-                    for code in codelist.codes:
-                        row = {
-                            "CODE": code.code,
-                            "CODE_DESCRIPTION": code.code_description,
-                            "VOCABULARY": code.vocabulary,
-                            "CODELIST_ID": codelist.codelist_id,
-                            "CODELIST_NAME": codelist.codelist_name,
-                            "CODELIST_VERSION": codelist.codelist_version,
-                            "DEFINITION_ID": definition.definition_id,
-                            "DEFINITION_NAME": definition.definition_name,
-                            "DEFINITION_VERSION": definition.definition_version,
-                            "DEFINITION_SOURCE": definition.definition_source,
-                            "VERSION_DATETIME": definition.version_datetime,
-                            "UPLOADED_DATETIME": definition.uploaded_datetime,
-                        }
-                        all_rows.append(row)
+                
+                # for codelist in definition.codelists:
+                #     for code in codelist.codes:
+                #         row = {
+                #             "CODE": code.code,
+                #             "CODE_DESCRIPTION": code.code_description,
+                #             "VOCABULARY": code.code_vocabulary,
+                #             "CODELIST_ID": codelist.codelist_id,
+                #             "CODELIST_NAME": codelist.codelist_name,
+                #             "CODELIST_VERSION": codelist.codelist_version,
+                #             "DEFINITION_ID": definition.definition_id,
+                #             "DEFINITION_NAME": definition.definition_name,
+                #             "DEFINITION_VERSION": definition.definition_version,
+                #             "DEFINITION_SOURCE": definition.definition_source,
+                #             "VERSION_DATETIME": definition.version_datetime,
+                #             "UPLOADED_DATETIME": definition.uploaded_datetime,
+                #         }
+                try:
+                    all_rows = pd.concat([all_rows, definition.to_dataframe()])
+                except NameError:
+                    all_rows = definition.to_dataframe()
                 processed_files.append(def_file)
 
             except Exception as e:
                 st.error(f"Error processing {def_file}: {e}")
+                raise e
 
     # upload
-    if all_rows:
+    if "all_rows" in locals():
         with st.spinner(f"Uploading {len(all_rows)} rows to Snowflake..."):
             try:
                 df = pd.DataFrame(all_rows)
+                df.columns = df.columns.str.upper()
+                # st.write(df)
                 snowsesh.load_dataframe_to_table(df=df, table_name="AIC_DEFINITIONS", mode="overwrite")
                 st.success("Successfully uploaded to Definition Library")
 
@@ -138,6 +143,7 @@ def upload_definitions_to_snowflake():
 
             except Exception as e:
                 st.error(f"Error uploading to Snowflake: {e}")
+                raise e
     else:
         st.warning("No data to upload")
 
