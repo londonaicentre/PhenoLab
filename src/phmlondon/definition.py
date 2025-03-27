@@ -330,8 +330,6 @@ class Definition:
         codelists = []
         # load codelists
         for codelist_data in data.get("codelists", []):
-            print(codelist_data)
-            print(codelist_data["codelist_vocabulary"])
             codelist = Codelist(
                 codelist_name=codelist_data["codelist_name"],
                 codelist_id=codelist_data.get("codelist_id"),
