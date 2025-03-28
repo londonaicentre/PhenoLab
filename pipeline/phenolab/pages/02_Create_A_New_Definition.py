@@ -31,7 +31,6 @@ def display_definition_panel() -> str:
             if "used_checkbox_keys" in st.session_state:
                 for checkbox_key in st.session_state.used_checkbox_keys:
                     st.session_state[checkbox_key] = False
-            # st.session_state.selected_codes = []
             with col1:
                 st.success(f"Created new definition: {new_definition_name}")
 
@@ -48,10 +47,8 @@ def main():
     ## the definition that is loaded (or created) and currently being worked on
     if "current_definition" not in st.session_state:
         st.session_state.current_definition = None
-    ## actively selected codes that are part of the current definition
-    # if "selected_codes" not in st.session_state:
-    #     st.session_state.selected_codes = []
-    ## all codes in source data pulled in from selector
+    
+    ## the vocab    
     if "codes" not in st.session_state:
         st.session_state.codes = None
 
