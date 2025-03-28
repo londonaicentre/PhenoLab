@@ -1,0 +1,33 @@
+{
+  "definition_id": "e4ee0675",
+  "definition_name": "1",
+  "definition_version": "1_20250328_153807",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "2025-03-28T15:38:07.771295",
+  "version_datetime": "2025-03-28T15:38:14.920782",
+  "codelists": [
+    {
+      "codelist_id": "1_SNOMED_724119",
+      "codelist_name": "1_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "1_SNOMED_724119_20250328_153811",
+      "codes": [
+        {
+          "code": "163020007",
+          "code_description": "On examination - blood pressure reading (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "163031004",
+          "code_description": "On examination - Diastolic blood pressure reading (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "163030003",
+          "code_description": "On examination - Systolic blood pressure reading (finding)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}
