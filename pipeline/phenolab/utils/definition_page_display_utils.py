@@ -190,8 +190,6 @@ def code_selected(row: pd.Series) -> bool:
                 for c in st.session_state.current_definition.codes)
 
 def display_code_and_checkbox(row: pd.Series, checkbox_key: str):
-    print(st.session_state.current_definition.codes)
-    print()
     if st.session_state.current_definition is not None:
         is_selected = code_selected(row)
     else:

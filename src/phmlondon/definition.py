@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
 from pprint import pprint
@@ -144,7 +144,7 @@ class Definition:
     definition_name: str
     definition_version: str
     definition_source: DefinitionSource
-    codelists: list[Codelist]
+    codelists: list[Codelist] = field(default_factory=list)
 
     # validity
     version_datetime: Optional[datetime] = None
@@ -156,6 +156,10 @@ class Definition:
     @property
     def df(self) -> pd.DataFrame:
         return self.to_dataframe()
+    
+    @property
+    def codes(self) -> list[Code]:
+        return [code for codelist in self.codelists for code in codelist.codes]
 
     def to_dataframe(self) -> pd.DataFrame:
         """
@@ -250,7 +254,7 @@ class Definition:
         )
     
     @classmethod
-    def from_scratch(cls, definition_name: str, codelists: list = []) -> Self:
+    def from_scratch(cls, definition_name: str, codelists: list = None) -> Self:
         """
         This constructor is used to generate an ID and version number when we want to create a definition de novo rather
         than from an existing source. If no codelists are passed in, the content of these defaults to an empty list
@@ -261,6 +265,9 @@ class Definition:
         definition_id = hashlib.md5(content.encode()).hexdigest()[:8]
         definition_version = f"{definition_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
         definition_source = DefinitionSource.AICENTRE # this is hard coded currently but could be a passed in input if needed
+
+        if codelists is None:
+            codelists = [] # avoids list mutability problems
 
         # don't have an uploaded datetime
 
@@ -285,18 +292,19 @@ class Definition:
 
         vocabularies_in_use = [codelist.codelist_vocabulary for codelist in self.codelists]
 
-        if vocabulary in vocabularies_in_use:
-            for existing_codelist in self.codelists:
-                if existing_codelist.codelist_vocabulary == vocabulary:
-                    for existing_code in existing_codelist.codes:
-                        if existing_code.code == code.code and existing_code.code_vocabulary == code.code_vocabulary:
-                            print('Code already in codelist')
-                            return False # code already exists, don't add dupe
-        else: # create a new codelist if vocabulary doesn't exist
+        if vocabulary not in vocabularies_in_use:
+            # Create codelist if relevant vocabulary not in use
             codelist_name = f"{self.definition_name}_{vocabulary.value}"
             new_codelist = Codelist.from_scratch(codelist_name=codelist_name, codelist_vocabulary=vocabulary)
-            new_codelist.add_code(code)
             self.codelists.append(new_codelist)
+
+        for codelist in self.codelists:
+            if codelist.codelist_vocabulary == vocabulary:
+                for existing_code in codelist.codes:
+                    if existing_code.code == code.code and existing_code.code_vocabulary == code.code_vocabulary:
+                        print('Code already in codelist')
+                        return False # code already exists, don't add dupe
+                codelist.add_code(code) # otherwise, add code to relevant codelist
 
         return True
 
@@ -415,7 +423,7 @@ class Definition:
         Return:
             str:
                 Path where saved (show in streamlit)
-        """
+        """ 
         os.makedirs(directory, exist_ok=True)
 
         filename = f"{self.definition_name}_{self.definition_id}.json"
