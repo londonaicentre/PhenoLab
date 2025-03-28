@@ -1,5 +1,7 @@
 import os
 from typing import List, Optional, Tuple
+import random
+import string
 
 import pandas as pd
 import streamlit as st
@@ -10,7 +12,6 @@ from utils.database_utils import (
 )
 
 from phmlondon.definition import Code, Definition, VocabularyType
-
 
 def load_definitions_list() -> List[str]:
     """
@@ -183,6 +184,54 @@ def create_code_from_row(row: pd.Series) -> Code:
     #     code=row["CODE"], code_description=row["CODE_DESCRIPTION"], vocabulary=row["VOCABULARY"]
     # )
 
+def code_selected(row: pd.Series) -> bool:
+    return any(c.code == row["CODE"] and c.code_vocabulary == VocabularyType(row["VOCABULARY"])
+               # for c in st.session_state.selected_codes
+                for c in st.session_state.current_definition.codes)
+
+def generate_unique_checkbox_key():
+    while True:
+        # Generate a random 6-character alphanumeric code
+        random_key = ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
+        
+        if "used_checkbox_keys" not in st.session_state:
+            st.session_state.used_checkbox_keys = set()  
+        
+        if random_key not in st.session_state.used_checkbox_keys:
+            st.session_state.used_checkbox_keys.add(random_key)
+            return random_key
+
+def display_code_and_checkbox(row: pd.Series, checkbox_key: str):
+    if st.session_state.current_definition is not None:
+        is_selected = code_selected(row)
+    else:
+        is_selected = False  
+
+    checkbox_ticked = st.checkbox(
+            "Any", value=is_selected, key=checkbox_key, label_visibility="collapsed"
+        )
+
+    code = create_code_from_row(row)
+
+    if not is_selected:
+        if checkbox_ticked:
+            # st.session_state.selected_codes.append(code)
+            if st.session_state.current_definition:
+                st.session_state.current_definition.add_code(code)
+            # st.rerun()
+        # else:
+        #     if code in st.session_state.current_definition.codes:
+        #         st.session_state.current_definition.remove_code(code)
+
+            # else:
+            #     if code in st.session_state.selected_codes:
+            #         st.session_state.selected_codes.remove(code)
+    elif is_selected and not checkbox_ticked:
+            # st.session_state.selected_codes.remove(code)
+            if st.session_state.current_definition:
+                st.session_state.current_definition.remove_code(code)
+        
+        # st.rerun()
 
 # STREAMLIT FUNCTIONS
 
@@ -246,32 +295,8 @@ def display_code_search_panel(code_types: List[str]) -> Tuple[pd.DataFrame, str,
                         st.caption(" | ".join(basic_info))
 
                 with col1b:
-                    is_selected = any(
-                        c.code == row["CODE"] and c.code_vocabulary == VocabularyType(row["VOCABULARY"])
-                        for c in st.session_state.selected_codes
-                    )
-
-                    checkbox_ticked = st.checkbox(
-                        "Any", key=f"add_{idx}", value=is_selected, label_visibility="collapsed"
-                    )
-
-                    if not is_selected:
-                        code = create_code_from_row(row)
-                        if checkbox_ticked:
-                            st.session_state.selected_codes.append(code)
-                            if st.session_state.current_definition:
-                                st.session_state.current_definition.add_code(code)
-                            st.rerun()
-                        else:
-                            if code in st.session_state.selected_codes:
-                                st.session_state.selected_codes.remove(code)
-                    elif is_selected and not checkbox_ticked:
-                        code = create_code_from_row(row)
-                        st.session_state.selected_codes.remove(code)
-                        if st.session_state.current_definition:
-                            st.session_state.current_definition.remove_code(code)
-                        st.rerun()
-                    # print(code)
+                    checkbox_key = f"first_row_{row['CODE']}"
+                    display_code_and_checkbox(row, checkbox_key)
 
         else:
             st.info("No codes found matching the search criteria")
@@ -309,10 +334,12 @@ def display_selected_codes():
 
     # SCROLLING CONTAINER
     with st.container(height=1090):
-        if st.session_state.selected_codes:
+        # if st.session_state.selected_codes:
+        if st.session_state.current_definition and st.session_state.current_definition.codes:
             # grouping by vocab (i.e. codelist)
             codes_by_vocab = {}
-            for code in st.session_state.selected_codes:
+            # for code in st.session_state.selected_codes:
+            for code in st.session_state.current_definition.codes:
                 if code.code_vocabulary not in codes_by_vocab:
                     codes_by_vocab[code.code_vocabulary] = []
                 codes_by_vocab[code.code_vocabulary].append(code)
@@ -327,9 +354,10 @@ def display_selected_codes():
 
                     with col2b:
                         if st.button("Remove", key=f"remove_{vocabulary}_{idx}"):
-                            st.session_state.selected_codes.remove(code)
+                            # st.session_state.selected_codes.remove(code)
                             if st.session_state.current_definition:
                                 st.session_state.current_definition.remove_code(code)
+                                print(f"Removed {code.code} from {vocabulary} leaving {st.session_state.current_definition.codes}")
                             st.rerun()
 
                 st.markdown("---")
@@ -363,30 +391,9 @@ def find_codes_from_existing_phenotypes():
 
             for idx, row in chosen_definition_codes_df.iterrows():
                 col2a, col2b = st.columns([9, 1])
-                code = create_code_from_row(row)
                 with col2a:
                     # st.write(code)
                     st.text(f"{row['CODE_DESCRIPTION']} ({row['VOCABULARY']}) ({row['CODE']})")
                 with col2b:
-                    is_selected = any(
-                        c.code == row["CODE"] and c.code_vocabulary == VocabularyType(row["VOCABULARY"])
-                        for c in st.session_state.selected_codes
-                    )
-
-                    checkbox_ticked = st.checkbox("Any", key=idx, value=is_selected, label_visibility="collapsed")
-
-                    if not is_selected:
-                        if checkbox_ticked:
-                            st.session_state.selected_codes.append(code)
-                            if st.session_state.current_definition:
-                                st.session_state.current_definition.add_code(code)
-                            st.rerun()
-                        else:
-                            if code in st.session_state.selected_codes:
-                                st.session_state.selected_codes.remove(code)
-                    elif is_selected and not checkbox_ticked:
-                        code = create_code_from_row(row)
-                        st.session_state.selected_codes.remove(code)
-                        if st.session_state.current_definition:
-                            st.session_state.current_definition.remove_code(code)
-                        st.rerun()
+                    checkbox_key = f"second_row_{row['CODE']}"
+                    display_code_and_checkbox(row, checkbox_key)

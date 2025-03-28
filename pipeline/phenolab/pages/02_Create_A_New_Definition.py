@@ -27,7 +27,7 @@ def display_definition_panel() -> str:
     with col2:
         if st.button("Create definition") and new_definition_name:
             st.session_state.current_definition = Definition.from_scratch(definition_name=new_definition_name)
-            st.session_state.selected_codes = []
+            # st.session_state.selected_codes = []
             with col1:
                 st.success(f"Created new definition: {new_definition_name}")
 
@@ -45,8 +45,8 @@ def main():
     if "current_definition" not in st.session_state:
         st.session_state.current_definition = None
     ## actively selected codes that are part of the current definition
-    if "selected_codes" not in st.session_state:
-        st.session_state.selected_codes = []
+    # if "selected_codes" not in st.session_state:
+    #     st.session_state.selected_codes = []
     ## all codes in source data pulled in from selector
     if "codes" not in st.session_state:
         st.session_state.codes = None
@@ -69,13 +69,13 @@ def main():
         # code searcher
         display_code_search_panel(code_types)
 
-    with col2:
-        # selected codes
-        display_selected_codes()
-
     # 5. find codes from existing defintions
     with col1:
         find_codes_from_existing_phenotypes()
 
+    # 6. Show selected codes
+    with col2:
+        # selected codes
+        display_selected_codes()
 
 main()
