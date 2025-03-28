@@ -28,8 +28,9 @@ def display_definition_panel() -> str:
         if st.button("Create definition") and new_definition_name:
             st.session_state.current_definition = Definition.from_scratch(definition_name=new_definition_name)
             print(st.session_state.current_definition)
-            for checkbox_key in st.session_state.used_checkbox_keys:
-                st.session_state[checkbox_key] = False
+            if "used_checkbox_keys" in st.session_state:
+                for checkbox_key in st.session_state.used_checkbox_keys:
+                    st.session_state[checkbox_key] = False
             # st.session_state.selected_codes = []
             with col1:
                 st.success(f"Created new definition: {new_definition_name}")
