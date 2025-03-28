@@ -189,19 +189,9 @@ def code_selected(row: pd.Series) -> bool:
                # for c in st.session_state.selected_codes
                 for c in st.session_state.current_definition.codes)
 
-def generate_unique_checkbox_key():
-    while True:
-        # Generate a random 6-character alphanumeric code
-        random_key = ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
-        
-        if "used_checkbox_keys" not in st.session_state:
-            st.session_state.used_checkbox_keys = set()  
-        
-        if random_key not in st.session_state.used_checkbox_keys:
-            st.session_state.used_checkbox_keys.add(random_key)
-            return random_key
-
 def display_code_and_checkbox(row: pd.Series, checkbox_key: str):
+    print(st.session_state.current_definition.codes)
+    print()
     if st.session_state.current_definition is not None:
         is_selected = code_selected(row)
     else:
@@ -210,6 +200,11 @@ def display_code_and_checkbox(row: pd.Series, checkbox_key: str):
     checkbox_ticked = st.checkbox(
             "Any", value=is_selected, key=checkbox_key, label_visibility="collapsed"
         )
+
+    # Need to keep track of all checkboxes so can reset them all if a new definition is created
+    if "used_checkbox_keys" not in st.session_state:
+        st.session_state.used_checkbox_keys = set()
+    st.session_state.used_checkbox_keys.add(checkbox_key)
 
     code = create_code_from_row(row)
 
