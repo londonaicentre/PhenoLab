@@ -186,8 +186,7 @@ def create_code_from_row(row: pd.Series) -> Code:
 
 def code_selected(row: pd.Series) -> bool:
     return any(c.code == row["CODE"] and c.code_vocabulary == VocabularyType(row["VOCABULARY"])
-               # for c in st.session_state.selected_codes
-                for c in st.session_state.current_definition.codes)
+            for c in st.session_state.current_definition.codes)
 
 def display_code_and_checkbox(row: pd.Series, checkbox_key: str):
     if st.session_state.current_definition is not None:
@@ -196,8 +195,7 @@ def display_code_and_checkbox(row: pd.Series, checkbox_key: str):
         is_selected = False  
 
     checkbox_ticked = st.checkbox(
-            "Any", value=is_selected, key=checkbox_key, label_visibility="collapsed"
-        )
+            "Any", value=is_selected, key=checkbox_key, label_visibility="collapsed")
 
     # Need to keep track of all checkboxes so can reset them all if a new definition is created
     if "used_checkbox_keys" not in st.session_state:
@@ -208,36 +206,19 @@ def display_code_and_checkbox(row: pd.Series, checkbox_key: str):
 
     if not is_selected:
         if checkbox_ticked:
-            # st.session_state.selected_codes.append(code)
             if st.session_state.current_definition:
                 st.session_state.current_definition.add_code(code)
-            # st.rerun()
-        # else:
-        #     if code in st.session_state.current_definition.codes:
-        #         st.session_state.current_definition.remove_code(code)
-
-            # else:
-            #     if code in st.session_state.selected_codes:
-            #         st.session_state.selected_codes.remove(code)
     elif is_selected and not checkbox_ticked:
-            # st.session_state.selected_codes.remove(code)
             if st.session_state.current_definition:
                 st.session_state.current_definition.remove_code(code)
-        
-        # st.rerun()
 
 # STREAMLIT FUNCTIONS
-
 
 def display_code_search_panel(code_types: List[str]) -> Tuple[pd.DataFrame, str, str]:
     st.subheader("Find codes via search")
 
     # FIXED CONTAINER
     with st.container(height=210):
-        # search_col1, search_col2 = st.columns([3, 1])
-
-        # components: search inputs
-        # with search_col1:
         search_term = st.text_input(
             "Filter codes",
             placeholder="Simple search or use (term1) AND/OR/NOT (term2)",
@@ -257,7 +238,7 @@ def display_code_search_panel(code_types: List[str]) -> Tuple[pd.DataFrame, str,
     # SCROLLING CONTAINER
     with st.container(height=450):
         if not filtered_codes.empty:
-            st.write(f"Found {len(filtered_codes)} codes")
+            st.write(f"Found {len(filtered_codes):,} codes")
             for idx, row in filtered_codes.head(500).iterrows():
                 col1a, col1b = st.columns([9, 1])
                 with col1a:
@@ -378,9 +359,6 @@ def find_codes_from_existing_phenotypes():
             chosen_definition_id = id_list[definitions_list.index(chosen_definition)]
 
             chosen_definition_codes_df = return_codes_for_given_definition_id_as_df(conn, chosen_definition_id)
-
-            # chosen_definition_codes = [f"{row['CODE_DESCRIPTION']} ({row['VOCABULARY']}) ({row['CODE']})"
-            #                 for i, row in chosen_definition_codes_df.iterrows()]
 
             for idx, row in chosen_definition_codes_df.iterrows():
                 col2a, col2b = st.columns([9, 1])
