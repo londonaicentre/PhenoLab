@@ -42,10 +42,10 @@ def display_definition_panel() -> str:
                         st.success(f"Loaded definition: {definition.definition_name}")
 
                     # load definition codes into the session state for tracking
-                    st.session_state.selected_codes = []
-                    for codelist in definition.codelists:
-                        for code in codelist.codes:
-                            st.session_state.selected_codes.append(code)
+                    # st.session_state.selected_codes = []
+                    # for codelist in definition.codelists:
+                    #     for code in codelist.codes:
+                    #         st.session_state.selected_codes.append(code)
 
     st.markdown("---")
 
@@ -59,8 +59,8 @@ def main():
     if "current_definition" not in st.session_state:
         st.session_state.current_definition = None
     ## actively selected codes that are part of the current definition
-    if "selected_codes" not in st.session_state:
-        st.session_state.selected_codes = []
+    # if "selected_codes" not in st.session_state:
+    #     st.session_state.selected_codes = []
     ## all codes in source data pulled in from selector
     if "codes" not in st.session_state:
         st.session_state.codes = None
