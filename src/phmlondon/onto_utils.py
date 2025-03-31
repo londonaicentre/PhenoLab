@@ -71,7 +71,7 @@ class FHIRTerminologyClient:
         for var in self.env_vars:
             if not os.getenv(var):
                 print(f"Error: Environment variable {var} not set.")
-                raise
+                raise ValueError("Environment variables not set.")
 
     def _get_access_token(self) -> tuple[str, int]:
         # define request contents
