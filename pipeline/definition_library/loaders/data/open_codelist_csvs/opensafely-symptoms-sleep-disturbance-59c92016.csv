@@ -1,0 +1,280 @@
+code,term
+105191000119100,Acquired central alveolar hypoventilation
+105491000119107,Primary hyposomnia
+105521000119109,Organic mixed sleep disorder
+1057371000000102,Signposting to the Sleep Council
+1069241000000104,Does not sleep without sedation
+1070941000000105,Difficulty sleeping with sedation
+1070951000000108,Difficulty sleeping without sedation
+1072611000000100,Does not sleep
+1072621000000106,Does not sleep with sedation
+1074261000000105,Does sleep with sedation
+1075841000000106,Unable to sleep with sedation
+1075851000000109,Unable to sleep without sedation
+1101000119103,Obstructive sleep apnea of adult
+111489007,Breathing-related sleep disorder
+12262002,Restless sleep
+130989002,Sleep deprivation
+139485005,Insomnia (& symptom) or somnolence
+139500000,Poor sleep pattern
+141000119100,Daytime somnolence
+154927001,Sleep disorders (& [insomnia] or [nightmares] or [sleepwalking (& somnambulism)])
+158124004,[D]Somnolence
+158149000,[D]Sleep disturbances (& [hypersomnia] or [insomnia])
+158150000,"[D]Sleep disturbance, unspecified"
+158152008,[D]Insomnia
+158154009,[D]Hypersomnia
+158155005,[D]Sleep rhythm inversion
+158156006,[D]Sleep rhythm irregular
+158157002,[D]Sleep-wake rhythm non-24-hour cycle
+158158007,[D]Sleep dysfunction with sleep stage disturbance
+158159004,[D]Sleep dysfunction with arousal disturbance
+158160009,[D]Sleep dysfunction NEC
+162201008,Insomnia (& C/O)
+162202001,Initial insomnia
+162203006,Middle insomnia
+162204000,Late insomnia
+162224001,Poor sleep pattern
+17402007,Pavor diurnus
+177841000000108,Light sleep
+186211000000101,Light sleep
+189651000000108,Light sleep
+191994005,Non-organic sleep disorders (& [hypersomnia] or [insomnia])
+191995006,Unspecified non-organic sleep disorder
+191996007,Insomnia: [transient] or [NOS]
+191997003,Persistent insomnia
+191998008,Hypersomnia: [transient] or [NOS]
+191999000,Persistent hypersomnia
+192004002,Repeated rapid eye movement sleep interruptions
+192005001,Other sleep stage or arousal dysfunction
+192006000,(Repetitive intrusions of sleep) or (restless sleep)
+192007009,Short-sleeper
+192008004,Reversed sleep-wake cycle
+192009007,(Dreams) or (other non-organic sleep disorder)
+192010002,Non-organic sleep disorder NOS
+192453005,Non-organic sleep disorder
+192454004,Nonorganic insomnia
+192455003,Hypersomnia of non-organic origin
+192456002,[X] Nonorganic disorder of the sleep-wake schedule: [psychogenic inversion of circadian rhythm (including nyctohemeral rhythm and sleep rhythm)]
+192457006,Sleepwalking
+192460004,[X]Other nonorganic sleep disorders
+192462007,"[X]Nonorganic sleep disorder, unspecified"
+193042000,Cataplexy and narcolepsy
+193462001,Insomnia
+194436004,Sleep-wake disorder
+194437008,Disorders of initiating and maintaining sleep
+194439006,Disorders of excessive somnolence
+194440008,Disorder of sleep-wake cycle
+194498000,[X]Other sleep disorders
+198437004,Menopausal sleeplessness
+206712002,[D]Somnolence
+206746001,[D]Sleep disturbances
+206747005,"[D]Sleep disturbance, unspecified"
+206749008,[D]Insomnia NOS
+206751007,[D]Hypersomnia NOS
+206752000,[D]Sleep rhythm inversion
+206753005,[D]Sleep rhythm irregular
+206754004,[D]Sleep-wake rhythm non-24-hour cycle
+206755003,[D]Sleep dysfunction with sleep stage disturbance
+206756002,[D]Sleep dysfunction with arousal disturbance
+206757006,[D]Sleep dysfunction NOS
+230484002,Insomnia NOS
+230485001,Nonorganic insomnia
+230486000,Hypersomnia NOS
+230488004,Hypersomnia of non-organic origin
+230489007,Excessive daytime sleepiness - normal night sleep
+230490003,Excessive day and night-time sleepiness
+230491004,Postviral excessive daytime sleepiness
+230492006,Excessive daytime sleepiness with sleep paralysis
+230493001,Mixed sleep apnea
+230494007,Alveolar sleep apnea
+230495008,Transient sleep-wake rhythm disorder
+230496009,Non-24 hour sleep-wake cycle
+23871000119106,Somnambulism co-occurrent with sleep terror disorder
+24121004,Insomnia disorder related to another mental disorder
+242101000000103,Pain onset during sleep
+247955002,Low level of awareness while sleep walking
+247956001,Low level of reactivity while sleep walking
+247957005,Low level of motor skill while sleep walking
+247958000,"Blank, staring face while sleep walking"
+247959008,Unresponsive to communication while sleep walking
+247960003,Not easily wakened from sleep walking
+247961004,No recollection of sleep walk
+247962006,Sleep automatism
+24825006,Central alveolar hypoventilation syndrome
+248255005,Cannot sleep at all
+248256006,Not getting enough sleep
+248257002,Wakes and cannot sleep again
+248259004,Symptoms interfere with sleep
+248260009,Unrefreshed by sleep
+248261008,Oversleeps
+26677001,Sleep pattern disturbance
+267172002,Insomnia (& symptom) or somnolence
+268652009,Transient insomnia
+268653004,Transient hypersomnia
+268654005,Repetitive intrusions of sleep
+268655006,Other non-organic sleep disorder
+268722008,Non-organic disorder of the sleep-wake schedule
+268775007,Sleep disorders (& [insomnia] or [nightmares] or [sleepwalking (& somnambulism)])
+268892009,[D]Sleep dysfunction NEC
+270478005,Insomnia
+270487001,Non-organic sleep disorder
+270961006,[D]Sleep disturbances (& [hypersomnia] or [insomnia])
+271793004,Irregular sleep-wake pattern
+271794005,Disorder of sleep-wake cycle
+272025006,Complaining of insomnia
+272026007,Complaining of somnolence
+274233003,[D]Insomnia
+274950005,Sleep related bruxism
+277180005,Sleep paralysis
+27971000119105,Insomnia co-occurrent and due to medical condition
+28011000119104,"Sleep-wake schedule disorder, delayed phase"
+284091004,Sleepy
+288421000119100,Hyposomnia co-occurrent and due to psychological disorder
+288581000119102,Sleep related hypoxemia
+29373008,Light sleep
+301345002,Difficulty sleeping
+309732001,[D]Hypersomnia
+31491000119109,Disruptions of 24 hour sleep-wake cycle
+314938000,Poor sleep pattern
+31537005,"Sleep-wake schedule disorder, advanced phase type"
+31771000119102,Daytime hypersomnia
+3277001,Terminal mood insomnia
+346781000000103,Disturbing sleep
+347641000000101,Leaving to sleep
+36124002,Primary hypersomnia
+36321004,Sleeptalking
+370971007,Somnolence syndrome
+3731000119107,Idiopathic hypersomnia
+3745000,Sleep-wake schedule disorder
+38376001,Initial mood insomnia
+393575002,Early waking
+39391000000105,Delayed onset of sleep
+39401000000108,Excessive sleep
+39421000000104,Early morning waking
+3972004,Primary insomnia
+39898005,Sleep disorder
+401161007,Delayed onset of sleep
+401236004,Early morning waking
+410079007,Sleep pattern control education
+410080005,Sleep pattern control management
+41016007,Twilight sleep
+414731000000105,[X]Other nonorganic sleep disorders
+415238003,Rapid eye movement sleep behavior disorder
+41651000000105,Delayed onset of sleep
+41661000000108,Excessive sleep
+41681000000104,Early morning waking
+418955009,Organic sleep disorder
+419057008,Finding related to sleep walking
+41975002,Insomnia with sleep apnea
+422730001,Insufficient rest/sleep for physical condition
+423052008,Frequent night waking
+423439006,Sleep pattern disrupts family lifestyle
+424801000000100,[D]Hypersomnia NOS
+425202006,Insufficient rest/sleep for age
+425476007,Non-organic parasomnia
+425832009,Psychophysiologic insomnia
+425881006,Limit-setting sleep disorder
+426257002,Idiopathic insomnia
+426451004,Recurrent hypersomnia
+426824009,Sleep-onset association disorder
+426943005,Hypersomnia disorder related to menstruation
+427426006,Sleep attack
+428708005,Secondary parasomnia
+429276004,Environmental sleep disorder
+429571005,Sleep-related dissociative disorder
+430893009,Sleep related rhythmic movement disorder
+437981000000106,[D]Sleep dysfunction NOS
+44186003,Dyssomnia
+441877007,Sleep dysfunction with sleep stage disturbance
+441910000,Idiopathic sleep related non-obstructive alveolar hypoventilation
+441976002,Organic parasomnia
+442120007,Recurrent isolated sleep paralysis
+442164004,Organic sleep apnea
+442176004,Sleep dysfunction with arousal disturbance
+442292004,Idiopathic hypersomnia without long sleep time
+442416002,Idiopathic hypersomnia associated with long sleep time
+443483005,Inadequate sleep hygiene
+443484004,Decreased need for sleep
+44361000000104,Delayed onset of sleep
+443664006,Long sleeper syndrome
+443760008,Sleep hypoventilation
+44455001,Hypersomnia disorder related to a known organic factor
+44501000000107,Sleeping pattern
+445112001,Sleep related hallucinations
+44780000,Hypnagogic hallucinations
+45121000000105,Early morning waking
+45291004,Middle mood insomnia
+456351000000103,"[X]Nonorganic sleep disorder, unspecified"
+456421000000100,[X]Other sleep disorders
+46701000000106,Excessive sleep
+469181000000105,[D]Sleep dysfunction NEC
+471781000000102,[D]Sleep dysfunction NEC
+472819006,Adjustment insomnia
+477671000000104,[D]Insomnia NOS
+48091006,Prolonged sleep
+495381000000108,[D]Somnolence
+495641000000109,[D]Sleep disturbances
+495651000000107,"[D]Sleep disturbance, unspecified"
+495671000000103,[D]Sleep rhythm inversion
+495681000000101,[D]Sleep rhythm irregular
+495691000000104,[D]Sleep-wake rhythm non-24-hour cycle
+495701000000104,[D]Sleep dysfunction with sleep stage disturbance
+495711000000102,[D]Sleep dysfunction with arousal disturbance
+502171000000108,[D]Insomnia
+502761000000100,[D]Hypersomnia
+50702007,"Sleep-wake schedule disorder, disorganized type"
+53758003,Mood insomnia
+53888004,Disturbance in sleep behavior
+54230003,Mixed insomnia
+54532007,"Sleep-wake schedule disorder, frequently changing type"
+574401000000107,Other non-organic sleep disorder
+58690002,Parasomnia
+59050008,Initial insomnia
+59445005,Mood hypersomnia
+60380001,Narcolepsy
+608221000000109,Unspecified non-organic sleep disorder
+608231000000106,Other sleep stage or arousal dysfunction
+62577008,Insomnia
+665901000000102,Non-organic sleep disorder NOS
+67062000,Terminal insomnia
+671491000000108,Insomnia NOS
+671501000000102,Hypersomnia NOS
+67233009,Middle insomnia
+67238000,Sleep drunkenness
+69020003,Abnormal rapid eye movement sleep
+69690008,Hypnapompic hallucinations
+713822005,Wakes up during night
+724748004,Chronic insomnia
+724749007,Behaviorally induced hypersomnia
+724753009,Recurrent isolated sleep-related hallucinations
+733504007,Not easily wakened from sleep
+73430006,Sleep apnea
+735676003,Narcolepsy type 1
+74881000000104,Delayed onset of sleep
+74901000000101,Early morning waking
+762348004,Acute insomnia
+77692006,Hypersomnia
+78275009,Obstructive sleep apnea syndrome
+79121000000107,Delayed onset of sleep
+79141000000100,Early morning waking
+79280005,Hypersomnia with sleep apnea
+799001000000105,Able to sleep with sedation
+80495009,Sleep walking disorder
+80623000,"Sleep-wake schedule disorder, delayed phase type"
+81121000119107,Sleep disorder care management
+81608000,Insomnia disorder related to known organic factor
+83701000000109,Excessive sleep
+837041000000105,Excessive somnolence
+84991000119105,Sleep related movement disorder
+857601000000103,Excessive somnolence
+887881000000101,On melatonin for sleep disorder
+887891000000104,On melatonin for child sleep disorder 
+88982005,Rebound insomnia
+89415002,Hypersomnia disorder related to another mental disorder
+89675003,Sleep terror disorder
+89911000119102,Sleep related hypoventilation or hypoxemia
+90011000119105,Organic sleep related movement disorder
+91521000119104,Narcolepsy without cataplexy
+93681000119102,Insomnia co-occurrent and due to nocturnal myoclonus
+99711000119104,Organic sleep-wake cycle disorder
