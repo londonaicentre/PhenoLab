@@ -23,7 +23,28 @@ definitions_to_load = {
     "https://www.opencodelists.org/codelist/opensafely/stroke-snomed/2020-04-21/#full-list":
         "data/open_codelist_csvs/opensafely-stroke-snomed-2020-04-21.csv",
     "https://www.opencodelists.org/codelist/opensafely/medication-reviews-all-types/69f99fda/":
-        "data/open_codelist_csvs/opensafely-medication-reviews-all-types-69f99fda.csv"
+        "data/open_codelist_csvs/opensafely-medication-reviews-all-types-69f99fda.csv",
+    "https://www.opencodelists.org/codelist/opensafely/symptoms-dizzy/5c7be00c/":
+        "data/open_codelist_csvs/opensafely-symptoms-dizzy-5c7be00c.csv",
+    "https://www.opencodelists.org/codelist/nhsd-primary-care-domain-refsets/breathlessness-codes/20241205/":
+        "data/open_codelist_csvs/nhsd-primary-care-domain-refsets-breathlessness-codes-20241205.csv",
+    "https://www.opencodelists.org/codelist/nhsd-primary-care-domain-refsets/memclin2_cod/20241205/":
+         "data/open_codelist_csvs/nhsd-primary-care-domain-refsets-memclin2_cod-20241205.csv",
+    "https://www.opencodelists.org/codelist/nhsd-primary-care-domain-refsets/frc_cod/20241205/":
+        "data/open_codelist_csvs/nhsd-primary-care-domain-refsets-frc_cod-20241205.csv",
+    "https://www.opencodelists.org/codelist/opensafely/symptoms-sleep-disturbance/59c92016/":
+        "data/open_codelist_csvs/opensafely-symptoms-sleep-disturbance-59c92016.csv",
+    "https://www.opencodelists.org/codelist/nhsd-primary-care-domain-refsets/ff_cod/20241205/":
+        "data/open_codelist_csvs/nhsd-primary-care-domain-refsets-ff_cod-20241205.csv",
+    "https://www.opencodelists.org/codelist/nhsd-primary-care-domain-refsets/syncope-or-dizziness-codes/20241205/":
+        "data/open_codelist_csvs/nhsd-primary-care-domain-refsets-syncope-or-dizziness-codes-20241205.csv",
+    "https://www.opencodelists.org/codelist/nhsd-primary-care-domain-refsets/peptic-ulceration-codes/20241205/":
+        "data/open_codelist_csvs/nhsd-primary-care-domain-refsets-peptic-ulceration-codes-20241205.csv",
+    "https://www.opencodelists.org/codelist/opensafely/symptoms-mobility-impairment/62a81387/":
+        "data/open_codelist_csvs/opensafely-symptoms-mobility-impairment-62a81387.csv",
+    "https://www.opencodelists.org/codelist/nhsd-primary-care-domain-refsets/thy_cod/20241205/":
+        "data/open_codelist_csvs/nhsd-primary-care-domain-refsets-thy_cod-20241205.csv"
+
 }
 
 def get_git_root(path: str) -> str:
