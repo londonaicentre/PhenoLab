@@ -1,6 +1,6 @@
 
 from dotenv import load_dotenv
-from feature_store_manager import FeatureStoreManager
+from phmlondon.feature_store_manager import FeatureStoreManager
 
 from phmlondon.snow_utils import SnowflakeConnection
 
