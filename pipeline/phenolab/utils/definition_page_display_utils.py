@@ -1,7 +1,5 @@
 import os
 from typing import List, Optional, Tuple
-import random
-import string
 
 import pandas as pd
 import streamlit as st
