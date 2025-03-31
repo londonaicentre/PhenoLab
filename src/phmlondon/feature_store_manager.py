@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 from phmlondon.snow_utils import SnowflakeConnection
 
 class FeatureStoreManager:
-    def __init__(self, connection: SnowflakeConnection, database: str, schema: str):
+    def __init__(self, connection: SnowflakeConnection, database: str, schema: str, metadata_schema: str = None):
         """
         The schema where you want to create the feature store should already exist
 
@@ -20,6 +20,9 @@ class FeatureStoreManager:
         self.conn = connection
         self.database = database
         self.schema = schema
+        if metadata_schema is None:
+            metadata_schema = schema
+        self.metadata_schema = metadata_schema
         self.conn.use_database(self.database)
         self.conn.use_schema(self.schema)
         self.table_names = ["FEATURE_REGISTRY", "FEATURE_VERSION_REGISTRY", "FEATURES_ACTIVE"]
@@ -29,13 +32,11 @@ class FeatureStoreManager:
         Creates the FEATURE_REGISTRY if it doesn't exist.
         Raises an Exception if the table already exists.
         """
-        session = self.conn.session
-
         table_names = self.table_names
-        
-        # feature_id INT PRIMARY KEY AUTOINCREMENT START 1 INCREMENT 1 ORDER,
 
-        self._check_table_exists(table_names[0])
+        self.conn.use_schema(self.metadata_schema)
+        session = self.conn.session
+        self._check_table_exists(table_names[0], self.metadata_schema)
         session.sql(f"""
             CREATE TABLE IF NOT EXISTS {table_names[0]} (
                     feature_id STRING DEFAULT UUID_STRING(),
@@ -46,7 +47,7 @@ class FeatureStoreManager:
                     ) """).collect()
         print(f"{table_names[0]} created successfully.")
 
-        self._check_table_exists(table_names[1])
+        self._check_table_exists(table_names[1], self.metadata_schema)
         session.sql(f"""
             CREATE TABLE IF NOT EXISTS {table_names[1]} (
                 feature_ID STRING,
@@ -58,7 +59,7 @@ class FeatureStoreManager:
             ) """).collect()
         print(f"{table_names[1]} created successfully.")
 
-        self._check_table_exists(table_names[2])
+        self._check_table_exists(table_names[2], self.metadata_schema)
         session.sql(f"""
             CREATE TABLE IF NOT EXISTS {table_names[2]} (
                     feature_id STRING,
@@ -68,6 +69,7 @@ class FeatureStoreManager:
                     date_registered_as_active TIMESTAMP
                 )  """).collect()  # every active model should register a new entry, even if using the same feature
         print(f"{table_names[2]} created successfully.")
+        self.conn.use_schema(self.schema)
 
     def add_new_feature(
         self,
@@ -130,17 +132,19 @@ class FeatureStoreManager:
 
         return feature_id, feature_version
 
-    def _check_table_exists(self, table_name: str):
+    def _check_table_exists(self, table_name: str, schema: str = None):
+        if schema is None:
+            schema = self.schema
         session = self.conn.session
         existing_tables = [
             r.as_dict()["TABLE_NAME"]
             for r in session.sql(f"""SELECT TABLE_NAME
                                     FROM INFORMATION_SCHEMA.TABLES
                                     WHERE TABLE_CATALOG = '{self.database}'
-                                    AND TABLE_SCHEMA = '{self.schema}';""").collect()
+                                    AND TABLE_SCHEMA = '{schema}';""").collect()
         ]  # returns empty list if no tables
         if table_name.upper() in existing_tables:
-            raise ValueError(f"{self.database}.{self.schema}.{table_name} already exists.")
+            raise ValueError(f"{self.database}.{schema}.{table_name} already exists.")
 
     def _create_table_creation_query_from_select_query(
         self,
