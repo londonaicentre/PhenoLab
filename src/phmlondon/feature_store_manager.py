@@ -94,6 +94,7 @@ class FeatureStoreManager:
         session = self.conn.session
 
         # Add the feature to the feature registry
+        self.conn.use_schema(self.metadata_schema)
         session.sql(f"""
             INSERT INTO feature_registry (
                     feature_name, 
@@ -106,6 +107,7 @@ class FeatureStoreManager:
                                 FROM feature_registry
                                 WHERE feature_name = '{feature_name}'""").collect()[0][
                                 "MAX(FEATURE_ID)"]
+        self.conn.use_schema(self.schema)
         print(
             f"Feature {feature_name}, ID {feature_id}, added to the feature registry; table not created yet"
         )
@@ -124,10 +126,12 @@ class FeatureStoreManager:
 
         except Exception as e:
             print(f"Error creating table: {e}. Registry entry will now be deleted")
+            self.conn.use_schema(self.metadata_schema)
             session.sql(f"""
                 DELETE FROM feature_registry
                 WHERE feature_id = '{feature_id}'
             """).collect()
+            self.conn.use_schema(self.schema)
             raise e
 
         return feature_id, feature_version
@@ -191,11 +195,13 @@ class FeatureStoreManager:
     def _get_current_feature_version(self, feature_id: str) -> tuple[int, int]:
         session = self.conn.session
 
+        self.conn.use_schema(self.metadata_schema)
         result = session.sql(f"""
                 SELECT COALESCE(MAX(feature_version), 0) AS max_version
                 FROM feature_version_registry
                 WHERE feature_id = '{feature_id}'
                 """).collect()
+        self.conn.use_schema(self.schema)
         current_version = result[0]["MAX_VERSION"]
         next_version = current_version + 1
 
@@ -209,6 +215,7 @@ class FeatureStoreManager:
         feature_version = self._get_current_feature_version(feature_id)[1]
 
         escaped_sql_query = sql_query.replace("'", "''")
+        self.conn.use_schema(self.metadata_schema)
         session.sql(f"""INSERT INTO feature_version_registry (
                         feature_ID,
                         feature_version,
@@ -224,6 +231,7 @@ class FeatureStoreManager:
                     '{change_description}',
                     CURRENT_TIMESTAMP)
             """).collect()
+        self.conn.use_schema(self.schema)
 
         print(
             f"Feature {feature_id} version {feature_version} added to the feature version registry"
@@ -250,6 +258,7 @@ class FeatureStoreManager:
         """
         session = self.conn.session
 
+        self.conn.use_schema(self.metadata_schema)
         if not session.sql(
             f"""SELECT feature_id FROM feature_registry WHERE feature_id = '{feature_id}'"""
         ).collect():
@@ -259,6 +268,7 @@ class FeatureStoreManager:
                 f"""SELECT feature_name FROM feature_registry WHERE feature_id = '{feature_id}'"""
             ).collect()[0]["FEATURE_NAME"]
             print(f"Updating feature {feature_name}, with ID {feature_id}")
+        self.conn.use_schema(self.schema)
 
         # Create new feature and add to registry
         table_name = self._create_feature_table(
@@ -325,11 +335,13 @@ class FeatureStoreManager:
             int: the latest version of the feature
         """
         session = self.conn.session
+        self.conn.use_schema(self.metadata_schema)
         latest_version = session.sql(
             f"""SELECT COALESCE(MAX(feature_version), 0) AS max_version
             FROM feature_version_registry
             WHERE feature_id = '{feature_id}'"""
         ).collect()[0]["MAX_VERSION"]
+        self.conn.use_schema(self.schema)
         return latest_version
     
     def get_feature_id_from_table_name(self, table_name: str) -> str:
@@ -343,11 +355,13 @@ class FeatureStoreManager:
             str: the feature_id (uuid) of the feature
         """
         session = self.conn.session
+        self.conn.use_schema(self.metadata_schema)
         result = session.sql(
             f"""SELECT feature_id
             FROM feature_version_registry
             WHERE table_name = '{table_name.upper()}'"""
         ).collect()
+        self.conn.use_schema(self.schema)
         if result:
             return result[0]["FEATURE_ID"]
         else:
