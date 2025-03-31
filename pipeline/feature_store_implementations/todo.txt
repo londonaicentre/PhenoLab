@@ -1,0 +1,18 @@
+x add live features table
+x update_feature
+x get_data
+x deprecate feature (remove all live versions)
+x current version of feature
+x debug/check functionality
+- integrate Joe's code +/- move -> loader script
+x documentation - readme and docstrings
+x phenotypes -> features
+x refactor to be static tables
+- tests?
+x put aside dynamic code and snowflake code
+x readme update with usage
+
+- utility functions for codelist comparison and thresholding
+- start adding other features
+x If we go on to use this, do proper documentation of inputs
+- delete functionality?
