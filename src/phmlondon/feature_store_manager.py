@@ -95,6 +95,14 @@ class FeatureStoreManager:
 
         # Add the feature to the feature registry
         self.conn.use_schema(self.metadata_schema)
+        existing_feature_names = [r['FEATURE_NAME'] for r in 
+                    session.sql(f"""
+                    select feature_name 
+                    from feature_registry;""").collect()]
+        print(existing_feature_names)
+        if feature_name in existing_feature_names:
+            raise ValueError(f"""Feature {feature_name} already exists. Please check you are not creating a duplicate 
+                             and try again with a different name.""")
         session.sql(f"""
             INSERT INTO feature_registry (
                     feature_name, 
