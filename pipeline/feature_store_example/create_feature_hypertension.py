@@ -1,6 +1,6 @@
 
 from dotenv import load_dotenv
-from feature_store_manager import FeatureStoreManager
+from phmlondon.feature_store_manager import FeatureStoreManager
 
 from phmlondon.snow_utils import SnowflakeConnection
 
@@ -8,7 +8,8 @@ load_dotenv()
 conn = SnowflakeConnection()
 DATABASE = "INTELLIGENCE_DEV"
 SCHEMA = "AI_CENTRE_FEATURE_STORE"
-feature_store_manager = FeatureStoreManager(conn, DATABASE, SCHEMA)
+METADATASCHEMA = "AI_CENTRE_FEATURE_STORE_METADATA"
+feature_store_manager = FeatureStoreManager(conn, DATABASE, SCHEMA, METADATASCHEMA)
 
 with open("htn_query.sql", "r") as fid:
     query = fid.read()
@@ -24,16 +25,16 @@ feature_store_manager.add_new_feature(
     feature_format="Binary/categorical",
     sql_select_query_to_generate_feature=query)
 
-# fid = feature_store_manager.get_feature_id_from_table_name('hypertension_v1')
-# print(fid)
+fid = feature_store_manager.get_feature_id_from_table_name('hypertension_v1')
+print(fid)
 
-# v = feature_store_manager.get_latest_feature_version(fid)
-# print(v)
+v = feature_store_manager.get_latest_feature_version(fid)
+print(v)
 
-# v2 = feature_store_manager.update_feature(
-#     feature_id=fid,
-#     new_sql_select_query=query,
-#     change_description="A test update; same query"
-# )
-# print(v2)
+v2 = feature_store_manager.update_feature(
+    feature_id=fid,
+    new_sql_select_query=query,
+    change_description="A test update; same query"
+)
+print(v2)
 

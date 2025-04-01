@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 from phmlondon.snow_utils import SnowflakeConnection
 
 class FeatureStoreManager:
-    def __init__(self, connection: SnowflakeConnection, database: str, schema: str):
+    def __init__(self, connection: SnowflakeConnection, database: str, schema: str, metadata_schema: str = None):
         """
         The schema where you want to create the feature store should already exist
 
@@ -20,6 +20,9 @@ class FeatureStoreManager:
         self.conn = connection
         self.database = database
         self.schema = schema
+        if metadata_schema is None:
+            metadata_schema = schema
+        self.metadata_schema = metadata_schema
         self.conn.use_database(self.database)
         self.conn.use_schema(self.schema)
         self.table_names = ["FEATURE_REGISTRY", "FEATURE_VERSION_REGISTRY", "FEATURES_ACTIVE"]
@@ -29,13 +32,11 @@ class FeatureStoreManager:
         Creates the FEATURE_REGISTRY if it doesn't exist.
         Raises an Exception if the table already exists.
         """
-        session = self.conn.session
-
         table_names = self.table_names
-        
-        # feature_id INT PRIMARY KEY AUTOINCREMENT START 1 INCREMENT 1 ORDER,
 
-        self._check_table_exists(table_names[0])
+        self.conn.use_schema(self.metadata_schema)
+        session = self.conn.session
+        self._check_table_exists(table_names[0], self.metadata_schema)
         session.sql(f"""
             CREATE TABLE IF NOT EXISTS {table_names[0]} (
                     feature_id STRING DEFAULT UUID_STRING(),
@@ -46,7 +47,7 @@ class FeatureStoreManager:
                     ) """).collect()
         print(f"{table_names[0]} created successfully.")
 
-        self._check_table_exists(table_names[1])
+        self._check_table_exists(table_names[1], self.metadata_schema)
         session.sql(f"""
             CREATE TABLE IF NOT EXISTS {table_names[1]} (
                 feature_ID STRING,
@@ -58,7 +59,7 @@ class FeatureStoreManager:
             ) """).collect()
         print(f"{table_names[1]} created successfully.")
 
-        self._check_table_exists(table_names[2])
+        self._check_table_exists(table_names[2], self.metadata_schema)
         session.sql(f"""
             CREATE TABLE IF NOT EXISTS {table_names[2]} (
                     feature_id STRING,
@@ -68,6 +69,7 @@ class FeatureStoreManager:
                     date_registered_as_active TIMESTAMP
                 )  """).collect()  # every active model should register a new entry, even if using the same feature
         print(f"{table_names[2]} created successfully.")
+        self.conn.use_schema(self.schema)
 
     def add_new_feature(
         self,
@@ -92,6 +94,15 @@ class FeatureStoreManager:
         session = self.conn.session
 
         # Add the feature to the feature registry
+        self.conn.use_schema(self.metadata_schema)
+        existing_feature_names = [r['FEATURE_NAME'] for r in 
+                    session.sql(f"""
+                    select feature_name 
+                    from feature_registry;""").collect()]
+        print(existing_feature_names)
+        if feature_name in existing_feature_names:
+            raise ValueError(f"""Feature {feature_name} already exists. Please check you are not creating a duplicate 
+                             and try again with a different name.""")
         session.sql(f"""
             INSERT INTO feature_registry (
                     feature_name, 
@@ -104,6 +115,7 @@ class FeatureStoreManager:
                                 FROM feature_registry
                                 WHERE feature_name = '{feature_name}'""").collect()[0][
                                 "MAX(FEATURE_ID)"]
+        self.conn.use_schema(self.schema)
         print(
             f"Feature {feature_name}, ID {feature_id}, added to the feature registry; table not created yet"
         )
@@ -122,25 +134,29 @@ class FeatureStoreManager:
 
         except Exception as e:
             print(f"Error creating table: {e}. Registry entry will now be deleted")
+            self.conn.use_schema(self.metadata_schema)
             session.sql(f"""
                 DELETE FROM feature_registry
                 WHERE feature_id = '{feature_id}'
             """).collect()
+            self.conn.use_schema(self.schema)
             raise e
 
         return feature_id, feature_version
 
-    def _check_table_exists(self, table_name: str):
+    def _check_table_exists(self, table_name: str, schema: str = None):
+        if schema is None:
+            schema = self.schema
         session = self.conn.session
         existing_tables = [
             r.as_dict()["TABLE_NAME"]
             for r in session.sql(f"""SELECT TABLE_NAME
                                     FROM INFORMATION_SCHEMA.TABLES
                                     WHERE TABLE_CATALOG = '{self.database}'
-                                    AND TABLE_SCHEMA = '{self.schema}';""").collect()
+                                    AND TABLE_SCHEMA = '{schema}';""").collect()
         ]  # returns empty list if no tables
         if table_name.upper() in existing_tables:
-            raise ValueError(f"{self.database}.{self.schema}.{table_name} already exists.")
+            raise ValueError(f"{self.database}.{schema}.{table_name} already exists.")
 
     def _create_table_creation_query_from_select_query(
         self,
@@ -187,11 +203,13 @@ class FeatureStoreManager:
     def _get_current_feature_version(self, feature_id: str) -> tuple[int, int]:
         session = self.conn.session
 
+        self.conn.use_schema(self.metadata_schema)
         result = session.sql(f"""
                 SELECT COALESCE(MAX(feature_version), 0) AS max_version
                 FROM feature_version_registry
                 WHERE feature_id = '{feature_id}'
                 """).collect()
+        self.conn.use_schema(self.schema)
         current_version = result[0]["MAX_VERSION"]
         next_version = current_version + 1
 
@@ -205,6 +223,7 @@ class FeatureStoreManager:
         feature_version = self._get_current_feature_version(feature_id)[1]
 
         escaped_sql_query = sql_query.replace("'", "''")
+        self.conn.use_schema(self.metadata_schema)
         session.sql(f"""INSERT INTO feature_version_registry (
                         feature_ID,
                         feature_version,
@@ -220,6 +239,7 @@ class FeatureStoreManager:
                     '{change_description}',
                     CURRENT_TIMESTAMP)
             """).collect()
+        self.conn.use_schema(self.schema)
 
         print(
             f"Feature {feature_id} version {feature_version} added to the feature version registry"
@@ -246,6 +266,7 @@ class FeatureStoreManager:
         """
         session = self.conn.session
 
+        self.conn.use_schema(self.metadata_schema)
         if not session.sql(
             f"""SELECT feature_id FROM feature_registry WHERE feature_id = '{feature_id}'"""
         ).collect():
@@ -255,6 +276,7 @@ class FeatureStoreManager:
                 f"""SELECT feature_name FROM feature_registry WHERE feature_id = '{feature_id}'"""
             ).collect()[0]["FEATURE_NAME"]
             print(f"Updating feature {feature_name}, with ID {feature_id}")
+        self.conn.use_schema(self.schema)
 
         # Create new feature and add to registry
         table_name = self._create_feature_table(
@@ -321,11 +343,13 @@ class FeatureStoreManager:
             int: the latest version of the feature
         """
         session = self.conn.session
+        self.conn.use_schema(self.metadata_schema)
         latest_version = session.sql(
             f"""SELECT COALESCE(MAX(feature_version), 0) AS max_version
             FROM feature_version_registry
             WHERE feature_id = '{feature_id}'"""
         ).collect()[0]["MAX_VERSION"]
+        self.conn.use_schema(self.schema)
         return latest_version
     
     def get_feature_id_from_table_name(self, table_name: str) -> str:
@@ -339,11 +363,13 @@ class FeatureStoreManager:
             str: the feature_id (uuid) of the feature
         """
         session = self.conn.session
+        self.conn.use_schema(self.metadata_schema)
         result = session.sql(
             f"""SELECT feature_id
             FROM feature_version_registry
             WHERE table_name = '{table_name.upper()}'"""
         ).collect()
+        self.conn.use_schema(self.schema)
         if result:
             return result[0]["FEATURE_ID"]
         else:
