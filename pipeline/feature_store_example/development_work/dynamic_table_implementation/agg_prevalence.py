@@ -3,7 +3,7 @@ import json
 from dotenv import load_dotenv
 
 from phmlondon.snow_utils import SnowflakeConnection
-from feature_store_manager import FeatureStoreManager
+from phmlondon.feature_store_manager import FeatureStoreManager
 
 # Generates wide table of aggregate demographic prevalence
 # Requires deographic demoniators to be generated first
