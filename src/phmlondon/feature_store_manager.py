@@ -122,7 +122,8 @@ class FeatureStoreManager:
 
         try:
             table_name = self._create_feature_table(
-                feature_name, feature_id, sql_select_query_to_generate_feature
+                feature_name, feature_id, sql_select_query_to_generate_feature,
+                comment = feature_desc
             )
             print(sql_select_query_to_generate_feature)
             feature_version = self._add_new_feature_version_to_version_registry(
@@ -178,7 +179,7 @@ class FeatureStoreManager:
         return f"{feature_name}_v{feature_version}"
 
     def _create_feature_table(
-        self, feature_name: str, feature_id: str, select_query: str,
+        self, feature_name: str, feature_id: str, select_query: str, comment: str
     ):
         session = self.conn.session
         table_name = self._get_feature_table_name(feature_name, feature_id)
@@ -195,6 +196,8 @@ class FeatureStoreManager:
 
         # Create the table
         session.sql(full_query).collect()
+
+        session.sql(f"""COMMENT ON TABLE {table_name} IS '{comment}'""").collect()
 
         print(f"Table {table_name} created successfully")
 
@@ -275,12 +278,15 @@ class FeatureStoreManager:
             feature_name = session.sql(
                 f"""SELECT feature_name FROM feature_registry WHERE feature_id = '{feature_id}'"""
             ).collect()[0]["FEATURE_NAME"]
+            feature_desc = session.sql(
+                f"""SELECT feature_desc FROM feature_registry WHERE feature_id = '{feature_id}'"""
+            ).collect()[0]["FEATURE_DESC"]
             print(f"Updating feature {feature_name}, with ID {feature_id}")
         self.conn.use_schema(self.schema)
 
         # Create new feature and add to registry
         table_name = self._create_feature_table(
-            feature_name, feature_id, new_sql_select_query
+            feature_name, feature_id, new_sql_select_query, feature_desc + change_description
         )
         feature_version = self._add_new_feature_version_to_version_registry(
             feature_id, table_name, new_sql_select_query, change_description

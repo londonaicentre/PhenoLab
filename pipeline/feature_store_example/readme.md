@@ -71,6 +71,25 @@ new_version_id = feature_store_manager.update_feature(
 )
 ```
 
+# Use on NEL Snowflake
+
+- Main feature store:
+    - SCHEMA = "AI_CENTRE_FEATURE_STORE"
+    - METADATASCHEMA = "AI_CENTRE_FEATURE_STORE_METADATA"
+- Test feature store:
+    - SCHEMA: "TEST_FEATURE_STORE_IW_2"
+    - Don't pass in a metadataschema, and the metadata tables will live in the same schema
+
+Example use of test feature store:
+```python
+DATABASE = "INTELLIGENCE_DEV"
+SCHEMA = "TEST_FEATURE_STORE_IW_2"
+load_dotenv()
+conn = SnowflakeConnection()
+# #we don't pass in a metadata schema, so it will default to using the same schema as for the feature tables
+feature_store_manager = FeatureStoreManager(conn, DATABASE, SCHEMA)
+```
+
 # Project to explore feature store implementations
 
 As well as the code described above, to create a feature store composed of static tables, this folder contains older
