@@ -1,23 +1,25 @@
 # Snowflake feature store manager
 
-This folder contains code for a FeatureStoreManager class, which assists with managing metadata tables for machine
-learning features created in SQL.
+This folder contains code showing how to use the FeatureStoreManager class, which lives in the phmlondon base package 
+and assists with managing metadata tables for machine learning features created in SQL.
 
-To create a feature store, make sure the database and schema where the feature store will live exist on Snowflake. Then
-run the code below to create the metadata tables for the feature store. 
-Example code in `create_feature_store.py`:
+To create a feature store, make sure the database and schema where the feature store will live exist on Snowflake. 
+Optionally, you can have the metadata tables live in a separate schema to the feature tables, in which case you need to 
+pass in a second schema, called `METADATASCHEMA`. Then run the code below to create the metadata tables for the feature 
+store. Example code in `create_feature_store.py`. Note that you are unlikely to need to run code like this, as a 
+shared feature store already exists on Snowflake:
 
 ```python
 from dotenv import load_dotenv
-from feature_store_manager import FeatureStoreManager
-
+from phmlondon.feature_store_manager import FeatureStoreManager
 from phmlondon.snow_utils import SnowflakeConnection
 
 DATABASE = "INTELLIGENCE_DEV"
 SCHEMA = "AI_CENTRE_FEATURE_STORE"
+METADATASCHEMA = "AI_CENTRE_FEATURE_STORE_METADATA"
 load_dotenv()
 conn = SnowflakeConnection()
-feature_store_manager = FeatureStoreManager(conn, DATABASE, SCHEMA)
+feature_store_manager = FeatureStoreManager(conn, DATABASE, SCHEMA, METADATASCHEMA)
 feature_store_manager.create_feature_store()
 ```
 Three metadata tables are created. 
@@ -39,7 +41,8 @@ load_dotenv()
 conn = SnowflakeConnection()
 DATABASE = "INTELLIGENCE_DEV"
 SCHEMA = "AI_CENTRE_FEATURE_STORE"
-feature_store_manager = FeatureStoreManager(conn, DATABASE, SCHEMA)
+METADATASCHEMA = "AI_CENTRE_FEATURE_STORE_METADATA"
+feature_store_manager = FeatureStoreManager(conn, DATABASE, SCHEMA, METADATASCHEMA)
 
 with open("htn_query.sql", "r") as fid:
     query = fid.read()
