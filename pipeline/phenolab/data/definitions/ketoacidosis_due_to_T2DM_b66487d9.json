@@ -1,0 +1,30 @@
+{
+  "definition_id": "b66487d9",
+  "definition_name": "ketoacidosis_due_to_T2DM",
+  "definition_version": "ketoacidosis_due_to_T2DM_20250401_140348",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "2025-04-01T14:03:48.934518",
+  "version_datetime": "2025-04-01T14:04:54.870085",
+  "codelists": [
+    {
+      "codelist_id": "ketoacidosis_due_to_T2DM_SNOMED_136199",
+      "codelist_name": "ketoacidosis_due_to_T2DM_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "ketoacidosis_due_to_T2DM_SNOMED_136199_20250401_140403",
+      "codes": [
+        {
+          "code": "421750000",
+          "code_description": "Ketoacidosis due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    },
+    {
+      "codelist_id": "ketoacidosis_due_to_T2DM_ICD10_144120",
+      "codelist_name": "ketoacidosis_due_to_T2DM_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "ketoacidosis_due_to_T2DM_ICD10_144120_20250401_140419",
+      "codes": []
+    }
+  ]
+}
