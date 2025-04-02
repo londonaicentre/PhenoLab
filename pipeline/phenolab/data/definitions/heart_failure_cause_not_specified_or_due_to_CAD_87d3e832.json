@@ -1,0 +1,168 @@
+{
+  "definition_id": "87d3e832",
+  "definition_name": "heart_failure_cause_not_specified_or_due_to_CAD",
+  "definition_version": "heart_failure_cause_not_specified_or_due_to_CAD_20250401_135304",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "2025-04-01T13:53:04.915111",
+  "version_datetime": "2025-04-01T13:57:57.329523",
+  "codelists": [
+    {
+      "codelist_id": "heart_failure_cause_not_specified_or_due_to_CAD_SNOMED_434889",
+      "codelist_name": "heart_failure_cause_not_specified_or_due_to_CAD_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "heart_failure_cause_not_specified_or_due_to_CAD_cause_not_specified_or_due_to_CAD_SNOMED_434889_20250401_135341",
+      "codes": [
+        {
+          "code": "84114007",
+          "code_description": "Heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "42343007",
+          "code_description": "Congestive heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "92506005",
+          "code_description": "Biventricular congestive heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "85232009",
+          "code_description": "Left heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "446221000",
+          "code_description": "Heart failure with normal ejection fraction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "395105005",
+          "code_description": "Heart failure confirmed (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "703272007",
+          "code_description": "Heart failure with reduced ejection fraction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "88805009",
+          "code_description": "Chronic congestive heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "128404006",
+          "code_description": "Right heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "871681000000102",
+          "code_description": "Heart failure monitoring (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "424404003",
+          "code_description": "Decompensated chronic heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10633002",
+          "code_description": "Acute congestive heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266308000",
+          "code_description": "(Congestive cardiac failure) or (dropsy) or (cardiac insufficiency) or (right heart failure) or (right ventricular failure) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "56675007",
+          "code_description": "Acute heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "788950000",
+          "code_description": "Heart failure with mid range ejection fraction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "48447003",
+          "code_description": "Chronic heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195108009",
+          "code_description": "Heart failure: [right] or [congestive] (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10335000",
+          "code_description": "Chronic right-sided heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "441530006",
+          "code_description": "Chronic diastolic heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "429959009",
+          "code_description": "Family history of heart failure (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "309634009",
+          "code_description": "History of heart failure in last year (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "111283005",
+          "code_description": "Chronic left-sided heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426263006",
+          "code_description": "Congestive heart failure due to left ventricular systolic dysfunction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "703273002",
+          "code_description": "Heart failure with reduced ejection fraction due to coronary artery disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "703274008",
+          "code_description": "Heart failure with reduced ejection fraction due to myocarditis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "66989003",
+          "code_description": "Chronic right-sided congestive heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "441481004",
+          "code_description": "Chronic systolic heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16838951000119100",
+          "code_description": "Acute on chronic right-sided congestive heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314206003",
+          "code_description": "Refractory heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "5375005",
+          "code_description": "Chronic left-sided congestive heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}
