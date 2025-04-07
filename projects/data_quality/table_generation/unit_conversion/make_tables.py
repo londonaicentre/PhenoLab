@@ -13,7 +13,7 @@ def main():
         config = conversions[table]
         query = f"""--{config['comment']}\n
         CREATE OR REPLACE TABLE INTELLIGENCE_DEV.{config['schema']}.{table}_UNITS_CONVERTED AS
-        SELECT 
+        SELECT
         result_value,
         result_value_units,
         cleaned_units,
@@ -29,7 +29,7 @@ def main():
         as cleaned_result_value_units,
         '{config['observation_name']}' as observation_name,
         id,
-        organization_id, 
+        organization_id,
         patient_id,
         person_id,
         encounter_id,
