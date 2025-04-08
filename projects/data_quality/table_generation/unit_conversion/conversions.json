@@ -2,8 +2,8 @@
     "hba1c": {
         "schema": "AI_CENTRE_OBSERVATION_STAGING_TABLES", 
         "unit_conversions": {
-            "mmol/mol": ["* 1","* 1","* 1"],
-            "%": ["- 2.15", "* 10.929", " * 1"]
+            "mmol/mol": [0,1,0],
+            "%": [-2.15, 10.929, 0]
         },
         "unit_changes": {
             "mmol/mol": "mmol/mol",
@@ -16,8 +16,8 @@
     "haemoglobin": {
         "schema": "AI_CENTRE_OBSERVATION_STAGING_TABLES", 
         "unit_conversions": {
-            "g/dl": ["* 10","* 1","* 1"],
-            "g/l": ["* 1","* 1","* 1"]
+            "g/dl": [0,10,1],
+            "g/l": [0,1,0]
         },
         "unit_changes": {
             "g/dl": "g/dl",
