@@ -1,13 +1,13 @@
 --Table to convert between hb units - this one converts g/l to g/dl
 
         CREATE OR REPLACE TABLE INTELLIGENCE_DEV.AI_CENTRE_OBSERVATION_STAGING_TABLES.haemoglobin_UNITS_CONVERTED AS
-        SELECT 
+        SELECT
         result_value,
         result_value_units,
         cleaned_units,
         CASE
-        	WHEN cleaned_units = 'g/dl' then (((result_value * 10 ) * 1 ) * 1 )
-	 	WHEN cleaned_units = 'g/l' then (((result_value * 1 ) * 1 ) * 1 )
+        	WHEN cleaned_units = 'g/dl' then (((result_value + 0 ) * 10 ) + 1 )
+	 	WHEN cleaned_units = 'g/l' then (((result_value + 0 ) * 1 ) + 0 )
 	
         END
         as cleaned_result_value,
@@ -19,7 +19,7 @@
         as cleaned_result_value_units,
         'hb' as observation_name,
         id,
-        organization_id, 
+        organization_id,
         patient_id,
         person_id,
         encounter_id,
