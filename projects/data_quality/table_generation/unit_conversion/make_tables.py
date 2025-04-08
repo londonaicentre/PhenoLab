@@ -18,7 +18,8 @@ def main():
         result_value_units,
         cleaned_units,
         CASE
-        {' '.join('\tWHEN cleaned_units = \'' + unit + '\' then (((result_value ' + conversion[0] + ' ) ' + conversion[1] + ' ) ' + conversion[2] + ' )\n\t'
+        {' '.join('\tWHEN cleaned_units = \'' + unit +
+                  '\' then (((result_value + ' + str(conversion[0]) + ' ) * ' + str(conversion[1]) + ' ) + ' + str(conversion[2]) + ' )\n\t'
                   for unit, conversion in config['unit_conversions'].items())}
         END
         as cleaned_result_value,
