@@ -1,22 +1,5 @@
 -- Code for complaince work
-
-
-CREATE OR REPLACE TABLE intelligence_dev.ai_centre_dev.drug_table_v3 AS
-SELECT DISTINCT
-    n.name AS order_name,
-    m.code_description as drug,
-    n.dbid AS concept_id,
-    b.phenotype_name,
-    m.codelist_name as class,
-    n.scheme_name,
-    n.dbid as core_concept_id
-FROM intelligence_dev.ai_centre_phenotype_library.bnf_snomed_mappings b
-LEFT JOIN prod_dwh.analyst_primary_care.concept n 
-    ON n.code = b.code
-LEFT JOIN intelligence_dev.ai_centre_phenotype_library.bsa_bnf_mappings m
-    ON m.code = LEFT(b.codelist_id,9)
-
-;
+-- relies on drug_table
 -- table of all orders of those with a compliance classification. 
 -- with dates of orders, statements and complaince status
 
