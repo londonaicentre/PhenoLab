@@ -11,3 +11,4 @@ ipykernel
 matplotlib
 word2number
 tableone
+seaborn
