@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
 
@@ -40,9 +39,11 @@ def unadjusted_logr(df, outcome_col='medication_compliance', predictor_col='dyna
 
 
 
-def adjusted_logr(df, outcome_col='medication_compliance', predictor_col='dynamic_pdc', covariates=None):
+def adjusted_logr(df, outcome_col='medication_compliance',
+                  predictor_col='dynamic_pdc', covariates=None):
     """
-    Runs an adjusted logistic regression with a binary outcome and continuous predictor plus additional covariates.
+    Runs an adjusted logistic regression with a binary outcome
+    and continuous predictor plus additional covariates.
 
     Parameters:
     - df: pandas DataFrame
@@ -66,7 +67,7 @@ def adjusted_logr(df, outcome_col='medication_compliance', predictor_col='dynami
 
     # Create formula for the model
     formula = f'outcome_binary ~ {predictor_col}'
-    
+
     # Add covariates to the formula if provided
     if covariates:
         formula += ' + ' + ' + '.join(covariates)
@@ -85,7 +86,8 @@ def adjusted_logr(df, outcome_col='medication_compliance', predictor_col='dynami
 
 
 
-def multilevel_unadjusted_logr(df, outcome_col='medication_compliance', predictor_col='dynamic_pdc', cluster_col='person_id'):
+def multilevel_unadjusted_logr(df, outcome_col='medication_compliance',
+                               predictor_col='dynamic_pdc', cluster_col='person_id'):
     """
     Runs a hierarchical logistic regression using GEE with clustering on person_id.
 
@@ -108,9 +110,9 @@ def multilevel_unadjusted_logr(df, outcome_col='medication_compliance', predicto
     df = df[[predictor_col, 'outcome_binary', cluster_col]].dropna()
 
     # Fit GEE logistic model with clustering
-    model = smf.gee(f'outcome_binary ~ {predictor_col}', 
-                    groups=cluster_col, 
-                    data=df, 
+    model = smf.gee(f'outcome_binary ~ {predictor_col}',
+                    groups=cluster_col,
+                    data=df,
                     family=sm.families.Binomial()).fit()
 
     # Calculate odds ratios with 95% CI
@@ -125,7 +127,8 @@ def multilevel_unadjusted_logr(df, outcome_col='medication_compliance', predicto
 def multilevel_adjusted_logr(df, outcome_col='medication_compliance', predictor_col='dynamic_pdc',
                               covariates=None, cluster_col='person_id'):
     """
-    Runs a multilevel logistic regression using GEE with clustering on one or more groups (e.g., person_id).
+    Runs a multilevel logistic regression using GEE
+    with clustering on one or more groups (e.g., person_id).
 
     Parameters:
     - df: pandas DataFrame
@@ -144,7 +147,8 @@ def multilevel_adjusted_logr(df, outcome_col='medication_compliance', predictor_
     df['outcome_binary'] = df[outcome_col].map({'good': 1, 'poor': 0})
 
     # Prepare columns to keep
-    columns_to_check = [predictor_col, 'outcome_binary', cluster_col] + (covariates if covariates else [])
+    columns_to_check = [predictor_col, 'outcome_binary',
+                        cluster_col] + (covariates if covariates else [])
     df = df[columns_to_check].dropna()
 
     # Build the formula
