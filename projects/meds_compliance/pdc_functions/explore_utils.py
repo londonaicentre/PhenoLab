@@ -44,8 +44,8 @@ def get_table_one(df, stratification_col):
     """Creates a journal style 'tableone' with descriptive statistics
     and appropriate tests for stratified data"""
 
-    categorical_vars = ['gender', 'ethnicity', 'imd_quintile', 'smoking_status', 'comorbidities']
-    continuous_vars = ['bmi_value', 'est_pdc']
+    categorical_vars = ['gender', 'ethnicity','imd','drug_class']
+    continuous_vars = [ 'static_pdc', 'dynamic_pdc', 'total_exposed_days', 'age_at_start']
 
     table1 = TableOne(df, categorical=categorical_vars,
                   continuous=continuous_vars,

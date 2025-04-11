@@ -85,3 +85,37 @@ def clean_dose(df):
     # Convert 'duration' to a timedelta and add it to 'order_date'
     df["order_enddate"] = df["order_date"] + pd.to_timedelta(duration, unit='D')
     return df  # Return modified DataFrame
+
+def calculate_covered_days(df):
+    """
+    Creates a 'covered_days' column based on logic
+    comparing 'calculated_duration' and 'duration_days'.
+
+    Logic:
+    - If both are equal, use either.
+    - If they differ:
+        - Prefer 'calculated_duration' if it's not null or zero.
+        - Otherwise, use 'duration_days'.
+
+    Args:
+        df (DataFrame): Input DataFrame with 'calculated_duration' and 'duration_days' columns.
+
+    Returns:
+        DataFrame: Modified DataFrame with a new 'covered_days' column.
+    """
+
+    def covered_days(row):
+        calc = row.get("calculated_duration")
+        orig = row.get("duration_days")
+
+        if pd.notnull(calc) and pd.notnull(orig) and calc == orig:
+            return calc
+        elif pd.notnull(calc) and calc > 0:
+            return calc
+        elif pd.notnull(orig):
+            return orig
+        else:
+            return None
+
+    df["covered_days"] = df.apply(covered_days, axis=1)
+    return df

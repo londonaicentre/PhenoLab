@@ -1,7 +1,29 @@
 import pandas as pd
 
+def get_data_by_cohort(snowsesh, cohort_table_name):
+    """
+    Retrieves all data from a specified cohort table.
 
-def get_data(snowsesh, class_1, class_2, class_3):
+    Args:
+        snowsesh (object): Database session object for executing queries.
+        cohort_table_name (str): Fully qualified name of the cohort table.
+
+    Returns:
+        DataFrame: The retrieved cohort data.
+    """
+
+    query = f"SELECT * FROM {cohort_table_name}"
+
+    try:
+        df = snowsesh.execute_query_to_df(query)
+        df.columns = df.columns.str.lower()
+        print(f"Retrieved {len(df)} rows from cohort table: {cohort_table_name}")
+        return df
+    except Exception as e:
+        print(f"Error retrieving cohort data from {cohort_table_name}: {e}")
+        raise
+
+def get_data_by_class(snowsesh, class_1, class_2, class_3):
     """
     Retrieves dataset.
 
@@ -70,7 +92,27 @@ def add_demographic_data(snowsesh, df, join_col="person_id"):
       """
 
     query = """
-    SELECT * FROM intelligence_dev.ai_centre_feature_store.person_nel_master_index
+    SELECT
+    p.person_id,
+    p.date_of_birth,
+    c_gender.name AS gender,
+    c_ethnicity.name AS ethnicity,
+    i.england_imd_decile as imd
+
+    FROM prod_dwh.analyst_primary_care.patient p
+
+    LEFT JOIN prod_dwh.analyst_primary_care.patient_address pa
+        ON pa.id = p.current_address_id
+
+    LEFT JOIN prod_dwh.analyst_primary_care.concept c_gender
+        ON c_gender.dbid = p.gender_concept_id
+
+    LEFT JOIN prod_dwh.analyst_primary_care.concept c_ethnicity
+        ON c_ethnicity.dbid = p.ethnic_code_concept_id
+
+    LEFT JOIN intelligence_dev.ai_centre_feature_store.imd2019london_v1 i
+        ON pa.lsoa_2011_code = i.ls11cd
+;
     """
     try:
         # Retrieve demographic data
@@ -151,3 +193,52 @@ def match_closest_compliance_date(df, snowsesh):
         print(f"Error retrieving modeling data: {e}")
         raise
 
+def agg_data_person_drug(df):
+    """
+    Aggregates data by person and drug, calculating the required metrics such as
+    min start date, max start date, sum of covered days, sum of exposed days, 
+    and other pre-calculated values.
+
+    Args:
+        df (DataFrame): Input dataframe that should contain columns such as 
+                         'person_id', 'drug_name', 'order_date', 'covered_days', 
+                         'static_pdc', 'dynamic_pdc', 'medication_compliance', 
+                         'gender', 'ethnicity', 'imd', 'date_of_birth', 
+                         and 'class' (if available).
+
+    Returns:
+        DataFrame: Aggregated data with one row per person-drug combination.
+    """
+
+    # Ensure 'order_date' and 'date_of_birth' are in datetime format
+    df['order_date'] = pd.to_datetime(df['order_date'])
+    df['date_of_birth'] = pd.to_datetime(df['date_of_birth'])
+
+    # Calculate age at start (first order date) - difference between order_date and date_of_birth
+    df['age_at_order'] = df['order_date'].dt.year - df['date_of_birth'].dt.year - ((df['order_date'].dt.month < df['date_of_birth'].dt.month) | 
+                                                                                    ((df['order_date'].dt.month == df['date_of_birth'].dt.month) & 
+                                                                                     (df['order_date'].dt.day < df['date_of_birth'].dt.day))).astype(int)
+
+    # Group by person_id and drug_name, then aggregate the required columns
+    agg_df = df.groupby(['person_id', 'drug_name'], as_index=False).agg(
+        min_start_date=('order_date', 'min'),
+        max_start_date=('order_date', 'max'),
+        total_covered_days=('total_covered_days', 'first'),
+        total_exposed_days=('total_exposure_days', 'first'),  # Assuming 'exposure_days' column exists
+        medication_compliance=('medication_compliance', 'first'),  # Assumed to be the same across orders
+        gender=('gender', 'first'),  # Assumed to be the same across orders
+        ethnicity=('ethnicity', 'first'),  # Assumed to be the same across orders
+        imd=('imd', 'first'),  # Assumed to be the same across orders
+        drug_class =('class', 'first'),  # Assuming 'class' column exists and is the same across orders
+        age_at_start=('age_at_order', 'first'),  # Age at first order
+        static_pdc=('static_pdc', 'first'),  # Taking first value since it's the same
+        dynamic_pdc=('dynamic_pdc', 'first')  # Taking first value since it's the same
+
+    )
+
+    # Ensure imd and class_ are treated as categorical
+    agg_df['imd'] = agg_df['imd'].astype(str).astype('category')
+    agg_df['drug_class'] = agg_df['drug_class'].astype(str).astype('category')
+
+    # Return the aggregated DataFrame
+    return agg_df
