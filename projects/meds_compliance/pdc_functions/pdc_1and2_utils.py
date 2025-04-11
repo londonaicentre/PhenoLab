@@ -6,11 +6,12 @@ import pandas as pd
 
 def preprocess_orders(df):
     """ Fills missing duration values and generates covered days for each order. """
-    df['days_supply'] = df['calculated_duration'].fillna(df['duration_days']).fillna(0).astype(int)  # Ensures no NaNs
+    df['days_supply'] = df['calculated_duration'].fillna(df['duration_days']).fillna(0).astype(int)
     print(df.head())
 
     # Expand covered days
-    df['covered_days'] = df.apply(lambda row: pd.date_range(row['order_date'], periods=row['days_supply']), axis=1)
+    df['covered_days'] = df.apply(lambda row: pd.date_range(row['order_date'],
+                                                            periods=row['days_supply']), axis=1)
     print(df.head())
     # Explode into individual covered days & reset index
     return df.explode('covered_days', ignore_index=True)[['person_id', 'drug', 'covered_days']]
@@ -18,7 +19,8 @@ def preprocess_orders(df):
 def compute_time_pdc(df, start_date, end_date):
     """ Computes PDC for a given time window. """
     total_days = (end_date - start_date).days + 1
-    covered_days = df[(df['covered_days'] >= start_date) & (df['covered_days'] <= end_date)]['covered_days'].nunique()
+    covered_days = df[(df['covered_days'] >= start_date) & (df['covered_days'
+                                                        ] <= end_date)]['covered_days'].nunique()
     return covered_days / total_days if total_days > 0 else 0
 
 def calculate_moving_pdc(df, window_size='12M', step_size='1M'):
@@ -37,7 +39,8 @@ def calculate_moving_pdc(df, window_size='12M', step_size='1M'):
         for start in start_dates:
             end = start + pd.DateOffset(months=int(window_size[:-1])) - pd.Timedelta(days=1)
             pdc = compute_time_pdc(subset, start, end)
-            results.append({'person_id': patient, 'drug': drug, 'start_window': start, 'end_window': end, 'PDC': pdc})
+            results.append({'person_id': patient, 'drug': drug, 'start_window': start,
+                            'end_window': end, 'PDC': pdc})
 
     return pd.DataFrame(results)
 
@@ -57,19 +60,23 @@ def plot_pdc_trend(df_patient):
     # Loop through each drug and plot the PDC trend with different colors
     for idx, drug in enumerate(unique_drugs):
         drug_pdc = df_patient[df_patient['drug'] == drug]
-        plt.plot(drug_pdc['start_window'], drug_pdc['PDC'], marker='o', linestyle='-', label=drug, color=plt.cm.tab10(idx % 10))  
+        plt.plot(drug_pdc['start_window'], drug_pdc['PDC'], marker='o', linestyle='-',
+                 label=drug, color=plt.cm.tab10(idx % 10))
 
     # Get the earliest start_date and latest end_date for the patient (across all drugs)
     overall_start_date = df_patient['start_date'].min()
     overall_end_date = df_patient['end_date'].max()
 
     # Add vertical dashed red lines for start and end dates
-    plt.axvline(x=overall_start_date, color='red', linestyle='--', label=f'Start Date: {overall_start_date.date()}')
-    plt.axvline(x=overall_end_date, color='red', linestyle='--', label=f'End Date: {overall_end_date.date()}')
+    plt.axvline(x=overall_start_date, color='red', linestyle='--',
+                label=f'Start Date: {overall_start_date.date()}')
+    plt.axvline(x=overall_end_date, color='red', linestyle='--',
+                label=f'End Date: {overall_end_date.date()}')
 
     # Title with drug names
-    drug_names_str = ', '.join(unique_drugs)  
-    plt.title(f'PDC Over Time for Patient {df_patient["person_id"].iloc[0]} - Drugs: {drug_names_str}')
+    drug_names_str = ', '.join(unique_drugs)
+    plt.title(f'PDC Over Time for Patient {df_patient["person_id"
+                                                      ].iloc[0]} - Drugs: {drug_names_str}')
 
     # Labels and Formatting
     plt.xlabel('Time (Start Window)')
@@ -91,7 +98,8 @@ def poi_analysis(df, start_poi, end_poi, window_size='12M', step_size='1M'):
     - step_size: Step size for the moving window (e.g., '1M').
 
     Returns:
-    - pdc_df: DataFrame with moving window PDC calculations, including first and last order dates for each person_drug combination.
+    - pdc_df: DataFrame with moving window PDC calculations, including first and
+    last order dates for each person_drug combination.
     """
 
     # Convert start_poi and end_poi to datetime if they are not already
@@ -103,7 +111,8 @@ def poi_analysis(df, start_poi, end_poi, window_size='12M', step_size='1M'):
     print(covered_days_df.head())
 
     # Step 2: Filter the data based on the POI
-    df_poi = covered_days_df[(covered_days_df['covered_days'] >= start_poi) & (covered_days_df['covered_days'] <= end_poi)]
+    df_poi = covered_days_df[(covered_days_df['covered_days'
+                                    ] >= start_poi) & (covered_days_df['covered_days'] <= end_poi)]
 
     # Step 3: Calculate the moving window PDC for the filtered period
     pdc_df = calculate_moving_pdc(df_poi, window_size=window_size, step_size=step_size)
@@ -126,7 +135,8 @@ def compute_pdc_with_overlap(df):
     and merges the results back into the original DataFrame.
 
     Args:
-        df (DataFrame): Must include columns: person_id, drug_name, order_date, covered_days, days_to_next_order.
+        df (DataFrame): Must include columns: person_id, drug_name,
+        order_date, covered_days, days_to_next_order.
 
     Returns:
         DataFrame: Original DataFrame with static_pdc and dynamic_pdc columns added.
@@ -143,9 +153,11 @@ def compute_pdc_with_overlap(df):
         min_start = group["order_date"].min()
         max_end = (group["order_date"] + pd.to_timedelta(group["covered_days"], unit="D")).max()
 
-        exposure_days = (max_end - min_start).days if pd.notnull(min_start) and pd.notnull(max_end) else None
+        exposure_days = (max_end - min_start
+                         ).days if pd.notnull(min_start) and pd.notnull(max_end) else None
 
-        static_pdc = (total_covered_days / exposure_days) if pd.notnull(exposure_days) and exposure_days > 0 else None
+        static_pdc = (total_covered_days / exposure_days
+                      ) if pd.notnull(exposure_days) and exposure_days > 0 else None
 
         # Dynamic PDC: avoid overlaps using unique daily dates
         covered_dates = set()
@@ -163,7 +175,8 @@ def compute_pdc_with_overlap(df):
                 ]
                 covered_dates.update(daily_dates)
 
-        dynamic_pdc = len(covered_dates) / exposure_days if pd.notnull(exposure_days) and exposure_days > 0 else None
+        dynamic_pdc = len(covered_dates) / exposure_days if pd.notnull(exposure_days
+                                                                ) and exposure_days > 0 else None
 
         results.append({
             'person_id': person,

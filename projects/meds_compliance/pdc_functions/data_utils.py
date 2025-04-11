@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def get_data_by_cohort(snowsesh, cohort_table_name):
     """
     Retrieves all data from a specified cohort table.
@@ -196,14 +197,14 @@ def match_closest_compliance_date(df, snowsesh):
 def agg_data_person_drug(df):
     """
     Aggregates data by person and drug, calculating the required metrics such as
-    min start date, max start date, sum of covered days, sum of exposed days, 
+    min start date, max start date, sum of covered days, sum of exposed days,
     and other pre-calculated values.
 
     Args:
-        df (DataFrame): Input dataframe that should contain columns such as 
-                         'person_id', 'drug_name', 'order_date', 'covered_days', 
-                         'static_pdc', 'dynamic_pdc', 'medication_compliance', 
-                         'gender', 'ethnicity', 'imd', 'date_of_birth', 
+        df (DataFrame): Input dataframe that should contain columns such as
+                         'person_id', 'drug_name', 'order_date', 'covered_days',
+                         'static_pdc', 'dynamic_pdc', 'medication_compliance',
+                         'gender', 'ethnicity', 'imd', 'date_of_birth',
                          and 'class' (if available).
 
     Returns:
@@ -215,24 +216,25 @@ def agg_data_person_drug(df):
     df['date_of_birth'] = pd.to_datetime(df['date_of_birth'])
 
     # Calculate age at start (first order date) - difference between order_date and date_of_birth
-    df['age_at_order'] = df['order_date'].dt.year - df['date_of_birth'].dt.year - ((df['order_date'].dt.month < df['date_of_birth'].dt.month) | 
-                                                                                    ((df['order_date'].dt.month == df['date_of_birth'].dt.month) & 
-                                                                                     (df['order_date'].dt.day < df['date_of_birth'].dt.day))).astype(int)
+    df['age_at_order'] = df['order_date'].dt.year - df['date_of_birth'
+                        ].dt.year - ((df['order_date'].dt.month < df['date_of_birth'].dt.month) |
+                                ((df['order_date'].dt.month == df['date_of_birth'].dt.month) &
+                                (df['order_date'].dt.day < df['date_of_birth'].dt.day))).astype(int)
 
     # Group by person_id and drug_name, then aggregate the required columns
     agg_df = df.groupby(['person_id', 'drug_name'], as_index=False).agg(
         min_start_date=('order_date', 'min'),
         max_start_date=('order_date', 'max'),
         total_covered_days=('total_covered_days', 'first'),
-        total_exposed_days=('total_exposure_days', 'first'),  # Assuming 'exposure_days' column exists
-        medication_compliance=('medication_compliance', 'first'),  # Assumed to be the same across orders
-        gender=('gender', 'first'),  # Assumed to be the same across orders
-        ethnicity=('ethnicity', 'first'),  # Assumed to be the same across orders
-        imd=('imd', 'first'),  # Assumed to be the same across orders
-        drug_class =('class', 'first'),  # Assuming 'class' column exists and is the same across orders
-        age_at_start=('age_at_order', 'first'),  # Age at first order
-        static_pdc=('static_pdc', 'first'),  # Taking first value since it's the same
-        dynamic_pdc=('dynamic_pdc', 'first')  # Taking first value since it's the same
+        total_exposed_days=('total_exposure_days', 'first'),
+        medication_compliance=('medication_compliance', 'first'),
+        gender=('gender', 'first'),
+        ethnicity=('ethnicity', 'first'),
+        imd=('imd', 'first'),
+        drug_class =('class', 'first'),
+        age_at_start=('age_at_order', 'first'),
+        static_pdc=('static_pdc', 'first'),
+        dynamic_pdc=('dynamic_pdc', 'first')
 
     )
 
