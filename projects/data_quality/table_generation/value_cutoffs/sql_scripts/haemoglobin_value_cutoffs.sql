@@ -7,7 +7,7 @@
         cleaned_units as standardised_units,
         cleaned_result_value as converted_result_value,
         CASE
-        	WHEN cleaned_result_value < 25 then (((cleaned_result_value * 10 ) * 1 )  * 1 )
+        	WHEN cleaned_result_value < 25 then (((cleaned_result_value + 0 ) *10 ) +0 )
 	
         ELSE CLEANED_RESULT_VALUE
         END
