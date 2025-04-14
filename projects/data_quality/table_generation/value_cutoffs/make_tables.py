@@ -19,7 +19,8 @@ def main():
         cleaned_units as standardised_units,
         cleaned_result_value as converted_result_value,
         CASE
-        {' '.join('\tWHEN cleaned_result_value ' + threshold + ' then (((cleaned_result_value ' + conversion[0] + ' ) ' + conversion[1] + ' ) ' + conversion[2] + ' )\n\t'
+        {' '.join('\tWHEN cleaned_result_value ' + threshold +
+                  ' then (((cleaned_result_value + ' + str(conversion[0]) + ' ) *' + str(conversion[1]) + ' ) +' + str(conversion[2]) + ' )\n\t'
                   for threshold, conversion in config['value_interval_conversions'].items())}
         ELSE CLEANED_RESULT_VALUE
         END
