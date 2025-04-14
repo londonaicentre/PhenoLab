@@ -2,9 +2,19 @@ import json
 import os
 
 
-def main():
+def main(file_path: str = None) -> None:
+    """
+    Script to make the sql scripts to do value cutoffs
+    file_path: the relative file path of this directory relative to where the script is located
+    """
     #Read in the conversion file
-    with open('cutoffs.json', 'r+') as connection:
+    if file_path is not None:
+        base_dir = file_path + '/'
+    else:
+        base_dir = ''
+
+    #Read in the conversion file
+    with open(base_dir + 'cutoffs.json', 'r+') as connection:
         conversions = json.load(connection)
     tables = [i for i in conversions.keys()]
     for table in tables:
@@ -58,7 +68,7 @@ def main():
         FROM INTELLIGENCE_DEV.{config['schema']}.{table}_UNITS_CONVERTED
         WHERE DEFINITION_NAME = '{config['definition']}'"""  # noqa: E501
 
-        with open(os.path.join('sql_scripts', table + '_value_cutoffs.sql'), 'w') as file:
+        with open(os.path.join(base_dir + 'sql_scripts', table + '_value_cutoffs.sql'), 'w') as file:
             file.write(query)
 
         print(f'Made table {table}_units_converted')
