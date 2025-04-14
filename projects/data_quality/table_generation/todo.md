@@ -4,4 +4,4 @@
 - [ ] Make a GUI for doing the cleaning and converting - not imminently
 - [ ] Also still to make system for comparing to distributions and choosing cutoffs programmatically
 - [x] Make the json for units into a temporary table, can do this for conversions as well
-- [ ] Have third column for unit lookup with definition and then join on both cols
+- [x] Have third column for unit lookup with definition and then join on both cols
