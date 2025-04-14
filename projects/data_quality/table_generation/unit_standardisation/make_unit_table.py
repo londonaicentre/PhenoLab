@@ -40,7 +40,17 @@ def save_to_snowflake(snow: SnowflakeConnection, record: list[dict], table_name:
         cursor.execute(insert_query, values)
 
 
-def main():
+def main(file_path: str = None) -> None:
+    """
+    Script to make the table with units for conversion
+    file_path: the relative file path of this directory relative to where the script is located
+    """
+    #Read in the conversion file
+    if file_path is not None:
+        base_dir = file_path + '/'
+    else:
+        base_dir = ''
+
     load_dotenv()
 
     try:
@@ -53,7 +63,7 @@ def main():
         schema = "AI_CENTRE_OBSERVATION_STAGING_TABLES"
         table = "UNIT_LOOKUP"
         unit_columns = ['RESULT_VALUE_UNITS', 'CLEANED_UNITS', 'DEFINITION_NAME']
-        json_filename = 'unit_conversions.json'
+        json_filename = base_dir + 'unit_conversions.json'
 
         #Make the table if it doesn't exist
         snowsesh.execute_query(
