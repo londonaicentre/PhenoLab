@@ -2,9 +2,18 @@ import json
 import os
 
 
-def main():
+def main(file_path: str = None) -> None:
+    """
+    Script to make the sql scripts to do unit standardisation
+    file_path: the relative file path of this directory relative to where the script is located
+    """
     #Read in the conversion file
-    with open('standardisations.json', 'r+') as connection:
+    if file_path is not None:
+        base_dir = file_path + '/'
+    else:
+        base_dir = ''
+
+    with open(base_dir + 'standardisations.json', 'r+') as connection:
         conversions = json.load(connection)
     tables = [i for i in conversions.keys()]
 
@@ -42,7 +51,7 @@ def main():
             WHERE def.code is not null
             and def.DEFINITION_NAME = '{config['definition']}'"""
 
-        with open(os.path.join('sql_scripts', table + '_unit_standardisation.sql'), 'w') as file:
+        with open(os.path.join(base_dir + 'sql_scripts', table + '_unit_standardisation.sql'), 'w') as file:
             file.write(query)
 
         print(f'Made table {table}_units_standardised')
