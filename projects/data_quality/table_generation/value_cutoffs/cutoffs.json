@@ -2,7 +2,7 @@
     "hba1c": {
         "schema": "AI_CENTRE_OBSERVATION_STAGING_TABLES", 
         "value_interval_conversions": {
-            "BETWEEN 3 AND 15": ["- 2.15", "* 10.929", " * 1"]
+            "BETWEEN 3 AND 15": [-2.15, 10.929, 1]
         },
         "value_confidence": ["< 19", "> 200"],
         "value_possible": ["< 3", "BETWEEN 15 and 19", "> 200"],
@@ -13,7 +13,7 @@
     "haemoglobin": {
         "schema": "AI_CENTRE_OBSERVATION_STAGING_TABLES", 
        "value_interval_conversions": {
-            "< 25": ["* 10", "* 1", " * 1"]
+            "< 25": [0, 10, 0]
         },
         "value_confidence": ["< 25", "> 250"],
         "value_possible": ["< 2.5", "> 250"],

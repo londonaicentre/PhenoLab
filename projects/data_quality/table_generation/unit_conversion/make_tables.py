@@ -13,12 +13,13 @@ def main():
         config = conversions[table]
         query = f"""--{config['comment']}\n
         CREATE OR REPLACE TABLE INTELLIGENCE_DEV.{config['schema']}.{table}_UNITS_CONVERTED AS
-        SELECT 
+        SELECT
         result_value,
         result_value_units,
         cleaned_units,
         CASE
-        {' '.join('\tWHEN cleaned_units = \'' + unit + '\' then (((result_value ' + conversion[0] + ' ) ' + conversion[1] + ' ) ' + conversion[2] + ' )\n\t'
+        {' '.join('\tWHEN cleaned_units = \'' + unit +
+                  '\' then (((result_value + ' + str(conversion[0]) + ' ) * ' + str(conversion[1]) + ' ) + ' + str(conversion[2]) + ' )\n\t'
                   for unit, conversion in config['unit_conversions'].items())}
         END
         as cleaned_result_value,
@@ -29,7 +30,7 @@ def main():
         as cleaned_result_value_units,
         '{config['observation_name']}' as observation_name,
         id,
-        organization_id, 
+        organization_id,
         patient_id,
         person_id,
         encounter_id,

@@ -1,13 +1,13 @@
 --Table to convert between HbA1c units, this one converts % (DCCT) to mmol/mol (IFCC)
 
         CREATE OR REPLACE TABLE INTELLIGENCE_DEV.AI_CENTRE_OBSERVATION_STAGING_TABLES.hba1c_UNITS_CONVERTED AS
-        SELECT 
+        SELECT
         result_value,
         result_value_units,
         cleaned_units,
         CASE
-        	WHEN cleaned_units = 'mmol/mol' then (((result_value * 1 ) * 1 ) * 1 )
-	 	WHEN cleaned_units = '%' then (((result_value - 2.15 ) * 10.929 )  * 1 )
+        	WHEN cleaned_units = 'mmol/mol' then (((result_value + 0 ) * 1 ) + 0 )
+	 	WHEN cleaned_units = '%' then (((result_value + -2.15 ) * 10.929 ) + 0 )
 	
         END
         as cleaned_result_value,
@@ -19,7 +19,7 @@
         as cleaned_result_value_units,
         'hba1c' as observation_name,
         id,
-        organization_id, 
+        organization_id,
         patient_id,
         person_id,
         encounter_id,
