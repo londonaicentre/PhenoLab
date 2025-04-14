@@ -7,7 +7,7 @@
         cleaned_units as standardised_units,
         cleaned_result_value as converted_result_value,
         CASE
-        	WHEN cleaned_result_value BETWEEN 3 AND 15 then (((cleaned_result_value - 2.15 ) * 10.929 )  * 1 )
+        	WHEN cleaned_result_value BETWEEN 3 AND 15 then (((cleaned_result_value + -2.15 ) *10.929 ) +1 )
 	
         ELSE CLEANED_RESULT_VALUE
         END
