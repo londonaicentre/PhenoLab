@@ -2,6 +2,7 @@
 Script to run a streamlit app which visualisation of some data quality bits
 """
 
+import re
 from datetime import datetime
 
 import helper_functions as hf
@@ -14,6 +15,7 @@ from dotenv import load_dotenv
 from plotly.subplots import make_subplots
 
 from phmlondon.snow_utils import SnowflakeConnection
+
 
 @st.cache_resource
 def make_dq_cached(db, schema):
@@ -73,6 +75,59 @@ def main() -> None: #noqa: C901
         #Choose column
         col_select = st.selectbox('Select Column', data_qual.show_columns())
         data_qual.current_column = col_select
+
+
+    #Some metrics about the current column
+    with st.form("choose_cols"):
+        st.write('Get some stats')
+        submitted_cols = st.form_submit_button()
+        if submitted_cols:
+            #Some metrics about the current column
+            col1, col2, col3 = st.columns(3)
+
+            #pull out dtype and clean off the extras
+            col_dtype = data_qual.dtype(
+                            data_qual.current_table,
+                            data_qual.current_column
+                            )
+            col_dtype = re.sub('^([a-z]+).*', '\\1', col_dtype, flags=re.IGNORECASE)
+
+            #Get table length and work out how many null values
+            n_values = data_qual.table_length(data_qual.current_table)
+            prop_null = data_qual.proportion_null(
+                            data_qual.current_table,
+                            data_qual.current_column
+                            )
+
+            #Get the mean
+            col_mean = data_qual.mean(data_qual.current_table,
+                                      data_qual.current_column)
+
+            with col1:
+                st.metric("Data Type",col_dtype)
+                if col_dtype in ['NUMBER',
+                                 'DECIMAL',
+                                 'NUMERIC',
+                                 'INT',
+                                 'INTEGER',
+                                 'BIGINT',
+                                 'SMALLINT',
+                                 'TINYINT',
+                                 'BYTEINT',
+                                 'FLOAT',
+                                 'DOUBLE',
+                                 'REAL']:
+                    st.metric('Column Mean', col_mean)
+            with col2:
+                st.metric("Number of values", n_values)
+            with col3:
+                st.metric("Proportion Null",
+                        f"""{round(prop_null*100, ndigits = 2)}%"""
+                        )
+
+            #with st.form('subset_cols'):
+            #    st.
+
 
 if __name__ == "__main__":
     main()
