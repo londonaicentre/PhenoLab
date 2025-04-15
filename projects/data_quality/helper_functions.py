@@ -120,13 +120,19 @@ class DataQuality:
 
     def show_tables(self, all: bool = False) -> pd.Series:
         if not all:
-            query = f'show tables in schema {self.conn.current_database}.{self.conn.current_schema}'
+            location = f'{self.conn.current_database}.{self.conn.current_schema}'
         else:
-            query = f'show tables in database {self.conn.current_database}'
+            location = f'{self.conn.current_database}'
+
+        query_tab = 'show tables in schema ' + location
+        query_view = 'show views in schema ' + location
 
         #Unfortunately we have to use pandas here because the polars method doesn't work with show tables
         try:
-            self.table_list = [i for i in self.conn.execute_query_to_df(query).name]
+            tab_df = self.conn.execute_query_to_df(query_tab)
+            view_df = self.conn.execute_query_to_df(query_view)
+            both_df = pd.concat([tab_df, view_df])
+            self.table_list = [i for i in both_df.name]
             return self.table_list
         except Exception as e:
             print(e)
@@ -157,19 +163,20 @@ class DataQuality:
     def count_null(self, table: str, column: str):
         null_query = f'SELECT COUNT({column}) as null_count FROM {self.long_table(table)}'
         tab =  self.execute_query_to_table(null_query)
-        return tab.NULL_COUNT
+        return int(tab.NULL_COUNT[0]) #makes this return as an integer
 
     def table_length(self, table: str):
         length_query = f'SELECT COUNT(*) as total_count FROM {self.long_table(table)}'
         tab = self.execute_query_to_table(length_query)
-        return tab.TOTAL_COUNT
+        return int(tab[tab.columns[0]][0])#int(tab.TOTAL_COUNT[0])
 
     def proportion_null(self, table: str, column: str):
         return self.count_null(table, column)/ self.table_length(table)
 
     def mean(self, table: str, column: str) -> float:
         mean_query = f'SELECT AVG({column}) FROM {self.long_table(table)}'
-        return self.execute_query_to_table(mean_query)
+        mean_tab = self.execute_query_to_table(mean_query)
+        return mean_tab[mean_tab.columns[0]][0]
 
     def unique_col(self, table: str, column: str) -> float:
         unique_query = f'SELECT DISTINCT {column} FROM {self.long_table(table)}'
