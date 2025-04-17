@@ -3,17 +3,7 @@ import re
 import pandas as pd
 from word2number import w2n
 
-
-def clean_dose(df):
-    """Cleans the 'dose' column in a given DataFrame.
-    Args:
-        df: pandas DataFrame with columns called 'dose' and 'quantity'.
-    Returns:
-        DataFrame with an additional column 'tablets_per_day' and 'calculated_duration'
-        and 'order_enddate'
-    """
-
-    def process_dose(dose):
+def process_dose(dose):
         """Clean the dose column and extract daily tablet count.
         Args:
             dose: A single dose entry (string).
@@ -67,6 +57,17 @@ def clean_dose(df):
         # Return daily tablets per day
         return tablet_count * frequency_match if frequency_match else None
 
+
+def clean_dose(df):
+    """Cleans the 'dose' column in a given DataFrame.
+    Args:
+        df: pandas DataFrame with columns called 'dose' and 'quantity'.
+    Returns:
+        DataFrame with an additional column 'tablets_per_day' and 'calculated_duration'
+        and 'order_enddate'
+    """
+
+
     # Apply function to "dose" column
     df["tablets_per_day"] = df["dose"].apply(process_dose)
 
@@ -77,7 +78,6 @@ def clean_dose(df):
             re.search(r"tablet(s)?|capsule(s)?", row["quantity_unit"], re.IGNORECASE)
         ) else None, axis=1
     )
-    df['order_date'] = pd.to_datetime(df['order_date'], errors='coerce')
 
     ## Fill missing values in 'calculated_duration' with 'duration_days'
     duration = df["calculated_duration"].fillna(df["duration_days"])
@@ -86,36 +86,30 @@ def clean_dose(df):
     df["order_enddate"] = df["order_date"] + pd.to_timedelta(duration, unit='D')
     return df  # Return modified DataFrame
 
-def calculate_covered_days(df):
+
+def covered_days(df):
     """
-    Creates a 'covered_days' column based on logic
-    comparing 'calculated_duration' and 'duration_days'.
+    Determines the 'covered_days' value for each row in the DataFrame 
+    based on 'calculated_duration' and 'duration_days'.
 
     Logic:
-    - If both are equal, use either.
+    - If both values are equal and not null, return either.
     - If they differ:
-        - Prefer 'calculated_duration' if it's not null or zero.
-        - Otherwise, use 'duration_days'.
+        - Prefer 'calculated_duration' if it's not null and greater than zero.
+        - Otherwise, use 'duration_days' if it's not null.
 
     Args:
-        df (DataFrame): Input DataFrame with 'calculated_duration' and 'duration_days' columns.
+        df (DataFrame): A DataFrame containing 'calculated_duration' and 'duration_days' columns.
 
     Returns:
-        DataFrame: Modified DataFrame with a new 'covered_days' column.
+        Series: A Series containing the 'covered_days' values for each row.
     """
 
-    def covered_days(row):
-        calc = row.get("calculated_duration")
-        orig = row.get("duration_days")
-
-        if pd.notnull(calc) and pd.notnull(orig) and calc == orig:
-            return calc
-        elif pd.notnull(calc) and calc > 0:
-            return calc
-        elif pd.notnull(orig):
-            return orig
-        else:
-            return None
-
-    df["covered_days"] = df.apply(covered_days, axis=1)
-    return df
+    return df.apply(
+        lambda row: row["calculated_duration"]
+        if pd.notnull(row["calculated_duration"]) and pd.notnull(row["duration_days"])
+        and row["calculated_duration"] == row["duration_days"]
+                  else (row["calculated_duration"]
+                        if pd.notnull(row["calculated_duration"]) and row["calculated_duration"] > 0
+                        else row["duration_days"] if pd.notnull(row["duration_days"])
+                        else None), axis=1)

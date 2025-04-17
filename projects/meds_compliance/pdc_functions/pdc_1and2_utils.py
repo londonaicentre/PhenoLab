@@ -75,8 +75,10 @@ def plot_pdc_trend(df_patient):
 
     # Title with drug names
     drug_names_str = ', '.join(unique_drugs)
-    plt.title(f'PDC Over Time for Patient {df_patient["person_id"
-                                                      ].iloc[0]} - Drugs: {drug_names_str}')
+    person_id = df_patient["person_id"].iloc[0]
+    plt.title(
+        f'PDC Over Time for Patient {person_id} - Drugs: {drug_names_str}'
+    )
 
     # Labels and Formatting
     plt.xlabel('Time (Start Window)')
@@ -129,14 +131,20 @@ def poi_analysis(df, start_poi, end_poi, window_size='12M', step_size='1M'):
     return pdc_df
 
 
-def compute_pdc_with_overlap(df):
+def compute_pdc_with_intervention(df):
     """
-    Calculates static and dynamic PDC for each person-drug combo,
+    Calculates inclusive and exclusive PDC for each person-drug combo, 
+    and for pre and post intervention
     and merges the results back into the original DataFrame.
 
+    Intervention: could be input of compliance status SNOMED code of good complinace or bad compliance.
+    Inclusive PDC: total days covered / (max orderdate + last(duration_days) - min orderdate)
+    - i.e inclusive of order overlaps
+    Exclusive PDC: total DATES covered / (max orderdate + last(duration_days) - min orderdate)
+    - i.e excludes overlapping order periods
+
     Args:
-        df (DataFrame): Must include columns: person_id, drug_name,
-        order_date, covered_days, days_to_next_order.
+        df (DataFrame) of Medication table class
 
     Returns:
         DataFrame: Original DataFrame with static_pdc and dynamic_pdc columns added.
