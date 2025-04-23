@@ -138,7 +138,9 @@ def main() -> None: #noqa: C901
 
             #Plot the data
             col_query = f"""SELECT {data_qual.current_column}
-                        FROM {data_qual.long_table(data_qual.current_table)} Limit 100000"""
+                        FROM {data_qual.long_table(data_qual.current_table)}
+                        WHERE {data_qual.current_column} IS NOT NULL
+                        Limit 1000000"""
             col_df = pull_df(col_query, data_qual)
             fig_distr = px.histogram(
                 col_df,
@@ -165,6 +167,7 @@ def main() -> None: #noqa: C901
             subset_distr_query = f""" SELECT {data_qual.current_column} FROM
                                     {data_qual.long_table(data_qual.current_table)}
                                     WHERE {second_col} = '{choose_subset}'
+                                    AND {data_qual.current_column} IS NOT NULL
                                     LIMIT 500000"""
             subset_df = data_qual.execute_query_to_table(subset_distr_query)
             fig_subset = px.histogram(
