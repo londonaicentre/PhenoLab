@@ -3,23 +3,21 @@ Script to run a streamlit app which visualisation of some data quality bits
 """
 
 import re
-from datetime import datetime
 
-import helper_functions as hf
-import numpy as np
 import pandas as pd
 import plotly.express as px
-import plotly.graph_objects as go
 import streamlit as st
+import utils.helper_functions as hf
 from dotenv import load_dotenv
-from plotly.subplots import make_subplots
-
-from phmlondon.snow_utils import SnowflakeConnection
 
 
 @st.cache_resource
 def make_dq_cached(db, schema):
     return hf.DataQuality(db, schema)
+
+@st.cache_resource
+def pull_df(query: str, _data_qual_obj: hf.DataQuality) -> pd.DataFrame:
+    return _data_qual_obj.execute_query_to_table(query)
 
 app_explanation = """
 ## What is this for?
@@ -31,7 +29,22 @@ of the data that are available, designed mostly around the observations table
 2. Choose a column
 3. The app will show you some relevant data about that column
 4. You can subselect some data about this column too
+
+N.B: Wait for each box to update when changing the previous one, otherwise it throws an error
 """
+numeric_cols = ['NUMBER',
+                'DECIMAL',
+                'NUMERIC',
+                'INT',
+                'INTEGER',
+                'BIGINT',
+                'SMALLINT',
+                'TINYINT',
+                'BYTEINT',
+                'FLOAT',
+                'DOUBLE',
+                'REAL']
+
 
 def main() -> None: #noqa: C901
     ## Set up the session ##
@@ -76,14 +89,13 @@ def main() -> None: #noqa: C901
         col_select = st.selectbox('Select Column', data_qual.show_columns())
         data_qual.current_column = col_select
 
-
     #Some metrics about the current column
     with st.form("choose_cols"):
         st.write('Get some stats')
         submitted_cols = st.form_submit_button()
         if submitted_cols:
             #Some metrics about the current column
-            col1, col2, col3 = st.columns(3)
+            col1, col2, col3, col4 = st.columns(4)
 
             #pull out dtype and clean off the extras
             col_dtype = data_qual.dtype(
@@ -92,6 +104,10 @@ def main() -> None: #noqa: C901
                             )
             col_dtype = re.sub('^([a-z]+).*', '\\1', col_dtype, flags=re.IGNORECASE)
 
+            #Make this an attribute of data_qal
+            data_qual.col_dtype = col_dtype
+            data_qual.col_numeric = col_dtype in numeric_cols
+
             #Get table length and work out how many null values
             n_values = data_qual.table_length(data_qual.current_table)
             prop_null = data_qual.proportion_null(
@@ -99,35 +115,64 @@ def main() -> None: #noqa: C901
                             data_qual.current_column
                             )
 
-            #Get the mean
-            col_mean = data_qual.mean(data_qual.current_table,
-                                      data_qual.current_column)
-
+            #Dtype
             with col1:
-                st.metric("Data Type",col_dtype)
-                if col_dtype in ['NUMBER',
-                                 'DECIMAL',
-                                 'NUMERIC',
-                                 'INT',
-                                 'INTEGER',
-                                 'BIGINT',
-                                 'SMALLINT',
-                                 'TINYINT',
-                                 'BYTEINT',
-                                 'FLOAT',
-                                 'DOUBLE',
-                                 'REAL']:
-                    st.metric('Column Mean', col_mean)
+                st.metric("Data Type", data_qual.col_dtype)
+
+            #N values
             with col2:
                 st.metric("Number of values", n_values)
+
+            #Proportion null
             with col3:
                 st.metric("Proportion Null",
                         f"""{round(prop_null*100, ndigits = 2)}%"""
                         )
 
-            #with st.form('subset_cols'):
-            #    st.
+            #Mean
+            with col4:
+                if data_qual.col_numeric:
+                    col_mean = data_qual.mean(data_qual.current_table,
+                                        data_qual.current_column)
+                    st.metric('Column Mean', col_mean)
 
+            #Plot the data
+            col_query = f"""SELECT {data_qual.current_column}
+                        FROM {data_qual.long_table(data_qual.current_table)} Limit 100000"""
+            col_df = pull_df(col_query, data_qual)
+            fig_distr = px.histogram(
+                col_df,
+                x=str(data_qual.current_column),#,
+                #nbins=died_bins,  # Slider from above,
+                )
+            st.plotly_chart(fig_distr)
+
+    #Now pick units for subsetting
+    col1, col2 = st.columns(2)
+    with col1:
+        second_col = st.selectbox('Select Second Column', data_qual.show_columns())
+
+    with col2:
+        subset_query = f"""SELECT DISTINCT {second_col}
+                        FROM {data_qual.long_table(data_qual.current_table)} LIMIT 100"""
+        subsets = pull_df(subset_query, data_qual)
+        choose_subset = st.selectbox('Choose Second Criteria', subsets.iloc[:, 0].to_list())
+
+    with st.form("choose_second_col"):
+        st.write('Plot Subdistributions')
+        submitted_subsets = st.form_submit_button()
+        if submitted_subsets:
+            subset_distr_query = f""" SELECT {data_qual.current_column} FROM
+                                    {data_qual.long_table(data_qual.current_table)}
+                                    WHERE {second_col} = '{choose_subset}'
+                                    LIMIT 500000"""
+            subset_df = data_qual.execute_query_to_table(subset_distr_query)
+            fig_subset = px.histogram(
+                subset_df,
+                x=str(data_qual.current_column),#,
+                #nbins=died_bins,  # Slider from above,
+                )
+            st.plotly_chart(fig_subset)
 
 if __name__ == "__main__":
     main()
