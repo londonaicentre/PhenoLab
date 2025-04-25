@@ -45,7 +45,21 @@ def get_table_one(df, stratification_col):
     and appropriate tests for stratified data"""
 
     categorical_vars = ['gender', 'ethnicity','imd','drug_class']
-    continuous_vars = [ 'static_pdc', 'dynamic_pdc', 'total_exposed_days', 'age_at_start']
+    continuous_vars = [
+    'overall_inclusive_pdc',
+    'overall_exclusive_pdc',
+    'total_exposed_days',
+    'total_covered_days',
+    'pre_inclusive_pdc',
+    'post_inclusive_pdc',
+    'pre_exclusive_pdc',
+    'post_exclusive_pdc',
+    'total_pre_covered_days',
+    'total_post_covered_days',
+    'total_pre_exposure_days',
+    'total_post_exposure_days',
+    'age_at_start'
+]
 
     table1 = TableOne(df, categorical=categorical_vars,
                   continuous=continuous_vars,
