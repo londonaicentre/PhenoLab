@@ -36,7 +36,8 @@ SELECT
         do.days_to_next_order,
         do.statement_date,
         do.statement_enddate,
-        cs.medication_compliance
+        cs.medication_compliance,
+        cs.clinical_effective_date as compliance_date
 FROM
    intelligence_dev.ai_centre_dev.compliance_status cs
 JOIN

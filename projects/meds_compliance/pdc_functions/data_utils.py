@@ -225,17 +225,25 @@ def agg_data_person_drug(df):
     agg_df = df.groupby(['person_id', 'drug_name'], as_index=False).agg(
         min_start_date=('order_date', 'min'),
         max_start_date=('order_date', 'max'),
-        total_covered_days=('total_covered_days', 'first'),
-        total_exposed_days=('total_exposure_days', 'first'),
         medication_compliance=('medication_compliance', 'first'),
+        compliance_date=('compliance_date', 'first'),  # corrected typo from 'complaince_date'
         gender=('gender', 'first'),
         ethnicity=('ethnicity', 'first'),
         imd=('imd', 'first'),
-        drug_class =('class', 'first'),
+        drug_class=('class', 'first'),
         age_at_start=('age_at_order', 'first'),
-        static_pdc=('static_pdc', 'first'),
-        dynamic_pdc=('dynamic_pdc', 'first')
-
+        overall_inclusive_pdc=('overall_inclusive_pdc', 'first'),
+        overall_exclusive_pdc=('overall_exclusive_pdc', 'first'),
+        total_covered_days=('total_covered_days', 'first'),
+        total_exposed_days=('total_exposure_days', 'first'),
+        pre_inclusive_pdc=('pre_inclusive_pdc', 'first'),
+        pre_exclusive_pdc=('pre_exclusive_pdc', 'first'),
+        total_pre_covered_days=('total_pre_covered_days', 'first'),
+        total_pre_exposure_days=('total_pre_exposure_days', 'first'),
+        post_inclusive_pdc=('post_inclusive_pdc', 'first'),
+        post_exclusive_pdc=('post_exclusive_pdc', 'first'),
+        total_post_covered_days=('total_post_covered_days', 'first'),
+        total_post_exposure_days=('total_post_exposure_days', 'first')
     )
 
     # Ensure imd and class_ are treated as categorical

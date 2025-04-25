@@ -131,10 +131,9 @@ def poi_analysis(df, start_poi, end_poi, window_size='12M', step_size='1M'):
     return pdc_df
 
 
-def compute_pdc_with_intervention(df):
+def compute_pdc_overall(df):
     """
     Calculates inclusive and exclusive PDC for each person-drug combo, 
-    and for pre and post intervention
     and merges the results back into the original DataFrame.
 
     Intervention: could be input of compliance status SNOMED code of good complinace or bad compliance.
@@ -155,7 +154,7 @@ def compute_pdc_with_intervention(df):
     for (person, drug), group in df.groupby(["person_id", "drug_name"]):
         group = group.sort_values("order_date")
 
-        # Static PDC: sum of covered_days / time between first and last order
+        # Inclusive PDC: sum of covered_days / time between first and last order
         total_covered_days = group["covered_days"].sum(skipna=True)
 
         min_start = group["order_date"].min()
@@ -164,7 +163,7 @@ def compute_pdc_with_intervention(df):
         exposure_days = (max_end - min_start
                          ).days if pd.notnull(min_start) and pd.notnull(max_end) else None
 
-        static_pdc = (total_covered_days / exposure_days
+        inclusive_pdc = (total_covered_days / exposure_days
                       ) if pd.notnull(exposure_days) and exposure_days > 0 else None
 
         # Dynamic PDC: avoid overlaps using unique daily dates
@@ -183,14 +182,14 @@ def compute_pdc_with_intervention(df):
                 ]
                 covered_dates.update(daily_dates)
 
-        dynamic_pdc = len(covered_dates) / exposure_days if pd.notnull(exposure_days
+        exclusive_pdc = len(covered_dates) / exposure_days if pd.notnull(exposure_days
                                                                 ) and exposure_days > 0 else None
 
         results.append({
             'person_id': person,
             'drug_name': drug,
-            'static_pdc': min(static_pdc, 1.0) if static_pdc is not None else None,
-            'dynamic_pdc': min(dynamic_pdc, 1.0) if dynamic_pdc is not None else None,
+            'overall_inclusive_pdc':inclusive_pdc if inclusive_pdc is not None else None,
+            'overall_exclusive_pdc': min(exclusive_pdc, 1.0) if exclusive_pdc is not None else None,
             'total_covered_days': total_covered_days,  # Add covered_days to results
             'total_exposure_days': exposure_days  # Add exposure_days to results
         })
@@ -203,3 +202,86 @@ def compute_pdc_with_intervention(df):
 
     return df
 
+
+def compute_pdc_intervals(df):
+    """
+    Calculates inclusive and exclusive PDC for each person-drug combo, pre and post intervention.
+    The pre and post intervention periods are defined based on the compliance_date.
+
+    Args:
+        df (DataFrame) of Medication table class
+
+    Returns:
+        DataFrame: Original DataFrame with pre and post PDC columns added.
+    """
+
+    # Create interval column
+    df["interval"] = df.apply(
+        lambda row: "pre" if pd.notnull(row["compliance_date"]) and row["order_date"] <= row["compliance_date"] else "post",
+        axis=1
+    )
+
+    results = []
+
+    for (person, drug), group in df.groupby(["person_id", "drug_name"]):
+        group = group.sort_values("order_date")
+
+        interval_data = {}
+
+        for interval in ["pre", "post"]:
+            sub_group = group[group["interval"] == interval]
+
+            if sub_group.empty:
+                interval_data[f'{interval}_inclusive_pdc'] = None
+                interval_data[f'{interval}_exclusive_pdc'] = None
+                interval_data[f'total_{interval}_covered_days'] = 0
+                interval_data[f'total_{interval}_exposure_days'] = 0
+                continue
+
+            start_date = sub_group["order_date"].min()
+            end_date = sub_group["order_date"].max()
+
+            total_covered_days = sub_group["covered_days"].sum(skipna=True)
+
+            exposure_days = (end_date - start_date).days if pd.notnull(start_date) and pd.notnull(end_date) else None
+
+            inclusive_pdc = (total_covered_days / exposure_days
+                            ) if pd.notnull(exposure_days) and exposure_days > 0 else None
+
+            # Exclusive PDC
+            covered_dates = set()
+            for _, row in sub_group.iterrows():
+                if pd.notnull(row['order_date']) and pd.notnull(row['covered_days']):
+                    coverage_days = int(row['covered_days'])
+
+                    if pd.notnull(row.get('days_to_next_order')) and row['days_to_next_order'] > 0:
+                        coverage_days = min(coverage_days, int(row['days_to_next_order']))
+
+                    daily_dates = [
+                        row['order_date'].date() + timedelta(days=i)
+                        for i in range(coverage_days)
+                    ]
+                    covered_dates.update(daily_dates)
+
+            exclusive_pdc = (len(covered_dates) / exposure_days
+                            ) if pd.notnull(exposure_days) and exposure_days > 0 else None
+
+            # Save data
+            interval_data[f'{interval}_inclusive_pdc'] = inclusive_pdc
+            interval_data[f'{interval}_exclusive_pdc'] = min(exclusive_pdc, 1.0) if exclusive_pdc is not None else None
+            interval_data[f'total_{interval}_covered_days'] = total_covered_days
+            interval_data[f'total_{interval}_exposure_days'] = exposure_days
+
+        results.append({
+            'person_id': person,
+            'drug_name': drug,
+            **interval_data
+        })
+
+    # Create summary PDC DataFrame
+    pdc_df = pd.DataFrame(results)
+
+    # Merge back to original DataFrame
+    df = df.merge(pdc_df, on=['person_id', 'drug_name'], how='left')
+
+    return df
