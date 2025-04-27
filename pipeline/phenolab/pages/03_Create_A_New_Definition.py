@@ -1,8 +1,7 @@
 import streamlit as st
 from utils.definition_page_display_utils import (
-    display_code_search_panel,
     display_selected_codes,
-    find_codes_from_existing_phenotypes,
+    display_unified_code_browser
 )
 
 from phmlondon.definition import Definition
@@ -11,7 +10,7 @@ from phmlondon.definition import Definition
 def display_definition_panel() -> str:
     """
     Display top panel
-    Compoents for existing definition selection, and new definition creation
+    Components for existing definition selection, and new definition creation
     Returns:
         str:
             New definition name
@@ -47,8 +46,8 @@ def main():
     ## the definition that is loaded (or created) and currently being worked on
     if "current_definition" not in st.session_state:
         st.session_state.current_definition = None
-    
-    ## the vocab    
+
+    ## the vocab
     if "codes" not in st.session_state:
         st.session_state.codes = None
 
@@ -63,20 +62,15 @@ def main():
     # 3. get unique code types for filtering
     code_types = ["All"] + list(st.session_state.codes["CODE_TYPE"].unique())
 
-    # 4. display main row: a. code searcher & b. selected codes
+    # 4. display main row: a. unified code browser & b. selected codes
     col1, col2 = st.columns([1, 1])
 
     with col1:
-        # code searcher
-        display_code_search_panel(code_types)
+        display_unified_code_browser(code_types)
 
-    # 5. find codes from existing defintions
-    with col1:
-        find_codes_from_existing_phenotypes()
-
-    # 6. Show selected codes
+    # 5. Show selected codes
     with col2:
-        # selected codes
         display_selected_codes()
 
-main()
+if __name__ == "__main__":
+    main()

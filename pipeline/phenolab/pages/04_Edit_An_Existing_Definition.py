@@ -2,18 +2,17 @@ import os
 
 import streamlit as st
 from utils.definition_page_display_utils import (
-    display_code_search_panel,
     display_selected_codes,
-    find_codes_from_existing_phenotypes,
+    display_unified_code_browser,
     load_definition,
-    load_definitions_list,
+    load_definitions_list
 )
 
 
 def display_definition_panel() -> str:
     """
     Display top panel
-    Compoents for existing definition selection, and new definition creation
+    Components for existing definition selection, and new definition creation
     Returns:
         str:
             New definition name
@@ -67,20 +66,14 @@ def main():
     # 3. get unique code types for filtering
     code_types = ["All"] + list(st.session_state.codes["CODE_TYPE"].unique())
 
-    # 4. display main row: a. code searcher & b. selected codes
+    # 4. display main row: a. unified code browser & b. selected codes
     col1, col2 = st.columns([1, 1])
 
     with col1:
-        # code searcher
-        display_code_search_panel(code_types)
+        display_unified_code_browser(code_types)
 
     with col2:
-        # selected codes
         display_selected_codes()
-
-    # 5. find codes from existing defintions
-    with col1:
-        find_codes_from_existing_phenotypes()
 
 
 if __name__ == "__main__":
