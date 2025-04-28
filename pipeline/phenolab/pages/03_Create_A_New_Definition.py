@@ -1,5 +1,5 @@
 import streamlit as st
-from pipeline.phenolab.utils.definition_display_utils import (
+from utils.definition_display_utils import (
     display_selected_codes,
     display_unified_code_browser
 )
