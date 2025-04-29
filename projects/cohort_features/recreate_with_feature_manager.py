@@ -55,7 +55,7 @@ master_person_sql = master_person_sql.removeprefix(prefix)
 master_person_sql = master_person_sql.replace("INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.IMD2019LONDON", "INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.IMD2019LONDON_V1")
 
 feature_store_manager.add_new_feature(
-    feature_name="Master Person Index",
+    feature_name="Person Master Index",
     feature_desc="""
         Uses the NEL person master index to create an index of patients who are currently registered and resident, DOB,
         DOD, and IMD data. The IMD data is loaded from the IMD2019LONDON table.
