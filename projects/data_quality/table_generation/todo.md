@@ -4,6 +4,9 @@
 - [x] Have third column for unit lookup with definition and then join on both cols
 - [x] Sort orchestration so that this can all be run from one script
 - [ ] Decide what to do about null values and confidence in them - probably just bin
-- [/] Make a GUI for doing the cleaning and converting - started
 - [ ] Also still to make system for comparing to distributions and choosing cutoffs programmatically
-- [ ] Write the user story for the app
+- [x] Write the user story for the app
+- [x] Ongoing work on GUI - now on page 2
+- [ ] Finish edit unit page of gui
+- [ ] Add observations_clean as a feature
+- [ ] Finish doing random blood sugar units (mmol/mol done, need to do mg/dl)
