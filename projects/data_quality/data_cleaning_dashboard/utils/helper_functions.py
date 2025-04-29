@@ -12,6 +12,7 @@ from phmlondon.snow_utils import SnowflakeConnection
 
 class DataQuality:
     def __init__(self,
+                 snowsesh: SnowflakeConnection,
                  database: str,
                  schema: str,
                  df_type: str = 'pd',
@@ -22,7 +23,7 @@ class DataQuality:
         - Note that the functions may behave slightly differently depending on if you use polars or pandas
         """
 
-        self.conn = SnowflakeConnection()
+        self.conn = snowsesh
         self.conn.current_database = database.upper()
         self.conn.current_schema = schema.upper()
         self.df_type = df_type
