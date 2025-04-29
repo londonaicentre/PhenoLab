@@ -60,3 +60,70 @@ def return_codes_for_given_definition_id_as_df(_conn: SnowflakeConnection, chose
         ORDER BY VOCABULARY, CODE
         """
     return get_data_from_snowflake_to_dataframe(_conn, codes_query)
+
+@st.cache_data
+def get_definition_sources(_connection: SnowflakeConnection) -> list:
+    def_source_query =  """SELECT DISTINCT DEFINITION_SOURCE
+                        FROM intelligence_dev.ai_centre_definition_library.definitionstore
+                        """
+    def_source_df = _connection.execute_query_to_df(def_source_query)
+    return def_source_df.iloc[:, 0].to_list()
+
+@st.cache_data
+def get_definitions(source: str, _connection: SnowflakeConnection) -> list:
+    def_query = f"""SELECT DISTINCT DEFINITION_NAME
+                FROM intelligence_dev.ai_centre_definition_library.definitionstore
+                WHERE code is not null
+                and DEFINITION_SOURCE = '{source}'
+                """
+    def_df = _connection.execute_query_to_df(def_query)
+    return def_df.iloc[:, 0].to_list()
+
+@st.cache_data
+def get_existing_units(definition: str, _connection: SnowflakeConnection) -> list:
+    unit_query = f"""SELECT DISTINCT CLEANED_UNITS
+    FROM INTELLIGENCE_DEV.AI_CENTRE_OBSERVATION_STAGING_TABLES.UNIT_LOOKUP
+    WHERE DEFINITION_NAME = '{definition}'
+    """
+    return _connection.execute_query_to_list(unit_query)
+
+@st.cache_data
+def get_existing_units_from_cleaned(units: str, definition: str, _connection: SnowflakeConnection) -> list:
+    unit_query = f"""SELECT DISTINCT RESULT_VALUE_UNITS
+    FROM INTELLIGENCE_DEV.AI_CENTRE_OBSERVATION_STAGING_TABLES.UNIT_LOOKUP
+    WHERE DEFINITION_NAME = '{definition}'
+    AND CLEANED_UNITS = '{units}'
+    """
+    return _connection.execute_query_to_list(unit_query)
+
+@st.cache_data
+def get_unit_info(definition: str, _connection: SnowflakeConnection) -> pd.DataFrame:
+    info_query = f"""SELECT DISTINCT RESULT_VALUE_UNITS,
+    COUNT(*) count_units,
+    AVG(result_value) mean,
+    median(result_value) med,
+    min(result_value) minimum_value,
+    max(result_value) maximum_value
+    FROM PROD_DWH.ANALYST_PRIMARY_CARE.OBSERVATION obs
+    left join intelligence_dev.ai_centre_definition_library.definitionstore def on obs.core_concept_id = def.dbid
+    where result_value is not null
+    and result_value_units is not null
+    and def.DEFINITION_NAME ='{definition}'
+    GROUP BY RESULT_VALUE_UNITS
+    ORDER BY count_units desc"""
+    return _connection.execute_query_to_df(info_query)
+
+@st.cache_data(show_spinner="Extracting distribution data")
+def get_unit_distributions(definition: str,
+                            units: list[str],
+                            _connection: SnowflakeConnection) -> pd.DataFrame:
+    unit_distr_query = f"""SELECT RESULT_VALUE,
+    RESULT_VALUE_UNITS
+    FROM PROD_DWH.ANALYST_PRIMARY_CARE.OBSERVATION obs
+    left join intelligence_dev.ai_centre_definition_library.definitionstore def on obs.core_concept_id = def.dbid
+    where result_value is not null
+    and result_value_units is not null
+    and def.DEFINITION_NAME ='{definition}'
+    and obs.result_value_units in ({', '.join('\'' + unit + '\'' for unit in units)})
+    LIMIT 1000000"""
+    return _connection.execute_query_to_df(unit_distr_query)
