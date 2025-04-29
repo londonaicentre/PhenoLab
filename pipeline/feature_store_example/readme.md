@@ -73,6 +73,14 @@ new_version_id = feature_store_manager.update_feature(
 )
 ```
 
+There is also a function to delete features that are created in error - use with caution and not to retire features that 
+have been used in models. It will delete all the feature's tables and registry entries.
+
+```python
+fid = feature_store_manager.get_feature_id_from_table_name('hypertension_v1')
+feature_store_manager.delete_feature(fid)
+```
+
 # Use on NEL Snowflake
 
 - Main feature store:

@@ -103,6 +103,11 @@ class FeatureStoreManager:
                     select feature_name 
                     from feature_registry;""").collect()]
         print(existing_feature_names)
+
+        feature_name = feature_name.upper()
+        feature_name = feature_name.strip()
+        feature_name = feature_name.replace(" ", "_")
+
         if feature_name in existing_feature_names and existence_ok == False:
             raise ValueError(f"""Feature {feature_name} already exists. Please check you are not creating a duplicate 
                              and try again with a different name.""")
@@ -398,6 +403,42 @@ class FeatureStoreManager:
             return result[0]["FEATURE_ID"]
         else:
             return []
+    
+    def delete_feature(self, feature_id: str):
+        """
+        Delete a feature i.e. all data tables and all entries in the feature registry and version registry
+        This is intended to be used only when features are created in error and not for retiring features that have been
+        used in models. 
+
+        Args:
+            feature_id (str): the feature_id of the feature
+        """
+        #  Get the names of the relevant tables
+        session = self.conn.session
+        self.conn.use_schema(self.metadata_schema)
+        all_tables = session.sql(
+            f"""SELECT table_name
+            FROM feature_version_registry
+            WHERE feature_id = '{feature_id}'"""
+        ).collect()
+        print(all_tables)
+
+        # Delete the relevant tables
+        self.conn.use_schema(self.schema)
+        for table in all_tables:
+            table_name = table["TABLE_NAME"]
+            print(f"Deleting table {table_name}")
+            session.sql(f"""DROP TABLE IF EXISTS {table_name}""").collect()
+            print(f"Table {table_name} deleted successfully")
+
+        # Delete records from version registry
+        self.conn.use_schema(self.metadata_schema)
+        session.sql(f"DELETE FROM feature_version_registry WHERE feature_id = '{feature_id}'").collect()
+
+        # Delete from feature registry
+        session.sql(f"DELETE FROM feature_registry WHERE feature_id = '{feature_id}'").collect()
+
+    # TODO: feature version deleter
 
 if __name__ == "__main__":
     load_dotenv()
