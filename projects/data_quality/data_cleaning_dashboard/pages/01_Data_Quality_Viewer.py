@@ -10,10 +10,12 @@ import streamlit as st
 import utils.helper_functions as hf
 from dotenv import load_dotenv
 
+from phmlondon.snow_utils import SnowflakeConnection
+
 
 @st.cache_resource
-def make_dq_cached(db, schema):
-    return hf.DataQuality(db, schema)
+def make_dq_cached(_snowsesh, db, schema):
+    return hf.DataQuality(_snowsesh, db, schema)
 
 @st.cache_resource
 def pull_df(query: str, _data_qual_obj: hf.DataQuality) -> pd.DataFrame:
@@ -46,17 +48,24 @@ numeric_cols = ['NUMBER',
                 'REAL']
 
 
-def main() -> None: #noqa: C901
+def main() -> None:
     ## Set up the session ##
     load_dotenv()
 
     if "snowsesh" not in st.session_state:
         db = 'INTELLIGENCE_DEV'
         schema = "AI_CENTRE_PHENOTYPE_LIBRARY"
-        #st.session_state.snowsesh = SnowflakeConnection()
+        st.session_state.snowsesh = SnowflakeConnection()
         #st.session_state.snowsesh.use_database(db)
         #st.session_state.snowsesh.use_schema(schema)
-        data_qual = make_dq_cached(db, schema)
+        data_qual = make_dq_cached(st.session_state.snowsesh, db, schema)
+
+    try:
+        isinstance(data_qual, hf.DataQuality)
+    except:
+        db = 'INTELLIGENCE_DEV'
+        schema = "AI_CENTRE_PHENOTYPE_LIBRARY"
+        data_qual = make_dq_cached(st.session_state.snowsesh, db, schema)
 
     #snowsesh = st.session_state.snowsesh
     st.title("Data Cleaning Dashboard")
