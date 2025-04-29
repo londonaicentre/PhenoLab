@@ -34,7 +34,7 @@ def build_definitions(zip_name, mapping_files):
         with zip_ref.open(csv_name) as csv_file:
             bnf_df = pd.read_csv(BytesIO(csv_file.read()))
     chemical_substances = bnf_df[
-        ["BNF Chemical Substance", "BNF Chemical Substance Code"]
+        ["BNF Chemical Substance", "BNF Subparagraph Code", "BNF Subparagraph", "BNF Chemical Substance Code"]
     ].drop_duplicates()
 
     # process different years of BNF SNOMED mapping files
@@ -54,12 +54,12 @@ def build_definitions(zip_name, mapping_files):
     current_datetime = datetime.now()
 
     # group by chemical substance at definition level
-    for (chem_code, chem_name), chem_group in joined_data.groupby(
-        ["BNF Chemical Substance Code", "BNF Chemical Substance"]
+    for (class_name, class_code), class_group in joined_data.groupby(
+        ["BNF Subparagraph", "BNF Subparagraph Code"]
     ):
         # group by BNF Code at codelist level
         codelists = []
-        for bnf_code, bnf_group in chem_group.groupby("BNF Code"):
+        for bnf_code, chem_name in class_group.groupby(["BNF Code", "BNF Chemical Substance"]):
             # create SNOMED codes for each mapping
             codes = [
                 Code(
@@ -67,12 +67,12 @@ def build_definitions(zip_name, mapping_files):
                     code_description=row["DM+D: Product Description"],
                     code_vocabulary=VocabularyType.SNOMED,
                 )
-                for _, row in bnf_group.iterrows()
+                for _, row in class_group.iterrows()
             ]
 
             codelist = Codelist(
                 codelist_id=bnf_code,
-                codelist_name=bnf_group["BNF Name"].iloc[0],
+                codelist_name=chem_name,
                 codelist_vocabulary=VocabularyType.SNOMED,
                 codelist_version="1.0",
                 codes=codes,
@@ -80,8 +80,8 @@ def build_definitions(zip_name, mapping_files):
             codelists.append(codelist)
 
         definition = Definition(
-            definition_id=chem_code,
-            definition_name=chem_name,
+            definition_id=class_code,
+            definition_name=class_name,
             definition_version="1.0",
             definition_source=DefinitionSource.NHSBSA,
             codelists=codelists,
