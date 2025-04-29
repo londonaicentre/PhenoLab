@@ -33,7 +33,7 @@ To create a feature, do something like this (see `create_feature_hypertension.py
 
 ```python
 from dotenv import load_dotenv
-from feature_store_manager import FeatureStoreManager
+from phmlondon.feature_store_manager import FeatureStoreManager
 
 from phmlondon.snow_utils import SnowflakeConnection
 
@@ -58,7 +58,9 @@ feature_store_manager.add_new_feature(
     feature_format="Binary/categorical",
     sql_select_query_to_generate_feature=query)
 ```
-The feature table will be created and the feature will be registred in the feature registry and feature version registry.
+The feature table will be created and the feature will be registred in the feature registry and feature version registry. 
+Note the the add_new_feature function has an `existence_ok` argument which defaults to False but can be set to True to 
+prevent an error being thrown if the feature already exists.
 
 To update a feature (add a new version):
 
