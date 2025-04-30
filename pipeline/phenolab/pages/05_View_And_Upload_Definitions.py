@@ -10,9 +10,9 @@ from dotenv import load_dotenv
 
 from phmlondon.definition import Definition
 from phmlondon.snow_utils import SnowflakeConnection
+from utils.style_utils import set_font_lato
 
 load_dotenv()
-
 
 def get_definitions_list():
     """
@@ -150,6 +150,7 @@ def upload_definitions_to_snowflake():
 
 def main():
     st.set_page_config(page_title="View and upload custom definitions", layout="wide")
+    set_font_lato()
     st.title("View and upload custom definitions")
     st.markdown("Note: This page will upload all definitions to `AI_CENTRE_DEFINITION_LIBRARY.AIC_DEFINITIONS`.")
     st.markdown("Current default behaviour is to overwrite")

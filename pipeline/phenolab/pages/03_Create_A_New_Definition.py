@@ -5,7 +5,7 @@ from utils.definition_display_utils import (
 )
 
 from phmlondon.definition import Definition
-
+from utils.style_utils import set_font_lato
 
 def display_definition_panel() -> str:
     """
@@ -40,6 +40,7 @@ def display_definition_panel() -> str:
 
 def main():
     st.set_page_config(page_title="Create a new definition", layout="wide")
+    set_font_lato()
     st.title("Create a new definition")
 
     # state variables
