@@ -6,6 +6,7 @@ import streamlit as st
 from dotenv import load_dotenv
 
 from phmlondon.snow_utils import SnowflakeConnection
+from utils.style_utils import set_font_lato
 
 ## TARGET FUNCTIONALITY:
 ## Load Athena SNOMED/ICD10/OPCS4
@@ -164,6 +165,8 @@ def generate_vocab_list():
 
 def main():
     st.set_page_config(page_title="Load or Generate Vocabulary", layout="wide")
+    
+    set_font_lato()
 
     st.title("Load or Generate Vocabulary")
 

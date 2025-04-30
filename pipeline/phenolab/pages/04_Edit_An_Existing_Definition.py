@@ -7,7 +7,7 @@ from utils.definition_display_utils import (
     load_definition,
     load_definitions_list
 )
-
+from utils.style_utils import set_font_lato
 
 def display_definition_panel() -> str:
     """
@@ -45,6 +45,7 @@ def display_definition_panel() -> str:
 
 def main():
     st.set_page_config(page_title="Edit an existing definition", layout="wide")
+    set_font_lato()
     st.title("Edit an existing definition")
 
     # state variables

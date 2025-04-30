@@ -10,6 +10,7 @@ from utils.database_utils import (
     get_data_from_snowflake_to_dataframe,
     get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list,
 )
+from utils.style_utils import set_font_lato
 
 # DEFINITIONS PANEL
 def create_definition_panel(snowsesh,
@@ -25,7 +26,8 @@ def create_definition_panel(snowsesh,
         selected_definition = st.selectbox(
             f"Select Definition ({panel_name})",
             options=definition_labels,
-            key=f"def_select_{panel_name}"
+            key=f"def_select_{panel_name}",
+            label_visibility="hidden",
         )
 
         if selected_definition:
@@ -86,6 +88,10 @@ def show_missing_codes(column, panel_name):
 def main():
     # Main page
     snowsesh = connect_to_snowflake()
+
+    st.set_page_config(page_title="Browse Database Definitions", layout="wide")
+
+    set_font_lato()
 
     st.title("Browse database definitions")
     st.write(

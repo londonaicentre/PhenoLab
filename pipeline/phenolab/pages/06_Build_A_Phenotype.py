@@ -3,6 +3,7 @@ import os
 import streamlit as st
 from dotenv import load_dotenv
 from utils.phenotype import ComparisonOperator, ConditionType, Phenotype, load_phenotype_from_json
+from utils.style_utils import set_font_lato
 
 from phmlondon.snow_utils import SnowflakeConnection
 
@@ -389,6 +390,7 @@ def display_panel_5_expression_builder():
 
 def main():
     st.set_page_config(page_title="Build A Phenotype", layout="wide")
+    set_font_lato()
     st.title("Build a phenotype")
 
     if "current_phenotype" not in st.session_state:
