@@ -23,7 +23,7 @@ def display_definition_panel() -> str:
         new_definition_name = st.text_input("New definition name", 
                 label_visibility="collapsed")
         st.text("Naming convention:")
-        st.markdown("- <verbose_description_of_defintion>_<code vocabulary e.g. SNOMED /ICD10 /mixed]>")
+        st.markdown("- <verbose_description_of_defintion>_<code vocabulary e.g. SNOMED /ICD10 /SNOMED+ICD10]>")
         st.markdown("- use <measurement> as a prefix for measurement definitions")
     # component: new definition button
     with col2:
