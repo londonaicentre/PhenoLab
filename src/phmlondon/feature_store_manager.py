@@ -77,6 +77,7 @@ class FeatureStoreManager:
         feature_desc: str,
         feature_format: str,
         sql_select_query_to_generate_feature: str,
+        existence_ok: bool = False,
     ) -> tuple[str, int]:
         """
         Executes the input query and add the feature to the feature registry and the version registry
@@ -87,6 +88,8 @@ class FeatureStoreManager:
             feature_format (str): format of the feature e.g. one-hot, binary, continuous
             table_name (str): table_name of the feature, str
             sql_select_query_to_generate_feature (str): SQL query that generates the feature
+            existence_ok (bool): if True, the function will not raise an error if the feature already exists 
+                (default: False)
         
         Returns:
             tuple[str, int]: feature_id and feature_version
@@ -100,25 +103,38 @@ class FeatureStoreManager:
                     select feature_name 
                     from feature_registry;""").collect()]
         print(existing_feature_names)
-        if feature_name in existing_feature_names:
+
+        feature_name = feature_name.upper()
+        feature_name = feature_name.strip()
+        feature_name = feature_name.replace(" ", "_")
+
+        if feature_name in existing_feature_names and existence_ok == False:
             raise ValueError(f"""Feature {feature_name} already exists. Please check you are not creating a duplicate 
                              and try again with a different name.""")
-        session.sql(f"""
-            INSERT INTO feature_registry (
-                    feature_name, 
-                    feature_desc, 
-                    feature_format, 
-                    date_feature_registered)
-            VALUES ('{feature_name}', '{feature_desc}', '{feature_format}', CURRENT_TIMESTAMP)
-        """).collect()  # vulnerable to SQL injection - never expose externally
+        
+        if feature_name not in existing_feature_names:
+            session.sql(f"""
+                INSERT INTO feature_registry (
+                        feature_name, 
+                        feature_desc, 
+                        feature_format, 
+                        date_feature_registered)
+                VALUES ('{feature_name}', '{feature_desc}', '{feature_format}', CURRENT_TIMESTAMP)
+            """).collect()  # vulnerable to SQL injection - never expose externally
+
         feature_id = session.sql(f"""SELECT MAX(feature_id)
                                 FROM feature_registry
                                 WHERE feature_name = '{feature_name}'""").collect()[0][
                                 "MAX(FEATURE_ID)"]
         self.conn.use_schema(self.schema)
-        print(
-            f"Feature {feature_name}, ID {feature_id}, added to the feature registry; table not created yet"
-        )
+
+        if feature_name in existing_feature_names and existence_ok == True: # by definition, existence_ok == True since already raised an error if False
+            return feature_id, self._get_current_feature_version(feature_id)[0]
+
+        if feature_name not in existing_feature_names:
+            print(
+                f"Feature {feature_name}, ID {feature_id}, added to the feature registry; table not created yet"
+            )
 
         try:
             table_name = self._create_feature_table(
@@ -204,6 +220,13 @@ class FeatureStoreManager:
         return table_name
 
     def _get_current_feature_version(self, feature_id: str) -> tuple[int, int]:
+        """
+        Get the current feature version and the next feature version for a given feature_id
+        Args:
+            feature_id (str): the feature_id of the feature
+        Returns:
+            tuple[int, int]: the current feature version and the next feature version
+        """
         session = self.conn.session
 
         self.conn.use_schema(self.metadata_schema)
@@ -380,6 +403,42 @@ class FeatureStoreManager:
             return result[0]["FEATURE_ID"]
         else:
             return []
+    
+    def delete_feature(self, feature_id: str):
+        """
+        Delete a feature i.e. all data tables and all entries in the feature registry and version registry
+        This is intended to be used only when features are created in error and not for retiring features that have been
+        used in models. 
+
+        Args:
+            feature_id (str): the feature_id of the feature
+        """
+        #  Get the names of the relevant tables
+        session = self.conn.session
+        self.conn.use_schema(self.metadata_schema)
+        all_tables = session.sql(
+            f"""SELECT table_name
+            FROM feature_version_registry
+            WHERE feature_id = '{feature_id}'"""
+        ).collect()
+        print(all_tables)
+
+        # Delete the relevant tables
+        self.conn.use_schema(self.schema)
+        for table in all_tables:
+            table_name = table["TABLE_NAME"]
+            print(f"Deleting table {table_name}")
+            session.sql(f"""DROP TABLE IF EXISTS {table_name}""").collect()
+            print(f"Table {table_name} deleted successfully")
+
+        # Delete records from version registry
+        self.conn.use_schema(self.metadata_schema)
+        session.sql(f"DELETE FROM feature_version_registry WHERE feature_id = '{feature_id}'").collect()
+
+        # Delete from feature registry
+        session.sql(f"DELETE FROM feature_registry WHERE feature_id = '{feature_id}'").collect()
+
+    # TODO: feature version deleter
 
 if __name__ == "__main__":
     load_dotenv()
