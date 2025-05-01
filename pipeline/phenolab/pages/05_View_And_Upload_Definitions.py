@@ -79,6 +79,7 @@ def upload_definitions_to_snowflake():
     # upload_time = datetime.datetime.now() 
     all_rows = pd.DataFrame()
     definitions_to_remove = {}
+    definitions_to_add = []
 
     with st.spinner(f"Processing {len(definition_files)} definition files..."):
         for def_file in definition_files:
@@ -87,27 +88,30 @@ def upload_definitions_to_snowflake():
                 definition = Definition.from_json(file_path)
                 
                 query = f"""
-                SELECT DEFINITION_ID, DEFINITION_VERSION 
+                SELECT DEFINITION_ID, DEFINITION_NAME, VERSION_DATETIME 
                 FROM AIC_DEFINITIONS 
                 WHERE DEFINITION_ID = '{definition.definition_id}'
                 """
                 existing_definition = snowsesh.execute_query_to_df(query)
 
                 if not existing_definition.empty:
-                    print(existing_definition["DEFINITION_VERSION"].dtype)
-                    print(existing_definition["DEFINITION_VERSION"].max())
-                    max_version = existing_definition["DEFINITION_VERSION"].max()
+                    max_version_in_db = existing_definition["VERSION_DATETIME"].max()
+                    current_version = definition.version_datetime
 
-                    if definition.definition_version == max_version:
+                    print(definition.definition_name)
+                    print(current_version)
+                    print(max_version_in_db)
+
+                    if current_version == max_version_in_db:
                         st.info(f"Skipping {def_file} as it already exists in the database")
                         continue
 
-                    if definition.definition_version < max_version:
-                        st.info(f"Skipping {def_file} as it already a newer version exists in the database")
+                    if current_version < max_version_in_db:
+                        st.info(f"Skipping {def_file} as a newer version {max_version_in_db} exists in the database")
                         continue
 
                     # otherwise, we have a newer version and should record that we want to delete the old one
-                    definitions_to_remove[definition.definition_id] = [def_file, max_version]
+                    definitions_to_remove[definition.definition_id] = [definition.definition_name, current_version]
 
                 # for codelist in definition.codelists:
                 #     for code in codelist.codes:
@@ -126,6 +130,7 @@ def upload_definitions_to_snowflake():
                 #             "UPLOADED_DATETIME": definition.uploaded_datetime,
                 #         }
                 all_rows = pd.concat([all_rows, definition.to_dataframe()])
+                definitions_to_add.append(definition.definition_name)
 
             except Exception as e:
                 st.error(f"Error processing {def_file}: {e}")
@@ -139,15 +144,15 @@ def upload_definitions_to_snowflake():
                 df.columns = df.columns.str.upper()
                 # st.write(df)
                 snowsesh.load_dataframe_to_table(df=df, table_name="AIC_DEFINITIONS", mode="append")
-                st.success("Successfully uploaded new definitions to the AIC definition library")
+                st.success(f"Successfully uploaded new definitions {definitions_to_add} to the AIC definition library")
 
                 # delete old versions
-                for id, [def_file, version] in definitions_to_remove.items():
+                for id, [name, current_version] in definitions_to_remove.items():
                     snowsesh.session.sql(
                             f"""DELETE FROM AIC_DEFINITIONS WHERE DEFINITION_ID = '{id}' AND 
-                            DEFINITION_VERSION = '{version}'"""
+                            VERSION_DATETIME != CAST('{current_version}' AS TIMESTAMP)"""
                         ).collect()
-                    st.info(f"Deleted old version {version} of {def_file}")
+                    st.info(f"Deleted old version(s) of {name}")
 
                 # run update.py script to refresh DEFINITIONSTORE
                 with st.spinner("Updating DEFINITIONSTORE..."):
@@ -223,6 +228,6 @@ if __name__ == "__main__":
 
 # TODO: dispaly available definitions [x]
 # TODO: make definitions non-overwriting [x]
-# TODO: check overwrite newer versions works [ ]
-# TODO: rename feature store page [ ]
+# TODO: check overwrite newer versions works [x]
+# TODO: rename feature store page [x]
 # TODO: uploaded datetime is not what it says it is (when created from_scracth) [ ]

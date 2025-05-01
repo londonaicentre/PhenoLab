@@ -12,10 +12,11 @@ load_dotenv()
 st.title("AI Centre Definitions")
 
 conn = connect_to_snowflake()
-query = "SELECT DEFINITION_ID, DEFINITION_NAME, DEFINITION_VERSION, " \
+query = "SELECT DEFINITION_ID, DEFINITION_NAME, " \
     "VERSION_DATETIME, UPLOADED_DATETIME " \
     "FROM AIC_DEFINITIONS " \
-    "GROUP BY DEFINITION_ID, DEFINITION_NAME, DEFINITION_VERSION, VERSION_DATETIME, UPLOADED_DATETIME;"
+    "GROUP BY DEFINITION_ID, DEFINITION_NAME, VERSION_DATETIME, UPLOADED_DATETIME " \
+    "ORDER BY DEFINITION_NAME;"
 
 definitions = get_data_from_snowflake_to_dataframe(conn, query)
 st.dataframe(definitions)
