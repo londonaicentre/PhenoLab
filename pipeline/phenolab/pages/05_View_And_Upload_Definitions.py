@@ -77,7 +77,8 @@ def upload_definitions_to_snowflake():
             return
 
     # upload_time = datetime.datetime.now() 
-    processed_files = []
+    all_rows = pd.DataFrame()
+    definitions_to_remove = {}
 
     with st.spinner(f"Processing {len(definition_files)} definition files..."):
         for def_file in definition_files:
@@ -85,6 +86,29 @@ def upload_definitions_to_snowflake():
                 file_path = os.path.join("data/definitions", def_file)
                 definition = Definition.from_json(file_path)
                 
+                query = f"""
+                SELECT DEFINITION_ID, DEFINITION_VERSION 
+                FROM AIC_DEFINITIONS 
+                WHERE DEFINITION_ID = '{definition.definition_id}'
+                """
+                existing_definition = snowsesh.execute_query_to_df(query)
+
+                if not existing_definition.empty:
+                    print(existing_definition["DEFINITION_VERSION"].dtype)
+                    print(existing_definition["DEFINITION_VERSION"].max())
+                    max_version = existing_definition["DEFINITION_VERSION"].max()
+
+                    if definition.definition_version == max_version:
+                        st.info(f"Skipping {def_file} as it already exists in the database")
+                        continue
+
+                    if definition.definition_version < max_version:
+                        st.info(f"Skipping {def_file} as it already a newer version exists in the database")
+                        continue
+
+                    # otherwise, we have a newer version and should record that we want to delete the old one
+                    definitions_to_remove[definition.definition_id] = [def_file, max_version]
+
                 # for codelist in definition.codelists:
                 #     for code in codelist.codes:
                 #         row = {
@@ -101,25 +125,29 @@ def upload_definitions_to_snowflake():
                 #             "VERSION_DATETIME": definition.version_datetime,
                 #             "UPLOADED_DATETIME": definition.uploaded_datetime,
                 #         }
-                try:
-                    all_rows = pd.concat([all_rows, definition.to_dataframe()])
-                except NameError:
-                    all_rows = definition.to_dataframe()
-                processed_files.append(def_file)
+                all_rows = pd.concat([all_rows, definition.to_dataframe()])
 
             except Exception as e:
                 st.error(f"Error processing {def_file}: {e}")
                 raise e
 
     # upload
-    if "all_rows" in locals():
+    if not all_rows.empty:
         with st.spinner(f"Uploading {len(all_rows)} rows to Snowflake..."):
             try:
                 df = pd.DataFrame(all_rows)
                 df.columns = df.columns.str.upper()
                 # st.write(df)
-                snowsesh.load_dataframe_to_table(df=df, table_name="AIC_DEFINITIONS", mode="overwrite")
-                st.success("Successfully uploaded to Definition Library")
+                snowsesh.load_dataframe_to_table(df=df, table_name="AIC_DEFINITIONS", mode="append")
+                st.success("Successfully uploaded new definitions to the AIC definition library")
+
+                # delete old versions
+                for id, [def_file, version] in definitions_to_remove.items():
+                    snowsesh.session.sql(
+                            f"""DELETE FROM AIC_DEFINITIONS WHERE DEFINITION_ID = '{id}' AND 
+                            DEFINITION_VERSION = '{version}'"""
+                        ).collect()
+                    st.info(f"Deleted old version {version} of {def_file}")
 
                 # run update.py script to refresh DEFINITIONSTORE
                 with st.spinner("Updating DEFINITIONSTORE..."):
@@ -152,8 +180,23 @@ def main():
     st.set_page_config(page_title="View and upload custom definitions", layout="wide")
     set_font_lato()
     st.title("View and upload custom definitions")
-    st.markdown("Note: This page will upload all definitions to `AI_CENTRE_DEFINITION_LIBRARY.AIC_DEFINITIONS`.")
-    st.markdown("Current default behaviour is to overwrite")
+    st.markdown("This page will upload all definitions to `AI_CENTRE_DEFINITION_LIBRARY.AIC_DEFINITIONS`")
+
+    _, b, _ = st.columns(3)
+    [maincol] = st.columns(1)
+
+    # Row 2: upload functionality
+    definition_count = len(get_definitions_list())
+    with b:
+        st.text(" ")
+        if definition_count > 0:
+            if st.button(f"Upload all new definitions to Snowflake"):
+                with maincol:
+                    upload_definitions_to_snowflake()
+        else:
+            st.warning("No definitions available to upload")
+
+    st.markdown("---")
 
     # Row 1: defintion display
     col1, col2 = st.columns([1, 1.5])
@@ -173,21 +216,13 @@ def main():
         else:
             st.info("Select a definition from the list to view its contents")
 
-    # Row 2: upload functionality
-    st.markdown("---")
-
-    definition_count = len(get_definitions_list())
-    if definition_count > 0:
-        if st.button(f"Upload All {definition_count} Definitions to Snowflake"):
-            upload_definitions_to_snowflake()
-    else:
-        st.warning("No definitions available to upload")
-
 
 if __name__ == "__main__":
     main()
 
 
-# TODO: dispaly available definitions
-# TODO: make definitions non-overwriting
-# TODO: rename feature store page
+# TODO: dispaly available definitions [x]
+# TODO: make definitions non-overwriting [x]
+# TODO: check overwrite newer versions works [ ]
+# TODO: rename feature store page [ ]
+# TODO: uploaded datetime is not what it says it is (when created from_scracth) [ ]
