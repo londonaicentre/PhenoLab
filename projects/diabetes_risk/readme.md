@@ -1,4 +1,4 @@
-# Experiments in predicting risk of progresison in patients with diabetes
+# Experiments in predicting risk of progression in patients with diabetes
 
 ## Experiment 1: Using XGBoost to predict future HbA1c
 
