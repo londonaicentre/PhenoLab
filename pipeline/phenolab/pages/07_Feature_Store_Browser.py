@@ -21,13 +21,19 @@ def switch_schema(_conn: SnowflakeConnection, schema: str = "AI_CENTRE_FEATURE_S
 switch_schema(conn)
 
 st.header('Features')
-features = get_data_from_snowflake_to_dataframe(conn, "SELECT * FROM FEATURE_REGISTRY")
+features_query = "SELECT * FROM FEATURE_REGISTRY"
+features = get_data_from_snowflake_to_dataframe(conn, features_query)
 
 st.dataframe(features)
 
 st.header('Feature versions')
-versions = get_data_from_snowflake_to_dataframe(conn, "SELECT * FROM FEATURE_VERSION_REGISTRY")
+versions_query = "SELECT * FROM FEATURE_VERSION_REGISTRY"
+versions = get_data_from_snowflake_to_dataframe(conn, versions_query)
 
 st.dataframe(versions)
+
+if st.button("Refresh"):
+    get_data_from_snowflake_to_dataframe.clear(conn, features_query)
+    get_data_from_snowflake_to_dataframe.clear(conn, versions_query)
 
 switch_schema(conn, "AI_CENTRE_DEFINITION_LIBRARY")
