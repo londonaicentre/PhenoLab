@@ -186,3 +186,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# TODO: dispaly available definitions
+# TODO: make definitions non-overwriting
+# TODO: rename feature store page
