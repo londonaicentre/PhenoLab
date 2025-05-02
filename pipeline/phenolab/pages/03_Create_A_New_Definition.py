@@ -25,6 +25,7 @@ def display_definition_panel() -> str:
         st.text("Naming convention:")
         st.markdown("- <verbose_description_of_definition>_<code vocabulary e.g. SNOMED/ICD10/SNOMED+ICD10]>")
         st.markdown("- use <measurement> as a prefix for measurement definitions")
+        st.markdown("- lowercase other than abbreviations, no spaces or special characters")
     # component: new definition button
     with col2:
         if st.button("Create definition") and new_definition_name:
