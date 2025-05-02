@@ -7,6 +7,7 @@ import sys
 import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
+from datetime import datetime
 
 from phmlondon.definition import Definition
 from phmlondon.snow_utils import SnowflakeConnection
@@ -113,6 +114,7 @@ def upload_definitions_to_snowflake():
                     # otherwise, we have a newer version and should record that we want to delete the old one
                     definitions_to_remove[definition.definition_id] = [definition.definition_name, current_version]
 
+                    
                 # for codelist in definition.codelists:
                 #     for code in codelist.codes:
                 #         row = {
@@ -129,6 +131,10 @@ def upload_definitions_to_snowflake():
                 #             "VERSION_DATETIME": definition.version_datetime,
                 #             "UPLOADED_DATETIME": definition.uploaded_datetime,
                 #         }
+                
+                # put the current timestamp as the uploaded datetime
+                definition.uploaded_datetime = datetime.now()
+                
                 all_rows = pd.concat([all_rows, definition.to_dataframe()])
                 definitions_to_add.append(definition.definition_name)
 
@@ -195,7 +201,7 @@ def main():
     with b:
         st.text(" ")
         if definition_count > 0:
-            if st.button(f"Upload all new definitions to Snowflake"):
+            if st.button(f"Upload new definitions to Snowflake"):
                 with maincol:
                     upload_definitions_to_snowflake()
         else:
@@ -224,10 +230,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-# TODO: dispaly available definitions [x]
-# TODO: make definitions non-overwriting [x]
-# TODO: check overwrite newer versions works [x]
-# TODO: rename feature store page [x]
-# TODO: uploaded datetime is not what it says it is (when created from_scracth) [ ]
