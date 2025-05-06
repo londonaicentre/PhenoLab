@@ -8,27 +8,24 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 import streamlit as st
-import utils.helper_functions as hf
 from dotenv import load_dotenv
+from table_generation.unit_standardisation.make_tables import (
+    main as unit_standardisation,
+)
+from table_generation.unit_standardisation.make_unit_table import main as unit_table
 from utils.database_utils import (
     get_definition_sources,
     get_definitions,
     get_existing_units,
+    get_sql_files,
     get_unit_distributions,
     get_unit_info,
-)
-from utils.definition_page_display_utils import (
-    display_code_search_panel,
-    display_selected_codes,
-    find_codes_from_existing_phenotypes,
-    load_definition,
-    load_definitions_list,
 )
 
 from phmlondon.snow_utils import SnowflakeConnection
 
 
-def display_unit_panel(_connection: SnowflakeConnection) -> str:
+def display_unit_panel(_connection: SnowflakeConnection) -> str: #noqa
     """
     Display top panel
     Components for existing unit selection, and new unit creation
@@ -36,12 +33,18 @@ def display_unit_panel(_connection: SnowflakeConnection) -> str:
         str:
             New unit name
     """
-    st.subheader("Enter standardised unit:")
+    st.markdown("""###Enter standardised unit:
+                Input details of new units here, including unit, observation, """)
     col1, col2, col3 = st.columns([2, 1, 1])
 
     # new unit name input
     with col1:
-        new_unit_name = st.text_input("New standardised unit name", label_visibility="collapsed")
+        new_unit_name = st.text_input("New standardised unit name",
+                                      label_visibility="collapsed",
+                                      placeholder= 'New standardised unit name here')
+        observation_name = st.text_input("New observation name",
+                                         label_visibility="collapsed",
+                                         placeholder='Observation name here (e.g. haemoglobin)')
 
     # load in definitions
     with col2:
@@ -193,6 +196,23 @@ def display_unit_panel(_connection: SnowflakeConnection) -> str:
                         st.success(f'{str(new_units_size)} units corresponding to {st.session_state.current_unit} saved!')
                 else:
                     st.warning(f'Unable to add units to {st.session_state.current_unit} as already exists')
+
+        with st.form('update_snowflake'):
+            st.markdown('Update Snowflake - ensure that you also commit any changes to github')
+            update_snowflake = st.form_submit_button('Update snowflake')
+            if update_snowflake:
+                unit_standardisation('table_generation/unit_standardisation')
+                unit_table('table_generation/unit_standardisation')
+
+                #Get the sql files in the different folders and work through them
+                dir = os.path.join('table_generation', 'unit_standardisation', 'sql_scripts')
+                files = get_sql_files(dir)
+
+                #Run all the files
+                for file in files:
+                    file = os.path.join(dir, file)
+                    _connection.execute_sql_file(file)
+                    print(f'SQL script {file} successfully run')
 
     else:
         st.warning('No data to present')
