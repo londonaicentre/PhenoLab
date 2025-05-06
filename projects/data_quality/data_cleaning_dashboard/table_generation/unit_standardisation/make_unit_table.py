@@ -25,9 +25,9 @@ def save_to_snowflake(snow: SnowflakeConnection, record: list[dict], table_name:
     cursor = snow.session.connection.cursor()
 
     # Build the table schema dynamically based on JSON keys (all columns are TEXT)
-    columns_str = ", ".join([f"{key} TEXT" for key in keys])
-    create_table_query = f"CREATE TABLE IF NOT EXISTS {table_name} ({columns_str});"
-    cursor.execute(create_table_query)
+    #columns_str = ", ".join([f"{key} TEXT" for key in keys])
+    #create_table_query = f"CREATE TABLE IF NOT EXISTS {table_name} ({columns_str});"
+    #cursor.execute(create_table_query)
 
     # Prepare the INSERT statement with placeholders
     placeholders = ", ".join(["?"] * len(keys))
@@ -38,6 +38,30 @@ def save_to_snowflake(snow: SnowflakeConnection, record: list[dict], table_name:
         # Ensure ordering of values matches the column order
         values = [str(row.get(key, None)) for key in keys]
         cursor.execute(insert_query, values)
+
+def delete_from_snowflake(snow: SnowflakeConnection, record: list[dict], table_name: str) -> None:
+    """Function to pull out json, delete rows from table
+    snow: Snowflake connection
+    record: a list of dicts
+    table_name: table to insert into"""
+
+    # Check that data is a list of dictionaries
+    if not isinstance(record, list) or not all(isinstance(item, dict) for item in record):
+        print("Expected JSON file to contain a list of dictionaries.")
+        return
+
+    # Extract keys from the first dictionary to define table columns
+    keys = list(record[0].keys())
+    cursor = snow.session.connection.cursor()
+
+    # Insert each record from the JSON data into the table
+    for row in record:
+        delete_query = f"""DELETE FROM {table_name}
+                        WHERE {keys[0]} = '{row[keys[0]]}'
+                        AND {keys[1]} = '{row[keys[1]]}'
+                        AND {keys[2]} = '{row[keys[2]]}'"""
+
+        cursor.execute(delete_query)
 
 
 def main(file_path: str = None) -> None:
@@ -87,6 +111,7 @@ def main(file_path: str = None) -> None:
 
         #Compare what is in the json to what we have already in the table
         new_table = pd.read_json(json_filename)
+        new_table['saved'] = True
         current_table['already_present'] = True
         combined_tabs = pd.merge(new_table,
                                  current_table,
@@ -101,14 +126,22 @@ def main(file_path: str = None) -> None:
                                      unit_columns
                                      ].to_dict(orient='records')
 
-        with open(json_filename, 'r+') as file:
-            old_dict = json.load(file)
-
-        missing_dict = [row for row in old_dict if row in new_dict]
+        missing_dict = [row for row in new_dict]
 
         #Read in units json
         if len(missing_dict) > 0:
             save_to_snowflake(snowsesh, missing_dict, f'{database}.{schema}.{table}')
+        else:
+            print('No new mappings to upload.')
+
+        #Now delete any that are already uploaded but aren't in our table
+        new_table['saved'] = True
+
+        additional_dict = combined_tabs.loc[combined_tabs.saved.isna(),
+                                            unit_columns
+                                            ].to_dict(orient='records')
+        if len(additional_dict) > 0:
+            delete_from_snowflake(snowsesh, additional_dict, f'{database}.{schema}.{table}')
         else:
             print('No new mappings to upload.')
 
