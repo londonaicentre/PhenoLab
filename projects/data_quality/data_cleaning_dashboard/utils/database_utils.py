@@ -1,3 +1,6 @@
+import os
+import re
+
 import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
@@ -127,3 +130,8 @@ def get_unit_distributions(definition: str,
     and obs.result_value_units in ({', '.join('\'' + unit + '\'' for unit in units)})
     LIMIT 1000000"""
     return _connection.execute_query_to_df(unit_distr_query)
+
+def get_sql_files(directory = None) -> list:
+    """Returns all the sql files in the directory"""
+    files =  os.listdir(directory)
+    return [file for file in files if re.findall('.*\\.sql', file)]
