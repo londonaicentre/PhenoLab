@@ -10,6 +10,7 @@ from utils.database_utils import (
     get_data_from_snowflake_to_dataframe,
     get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list,
 )
+from utils.style_utils import set_font_lato
 
 # DEFINITIONS PANEL
 def create_definition_panel(snowsesh,
@@ -25,7 +26,8 @@ def create_definition_panel(snowsesh,
         selected_definition = st.selectbox(
             f"Select Definition ({panel_name})",
             options=definition_labels,
-            key=f"def_select_{panel_name}"
+            key=f"def_select_{panel_name}",
+            label_visibility="hidden",
         )
 
         if selected_definition:
@@ -57,30 +59,39 @@ def create_definition_panel(snowsesh,
 
                 # Store codes in session state for comparison
                 st.session_state[f"codes_{panel_name}"] = codes_df
-
-                # Missing codes section
-                st.subheader("Missing codes")
-                if f"codes_{'B' if panel_name == 'A' else 'A'}" in st.session_state:
-                    other_panel = 'B' if panel_name == 'A' else 'A'
-                    other_codes = st.session_state[f"codes_{other_panel}"]
-
-                    # Find codes in the other panel that are missing from this one
-                    missing_codes = other_codes[~other_codes["CODE"].isin(codes_df["CODE"])]
-
-                    if not missing_codes.empty:
-                        st.write(f"Codes in Panel {other_panel} missing from this panel:")
-                        st.dataframe(missing_codes.loc[:, ["CODE", "CODE_DESCRIPTION", "VOCABULARY"]])
-                        st.write(f"Total missing codes: {len(missing_codes)}")
-                    else:
-                        st.write(f"No codes from Panel {other_panel} are missing in this panel.")
-                else:
-                    st.write("Select a definition in the other panel to see missing codes.")
+            
             else:
                 st.write("No codes found for the selected definition.")
+
+def show_missing_codes(column, panel_name):
+    # Missing codes section
+    with column:
+
+        if f"codes_{'B' if panel_name == 'A' else 'A'}" in st.session_state:
+            other_panel = 'B' if panel_name == 'A' else 'A'
+            other_codes = st.session_state[f"codes_{other_panel}"]
+
+            # Find codes in the other panel that are missing from this one
+            st.session_state["missing_codes"] = other_codes[~other_codes["CODE"].isin(
+                st.session_state[f"codes_{panel_name}"]["CODE"])]
+
+            if not st.session_state["missing_codes"].empty:
+                st.write(f"Codes in Panel {other_panel} missing from this panel:")
+                st.dataframe(st.session_state["missing_codes"].loc[:, ["CODE", "CODE_DESCRIPTION", "VOCABULARY"]])
+                st.write(f"Total missing codes: {len(st.session_state['missing_codes'])}")
+            else:
+                st.write(f"No codes from Panel {other_panel} are missing in this panel.")
+        else:
+            st.write("Select a definition in the other panel to see missing codes.")
+
 
 def main():
     # Main page
     snowsesh = connect_to_snowflake()
+
+    st.set_page_config(page_title="Browse Database Definitions", layout="wide")
+
+    set_font_lato()
 
     st.title("Browse database definitions")
     st.write(
@@ -99,6 +110,15 @@ def main():
 
     create_definition_panel(snowsesh, left_col, "A", definition_ids, definition_labels)
     create_definition_panel(snowsesh, right_col, "B", definition_ids, definition_labels)
+
+    col2, _ = st.columns(2)
+    with col2:
+        st.subheader("Missing codes")
+    
+    col3A, col3B = st.columns(2)
+
+    show_missing_codes(col3A, "A")
+    show_missing_codes(col3B, "B")
 
     # show analysis section
     st.divider()

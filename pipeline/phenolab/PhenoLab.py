@@ -1,6 +1,9 @@
 import streamlit as st
+from utils.style_utils import set_font_lato
 
 st.set_page_config(page_title="PhenoLab", layout="wide", initial_sidebar_state="expanded")
+
+set_font_lato()
 
 st.title("PhenoLab: Clinical Definitions and Phenotype Creator")
 
