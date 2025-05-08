@@ -37,6 +37,8 @@ def build_definitions(zip_name, mapping_files):
         ["BNF Chemical Substance", "BNF Subparagraph Code", "BNF Subparagraph", "BNF Chemical Substance Code"]
     ].drop_duplicates()
 
+    print("BNF dataframe created!")
+
     # process different years of BNF SNOMED mapping files
     mappings = process_snomed_mappings(mapping_files)
 
@@ -59,7 +61,7 @@ def build_definitions(zip_name, mapping_files):
     ):
         # group by BNF Code at codelist level
         codelists = []
-        for bnf_code, chem_name in class_group.groupby(["BNF Code", "BNF Chemical Substance"]):
+        for (bnf_code, chem_name), chem_name_group in class_group.groupby(["BNF Code", "BNF Chemical Substance"]):
             # create SNOMED codes for each mapping
             codes = [
                 Code(
@@ -67,7 +69,7 @@ def build_definitions(zip_name, mapping_files):
                     code_description=row["DM+D: Product Description"],
                     code_vocabulary=VocabularyType.SNOMED,
                 )
-                for _, row in class_group.iterrows()
+                for _, row in chem_name_group.iterrows()
             ]
 
             codelist = Codelist(
@@ -90,6 +92,7 @@ def build_definitions(zip_name, mapping_files):
         )
         definitions.append(definition)
 
+
     return pd.concat([p.to_dataframe() for p in definitions], ignore_index=True)
 
 
@@ -102,14 +105,20 @@ def main():
 
     mapping_files = Path("loaders/data/bnf_to_snomed/").glob("*.xlsx")
     definition_df = build_definitions("20241101_bsa_bnf.zip", mapping_files)
+
+    print("Definitions built")
     definition_df.columns = definition_df.columns.str.upper()
+    print("success in naming!")
 
     # Excluding "dummy chemical" definitions
     definition_df = definition_df[~definition_df["DEFINITION_NAME"].str.contains("DUMMY")]
 
+    print("i think this bit it wrong, but if it works..... you should see this")
+
     load_definitions_to_snowflake(
         snowsesh=snowsesh, df=definition_df, table_name="BSA_BNF_SNOMED_MAPPINGS"
     )
+    print("uploaded to snowflake!")
 
     snowsesh.session.close()
 
