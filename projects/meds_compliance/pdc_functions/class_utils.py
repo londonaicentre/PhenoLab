@@ -11,30 +11,22 @@ class MedicationTable:
         self.df = df
 
     REQUIRED_COLUMNS = [
-        "order_id", "person_id", "medication_statement_id", "drug_name",
-        "dose", "quantity_value", "quantity_unit", "drug_description",
-        "class", "core_concept_id", "order_date", "duration_days",
-        "days_to_next_order", "statement_date", "statement_enddate",
-        "medication_compliance", "compliance_date"
+        "person_id",  "drug_name",
+        "dose", "quantity_value", "quantity_unit",  "order_date", "duration_days"
     ]
 
     COLUMN_TYPES = {
-        "order_id": int,
         "person_id": int,
-        "medication_statement_id": int,
         "drug_name": str,
         "dose": str,
         "quantity_value": float,
         "quantity_unit": str,
-        "drug_description": str,
-        "class": str,
-        "core_concept_id": int,
         "duration_days": int,
-        "days_to_next_order": int,
-        "medication_compliance": str
+        "days_to_next_order": int
+
     }
 
-    DATE_COLUMNS = ["order_date", "statement_date", "statement_enddate", "compliance_date"]
+    DATE_COLUMNS = ["order_date"]
     DATE_FORMAT = "%Y-%m-%d"
 
     def normalise_missing_values(self):
@@ -61,6 +53,8 @@ class MedicationTable:
                     try:
                         if expected_type == int:
                             self.df[col] = self.df[col].astype('Int64')
+                        elif expected_type == float:
+                            self.df[col] = self.df[col].astype('Float64')  # Nullable float type
                         else:
                             self.df[col] = self.df[col].astype(expected_type)
                     except Exception as err:
