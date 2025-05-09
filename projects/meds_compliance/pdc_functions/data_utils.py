@@ -1,5 +1,5 @@
 import pandas as pd
-
+import numpy as np
 
 def get_data_by_cohort(snowsesh, cohort_table_name):
     """
@@ -252,3 +252,183 @@ def agg_data_person_drug(df):
 
     # Return the aggregated DataFrame
     return agg_df
+
+
+def general_agg(df):
+    """
+    Aggregates data by person and drug, calculating the required metrics such as
+    min start date, max start date, sum of covered days, sum of exposed days,
+    and other pre-calculated values.
+
+    Args:
+        df (DataFrame): Input dataframe that should contain columns such as
+                         'person_id', 'drug_name', 'order_date', 'covered_days',
+                         'inclusive_pdc", 'exclusive_pdc'
+                         'gender', 'ethnicity', 'imd', 'date_of_birth'.
+
+    Returns:
+        DataFrame: Aggregated data with one row per person-drug combination.
+    """
+
+    # Ensure 'order_date' and 'date_of_birth' are in datetime format
+    df['order_date'] = pd.to_datetime(df['order_date'])
+    df['date_of_birth'] = pd.to_datetime(df['date_of_birth'])
+
+    # Calculate age at start (first order date) - difference between order_date and date_of_birth
+    df['age_at_order'] = df['order_date'].dt.year - df['date_of_birth'
+                        ].dt.year - ((df['order_date'].dt.month < df['date_of_birth'].dt.month) |
+                                ((df['order_date'].dt.month == df['date_of_birth'].dt.month) &
+                                (df['order_date'].dt.day < df['date_of_birth'].dt.day))).astype(int)
+
+    # Group by person_id and drug_name, then aggregate the required columns
+    agg_df = df.groupby(['person_id', 'drug_name'], as_index=False).agg(
+        min_start_date=('order_date', 'min'),
+        max_start_date=('order_date', 'max'),
+        gender=('gender', 'first'),
+        ethnicity=('ethnicity', 'first'),
+        imd=('imd', 'first'),
+        age_at_start=('age_at_order', 'first'),
+        overall_inclusive_pdc=('overall_inclusive_pdc', 'first'),
+        overall_exclusive_pdc=('overall_exclusive_pdc', 'first'),
+        total_covered_days=('total_covered_days', 'first'),
+        total_exposed_days=('total_exposure_days', 'first')
+    )
+
+    # Ensure imd and class_ are treated as categorical
+    agg_df['imd'] = agg_df['imd'].astype(str).astype('category')
+
+    # Return the aggregated DataFrame
+    return agg_df
+
+
+def attach_closest_results(
+    df_person_drug: pd.DataFrame,
+    df_results: pd.DataFrame,
+    id_col: str = 'person_id',
+    date_col_min: str = 'min_start_date',
+    date_col_max: str = 'max_start_date',
+    result_date_col: str = 'result_date',
+    result_value_col: str = 'result_value',
+    n_results: int = 3,
+    window_days: int = 365
+) -> pd.DataFrame:
+    """
+    Attach closest lab/test results within a time window around treatment dates.
+
+    Pulls up to n_results within ±window_days of min and max treatment dates.
+
+    Returns:
+        A DataFrame with all original df_person_drug columns + 2n result columns.
+    """
+
+    final_rows = []
+
+    df_results[result_date_col] = pd.to_datetime(df_results[result_date_col], errors='coerce')
+
+    for _, row in df_person_drug.iterrows():
+        person_id = row[id_col]
+        min_date = pd.to_datetime(row[date_col_min])
+        max_date = pd.to_datetime(row[date_col_max])
+
+        person_results = df_results[df_results[id_col] == person_id].copy()
+
+        # Results within ±window_days of min_start_date
+        min_window_start = min_date - pd.Timedelta(days=window_days)
+        min_window_end = min_date + pd.Timedelta(days=window_days)
+        min_results = person_results[
+            (person_results[result_date_col] >= min_window_start) &
+            (person_results[result_date_col] <= min_window_end)
+        ].copy()
+        min_results['delta'] = (min_results[result_date_col] - min_date).abs().dt.days
+        min_results = min_results.sort_values('delta').head(n_results).reset_index(drop=True)
+
+        # Results within ±window_days of max_start_date
+        max_window_start = max_date - pd.Timedelta(days=window_days)
+        max_window_end = max_date + pd.Timedelta(days=window_days)
+        max_results = person_results[
+            (person_results[result_date_col] >= max_window_start) &
+            (person_results[result_date_col] <= max_window_end)
+        ].copy()
+        max_results['delta'] = (max_results[result_date_col] - max_date).abs().dt.days
+        max_results = max_results.sort_values('delta').head(n_results).reset_index(drop=True)
+
+        # Build result row
+        result_row = row.to_dict()
+        for i in range(n_results):
+            result_row[f'before_result_{i+1}'] = min_results.loc[i, result_value_col] if i < len(min_results) else np.nan
+            result_row[f'after_result_{i+1}'] = max_results.loc[i, result_value_col] if i < len(max_results) else np.nan
+
+        final_rows.append(result_row)
+
+    return pd.DataFrame(final_rows)
+
+def cohort_exclusions(df):
+    """
+    - Remove people without at least a year of medication
+    - Remove people with missing bloods - need at least 1 before and 1 after for average
+    """
+
+    # Remove people without at least a year of medication and avoid SettingWithCopyWarning
+    df = df[df['max_start_date'] - df['min_start_date'] >= pd.Timedelta(days=365)].copy()
+
+    # Identify blood test columns
+    before_cols = [col for col in df.columns if 'before_result' in col]
+    after_cols = [col for col in df.columns if 'after_result' in col]
+
+    # Drop rows where all before or all after results are null
+    df = df[df[before_cols].notna().any(axis=1) & df[after_cols].notna().any(axis=1)]
+
+    return df
+
+
+
+def attach_closest_results_2(
+    df_person_drug: pd.DataFrame,
+    df_results: pd.DataFrame,
+    id_col: str = 'person_id',
+    date_col_min: str = 'min_start_date',
+    date_col_max: str = 'max_start_date',
+    result_date_col: str = 'result_date',
+    result_value_col: str = 'result_value',
+    n_results: int = 3
+) -> pd.DataFrame:
+    """
+    Attach the 3 closest results strictly before min_start_date and strictly after max_start_date.
+
+    No time window is used.
+    """
+
+    final_rows = []
+
+    df_results[result_date_col] = pd.to_datetime(df_results[result_date_col], errors='coerce')
+
+    for _, row in df_person_drug.iterrows():
+        person_id = row[id_col]
+        min_date = pd.to_datetime(row[date_col_min])
+        max_date = pd.to_datetime(row[date_col_max])
+
+        person_results = df_results[df_results[id_col] == person_id].copy()
+
+        # Results strictly BEFORE min_start_date
+        min_results = person_results[
+            person_results[result_date_col] < min_date
+        ].copy()
+        min_results['delta'] = (min_results[result_date_col] - min_date).abs().dt.days
+        min_results = min_results.sort_values('delta').head(n_results).reset_index(drop=True)
+
+        # Results strictly AFTER max_start_date
+        max_results = person_results[
+            person_results[result_date_col] > max_date
+        ].copy()
+        max_results['delta'] = (max_results[result_date_col] - max_date).abs().dt.days
+        max_results = max_results.sort_values('delta').head(n_results).reset_index(drop=True)
+
+        # Build result row
+        result_row = row.to_dict()
+        for i in range(n_results):
+            result_row[f'before_result_{i+1}'] = min_results.loc[i, result_value_col] if i < len(min_results) else np.nan
+            result_row[f'after_result_{i+1}'] = max_results.loc[i, result_value_col] if i < len(max_results) else np.nan
+
+        final_rows.append(result_row)
+
+    return pd.DataFrame(final_rows)
