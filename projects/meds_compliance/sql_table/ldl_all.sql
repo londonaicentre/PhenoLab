@@ -3,7 +3,7 @@ SELECT
 o.person_id,
 o.age_at_event,
 o.clinical_effective_date as result_date,
-d.code_description as result,
+d.code_description,
 o.result_value,
 o.result_value_units
 FROM prod_dwh.analyst_primary_care.observation o
