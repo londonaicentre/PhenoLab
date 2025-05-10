@@ -432,3 +432,21 @@ def attach_closest_results_2(
         final_rows.append(result_row)
 
     return pd.DataFrame(final_rows)
+
+
+def avg_results(df):
+    """
+    Adds 'before_avg' and 'after_avg' columns to the dataframe,
+    calculated as the row-wise average of before and after result columns.
+
+    Parameters:
+        df (pd.DataFrame): The input dataframe containing the result columns.
+
+    Returns:
+        pd.DataFrame: The modified dataframe with new average columns.
+    """
+    df["before_avg"] = df[["before_result_1", "before_result_2", "before_result_3"]].mean(axis=1)
+    df["after_avg"] = df[["after_result_1", "after_result_2", "after_result_3"]].mean(axis=1)
+    df["result_diff"] = df["after_avg"] - df["before_avg"]
+
+    return df

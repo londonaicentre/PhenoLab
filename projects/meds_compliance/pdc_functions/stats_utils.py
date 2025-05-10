@@ -262,3 +262,28 @@ def fit_and_save_models_for_pdc(df, outcome_col='medication_compliance', pdc_col
 
     multilevel_adjusted_results_df = pd.concat(multilevel_adjusted_results)
     save_results_to_csv(multilevel_adjusted_results_df, model_name="multilevel_adjusted")
+
+
+def unadjusted_linr(df, predictor_col, outcome_col):
+    """
+    Performs an unadjusted linear regression of an outcome on a predictor.
+
+    Parameters:
+        df (pd.DataFrame): The input dataframe.
+        predictor_col (str): Name of the predictor column.
+        outcome_col (str): Name of the outcome column.
+
+    Returns:
+        RegressionResults: The fitted OLS model result.
+    """
+    # Define predictor and outcome
+    X = df[predictor_col]
+    y = df[outcome_col]
+
+    # Add constant for intercept
+    X = sm.add_constant(X)
+
+    # Fit the model
+    model = sm.OLS(y, X).fit()
+
+    return model
