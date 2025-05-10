@@ -264,7 +264,7 @@ def fit_and_save_models_for_pdc(df, outcome_col='medication_compliance', pdc_col
     save_results_to_csv(multilevel_adjusted_results_df, model_name="multilevel_adjusted")
 
 
-def unadjusted_linr(df, predictor_col, outcome_col):
+def linear_reg(df, predictor_col, outcome_col):
     """
     Performs an unadjusted linear regression of an outcome on a predictor.
 
@@ -287,3 +287,34 @@ def unadjusted_linr(df, predictor_col, outcome_col):
     model = sm.OLS(y, X).fit()
 
     return model
+
+def prepare_data_for_regression(df, categorical_cols, outcome_col, drop_first=True):
+    """
+    Prepares the data for regression by:
+    1. One-hot encoding categorical variables.
+    2. Converting boolean columns to integers (0 or 1).
+    3. Dropping rows with missing values in specified columns.
+    
+    Parameters:
+        df (pd.DataFrame): The original data frame with raw data.
+        categorical_cols (list): List of columns in the DataFrame that need to be one-hot encoded.
+        outcome_col (str): The outcome column name.
+        drop_first (bool): Whether to drop the first category for each categorical column in the one-hot encoding (default is True).
+    
+    Returns:
+        pd.DataFrame: Cleaned DataFrame with one-hot encoding applied, boolean columns converted to integers, and rows with missing values dropped.
+    """
+    
+    # Step 1: One-hot encode categorical variables
+    df_encoded = pd.get_dummies(df, columns=categorical_cols, drop_first=drop_first)
+    
+    # Step 2: Convert all boolean columns to integers (0 or 1)
+    df_encoded = df_encoded.apply(lambda x: x.astype(int) if x.dtype == 'bool' else x)
+    
+    # Step 3: Drop rows with missing values in the relevant columns (covariates and outcome column)
+    covariates = [col for col in df_encoded.columns if col != outcome_col]  # All columns except outcome
+    df_clean = df_encoded.dropna(subset=covariates + [outcome_col])
+    
+    return df_clean
+
+
