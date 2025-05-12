@@ -11,7 +11,7 @@ def _():
     - patients with diabetes
     - ?? active patients only
     - update create tables
-  
+
     1. HBA1c
     2. age
     3. IMD
@@ -392,7 +392,8 @@ def _(feature_store_manager):
             Patients who have 2 HbA1cs >= 48 as per custom HbA1c definition
             """,
         feature_format="Mixed",
-        sql_select_query_to_generate_feature=_query, )
+        sql_select_query_to_generate_feature=_query,
+        existence_ok=True)
     return
 
 
@@ -430,7 +431,8 @@ def _(feature_store_manager):
             Patients who have 2 HbA1cs >= 48 as per custom HbA1c definition but not coded as diabetic
             """,
         feature_format="Mixed",
-        sql_select_query_to_generate_feature=_query, )
+        sql_select_query_to_generate_feature=_query,
+        existence_ok=True)
 
 
 
@@ -582,7 +584,44 @@ def _(feature_store_manager):
             Patients who have a SNOMED code for diabetes resolved on their record
             """,
         feature_format="Mixed",
-        sql_select_query_to_generate_feature=_query, )
+        sql_select_query_to_generate_feature=_query,
+        existence_ok=True)
+    return
+
+
+@app.cell
+def _():
+    # Need to add dates to previous features
+    return
+
+
+@app.cell
+def _(feature_store_manager):
+    with open('create_tables/patients_with_nont1dm_codes.sql') as _fid:
+        _query = _fid.read()
+
+    _featureid = feature_store_manager.get_feature_id_from_table_name('PATIENTS_WITH_NON_T1DM_CODES_V1')
+    feature_store_manager.update_feature(feature_id=_featureid, new_sql_select_query=_query, change_description='Added date of most recent code and the code_id')
+    return
+
+
+@app.cell
+def _(feature_store_manager):
+    with open('create_tables/patients_with_2_successive_hba1c_greater_than_equal_to_48_date.sql') as _fid:
+        _query = _fid.read()
+
+    _featureid = feature_store_manager.get_feature_id_from_table_name('PATIENTS_WITH_2_HBA1C_GREATER_THAN_EQUAL_TO_48_V2')
+    feature_store_manager.update_feature(feature_id=_featureid, new_sql_select_query=_query, change_description='Added date of most recent event and the HbA1c value (second val)')
+    return
+
+
+@app.cell
+def _(feature_store_manager):
+    with open('create_tables/patients_diagnosed_by_hba1c_but_not_coded_v3.sql') as _fid:
+        _query = _fid.read()
+
+    _featureid = feature_store_manager.get_feature_id_from_table_name('PATIENTS_DIAGNOSED_BY_HBA1C_BUT_NOT_CODED_V2')
+    feature_store_manager.update_feature(feature_id=_featureid, new_sql_select_query=_query, change_description='Updated underlying tables')
     return
 
 
@@ -603,9 +642,9 @@ def _():
     # [ ] age - distribution and relationship to final hba1c
     # [ ] exclude certain hba1cs as per jordan
     # [ ] need to plot/examine the units issue in more detail
-    # [ ] discuss hba1c selection with dan
+    # [x] discuss hba1c selection with dan
     # [ ] should probably round hba1cs to whole numbers to avoid false precision
-    # [ ] add marimo to requirements
+    # [x] add marimo to requirements
     return
 
 
