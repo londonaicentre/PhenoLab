@@ -17,7 +17,7 @@
 	 	WHEN cleaned_result_value > 250 then FALSE 
 	
         ELSE TRUE
-        END 
+        END
         as final_result_value_confidence,
         CASE
         	WHEN cleaned_result_value < 2.5 then FALSE 
@@ -26,6 +26,12 @@
         ELSE TRUE
         END 
         as final_result_value_possible,
+        CASE
+        	WHEN cleaned_result_value < 25 then TRUE 
+	
+        ELSE FALSE
+        END
+        as ADDITIONAL_CONVERSION,
         observation_name,
         id,
         organization_id,
