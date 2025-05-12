@@ -1,11 +1,11 @@
---Table to standardise hb unit conversions - this one standardises to g/l and g/dl
+--Table to standardise random blood sugar units - this one does mmol/l and mg/dl
 
-        CREATE OR REPLACE TABLE INTELLIGENCE_DEV.AI_CENTRE_OBSERVATION_STAGING_TABLES.haemoglobin_UNITS_STANDARDISED AS
+        CREATE OR REPLACE TABLE INTELLIGENCE_DEV.AI_CENTRE_OBSERVATION_STAGING_TABLES.random_blood_sugar_UNITS_STANDARDISED AS
         SELECT
             obs.result_value,
             obs.result_value_units,
             units.cleaned_units,
-            'haemoglobin' as observation_name,
+            'random_blood_sugar' as observation_name,
             obs.id,
             obs.organization_id, 
             obs.patient_id,
@@ -27,4 +27,4 @@
                 ON obs.result_value_units = units.result_value_units
                 AND def.definition_name = units.definition_name
             WHERE def.code is not null
-            and def.DEFINITION_NAME = 'haemoglobin_gp'
+            and def.DEFINITION_NAME = 'random_blood_sugar_gp'
