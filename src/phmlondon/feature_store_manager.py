@@ -102,7 +102,7 @@ class FeatureStoreManager:
                     session.sql(f"""
                     select feature_name 
                     from feature_registry;""").collect()]
-        print(existing_feature_names)
+        # print(existing_feature_names)
 
         feature_name = feature_name.upper()
         feature_name = feature_name.strip()
@@ -278,6 +278,7 @@ class FeatureStoreManager:
         feature_id: str,
         new_sql_select_query: str,
         change_description: str,
+        force_new_version: bool = False,
     ) -> int:
         """
         Updates the feature in the feature version registry with the new query and description
@@ -286,6 +287,8 @@ class FeatureStoreManager:
             feature_id (str): uuid of the feature
             new_sql_select_query (str): new SQL query that generates the feature
             change_description (str): description of the change
+            force_new_version (bool): if True, the function will create a new version even if the query is the same
+                (default: False)
 
         Returns:
             int: the new feature version
@@ -304,6 +307,17 @@ class FeatureStoreManager:
             feature_desc = session.sql(
                 f"""SELECT feature_desc FROM feature_registry WHERE feature_id = '{feature_id}'"""
             ).collect()[0]["FEATURE_DESC"]
+            sql_queries_raw = session.sql(f"""SELECT sql_query FROM feature_version_registry 
+                WHERE feature_id = '{feature_id}'""").collect()
+            sql_queries = [r["SQL_QUERY"] for r in sql_queries_raw]
+            if new_sql_select_query in sql_queries:
+                # was having problems where, if a notebook cell was run twice, a new version was created, so now
+                # defaulte behaviour is that the query must be different to all previous; can be forced with force_new_version
+                if not force_new_version:
+                    raise ValueError(
+                        f"Feature {feature_id} has not been updated. The new query is the same as the last one. Use" /
+                        "force_new_version=True to force a new version."
+                    )
             print(f"Updating feature {feature_name}, with ID {feature_id}")
         self.conn.use_schema(self.schema)
 
