@@ -7,7 +7,7 @@
         cleaned_units as standardised_units,
         cleaned_result_value as converted_result_value,
         CASE
-        	WHEN cleaned_result_value BETWEEN 3 AND 15 then (((cleaned_result_value + -2.15 ) *10.929 ) +1 )
+        	WHEN cleaned_result_value BETWEEN 3 AND 14 then (((cleaned_result_value + -2.15 ) *10.929 ) +1 )
 	
         ELSE CLEANED_RESULT_VALUE
         END
@@ -17,16 +17,22 @@
 	 	WHEN cleaned_result_value > 200 then FALSE 
 	
         ELSE TRUE
-        END 
+        END
         as final_result_value_confidence,
         CASE
         	WHEN cleaned_result_value < 3 then FALSE 
-	 	WHEN cleaned_result_value BETWEEN 15 and 19 then FALSE 
+	 	WHEN cleaned_result_value BETWEEN 14 and 19 then FALSE 
 	 	WHEN cleaned_result_value > 200 then FALSE 
 	
         ELSE TRUE
         END 
         as final_result_value_possible,
+        CASE
+        	WHEN cleaned_result_value BETWEEN 3 AND 14 then TRUE 
+	
+        ELSE FALSE
+        END
+        as ADDITIONAL_CONVERSION,
         observation_name,
         id,
         organization_id,
