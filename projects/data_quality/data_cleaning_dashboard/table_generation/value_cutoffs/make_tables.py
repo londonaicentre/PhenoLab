@@ -39,7 +39,7 @@ def main(file_path: str = None) -> None:
         {' '.join('\tWHEN cleaned_result_value ' + threshold + ' then FALSE \n\t'
                   for threshold in config['value_confidence'])}
         ELSE TRUE
-        END 
+        END
         as final_result_value_confidence,
         CASE
         {' '.join('\tWHEN cleaned_result_value ' + threshold + ' then FALSE \n\t'
@@ -47,6 +47,13 @@ def main(file_path: str = None) -> None:
         ELSE TRUE
         END 
         as final_result_value_possible,
+        CASE
+        {' '.join('\tWHEN cleaned_result_value ' + threshold +
+                  ' then TRUE \n\t'
+                  for threshold, conversion in config['value_interval_conversions'].items())}
+        ELSE FALSE
+        END
+        as ADDITIONAL_CONVERSION,
         observation_name,
         id,
         organization_id,
