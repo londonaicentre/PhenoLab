@@ -16,11 +16,22 @@ patients_with_2_spaced_highs AS (
       AND prev_hba1c_value >= 48
       AND DATEDIFF(DAY, prev_date, clinical_effective_date) > 14
     GROUP BY person_id, clinical_effective_date, hba1c_value
-), 
-max_date AS (
-    SELECT person_id, MAX(clinical_effective_date) AS max_date
+),
+ranked_highs AS (
+    SELECT *,
+           ROW_NUMBER() OVER (PARTITION BY person_id ORDER BY clinical_effective_date DESC) AS rn_desc,
+           ROW_NUMBER() OVER (PARTITION BY person_id ORDER BY clinical_effective_date ASC) AS rn_asc
     FROM patients_with_2_spaced_highs
-    GROUP BY person_id  
+),
+earliest AS (
+    SELECT person_id, clinical_effective_date AS earliest_diagnosis_date
+    FROM ranked_highs
+    WHERE rn_asc = 1
+),
+latest AS (
+    SELECT person_id, clinical_effective_date AS latest_diagnosis_date
+    FROM ranked_highs
+    WHERE rn_desc = 1
 )
 SELECT 
     p.person_id,
@@ -31,11 +42,9 @@ SELECT
     p.current_address_id,
     p.ethnic_code_concept_id,
     p.approx_current_age,
-    h.clinical_effective_date,
-    h.hba1c_value
-FROM patients_with_2_spaced_highs AS h
-JOIN max_date AS m
-  ON h.person_id = m.person_id
-  AND h.clinical_effective_date = m.max_date
+    e.earliest_diagnosis_date,
+    l.latest_diagnosis_date
+FROM latest l
+JOIN earliest e ON l.person_id = e.person_id
 JOIN prod_dwh.analyst_primary_care.patient AS p
-  ON h.person_id = p.person_id;
+  ON l.person_id = p.person_id;

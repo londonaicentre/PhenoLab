@@ -597,21 +597,11 @@ def _():
 
 @app.cell
 def _(feature_store_manager):
-    with open('create_tables/patients_with_nont1dm_codes.sql') as _fid:
-        _query = _fid.read()
-
-    _featureid = feature_store_manager.get_feature_id_from_table_name('PATIENTS_WITH_NON_T1DM_CODES_V1')
-    feature_store_manager.update_feature(feature_id=_featureid, new_sql_select_query=_query, change_description='Added date of most recent code and the code_id')
-    return
-
-
-@app.cell
-def _(feature_store_manager):
     with open('create_tables/patients_with_2_successive_hba1c_greater_than_equal_to_48_date.sql') as _fid:
         _query = _fid.read()
 
     _featureid = feature_store_manager.get_feature_id_from_table_name('PATIENTS_WITH_2_HBA1C_GREATER_THAN_EQUAL_TO_48_V2')
-    feature_store_manager.update_feature(feature_id=_featureid, new_sql_select_query=_query, change_description='Added date of most recent event and the HbA1c value (second val)')
+    feature_store_manager.update_feature(feature_id=_featureid, new_sql_select_query=_query, change_description='Added date of most recent event and earliest event and the HbA1c value (second val)')
     return
 
 
@@ -626,7 +616,9 @@ def _(feature_store_manager):
 
 
 @app.cell
-def _():
+def _(feature_store_manager):
+    _featureid = feature_store_manager.get_feature_id_from_table_name('PATIENTS_WITH_NON_T1DM_CODES_V1')
+    feature_store_manager.remove_latest_feature_version(_featureid)
     return
 
 
@@ -634,7 +626,7 @@ def _():
 def _():
     # TODO
     # [x] which patients?
-    # [ ] what about patients coded as diabetic who are no longer diabetic?
+    # [x] what about patients coded as diabetic who are no longer diabetic?
     # [ ] once have sorted that out, need to join together the two tables to get all diabetic patients and whether they were diagnosed by code or found by us
     # [ ] Dan's tables - but Dan uses different HbA1c definition to me!
     # [ ] hba1c trajectories

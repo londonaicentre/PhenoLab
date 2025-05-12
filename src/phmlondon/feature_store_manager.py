@@ -315,7 +315,7 @@ class FeatureStoreManager:
                 # defaulte behaviour is that the query must be different to all previous; can be forced with force_new_version
                 if not force_new_version:
                     raise ValueError(
-                        f"Feature {feature_id} has not been updated. The new query is the same as the last one. Use" /
+                        f"Feature {feature_id} has not been updated. The new query is the same as the last one. Use"
                         "force_new_version=True to force a new version."
                     )
             print(f"Updating feature {feature_name}, with ID {feature_id}")
@@ -349,6 +349,60 @@ class FeatureStoreManager:
         # ).collect()
 
         return feature_version
+    
+    def remove_latest_feature_version(
+        self,
+        feature_id: str):
+        """
+        Remove the latest version of a feature from the feature version registry and drop the table
+        If the feature version is 1, remove the feature from the feature registry as well
+        This is intended to be used only when features are created in error and not for retiring features that have been
+        used in models.
+
+        Args:
+            feature_id (str): the feature_id of the feature
+        """
+        
+        session = self.conn.session
+
+        self.conn.use_schema(self.metadata_schema)
+        if not session.sql(
+                f"""SELECT feature_id FROM feature_registry WHERE feature_id = '{feature_id}'"""
+            ).collect():
+                raise ValueError(f"Feature {feature_id} does not exist.")
+        else:
+            table_name = session.sql(
+                f"""SELECT table_name FROM feature_version_registry 
+                WHERE feature_id = '{feature_id}' ORDER BY feature_version DESC LIMIT 1"""
+            ).collect()[0]["TABLE_NAME"]
+            feature_version = session.sql(
+                f"""SELECT feature_version FROM feature_version_registry 
+                WHERE feature_id = '{feature_id}' ORDER BY feature_version DESC LIMIT 1"""
+            ).collect()[0]["FEATURE_VERSION"]
+            print(f"Removing feature version {feature_version} from feature {feature_id}")
+
+        # Remove the feature version from the version registry
+        session.sql(
+            f"""DELETE FROM feature_version_registry 
+            WHERE feature_id = '{feature_id}' AND feature_version = {feature_version}"""
+        ).collect()
+        print(f"Feature version {feature_version} removed from the version registry")
+
+        # Remove the feature table
+        self.conn.use_schema(self.schema)
+        session.sql(
+            f"""DROP TABLE IF EXISTS {table_name}"""
+        ).collect()
+        print(f"Table {table_name} has been deleted")
+        if feature_version == 1:
+            # Remove the feature from the feature registry
+            self.conn.use_schema(self.metadata_schema)
+            session.sql(
+                f"""DELETE FROM feature_registry 
+                WHERE feature_id = '{feature_id}'"""
+            ).collect()
+            print(f"As you deleted the only version, feature {feature_id} has been removed from the feature registry")
+        
 
     # def deprecate_feature(self, feature_id: int):
     #     """
