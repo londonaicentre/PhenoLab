@@ -1,0 +1,153 @@
+{
+  "definition_id": "c02be80f",
+  "definition_name": "pelvic_fracture_ICD",
+  "definition_version": "pelvic_fracture_ICD_20250512_175333",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-05-12T18:07:02.792277",
+  "codelists": [
+    {
+      "codelist_id": "pelvic_fracture_ICD_ICD10_236206",
+      "codelist_name": "pelvic_fracture_ICD_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "pelvic_fracture_ICD_ICD10_236206_20250512_175352",
+      "codes": [
+        {
+          "code": "T02.71",
+          "code_description": "Fractures involving thorax with lower back and pelvis with limb(s), open",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "T02.70",
+          "code_description": "Fractures involving thorax with lower back and pelvis with limb(s), closed",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "T02.11",
+          "code_description": "Fractures involving thorax with lower back and pelvis, open",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "T02.10",
+          "code_description": "Fractures involving thorax with lower back and pelvis, closed",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "T02.1",
+          "code_description": "Fractures involving thorax with lower back and pelvis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "S32.81",
+          "code_description": "Fracture of other and unspecified parts of lumbar spine and pelvis, open",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "S32.80",
+          "code_description": "Fracture of other and unspecified parts of lumbar spine and pelvis, closed",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "S32.8",
+          "code_description": "Fracture of other and unspecified parts of lumbar spine and pelvis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "S32.71",
+          "code_description": "Multiple fractures of lumbar spine and pelvis, open",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "S32",
+          "code_description": "Fracture of lumbar spine and pelvis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M84.15",
+          "code_description": "Nonunion of fracture [pseudarthrosis], pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "T02.7",
+          "code_description": "Fractures involving thorax with lower back and pelvis with limb(s)",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "S32.70",
+          "code_description": "Multiple fractures of lumbar spine and pelvis, closed",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "S32.7",
+          "code_description": "Multiple fractures of lumbar spine and pelvis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M84.25",
+          "code_description": "Delayed union of fracture, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M84.05",
+          "code_description": "Malunion of fracture, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "T91.2",
+          "code_description": "Sequelae of other fracture of thorax and pelvis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "S32.50",
+          "code_description": "Fracture of pubis, closed",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "S32.4",
+          "code_description": "Fracture of acetabulum",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "S32.31",
+          "code_description": "Fracture of ilium, open",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "S32.30",
+          "code_description": "Fracture of ilium, closed",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "S32.3",
+          "code_description": "Fracture of ilium",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "S32.20",
+          "code_description": "Fracture of coccyx, closed",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "S32.40",
+          "code_description": "Fracture of acetabulum, closed",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "S32.51",
+          "code_description": "Fracture of pubis, open",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "S32.5",
+          "code_description": "Fracture of pubis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "S32.41",
+          "code_description": "Fracture of acetabulum, open",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}
