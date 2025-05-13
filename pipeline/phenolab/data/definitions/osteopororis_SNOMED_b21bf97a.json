@@ -1,0 +1,453 @@
+{
+  "definition_id": "b21bf97a",
+  "definition_name": "osteopororis_SNOMED",
+  "definition_version": "osteopororis_SNOMED_20250513_175821",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-05-13T18:08:48.811649",
+  "codelists": [
+    {
+      "codelist_id": "osteopororis_SNOMED_SNOMED_690729",
+      "codelist_name": "osteopororis_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "osteopororis_SNOMED_SNOMED_690729_20250513_175824",
+      "codes": [
+        {
+          "code": "64859006",
+          "code_description": "Osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "391040000",
+          "code_description": "At risk of osteoporotic fracture (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "391075000",
+          "code_description": "Lumbar dual energy X-ray photon absorptiometry scan result osteoporotic (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "391020007",
+          "code_description": "Osteoporosis treatment started (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "203438009",
+          "code_description": "Vertebral osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "473120007",
+          "code_description": "History of osteoporosis (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "391023009",
+          "code_description": "Osteoporosis - no treatment (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "102447009",
+          "code_description": "Postmenopausal osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "309745002",
+          "code_description": "Osteoporosis localized to spine (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15743005",
+          "code_description": "Posttraumatic osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "18040001",
+          "code_description": "Senile osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "505171000000102",
+          "code_description": "Bone sparing drug treatment offered for osteoporosis (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "203657009",
+          "code_description": "Osteoporotic kyphosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "391022004",
+          "code_description": "Osteoporosis treatment changed (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "391021006",
+          "code_description": "Osteoporosis treatment stopped (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "203429007",
+          "code_description": "Idiopathic generalized osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "14651005",
+          "code_description": "Drug-induced osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "390833005",
+          "code_description": "Osteoporosis caused by corticosteroid (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "965871000000101",
+          "code_description": "Osteoporosis medication compliance review (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "391013000",
+          "code_description": "Osteoporosis monitoring check done (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "391028000",
+          "code_description": "Osteoporosis - treatment response (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "53174001",
+          "code_description": "Disuse osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "203435007",
+          "code_description": "Localized osteoporosis - Lequesne (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "276661002",
+          "code_description": "Primary osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "240157009",
+          "code_description": "Secondary generalized osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "240159007",
+          "code_description": "Transient osteoporosis of hip (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "203437004",
+          "code_description": "Osteoporosis in endocrine disorders (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "203433000",
+          "code_description": "Postoophorectomy osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1162305009",
+          "code_description": "Scoliosis due to osteoporosis of vertebra (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "391030003",
+          "code_description": "Osteoporosis - no treatment response (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "739301006",
+          "code_description": "Osteoporosis co-occurrent and due to multiple myeloma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "3345002",
+          "code_description": "Idiopathic osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "240160002",
+          "code_description": "Transient osteoporosis of hip in pregnancy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "32369003",
+          "code_description": "Menopausal osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "240155001",
+          "code_description": "Adult idiopathic generalized osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "240154002",
+          "code_description": "Idiopathic osteoporosis in pregnancy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "735617003",
+          "code_description": "Premenopausal idiopathic osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "240162005",
+          "code_description": "Secondary localized osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "281387004",
+          "code_description": "Regional osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "203434006",
+          "code_description": "Post-surgical malabsorption osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "511631000000105",
+          "code_description": "History of osteoporosis ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "965881000000104",
+          "code_description": "Osteoporosis medication compliance review ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "390534008",
+          "code_description": "Quantitative ultrasound scan of heel - result osteoporotic (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "203439001",
+          "code_description": "Osteoporosis localised to spine (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "203428004",
+          "code_description": "Osteoporosis, unspecified (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "699528002",
+          "code_description": "Transient osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "720745005",
+          "code_description": "Treatment for osteoporosis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426451000000109",
+          "code_description": "[X]Other osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "156825006",
+          "code_description": "Osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "389314001",
+          "code_description": "At risk of osteoporotic fracture (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "203879001",
+          "code_description": "[X]Osteoporosis in other disorders classified elsewhere (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1295482007",
+          "code_description": "Osteoporosis due to chronic kidney disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "390611006",
+          "code_description": "Osteoporosis - no treatment response (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "722113001",
+          "code_description": "Osteoporosis and oculocutaneous hypopigmentation syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "389802001",
+          "code_description": "Quantitative ultrasound scan of heel - result osteoporotic (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "203432005",
+          "code_description": "Drug-induced osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "389872000",
+          "code_description": "Osteoporosis treatment changed (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "203430002",
+          "code_description": "Disuse osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "390049006",
+          "code_description": "At risk of osteoporotic fracture (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "139461000119109",
+          "code_description": "History of osteoporotic fracture (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "390604007",
+          "code_description": "Osteoporosis treatment changed (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1295481000",
+          "code_description": "Osteoporosis due to endocrine disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "203878009",
+          "code_description": "[X]Other osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "511621000000108",
+          "code_description": "History of osteoporosis (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "278801000000106",
+          "code_description": "Osteoporosis treatment not indicated ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "390605008",
+          "code_description": "Osteoporosis - no treatment (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "268028001",
+          "code_description": "Localized disuse osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "389870008",
+          "code_description": "Osteoporosis treatment started (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "203440004",
+          "code_description": "Osteoporosis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "390540001",
+          "code_description": "Forearm DXA scan result osteoporotic (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "390602006",
+          "code_description": "Osteoporosis treatment started (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "389873005",
+          "code_description": "Osteoporosis - no treatment (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "782785002",
+          "code_description": "X-linked osteoporosis with fractures (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "240164006",
+          "code_description": "Post-irradiation osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "703264005",
+          "code_description": "Secondary osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1338029006",
+          "code_description": "Osteoporosis due to and following radiotherapy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "897308007",
+          "code_description": "Chronic kidney disease with osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "203436008",
+          "code_description": "Osteoporosis in multiple myelomatosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "707419009",
+          "code_description": "Osteoporosis due to cystic fibrosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "735618008",
+          "code_description": "Osteoporosis due to malabsorption (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "390725001",
+          "code_description": "Osteoporosis due to corticosteroids (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "203491001",
+          "code_description": "Disuse osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "655201000000104",
+          "code_description": "Osteoporosis, unspecified (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "655011000000109",
+          "code_description": "Osteoporosis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "716189005",
+          "code_description": "Osteoporosis and macrocephaly with blindness and joint hypermobility syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "505181000000100",
+          "code_description": "Bone sparing drug treatment offered for osteoporosis - enhanced services administration ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "254112001",
+          "code_description": "Osteoporosis with pseudoglioma (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}
