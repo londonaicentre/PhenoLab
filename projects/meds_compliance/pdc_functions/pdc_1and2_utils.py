@@ -217,7 +217,7 @@ def compute_pdc_intervals(df):
 
     # Create interval column
     df["interval"] = df.apply(
-        lambda row: "pre" if pd.notnull(row["compliance_date"]) and row["order_date"] <= row["compliance_date"] else "post",
+        lambda row: "pre" if pd.notnull(row["compliance_date"]) and row["order_date"] <= pd.to_datetime(row["compliance_date"]) else "post",
         axis=1
     )
 

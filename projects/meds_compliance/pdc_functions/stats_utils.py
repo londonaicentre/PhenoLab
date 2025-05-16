@@ -2,9 +2,11 @@ import numpy as np
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
 import pandas as pd
+import warnings
+from statsmodels.tools.sm_exceptions import PerfectSeparationError
 
 
-def unadjusted_logr(df, outcome_col='medication_compliance', predictor_col='dynamic_pdc'):
+def unadjusted_logr(df, outcome_col='outcome_binary', predictor_col='pre_exclusive_pdc'):
     """
     Runs an unadjusted logistic regression with a binary outcome and continuous predictor.
 
@@ -20,75 +22,46 @@ def unadjusted_logr(df, outcome_col='medication_compliance', predictor_col='dyna
     # Copy dataframe to avoid modifying original
     df = df.copy()
 
-    # Convert outcome to binary (assumes 'good' is positive class)
-    df['outcome_binary'] = df[outcome_col].map({'good': 1, 'poor': 0})
-
-    # Drop missing values in required columns
-    df = df[[predictor_col, 'outcome_binary']].dropna()
-
     # Fit the model
-    model = smf.logit(f'outcome_binary ~ {predictor_col}', data=df).fit(disp=False)
+    model = smf.logit(f'{outcome_col} ~ {predictor_col}', data=df).fit(disp=False)
 
-    # Calculate odds ratios with 95% CI
-    params = model.params
-    conf = model.conf_int()
-    conf['OR'] = params
-    conf.columns = ['2.5%', '97.5%', 'OR']
-    odds_ratios = np.exp(conf)
-
-    return model, odds_ratios
+    return model
 
 
 
-def adjusted_logr(df, outcome_col='medication_compliance',
-                  predictor_col='dynamic_pdc', covariates=None):
+def adjusted_logr(df, outcome_col='outcome_binary',
+                  predictor_col='pre_exclusive_pdc', covariates=None):
     """
     Runs an adjusted logistic regression with a binary outcome
     and continuous predictor plus additional covariates.
-
-    Parameters:
-    - df: pandas DataFrame
-    - outcome_col: str, name of binary outcome column ('good' = 1, 'poor' = 0)
-    - predictor_col: str, name of continuous predictor column
-    - covariates: list of str, list of additional covariates to include in the model (optional)
-
-    Returns:
-    - model: fitted statsmodels logistic regression model
-    - odds_ratios: DataFrame with ORs and 95% CI
     """
-    # Copy dataframe to avoid modifying original
+
     df = df.copy()
 
-    # Convert outcome to binary (assumes 'good' is positive class)
-    df['outcome_binary'] = df[outcome_col].map({'good': 1, 'poor': 0})
-
-    # Drop missing values in required columns
-    columns_to_check = [predictor_col, 'outcome_binary'] + (covariates if covariates else [])
-    df = df[columns_to_check].dropna()
-
-    # Create formula for the model
-    formula = f'outcome_binary ~ {predictor_col}'
-
-    # Add covariates to the formula if provided
+    # Build formula
+    formula = f'{outcome_col} ~ {predictor_col}'
     if covariates:
-        formula += ' + ' + ' + '.join(covariates)
+        # Wrap categorical covariates in C()
+            encoded_covariates = [
+                f"C({col})" if df[col].dtype == 'object' or df[col].nunique() < 12 else col
+                for col in covariates
+            ]
+            formula += ' + ' + ' + '.join(encoded_covariates)
 
-    # Fit the model
-    model = smf.logit(formula, data=df).fit(disp=False)
+    try:
+        model = smf.logit(formula, data=df).fit(disp=False)
+    except np.linalg.LinAlgError:
+        raise np.linalg.LinAlgError(f"Singular matrix error while fitting model with formula: {formula}")
+    except PerfectSeparationError:
+        raise PerfectSeparationError("Perfect separation detected, logistic regression cannot be fit.")
 
-    # Calculate odds ratios with 95% CI
-    params = model.params
-    conf = model.conf_int()
-    conf['OR'] = params
-    conf.columns = ['2.5%', '97.5%', 'OR']
-    odds_ratios = np.exp(conf)
 
-    return model, odds_ratios
+    return model
 
 
 
-def multilevel_unadjusted_logr(df, outcome_col='medication_compliance',
-                               predictor_col='dynamic_pdc', cluster_col='person_id'):
+def multilevel_unadjusted_logr(df, outcome_col='outcome_binary',
+                               predictor_col='pre_exclusive_pdc', cluster_col='person_id'):
     """
     Runs a hierarchical logistic regression using GEE with clustering on person_id.
 
@@ -104,28 +77,15 @@ def multilevel_unadjusted_logr(df, outcome_col='medication_compliance',
     """
     df = df.copy()
 
-    # Convert outcome to binary
-    df['outcome_binary'] = df[outcome_col].map({'good': 1, 'poor': 0})
-
-    # Drop missing values
-    df = df[[predictor_col, 'outcome_binary', cluster_col]].dropna()
-
     # Fit GEE logistic model with clustering
-    model = smf.gee(f'outcome_binary ~ {predictor_col}',
+    model = smf.gee(f'{outcome_col} ~ {predictor_col}',
                     groups=cluster_col,
                     data=df,
                     family=sm.families.Binomial()).fit()
 
-    # Calculate odds ratios with 95% CI
-    params = model.params
-    conf = model.conf_int()
-    conf['OR'] = params
-    conf.columns = ['2.5%', '97.5%', 'OR']
-    odds_ratios = np.exp(conf)
+    return model
 
-    return model, odds_ratios
-
-def multilevel_adjusted_logr(df, outcome_col='medication_compliance', predictor_col='dynamic_pdc',
+def multilevel_adjusted_logr(df, outcome_col='outcome_binary', predictor_col='dynamic_pdc',
                               covariates=None, cluster_col='person_id'):
     """
     Runs a multilevel logistic regression using GEE
@@ -144,18 +104,16 @@ def multilevel_adjusted_logr(df, outcome_col='medication_compliance', predictor_
     """
     df = df.copy()
 
-    # Convert outcome to binary
-    df['outcome_binary'] = df[outcome_col].map({'good': 1, 'poor': 0})
-
-    # Prepare columns to keep
-    columns_to_check = [predictor_col, 'outcome_binary',
-                        cluster_col] + (covariates if covariates else [])
-    df = df[columns_to_check].dropna()
-
     # Build the formula
-    formula = f'outcome_binary ~ {predictor_col}'
+
+    formula = f'{outcome_col} ~ {predictor_col}'
     if covariates:
-        formula += ' + ' + ' + '.join(covariates)
+        # Wrap categorical covariates in C()
+            encoded_covariates = [
+                f"C({col})" if df[col].dtype == 'object' or df[col].nunique() < 12 else col
+                for col in covariates
+            ]
+            formula += ' + ' + ' + '.join(encoded_covariates)
 
     # Fit GEE logistic model with clustering
     model = smf.gee(formula=formula,
@@ -163,14 +121,7 @@ def multilevel_adjusted_logr(df, outcome_col='medication_compliance', predictor_
                     data=df,
                     family=sm.families.Binomial()).fit()
 
-    # Odds Ratios and 95% CI
-    params = model.params
-    conf = model.conf_int()
-    conf['OR'] = params
-    conf.columns = ['2.5%', '97.5%', 'OR']
-    odds_ratios = np.exp(conf)
-
-    return model, odds_ratios
+    return model
 
 
 
@@ -190,9 +141,6 @@ def fit_and_save_models_for_pdc(df, outcome_col='medication_compliance', pdc_col
     if pdc_cols is None:
         pdc_cols = ['inclusive_pdc', 'exclusive_pdc', 'pre_inclusive_pdc', 'pre_exclusive_pdc', 'post_inclusive_pdc', 'post_exclusive_pdc']
 
-    # Prepare the outcome column
-    df['outcome_binary'] = df[outcome_col].map({'good': 1, 'poor': 0})
-
     # Function to compute odds ratios and 95% confidence intervals
     def compute_odds_ratios(model):
         odds_ratios = pd.DataFrame({
@@ -205,11 +153,14 @@ def fit_and_save_models_for_pdc(df, outcome_col='medication_compliance', pdc_col
         })
         return odds_ratios
 
+    models_dict = {}
+
     # Unadjusted Logistic Regression for each PDC column
     unadjusted_results = []
     for pdc_col in pdc_cols:
 
-        model, odds_ratios = unadjusted_logr(df, outcome_col=outcome_col, predictor_col=pdc_col)
+        model = unadjusted_logr(df, outcome_col=outcome_col, predictor_col=pdc_col)
+        models_dict[f'unadjusted_{pdc_col}'] = model
         model_result = compute_odds_ratios(model)
         model_result['pdc_col'] = pdc_col
         model_result['model'] = 'unadjusted'
@@ -222,9 +173,18 @@ def fit_and_save_models_for_pdc(df, outcome_col='medication_compliance', pdc_col
     # Adjusted Logistic Regression for each PDC column
     adjusted_results = []
     for pdc_col in pdc_cols:
-        selected_covariates = ['total_pre_exposure_days'] if 'pre' in pdc_col else ['total_post_exposure_days'] if 'post' in pdc_col else covariates or []
+        base_covariates = covariates or []
 
-        model, odds_ratios = adjusted_logr(df, outcome_col=outcome_col, predictor_col=pdc_col, covariates=selected_covariates)
+        exposure_covariate = []
+        if 'pre' in pdc_col:
+            exposure_covariate = ['total_pre_exposure_days']
+        elif 'post' in pdc_col:
+            exposure_covariate = ['total_post_exposure_days']
+
+        selected_covariates = base_covariates + exposure_covariate
+
+        model = adjusted_logr(df, outcome_col=outcome_col, predictor_col=pdc_col, covariates=selected_covariates)
+        models_dict[f'adjusted_{pdc_col}'] = model
         model_result = compute_odds_ratios(model)
         model_result['pdc_col'] = pdc_col
         model_result['model'] = 'adjusted'
@@ -238,7 +198,8 @@ def fit_and_save_models_for_pdc(df, outcome_col='medication_compliance', pdc_col
     multilevel_unadjusted_results = []
     for pdc_col in pdc_cols:
 
-        model, odds_ratios = multilevel_unadjusted_logr(df, outcome_col=outcome_col, predictor_col=pdc_col, cluster_col=cluster_col)
+        model = multilevel_unadjusted_logr(df, outcome_col=outcome_col, predictor_col=pdc_col, cluster_col=cluster_col)
+        models_dict[f'multilevel_unadjusted_{pdc_col}'] = model
         model_result = compute_odds_ratios(model)
         model_result['pdc_col'] = pdc_col
         model_result['model'] = 'multilevel_unadjusted'
@@ -251,9 +212,18 @@ def fit_and_save_models_for_pdc(df, outcome_col='medication_compliance', pdc_col
     # Multilevel Logistic Regression (Adjusted) for each PDC column
     multilevel_adjusted_results = []
     for pdc_col in pdc_cols:
-        selected_covariates = ['total_pre_exposure_days'] if 'pre' in pdc_col else ['total_post_exposure_days'] if 'post' in pdc_col else covariates or []
+        base_covariates = covariates or []
 
-        model, odds_ratios = multilevel_adjusted_logr(df, outcome_col=outcome_col, predictor_col=pdc_col, covariates=selected_covariates, cluster_col=cluster_col)
+        exposure_covariate = []
+        if 'pre' in pdc_col:
+            exposure_covariate = ['total_pre_exposure_days']
+        elif 'post' in pdc_col:
+            exposure_covariate = ['total_post_exposure_days']
+
+        selected_covariates = base_covariates + exposure_covariate
+
+        model = multilevel_adjusted_logr(df, outcome_col=outcome_col, predictor_col=pdc_col, covariates=selected_covariates, cluster_col=cluster_col)
+        models_dict[f'multilevel_adjusted_{pdc_col}'] = model
         model_result = compute_odds_ratios(model)
         model_result['pdc_col'] = pdc_col
         model_result['model'] = 'multilevel_adjusted'
@@ -262,6 +232,8 @@ def fit_and_save_models_for_pdc(df, outcome_col='medication_compliance', pdc_col
 
     multilevel_adjusted_results_df = pd.concat(multilevel_adjusted_results)
     save_results_to_csv(multilevel_adjusted_results_df, model_name="multilevel_adjusted")
+
+    return models_dict
 
 
 def linear_reg(df, predictor_col, outcome_col):
@@ -288,33 +260,63 @@ def linear_reg(df, predictor_col, outcome_col):
 
     return model
 
-def prepare_data_for_regression(df, categorical_cols, outcome_col, drop_first=True):
+def prep_for_regression(df, ethnicity_col='ethnicity', imd_col='imd', gender_col='gender', 
+                        outcome_col='medication_compliance', predictor_col="pre_exclusive_pdc", 
+                        covariates=None, cluster_col='person_id', threshold=5000):
+
     """
-    Prepares the data for regression by:
-    1. One-hot encoding categorical variables.
-    2. Converting boolean columns to integers (0 or 1).
-    3. Dropping rows with missing values in specified columns.
-    
+    Clean dataframe for regression:
+    - Convert outcome to binary
+    - Drop NA for relevant columns
+    - Filter out unwanted gender and IMD categories
+    - Group rare ethnicity categories into 'Other'
+
     Parameters:
-        df (pd.DataFrame): The original data frame with raw data.
-        categorical_cols (list): List of columns in the DataFrame that need to be one-hot encoded.
-        outcome_col (str): The outcome column name.
-        drop_first (bool): Whether to drop the first category for each categorical column in the one-hot encoding (default is True).
-    
+        df (pd.DataFrame): Input dataframe.
+        ethnicity_col (str): Ethnicity column name.
+        imd_col (str): IMD column name.
+        gender_col (str): Gender column name.
+        outcome_col (str): Outcome column name.
+        predictor_col (str): Predictor column name.
+        covariates (list): List of covariate column names.
+        cluster_col (str): Cluster/grouping column name.
+        threshold (int): Minimum count threshold for ethnicity grouping.
+
     Returns:
-        pd.DataFrame: Cleaned DataFrame with one-hot encoding applied, boolean columns converted to integers, and rows with missing values dropped.
+        pd.DataFrame: Cleaned dataframe ready for regression.
     """
-    
-    # Step 1: One-hot encode categorical variables
-    df_encoded = pd.get_dummies(df, columns=categorical_cols, drop_first=drop_first)
-    
-    # Step 2: Convert all boolean columns to integers (0 or 1)
-    df_encoded = df_encoded.apply(lambda x: x.astype(int) if x.dtype == 'bool' else x)
-    
-    # Step 3: Drop rows with missing values in the relevant columns (covariates and outcome column)
-    covariates = [col for col in df_encoded.columns if col != outcome_col]  # All columns except outcome
-    df_clean = df_encoded.dropna(subset=covariates + [outcome_col])
-    
-    return df_clean
+    df = df.copy()
 
+    # Convert outcome to binary
+    df['outcome_binary'] = df[outcome_col].map({'good': 1, 'poor': 0})
 
+    # Columns to keep
+    if isinstance(predictor_col, str):
+            predictor_col = [predictor_col]
+
+        # Combine all required columns
+    cols_to_check = predictor_col + ['outcome_binary', cluster_col]
+    if covariates:
+        cols_to_check += covariates
+
+    # Drop rows with NA in these columns
+    df = df[cols_to_check].dropna()
+
+    # Filter out unwanted gender categories
+    df = df[~df[gender_col].isin(["Unknown", "Other", "None"])]
+
+    # Handle IMD filtering/removal of 'nan' category
+    if pd.api.types.is_categorical_dtype(df[imd_col]):
+        # Remove 'nan' category safely
+        if 'nan' in df[imd_col].cat.categories:
+            df[imd_col] = df[imd_col].cat.remove_categories(['nan'])
+    else:
+        # Filter out string 'nan' entries if present
+        df = df[df[imd_col] != 'nan']
+
+    # Recode ethnicity rare categories
+    counts = df[ethnicity_col].value_counts()
+    rare_cats = counts[counts < threshold].index
+    df[ethnicity_col] = df[ethnicity_col].apply(lambda x: 'Other' if x in rare_cats else x)
+
+    return df
