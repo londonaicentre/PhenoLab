@@ -108,7 +108,7 @@ def plot_residuals_vs_fitted(fitted_model, df, outcome_col):
     - df: pandas DataFrame used in the model
     - outcome_col: str
     """
-    pred_probs = fitted_model.predict()
+    pred_probs = fitted_model.predict(df)
     residuals = df[outcome_col] - pred_probs
 
     plt.figure(figsize=(8, 5))
