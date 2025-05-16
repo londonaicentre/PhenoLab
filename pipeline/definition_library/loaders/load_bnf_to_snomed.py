@@ -113,8 +113,6 @@ def main():
     # Excluding "dummy chemical" definitions
     definition_df = definition_df[~definition_df["DEFINITION_NAME"].str.contains("DUMMY")]
 
-    print("i think this bit it wrong, but if it works..... you should see this")
-
     load_definitions_to_snowflake(
         snowsesh=snowsesh, df=definition_df, table_name="BSA_BNF_SNOMED_MAPPINGS"
     )
