@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 from phmlondon.snow_utils import SnowflakeConnection
 from phmlondon.feature_store_manager import FeatureStoreManager
 
+from phmlondon.config import SNOWFLAKE_DATABASE, EXTERNAL, FEATURE_STORE, FEATURE_METADATA
+
 # Generates BASE_PERSON_NEL_INDEX
 # Required table for downstream feature store creation
 # Contains basic sociodemographic and spatioeconomic data for each unique PERSON
@@ -100,7 +102,7 @@ SELECT
         ELSE 'ACTIVE'
     END AS PATIENT_STATUS
 FROM LatestPatientRecords lpr
-LEFT JOIN INTELLIGENCE_DEV.AI_CENTRE_EXTERNAL.IMD2019LONDON imd
+LEFT JOIN {database}.{external}.IMD2019LONDON imd
 ON lpr.PATIENT_LSOA_2011 = imd.LS11CD
 INNER JOIN DateOfBirth dob --inner join to keep the primary care patient table as a main source of truth
 ON lpr.PERSON_ID = dob.PERSON_ID
@@ -133,9 +135,9 @@ def load_imd_data(snowsesh):
         df = pd.read_csv("data/imd2019london.csv")
         df.columns = [col.upper() for col in df.columns]
 
-        snowsesh.use_database("INTELLIGENCE_DEV")
-        snowsesh.create_schema_if_not_exists("AI_CENTRE_EXTERNAL")
-        snowsesh.use_schema("AI_CENTRE_EXTERNAL")
+        snowsesh.use_database(SNOWFLAKE_DATABASE)
+        snowsesh.create_schema_if_not_exists(EXTERNAL)
+        snowsesh.use_schema(EXTERNAL)
 
         snowsesh.load_dataframe_to_table(df=df, table_name="IMD2019LONDON", mode="overwrite")
         print("IMD2019LONDON loaded successfully")
@@ -146,7 +148,10 @@ def load_imd_data(snowsesh):
 
 def create_base_person_nel_index_table(snowsesh, fsm):
     ethnicity_case = create_ethnicity_mapping_case_statement()
-    master_person_sql = CREATE_MASTER_INDEX_SQL.format(ethnicity_case=ethnicity_case)
+    master_person_sql = CREATE_MASTER_INDEX_SQL.format(
+        ethnicity_case=ethnicity_case,
+        database=SNOWFLAKE_DATABASE,
+        external=EXTERNAL)
     fsm.add_new_feature(
         feature_name="Base Person NEL Index",
         feature_desc="""
@@ -167,14 +172,10 @@ def main():
 
         load_imd_data(snowsesh)
 
-        DATABASE = "INTELLIGENCE_DEV"
-        SCHEMA = "AI_CENTRE_FEATURE_STORE"
-        METADATASCHEMA = "AI_CENTRE_FEATURE_STORE_METADATA"
+        snowsesh.use_database(SNOWFLAKE_DATABASE)
+        snowsesh.use_schema(FEATURE_STORE)
 
-        snowsesh.use_database(DATABASE)
-        snowsesh.use_schema(SCHEMA)
-
-        fsm = FeatureStoreManager(snowsesh, DATABASE, SCHEMA, METADATASCHEMA)
+        fsm = FeatureStoreManager(snowsesh, SNOWFLAKE_DATABASE, FEATURE_STORE, FEATURE_METADATA)
         print("Feature store manager created")
 
         create_base_person_nel_index_table(snowsesh, fsm)

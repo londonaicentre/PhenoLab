@@ -6,6 +6,7 @@ from utils.phenotype import ComparisonOperator, ConditionType, Phenotype, load_p
 from utils.style_utils import set_font_lato
 
 from phmlondon.snow_utils import SnowflakeConnection
+from phmlondon.config import SNOWFLAKE_DATABASE, DEFINITION_LIBRARY
 
 load_dotenv()
 
@@ -40,7 +41,7 @@ def query_definition_store(snowsesh, search_term, source_system):
     """
     Query the DEFINITIONSTORE view with filters
     """
-    query = """
+    query = f"""
     SELECT DISTINCT
         DEFINITION_ID,
         DEFINITION_NAME,
@@ -48,7 +49,7 @@ def query_definition_store(snowsesh, search_term, source_system):
         DEFINITION_SOURCE,
         SOURCE_LOADER,
         COUNT(*) AS CODE_COUNT
-    FROM INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.DEFINITIONSTORE
+    FROM {SNOWFLAKE_DATABASE}.{DEFINITION_LIBRARY}.DEFINITIONSTORE
     """
 
     where_clauses = []
@@ -142,8 +143,8 @@ def display_panel_2_definition_selection():
         with st.spinner("Connecting to Snowflake..."):
             try:
                 st.session_state.snowsesh = SnowflakeConnection()
-                st.session_state.snowsesh.use_database("INTELLIGENCE_DEV")
-                st.session_state.snowsesh.use_schema("AI_CENTRE_DEFINITION_LIBRARY")
+                st.session_state.snowsesh.use_database(SNOWFLAKE_DATABASE)
+                st.session_state.snowsesh.use_schema(DEFINITION_LIBRARY)
             except Exception as e:
                 st.error(f"Failed to connect to Snowflake: {e}")
                 return
@@ -151,8 +152,8 @@ def display_panel_2_definition_selection():
     # get available sources
     if "source_systems" not in st.session_state:
         try:
-            source_query = """
-            SELECT DISTINCT SOURCE_LOADER FROM INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.DEFINITIONSTORE
+            source_query = f"""
+            SELECT DISTINCT SOURCE_LOADER FROM {SNOWFLAKE_DATABASE}.{DEFINITION_LIBRARY}.DEFINITIONSTORE
             WHERE SOURCE_LOADER IS NOT NULL
             ORDER BY SOURCE_LOADER
             """

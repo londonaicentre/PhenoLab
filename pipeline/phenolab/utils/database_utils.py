@@ -3,16 +3,21 @@ import streamlit as st
 from dotenv import load_dotenv
 
 from phmlondon.snow_utils import SnowflakeConnection
+from phmlondon.config import SNOWFLAKE_DATABASE, DEFINITION_LIBRARY
 
 
 @st.cache_resource(show_spinner="Connecting to Snowflake...")
 def connect_to_snowflake() -> SnowflakeConnection:
-    load_dotenv()
+    """
+    Creates a cached connection to Snowflake using config variables.
+    Returns:
+        SnowflakeConnection: Active connection to Snowflake
+    """
 
     if "snowsesh" not in st.session_state:
         st.session_state.snowsesh = SnowflakeConnection()
-        st.session_state.snowsesh.use_database("INTELLIGENCE_DEV")
-        st.session_state.snowsesh.use_schema("AI_CENTRE_DEFINITION_LIBRARY")
+        st.session_state.snowsesh.use_database(SNOWFLAKE_DATABASE)
+        st.session_state.snowsesh.use_schema(DEFINITION_LIBRARY)
 
     snowsesh = st.session_state.snowsesh
     return snowsesh
@@ -32,9 +37,9 @@ def get_data_from_snowflake_to_list(_session: SnowflakeConnection, query: str) -
 def get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(
     _session: SnowflakeConnection,
 ) -> tuple[list, list]:
-    comparison_query = """
+    comparison_query = f"""
     SELECT DISTINCT DEFINITION_SOURCE, DEFINITION_ID, DEFINITION_NAME
-    FROM INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.DEFINITIONSTORE
+    FROM {SNOWFLAKE_DATABASE}.{DEFINITION_LIBRARY}.DEFINITIONSTORE
     ORDER BY DEFINITION_NAME
     """
     # comparison_defintions = snowsesh.execute_query_to_df(comparison_query)
@@ -55,7 +60,7 @@ def return_codes_for_given_definition_id_as_df(_conn: SnowflakeConnection, chose
             VOCABULARY,
             DEFINITION_ID,
             CODELIST_VERSION
-        FROM INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.DEFINITIONSTORE
+        FROM {SNOWFLAKE_DATABASE}.{DEFINITION_LIBRARY}.DEFINITIONSTORE
         WHERE DEFINITION_ID = '{chosen_definition_id}'
         ORDER BY VOCABULARY, CODE
         """
