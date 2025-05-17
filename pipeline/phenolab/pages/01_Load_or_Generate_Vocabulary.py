@@ -165,7 +165,7 @@ def generate_vocab_list():
 
 def main():
     st.set_page_config(page_title="Load or Generate Vocabulary", layout="wide")
-    
+
     set_font_lato()
 
     st.title("Load or Generate Vocabulary")
