@@ -56,7 +56,7 @@ def code_selected(row: pd.Series) -> bool:
             for c in st.session_state.current_definition.codes)
 
 
-def display_code_and_checkbox(row: pd.Series, checkbox_key: str):
+def display_code_and_checkbox(row: pd.Series, checkbox_key: str, key_suffix=""):
     """
     Display a code with a checkbox for selection/deselection
     """
@@ -65,13 +65,14 @@ def display_code_and_checkbox(row: pd.Series, checkbox_key: str):
     else:
         is_selected = False
 
+    suff_checkbox_key = f"{checkbox_key}_{key_suffix}" # key suffix for shared components on same page
     checkbox_ticked = st.checkbox(
-            "Any", value=is_selected, key=checkbox_key, label_visibility="collapsed")
+            "Any", value=is_selected, key=suff_checkbox_key, label_visibility="collapsed")
 
     # Need to keep track of all checkboxes so can reset them all if a new definition is created
     if "used_checkbox_keys" not in st.session_state:
         st.session_state.used_checkbox_keys = set()
-    st.session_state.used_checkbox_keys.add(checkbox_key)
+    st.session_state.used_checkbox_keys.add(suff_checkbox_key)
 
     code = create_code_from_row(row)
 
@@ -212,10 +213,14 @@ def filter_codes(df: pd.DataFrame, search_term: str, code_type: str) -> pd.DataF
 
     return filtered_df.sort_values("CODE_COUNT", ascending=False) if "CODE_COUNT" in filtered_df.columns else filtered_df
 
-
-def display_unified_code_browser(code_types):
+def display_unified_code_browser(code_types, key_suffix=""):
     """
     Unified code browser that allows selection from global vocabulary or existing definitions
+    Args:
+        code_types(list):
+            List of code types ofr filtering
+        key_suffix(str):
+            Suffix appended to streamlit widget keys if they are re-used in same page
     """
     st.subheader("Find codes")
 
@@ -223,7 +228,8 @@ def display_unified_code_browser(code_types):
     source_type = st.radio(
         "Select code source",
         options=["Global Vocabulary", "Existing Definition"],
-        horizontal=True
+        horizontal=True,
+        key=f"source_type_radio_{key_suffix}"  # unique key allows re-use in same page (i.e. multiple tabs)
     )
 
     # search box
@@ -232,11 +238,15 @@ def display_unified_code_browser(code_types):
             "Filter codes",
             placeholder="Simple search or use (term1) AND/OR/NOT (term2)",
             help="Examples: 'diabetes', '(heart) AND (failure)', '(cardiac) NOT (surgery)'",
+            key=f"search_term_{key_suffix}"
         )
 
         # filter from different sources
         if source_type == "Global Vocabulary":
-            code_type = st.selectbox("Code type", options=code_types, label_visibility="collapsed")
+            code_type = st.selectbox("Code type",
+                                     options=code_types,
+                                     label_visibility="collapsed",
+                                     key=f"code_type_{key_suffix}")
             filtered_codes = filter_codes(st.session_state.codes, search_term, code_type)
             if not filtered_codes.empty:
                 st.write(f"Found {len(filtered_codes):,} codes")
@@ -248,7 +258,8 @@ def display_unified_code_browser(code_types):
             id_list, definitions_list = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(conn)
             chosen_definition = st.selectbox(
                 label="Choose an existing definition (start typing to search)",
-                options=definitions_list
+                options=definitions_list,
+                key=f"chosen_definition_{key_suffix}"
             )
 
             if chosen_definition:
@@ -300,16 +311,18 @@ def display_unified_code_browser(code_types):
 
                 with col1b:
                     checkbox_key = f"code_{row['CODE']}_{row['VOCABULARY']}"
-                    display_code_and_checkbox(row, checkbox_key)
+                    display_code_and_checkbox(row, checkbox_key, key_suffix=key_suffix)
         else:
             st.info("No codes found matching the search criteria")
 
     return filtered_codes, search_term
 
-
-def display_selected_codes():
+def display_selected_codes(key_suffix=""):
     """
     Display the selected codes panel (right panel)
+    Args:
+        key_suffix(str):
+            Suffix appended to streamlit widget keys if they are re-used in same page
     """
     st.subheader("Selected codes")
 
@@ -325,7 +338,7 @@ def display_selected_codes():
                 st.caption(f"ID: {definition.definition_id}")
 
             # component: save button
-            if st.button("Save Definition"):
+            if st.button("Save Definition", key=f"save_def_btn_{key_suffix}"):
                 try:
                     filepath = definition.save_to_json()
                     st.success(f"Definition saved to: {filepath}")
@@ -356,7 +369,8 @@ def display_selected_codes():
                         st.caption(f"Code: {code.code}")
 
                     with col2b:
-                        if st.button("Remove", key=f"remove_{vocabulary}_{idx}"):
+                        # component: remove button
+                        if st.button("Remove", key=f"remove_{vocabulary}_{idx}_{key_suffix}"):
                             # st.session_state.selected_codes.remove(code)
                             if st.session_state.current_definition:
                                 st.session_state.current_definition.remove_code(code)
