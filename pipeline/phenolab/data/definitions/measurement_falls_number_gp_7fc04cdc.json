@@ -1,16 +1,16 @@
 {
   "definition_id": "7fc04cdc",
-  "definition_name": "measurement_falls_number_SNOMED",
-  "definition_version": "measurement_falls_number_SNOMED_20250512_133547",
+  "definition_name": "measurement_falls_number_gp",
+  "definition_version": "measurement_falls_number_gp_20250512_133547",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "0001-01-01T00:00:00",
   "version_datetime": "2025-05-12T13:38:39.621986",
   "codelists": [
     {
-      "codelist_id": "measurement_falls_number_SNOMED_SNOMED_829357",
-      "codelist_name": "measurement_falls_number_SNOMED_SNOMED",
+      "codelist_id": "measurement_falls_number_gp_SNOMED_829357",
+      "codelist_name": "measurement_falls_number_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "measurement_falls_number_SNOMED_SNOMED_829357_20250512_133557",
+      "codelist_version": "measurement_falls_number_gp_SNOMED_829357_20250512_133557",
       "codes": [
         {
           "code": "391002003",

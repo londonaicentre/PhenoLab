@@ -1,16 +1,16 @@
 {
   "definition_id": "c52bde89",
-  "definition_name": "falls_repeated_or_history_of_SNOMED",
-  "definition_version": "falls_repeated_or_history_of_SNOMED_20250512_132543",
+  "definition_name": "falls_repeated_or_history_of_gp",
+  "definition_version": "falls_repeated_or_history_of_gp_20250512_132543",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "0001-01-01T00:00:00",
   "version_datetime": "2025-05-12T13:35:22.165826",
   "codelists": [
     {
-      "codelist_id": "falls_repeated_or_history_of_SNOMED_SNOMED_893109",
-      "codelist_name": "falls_repeated_or_history_of_SNOMED_SNOMED",
+      "codelist_id": "falls_repeated_or_history_of_gp_SNOMED_893109",
+      "codelist_name": "falls_repeated_or_history_of_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "falls_repeated_or_history_of_SNOMED_SNOMED_893109_20250512_132608",
+      "codelist_version": "falls_repeated_or_history_of_gp_SNOMED_893109_20250512_132608",
       "codes": [
         {
           "code": "161898004",

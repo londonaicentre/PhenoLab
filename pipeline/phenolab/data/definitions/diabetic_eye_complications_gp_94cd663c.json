@@ -1,16 +1,16 @@
 {
   "definition_id": "94cd663c",
-  "definition_name": "diabetic_eye_complications",
-  "definition_version": "diabetic_eye_complications_20250401_131625",
+  "definition_name": "diabetic_eye_complications_gp",
+  "definition_version": "diabetic_eye_complications_gp_20250401_131625",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "2025-04-01T13:16:25.503336",
   "version_datetime": "2025-04-01T16:37:36.550578",
   "codelists": [
     {
-      "codelist_id": "diabetic_eye_complications_SNOMED_730636",
-      "codelist_name": "diabetic_eye_complications_SNOMED",
+      "codelist_id": "diabetic_eye_complications_gp_SNOMED_730636",
+      "codelist_name": "diabetic_eye_complications_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "diabetic_eye_complications_SNOMED_730636_20250401_131740",
+      "codelist_version": "diabetic_eye_complications_gp_SNOMED_730636_20250401_131740",
       "codes": [
         {
           "code": "408410002",

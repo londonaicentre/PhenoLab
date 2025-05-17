@@ -1,16 +1,16 @@
 {
   "definition_id": "87d3e832",
-  "definition_name": "heart_failure_cause_not_specified_or_due_to_CAD",
-  "definition_version": "heart_failure_cause_not_specified_or_due_to_CAD_20250401_135304",
+  "definition_name": "heart_failure_cause_not_specified_or_due_to_CAD_gp",
+  "definition_version": "heart_failure_cause_not_specified_or_due_to_CAD_gp_20250401_135304",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "2025-04-01T13:53:04.915111",
   "version_datetime": "2025-04-01T13:57:57.329523",
   "codelists": [
     {
-      "codelist_id": "heart_failure_cause_not_specified_or_due_to_CAD_SNOMED_434889",
-      "codelist_name": "heart_failure_cause_not_specified_or_due_to_CAD_SNOMED",
+      "codelist_id": "heart_failure_cause_not_specified_or_due_to_CAD_gp_SNOMED_434889",
+      "codelist_name": "heart_failure_cause_not_specified_or_due_to_CAD_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "heart_failure_cause_not_specified_or_due_to_CAD_cause_not_specified_or_due_to_CAD_SNOMED_434889_20250401_135341",
+      "codelist_version": "heart_failure_cause_not_specified_or_due_to_CAD_gp_cause_not_specified_or_due_to_CAD_SNOMED_434889_20250401_135341",
       "codes": [
         {
           "code": "84114007",

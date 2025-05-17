@@ -1,16 +1,16 @@
 {
   "definition_id": "c2435bbe",
-  "definition_name": "myocardial_infarction",
-  "definition_version": "myocardial_infarction_20250401_133052",
+  "definition_name": "myocardial_infarction_gp",
+  "definition_version": "myocardial_infarction_gp_20250401_133052",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "2025-04-01T13:30:52.486037",
   "version_datetime": "2025-04-01T13:37:07.358448",
   "codelists": [
     {
-      "codelist_id": "myocardial_infarction_SNOMED_630566",
-      "codelist_name": "myocardial_infarction_SNOMED",
+      "codelist_id": "myocardial_infarction_gp_SNOMED_630566",
+      "codelist_name": "myocardial_infarction_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "myocardial_infarction_SNOMED_630566_20250401_133107",
+      "codelist_version": "myocardial_infarction_gp_SNOMED_630566_20250401_133107",
       "codes": [
         {
           "code": "57054005",

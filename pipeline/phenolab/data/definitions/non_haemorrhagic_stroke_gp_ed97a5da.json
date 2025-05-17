@@ -1,16 +1,16 @@
 {
   "definition_id": "ed97a5da",
-  "definition_name": "non_haemorrhagic_stroke",
-  "definition_version": "non_haemorrhagic_stroke_20250401_133811",
+  "definition_name": "non_haemorrhagic_stroke_gp",
+  "definition_version": "non_haemorrhagic_stroke_gp_20250401_133811",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "2025-04-01T13:38:11.505798",
   "version_datetime": "2025-04-01T13:48:25.872917",
   "codelists": [
     {
-      "codelist_id": "non_haemorrhagic_stroke_SNOMED_906532",
-      "codelist_name": "non_haemorrhagic_stroke_SNOMED",
+      "codelist_id": "non_haemorrhagic_stroke_gp_SNOMED_906532",
+      "codelist_name": "non_haemorrhagic_stroke_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "non_haemorrhagic_stroke_SNOMED_906532_20250401_133832",
+      "codelist_version": "non_haemorrhagic_stroke_gp_SNOMED_906532_20250401_133832",
       "codes": [
         {
           "code": "422504002",

@@ -1,16 +1,16 @@
 {
   "definition_id": "5b66f702",
-  "definition_name": "amputation_in_lower_limb_nontraumatic",
-  "definition_version": "amputation_in_lower_limb_nontraumatic_20250401_131815",
+  "definition_name": "amputation_in_lower_limb_nontraumatic_gp",
+  "definition_version": "amputation_in_lower_limb_nontraumatic_gp_20250401_131815",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "2025-04-01T13:18:15.881309",
   "version_datetime": "2025-04-01T13:19:46.437589",
   "codelists": [
     {
-      "codelist_id": "amputation_in_lower_limb_nontraumatic_SNOMED_898183",
-      "codelist_name": "amputation_in_lower_limb_nontraumatic_SNOMED",
+      "codelist_id": "amputation_in_lower_limb_nontraumatic_gp_SNOMED_898183",
+      "codelist_name": "amputation_in_lower_limb_nontraumatic_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "amputation_in_lower_limb_nontraumatic_SNOMED_898183_20250401_131825",
+      "codelist_version": "amputation_in_lower_limb_nontraumatic_gp_SNOMED_898183_20250401_131825",
       "codes": [
         {
           "code": "371186005",

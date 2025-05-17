@@ -1,16 +1,16 @@
 {
   "definition_id": "7b322f7f",
-  "definition_name": "non_type1_diabetes",
-  "definition_version": "non_type1_diabetes_20250401_125739",
+  "definition_name": "diabetes_mellitus_not_type1_gp",
+  "definition_version": "diabetes_mellitus_not_type1_gp_20250401_125739",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "2025-04-01T12:57:39.520843",
   "version_datetime": "2025-04-01T13:06:16.448146",
   "codelists": [
     {
-      "codelist_id": "non_type1_diabetes_SNOMED_655320",
-      "codelist_name": "non_type1_diabetes_SNOMED",
+      "codelist_id": "diabetes_mellitus_not_type1_gp_SNOMED_655320",
+      "codelist_name": "diabetes_mellitus_not_type1_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "non_type1_diabetes_SNOMED_655320_20250401_125816",
+      "codelist_version": "diabetes_mellitus_not_type1_gp_SNOMED_655320_20250401_125816",
       "codes": [
         {
           "code": "44054006",

@@ -1,16 +1,16 @@
 {
   "definition_id": "c02be80f",
-  "definition_name": "pelvic_fracture_ICD",
-  "definition_version": "pelvic_fracture_ICD_20250512_175333",
+  "definition_name": "pelvic_fracture_sus",
+  "definition_version": "pelvic_fracture_sus_20250512_175333",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "0001-01-01T00:00:00",
   "version_datetime": "2025-05-12T18:07:02.792277",
   "codelists": [
     {
-      "codelist_id": "pelvic_fracture_ICD_ICD10_236206",
-      "codelist_name": "pelvic_fracture_ICD_ICD10",
+      "codelist_id": "pelvic_fracture_sus_ICD10_236206",
+      "codelist_name": "pelvic_fracture_sus_ICD10",
       "codelist_vocabulary": "ICD10",
-      "codelist_version": "pelvic_fracture_ICD_ICD10_236206_20250512_175352",
+      "codelist_version": "pelvic_fracture_sus_ICD10_236206_20250512_175352",
       "codes": [
         {
           "code": "T02.71",
