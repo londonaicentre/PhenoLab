@@ -1,0 +1,93 @@
+{
+  "definition_id": "8a1314d4",
+  "definition_name": "measurement_blood_pressure_diastolic_gp",
+  "definition_version": "measurement_blood_pressure_diastolic_gp_20250517_125604",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-05-17T12:58:06.089662",
+  "codelists": [
+    {
+      "codelist_id": "measurement_blood_pressure_diastolic_gp_SNOMED_b20a25dd",
+      "codelist_name": "measurement_blood_pressure_diastolic_gp_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_blood_pressure_diastolic_gp_SNOMED_b20a25dd_20250517_125625",
+      "codes": [
+        {
+          "code": "163031004",
+          "code_description": "On examination - Diastolic blood pressure reading (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1091811000000102",
+          "code_description": "Diastolic arterial pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "413605002",
+          "code_description": "Average home diastolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "407555005",
+          "code_description": "Sitting diastolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314462001",
+          "code_description": "Average 24 hour diastolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314461008",
+          "code_description": "Average day interval diastolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "407557002",
+          "code_description": "Lying diastolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "198091000000104",
+          "code_description": "Ambulatory diastolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314460009",
+          "code_description": "Average night interval diastolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314453003",
+          "code_description": "Average diastolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "271650006",
+          "code_description": "Diastolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314465004",
+          "code_description": "24 hour diastolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "2181391000000106",
+          "code_description": "Average ambulatory diastolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "2181411000000106",
+          "code_description": "Average ambulatory day interval diastolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1162735000",
+          "code_description": "Self reported diastolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}
