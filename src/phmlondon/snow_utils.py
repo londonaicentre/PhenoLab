@@ -72,6 +72,16 @@ class SnowflakeConnection:
             print(f"Error setting schema {e}")
             raise e
 
+    def create_schema_if_not_exists(self, schema):
+        """
+        Create a schema if it doesn't exist
+        """
+        self._validate_database_schema(schema_required=False)
+
+        create_query = f"CREATE SCHEMA IF NOT EXISTS {schema}"
+        self.execute_query(create_query)
+        print(f"Schema {schema} created or already exists")
+
     def _validate_database_schema(self, schema_required=True):
         """
         Internal method to validate database and schema are set
