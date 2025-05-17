@@ -11,6 +11,7 @@ from utils.database_utils import (
 
 from phmlondon.definition import Code, Definition, VocabularyType
 
+@st.cache_data(ttl=300)
 def load_definitions_list() -> List[str]:
     """
     Get list of definition files from /data/definitions
