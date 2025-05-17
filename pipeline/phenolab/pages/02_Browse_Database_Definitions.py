@@ -9,15 +9,18 @@ from utils.database_utils import (
 )
 from utils.style_utils import set_font_lato
 
+from phmlondon.config import SNOWFLAKE_DATABASE, DEFINITION_LIBRARY
 
 def view_aic_definitions():
-    """Display AIC Definitions"""
+    """
+    Display AIC Definitions
+    """
     st.title("AI Centre Definitions")
 
     conn = connect_to_snowflake()
-    query = "SELECT DEFINITION_ID, DEFINITION_NAME, " \
+    query = f"SELECT DEFINITION_ID, DEFINITION_NAME, " \
         "VERSION_DATETIME, UPLOADED_DATETIME " \
-        "FROM AIC_DEFINITIONS " \
+        f"FROM {DEFINITION_LIBRARY}.AIC_DEFINITIONS " \
         "GROUP BY DEFINITION_ID, DEFINITION_NAME, VERSION_DATETIME, UPLOADED_DATETIME " \
         "ORDER BY DEFINITION_NAME;"
 
@@ -56,7 +59,7 @@ def create_definition_panel(snowsesh,
                 VOCABULARY,
                 DEFINITION_ID,
                 CODELIST_VERSION
-            FROM INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.DEFINITIONSTORE
+            FROM {SNOWFLAKE_DATABASE}.{DEFINITION_LIBRARY}.DEFINITIONSTORE
             WHERE DEFINITION_ID = '{selected_id}'
             ORDER BY VOCABULARY, CODE
             """

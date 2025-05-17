@@ -4,6 +4,8 @@ from utils.database_utils import connect_to_snowflake, get_data_from_snowflake_t
 from utils.style_utils import set_font_lato
 from phmlondon.snow_utils import SnowflakeConnection
 
+from phmlondon.config import FEATURE_METADATA, DEFINITION_LIBRARY
+
 st.set_page_config(page_title="Feature Store Browser", layout="wide", initial_sidebar_state="expanded")
 
 set_font_lato()
@@ -15,7 +17,7 @@ st.title("Feature Store Browser")
 conn = connect_to_snowflake()
 
 @st.cache_data
-def switch_schema(_conn: SnowflakeConnection, schema: str = "AI_CENTRE_FEATURE_STORE_METADATA"):
+def switch_schema(_conn: SnowflakeConnection, schema: str = f"{FEATURE_METADATA}"):
     _conn.use_schema(schema)
 
 switch_schema(conn)
@@ -36,4 +38,4 @@ if st.button("Refresh"):
     get_data_from_snowflake_to_dataframe.clear(conn, features_query)
     get_data_from_snowflake_to_dataframe.clear(conn, versions_query)
 
-switch_schema(conn, "AI_CENTRE_DEFINITION_LIBRARY")
+switch_schema(conn, DEFINITION_LIBRARY)

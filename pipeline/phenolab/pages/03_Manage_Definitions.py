@@ -20,6 +20,8 @@ from utils.definition_display_utils import (
 )
 import re
 
+from phmlondon.config import SNOWFLAKE_DATABASE, DEFINITION_LIBRARY
+
 ## TARGET FUNCTIONALITY:
 ## This page handles all local definition management
 ## User may 1. CREATE 2. EDIT 3. VIEW/UPLOAD
@@ -201,8 +203,8 @@ def upload_definitions_to_snowflake():
     with st.spinner("Connecting to Snowflake..."):
         try:
             snowsesh = SnowflakeConnection()
-            snowsesh.use_database("INTELLIGENCE_DEV")
-            snowsesh.use_schema("AI_CENTRE_DEFINITION_LIBRARY")
+            snowsesh.use_database(SNOWFLAKE_DATABASE)
+            snowsesh.use_schema(DEFINITION_LIBRARY)
 
             st.success("Connected to Snowflake")
         except Exception as e:
@@ -358,7 +360,7 @@ def main():
 
     # TAB 3: VIEW AND UPLOAD DEFINITION
     with view_upload_tab:
-        st.markdown("This page will upload all definitions to `AI_CENTRE_DEFINITION_LIBRARY.AIC_DEFINITIONS`. " \
+        st.markdown(f"This page will upload all definitions to `{DEFINITION_LIBRARY}.AIC_DEFINITIONS`. " \
         "Updated definitions will overwrite previous versions")
 
         _, b, _ = st.columns(3)
