@@ -1,16 +1,16 @@
 {
   "definition_id": "f2bd75e5",
-  "definition_name": "renal_disorder_due_to_DM",
-  "definition_version": "renal_disorder_due_to_DM_20250401_140752",
+  "definition_name": "diabetic_renal_disorder_gp",
+  "definition_version": "diabetic_renal_disorder_gp_20250401_140752",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "2025-04-01T14:07:52.750657",
   "version_datetime": "2025-04-01T14:11:23.283499",
   "codelists": [
     {
-      "codelist_id": "renal_disorder_due_to_DM_SNOMED_299524",
-      "codelist_name": "renal_disorder_due_to_DM_SNOMED",
+      "codelist_id": "1e43c51a",
+      "codelist_name": "diabetic_renal_disorder_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "renal_disorder_due_to_DM_SNOMED_299524_20250401_140801",
+      "codelist_version": "diabetic_renal_disorder_gp_SNOMED_20250401_140801",
       "codes": [
         {
           "code": "420279001",

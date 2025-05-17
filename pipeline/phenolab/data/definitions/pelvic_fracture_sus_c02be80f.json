@@ -7,10 +7,10 @@
   "version_datetime": "2025-05-12T18:07:02.792277",
   "codelists": [
     {
-      "codelist_id": "pelvic_fracture_sus_ICD10_236206",
+      "codelist_id": "02a83603",
       "codelist_name": "pelvic_fracture_sus_ICD10",
       "codelist_vocabulary": "ICD10",
-      "codelist_version": "pelvic_fracture_sus_ICD10_236206_20250512_175352",
+      "codelist_version": "pelvic_fracture_sus_ICD10_20250512_175352",
       "codes": [
         {
           "code": "T02.71",

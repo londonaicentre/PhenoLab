@@ -7,10 +7,10 @@
   "version_datetime": "2025-04-01T16:30:52.223886",
   "codelists": [
     {
-      "codelist_id": "diabetic_neuropathic_complication_gp_SNOMED_874156",
+      "codelist_id": "86a95abe",
       "codelist_name": "diabetic_neuropathic_complication_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "diabetic_neuropathic_complication_gp_SNOMED_874156_20250401_141515",
+      "codelist_version": "diabetic_neuropathic_complication_gp_SNOMED_20250401_141515",
       "codes": [
         {
           "code": "230572002",

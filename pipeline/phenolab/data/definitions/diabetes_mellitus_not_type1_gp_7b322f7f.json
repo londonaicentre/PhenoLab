@@ -7,10 +7,10 @@
   "version_datetime": "2025-04-01T13:06:16.448146",
   "codelists": [
     {
-      "codelist_id": "diabetes_mellitus_not_type1_gp_SNOMED_655320",
+      "codelist_id": "70f93c15",
       "codelist_name": "diabetes_mellitus_not_type1_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "diabetes_mellitus_not_type1_gp_SNOMED_655320_20250401_125816",
+      "codelist_version": "diabetes_mellitus_not_type1_gp_SNOMED_20250401_125816",
       "codes": [
         {
           "code": "44054006",

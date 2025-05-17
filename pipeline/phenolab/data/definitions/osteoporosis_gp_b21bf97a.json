@@ -7,10 +7,10 @@
   "version_datetime": "2025-05-13T18:08:48.811649",
   "codelists": [
     {
-      "codelist_id": "osteoporosis_gp_SNOMED_690729",
+      "codelist_id": "0e3d8191",
       "codelist_name": "osteoporosis_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "osteoporosis_gp_SNOMED_690729_20250513_175824",
+      "codelist_version": "osteoporosis_gp_SNOMED_20250513_175824",
       "codes": [
         {
           "code": "64859006",

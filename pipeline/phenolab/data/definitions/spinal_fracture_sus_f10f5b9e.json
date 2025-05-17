@@ -1,16 +1,16 @@
 {
   "definition_id": "f10f5b9e",
-  "definition_name": "spinal_fracture_ICD10",
-  "definition_version": "spinal_fracture_ICD10_20250512_150041",
+  "definition_name": "spinal_fracture_sus",
+  "definition_version": "spinal_fracture_sus_20250512_150041",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "0001-01-01T00:00:00",
   "version_datetime": "2025-05-12T17:35:26.877556",
   "codelists": [
     {
-      "codelist_id": "spinal_fracture_ICD10_ICD10_238895",
-      "codelist_name": "spinal_fracture_ICD10_ICD10",
+      "codelist_id": "424d54bb",
+      "codelist_name": "spinal_fracture_sus_ICD10",
       "codelist_vocabulary": "ICD10",
-      "codelist_version": "spinal_fracture_ICD10_ICD10_238895_20250512_150117",
+      "codelist_version": "spinal_fracture_sus_ICD10_20250512_150117",
       "codes": [
         {
           "code": "T08",
@@ -345,10 +345,10 @@
       ]
     },
     {
-      "codelist_id": "spinal_fracture_ICD10_OPCS4_178966",
-      "codelist_name": "spinal_fracture_ICD10_OPCS4",
+      "codelist_id": "5a9049e0",
+      "codelist_name": "spinal_fracture_sus_OPCS4",
       "codelist_vocabulary": "OPCS4",
-      "codelist_version": "spinal_fracture_ICD10_OPCS4_178966_20250512_173259",
+      "codelist_version": "spinal_fracture_sus_OPCS4_20250512_173259",
       "codes": [
         {
           "code": "V46.9",

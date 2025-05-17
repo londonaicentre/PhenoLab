@@ -7,10 +7,10 @@
   "version_datetime": "2025-05-12T13:35:22.165826",
   "codelists": [
     {
-      "codelist_id": "falls_repeated_or_history_of_gp_SNOMED_893109",
+      "codelist_id": "a65162fb",
       "codelist_name": "falls_repeated_or_history_of_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "falls_repeated_or_history_of_gp_SNOMED_893109_20250512_132608",
+      "codelist_version": "falls_repeated_or_history_of_gp_SNOMED_20250512_132608",
       "codes": [
         {
           "code": "161898004",

@@ -7,10 +7,10 @@
   "version_datetime": "2025-04-01T16:37:36.550578",
   "codelists": [
     {
-      "codelist_id": "diabetic_eye_complications_gp_SNOMED_730636",
+      "codelist_id": "d789ba2f",
       "codelist_name": "diabetic_eye_complications_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "diabetic_eye_complications_gp_SNOMED_730636_20250401_131740",
+      "codelist_version": "diabetic_eye_complications_gp_SNOMED_20250401_131740",
       "codes": [
         {
           "code": "408410002",

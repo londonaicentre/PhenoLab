@@ -7,10 +7,10 @@
   "version_datetime": "2025-04-01T13:37:07.358448",
   "codelists": [
     {
-      "codelist_id": "myocardial_infarction_gp_SNOMED_630566",
+      "codelist_id": "074e0dde",
       "codelist_name": "myocardial_infarction_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "myocardial_infarction_gp_SNOMED_630566_20250401_133107",
+      "codelist_version": "myocardial_infarction_gp_SNOMED_20250401_133107",
       "codes": [
         {
           "code": "57054005",

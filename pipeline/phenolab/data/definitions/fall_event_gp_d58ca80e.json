@@ -7,10 +7,10 @@
   "version_datetime": "2025-05-12T17:22:22.154443",
   "codelists": [
     {
-      "codelist_id": "fall_event_gp_SNOMED_612979",
+      "codelist_id": "32aa4e5e",
       "codelist_name": "fall_event_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "fall_event_gp_SNOMED_612979_20250512_114849",
+      "codelist_version": "fall_event_gp_SNOMED_20250512_114849",
       "codes": [
         {
           "code": "217082002",

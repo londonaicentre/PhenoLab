@@ -7,10 +7,10 @@
   "version_datetime": "2025-04-01T13:19:46.437589",
   "codelists": [
     {
-      "codelist_id": "amputation_in_lower_limb_nontraumatic_gp_SNOMED_898183",
+      "codelist_id": "8419ffaf",
       "codelist_name": "amputation_in_lower_limb_nontraumatic_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "amputation_in_lower_limb_nontraumatic_gp_SNOMED_898183_20250401_131825",
+      "codelist_version": "amputation_in_lower_limb_nontraumatic_gp_SNOMED_20250401_131825",
       "codes": [
         {
           "code": "371186005",

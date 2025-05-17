@@ -7,10 +7,10 @@
   "version_datetime": "2025-05-12T17:15:49.453309",
   "codelists": [
     {
-      "codelist_id": "fall_event_sus_ICD10_157330",
+      "codelist_id": "93a986d5",
       "codelist_name": "fall_event_sus_ICD10",
       "codelist_vocabulary": "ICD10",
-      "codelist_version": "fall_event_sus_ICD10_157330_20250512_133904",
+      "codelist_version": "fall_event_sus_ICD10_20250512_133904",
       "codes": [
         {
           "code": "W18",

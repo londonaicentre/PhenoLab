@@ -7,10 +7,10 @@
   "version_datetime": "2025-04-01T13:57:57.329523",
   "codelists": [
     {
-      "codelist_id": "heart_failure_cause_not_specified_or_due_to_CAD_gp_SNOMED_434889",
+      "codelist_id": "11561782",
       "codelist_name": "heart_failure_cause_not_specified_or_due_to_CAD_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "heart_failure_cause_not_specified_or_due_to_CAD_gp_cause_not_specified_or_due_to_CAD_SNOMED_434889_20250401_135341",
+      "codelist_version": "heart_failure_cause_not_specified_or_due_to_CAD_gp_SNOMED_20250401_135341",
       "codes": [
         {
           "code": "84114007",

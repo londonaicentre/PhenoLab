@@ -1,16 +1,16 @@
 {
   "definition_id": "540ce0e8",
-  "definition_name": "rib_fracture_SNOMED",
-  "definition_version": "rib_fracture_SNOMED_20250513_174318",
+  "definition_name": "rib_fracture_gp",
+  "definition_version": "rib_fracture_gp_20250513_174318",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "0001-01-01T00:00:00",
   "version_datetime": "2025-05-13T17:47:44.171304",
   "codelists": [
     {
-      "codelist_id": "rib_fracture_SNOMED_SNOMED_432179",
-      "codelist_name": "rib_fracture_SNOMED_SNOMED",
+      "codelist_id": "07213c05",
+      "codelist_name": "rib_fracture_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "rib_fracture_SNOMED_SNOMED_432179_20250513_174340",
+      "codelist_version": "rib_fracture_gp_SNOMED_20250513_174340",
       "codes": [
         {
           "code": "33737001",
