@@ -1,16 +1,16 @@
 {
   "definition_id": "894add3f",
-  "definition_name": "neuropathy_due_to_nonT1DM_peripheral_autonomic_or_gastroparesis_894add3f.json",
-  "definition_version": "neuropathy_due_to_nonT1DM_peripheral_autonomic_or_gastroparesis_894add3f.json_20250401_141458",
+  "definition_name": "diabetic_neuropathic_complication_gp_894add3f",
+  "definition_version": "diabetic_neuropathic_complication_gp_894add3f_20250401_141458",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "2025-04-01T14:14:58.101888",
   "version_datetime": "2025-04-01T16:30:52.223886",
   "codelists": [
     {
-      "codelist_id": "neuropathy_due_to_nonT1DM_peripheral_autonomic_or_gastroparesis_894add3f.json_SNOMED_874156",
-      "codelist_name": "neuropathy_due_to_nonT1DM_peripheral_autonomic_or_gastroparesis_894add3f.json_SNOMED",
+      "codelist_id": "diabetic_neuropathic_complication_gp_SNOMED_874156",
+      "codelist_name": "diabetic_neuropathic_complication_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "neuropathy_due_to_nonT1DM_peripheral_autonomic_or_gastroparesis_894add3f.json_SNOMED_874156_20250401_141515",
+      "codelist_version": "diabetic_neuropathic_complication_gp_SNOMED_874156_20250401_141515",
       "codes": [
         {
           "code": "230572002",

@@ -1,16 +1,16 @@
 {
   "definition_id": "9cb7ac20",
-  "definition_name": "arm_fracture_ICD",
-  "definition_version": "arm_fracture_ICD_20250512_180740",
+  "definition_name": "arm_fracture_sus",
+  "definition_version": "arm_fracture_sus_20250512_180740",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "0001-01-01T00:00:00",
   "version_datetime": "2025-05-12T18:13:29.238040",
   "codelists": [
     {
-      "codelist_id": "arm_fracture_ICD_ICD10_826562",
-      "codelist_name": "arm_fracture_ICD_ICD10",
+      "codelist_id": "arm_fracture_sus_ICD10_826562",
+      "codelist_name": "arm_fracture_sus_ICD10",
       "codelist_vocabulary": "ICD10",
-      "codelist_version": "arm_fracture_ICD_ICD10_826562_20250512_180758",
+      "codelist_version": "arm_fracture_sus_ICD10_826562_20250512_180758",
       "codes": [
         {
           "code": "S42.2",

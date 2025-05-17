@@ -1,16 +1,16 @@
 {
   "definition_id": "b866abf9",
-  "definition_name": "random_blood_sugar_gp",
-  "definition_version": "random_blood_sugar_gp_20250325_112025",
+  "definition_name": "measurement_blood_glucose_gp",
+  "definition_version": "measurement_blood_glucose_gp_20250325_112025",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "2025-03-25T11:13:07.732003",
   "version_datetime": "2025-03-25T11:20:25.881351",
   "codelists": [
     {
       "codelist_id": "91e5a577",
-      "codelist_name": "random_blood_sugar_gp_SNOMED",
+      "codelist_name": "measurement_blood_glucose_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "random_blood_sugar_gp_SNOMED_20250325_112025",
+      "codelist_version": "measurement_blood_glucose_gp_SNOMED_20250325_112025",
       "codes": [
         {
           "code": "1010671000000102",

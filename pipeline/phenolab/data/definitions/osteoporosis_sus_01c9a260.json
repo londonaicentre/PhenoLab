@@ -1,16 +1,16 @@
 {
   "definition_id": "01c9a260",
-  "definition_name": "osteopororis_ICD",
-  "definition_version": "osteopororis_ICD_20250513_180857",
+  "definition_name": "osteoporosis_sus",
+  "definition_version": "osteoporosis_sus_20250513_180857",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "0001-01-01T00:00:00",
   "version_datetime": "2025-05-13T18:15:06.591644",
   "codelists": [
     {
-      "codelist_id": "osteopororis_ICD_ICD10_591302",
-      "codelist_name": "osteopororis_ICD_ICD10",
+      "codelist_id": "osteoporosis_sus_ICD10_591302",
+      "codelist_name": "osteoporosis_sus_ICD10",
       "codelist_vocabulary": "ICD10",
-      "codelist_version": "osteopororis_ICD_ICD10_591302_20250513_180927",
+      "codelist_version": "osteoporosis_sus_ICD10_591302_20250513_180927",
       "codes": [
         {
           "code": "M81.4",

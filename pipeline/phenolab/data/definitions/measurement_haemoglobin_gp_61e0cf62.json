@@ -1,16 +1,16 @@
 {
   "definition_id": "61e0cf62",
-  "definition_name": "haemoglobin_gp",
-  "definition_version": "haemoglobin_gp_20250325_112501",
+  "definition_name": "measurement_haemoglobin_gp",
+  "definition_version": "measurement_haemoglobin_gp_20250325_112501",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "2025-03-25T11:22:51.281487",
   "version_datetime": "2025-03-25T11:25:01.559285",
   "codelists": [
     {
       "codelist_id": "9c611955",
-      "codelist_name": "haemoglobin_gp_SNOMED",
+      "codelist_name": "measurement_haemoglobin_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "haemoglobin_gp_SNOMED_20250325_112501",
+      "codelist_version": "measurement_haemoglobin_gp_SNOMED_20250325_112501",
       "codes": [
         {
           "code": "1022431000000105",

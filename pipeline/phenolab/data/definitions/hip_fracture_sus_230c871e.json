@@ -1,16 +1,16 @@
 {
   "definition_id": "230c871e",
-  "definition_name": "hip_fracture_ICD",
-  "definition_version": "hip_fracture_ICD_20250513_171320",
+  "definition_name": "hip_fracture_sus",
+  "definition_version": "hip_fracture_sus_20250513_171320",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "0001-01-01T00:00:00",
   "version_datetime": "2025-05-13T17:15:14.618442",
   "codelists": [
     {
-      "codelist_id": "hip_fracture_ICD_ICD10_418207",
-      "codelist_name": "hip_fracture_ICD_ICD10",
+      "codelist_id": "hip_fracture_sus_ICD10_418207",
+      "codelist_name": "hip_fracture_sus_ICD10",
       "codelist_vocabulary": "ICD10",
-      "codelist_version": "hip_fracture_ICD_ICD10_418207_20250513_171338",
+      "codelist_version": "hip_fracture_sus_ICD10_418207_20250513_171338",
       "codes": [
         {
           "code": "S72.00",
@@ -60,10 +60,10 @@
       ]
     },
     {
-      "codelist_id": "hip_fracture_ICD_OPCS4_646621",
-      "codelist_name": "hip_fracture_ICD_OPCS4",
+      "codelist_id": "hip_fracture_sus_OPCS4_646621",
+      "codelist_name": "hip_fracture_sus_OPCS4",
       "codelist_vocabulary": "OPCS4",
-      "codelist_version": "hip_fracture_ICD_OPCS4_646621_20250513_171344",
+      "codelist_version": "hip_fracture_sus_OPCS4_646621_20250513_171344",
       "codes": [
         {
           "code": "W19.1",

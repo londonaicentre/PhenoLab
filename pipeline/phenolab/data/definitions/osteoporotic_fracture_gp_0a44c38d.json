@@ -1,16 +1,16 @@
 {
   "definition_id": "0a44c38d",
-  "definition_name": "osteoporotic_fracture_SNOMED",
-  "definition_version": "osteoporotic_fracture_SNOMED_20250512_170351",
+  "definition_name": "osteoporotic_fracture_gp",
+  "definition_version": "osteoporotic_fracture_gp_20250512_170351",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "0001-01-01T00:00:00",
   "version_datetime": "2025-05-12T17:12:30.818631",
   "codelists": [
     {
-      "codelist_id": "osteoporotic_fracture_SNOMED_SNOMED_626474",
-      "codelist_name": "osteoporotic_fracture_SNOMED_SNOMED",
+      "codelist_id": "osteoporotic_fracture_gp_SNOMED_626474",
+      "codelist_name": "osteoporotic_fracture_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "osteoporotic_fracture_SNOMED_SNOMED_626474_20250512_170405",
+      "codelist_version": "osteoporotic_fracture_gp_SNOMED_626474_20250512_170405",
       "codes": [
         {
           "code": "203453001",
@@ -308,13 +308,6 @@
           "code_vocabulary": "SNOMED"
         }
       ]
-    },
-    {
-      "codelist_id": "osteoporotic_fracture_SNOMED_ICD10_366500",
-      "codelist_name": "osteoporotic_fracture_SNOMED_ICD10",
-      "codelist_vocabulary": "ICD10",
-      "codelist_version": "osteoporotic_fracture_SNOMED_ICD10_366500_20250512_170925",
-      "codes": []
     }
   ]
 }

@@ -102,7 +102,10 @@ class Codelist:
         than from an existing source. The content of the codelist defaults to an empty list which must be populated
         incrementally.
         """
-        codelist_id = codelist_name + "_" + str(random.randint(100000, 999999))
+
+        content = f"{codelist_name}_{datetime.now().isoformat()}"
+        codelist_id = f"{codelist_name}_{hashlib.md5(content.encode()).hexdigest()[:8]}"
+
         codelist_version = f"{codelist_id}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
 
         return cls(
@@ -112,7 +115,7 @@ class Codelist:
             codelist_version=codelist_version,
             codes=[],
         )
-    
+
     def add_code(self, code: Code) -> bool:
         """
         Add a code to the codelist
@@ -127,7 +130,7 @@ class Codelist:
             if existing_code.code == code.code:
                 return False
         self.codes.append(code)
-        self.__post_init__() # does verification on the vocab 
+        self.__post_init__() # does verification on the vocab
         return True
 
 
@@ -156,7 +159,7 @@ class Definition:
     @property
     def df(self) -> pd.DataFrame:
         return self.to_dataframe()
-    
+
     @property
     def codes(self) -> list[Code]:
         return [code for codelist in self.codelists for code in codelist.codes]
@@ -252,7 +255,7 @@ class Definition:
             codelists=codelists,
             version_datetime=version_datetime,
         )
-    
+
     @classmethod
     def from_scratch(cls, definition_name: str, codelists: list = None) -> Self:
         """
@@ -272,7 +275,7 @@ class Definition:
 
         # don't have an uploaded datetime
 
-        return cls(definition_name=definition_name, 
+        return cls(definition_name=definition_name,
                 definition_id=definition_id,
                 definition_version=definition_version,
                 definition_source=definition_source,
@@ -324,7 +327,7 @@ class Definition:
                 if code.code == code_to_remove.code and code.code_vocabulary == code_to_remove.code_vocabulary:
                     codelist.codes.pop(i)
                     return True
-        
+
         return False
 
     def show(self):
@@ -377,7 +380,7 @@ class Definition:
             data = json.load(f)
 
         return cls.from_dict(data)
-    
+
     def to_dict(self) -> dict:
         """
         Convert definition to a dictionary for json
@@ -424,7 +427,7 @@ class Definition:
         Return:
             str:
                 Path where saved (show in streamlit)
-        """ 
+        """
         os.makedirs(directory, exist_ok=True)
 
         filename = f"{self.definition_name}_{self.definition_id}.json"
@@ -437,7 +440,7 @@ class Definition:
             if self == existing_definition:
                 print("Existing file with same definition found, no need to save")
                 return filepath
-            
+
         # update version - a version number is only created when the definition is saved to json
         self.version_datetime = datetime.now()
 

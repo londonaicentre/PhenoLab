@@ -1,16 +1,16 @@
 {
   "definition_id": "281c960d",
-  "definition_name": "fall_event_ICD",
-  "definition_version": "fall_event_ICD_20250512_133853",
+  "definition_name": "fall_event_sus",
+  "definition_version": "fall_event_sus_20250512_133853",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "0001-01-01T00:00:00",
   "version_datetime": "2025-05-12T17:15:49.453309",
   "codelists": [
     {
-      "codelist_id": "fall_event_ICD_ICD10_157330",
-      "codelist_name": "fall_event_ICD_ICD10",
+      "codelist_id": "fall_event_sus_ICD10_157330",
+      "codelist_name": "fall_event_sus_ICD10",
       "codelist_vocabulary": "ICD10",
-      "codelist_version": "fall_event_ICD_ICD10_157330_20250512_133904",
+      "codelist_version": "fall_event_sus_ICD10_157330_20250512_133904",
       "codes": [
         {
           "code": "W18",
