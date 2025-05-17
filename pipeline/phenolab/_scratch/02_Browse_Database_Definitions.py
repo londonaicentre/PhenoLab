@@ -1,7 +1,10 @@
+"""
+This script is used to explore clinical codes within phenotype definitions, with side-by-side comparison.
+"""
+
 import re
 
 import streamlit as st
-from dotenv import load_dotenv
 from utils.database_utils import (
     connect_to_snowflake,
     get_data_from_snowflake_to_dataframe,
@@ -9,25 +12,7 @@ from utils.database_utils import (
 )
 from utils.style_utils import set_font_lato
 
-
-def view_aic_definitions():
-    """Display AIC Definitions"""
-    st.title("AI Centre Definitions")
-
-    conn = connect_to_snowflake()
-    query = "SELECT DEFINITION_ID, DEFINITION_NAME, " \
-        "VERSION_DATETIME, UPLOADED_DATETIME " \
-        "FROM AIC_DEFINITIONS " \
-        "GROUP BY DEFINITION_ID, DEFINITION_NAME, VERSION_DATETIME, UPLOADED_DATETIME " \
-        "ORDER BY DEFINITION_NAME;"
-
-    definitions = get_data_from_snowflake_to_dataframe(conn, query)
-    st.dataframe(definitions)
-
-    if st.button("Refresh", key="aic_refresh_button"):
-        get_data_from_snowflake_to_dataframe.clear(conn, query)
-        st.rerun()
-
+# DEFINITIONS PANEL
 def create_definition_panel(snowsesh,
                             column,
                             panel_name,
@@ -37,7 +22,7 @@ def create_definition_panel(snowsesh,
     with column:
         st.subheader(f"Definition Panel {panel_name}")
 
-        # select definition
+        # 1. select definition
         selected_definition = st.selectbox(
             f"Select Definition ({panel_name})",
             options=definition_labels,
@@ -74,20 +59,19 @@ def create_definition_panel(snowsesh,
 
                 # Store codes in session state for comparison
                 st.session_state[f"codes_{panel_name}"] = codes_df
-
+            
             else:
                 st.write("No codes found for the selected definition.")
 
-
 def show_missing_codes(column, panel_name):
-    # missing codes section
+    # Missing codes section
     with column:
 
         if f"codes_{'B' if panel_name == 'A' else 'A'}" in st.session_state:
             other_panel = 'B' if panel_name == 'A' else 'A'
             other_codes = st.session_state[f"codes_{other_panel}"]
 
-            # find codes in the other panel that are missing from this one
+            # Find codes in the other panel that are missing from this one
             st.session_state["missing_codes"] = other_codes[~other_codes["CODE"].isin(
                 st.session_state[f"codes_{panel_name}"]["CODE"])]
 
@@ -101,12 +85,15 @@ def show_missing_codes(column, panel_name):
             st.write("Select a definition in the other panel to see missing codes.")
 
 
-def compare_definitions():
-    """
-    Compare definitions side-by-side
-    """
-    st.title("Compare Definitions")
+def main():
+    # Main page
+    snowsesh = connect_to_snowflake()
 
+    st.set_page_config(page_title="Browse Database Definitions", layout="wide")
+
+    set_font_lato()
+
+    st.title("Browse database definitions")
     st.write(
         """
         Explore clinical codes within phenotype definitions with side-by-side comparison.
@@ -114,9 +101,6 @@ def compare_definitions():
         Summaries show shared codes, and non-overlapping codes, between definitions
         """
         )
-
-    # get connection
-    snowsesh = connect_to_snowflake()
 
     # get all definitions
     definition_ids, definition_labels = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(snowsesh)
@@ -130,7 +114,7 @@ def compare_definitions():
     col2, _ = st.columns(2)
     with col2:
         st.subheader("Missing codes")
-
+    
     col3A, col3B = st.columns(2)
 
     show_missing_codes(col3A, "A")
@@ -161,29 +145,11 @@ def compare_definitions():
             st.metric("Only in Panel B", len(only_B))
 
         # hiding shared codes unless specifically selected
-        if shared_codes and st.checkbox("Show shared codes", key="show_shared_codes_checkbox"):
+        if shared_codes and st.checkbox("Show shared codes"):
             shared_df = st.session_state["codes_A"][st.session_state["codes_A"]["CODE"].isin(shared_codes)]
             st.dataframe(shared_df.loc[:, ["CODE", "CODE_DESCRIPTION", "VOCABULARY"]])
     else:
         st.info("Select definitions in both panels to see shared analysis.")
-
-
-def main():
-    st.set_page_config(page_title="Browse Definitions", layout="wide", initial_sidebar_state="expanded")
-    set_font_lato()
-
-    load_dotenv()
-
-    # create tabs for each section
-    view_tab, compare_tab = st.tabs(["View AIC Definitions", "Compare Definitions"])
-
-    # TAB 1: LIST AIC DEFS
-    with view_tab:
-        view_aic_definitions()
-
-    # TAB 2: COMPARE BETWEEN DEFS
-    with compare_tab:
-        compare_definitions()
 
 
 if __name__ == "__main__":

@@ -25,7 +25,7 @@ import re
 ## User may 1. CREATE 2. EDIT 3. VIEW/UPLOAD
 ## Each tab uses separate temporary definition state to avoid conflicts
 ## TO DO:
-## Is there a way to render single tab only?
+## Deferred rendering for each tab should save a lot of performance (e.g. if tab, with tab)
 
 #################
 #### Solution to use temporary tab definition states
@@ -275,24 +275,24 @@ def upload_definitions_to_snowflake():
                     st.info(f"Deleted old version(s) of {name}")
 
                 # run update.py script to refresh DEFINITIONSTORE
-                with st.spinner("Updating DEFINITIONSTORE..."):
-                    try:
-                        current_dir = os.path.dirname(os.path.abspath(__file__))
-                        update_script_path = os.path.normpath(
-                            os.path.join(current_dir, "../../definition_library/update.py")
-                        )
+                # with st.spinner("Updating DEFINITIONSTORE..."):
+                #     try:
+                #         current_dir = os.path.dirname(os.path.abspath(__file__))
+                #         update_script_path = os.path.normpath(
+                #             os.path.join(current_dir, "../../definition_library/update.py")
+                #         )
 
-                        if not os.path.exists(update_script_path):
-                            raise FileNotFoundError(f"Update script not found at {update_script_path}")
+                #         if not os.path.exists(update_script_path):
+                #             raise FileNotFoundError(f"Update script not found at {update_script_path}")
 
-                        result = subprocess.run(
-                            [sys.executable, update_script_path], capture_output=True, text=True, check=True
-                        )
-                        st.success("Definition store updated successfully")
-                    except subprocess.CalledProcessError as e:
-                        st.error(f"Error updating definition store: {e.stderr}")
-                    except Exception as e:
-                        st.error(f"Error executing update script: {str(e)}")
+                #         result = subprocess.run(
+                #             [sys.executable, update_script_path], capture_output=True, text=True, check=True
+                #         )
+                #         st.success("Definition store updated successfully")
+                #     except subprocess.CalledProcessError as e:
+                #         st.error(f"Error updating definition store: {e.stderr}")
+                #     except Exception as e:
+                #         st.error(f"Error executing update script: {str(e)}")
 
             except Exception as e:
                 st.error(f"Error uploading to Snowflake: {e}")
