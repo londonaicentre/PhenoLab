@@ -358,7 +358,8 @@ def main():
 
     # TAB 3: VIEW AND UPLOAD DEFINITION
     with view_upload_tab:
-        st.markdown("This page will upload all definitions to `AI_CENTRE_DEFINITION_LIBRARY.AIC_DEFINITIONS`")
+        st.markdown("This page will upload all definitions to `AI_CENTRE_DEFINITION_LIBRARY.AIC_DEFINITIONS`. " \
+        "Updated definitions will overwrite previous versions")
 
         _, b, _ = st.columns(3)
         [maincol] = st.columns(1)
@@ -367,7 +368,7 @@ def main():
         with b:
             st.text(" ")
             if definition_count > 0:
-                if st.button(f"Upload new definitions to Snowflake"):
+                if st.button(f"Upload new / updated definitions to Snowflake"):
                     with maincol:
                         upload_definitions_to_snowflake()
             else:
