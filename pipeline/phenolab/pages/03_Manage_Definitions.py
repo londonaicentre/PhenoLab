@@ -24,6 +24,8 @@ import re
 ## This page handles all local definition management
 ## User may 1. CREATE 2. EDIT 3. VIEW/UPLOAD
 ## Each tab uses separate temporary definition state to avoid conflicts
+## TO DO:
+## Is there a way to render single tab only?
 
 #################
 #### Solution to use temporary tab definition states
@@ -157,6 +159,7 @@ def get_definitions_list():
     definition_files = glob.glob(os.path.join(definitions_dir, "*.json"))
     return [os.path.basename(f) for f in definition_files]
 
+@st.cache_data(show_spinner=False)
 def display_definition_content(definition_file):
     """
     Display content from a selected definition
@@ -305,13 +308,10 @@ def main():
     # initialise session state
     if "current_definition" not in st.session_state:
         st.session_state.current_definition = None
-
     if "create_tab_definition" not in st.session_state: # split create/edit to separate states
         st.session_state.create_tab_definition = None
-
-    if "edit_tab_definition" not in st.session_state:
+    if "edit_tab_definition" not in st.session_state: # split create/edit to separate states
         st.session_state.edit_tab_definition = None
-
     if "codes" not in st.session_state:
         st.session_state.codes = None
 
