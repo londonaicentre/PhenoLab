@@ -7,10 +7,10 @@
   "version_datetime": "2025-04-01T13:48:25.872917",
   "codelists": [
     {
-      "codelist_id": "non_haemorrhagic_stroke_gp_SNOMED_906532",
+      "codelist_id": "1f2edb31",
       "codelist_name": "non_haemorrhagic_stroke_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "non_haemorrhagic_stroke_gp_SNOMED_906532_20250401_133832",
+      "codelist_version": "non_haemorrhagic_stroke_gp_SNOMED_20250401_133832",
       "codes": [
         {
           "code": "422504002",

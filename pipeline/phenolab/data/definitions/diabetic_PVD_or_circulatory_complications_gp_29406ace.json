@@ -1,16 +1,16 @@
 {
   "definition_id": "29406ace",
-  "definition_name": "PVD_or_circulatory_complications_gp",
-  "definition_version": "PVD_or_circulatory_complications_gp_20250401_163349",
+  "definition_name": "diabetic_PVD_or_circulatory_complications_gp",
+  "definition_version": "diabetic_PVD_or_circulatory_complications_gp_20250401_163349",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "2025-04-01T16:33:49.954597",
   "version_datetime": "2025-04-01T16:35:51.645295",
   "codelists": [
     {
-      "codelist_id": "PVD_or_circulatory_complications_gp_SNOMED_174600",
-      "codelist_name": "PVD_or_circulatory_complications_gp_SNOMED",
+      "codelist_id": "da864dc8",
+      "codelist_name": "diabetic_PVD_or_circulatory_complications_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "PVD_or_circulatory_complications_gp_SNOMED_174600_20250401_163354",
+      "codelist_version": "diabetic_PVD_or_circulatory_complications_gp_SNOMED_20250401_163354",
       "codes": [
         {
           "code": "422166005",

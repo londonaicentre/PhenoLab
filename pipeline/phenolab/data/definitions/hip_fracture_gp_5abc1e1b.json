@@ -7,10 +7,10 @@
   "version_datetime": "2025-05-13T17:13:07.206664",
   "codelists": [
     {
-      "codelist_id": "hip_fracture_gp_SNOMED_342366",
+      "codelist_id": "fd0248f0",
       "codelist_name": "hip_fracture_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "hip_fracture_gp_SNOMED_342366_20250513_163846",
+      "codelist_version": "hip_fracture_gp_SNOMED_20250513_163846",
       "codes": [
         {
           "code": "239285007",

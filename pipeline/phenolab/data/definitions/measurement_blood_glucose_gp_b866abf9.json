@@ -7,7 +7,7 @@
   "version_datetime": "2025-03-25T11:20:25.881351",
   "codelists": [
     {
-      "codelist_id": "91e5a577",
+      "codelist_id": "efc8efc2",
       "codelist_name": "measurement_blood_glucose_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
       "codelist_version": "measurement_blood_glucose_gp_SNOMED_20250325_112025",

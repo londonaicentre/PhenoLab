@@ -7,10 +7,10 @@
   "version_datetime": "2025-05-12T18:13:29.238040",
   "codelists": [
     {
-      "codelist_id": "arm_fracture_sus_ICD10_826562",
+      "codelist_id": "fb0a5369",
       "codelist_name": "arm_fracture_sus_ICD10",
       "codelist_vocabulary": "ICD10",
-      "codelist_version": "arm_fracture_sus_ICD10_826562_20250512_180758",
+      "codelist_version": "arm_fracture_sus_ICD10_20250512_180758",
       "codes": [
         {
           "code": "S42.2",

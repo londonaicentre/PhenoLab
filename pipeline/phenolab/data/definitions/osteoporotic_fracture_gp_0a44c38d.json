@@ -7,10 +7,10 @@
   "version_datetime": "2025-05-12T17:12:30.818631",
   "codelists": [
     {
-      "codelist_id": "osteoporotic_fracture_gp_SNOMED_626474",
+      "codelist_id": "0fce0de8",
       "codelist_name": "osteoporotic_fracture_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "osteoporotic_fracture_gp_SNOMED_626474_20250512_170405",
+      "codelist_version": "osteoporotic_fracture_gp_SNOMED_20250512_170405",
       "codes": [
         {
           "code": "203453001",

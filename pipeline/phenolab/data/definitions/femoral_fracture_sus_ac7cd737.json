@@ -7,10 +7,10 @@
   "version_datetime": "2025-05-13T17:35:35.335178",
   "codelists": [
     {
-      "codelist_id": "femoral_fracture_sus_ICD10_119079",
+      "codelist_id": "cb3cb4b6",
       "codelist_name": "femoral_fracture_sus_ICD10",
       "codelist_vocabulary": "ICD10",
-      "codelist_version": "femoral_fracture_sus_ICD10_119079_20250513_173403",
+      "codelist_version": "femoral_fracture_sus_ICD10_20250513_173403",
       "codes": [
         {
           "code": "S72.3",

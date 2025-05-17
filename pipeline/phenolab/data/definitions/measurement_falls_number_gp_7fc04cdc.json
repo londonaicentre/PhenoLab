@@ -7,10 +7,10 @@
   "version_datetime": "2025-05-12T13:38:39.621986",
   "codelists": [
     {
-      "codelist_id": "measurement_falls_number_gp_SNOMED_829357",
+      "codelist_id": "1e7ddcd3",
       "codelist_name": "measurement_falls_number_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "measurement_falls_number_gp_SNOMED_829357_20250512_133557",
+      "codelist_version": "measurement_falls_number_gp_SNOMED_20250512_133557",
       "codes": [
         {
           "code": "391002003",

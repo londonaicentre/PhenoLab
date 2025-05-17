@@ -7,10 +7,10 @@
   "version_datetime": "2025-05-12T14:00:50.701034",
   "codelists": [
     {
-      "codelist_id": "falls_repeated_or_history_of_sus_ICD10_949244",
+      "codelist_id": "e7e57295",
       "codelist_name": "falls_repeated_or_history_of_sus_ICD10",
       "codelist_vocabulary": "ICD10",
-      "codelist_version": "falls_repeated_or_history_of_sus_ICD10_949244_20250512_135639",
+      "codelist_version": "falls_repeated_or_history_of_sus_ICD10_20250512_135639",
       "codes": [
         {
           "code": "R29.6",

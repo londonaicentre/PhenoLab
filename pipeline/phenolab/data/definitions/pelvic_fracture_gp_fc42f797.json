@@ -7,10 +7,10 @@
   "version_datetime": "2025-05-12T17:53:13.332021",
   "codelists": [
     {
-      "codelist_id": "pelvic_fracture_gp_SNOMED_450439",
+      "codelist_id": "e460338a",
       "codelist_name": "pelvic_fracture_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "pelvic_fracture_gp_SNOMED_450439_20250512_174044",
+      "codelist_version": "pelvic_fracture_gp_SNOMED_20250512_174044",
       "codes": [
         {
           "code": "7687006",

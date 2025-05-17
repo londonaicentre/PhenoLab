@@ -1,16 +1,16 @@
 {
   "definition_id": "80831471",
-  "definition_name": "rib_fracture_ICD",
-  "definition_version": "rib_fracture_ICD_20250513_174753",
+  "definition_name": "rib_fracture_sus",
+  "definition_version": "rib_fracture_sus_20250513_174753",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "0001-01-01T00:00:00",
   "version_datetime": "2025-05-13T17:48:56.869580",
   "codelists": [
     {
-      "codelist_id": "rib_fracture_ICD_ICD10_291145",
-      "codelist_name": "rib_fracture_ICD_ICD10",
+      "codelist_id": "ed2c12d5",
+      "codelist_name": "rib_fracture_sus_ICD10",
       "codelist_vocabulary": "ICD10",
-      "codelist_version": "rib_fracture_ICD_ICD10_291145_20250513_174801",
+      "codelist_version": "rib_fracture_sus_ICD10_20250513_174801",
       "codes": [
         {
           "code": "S22.2",

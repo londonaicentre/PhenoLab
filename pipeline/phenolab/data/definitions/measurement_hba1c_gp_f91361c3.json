@@ -7,7 +7,7 @@
   "version_datetime": "2025-05-12T14:51:39.635579",
   "codelists": [
     {
-      "codelist_id": "8a85dfe6",
+      "codelist_id": "09c6ea6d",
       "codelist_name": "measurement_hba1c_gp_SNOMED",
       "codelist_vocabulary": "SNOMED",
       "codelist_version": "measurement_hba1c_gp_SNOMED_20250318_135322",
