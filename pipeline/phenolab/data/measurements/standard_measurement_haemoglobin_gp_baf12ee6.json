@@ -1,0 +1,15 @@
+{
+  "definition_id": "61e0cf62",
+  "definition_name": "measurement_haemoglobin_gp",
+  "standard_units": [
+    "g/L",
+    "g/dL"
+  ],
+  "primary_standard_unit": "g/L",
+  "unit_mappings": [],
+  "unit_conversions": [],
+  "created_datetime": "2025-05-18T12:24:42.274783",
+  "updated_datetime": "2025-05-18T12:42:47.029781",
+  "standard_measurement_config_id": "baf12ee6",
+  "standard_measurement_config_version": "measurement_haemoglobin_gp_20250518_124247"
+}

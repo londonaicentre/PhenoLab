@@ -1,0 +1,12 @@
+{
+  "definition_id": "7fc04cdc",
+  "definition_name": "measurement_falls_number_gp",
+  "standard_units": [],
+  "primary_standard_unit": null,
+  "unit_mappings": [],
+  "unit_conversions": [],
+  "created_datetime": "2025-05-18T12:24:42.273607",
+  "updated_datetime": "2025-05-18T12:24:42.273607",
+  "standard_measurement_config_id": "228dd97b",
+  "standard_measurement_config_version": "measurement_falls_number_gp_20250518_122442"
+}

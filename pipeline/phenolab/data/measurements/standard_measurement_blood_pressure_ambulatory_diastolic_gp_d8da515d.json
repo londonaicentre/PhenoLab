@@ -1,0 +1,14 @@
+{
+  "definition_id": "4523d602",
+  "definition_name": "measurement_blood_pressure_ambulatory_diastolic_gp",
+  "standard_units": [
+    "mmHg"
+  ],
+  "primary_standard_unit": "mmHg",
+  "unit_mappings": [],
+  "unit_conversions": [],
+  "created_datetime": "2025-05-18T12:24:42.275591",
+  "updated_datetime": "2025-05-18T12:30:55.175975",
+  "standard_measurement_config_id": "d8da515d",
+  "standard_measurement_config_version": "measurement_blood_pressure_ambulatory_diastolic_gp_20250518_123055"
+}

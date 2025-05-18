@@ -221,6 +221,8 @@ def upload_definitions_to_snowflake():
             try:
                 file_path = os.path.join("data/definitions", def_file)
                 definition = Definition.from_json(file_path)
+                print(definition) ## DEBUG
+                print(definition.to_dataframe()) ## DEBUG
 
                 query = f"""
                 SELECT DEFINITION_ID, DEFINITION_NAME, VERSION_DATETIME
@@ -262,7 +264,7 @@ def upload_definitions_to_snowflake():
     if not all_rows.empty:
         with st.spinner(f"Uploading {len(all_rows)} rows to Snowflake..."):
             try:
-                df = pd.DataFrame(all_rows)
+                df = all_rows.copy()
                 df.columns = df.columns.str.upper()
                 # st.write(df)
                 snowsesh.load_dataframe_to_table(df=df, table_name="AIC_DEFINITIONS", mode="append")
@@ -275,32 +277,32 @@ def upload_definitions_to_snowflake():
                             VERSION_DATETIME != CAST('{current_version}' AS TIMESTAMP)"""
                         ).collect()
                     st.info(f"Deleted old version(s) of {name}")
-
-                # run update.py script to refresh DEFINITIONSTORE
-                # with st.spinner("Updating DEFINITIONSTORE..."):
-                #     try:
-                #         current_dir = os.path.dirname(os.path.abspath(__file__))
-                #         update_script_path = os.path.normpath(
-                #             os.path.join(current_dir, "../../definition_library/update.py")
-                #         )
-
-                #         if not os.path.exists(update_script_path):
-                #             raise FileNotFoundError(f"Update script not found at {update_script_path}")
-
-                #         result = subprocess.run(
-                #             [sys.executable, update_script_path], capture_output=True, text=True, check=True
-                #         )
-                #         st.success("Definition store updated successfully")
-                #     except subprocess.CalledProcessError as e:
-                #         st.error(f"Error updating definition store: {e.stderr}")
-                #     except Exception as e:
-                #         st.error(f"Error executing update script: {str(e)}")
-
             except Exception as e:
                 st.error(f"Error uploading to Snowflake: {e}")
                 raise e
     else:
         st.warning("No data to upload")
+
+    # always run update.py script to refresh DEFINITIONSTORE
+    with st.spinner("Updating DEFINITIONSTORE..."):
+        print("running update.py")
+        try:
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            update_script_path = os.path.normpath(
+                os.path.join(current_dir, "../../definition_library/update.py")
+            )
+
+            if not os.path.exists(update_script_path):
+                raise FileNotFoundError(f"Update script not found at {update_script_path}")
+
+            result = subprocess.run(
+                [sys.executable, update_script_path], capture_output=True, text=True, check=True
+            )
+            st.success("Definition store updated successfully")
+        except subprocess.CalledProcessError as e:
+            st.error(f"Error updating definition store: {e.stderr}")
+        except Exception as e:
+            st.error(f"Error executing update script: {str(e)}")
 
 def main():
     st.set_page_config(page_title="Manage Definitions", layout="wide")
@@ -361,7 +363,8 @@ def main():
     # TAB 3: VIEW AND UPLOAD DEFINITION
     with view_upload_tab:
         st.markdown(f"This page will upload all definitions to `{DEFINITION_LIBRARY}.AIC_DEFINITIONS`. " \
-        "Updated definitions will overwrite previous versions")
+        "Updated definitions will overwrite previous versions." \
+        "`DEFINITIONSTORE` will be updated by triggering `update.py`")
 
         _, b, _ = st.columns(3)
         [maincol] = st.columns(1)
