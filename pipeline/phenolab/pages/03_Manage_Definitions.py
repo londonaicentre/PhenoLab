@@ -22,16 +22,21 @@ import re
 
 from phmlondon.config import SNOWFLAKE_DATABASE, DEFINITION_LIBRARY
 
-## TARGET FUNCTIONALITY:
-## This page handles all local definition management
-## User may 1. CREATE 2. EDIT 3. VIEW/UPLOAD
-## Each tab uses separate temporary definition state to avoid conflicts
-## TO DO:
-## Deferred rendering for each tab should save a lot of performance (e.g. if tab, with tab)
 
-#################
-#### Solution to use temporary tab definition states
-#################
+# # 03_Manage_Definitions.py
+
+# Comprehensive interface for 1. creating, 2. editing and 3. viewing clinical /
+# code definitions. Users can search across multiple vocabularies, add /
+# codes to definitions, and upload definitions to Snowflake. /
+
+# TO DO
+# - Can we implement deferred tab rendering?
+# - E.g. if tab, with tab...
+
+
+##################
+# Temp tab states #
+##################
 def use_create_tab_definition():
     """
     On entry to the tab, switch to a temporaru 'create' definition state
@@ -171,9 +176,7 @@ def display_definition_content(definition_file):
         definition = Definition.from_json(file_path)
 
         # definition info
-        st.subheader(f"Definition: {definition.definition_name}")
-        st.caption(f"ID: {definition.definition_id} | Version: {definition.definition_version}")
-        st.caption(f"Source: {definition.definition_source}")
+        st.caption(f"Definition: {definition.definition_name}")
 
         # codelists and codes
         total_codes = 0
@@ -362,24 +365,8 @@ def main():
 
     # TAB 3: VIEW AND UPLOAD DEFINITION
     with view_upload_tab:
-        st.markdown(f"This page will upload all definitions to `{DEFINITION_LIBRARY}.AIC_DEFINITIONS`. " \
-        "Updated definitions will overwrite previous versions." \
-        "`DEFINITIONSTORE` will be updated by triggering `update.py`")
-
-        _, b, _ = st.columns(3)
-        [maincol] = st.columns(1)
-
-        definition_count = len(get_definitions_list())
-        with b:
-            st.text(" ")
-            if definition_count > 0:
-                if st.button(f"Upload new / updated definitions to Snowflake"):
-                    with maincol:
-                        upload_definitions_to_snowflake()
-            else:
-                st.warning("No definitions available to upload")
-
-        st.markdown("---")
+        st.markdown(f"This page will upload all definitions to `{DEFINITION_LIBRARY}.AIC_DEFINITIONS` and refresh `DEFINITIONSTORE`." \
+        "Updated definitions will overwrite previous versions.")
 
         col1, col2 = st.columns([1, 1.5])
 
@@ -397,6 +384,21 @@ def main():
                 display_definition_content(selected_definition)
             else:
                 st.info("Select a definition from the list to view its contents")
+
+        st.markdown("---")
+
+        _, b, _ = st.columns(3)
+        [maincol] = st.columns(1)
+
+        definition_count = len(get_definitions_list())
+        with b:
+            st.text(" ")
+            if definition_count > 0:
+                if st.button(f"Upload new / updated definitions to Snowflake"):
+                    with maincol:
+                        upload_definitions_to_snowflake()
+            else:
+                st.warning("No definitions available to upload")
 
 if __name__ == "__main__":
     main()

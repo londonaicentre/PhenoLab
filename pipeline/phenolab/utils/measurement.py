@@ -6,6 +6,22 @@ from dataclasses import dataclass, field
 from enum import Enum
 from typing import Dict, List, Optional, Tuple, Union
 
+"""
+# measurement.py
+
+This module provides classes for representing measurement configurations, /
+unit conversions, and mappings between source and standard units. /
+
+Measurement configurations are found in `/data/measurements` and are /
+used to store result unit mappings and conversions used for standardisation
+
+Main data classes:
+- UnitConversion: Represents a conversion formula from one unit to another
+- UnitMapping: Represents a mapping from a source unit to a standard unit
+- MeasurementConfig: Represents the main standard measurement configuration
+"""
+
+
 @dataclass
 class UnitConversion:
     """

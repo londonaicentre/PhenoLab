@@ -8,6 +8,17 @@ from utils.style_utils import set_font_lato
 from phmlondon.snow_utils import SnowflakeConnection
 from phmlondon.config import SNOWFLAKE_DATABASE, DEFINITION_LIBRARY
 
+
+# # 05_Build_A_Phenotype.py
+
+# This page facilitates the creation of phenotypes by combining clinical definitions /
+# with logical operators. Users can select definitions, configure condition blocks, /
+# and build logical expressions to define cohorts.
+
+# TO DO
+# - Not feature complete!
+
+
 load_dotenv()
 
 

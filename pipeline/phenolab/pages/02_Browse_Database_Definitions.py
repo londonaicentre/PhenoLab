@@ -6,10 +6,19 @@ from utils.database_utils import (
     connect_to_snowflake,
     get_data_from_snowflake_to_dataframe,
     get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list,
+    get_aic_definitions
 )
 from utils.style_utils import set_font_lato
 
 from phmlondon.config import SNOWFLAKE_DATABASE, DEFINITION_LIBRARY
+
+
+# # 02_Browse_Database_Definitions.py
+
+# Enables users to browse AI Centre definitions stored in Snowflake and /
+# perform side-by-side comparisons between all definitions in DEFINITIONSTORE. /
+# Users can identify shared and unique codes, for validation and refinement.
+
 
 def view_aic_definitions():
     """
@@ -17,18 +26,13 @@ def view_aic_definitions():
     """
     st.title("AI Centre Definitions")
 
-    conn = connect_to_snowflake()
-    query = f"SELECT DEFINITION_ID, DEFINITION_NAME, " \
-        "VERSION_DATETIME, UPLOADED_DATETIME " \
-        f"FROM {DEFINITION_LIBRARY}.AIC_DEFINITIONS " \
-        "GROUP BY DEFINITION_ID, DEFINITION_NAME, VERSION_DATETIME, UPLOADED_DATETIME " \
-        "ORDER BY DEFINITION_NAME;"
+    snowsesh = connect_to_snowflake()
 
-    definitions = get_data_from_snowflake_to_dataframe(conn, query)
+    definitions = get_aic_definitions(snowsesh)
     st.dataframe(definitions)
 
     if st.button("Refresh", key="aic_refresh_button"):
-        get_data_from_snowflake_to_dataframe.clear(conn, query)
+        get_aic_definitions(snowsesh)
         st.rerun()
 
 def create_definition_panel(snowsesh,
