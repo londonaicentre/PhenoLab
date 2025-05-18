@@ -365,9 +365,6 @@ def main():
 
     # TAB 3: VIEW AND UPLOAD DEFINITION
     with view_upload_tab:
-        st.markdown(f"This page will upload all definitions to `{DEFINITION_LIBRARY}.AIC_DEFINITIONS` and refresh `DEFINITIONSTORE`." \
-        "Updated definitions will overwrite previous versions.")
-
         col1, col2 = st.columns([1, 1.5])
 
         with col1:
@@ -387,6 +384,8 @@ def main():
 
         st.markdown("---")
 
+        st.markdown(f"This will upload all definitions to `{DEFINITION_LIBRARY}.AIC_DEFINITIONS` and refresh `DEFINITIONSTORE`." \
+        "Updated definitions will overwrite previous versions.")
         _, b, _ = st.columns(3)
         [maincol] = st.columns(1)
 

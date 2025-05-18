@@ -1,12 +1,14 @@
 {
   "definition_id": "8a1314d4",
   "definition_name": "measurement_blood_pressure_diastolic_gp",
-  "standard_units": [],
-  "primary_standard_unit": null,
+  "standard_units": [
+    "mmHg"
+  ],
+  "primary_standard_unit": "mmHg",
   "unit_mappings": [
     {
       "source_unit": "mmHg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 20712180,
       "source_unit_lq": 70.00000000000003,
       "source_unit_median": 77.99999999999996,
@@ -14,7 +16,7 @@
     },
     {
       "source_unit": "mm Hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 16045427,
       "source_unit_lq": 70.00000000000003,
       "source_unit_median": 79.9999999999999,
@@ -22,7 +24,7 @@
     },
     {
       "source_unit": "mm[Hg]",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 1293438,
       "source_unit_lq": 68.99999999999997,
       "source_unit_median": 75.9297821290678,
@@ -30,7 +32,7 @@
     },
     {
       "source_unit": "mm/Hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 25008,
       "source_unit_lq": 70.0,
       "source_unit_median": 80.0,
@@ -38,7 +40,7 @@
     },
     {
       "source_unit": "Mn/Hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 6580,
       "source_unit_lq": 70.0,
       "source_unit_median": 80.0,
@@ -46,7 +48,7 @@
     },
     {
       "source_unit": "millimeter of mercury",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 1005,
       "source_unit_lq": 72.0,
       "source_unit_median": 79.0,
@@ -54,7 +56,7 @@
     },
     {
       "source_unit": "Diastolic",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 152,
       "source_unit_lq": 60.0,
       "source_unit_median": 70.0,
@@ -62,7 +64,7 @@
     },
     {
       "source_unit": "mm hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 90,
       "source_unit_lq": 70.0,
       "source_unit_median": 78.0,
@@ -70,7 +72,7 @@
     },
     {
       "source_unit": "mm.Hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 69,
       "source_unit_lq": 60.0,
       "source_unit_median": 70.0,
@@ -78,7 +80,7 @@
     },
     {
       "source_unit": "BP",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 39,
       "source_unit_lq": 61.5,
       "source_unit_median": 80.0,
@@ -86,7 +88,7 @@
     },
     {
       "source_unit": "mm/hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 31,
       "source_unit_lq": 86.0,
       "source_unit_median": 86.0,
@@ -94,7 +96,7 @@
     },
     {
       "source_unit": "mm hh",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 23,
       "source_unit_lq": 74.5,
       "source_unit_median": 86.0,
@@ -102,7 +104,7 @@
     },
     {
       "source_unit": "Mm/Hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 15,
       "source_unit_lq": 69.0,
       "source_unit_median": 70.0,
@@ -110,7 +112,7 @@
     },
     {
       "source_unit": "mg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 12,
       "source_unit_lq": 69.0,
       "source_unit_median": 78.0,
@@ -118,7 +120,7 @@
     },
     {
       "source_unit": "mmhg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 12,
       "source_unit_lq": 76.0,
       "source_unit_median": 79.5,
@@ -1711,7 +1713,7 @@
   ],
   "unit_conversions": [],
   "created_datetime": "2025-05-18T15:25:06.369301",
-  "updated_datetime": "2025-05-18T15:25:06.369301",
+  "updated_datetime": "2025-05-18T16:40:15.475393",
   "standard_measurement_config_id": "314fa3c2",
-  "standard_measurement_config_version": "measurement_blood_pressure_diastolic_gp_20250518_152506"
+  "standard_measurement_config_version": "measurement_blood_pressure_diastolic_gp_20250518_164015"
 }
