@@ -1,12 +1,15 @@
 {
   "definition_id": "b866abf9",
   "definition_name": "measurement_blood_glucose_gp",
-  "standard_units": [],
-  "primary_standard_unit": null,
+  "standard_units": [
+    "mmol/L",
+    "mg/dL"
+  ],
+  "primary_standard_unit": "mmol/L",
   "unit_mappings": [
     {
       "source_unit": "mmol/L",
-      "standard_unit": "",
+      "standard_unit": "mmol/L",
       "source_unit_count": 3475819,
       "source_unit_lq": 4.6,
       "source_unit_median": 5.100000000000005,
@@ -14,7 +17,7 @@
     },
     {
       "source_unit": "mmol/l",
-      "standard_unit": "",
+      "standard_unit": "mmol/L",
       "source_unit_count": 537933,
       "source_unit_lq": 5.099999999999999,
       "source_unit_median": 6.399999999999996,
@@ -30,7 +33,7 @@
     },
     {
       "source_unit": "mmol",
-      "standard_unit": "",
+      "standard_unit": "mmol/L",
       "source_unit_count": 5698,
       "source_unit_lq": 6.1,
       "source_unit_median": 8.1909375,
@@ -38,7 +41,7 @@
     },
     {
       "source_unit": "mmols",
-      "standard_unit": "",
+      "standard_unit": "mmol/L",
       "source_unit_count": 3444,
       "source_unit_lq": 5.049047619047618,
       "source_unit_median": 6.001875,
@@ -46,7 +49,7 @@
     },
     {
       "source_unit": "MMOL/L",
-      "standard_unit": "",
+      "standard_unit": "mmol/L",
       "source_unit_count": 2334,
       "source_unit_lq": 4.7,
       "source_unit_median": 5.2,
@@ -62,7 +65,7 @@
     },
     {
       "source_unit": "mMol/L",
-      "standard_unit": "",
+      "standard_unit": "mmol/L",
       "source_unit_count": 487,
       "source_unit_lq": 4.3,
       "source_unit_median": 4.8,
@@ -70,7 +73,7 @@
     },
     {
       "source_unit": "mmolS",
-      "standard_unit": "",
+      "standard_unit": "mmol/L",
       "source_unit_count": 475,
       "source_unit_lq": 5.045,
       "source_unit_median": 6.4,
@@ -78,7 +81,7 @@
     },
     {
       "source_unit": "mmol/litre",
-      "standard_unit": "",
+      "standard_unit": "mmol/L",
       "source_unit_count": 240,
       "source_unit_lq": 5.675,
       "source_unit_median": 7.6,
@@ -86,7 +89,7 @@
     },
     {
       "source_unit": "mml/l",
-      "standard_unit": "",
+      "standard_unit": "mmol/L",
       "source_unit_count": 229,
       "source_unit_lq": 4.5,
       "source_unit_median": 5.2,
@@ -94,7 +97,7 @@
     },
     {
       "source_unit": "mg/dL",
-      "standard_unit": "",
+      "standard_unit": "mg/dL",
       "source_unit_count": 158,
       "source_unit_lq": 6.8,
       "source_unit_median": 10.25,
@@ -102,7 +105,7 @@
     },
     {
       "source_unit": "mmo/l",
-      "standard_unit": "",
+      "standard_unit": "mmol/L",
       "source_unit_count": 123,
       "source_unit_lq": 4.7,
       "source_unit_median": 5.6,
@@ -110,7 +113,7 @@
     },
     {
       "source_unit": "mmols/L",
-      "standard_unit": "",
+      "standard_unit": "mmol/L",
       "source_unit_count": 106,
       "source_unit_lq": 4.9,
       "source_unit_median": 6.0,
@@ -1031,7 +1034,7 @@
   ],
   "unit_conversions": [],
   "created_datetime": "2025-05-18T15:25:03.156703",
-  "updated_datetime": "2025-05-18T15:25:03.156703",
+  "updated_datetime": "2025-05-18T16:43:57.194624",
   "standard_measurement_config_id": "0d3a344d",
-  "standard_measurement_config_version": "measurement_blood_glucose_gp_20250518_152503"
+  "standard_measurement_config_version": "measurement_blood_glucose_gp_20250518_164357"
 }

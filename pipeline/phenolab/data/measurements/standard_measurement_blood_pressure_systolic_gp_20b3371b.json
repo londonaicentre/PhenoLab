@@ -1,12 +1,14 @@
 {
   "definition_id": "01a91527",
   "definition_name": "measurement_blood_pressure_systolic_gp",
-  "standard_units": [],
-  "primary_standard_unit": null,
+  "standard_units": [
+    "mmHg"
+  ],
+  "primary_standard_unit": "mmHg",
   "unit_mappings": [
     {
       "source_unit": "mmHg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 20721841,
       "source_unit_lq": 116.00000000000004,
       "source_unit_median": 128.0,
@@ -14,7 +16,7 @@
     },
     {
       "source_unit": "mm Hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 16193521,
       "source_unit_lq": 118.00000000000003,
       "source_unit_median": 129.99999999999972,
@@ -22,7 +24,7 @@
     },
     {
       "source_unit": "mm[Hg]",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 1294897,
       "source_unit_lq": 110.00000000000006,
       "source_unit_median": 121.361990965453,
@@ -30,7 +32,7 @@
     },
     {
       "source_unit": "mm/Hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 25152,
       "source_unit_lq": 115.09126984126982,
       "source_unit_median": 130.0,
@@ -38,7 +40,7 @@
     },
     {
       "source_unit": "Mn/Hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 6580,
       "source_unit_lq": 119.99999999999999,
       "source_unit_median": 130.0,
@@ -46,7 +48,7 @@
     },
     {
       "source_unit": "millimeter of mercury",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 1005,
       "source_unit_lq": 119.0,
       "source_unit_median": 130.0,
@@ -54,7 +56,7 @@
     },
     {
       "source_unit": "Systolic",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 152,
       "source_unit_lq": 102.0,
       "source_unit_median": 110.0,
@@ -62,7 +64,7 @@
     },
     {
       "source_unit": "mm hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 146,
       "source_unit_lq": 116.25,
       "source_unit_median": 131.5,
@@ -70,7 +72,7 @@
     },
     {
       "source_unit": "mm.Hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 69,
       "source_unit_lq": 110.0,
       "source_unit_median": 120.0,
@@ -78,7 +80,7 @@
     },
     {
       "source_unit": "mmhg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 51,
       "source_unit_lq": 112.5,
       "source_unit_median": 121.0,
@@ -86,7 +88,7 @@
     },
     {
       "source_unit": "BP",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 29,
       "source_unit_lq": 120.0,
       "source_unit_median": 120.0,
@@ -94,7 +96,7 @@
     },
     {
       "source_unit": "mm hh",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 23,
       "source_unit_lq": 120.0,
       "source_unit_median": 138.0,
@@ -102,7 +104,7 @@
     },
     {
       "source_unit": "Mm/Hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 15,
       "source_unit_lq": 110.0,
       "source_unit_median": 110.0,
@@ -150,7 +152,7 @@
     },
     {
       "source_unit": "mm(Hg)",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 3,
       "source_unit_lq": 118.0,
       "source_unit_median": 122.0,
@@ -318,7 +320,7 @@
     },
     {
       "source_unit": "mm/hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 2,
       "source_unit_lq": 122.25,
       "source_unit_median": 124.5,
@@ -967,7 +969,7 @@
   ],
   "unit_conversions": [],
   "created_datetime": "2025-05-18T15:24:59.033399",
-  "updated_datetime": "2025-05-18T15:24:59.033399",
+  "updated_datetime": "2025-05-18T16:41:27.055211",
   "standard_measurement_config_id": "20b3371b",
-  "standard_measurement_config_version": "measurement_blood_pressure_systolic_gp_20250518_152459"
+  "standard_measurement_config_version": "measurement_blood_pressure_systolic_gp_20250518_164127"
 }

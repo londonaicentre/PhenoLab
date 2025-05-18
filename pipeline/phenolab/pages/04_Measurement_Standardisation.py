@@ -318,13 +318,11 @@ def main():
         st.session_state.selected_definition = None
         st.session_state.selected_config = None
 
-    st.subheader("Measurement Configuration Management")
-
     col1, col2 = st.columns([3, 1])
     with col1:
         st.write("""
-        Update all measurement configurations with the latest statistics from the database:
-        - Create new configs for any measurement definitions that don't have one
+        Update Measurement Configs from new definitions and usage statistics:
+        - Creates new configs for any measurement definitions that don't have one
         - For each measurement config, will load in all source units and statistics
         - If units already exist in the config, it will load in newly discovered units only
         """)

@@ -1,8 +1,10 @@
 {
   "definition_id": "7fc04cdc",
   "definition_name": "measurement_falls_number_gp",
-  "standard_units": [],
-  "primary_standard_unit": null,
+  "standard_units": [
+    "/year"
+  ],
+  "primary_standard_unit": "/year",
   "unit_mappings": [
     {
       "source_unit": "/year",
@@ -167,7 +169,7 @@
   ],
   "unit_conversions": [],
   "created_datetime": "2025-05-18T15:31:24.538850",
-  "updated_datetime": "2025-05-18T15:31:26.956521",
+  "updated_datetime": "2025-05-18T16:45:42.285050",
   "standard_measurement_config_id": "228dd97b",
-  "standard_measurement_config_version": "measurement_falls_number_gp_20250518_153126"
+  "standard_measurement_config_version": "measurement_falls_number_gp_20250518_164542"
 }
