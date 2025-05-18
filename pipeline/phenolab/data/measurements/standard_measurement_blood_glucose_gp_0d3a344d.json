@@ -1,0 +1,12 @@
+{
+  "definition_id": "b866abf9",
+  "definition_name": "measurement_blood_glucose_gp",
+  "standard_units": [],
+  "primary_standard_unit": null,
+  "unit_mappings": [],
+  "unit_conversions": [],
+  "created_datetime": "2025-05-18T12:24:42.277119",
+  "updated_datetime": "2025-05-18T12:24:42.277119",
+  "standard_measurement_config_id": "0d3a344d",
+  "standard_measurement_config_version": "measurement_blood_glucose_gp_20250518_122442"
+}

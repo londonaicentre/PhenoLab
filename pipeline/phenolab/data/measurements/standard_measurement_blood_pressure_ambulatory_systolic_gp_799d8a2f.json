@@ -1,0 +1,14 @@
+{
+  "definition_id": "56526a75",
+  "definition_name": "measurement_blood_pressure_ambulatory_systolic_gp",
+  "standard_units": [
+    "mmHg"
+  ],
+  "primary_standard_unit": "mmHg",
+  "unit_mappings": [],
+  "unit_conversions": [],
+  "created_datetime": "2025-05-18T12:24:42.279178",
+  "updated_datetime": "2025-05-18T12:30:51.325584",
+  "standard_measurement_config_id": "799d8a2f",
+  "standard_measurement_config_version": "measurement_blood_pressure_ambulatory_systolic_gp_20250518_123051"
+}

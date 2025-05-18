@@ -1,0 +1,15 @@
+{
+  "definition_id": "f91361c3",
+  "definition_name": "measurement_hba1c_gp",
+  "standard_units": [
+    "%",
+    "mmol/mol"
+  ],
+  "primary_standard_unit": "mmol/mol",
+  "unit_mappings": [],
+  "unit_conversions": [],
+  "created_datetime": "2025-05-18T12:24:42.279898",
+  "updated_datetime": "2025-05-18T12:31:58.614728",
+  "standard_measurement_config_id": "2d6135fd",
+  "standard_measurement_config_version": "measurement_hba1c_gp_20250518_123158"
+}

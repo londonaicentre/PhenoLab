@@ -1,0 +1,14 @@
+{
+  "definition_id": "8a1314d4",
+  "definition_name": "measurement_blood_pressure_diastolic_gp",
+  "standard_units": [
+    "mmHg"
+  ],
+  "primary_standard_unit": "mmHg",
+  "unit_mappings": [],
+  "unit_conversions": [],
+  "created_datetime": "2025-05-18T12:24:42.281009",
+  "updated_datetime": "2025-05-18T12:30:47.711343",
+  "standard_measurement_config_id": "314fa3c2",
+  "standard_measurement_config_version": "measurement_blood_pressure_diastolic_gp_20250518_123047"
+}
