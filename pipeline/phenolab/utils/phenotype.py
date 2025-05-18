@@ -10,14 +10,18 @@ from typing import Dict, Optional, Tuple
 """
 ## phenotype.py
 
+Provides classes for representing phenotypes and their conditions, /
+with support for logical expressions and validation.
+
 This contains classes for:
-- ConditionBlock, Phenotype
-- A ConditionBlock represents the use of a Definition with basic logic
-- For example, HAS DEFINTIION, or DEFINITION MEASUREMENT > 120mmHg
-- A Phenotype chains ConditionBLocks with additional logic
-- AND/OR/NOT are valid operators between ConditionBlocks [A,B,C...]
-- The resulting Phenotype object packages up as simple expression
-- Phenotype = (A AND B) OR C
+- ConditionBlock
+-- represents the use of a Definition with basic logic
+-- For example, HAS DEFINTIION, or DEFINITION MEASUREMENT > 120mmHg
+- Phenotype
+-- A Phenotype chains ConditionBLocks with additional logic
+-- AND/OR/NOT are valid operators between ConditionBlocks [A,B,C...]
+-- The resulting Phenotype object packages up as simple expression
+-- Phenotype = (A AND B) OR C
 """
 
 

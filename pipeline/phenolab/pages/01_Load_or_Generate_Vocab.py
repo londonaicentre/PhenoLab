@@ -9,9 +9,20 @@ from phmlondon.snow_utils import SnowflakeConnection
 from utils.style_utils import set_font_lato
 from phmlondon.config import SNOWFLAKE_DATABASE, FEATURE_STORE
 
-## TARGET FUNCTIONALITY:
-## Load DDS SNOMED and Athena ICD10/OPCS4
-## For each SNOMED and ICD10/OPCS4, join onto aggregate tables to get code stats
+
+# # 01_Load_or_Generate_Vocab.py
+
+# This page allows users to load an existing vocabulary or generate a new one from /
+# Snowflake data sources. It extracts clinical codes (SNOMED, ICD10, OPCS4) with /
+# usage statistics from clinical tables. /
+
+# Codes that are in use + statistics, are joined onto a comprehensive codelist.
+# - For SNOMED, the full codelist is taken from the DDS CONCEPT table.
+# - For ICD10/OPCS4, this is taken from the canonical Athena (OMOP) release.
+
+# Vocabularies are saved as parquet files for efficient storage and quick loading. /
+# The same base vocabulary can be used between different locations.
+
 
 # SNOMED stats from OBSERVATION
 OBSERVATION_SNOMED_SQL = """

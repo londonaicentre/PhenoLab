@@ -6,6 +6,13 @@ from phmlondon.snow_utils import SnowflakeConnection
 
 from phmlondon.config import FEATURE_METADATA, DEFINITION_LIBRARY
 
+
+# # 08_Browse_the_Feature_Store.py
+
+# Allows users to browse the feature store contents, including available /
+# features and their metadata.
+
+
 st.set_page_config(page_title="Feature Store Browser", layout="wide", initial_sidebar_state="expanded")
 
 set_font_lato()

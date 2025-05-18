@@ -11,6 +11,17 @@ from utils.database_utils import (
 from phmlondon.config import SNOWFLAKE_DATABASE, DEFINITION_LIBRARY
 from phmlondon.definition import Code, Definition, VocabularyType
 
+"""
+# definition_display_utils.py
+
+Utilities for loading and displaying clinical definitions in the UI.
+
+Provides functions to:
+- load definitions from json files
+- display and search them in the Streamlit UI
+- manage code selection when creating definitions
+"""
+
 @st.cache_data(ttl=300)
 def load_definitions_list() -> List[str]:
     """

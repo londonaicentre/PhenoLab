@@ -3,10 +3,1035 @@
   "definition_name": "measurement_blood_glucose_gp",
   "standard_units": [],
   "primary_standard_unit": null,
-  "unit_mappings": [],
+  "unit_mappings": [
+    {
+      "source_unit": "mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 3475819,
+      "source_unit_lq": 4.6,
+      "source_unit_median": 5.100000000000005,
+      "source_unit_uq": 6.099999999999996
+    },
+    {
+      "source_unit": "mmol/l",
+      "standard_unit": "",
+      "source_unit_count": 537933,
+      "source_unit_lq": 5.099999999999999,
+      "source_unit_median": 6.399999999999996,
+      "source_unit_uq": 9.299999999999999
+    },
+    {
+      "source_unit": "Unk UoM",
+      "standard_unit": "",
+      "source_unit_count": 6398,
+      "source_unit_lq": 7.0,
+      "source_unit_median": 9.6,
+      "source_unit_uq": 13.100000000000001
+    },
+    {
+      "source_unit": "mmol",
+      "standard_unit": "",
+      "source_unit_count": 5698,
+      "source_unit_lq": 6.1,
+      "source_unit_median": 8.1909375,
+      "source_unit_uq": 11.3
+    },
+    {
+      "source_unit": "mmols",
+      "standard_unit": "",
+      "source_unit_count": 3444,
+      "source_unit_lq": 5.049047619047618,
+      "source_unit_median": 6.001875,
+      "source_unit_uq": 8.0
+    },
+    {
+      "source_unit": "MMOL/L",
+      "standard_unit": "",
+      "source_unit_count": 2334,
+      "source_unit_lq": 4.7,
+      "source_unit_median": 5.2,
+      "source_unit_uq": 6.1
+    },
+    {
+      "source_unit": "units",
+      "standard_unit": "",
+      "source_unit_count": 730,
+      "source_unit_lq": 4.6,
+      "source_unit_median": 5.2,
+      "source_unit_uq": 6.5
+    },
+    {
+      "source_unit": "mMol/L",
+      "standard_unit": "",
+      "source_unit_count": 487,
+      "source_unit_lq": 4.3,
+      "source_unit_median": 4.8,
+      "source_unit_uq": 5.4
+    },
+    {
+      "source_unit": "mmolS",
+      "standard_unit": "",
+      "source_unit_count": 475,
+      "source_unit_lq": 5.045,
+      "source_unit_median": 6.4,
+      "source_unit_uq": 9.0
+    },
+    {
+      "source_unit": "mmol/litre",
+      "standard_unit": "",
+      "source_unit_count": 240,
+      "source_unit_lq": 5.675,
+      "source_unit_median": 7.6,
+      "source_unit_uq": 11.9
+    },
+    {
+      "source_unit": "mml/l",
+      "standard_unit": "",
+      "source_unit_count": 229,
+      "source_unit_lq": 4.5,
+      "source_unit_median": 5.2,
+      "source_unit_uq": 6.8
+    },
+    {
+      "source_unit": "mg/dL",
+      "standard_unit": "",
+      "source_unit_count": 158,
+      "source_unit_lq": 6.8,
+      "source_unit_median": 10.25,
+      "source_unit_uq": 16.4
+    },
+    {
+      "source_unit": "mmo/l",
+      "standard_unit": "",
+      "source_unit_count": 123,
+      "source_unit_lq": 4.7,
+      "source_unit_median": 5.6,
+      "source_unit_uq": 7.3
+    },
+    {
+      "source_unit": "mmols/L",
+      "standard_unit": "",
+      "source_unit_count": 106,
+      "source_unit_lq": 4.9,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 9.275
+    },
+    {
+      "source_unit": "IU/L",
+      "standard_unit": "",
+      "source_unit_count": 77,
+      "source_unit_lq": 7.0,
+      "source_unit_median": 8.6,
+      "source_unit_uq": 9.0
+    },
+    {
+      "source_unit": "mmol/s",
+      "standard_unit": "",
+      "source_unit_count": 61,
+      "source_unit_lq": 5.9,
+      "source_unit_median": 7.7,
+      "source_unit_uq": 9.6
+    },
+    {
+      "source_unit": "mol/L",
+      "standard_unit": "",
+      "source_unit_count": 30,
+      "source_unit_lq": 5.6499999999999995,
+      "source_unit_median": 7.5,
+      "source_unit_uq": 8.725000000000001
+    },
+    {
+      "source_unit": "Blood glucose 10-13.9 mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 27,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "%",
+      "standard_unit": "",
+      "source_unit_count": 26,
+      "source_unit_lq": 5.75,
+      "source_unit_median": 6.65,
+      "source_unit_uq": 8.45
+    },
+    {
+      "source_unit": "Fasting",
+      "standard_unit": "",
+      "source_unit_count": 25,
+      "source_unit_lq": 4.9,
+      "source_unit_median": 5.1,
+      "source_unit_uq": 5.8
+    },
+    {
+      "source_unit": "Blood glucose 5-6.9 mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 24,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "Blood glucose 7-9.9 mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 17,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "UNKNOWN UNITS",
+      "standard_unit": "",
+      "source_unit_count": 15,
+      "source_unit_lq": 4.4,
+      "source_unit_median": 4.5,
+      "source_unit_uq": 4.95
+    },
+    {
+      "source_unit": "mg/dl",
+      "standard_unit": "",
+      "source_unit_count": 15,
+      "source_unit_lq": 84.5,
+      "source_unit_median": 88.0,
+      "source_unit_uq": 97.75
+    },
+    {
+      "source_unit": "mg/mmol",
+      "standard_unit": "",
+      "source_unit_count": 14,
+      "source_unit_lq": 6.4,
+      "source_unit_median": 7.05,
+      "source_unit_uq": 8.0
+    },
+    {
+      "source_unit": "mmL/L",
+      "standard_unit": "",
+      "source_unit_count": 13,
+      "source_unit_lq": 5.9,
+      "source_unit_median": 7.0,
+      "source_unit_uq": 10.9
+    },
+    {
+      "source_unit": "mMol/l",
+      "standard_unit": "",
+      "source_unit_count": 10,
+      "source_unit_lq": 4.5,
+      "source_unit_median": 4.75,
+      "source_unit_uq": 5.325
+    },
+    {
+      "source_unit": "mmol/mmol",
+      "standard_unit": "",
+      "source_unit_count": 9,
+      "source_unit_lq": 6.9,
+      "source_unit_median": 7.9,
+      "source_unit_uq": 13.2
+    },
+    {
+      "source_unit": "mmolL",
+      "standard_unit": "",
+      "source_unit_count": 9,
+      "source_unit_lq": 5.5,
+      "source_unit_median": 8.6,
+      "source_unit_uq": 13.1
+    },
+    {
+      "source_unit": "1/mL",
+      "standard_unit": "",
+      "source_unit_count": 8,
+      "source_unit_lq": 10.275,
+      "source_unit_median": 11.15,
+      "source_unit_uq": 12.9
+    },
+    {
+      "source_unit": "FASTING",
+      "standard_unit": "",
+      "source_unit_count": 7,
+      "source_unit_lq": 4.6,
+      "source_unit_median": 5.1,
+      "source_unit_uq": 6.05
+    },
+    {
+      "source_unit": "nmol/L",
+      "standard_unit": "",
+      "source_unit_count": 7,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.4,
+      "source_unit_uq": 5.65
+    },
+    {
+      "source_unit": "mmol.",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 5.425,
+      "source_unit_median": 6.85,
+      "source_unit_uq": 7.0
+    },
+    {
+      "source_unit": "mmoll",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 4.725,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 7.6499999999999995
+    },
+    {
+      "source_unit": "1",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 8.425,
+      "source_unit_median": 13.55,
+      "source_unit_uq": 16.575
+    },
+    {
+      "source_unit": "Blood glucose 2.5-4.9 mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "mmol/mol",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 5.15,
+      "source_unit_median": 6.2,
+      "source_unit_uq": 7.025
+    },
+    {
+      "source_unit": "Blood glucose 14+ mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "mmls",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 5.3,
+      "source_unit_median": 5.3,
+      "source_unit_uq": 6.4
+    },
+    {
+      "source_unit": "mmmol",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 8.1,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 11.3
+    },
+    {
+      "source_unit": "mols",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 5.9975,
+      "source_unit_median": 6.85,
+      "source_unit_uq": 8.85
+    },
+    {
+      "source_unit": "mmol/1",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 12.149999999999999,
+      "source_unit_median": 16.0,
+      "source_unit_uq": 17.8
+    },
+    {
+      "source_unit": "mm0L/L",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 20.1,
+      "source_unit_median": 20.1,
+      "source_unit_uq": 20.1
+    },
+    {
+      "source_unit": "mmol/S",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 9.55,
+      "source_unit_median": 10.3,
+      "source_unit_uq": 13.25
+    },
+    {
+      "source_unit": "mmol/d",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 11.4,
+      "source_unit_median": 13.0,
+      "source_unit_uq": 16.3
+    },
+    {
+      "source_unit": "g/dL",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 11.850000000000001,
+      "source_unit_median": 17.1,
+      "source_unit_uq": 19.85
+    },
+    {
+      "source_unit": "mmo/L",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 5.15,
+      "source_unit_median": 6.6,
+      "source_unit_uq": 7.199999999999999
+    },
+    {
+      "source_unit": "mmolmmols",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 3.9,
+      "source_unit_median": 3.9,
+      "source_unit_uq": 5.25
+    },
+    {
+      "source_unit": "mol/kg",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.1
+    },
+    {
+      "source_unit": "mml",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 7.1,
+      "source_unit_median": 10.7,
+      "source_unit_uq": 10.7
+    },
+    {
+      "source_unit": "mmols After food",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 8.195,
+      "source_unit_median": 8.69,
+      "source_unit_uq": 8.69
+    },
+    {
+      "source_unit": "(Unknown)",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 5.15,
+      "source_unit_median": 5.4,
+      "source_unit_uq": 5.6
+    },
+    {
+      "source_unit": "umol/L",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 5.35,
+      "source_unit_median": 6.7,
+      "source_unit_uq": 214.35
+    },
+    {
+      "source_unit": "Hrs",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 8.45,
+      "source_unit_median": 8.45,
+      "source_unit_uq": 8.774999999999999
+    },
+    {
+      "source_unit": "mm",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 7.9,
+      "source_unit_median": 8.8,
+      "source_unit_uq": 8.8
+    },
+    {
+      "source_unit": "IU/mL",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 12.3,
+      "source_unit_median": 12.3,
+      "source_unit_uq": 12.3
+    },
+    {
+      "source_unit": "[iU]/L",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 8.75,
+      "source_unit_median": 11.0,
+      "source_unit_uq": 13.25
+    },
+    {
+      "source_unit": "mmols/l",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.8,
+      "source_unit_median": 5.8,
+      "source_unit_uq": 6.8
+    },
+    {
+      "source_unit": "5.5",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 5.4,
+      "source_unit_median": 5.4,
+      "source_unit_uq": 5.4
+    },
+    {
+      "source_unit": "1(tot)",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 11.3,
+      "source_unit_median": 11.5,
+      "source_unit_uq": 11.7
+    },
+    {
+      "source_unit": "mmols Fasting",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.175,
+      "source_unit_median": 4.75,
+      "source_unit_uq": 5.325
+    },
+    {
+      "source_unit": "6.2",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 6.2,
+      "source_unit_median": 6.2,
+      "source_unit_uq": 6.2
+    },
+    {
+      "source_unit": "mmol/*l",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 6.1,
+      "source_unit_median": 6.1,
+      "source_unit_uq": 6.1
+    },
+    {
+      "source_unit": "mL/min",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 8.225,
+      "source_unit_median": 8.65,
+      "source_unit_uq": 9.075
+    },
+    {
+      "source_unit": "mmm/l",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 5.3,
+      "source_unit_median": 5.3,
+      "source_unit_uq": 5.3
+    },
+    {
+      "source_unit": "mmom/l",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.699999999999999,
+      "source_unit_median": 5.3,
+      "source_unit_uq": 5.9
+    },
+    {
+      "source_unit": "mmoPL",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 6.5,
+      "source_unit_median": 6.5,
+      "source_unit_uq": 6.5
+    },
+    {
+      "source_unit": "5.4",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 5.4,
+      "source_unit_median": 5.4,
+      "source_unit_uq": 5.4
+    },
+    {
+      "source_unit": "mmmol/l",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 5.5,
+      "source_unit_median": 5.699999999999999,
+      "source_unit_uq": 5.8999999999999995
+    },
+    {
+      "source_unit": "10*-2(%)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 11.2,
+      "source_unit_median": 11.2,
+      "source_unit_uq": 11.2
+    },
+    {
+      "source_unit": "4.9",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.9,
+      "source_unit_median": 4.9,
+      "source_unit_uq": 4.9
+    },
+    {
+      "source_unit": "mmol/mol.",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 21.0,
+      "source_unit_median": 21.0,
+      "source_unit_uq": 21.0
+    },
+    {
+      "source_unit": "molS",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.2,
+      "source_unit_median": 4.2,
+      "source_unit_uq": 4.2
+    },
+    {
+      "source_unit": "mmol/l [R]",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.2,
+      "source_unit_median": 5.2,
+      "source_unit_uq": 5.2
+    },
+    {
+      "source_unit": "mm0ls",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.09,
+      "source_unit_median": 5.09,
+      "source_unit_uq": 5.09
+    },
+    {
+      "source_unit": "mmol/dL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 9.2,
+      "source_unit_median": 9.2,
+      "source_unit_uq": 9.2
+    },
+    {
+      "source_unit": "glucose",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.2,
+      "source_unit_median": 6.2,
+      "source_unit_uq": 6.2
+    },
+    {
+      "source_unit": "fL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.8,
+      "source_unit_median": 4.8,
+      "source_unit_uq": 4.8
+    },
+    {
+      "source_unit": "mol/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.1,
+      "source_unit_median": 4.1,
+      "source_unit_uq": 4.1
+    },
+    {
+      "source_unit": "mmL/",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.8,
+      "source_unit_median": 4.8,
+      "source_unit_uq": 4.8
+    },
+    {
+      "source_unit": "/year",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 7.1,
+      "source_unit_median": 7.1,
+      "source_unit_uq": 7.1
+    },
+    {
+      "source_unit": "mg/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 90.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "mM",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.5,
+      "source_unit_median": 5.5,
+      "source_unit_uq": 5.5
+    },
+    {
+      "source_unit": "random mmol/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.6,
+      "source_unit_median": 4.6,
+      "source_unit_uq": 4.6
+    },
+    {
+      "source_unit": "mmL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 8.0,
+      "source_unit_median": 8.0,
+      "source_unit_uq": 8.0
+    },
+    {
+      "source_unit": "mmol/L(3.6-6.0)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.2,
+      "source_unit_median": 5.2,
+      "source_unit_uq": 5.2
+    },
+    {
+      "source_unit": "pmol/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 19.6,
+      "source_unit_median": 19.6,
+      "source_unit_uq": 19.6
+    },
+    {
+      "source_unit": "MMOLL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.4,
+      "source_unit_median": 6.4,
+      "source_unit_uq": 6.4
+    },
+    {
+      "source_unit": "mmpl/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.6,
+      "source_unit_median": 5.6,
+      "source_unit_uq": 5.6
+    },
+    {
+      "source_unit": "Mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.6,
+      "source_unit_median": 5.6,
+      "source_unit_uq": 5.6
+    },
+    {
+      "source_unit": "3 mmols",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 16.0,
+      "source_unit_median": 16.0,
+      "source_unit_uq": 16.0
+    },
+    {
+      "source_unit": "mmols/",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 7.6,
+      "source_unit_median": 7.6,
+      "source_unit_uq": 7.6
+    },
+    {
+      "source_unit": "nmol/mmol",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3720368547.77,
+      "source_unit_median": 3720368547.77,
+      "source_unit_uq": 3720368547.77
+    },
+    {
+      "source_unit": "mg/d",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 87.0,
+      "source_unit_median": 87.0,
+      "source_unit_uq": 87.0
+    },
+    {
+      "source_unit": "1 mmols",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "#/[tot]",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 11.4,
+      "source_unit_median": 11.4,
+      "source_unit_uq": 11.4
+    },
+    {
+      "source_unit": "Blood glucose level",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "mmo/m",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 9.5,
+      "source_unit_median": 9.5,
+      "source_unit_uq": 9.5
+    },
+    {
+      "source_unit": "ummol/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 17.5,
+      "source_unit_median": 17.5,
+      "source_unit_uq": 17.5
+    },
+    {
+      "source_unit": "mm0l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.2,
+      "source_unit_median": 5.2,
+      "source_unit_uq": 5.2
+    },
+    {
+      "source_unit": "mmol/mmol(creat)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 9.3,
+      "source_unit_median": 9.3,
+      "source_unit_uq": 9.3
+    },
+    {
+      "source_unit": "mmois",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 9.3,
+      "source_unit_median": 9.3,
+      "source_unit_uq": 9.3
+    },
+    {
+      "source_unit": "MMOL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.8,
+      "source_unit_median": 4.8,
+      "source_unit_uq": 4.8
+    },
+    {
+      "source_unit": "mmol/L5.4",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.4,
+      "source_unit_median": 5.4,
+      "source_unit_uq": 5.4
+    },
+    {
+      "source_unit": "u/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.2,
+      "source_unit_median": 6.2,
+      "source_unit_uq": 6.2
+    },
+    {
+      "source_unit": "litres/minute",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.3,
+      "source_unit_median": 5.3,
+      "source_unit_uq": 5.3
+    },
+    {
+      "source_unit": "5.5 mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.5,
+      "source_unit_median": 5.5,
+      "source_unit_uq": 5.5
+    },
+    {
+      "source_unit": "ml/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 8.5,
+      "source_unit_median": 8.5,
+      "source_unit_uq": 8.5
+    },
+    {
+      "source_unit": "mgl/dL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 84.0,
+      "source_unit_median": 84.0,
+      "source_unit_uq": 84.0
+    },
+    {
+      "source_unit": "mmoll/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 7.2,
+      "source_unit_median": 7.2,
+      "source_unit_uq": 7.2
+    },
+    {
+      "source_unit": "pg",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 7.3,
+      "source_unit_median": 7.3,
+      "source_unit_uq": 7.3
+    },
+    {
+      "source_unit": "38",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 38.0,
+      "source_unit_median": 38.0,
+      "source_unit_uq": 38.0
+    },
+    {
+      "source_unit": "mnol/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 19.89,
+      "source_unit_median": 19.89,
+      "source_unit_uq": 19.89
+    },
+    {
+      "source_unit": "6 mmols",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 7.0,
+      "source_unit_median": 7.0,
+      "source_unit_uq": 7.0
+    },
+    {
+      "source_unit": "mosmol/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 11.1,
+      "source_unit_median": 11.1,
+      "source_unit_uq": 11.1
+    },
+    {
+      "source_unit": "4",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "45mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.3,
+      "source_unit_median": 6.3,
+      "source_unit_uq": 6.3
+    },
+    {
+      "source_unit": "14",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 14.0,
+      "source_unit_median": 14.0,
+      "source_unit_uq": 14.0
+    },
+    {
+      "source_unit": "mopl/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.3,
+      "source_unit_median": 6.3,
+      "source_unit_uq": 6.3
+    },
+    {
+      "source_unit": "mmol,/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.2,
+      "source_unit_median": 20.2,
+      "source_unit_uq": 20.2
+    },
+    {
+      "source_unit": "mmlol",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.8,
+      "source_unit_median": 4.8,
+      "source_unit_uq": 4.8
+    },
+    {
+      "source_unit": "mg%",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 93.0,
+      "source_unit_median": 93.0,
+      "source_unit_uq": 93.0
+    },
+    {
+      "source_unit": "mmol/24h",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.4,
+      "source_unit_median": 10.4,
+      "source_unit_uq": 10.4
+    },
+    {
+      "source_unit": "L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.5,
+      "source_unit_median": 5.5,
+      "source_unit_uq": 5.5
+    },
+    {
+      "source_unit": "5.6mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.6,
+      "source_unit_median": 5.6,
+      "source_unit_uq": 5.6
+    },
+    {
+      "source_unit": "mmILS",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 11.3,
+      "source_unit_median": 11.3,
+      "source_unit_uq": 11.3
+    },
+    {
+      "source_unit": "L/M",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 230.0,
+      "source_unit_median": 230.0,
+      "source_unit_uq": 230.0
+    },
+    {
+      "source_unit": "mmml/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 7.0,
+      "source_unit_median": 7.0,
+      "source_unit_uq": 7.0
+    }
+  ],
   "unit_conversions": [],
-  "created_datetime": "2025-05-18T12:24:42.277119",
-  "updated_datetime": "2025-05-18T12:24:42.277119",
+  "created_datetime": "2025-05-18T15:25:03.156703",
+  "updated_datetime": "2025-05-18T15:25:03.156703",
   "standard_measurement_config_id": "0d3a344d",
-  "standard_measurement_config_version": "measurement_blood_glucose_gp_20250518_122442"
+  "standard_measurement_config_version": "measurement_blood_glucose_gp_20250518_152503"
 }
