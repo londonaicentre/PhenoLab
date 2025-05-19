@@ -85,9 +85,9 @@ def display_definition_panel() -> str:
 
         with st.expander("Naming conventions:"):
             st.markdown("- Keep lowercase other than abbreviations, no spaces or special characters")
-            st.markdown("- Examples: `unstable_angina_sus`, `ferritin_gp`, `schizophrenia_or_other_psychotic_disorder`")
-            st.markdown("- Format as `<verbose_description_of_definition>_<code_provenance (if any)>`")
-            st.markdown("- Examples of `<code_provenance>` are `gp`, `sus`. This reflects intended use and may be left blank for global definitions.")
+            st.markdown("- Format as `<verbose_description_of_definition>_<vocabular(ies)>`")
+            st.markdown("- Examples: `unstable_angina_ICD10`, `ferritin_SNOMED`, `schizophrenia_or_other_psychotic_disorder_SNOMEDICD10`")
+            st.markdown("- Vocabulary ordering convention is SNOMED > ICD10 > OPCS4 > Other(s)")
             st.markdown("- If `Is Measurement` is selected, `<measurement>` prefix will be added *automatically*")
 
     # initialising this outside column block so stil returnable if button not clicked
