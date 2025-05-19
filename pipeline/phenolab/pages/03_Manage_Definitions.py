@@ -311,6 +311,7 @@ def main():
     st.set_page_config(page_title="Manage Definitions", layout="wide")
     set_font_lato()
     st.title("Manage Definitions")
+    load_dotenv()
 
     # initialise session state
     if "current_definition" not in st.session_state:
