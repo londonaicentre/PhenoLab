@@ -1,32 +1,37 @@
---Table to convert between HbA1c units, this one converts % (DCCT) to mmol/mol (IFCC)
+--Table to convert between hb units - this one converts g/l to g/dl
 
-        CREATE OR REPLACE TABLE INTELLIGENCE_DEV.AI_CENTRE_OBSERVATION_STAGING_TABLES.hba1c_VALUE_CUTOFFS AS
+        CREATE OR REPLACE TABLE INTELLIGENCE_DEV.AI_CENTRE_OBSERVATION_STAGING_TABLES.haemoglobin_VALUE_CUTOFFS AS
         SELECT 
         result_value as original_result_value,
         result_value_units as original_result_value_units,
         cleaned_units as standardised_units,
         cleaned_result_value as converted_result_value,
         CASE
-        	WHEN cleaned_result_value BETWEEN 3 AND 15 then (((cleaned_result_value - 2.15 ) * 10.929 )  * 1 )
+        	WHEN cleaned_result_value < 25 then (((cleaned_result_value + 0 ) *10 ) +0 )
 	
         ELSE CLEANED_RESULT_VALUE
         END
         as final_result_value,
         CASE
-        	WHEN cleaned_result_value < 19 then FALSE 
-	 	WHEN cleaned_result_value > 200 then FALSE 
+        	WHEN cleaned_result_value < 25 then FALSE 
+	 	WHEN cleaned_result_value > 250 then FALSE 
 	
         ELSE TRUE
-        END 
+        END
         as final_result_value_confidence,
         CASE
-        	WHEN cleaned_result_value < 3 then FALSE 
-	 	WHEN cleaned_result_value BETWEEN 15 and 19 then FALSE 
-	 	WHEN cleaned_result_value > 200 then FALSE 
+        	WHEN cleaned_result_value < 2.5 then FALSE 
+	 	WHEN cleaned_result_value > 250 then FALSE 
 	
         ELSE TRUE
         END 
         as final_result_value_possible,
+        CASE
+        	WHEN cleaned_result_value < 25 then TRUE 
+	
+        ELSE FALSE
+        END
+        as ADDITIONAL_CONVERSION,
         observation_name,
         id,
         organization_id,
@@ -45,5 +50,5 @@
         last_updated as conversion_last_updated,
         CURRENT_TIMESTAMP(0) as last_updated,
         NULL as table_version
-        FROM INTELLIGENCE_DEV.AI_CENTRE_OBSERVATION_STAGING_TABLES.hba1c_UNITS_CONVERTED
-        WHERE DEFINITION_NAME = 'hba1c_definition_gp'
+        FROM INTELLIGENCE_DEV.AI_CENTRE_OBSERVATION_STAGING_TABLES.haemoglobin_UNITS_CONVERTED
+        WHERE DEFINITION_NAME = 'haemoglobin_gp'
