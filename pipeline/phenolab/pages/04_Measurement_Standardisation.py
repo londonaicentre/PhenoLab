@@ -309,6 +309,7 @@ def main():
     st.set_page_config(page_title="Measurement Standardisation", layout="wide")
     set_font_lato()
     st.title("Measurement Standardisation")
+    load_dotenv()
 
     if "snowsesh" not in st.session_state:
         with st.spinner("Connecting to Snowflake..."):

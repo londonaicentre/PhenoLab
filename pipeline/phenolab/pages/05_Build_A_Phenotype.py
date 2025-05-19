@@ -19,9 +19,6 @@ from phmlondon.config import SNOWFLAKE_DATABASE, DEFINITION_LIBRARY
 # - Not feature complete!
 
 
-load_dotenv()
-
-
 def load_phenotypes_list():
     """
     Get list of phenotype files from /data/phenotypes
@@ -404,6 +401,7 @@ def main():
     st.set_page_config(page_title="Build A Phenotype", layout="wide")
     set_font_lato()
     st.title("Build a phenotype")
+    load_dotenv()
 
     if "current_phenotype" not in st.session_state:
         st.session_state.current_phenotype = None
