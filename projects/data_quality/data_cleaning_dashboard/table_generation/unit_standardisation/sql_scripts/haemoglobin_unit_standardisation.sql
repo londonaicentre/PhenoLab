@@ -5,7 +5,7 @@
             obs.result_value,
             obs.result_value_units,
             units.cleaned_units,
-            'hb' as observation_name,
+            'haemoglobin' as observation_name,
             obs.id,
             obs.organization_id, 
             obs.patient_id,

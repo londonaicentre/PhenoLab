@@ -1,24 +1,11 @@
-import json
-import os
+--Table to standardise random blood sugar units - this one does mmol/l and mg/dl
 
-
-def main():
-    #Read in the conversion file
-    with open('standardisations.json', 'r+') as connection:
-        conversions = json.load(connection)
-    tables = [i for i in conversions.keys()]
-
-    for table in tables:
-
-        #Make each query
-        config = conversions[table]
-        query = f"""--{config['comment']}\n
-        CREATE OR REPLACE TABLE INTELLIGENCE_DEV.{config['schema']}.{table}_UNITS_STANDARDISED AS
+        CREATE OR REPLACE TABLE INTELLIGENCE_DEV.AI_CENTRE_OBSERVATION_STAGING_TABLES.random_blood_sugar_UNITS_STANDARDISED AS
         SELECT
             obs.result_value,
             obs.result_value_units,
             units.cleaned_units,
-            '{config['observation_name']}' as observation_name,
+            'random_blood_sugar' as observation_name,
             obs.id,
             obs.organization_id, 
             obs.patient_id,
@@ -36,16 +23,8 @@ def main():
             NULL as table_version
             FROM PROD_DWH.ANALYST_PRIMARY_CARE.OBSERVATION obs
             left join intelligence_dev.ai_centre_definition_library.definitionstore def on obs.core_concept_id = def.dbid
-            left join INTELLIGENCE_DEV.{config['schema']}.{config['unit_table']} units
+            left join INTELLIGENCE_DEV.AI_CENTRE_OBSERVATION_STAGING_TABLES.UNIT_LOOKUP units
                 ON obs.result_value_units = units.result_value_units
                 AND def.definition_name = units.definition_name
             WHERE def.code is not null
-            and def.DEFINITION_NAME = '{config['definition']}'"""
-
-        with open(os.path.join('sql_scripts', table + '_unit_standardisation.sql'), 'w') as file:
-            file.write(query)
-
-        print(f'Made table {table}_units_standardised')
-
-if __name__ == "__main__":
-    main()
+            and def.DEFINITION_NAME = 'random_blood_sugar_gp'
