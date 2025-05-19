@@ -1,0 +1,12 @@
+{
+  "definition_id": "61e0cf62",
+  "definition_name": "measurement_haemoglobin_SNOMED",
+  "standard_units": [],
+  "primary_standard_unit": null,
+  "unit_mappings": [],
+  "unit_conversions": [],
+  "created_datetime": "2025-05-19T23:23:56.061713",
+  "updated_datetime": "2025-05-19T23:23:56.061713",
+  "standard_measurement_config_id": "eb89543e",
+  "standard_measurement_config_version": "measurement_haemoglobin_SNOMED_20250519_232356"
+}

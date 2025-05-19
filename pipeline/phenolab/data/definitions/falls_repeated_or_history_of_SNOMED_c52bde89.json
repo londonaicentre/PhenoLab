@@ -1,0 +1,98 @@
+{
+  "definition_id": "c52bde89",
+  "definition_name": "falls_repeated_or_history_of_SNOMED",
+  "definition_version": "falls_repeated_or_history_of_SNOMED_20250512_132543",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-05-19T23:22:44.813649",
+  "codelists": [
+    {
+      "codelist_id": "a65162fb",
+      "codelist_name": "falls_repeated_or_history_of_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "falls_repeated_or_history_of_SNOMED_SNOMED_20250512_132608",
+      "codes": [
+        {
+          "code": "161898004",
+          "code_description": "Falls (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "279992002",
+          "code_description": "Recurrent falls (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "559081000000107",
+          "code_description": "Accidental falls NOS (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "408561005",
+          "code_description": "Falls caused by medication (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "298343000",
+          "code_description": "Finding related to falls (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "139155008",
+          "code_description": "Falls (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "161899007",
+          "code_description": "Recurrent falls (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "157904001",
+          "code_description": "Accidental falls NOS (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "107141000000107",
+          "code_description": "Falls caused by medication",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "661021000000107",
+          "code_description": "Other falls in water transport (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "833711000000104",
+          "code_description": "Falls",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217175003",
+          "code_description": "Accidental falls NOS (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "559061000000103",
+          "code_description": "Other falls (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "404912005",
+          "code_description": "Unexplained falls (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "215664000",
+          "code_description": "Other falls in water transport (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217172000",
+          "code_description": "Other falls (event)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "definition_id": "56526a75",
+  "definition_name": "measurement_blood_pressure_ambulatory_systolic_SNOMED",
+  "standard_units": [],
+  "primary_standard_unit": null,
+  "unit_mappings": [],
+  "unit_conversions": [],
+  "created_datetime": "2025-05-19T23:23:56.062812",
+  "updated_datetime": "2025-05-19T23:23:56.062812",
+  "standard_measurement_config_id": "f135a132",
+  "standard_measurement_config_version": "measurement_blood_pressure_ambulatory_systolic_SNOMED_20250519_232356"
+}
