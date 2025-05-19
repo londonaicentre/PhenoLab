@@ -1,0 +1,463 @@
+{
+  "definition_id": "e1c38b7f",
+  "definition_name": "osteoporotic_fracture_ICD10",
+  "definition_version": "osteoporotic_fracture_ICD10_20250512_142924",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-05-19T23:22:44.813649",
+  "codelists": [
+    {
+      "codelist_id": "e9d579d2",
+      "codelist_name": "osteoporotic_fracture_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "osteoporotic_fracture_ICD10_ICD10_20250512_142944",
+      "codes": [
+        {
+          "code": "M80.0",
+          "code_description": "Postmenopausal osteoporosis with pathological fracture",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.00",
+          "code_description": "Postmenopausal osteoporosis with pathological fracture, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.01",
+          "code_description": "Postmenopausal osteoporosis with pathological fracture, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.02",
+          "code_description": "Postmenopausal osteoporosis with pathological fracture, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.03",
+          "code_description": "Postmenopausal osteoporosis with pathological fracture, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.04",
+          "code_description": "Postmenopausal osteoporosis with pathological fracture, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.05",
+          "code_description": "Postmenopausal osteoporosis with pathological fracture, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.06",
+          "code_description": "Postmenopausal osteoporosis with pathological fracture, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.07",
+          "code_description": "Postmenopausal osteoporosis with pathological fracture, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.08",
+          "code_description": "Postmenopausal osteoporosis with pathological fracture, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.09",
+          "code_description": "Postmenopausal osteoporosis with pathological fracture, site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80",
+          "code_description": "Osteoporosis with pathological fracture",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.57",
+          "code_description": "Idiopathic osteoporosis with pathological fracture, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.86",
+          "code_description": "Other osteoporosis with pathological fracture, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.85",
+          "code_description": "Other osteoporosis with pathological fracture, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.84",
+          "code_description": "Other osteoporosis with pathological fracture, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.83",
+          "code_description": "Other osteoporosis with pathological fracture, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.82",
+          "code_description": "Other osteoporosis with pathological fracture, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.81",
+          "code_description": "Other osteoporosis with pathological fracture, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.80",
+          "code_description": "Other osteoporosis with pathological fracture, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.8",
+          "code_description": "Other osteoporosis with pathological fracture",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.59",
+          "code_description": "Idiopathic osteoporosis with pathological fracture, site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.58",
+          "code_description": "Idiopathic osteoporosis with pathological fracture, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.56",
+          "code_description": "Idiopathic osteoporosis with pathological fracture, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.45",
+          "code_description": "Drug-induced osteoporosis with pathological fracture, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.55",
+          "code_description": "Idiopathic osteoporosis with pathological fracture, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.54",
+          "code_description": "Idiopathic osteoporosis with pathological fracture, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.53",
+          "code_description": "Idiopathic osteoporosis with pathological fracture, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.52",
+          "code_description": "Idiopathic osteoporosis with pathological fracture, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.51",
+          "code_description": "Idiopathic osteoporosis with pathological fracture, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.50",
+          "code_description": "Idiopathic osteoporosis with pathological fracture, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.5",
+          "code_description": "Idiopathic osteoporosis with pathological fracture",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.49",
+          "code_description": "Drug-induced osteoporosis with pathological fracture, site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.48",
+          "code_description": "Drug-induced osteoporosis with pathological fracture, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.47",
+          "code_description": "Drug-induced osteoporosis with pathological fracture, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.87",
+          "code_description": "Other osteoporosis with pathological fracture, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.88",
+          "code_description": "Other osteoporosis with pathological fracture, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.89",
+          "code_description": "Other osteoporosis with pathological fracture, site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.9",
+          "code_description": "Unspecified osteoporosis with pathological fracture",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.99",
+          "code_description": "Unspecified osteoporosis with pathological fracture, site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.98",
+          "code_description": "Unspecified osteoporosis with pathological fracture, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.97",
+          "code_description": "Unspecified osteoporosis with pathological fracture, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.96",
+          "code_description": "Unspecified osteoporosis with pathological fracture, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.95",
+          "code_description": "Unspecified osteoporosis with pathological fracture, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.94",
+          "code_description": "Unspecified osteoporosis with pathological fracture, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.93",
+          "code_description": "Unspecified osteoporosis with pathological fracture, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.92",
+          "code_description": "Unspecified osteoporosis with pathological fracture, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.91",
+          "code_description": "Unspecified osteoporosis with pathological fracture, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.90",
+          "code_description": "Unspecified osteoporosis with pathological fracture, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.46",
+          "code_description": "Drug-induced osteoporosis with pathological fracture, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.44",
+          "code_description": "Drug-induced osteoporosis with pathological fracture, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.10",
+          "code_description": "Postoophorectomy osteoporosis with pathological fracture, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.2",
+          "code_description": "Osteoporosis of disuse with pathological fracture",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.19",
+          "code_description": "Postoophorectomy osteoporosis with pathological fracture, site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.18",
+          "code_description": "Postoophorectomy osteoporosis with pathological fracture, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.17",
+          "code_description": "Postoophorectomy osteoporosis with pathological fracture, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.16",
+          "code_description": "Postoophorectomy osteoporosis with pathological fracture, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.15",
+          "code_description": "Postoophorectomy osteoporosis with pathological fracture, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.14",
+          "code_description": "Postoophorectomy osteoporosis with pathological fracture, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.13",
+          "code_description": "Postoophorectomy osteoporosis with pathological fracture, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.12",
+          "code_description": "Postoophorectomy osteoporosis with pathological fracture, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.11",
+          "code_description": "Postoophorectomy osteoporosis with pathological fracture, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.1",
+          "code_description": "Postoophorectomy osteoporosis with pathological fracture",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.43",
+          "code_description": "Drug-induced osteoporosis with pathological fracture, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.20",
+          "code_description": "Osteoporosis of disuse with pathological fracture, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.21",
+          "code_description": "Osteoporosis of disuse with pathological fracture, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.22",
+          "code_description": "Osteoporosis of disuse with pathological fracture, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.23",
+          "code_description": "Osteoporosis of disuse with pathological fracture, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.42",
+          "code_description": "Drug-induced osteoporosis with pathological fracture, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.41",
+          "code_description": "Drug-induced osteoporosis with pathological fracture, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.40",
+          "code_description": "Drug-induced osteoporosis with pathological fracture, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.4",
+          "code_description": "Drug-induced osteoporosis with pathological fracture",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.39",
+          "code_description": "Postsurgical malabsorption osteoporosis with pathological fracture, site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.38",
+          "code_description": "Postsurgical malabsorption osteoporosis with pathological fracture, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.37",
+          "code_description": "Postsurgical malabsorption osteoporosis with pathological fracture, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.36",
+          "code_description": "Postsurgical malabsorption osteoporosis with pathological fracture, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.35",
+          "code_description": "Postsurgical malabsorption osteoporosis with pathological fracture, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.34",
+          "code_description": "Postsurgical malabsorption osteoporosis with pathological fracture, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.33",
+          "code_description": "Postsurgical malabsorption osteoporosis with pathological fracture, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.32",
+          "code_description": "Postsurgical malabsorption osteoporosis with pathological fracture, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.31",
+          "code_description": "Postsurgical malabsorption osteoporosis with pathological fracture, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.30",
+          "code_description": "Postsurgical malabsorption osteoporosis with pathological fracture, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.3",
+          "code_description": "Postsurgical malabsorption osteoporosis with pathological fracture",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.29",
+          "code_description": "Osteoporosis of disuse with pathological fracture, site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.28",
+          "code_description": "Osteoporosis of disuse with pathological fracture, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.27",
+          "code_description": "Osteoporosis of disuse with pathological fracture, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.26",
+          "code_description": "Osteoporosis of disuse with pathological fracture, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.25",
+          "code_description": "Osteoporosis of disuse with pathological fracture, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.24",
+          "code_description": "Osteoporosis of disuse with pathological fracture, hand",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

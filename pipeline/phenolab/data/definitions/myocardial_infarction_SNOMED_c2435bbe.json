@@ -1,0 +1,243 @@
+{
+  "definition_id": "c2435bbe",
+  "definition_name": "myocardial_infarction_SNOMED",
+  "definition_version": "myocardial_infarction_SNOMED_20250401_133052",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "2025-04-01T13:30:52.486037",
+  "version_datetime": "2025-05-19T23:22:44.813649",
+  "codelists": [
+    {
+      "codelist_id": "074e0dde",
+      "codelist_name": "myocardial_infarction_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "myocardial_infarction_SNOMED_SNOMED_20250401_133107",
+      "codes": [
+        {
+          "code": "57054005",
+          "code_description": "Acute myocardial infarction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401314000",
+          "code_description": "Acute non-ST segment elevation myocardial infarction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401303003",
+          "code_description": "Acute ST segment elevation myocardial infarction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "73795002",
+          "code_description": "Acute myocardial infarction of inferior wall (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "22298006",
+          "code_description": "Myocardial infarction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "54329005",
+          "code_description": "Acute myocardial infarction of anterior wall (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "70211005",
+          "code_description": "Acute myocardial infarction of anterolateral wall (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "65547006",
+          "code_description": "Acute myocardial infarction of inferolateral wall (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233838001",
+          "code_description": "Acute posterior myocardial infarction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "164865005",
+          "code_description": "Electrocardiographic myocardial infarction (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "62695002",
+          "code_description": "Acute anteroseptal myocardial infarction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "76593002",
+          "code_description": "Acute myocardial infarction of inferoposterior wall (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "58612006",
+          "code_description": "Acute myocardial infarction of lateral wall (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233843008",
+          "code_description": "Silent myocardial infarction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "304914007",
+          "code_description": "Acute Q wave myocardial infarction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "703164000",
+          "code_description": "Acute ST segment elevation myocardial infarction of anterior wall (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194856005",
+          "code_description": "Subsequent myocardial infarction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194796000",
+          "code_description": "(Myocardial infarction (& [acute] or [silent] or [cardiac rupture following])) or (coronary thrombosis) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "703213009",
+          "code_description": "Acute ST segment elevation myocardial infarction of inferior wall (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "394710008",
+          "code_description": "First myocardial infarction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "79009004",
+          "code_description": "Acute myocardial infarction of septum (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879955009",
+          "code_description": "Myocardial infarction with non-obstructive coronary artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314207007",
+          "code_description": "Non-Q wave myocardial infarction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194868001",
+          "code_description": "Thrombosis of atrium, auricular appendage, and ventricle due to and following acute myocardial infarction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194802003",
+          "code_description": "True posterior myocardial infarction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15713041000119103",
+          "code_description": "Acute ST segment elevation myocardial infarction of posterior wall (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15990001",
+          "code_description": "Acute myocardial infarction of posterolateral wall (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "59063002",
+          "code_description": "Acute myocardial infarction of apical-lateral wall (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16837681000119104",
+          "code_description": "Myocardial infarction due to demand ischemia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12238111000119106",
+          "code_description": "Acute ST segment elevation myocardial infarction of inferolateral wall (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15712881000119105",
+          "code_description": "Acute ST segment elevation myocardial infarction of anterolateral wall (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1204155000",
+          "code_description": "Acute anterior non-ST segment elevation myocardial infarction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1204152002",
+          "code_description": "Acute inferior non-ST segment elevation myocardial infarction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "23311000119105",
+          "code_description": "Acute myocardial infarction due to right coronary artery occlusion (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "428752002",
+          "code_description": "Recent myocardial infarction (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194857001",
+          "code_description": "Subsequent myocardial infarction of anterior wall (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "896689003",
+          "code_description": "Acute myocardial infarction due to occlusion of circumflex branch of left coronary artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "44821000087100",
+          "code_description": "Acute ST segment elevation myocardial infarction due to occlusion of mid portion of circumflex branch of left coronary artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15712921000119103",
+          "code_description": "Acute ST segment elevation myocardial infarction of lateral wall (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266288001",
+          "code_description": "Myocardial infarction (& [acute]) or coronary thrombosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1089471000000109",
+          "code_description": "Acute transmural myocardial infarction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "840312002",
+          "code_description": "Acute ST segment elevation myocardial infarction due to occlusion of mid portion of anterior descending branch of left coronary artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12238151000119107",
+          "code_description": "Acute ST segment elevation myocardial infarction of inferoposterior wall (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15713161000119100",
+          "code_description": "Acute ST segment elevation myocardial infarction of septum (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "371068009",
+          "code_description": "Myocardial infarction with complication (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

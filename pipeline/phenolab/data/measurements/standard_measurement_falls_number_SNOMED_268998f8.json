@@ -1,0 +1,173 @@
+{
+  "definition_id": "7fc04cdc",
+  "definition_name": "measurement_falls_number_SNOMED",
+  "standard_units": [],
+  "primary_standard_unit": null,
+  "unit_mappings": [
+    {
+      "source_unit": "/year",
+      "standard_unit": "",
+      "source_unit_count": 109682,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "Unk UoM",
+      "standard_unit": "",
+      "source_unit_count": 1466,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "/month",
+      "standard_unit": "",
+      "source_unit_count": 10,
+      "source_unit_lq": 2.25,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "/week",
+      "standard_unit": "",
+      "source_unit_count": 10,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 3.5,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "6 months",
+      "standard_unit": "",
+      "source_unit_count": 9,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "/6 months",
+      "standard_unit": "",
+      "source_unit_count": 7,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.5
+    },
+    {
+      "source_unit": "/6months",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "year",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "months",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "0",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "in 3 months",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "2019",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "0/year",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "1",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "/years",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "Month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "units",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "/in the last 1 week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    }
+  ],
+  "unit_conversions": [],
+  "created_datetime": "2025-05-19T23:23:56.061230",
+  "updated_datetime": "2025-05-19T23:24:04.726735",
+  "standard_measurement_config_id": "268998f8",
+  "standard_measurement_config_version": "measurement_falls_number_SNOMED_20250519_232404"
+}

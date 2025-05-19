@@ -1,0 +1,12 @@
+{
+  "definition_id": "8a1314d4",
+  "definition_name": "measurement_blood_pressure_diastolic_SNOMED",
+  "standard_units": [],
+  "primary_standard_unit": null,
+  "unit_mappings": [],
+  "unit_conversions": [],
+  "created_datetime": "2025-05-19T23:23:56.062237",
+  "updated_datetime": "2025-05-19T23:23:56.062237",
+  "standard_measurement_config_id": "ff76bc1a",
+  "standard_measurement_config_version": "measurement_blood_pressure_diastolic_SNOMED_20250519_232356"
+}
