@@ -1,0 +1,34 @@
+# TODO
+# [x] which patients?
+# [x] what about patients coded as diabetic who are no longer diabetic?
+# [ ] once have sorted that out, need to join together the two tables to get all diabetic patients and whether they were diagnosed by code or found by us
+# [ ] Dan's tables - but Dan uses different HbA1c definition to me!
+# [ ] hba1c trajectories
+# [ ] final hba1c distribution
+# [ ] age - distribution and relationship to final hba1c
+# [ ] exclude certain hba1cs as per jordan
+# [ ] need to plot/examine the units issue in more detail
+# [ ] need to check we're still in the ref period for 
+# [ ] feature store changes and then feature changes
+# [ ] need to add in IMD/work out how to encode - took it out because categorical
+# [x] discuss hba1c selection with dan
+# [ ] should probably round hba1cs to whole numbers to avoid false precision
+# [x] add marimo to requirements
+# [ ] see what codes Dan has in defintion and if happy with this lst
+# [ ] medications
+# [ ] medicine compliance
+# [ ] look into BMI classification in more detail and consider whether could be continuous
+# [ ] weight or BMI change
+# [ ] BMI should not backwards contaminate
+# [ ] colinearity in how I've coded features?
+# [ ] eGFR* - talk to Dan
+# [ ] need to sort out clinical effective date vs date recorded. Also Age_at_event
+# [ ] endpoint flags
+# [ ] fix the neuropathy weird naming things and found out why it happened
+# [ ] look into TimeXGB
+# [ ] use phenotypes not just definitions?
+# [ ] look into xgb ordinal classification/look into having 2 loss functions
+# [ ] >>>>need an age at start of observation period feature!
+# [ ] >>>>need to take out outcome period variables!
+# [ ] once have put in all extra features, check original feature table
+# [ ] take out rouge output variables
