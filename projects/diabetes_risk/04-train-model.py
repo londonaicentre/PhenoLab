@@ -97,7 +97,7 @@ def _(df_pruned, plt):
 
     plt.figure(figsize=(8, 5))
     plt.hist(df_pruned['SLOPE_OF_HBA1C_OVER_TIME'], bins=30, color='skyblue', edgecolor='black')
-    plt.title('Distribution of HbA1c sloope')
+    plt.title('Distribution of HbA1c slope')
     plt.xlabel('HbA1c change (mmol/mol/month)')
     plt.ylabel('Frequency')
     plt.grid(True, linestyle='--', alpha=0.6)
@@ -108,16 +108,8 @@ def _(df_pruned, plt):
 
 
 @app.cell
-def _(df_pruned, plt):
-    plt.figure(figsize=(8, 5))
-    plt.hist(df_pruned['SLOPE_OF_HBA1C_OVER_TIME'], bins=30, color='skyblue', edgecolor='black')
-    plt.title('Distribution of HbA1c sloope')
-    plt.xlabel('HbA1c change (mmol/mol/month)')
-    plt.ylabel('Frequency')
-    plt.grid(True, linestyle='--', alpha=0.6)
-    plt.xlim(-3, 3)
-    plt.tight_layout()
-    plt.show()
+def _(df_pruned):
+    df_pruned['SLOPE_OF_HBA1C_OVER_TIME']
     return
 
 
