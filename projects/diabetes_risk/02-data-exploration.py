@@ -635,6 +635,23 @@ def _(feature_store_manager):
 
 @app.cell
 def _():
+    # with open('create_tables/hba1c_features.sql') as _fid:
+    #     _query = _fid.read()
+    
+    # _featureid = feature_store_manager.get_feature_id_from_table_name('HBA1C_FEATURES_V1')
+    # feature_store_manager.update_feature(feature_id=_featureid, new_sql_select_query=_query, change_description="Added in age at start of window period", overwrite=True)
+    return
+
+
+@app.cell
+def _():
+    # _featureid = feature_store_manager.get_feature_id_from_table_name('HBA1C_FEATURES_V1')
+    # feature_store_manager.remove_latest_feature_version(_featureid)
+    return
+
+
+@app.cell
+def _():
     # _fid = feature_store_manager.get_feature_id_from_table_name('DIABETIC_OUTCOME_FLAGS_TIMEPERIOD_v1')
     # feature_store_manager.remove_latest_feature_version(_fid)
     return
