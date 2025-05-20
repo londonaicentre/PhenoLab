@@ -82,6 +82,15 @@ and don't want a full record of each SQL query used and the resulting table. Def
 intention of the default behaviour is to prevent a new version being created if the code to update a feature is
 accidentally rerun.
 
+The `refresh_latest_feature_version` will 'refresh' the latest version of an existing feature by dropping the table and 
+recreating it with the same SQL query used to create it previously. This is good when the query hasn't changed but the
+underlying data has.
+
+```python
+featureid = feature_store_manager.get_feature_id_from_table_name('HBA1C_FEATURES_V1')
+feature_store_manager.refresh_latest_feature_version(featureid)
+```
+
 This function will remove a feature version (registry entry and corresponding table). It is only designed for use during
 development:
 
