@@ -145,7 +145,7 @@ def _():
 def _(conn):
     # Explore HbA1cs
     hba1cs = conn.session.sql("""
-        select PERSON_ID, RESULT_VALUE_CLEANED_AND_CONVERTED_TO_MMOL_PER_MOL
+        select PERSON_ID, RESULT_VALUE_CLEANED_AND_CONVERTED_TO_MMOL_PER_MOL, AGE_AT_EVENT
         from INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.HBA1C_WITH_UNIT_REALLOCATION_V1;
         """).to_pandas()
 
@@ -567,13 +567,6 @@ def _():
 
 @app.cell
 def _(feature_store_manager):
-    _fid = feature_store_manager.get_feature_id_from_table_name('PATIENTS_WITH_DIABETES_RESOLUTION_CODE_v1')
-    feature_store_manager.delete_feature(feature_id=_fid)
-    return
-
-
-@app.cell
-def _(feature_store_manager):
     with open('create_tables/patients_with_diabetes_resolution_code.sql') as _fid:
         _query = _fid.read()
         # data = conn.session.sql(sql).collect()
@@ -616,9 +609,68 @@ def _(feature_store_manager):
 
 
 @app.cell
+def _():
+    """
+    Further features
+    """
+    return
+
+
+@app.cell
 def _(feature_store_manager):
-    _featureid = feature_store_manager.get_feature_id_from_table_name('PATIENTS_WITH_NON_T1DM_CODES_V1')
-    feature_store_manager.remove_latest_feature_version(_featureid)
+    with open('create_tables/hba1c_features.sql') as _fid:
+        _query = _fid.read()
+        # data = conn.session.sql(sql).collect()
+
+    feature_store_manager.add_new_feature(
+        feature_name="hba1c_features",
+        feature_desc="""
+                Various engineered features for a model that predicts final Hba1c over a years blinded period from HbA1c features prior to this period 
+            """,
+        feature_format="Continuous",
+        sql_select_query_to_generate_feature=_query,
+        existence_ok=True)
+    return
+
+
+@app.cell
+def _():
+    # _fid = feature_store_manager.get_feature_id_from_table_name('DIABETIC_OUTCOME_FLAGS_TIMEPERIOD_v1')
+    # feature_store_manager.remove_latest_feature_version(_fid)
+    return
+
+
+@app.cell
+def _(feature_store_manager):
+    with open('create_tables/diabetic_outcome_flags_timeperiod.sql') as _fid:
+        _query = _fid.read()
+        # data = conn.session.sql(sql).collect()
+
+    feature_store_manager.add_new_feature(
+        feature_name="diabetic_outcome_flags_timeperiod",
+        feature_desc="""
+            1 or 0 flags for various outcomes such as PVD, stroke or amputation in the outcome period and the observation period
+            """,
+        feature_format="Binary",
+        sql_select_query_to_generate_feature=_query,
+        existence_ok=True)
+    return
+
+
+@app.cell
+def _(feature_store_manager):
+    with open('create_tables/patients_with_diabetes_all.sql') as _fid:
+        _query = _fid.read()
+        # data = conn.session.sql(sql).collect()
+
+    feature_store_manager.add_new_feature(
+        feature_name="patients_with_diabetes_all",
+        feature_desc="""
+            Patients diagnosed by code or by successive HbA1cs joined together, with basic demographic info
+            """,
+        feature_format="Mixed",
+        sql_select_query_to_generate_feature=_query,
+        existence_ok=True)
     return
 
 
@@ -637,6 +689,18 @@ def _():
     # [x] discuss hba1c selection with dan
     # [ ] should probably round hba1cs to whole numbers to avoid false precision
     # [x] add marimo to requirements
+    # [ ] see what codes Dan has in defintion and if happy with this lst
+    # [ ] medications
+    # [ ] medicine compliance
+    # [ ] look into BMI classification in more detail and consider whether could be continuous
+    # [ ] weight or BMI change
+    # [ ] BMI should not backwards contaminate
+    # [ ] colinearity in how I've coded features?
+    # [ ] eGFR* - talk to Dan
+    # [ ] need to sort out clinical effective date vs date recorded. Also Age_at_event
+    # [ ] endpoint flags
+    # [ ] fix the neuropathy weird naming things and found out why it happened
+    # [ ] look into TimeXGB
     return
 
 
