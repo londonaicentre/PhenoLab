@@ -637,9 +637,16 @@ def _(feature_store_manager):
 def _():
     # with open('create_tables/hba1c_features.sql') as _fid:
     #     _query = _fid.read()
-    
+
     # _featureid = feature_store_manager.get_feature_id_from_table_name('HBA1C_FEATURES_V1')
     # feature_store_manager.update_feature(feature_id=_featureid, new_sql_select_query=_query, change_description="Added in age at start of window period", overwrite=True)
+    return
+
+
+@app.cell
+def _(feature_store_manager):
+    _featureid = feature_store_manager.get_feature_id_from_table_name('HBA1C_FEATURES_V1')
+    feature_store_manager.refresh_latest_feature_version(_featureid)
     return
 
 

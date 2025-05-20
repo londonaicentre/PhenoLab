@@ -29,7 +29,9 @@ containing the feature, the SQL query used to create the table, a description of
 date of version registration. When a new feature is created, the first version is automatically registered here.
 - **Active features**: Not used currently, but for registering features used by live models
 
-To create a feature, do something like this (see `create_feature_hypertension.py`):
+Since we already have a feature store set up and populated with the relevant tables, you won't need to do the step above
+most of the time. Initialise the feature store manager class with the details of the database and schema, and then use 
+it to create a feature like this (see `create_feature_hypertension.py`):
 
 ```python
 from dotenv import load_dotenv
@@ -71,6 +73,21 @@ new_version_id = feature_store_manager.update_feature(
     new_sql_select_query=query,
     change_description="A test update; same query"
 )
+```
+
+The update feature has two optional flags. If `overwrite=True` is used, the update to the feature will overwrite the
+existing registry entry and table. Use this when you are incrementing rapidly in feature design during model development
+and don't want a full record of each SQL query used and the resulting table. Defaults to False. If 
+`force_new_version=True`, the default behaviour *not* to create a new version if the SQL is idential is overrode. The 
+intention of the default behaviour is to prevent a new version being created if the code to update a feature is
+accidentally rerun.
+
+This function will remove a feature version (registry entry and corresponding table). It is only designed for use during
+development:
+
+```python
+featureid = feature_store_manager.get_feature_id_from_table_name('PATIENTS_WITH_DIABETES_ALL_V1')
+feature_store_manager.remove_latest_feature_version(featureid)
 ```
 
 There is also a function to delete features that are created in error - use with caution and not to retire features that 
