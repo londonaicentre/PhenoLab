@@ -108,8 +108,7 @@ def _(feature_store_manager):
 
 @app.cell
 def _(feature_store_manager):
-    _fid = feature_store_manager.get_feature_id_from_table_name('HBA1c_MODEL_ALL_FEATURES_V1')
-    feature_store_manager.refresh_latest_feature_version(_fid)
+    feature_store_manager.remove_latest_feature_version(feature_store_manager.get_feature_id_from_table_name('PATIENTS_WITH_2_HBA1C_GREATER_THAN_EQUAL_TO_48_V2'))
     return
 
 
