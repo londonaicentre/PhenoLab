@@ -22,9 +22,18 @@ corrected_hba1cs as (
         END AS result_value_cleaned_and_converted_to_mmol_per_mol
     from hba1cs),
 tidied_values as (
-    select person_id, clinical_effective_date, age_at_event, result_value_cleaned_and_converted_to_mmol_per_mol 
+    select person_id, 
+        clinical_effective_date, 
+        age_at_event,
+        result_value as result_value_raw,
+        result_value_cleaned_and_converted_to_mmol_per_mol 
     from corrected_hba1cs
     where result_value_cleaned_and_converted_to_mmol_per_mol is not null
+    and (
+        clinical_effective_date < DATE '2024-01-01'
+        and clinical_effective_date > DATE '2025-01-31'
+    ) -- advice from Jordan: faulty laboratory: advised to remove all values from 2024-01-01 to 2025-01-31 as 
+    -- it is unknown how to trace affected values
 )
 select *
 from tidied_values;

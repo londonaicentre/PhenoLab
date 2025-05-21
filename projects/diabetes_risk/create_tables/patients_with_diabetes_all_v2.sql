@@ -1,9 +1,12 @@
 WITH valid_non_t1dm AS (
     SELECT 
-        p.*, 
+        p.person_id,
+        p.date_of_birth,
+        p.gender_concept_id,
+        p.core_concept_id, 
         1 AS diagnosis_by_code,
         0 AS diagnosis_by_hba1c,
-        NULL as earliest_hba1c_diagnosis_date,
+        CAST(NULL AS DATE) AS earliest_hba1c_diagnosis_date,
         earliest_diagnosis_date as earliest_code_diagnosis_date
     FROM INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.PATIENTS_WITH_NON_T1DM_CODES_V1 p
     LEFT JOIN INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.PATIENTS_WITH_DIABETES_RESOLUTION_CODE_V1 r
@@ -13,13 +16,17 @@ WITH valid_non_t1dm AS (
 ),
 valid_hba1c AS (
     SELECT 
-        h.*, 
+        h.person_id,
+        p.date_of_birth,
+        p.gender_concept_id,
+        NULL AS core_concept_id,
         0 AS diagnosis_by_code,
         1 AS diagnosis_by_hba1c,
-        NULL AS core_concept_id,
-        NULL AS earliest_hba1c_diagnosis_date,
-        earliest_diagnosis_date as earliest_hba1c_diagnosis_date
-    FROM INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.PATIENTS_WITH_2_HBA1C_GREATER_THAN_EQUAL_TO_48_V3 h
+        earliest_diagnosis_date as earliest_hba1c_diagnosis_date,
+        CAST(NULL AS DATE) AS earliest_code_diagnosis_date
+    FROM INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.PATIENTS_WITH_2_HBA1C_GREATER_THAN_EQUAL_TO_48_V1 h
+    JOIN prod_dwh.analyst_primary_care.patient p
+        ON h.person_id = p.person_id
     LEFT JOIN INTELLIGENCE_DEV.AI_CENTRE_FEATURE_STORE.PATIENTS_WITH_DIABETES_RESOLUTION_CODE_V1 r
         ON h.person_id = r.person_id
        AND r.clinical_effective_date > h.latest_diagnosis_date

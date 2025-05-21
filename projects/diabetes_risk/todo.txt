@@ -8,11 +8,12 @@
 # [x] feature store needs a refresh function
 # [x] age - distribution and relationship to final hba1c
 # [x] create feature pipeline function
-# [ ] exclude certain hba1cs as per jordan
+# [x] exclude certain hba1cs as per jordan
 # [x] need to plot/examine the units issue in more detail
 # [ ] need to check we're still in the ref period for codes
 # [x] feature store changes and then feature changes
-# [ ] simplify features
+# [x] simplify features
+# [ ] retire notebooks?
 # [ ] need to add in IMD/work out how to encode - took it out because categorical
 # [x] discuss hba1c selection with dan
 # [ ] should probably round hba1cs to whole numbers to avoid false precision
