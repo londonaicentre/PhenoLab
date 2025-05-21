@@ -56,6 +56,12 @@ def _(df):
 
 @app.cell
 def _(df):
+    len(df)
+    return
+
+
+@app.cell
+def _(df):
     df_pruned = df.drop(columns=[
         'PERSON_ID', 'GENDER_CONCEPT_ID', 'DATE_OF_BIRTH', 'DATE_OF_DEATH',
         'DATE_OF_DEATH_INC_CODES', 'CURRENT_ADDRESS_ID', 'ETHNIC_CODE_CONCEPT_ID',
@@ -63,7 +69,10 @@ def _(df):
         'CORE_CONCEPT_ID', 'EARLIEST_HBA1C_DIAGNOSIS_DATE', 'EARLIEST_CODE_DIAGNOSIS_DATE',
         'ETHNIC_AIC_CATEGORY', 'SMOKING_STATUS', 'LATEST_SMOKING_STATUS_DATE',
         'EARLIEST_DIAGNOSIS_DATE_COMBINED', 'OUTCOME_DATE', 'START_OF_BLINDED_PERIOD',
-        'IMD_DECILE', 'IMD_QUINTILE'
+        'IMD_DECILE', 'IMD_QUINTILE', 'DIABETIC_EYE_COMPLICATIONS_IN_OUTCOME_PERIOD',
+        'HF_IN_OUTCOME_PERIOD', 'NEUROPATHY_IN_OUTCOME_PERIOD', 'AMPUTATION_IN_OUTCOME_PERIOD',
+        'RENAL_IN_OUTCOME_PERIOD', 'PVD_IN_OUTCOME_PERIOD', 'MI_IN_OUTCOME_PERIOD',
+        'STROKE_IN_OUTCOME_PERIOD', 'DKA_IN_OUTCOME_PERIOD'
     ])
 
     return (df_pruned,)
@@ -108,8 +117,30 @@ def _(df_pruned, plt):
 
 
 @app.cell
-def _(df_pruned):
-    df_pruned['SLOPE_OF_HBA1C_OVER_TIME']
+def _(df_pruned, plt):
+    plt.figure(figsize=(8, 5))
+    plt.hist(df_pruned['AGE_AT_START_OF_BLINDED_PERIOD'], bins=30, color='skyblue', edgecolor='black')
+    plt.title('Age distribution')
+    plt.xlabel('Age (years)')
+    plt.ylabel('Frequency')
+    plt.grid(True, linestyle='--', alpha=0.6)
+    plt.tight_layout()
+    plt.show()
+    return
+
+
+@app.cell
+def _(df_pruned, plt):
+    plt.figure(figsize=(8, 6))
+    plt.scatter(
+        df_pruned['AGE_AT_START_OF_BLINDED_PERIOD'],
+        df_pruned['OUTCOME_HBA1C'],
+        alpha=0.7,
+        s=3,
+    )
+    plt.xlabel('Age at Start of Blinded Period')
+    plt.ylabel('Outcome HbA1c')
+    plt.title('Age vs Outcome HbA1c')
     return
 
 

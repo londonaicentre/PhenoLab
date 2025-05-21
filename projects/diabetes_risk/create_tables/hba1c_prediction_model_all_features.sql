@@ -14,6 +14,7 @@ SELECT
     h.mean_hba1c_2_years_prior, 
     h.mean_hba1c_2_to_5_year_prior, 
     h.age_at_first_hba1c_greater_or_equal_to_48,
+    h.age_at_start_of_blinded_period,
     b.mean_bmi_in_obs_period,
     b.last_bmi_in_obs_period,
     b.slope_of_bmi_in_obs_period,

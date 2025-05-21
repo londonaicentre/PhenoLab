@@ -528,7 +528,7 @@ class FeatureStoreManager:
         if result:
             return result[0]["FEATURE_ID"]
         else:
-            return []
+            raise ValueError(f"Table {table_name} does not exist in the feature version registry")
     
     def delete_feature(self, feature_id: str):
         """
