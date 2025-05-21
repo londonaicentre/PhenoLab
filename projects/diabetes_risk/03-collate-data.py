@@ -96,5 +96,22 @@ def _(feature_store_manager):
     return
 
 
+@app.cell
+def _(feature_store_manager):
+    with open('create_tables/hba1c_prediction_model_all_features.sql') as _fileid:
+                _query = _fileid.read()
+
+    _fid = feature_store_manager.get_feature_id_from_table_name('HBA1c_MODEL_ALL_FEATURES_V1')
+    feature_store_manager.update_feature(_fid, _query, change_description="Added in age at start of blinded period", overwrite=True)
+    return
+
+
+@app.cell
+def _(feature_store_manager):
+    _fid = feature_store_manager.get_feature_id_from_table_name('HBA1c_MODEL_ALL_FEATURES_V1')
+    feature_store_manager.refresh_latest_feature_version(_fid)
+    return
+
+
 if __name__ == "__main__":
     app.run()
