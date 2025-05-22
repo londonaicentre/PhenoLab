@@ -166,7 +166,7 @@ def compute_pdc_overall(df):
         inclusive_pdc = (total_covered_days / exposure_days
                       ) if pd.notnull(exposure_days) and exposure_days > 0 else None
 
-        # Dynamic PDC: avoid overlaps using unique daily dates
+        # Exclusive PDC: avoid overlaps using unique daily dates
         covered_dates = set()
 
         for _, row in group.iterrows():

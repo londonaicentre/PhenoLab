@@ -248,6 +248,7 @@ def linear_reg(df, predictor_col, outcome_col):
     Returns:
         RegressionResults: The fitted OLS model result.
     """
+
     # Define predictor and outcome
     X = df[predictor_col]
     y = df[outcome_col]

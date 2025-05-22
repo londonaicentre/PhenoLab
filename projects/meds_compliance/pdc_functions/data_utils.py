@@ -96,8 +96,8 @@ def add_demographic_data(snowsesh, df, join_col="person_id"):
     SELECT
     p.person_id,
     p.date_of_birth,
-    c_gender.name AS gender,
-    c_ethnicity.name AS ethnicity,
+    g.name AS gender,
+    e.name AS ethnicity,
     i.england_imd_decile as imd
 
     FROM prod_dwh.analyst_primary_care.patient p
@@ -105,13 +105,13 @@ def add_demographic_data(snowsesh, df, join_col="person_id"):
     LEFT JOIN prod_dwh.analyst_primary_care.patient_address pa
         ON pa.id = p.current_address_id
 
-    LEFT JOIN prod_dwh.analyst_primary_care.concept c_gender
-        ON c_gender.dbid = p.gender_concept_id
+    LEFT JOIN prod_dwh.analyst_primary_care.concept g
+        ON g.dbid = p.gender_concept_id
 
-    LEFT JOIN prod_dwh.analyst_primary_care.concept c_ethnicity
-        ON c_ethnicity.dbid = p.ethnic_code_concept_id
+    LEFT JOIN prod_dwh.analyst_primary_care.concept e
+        ON e.dbid = p.ethnic_code_concept_id
 
-    LEFT JOIN intelligence_dev.ai_centre_feature_store.imd2019london_v1 i
+    LEFT JOIN intelligence_dev.ai_centre_external.imd2019london i
         ON pa.lsoa_2011_code = i.ls11cd
 ;
     """
@@ -393,7 +393,7 @@ def attach_closest_results_2(
     n_results: int = 3
 ) -> pd.DataFrame:
     """
-    Attach the 3 closest results strictly before min_start_date and strictly after max_start_date.
+    Attach the 3 closest results only before min_start_date and only after max_start_date.
 
     No time window is used.
     """

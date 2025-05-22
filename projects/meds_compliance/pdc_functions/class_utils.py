@@ -121,8 +121,11 @@ class MedicationTable:
             else (
                 row["calculated_duration"]
                 if pd.notnull(row["calculated_duration"]) and row["calculated_duration"] > 0
-                else row["duration_days"] if pd.notnull(row["duration_days"])
+                else (
+                    row["duration_days"]
+                    if pd.notnull(row["duration_days"]) and row["duration_days"] > 0
                 else None
+                )
             ), axis=1
         )
         return self
