@@ -1,0 +1,1 @@
+This folder contains `.sql` scripts to create feature tables that are required to support downstream pipelines. These must be customised depending on the source data model.

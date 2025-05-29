@@ -1,0 +1,103 @@
+{
+  "definition_id": "01a91527",
+  "definition_name": "measurement_blood_pressure_systolic_SNOMED",
+  "definition_version": "measurement_blood_pressure_systolic_SNOMED_20250517_125239",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-05-19T23:22:44.813649",
+  "codelists": [
+    {
+      "codelist_id": "measurement_blood_pressure_systolic_SNOMED_SNOMED_6cc19ede",
+      "codelist_name": "measurement_blood_pressure_systolic_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_blood_pressure_systolic_SNOMED_SNOMED_6cc19ede_20250517_125252",
+      "codes": [
+        {
+          "code": "163030003",
+          "code_description": "On examination - Systolic blood pressure reading (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "72313002",
+          "code_description": "Systolic arterial pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "413606001",
+          "code_description": "Average home systolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1162737008",
+          "code_description": "Self reported systolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "407554009",
+          "code_description": "Sitting systolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314449000",
+          "code_description": "Average 24 hour systolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314446007",
+          "code_description": "Average day interval systolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "407556006",
+          "code_description": "Lying systolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "198081000000101",
+          "code_description": "Ambulatory systolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314445006",
+          "code_description": "Average night interval systolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314440001",
+          "code_description": "Average systolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "271649006",
+          "code_description": "Systolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "716579001",
+          "code_description": "Baseline systolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314464000",
+          "code_description": "24 hour systolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "2181381000000109",
+          "code_description": "Average ambulatory systolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "2181401000000109",
+          "code_description": "Average ambulatory day interval systolic blood pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "251070002",
+          "code_description": "Non-invasive systolic arterial pressure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}
