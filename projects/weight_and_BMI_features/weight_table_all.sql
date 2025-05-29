@@ -15,14 +15,14 @@ WITH coded_weight_class AS (
         obs.clinical_effective_date, 
         obs.result_value as value, 
         obs.result_value_units, 
-        pheno.code_description,
+        def.code_description,
         'coded' AS source
     FROM PROD_DWH.ANALYST_PRIMARY_CARE.OBSERVATION AS obs
     JOIN PROD_DWH.ANALYST_PRIMARY_CARE.CONCEPT AS concept
         ON obs.core_concept_id = concept.dbid
-    JOIN INTELLIGENCE_DEV.AI_CENTRE_PHENOTYPE_LIBRARY.PHENOSTORE AS pheno
-        ON concept.CODE = pheno.code
-    WHERE pheno.PHENOTYPE_ID IN ('999016011000230101', '999016051000230102', 
+    JOIN INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.DEFINITIONSTORE AS def
+        ON concept.CODE = def.code
+    WHERE def.DEFINITION_ID IN ('999016011000230101', '999016051000230102', 
     '999016131000230105', '999016091000230107', '999011051000230106', 
     '999020771000230102') -- NHS PCD Refsets for coded weight status (healthy, under, over, and obese classes)
 
@@ -37,14 +37,14 @@ WITH coded_weight_class AS (
         obs.clinical_effective_date, 
         obs.result_value as value, 
         obs.result_value_units, 
-        pheno.code_description,
+        def.code_description,
         'any reading' AS source
     FROM PROD_DWH.ANALYST_PRIMARY_CARE.OBSERVATION AS obs
     JOIN PROD_DWH.ANALYST_PRIMARY_CARE.CONCEPT AS concept
         ON obs.core_concept_id = concept.dbid
-    JOIN INTELLIGENCE_DEV.AI_CENTRE_PHENOTYPE_LIBRARY.PHENOSTORE AS pheno
-        ON concept.CODE = pheno.code
-    WHERE pheno.PHENOTYPE_ID IN ('999011171000230101') -- BMI coded with associated value NHS PCD refset
+    JOIN INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.DEFINITIONSTORE AS def
+        ON concept.CODE = def.code
+    WHERE def.DEFINITION_ID IN ('999011171000230101') -- BMI coded with associated value NHS PCD refset
     AND obs.result_value IS NOT NULL
 
     UNION ALL
@@ -82,12 +82,12 @@ WITH coded_weight_class AS (
         ON w.core_concept_id = concept_w.dbid
     JOIN PROD_DWH.ANALYST_PRIMARY_CARE.CONCEPT AS concept_h
         ON h.core_concept_id = concept_h.dbid
-    JOIN INTELLIGENCE_DEV.AI_CENTRE_PHENOTYPE_LIBRARY.PHENOSTORE AS pheno_w
-        ON concept_w.CODE = pheno_w.code
-        AND pheno_w.PHENOTYPE_ID = 'opensafely/weight-snomed' -- Weight codes
-    JOIN INTELLIGENCE_DEV.AI_CENTRE_PHENOTYPE_LIBRARY.PHENOSTORE AS pheno_h
-        ON concept_h.CODE = pheno_h.code
-        AND pheno_h.PHENOTYPE_ID = 'opensafely/height-snomed' -- Height codes
+    JOIN INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.DEFINITIONSTORE AS def_w
+        ON concept_w.CODE = def_w.code
+        AND def_w.DEFINITION_ID = 'opensafely/weight-snomed' -- Weight codes
+    JOIN INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.DEFINITIONSTORE AS def_h
+        ON concept_h.CODE = def_h.code
+        AND def_h.DEFINITION_ID = 'opensafely/height-snomed' -- Height codes
     WHERE value IS NOT NULL
 ),
 categorised_data AS (

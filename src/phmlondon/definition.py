@@ -260,7 +260,8 @@ class Definition:
         than from an existing source. If no codelists are passed in, the content of these defaults to an empty list
         which must be populated incrementally.
         """
-        uploaded_datetime = datetime.now() # this is the time of creation for locally  created definitions
+        # uploaded_datetime = datetime.now() # this is the time of creation for locally  created definitions
+        uploaded_datetime = datetime.min  # placeholder - datetime added in when uploaded to DB
         content = f"{definition_name}_{uploaded_datetime}"
         definition_id = hashlib.md5(content.encode()).hexdigest()[:8]
         definition_version = f"{definition_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
