@@ -14,32 +14,41 @@
 # [x] feature store changes and then feature changes
 # [x] simplify features
 # [ ] retire notebooks?
-# [ ] need to add in IMD/work out how to encode - took it out because categorical
+# [ ] >>>>need to add in IMD/work out how to encode - took it out because categorical
 # [x] discuss hba1c selection with dan
 # [ ] should probably round hba1cs to whole numbers to avoid false precision
 # [x] add marimo to requirements
 # [ ] see what codes Dan has in defintion and if happy with this list
-# [ ] medications
-# [ ] medicine compliance
+# [ ] >>>medications
+# [ ] >>>medicine compliance
+# [ ] >>>comorbidities
+# [ ] blood pressure
+# [ ] visit frequency
+# [ ] polypharmacy
 # [x] look into BMI classification in more detail and consider whether could be continuous
 # [x] weight or BMI change
 # [x] BMI should not backwards contaminate
 # [ ] colinearity in how I've coded features?
 # [ ] eGFR* - talk to Dan
+# [ ] lipids
 # [ ] need to sort out clinical effective date vs date recorded. Also Age_at_event
 # [x] endpoint flags
 # [ ] fix the neuropathy weird naming things and found out why it happened
 # [ ] look into TimeXGB
 # [ ] use phenotypes not just definitions?
 # [ ] look into xgb ordinal classification/look into having 2 loss functions
-# [ ] >>>>need an age at start of observation period feature!
-# [ ] >>>>need to take out outcome period variables!
+# [x] >>>>need an age at start of observation period feature!
+# [x] >>>>need to take out outcome period variables!
 # [ ] once have put in all extra features, check original feature table
 # [x] take out rouge output variables
 # [ ] look further into XGB parameters
 # [ ] try linear logistic regression
 # [ ] try binary output prediction (or include those who stay the same?)
-# [ ] predict deteriorators
+# [x] predict deteriorators
+# [ ] longer time horizon e.g. 2 years+ for deteriorators
+# [ ] >>>>add in hba1c year by year
+# [ ] hyperparamter tuning
+# [ ] do a traditional admission/complication endpoint and compare
 # [ ] type up readme and plots
 # [ ] snowpark modelling
 # [ ] model regsistry use
@@ -52,4 +61,8 @@
 # [ ] more granular time-series values?
 # [ ] pdc score - per drug class
 # [ ] exclude young people (how are they getting in there anyway?!)
-
+# [ ] composite end point? (hba1c + complications)
+# [ ] literature search
+# [ ] maybe should try only code-diagnosed patients
+# [ ] SMOTE
+ 

@@ -11,9 +11,10 @@ def _():
     import matplotlib.pyplot as plt
     import xgboost as xgb
     import numpy as np
+    import seaborn as sns
     import shap
     from sklearn.model_selection import train_test_split
-    from sklearn.metrics import mean_squared_error, r2_score, accuracy_score, confusion_matrix, ConfusionMatrixDisplay
+    from sklearn.metrics import mean_squared_error, r2_score, accuracy_score, confusion_matrix, ConfusionMatrixDisplay, classification_report, roc_auc_score, roc_curve, precision_recall_curve, average_precision_score
     from dotenv import load_dotenv
     from phmlondon.snow_utils import SnowflakeConnection
     from phmlondon.feature_store_manager import FeatureStoreManager
@@ -21,13 +22,20 @@ def _():
         ConfusionMatrixDisplay,
         SnowflakeConnection,
         accuracy_score,
+        average_precision_score,
+        classification_report,
         confusion_matrix,
         load_dotenv,
         mean_squared_error,
+        mo,
         np,
         plt,
+        precision_recall_curve,
         r2_score,
+        roc_auc_score,
+        roc_curve,
         shap,
+        sns,
         train_test_split,
         xgb,
     )
@@ -56,7 +64,13 @@ def _(df):
 
 @app.cell
 def _(df):
-    len(df)
+    df
+    return
+
+
+@app.cell
+def _(df):
+    print(f"{len(df):,}")
     return
 
 
@@ -212,6 +226,35 @@ def _(mean_squared_error, np, plt, r2_score, y_pred, y_test):
     ax.set_ylim(lims)
     plt.text(lims[0] + 5, lims[1] - 5, f"R²: {r2:.2f}\nRMSE: {rmse:.2f}", fontsize=10)
     plt.title("Model performance")
+    return r2, rmse
+
+
+@app.cell
+def _(np, plt, r2, rmse, sns, y_pred, y_test):
+    # Same plot again with seaborn
+    plt.figure()
+    _ax = sns.scatterplot(
+        x=y_test,
+        y=y_pred,
+        s=10,  # Slightly larger for better visibility
+        color='lightcoral'
+    )
+
+    _lims = [
+        np.min([_ax.get_xlim(), _ax.get_ylim()]),
+        np.max([_ax.get_xlim(), _ax.get_ylim()])
+    ]
+    _ax.plot(_lims, _lims, 'k-', alpha=0.75, zorder=0)
+    _ax.set_aspect('equal')
+    _ax.set_xlim(_lims)
+    _ax.set_ylim(_lims)
+
+    _ax.text(_lims[0] + 5, _lims[1] - 5, f"R²: {r2:.2f}\nRMSE: {rmse:.2f}", fontsize=10)
+    _ax.set_title("Model performance")
+    _ax.set_xlabel("True HbA1c (mmol/mol)")
+    _ax.set_ylabel("Predicted HbA1c (mmol/mol)")
+
+    plt.show()
     return
 
 
@@ -263,8 +306,134 @@ def _(X_test, model, shap):
     explainer = shap.Explainer(model)
     shap_values = explainer(X_test)
     shap.summary_plot(shap_values, X_test)
-    shap.force_plot(explainer.expected_value, shap_values[0], X_test.iloc[0])
+    # shap.force_plot(explainer.expected_value, shap_values[0].values, X_test.iloc[0])
 
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md("""## Try categorical output - deteriorators""")
+    return
+
+
+@app.cell
+def _(df_pruned):
+    df_pruned['deteriorators'] = (
+        (df_pruned['OUTCOME_HBA1C'] - df_pruned['LAST_HBA1C_BEFORE_BLINDED_PERIOD']) >= 10
+    ).astype(int)
+    return
+
+
+@app.cell
+def _(df_pruned):
+    proportions = df_pruned['deteriorators'].value_counts(normalize=True)
+    print(proportions)
+    return
+
+
+@app.cell
+def _(
+    classification_report,
+    confusion_matrix,
+    df_pruned,
+    roc_auc_score,
+    train_test_split,
+    xgb,
+):
+    X2 = df_pruned.drop(columns=['deteriorators', 'OUTCOME_HBA1C'])  # drop label column
+    y2 = df_pruned['deteriorators']
+
+    # Train-test split (80/20)
+    X_train2, X_test2, y_train2, y_test2 = train_test_split(
+        X2, y2, test_size=0.2, stratify=y2, random_state=42
+    )
+
+    neg, pos = (y_train2 == 0).sum(), (y_train2 == 1).sum()
+    scale_pos_weight = neg / pos
+
+    model2 = xgb.XGBClassifier(
+        objective='binary:logistic',
+        scale_pos_weight=scale_pos_weight,
+        eval_metric='logloss',
+        random_state=42
+    )
+    model2.fit(X_train2, y_train2)
+
+    y_pred2 = model2.predict(X_test2)
+    y_proba2 = model2.predict_proba(X_test2)[:, 1] 
+
+    # Evaluate
+    print("Confusion Matrix:")
+    print(confusion_matrix(y_test2, y_pred2))
+
+    print("\nClassification Report:")
+    print(classification_report(y_test2, y_pred2))
+
+    print("\nROC AUC Score:")
+    print(roc_auc_score(y_test2, y_proba2))
+
+    return model2, y_proba2, y_test2
+
+
+@app.cell
+def _(plt, roc_auc_score, roc_curve, y_proba2, y_test2):
+    fpr, tpr, thresholds = roc_curve(y_test2, y_proba2)
+    auc_score = roc_auc_score(y_test2, y_proba2)
+
+    plt.figure(figsize=(8, 6))
+    plt.plot(fpr, tpr, label=f"ROC Curve (AUC = {auc_score:.2f})")
+    plt.plot([0, 1], [0, 1], linestyle="--", color="gray")  # baseline
+    plt.xlabel("False Positive Rate")
+    plt.ylabel("True Positive Rate")
+    plt.title("ROC Curve")
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+    return auc_score, fpr, tpr
+
+
+@app.cell
+def _(auc_score, fpr, plt, tpr):
+    # Same plot in seaborn
+    plt.figure(figsize=(8, 6))
+    plt.plot(fpr, tpr, label=f"ROC Curve (AUC = {auc_score:.2f})")
+    plt.plot([0, 1], [0, 1], linestyle="--", color="gray")  # baseline
+    plt.xlabel("False Positive Rate")
+    plt.ylabel("True Positive Rate")
+    plt.title("ROC Curve")
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+    return
+
+
+@app.cell
+def _(average_precision_score, plt, precision_recall_curve, y_proba2, y_test2):
+    precision, recall, _thresholds = precision_recall_curve(y_test2, y_proba2)
+    avg_precision = average_precision_score(y_test2, y_proba2)
+
+    plt.figure(figsize=(8, 6))
+    plt.plot(recall, precision, label=f"PR Curve (AP = {avg_precision:.2f})")
+    plt.xlabel("Recall")
+    plt.ylabel("Precision")
+    plt.title("Precision-Recall Curve")
+    plt.grid(True)
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
+    return
+
+
+@app.cell
+def _(model2, plt, xgb):
+    plt.figure(figsize=(10, 8))
+    xgb.plot_importance(model2, max_num_features=20, importance_type='gain', height=0.5)
+    plt.title("Top 20 Feature Importances (by Gain)")
+    plt.tight_layout()
+    plt.show()
     return
 
 
