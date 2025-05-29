@@ -1,0 +1,368 @@
+{
+  "definition_id": "d58ca80e",
+  "definition_name": "fall_event_SNOMED",
+  "definition_version": "fall_event_SNOMED_20250512_114841",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-05-12T17:22:22.154443",
+  "codelists": [
+    {
+      "codelist_id": "fall_event_SNOMED_SNOMED_612979",
+      "codelist_name": "fall_event_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "fall_event_SNOMED_SNOMED_612979_20250512_114849",
+      "codes": [
+        {
+          "code": "217082002",
+          "code_description": "Accidental fall (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1912002",
+          "code_description": "Fall (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "298344006",
+          "code_description": "Elderly fall (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217083007",
+          "code_description": "Fall on or from stairs or steps (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217154006",
+          "code_description": "Fall on same level from slipping, tripping or stumbling (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217156008",
+          "code_description": "Fall on same level from tripping (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "414190009",
+          "code_description": "Fall on stairs (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "20902002",
+          "code_description": "Fall from bed (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217090002",
+          "code_description": "Fall from stairs (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217088003",
+          "code_description": "Fall on or from stairs (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217155007",
+          "code_description": "Fall on same level from slipping (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "86591008",
+          "code_description": "Fall from ladder (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "242408008",
+          "code_description": "Fall from one level to another (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "33036003",
+          "code_description": "Fall on same level (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "83468000",
+          "code_description": "Fall from chair (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217157004",
+          "code_description": "Fall on same level from stumbling (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217092005",
+          "code_description": "Fall on or from steps (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "40104005",
+          "code_description": "Fall in home (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "242387001",
+          "code_description": "Fall due to slipping on ice or snow (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217093000",
+          "code_description": "Fall on steps (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217094006",
+          "code_description": "Fall from steps (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217173005",
+          "code_description": "Fall from bump against object (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "17886000",
+          "code_description": "Fall from wheelchair (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "67223001",
+          "code_description": "Fall on escalator (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217084001",
+          "code_description": "Fall on or from escalator (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217124001",
+          "code_description": "Fall into manhole (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217142006",
+          "code_description": "Fall from chair or bed (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "242413007",
+          "code_description": "Fall from furniture (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "274918000",
+          "code_description": "Fall on same level due to nature of surface (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "407281000000106",
+          "code_description": "[X]Fall on same level from slipping, tripping and stumbling (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217086004",
+          "code_description": "Fall from escalator (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "394781000000102",
+          "code_description": "[X]Unspecified fall (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "288296009",
+          "code_description": "Fall - collision/push/shove (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217158009",
+          "code_description": "Fall on moving sidewalk (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "213911003",
+          "code_description": "Fall in, on, or from train (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217150002",
+          "code_description": "Fall from stationary vehicle (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "242392004",
+          "code_description": "Fall in bath or shower (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "242393009",
+          "code_description": "Fall due to defective pavement (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "395341000000105",
+          "code_description": "[X]Fall on and from stairs and steps (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "668091000000100",
+          "code_description": "Fall into hole or other opening in surface (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "213912005",
+          "code_description": "Fall in train (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "242396001",
+          "code_description": "Fall due to uneven surface indoors (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "213925002",
+          "code_description": "Fall from train (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "242389003",
+          "code_description": "Fall due to wet surface (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217147000",
+          "code_description": "Fall from embankment (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "242398000",
+          "code_description": "Fall due to loss of equilibrium (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "242390007",
+          "code_description": "Fall due to polished surface (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "216137005",
+          "code_description": "Fall in aircraft, not due to an accident to aircraft, occupant of commercial aircraft in surface to air transport injured (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "68274007",
+          "code_description": "Fall into hole (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "242110004",
+          "code_description": "Fall on step of motor bus while boarding or alighting (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "242395002",
+          "code_description": "Fall due to trip on loose carpet (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "219349002",
+          "code_description": "Injury undetermined whether accidentally or purposely inflicted, fall from natural site (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "240871000000104",
+          "code_description": "Fall through height of less than one metre (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "213917004",
+          "code_description": "Fall on train (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "213927005",
+          "code_description": "Fall from train, passenger injured (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "269699007",
+          "code_description": "Fall on same level from impact against object (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "157897003",
+          "code_description": "Fall on or from stairs or steps (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217095007",
+          "code_description": "Fall on or from steps NOS (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "242121008",
+          "code_description": "Fall on stationary public service vehicle (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "439570003",
+          "code_description": "Fall in nursing home (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "435521000000108",
+          "code_description": "[X]Fall on same level involving ice and snow (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "436311000000103",
+          "code_description": "[X]Other fall on same level due to collision with, or pushing by, another person (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "388911000000103",
+          "code_description": "[X]Fall whilst being carried or supported by other persons (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "448321000000106",
+          "code_description": "[X]Fall involving other furniture (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217121009",
+          "code_description": "Accident caused by fall into swimming pool (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "242182003",
+          "code_description": "Fall on board vessel without accident to vessel (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "216107001",
+          "code_description": "Fall in, on, or from aircraft (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "242405006",
+          "code_description": "Fall due to impact against baby buggy (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "242122001",
+          "code_description": "Fall on moving public service vehicle (event)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "242109009",
+          "code_description": "Fall down stairs of motor bus while boarding or alighting (event)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}
