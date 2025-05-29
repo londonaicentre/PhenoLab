@@ -1,0 +1,393 @@
+{
+  "definition_id": "26760a47",
+  "definition_name": "subdural_haematoma_SNOMED",
+  "definition_version": "subdural_haematoma_SNOMED_20250513_174956",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-05-13T17:55:50.718910",
+  "codelists": [
+    {
+      "codelist_id": "subdural_haematoma_SNOMED_SNOMED_795274",
+      "codelist_name": "subdural_haematoma_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "subdural_haematoma_SNOMED_SNOMED_795274_20250513_175007",
+      "codes": [
+        {
+          "code": "262952002",
+          "code_description": "Traumatic intracranial subdural hematoma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "59712006",
+          "code_description": "Evacuation of subdural hematoma (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "35486000",
+          "code_description": "Subdural intracranial hemorrhage (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "95453001",
+          "code_description": "Subdural intracranial hematoma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "209987007",
+          "code_description": "Traumatic subdural intracranial hemorrhage (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "209947002",
+          "code_description": "Closed traumatic subdural intracranial hemorrhage (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "315047001",
+          "code_description": "Traumatic subdural hematoma with open intracranial wound (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "206191000",
+          "code_description": "Local intracranial subdural hematoma due to birth trauma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "209958006",
+          "code_description": "Subdural hemorrhage following injury with open intracranial wound, with no loss of consciousness (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "71074007",
+          "code_description": "Open skull fracture with subarachnoid, subdural AND/OR extradural hemorrhage (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "111676009",
+          "code_description": "Subdural hemorrhage following injury with open intracranial wound and unspecified state of consciousness (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "24056002",
+          "code_description": "Multiple closed fractures of skull AND/OR face with subarachnoid, subdural AND/OR extradural hemorrhage (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "40135004",
+          "code_description": "Subdural hemorrhage following injury without open intracranial wound AND with no loss of consciousness (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "632631000000104",
+          "code_description": "Subdural hemorrhage following injury without mention of open intracranial wound, unspecified state of consciousness (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "209948007",
+          "code_description": "Subdural hemorrhage following injury without mention of open intracranial wound, unspecified state of consciousness (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "52902005",
+          "code_description": "Subdural hemorrhage following injury with open intracranial wound AND prolonged loss of consciousness (more than 24 hours) AND return to pre-existing conscious level (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "148664007",
+          "code_description": "Cranial aspiration and/or drainage or subdural hematoma evacuation (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "449796001",
+          "code_description": "Traumatic hematoma of subdural space of neuraxis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "632651000000106",
+          "code_description": "Subdural hemorrhage following injury without mention of open intracranial wound, with concussion, unspecified (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "262721007",
+          "code_description": "Traumatic spinal subdural hematoma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "209959003",
+          "code_description": "Subdural hemorrhage following injury with open intracranial wound, with less than 1 hour loss of consciousness (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "313305008",
+          "code_description": "Subdural hemorrhage (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "111675008",
+          "code_description": "Subdural hemorrhage following injury without open intracranial wound with unspecified state of consciousness (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "722628000",
+          "code_description": "Traumatic hemorrhage of subdural space of infratentorial region (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "34135005",
+          "code_description": "Subdural hemorrhage following injury without open intracranial wound AND with loss of consciousness (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "7602002",
+          "code_description": "Subdural hemorrhage following injury without open intracranial wound (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "209956005",
+          "code_description": "Subdural hemorrhage following open wound of head (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "415649003",
+          "code_description": "Subdural hemorrhage NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "874938007",
+          "code_description": "Subdural hemorrhage with open intracranial wound (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "262951009",
+          "code_description": "Traumatic subdural hematoma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "527981000000104",
+          "code_description": "Subdural hemorrhage NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "6666006",
+          "code_description": "Subdural hemorrhage following injury without open intracranial wound AND with concussion (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "532071000000103",
+          "code_description": "Subdural hemorrhage following injury without mention of open intracranial wound, with 1-24 hours loss of consciousness (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "209963005",
+          "code_description": "Subdural hemorrhage following injury with open intracranial wound, with more than 24 hours loss of consciousness without return to pre-existing conscious level (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "209953002",
+          "code_description": "Subdural hemorrhage following injury without mention of open intracranial wound, with more than 24 hours loss of consciousness without return to pre-existing conscious level (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "209954008",
+          "code_description": "Subdural hemorrhage following injury without mention of open intracranial wound, with loss of consciousness of unspecified duration (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "449795002",
+          "code_description": "Hemorrhage into subdural space of spine (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "209951000",
+          "code_description": "Subdural hemorrhage following injury without mention of open intracranial wound, with 1-24 hours loss of consciousness (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "45659008",
+          "code_description": "Subdural hemorrhage following injury with open intracranial wound AND loss of consciousness (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43262000",
+          "code_description": "Subdural hemorrhage following injury with open intracranial wound AND concussion (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "209955009",
+          "code_description": "Subdural hemorrhage following injury without mention of open intracranial wound, with concussion, unspecified (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "371050006",
+          "code_description": "Traumatic intracranial subdural hematoma with brief loss of consciousness (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "209950004",
+          "code_description": "Subdural hemorrhage following injury without mention of open intracranial wound, with less than 1 hour loss of consciousness (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "29264003",
+          "code_description": "Closed fracture of base of skull with subarachnoid, subdural AND/OR extradural hemorrhage (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "70861009",
+          "code_description": "Subdural hemorrhage following injury without open intracranial wound AND with prolonged loss of consciousness (more than 24 hours) without return to pre-existing conscious level (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "29635000",
+          "code_description": "Subdural hemorrhage following injury with open intracranial wound AND brief loss of consciousness (less than one hour) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "14936004",
+          "code_description": "Subdural hemorrhage following injury with open intracranial wound (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "532091000000104",
+          "code_description": "Subdural hemorrhage following injury without mention of open intracranial wound, with more than 24 hours loss of consciousness without return to pre-existing conscious level (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "670181000000105",
+          "code_description": "Subdural hemorrhage following injury with open intracranial wound, with concussion, unspecified (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "90165008",
+          "code_description": "Subdural hemorrhage following injury with open intracranial wound AND moderate loss of consciousness (1-24 hours) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "57998008",
+          "code_description": "Closed fracture of vault of skull with subarachnoid, subdural AND/OR extradural hemorrhage (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "428561000",
+          "code_description": "Occipital subdural hematoma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "209952007",
+          "code_description": "Subdural hemorrhage following injury without mention of open intracranial wound, with more than 24 hours loss of consciousness and return to pre-existing conscious level (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "670161000000101",
+          "code_description": "Subdural hemorrhage following injury with open intracranial wound, unspecified state of consciousness (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "209965003",
+          "code_description": "Subdural hemorrhage following injury with open intracranial wound, with concussion, unspecified (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "63590009",
+          "code_description": "Subdural hemorrhage following injury with open intracranial wound AND no loss of consciousness (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "71266000",
+          "code_description": "Open fracture of vault of skull with subarachnoid, subdural AND/OR extradural hemorrhage (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "61642003",
+          "code_description": "Multiple open fractures of skull AND/OR face with subarachnoid, subdural AND/OR extradural hemorrhage (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "449794003",
+          "code_description": "Hematoma of subdural space of neuraxis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "46758000",
+          "code_description": "Open fracture of base of skull with subarachnoid, subdural AND/OR extradural hemorrhage (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "991898981000119108",
+          "code_description": "Chronic nontraumatic intracranial subdural hematoma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "532081000000101",
+          "code_description": "Subdural hemorrhage following injury without mention of open intracranial wound, with more than 24 hours loss of consciousness and return to pre-existing conscious level (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "209957001",
+          "code_description": "Subdural hemorrhage following injury with open intracranial wound, unspecified state of consciousness (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "111677000",
+          "code_description": "Subdural hemorrhage following injury with open intracranial wound and prolonged loss of consciousness (more than 24 hours) and without return to pre-existing conscious level (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "529421000000101",
+          "code_description": "Subdural hemorrhage following injury without mention of open intracranial wound, with less than 1 hour loss of consciousness (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "632641000000108",
+          "code_description": "Subdural hemorrhage following injury without mention of open intracranial wound, with loss of consciousness of unspecified duration (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "58020007",
+          "code_description": "Closed skull fracture with subarachnoid, subdural AND/OR extradural hemorrhage (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "670171000000108",
+          "code_description": "Subdural hemorrhage following injury with open intracranial wound, with loss of consciousness of unspecified duration (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "449793009",
+          "code_description": "Hemorrhage into subdural space of neuraxis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "209964004",
+          "code_description": "Subdural hemorrhage following injury with open intracranial wound, with loss of consciousness of unspecified duration (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "26205001",
+          "code_description": "Subdural hemorrhage following injury without open intracranial wound AND with brief loss of consciousness (less than one hour) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "209961007",
+          "code_description": "Subdural hemorrhage following injury with open intracranial wound, with more than 24 hours loss of consciousness and return to pre-existing conscious level (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "87345009",
+          "code_description": "Subdural hemorrhage following injury without open intracranial wound AND with prolonged loss of consciousness (more than 24 hours) AND return to pre-existing conscious level (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "209960008",
+          "code_description": "Subdural hemorrhage following injury with open intracranial wound, with 1-24 hours loss of consciousness (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "209949004",
+          "code_description": "Subdural hemorrhage following injury without mention of open intracranial wound, with no loss of consciousness (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,688 @@
+{
+  "definition_id": "01c9a260",
+  "definition_name": "osteopororis_ICD",
+  "definition_version": "osteopororis_ICD_20250513_180857",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-05-13T18:15:06.591644",
+  "codelists": [
+    {
+      "codelist_id": "osteopororis_ICD_ICD10_591302",
+      "codelist_name": "osteopororis_ICD_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "osteopororis_ICD_ICD10_591302_20250513_180927",
+      "codes": [
+        {
+          "code": "M81.4",
+          "code_description": "Drug-induced osteoporosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.56",
+          "code_description": "Idiopathic osteoporosis, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.46",
+          "code_description": "Drug-induced osteoporosis, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.47",
+          "code_description": "Drug-induced osteoporosis, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.48",
+          "code_description": "Drug-induced osteoporosis, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.49",
+          "code_description": "Drug-induced osteoporosis, site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.5",
+          "code_description": "Idiopathic osteoporosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.50",
+          "code_description": "Idiopathic osteoporosis, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.51",
+          "code_description": "Idiopathic osteoporosis, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.52",
+          "code_description": "Idiopathic osteoporosis, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.53",
+          "code_description": "Idiopathic osteoporosis, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.54",
+          "code_description": "Idiopathic osteoporosis, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.55",
+          "code_description": "Idiopathic osteoporosis, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.57",
+          "code_description": "Idiopathic osteoporosis, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.44",
+          "code_description": "Drug-induced osteoporosis, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.58",
+          "code_description": "Idiopathic osteoporosis, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.59",
+          "code_description": "Idiopathic osteoporosis, site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.6",
+          "code_description": "Localized osteoporosis [Lequesne]",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.60",
+          "code_description": "Localized osteoporosis [Lequesne], multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.61",
+          "code_description": "Localized osteoporosis [Lequesne], shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.62",
+          "code_description": "Localized osteoporosis [Lequesne], upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.63",
+          "code_description": "Localized osteoporosis [Lequesne], forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.64",
+          "code_description": "Localized osteoporosis [Lequesne], hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.65",
+          "code_description": "Localized osteoporosis [Lequesne], pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.66",
+          "code_description": "Localized osteoporosis [Lequesne], lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.67",
+          "code_description": "Localized osteoporosis [Lequesne], ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.45",
+          "code_description": "Drug-induced osteoporosis, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.43",
+          "code_description": "Drug-induced osteoporosis, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.69",
+          "code_description": "Localized osteoporosis [Lequesne], site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.3",
+          "code_description": "Postsurgical malabsorption osteoporosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.2",
+          "code_description": "Osteoporosis of disuse",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.20",
+          "code_description": "Osteoporosis of disuse, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.21",
+          "code_description": "Osteoporosis of disuse, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.22",
+          "code_description": "Osteoporosis of disuse, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.23",
+          "code_description": "Osteoporosis of disuse, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.24",
+          "code_description": "Osteoporosis of disuse, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.25",
+          "code_description": "Osteoporosis of disuse, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.26",
+          "code_description": "Osteoporosis of disuse, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.27",
+          "code_description": "Osteoporosis of disuse, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.28",
+          "code_description": "Osteoporosis of disuse, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.29",
+          "code_description": "Osteoporosis of disuse, site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.30",
+          "code_description": "Postsurgical malabsorption osteoporosis, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.42",
+          "code_description": "Drug-induced osteoporosis, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.31",
+          "code_description": "Postsurgical malabsorption osteoporosis, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.32",
+          "code_description": "Postsurgical malabsorption osteoporosis, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.33",
+          "code_description": "Postsurgical malabsorption osteoporosis, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.34",
+          "code_description": "Postsurgical malabsorption osteoporosis, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.35",
+          "code_description": "Postsurgical malabsorption osteoporosis, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.36",
+          "code_description": "Postsurgical malabsorption osteoporosis, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.37",
+          "code_description": "Postsurgical malabsorption osteoporosis, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.38",
+          "code_description": "Postsurgical malabsorption osteoporosis, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.39",
+          "code_description": "Postsurgical malabsorption osteoporosis, site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.40",
+          "code_description": "Drug-induced osteoporosis, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.41",
+          "code_description": "Drug-induced osteoporosis, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.68",
+          "code_description": "Localized osteoporosis [Lequesne], other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.8",
+          "code_description": "Other osteoporosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.18",
+          "code_description": "Postoophorectomy osteoporosis, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.11",
+          "code_description": "Osteoporosis in endocrine disorders, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.01",
+          "code_description": "Osteoporosis in multiple myelomatosis, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.02",
+          "code_description": "Osteoporosis in multiple myelomatosis, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.03",
+          "code_description": "Osteoporosis in multiple myelomatosis, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.04",
+          "code_description": "Osteoporosis in multiple myelomatosis, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.05",
+          "code_description": "Osteoporosis in multiple myelomatosis, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.06",
+          "code_description": "Osteoporosis in multiple myelomatosis, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.07",
+          "code_description": "Osteoporosis in multiple myelomatosis, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.08",
+          "code_description": "Osteoporosis in multiple myelomatosis, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.09",
+          "code_description": "Osteoporosis in multiple myelomatosis, site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.1",
+          "code_description": "Osteoporosis in endocrine disorders",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.10",
+          "code_description": "Osteoporosis in endocrine disorders, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.12",
+          "code_description": "Osteoporosis in endocrine disorders, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82",
+          "code_description": "Osteoporosis in diseases classified elsewhere",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.19",
+          "code_description": "Osteoporosis in endocrine disorders, site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.8",
+          "code_description": "Osteoporosis in other diseases classified elsewhere",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.80",
+          "code_description": "Osteoporosis in other diseases classified elsewhere, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.81",
+          "code_description": "Osteoporosis in other diseases classified elsewhere, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.82",
+          "code_description": "Osteoporosis in other diseases classified elsewhere, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.83",
+          "code_description": "Osteoporosis in other diseases classified elsewhere, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.84",
+          "code_description": "Osteoporosis in other diseases classified elsewhere, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.85",
+          "code_description": "Osteoporosis in other diseases classified elsewhere, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.86",
+          "code_description": "Osteoporosis in other diseases classified elsewhere, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.87",
+          "code_description": "Osteoporosis in other diseases classified elsewhere, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.88",
+          "code_description": "Osteoporosis in other diseases classified elsewhere, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.00",
+          "code_description": "Osteoporosis in multiple myelomatosis, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.99",
+          "code_description": "Osteoporosis, unspecified, site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.80",
+          "code_description": "Other osteoporosis, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.81",
+          "code_description": "Other osteoporosis, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.16",
+          "code_description": "Osteoporosis in endocrine disorders, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.82",
+          "code_description": "Other osteoporosis, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.83",
+          "code_description": "Other osteoporosis, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.84",
+          "code_description": "Other osteoporosis, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.85",
+          "code_description": "Other osteoporosis, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.86",
+          "code_description": "Other osteoporosis, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.87",
+          "code_description": "Other osteoporosis, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.88",
+          "code_description": "Other osteoporosis, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.13",
+          "code_description": "Osteoporosis in endocrine disorders, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.14",
+          "code_description": "Osteoporosis in endocrine disorders, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.15",
+          "code_description": "Osteoporosis in endocrine disorders, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.17",
+          "code_description": "Osteoporosis in endocrine disorders, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.98",
+          "code_description": "Osteoporosis, unspecified, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.18",
+          "code_description": "Osteoporosis in endocrine disorders, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.89",
+          "code_description": "Other osteoporosis, site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.9",
+          "code_description": "Osteoporosis, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.90",
+          "code_description": "Osteoporosis, unspecified, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.91",
+          "code_description": "Osteoporosis, unspecified, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.92",
+          "code_description": "Osteoporosis, unspecified, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.93",
+          "code_description": "Osteoporosis, unspecified, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.94",
+          "code_description": "Osteoporosis, unspecified, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.95",
+          "code_description": "Osteoporosis, unspecified, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.96",
+          "code_description": "Osteoporosis, unspecified, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.97",
+          "code_description": "Osteoporosis, unspecified, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.19",
+          "code_description": "Postoophorectomy osteoporosis, site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.17",
+          "code_description": "Postoophorectomy osteoporosis, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M82.0",
+          "code_description": "Osteoporosis in multiple myelomatosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.34",
+          "code_description": "Postsurgical malabsorption osteoporosis with pathological fracture, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81",
+          "code_description": "Osteoporosis without pathological fracture",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.0",
+          "code_description": "Postmenopausal osteoporosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.00",
+          "code_description": "Postmenopausal osteoporosis, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.01",
+          "code_description": "Postmenopausal osteoporosis, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.02",
+          "code_description": "Postmenopausal osteoporosis, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.03",
+          "code_description": "Postmenopausal osteoporosis, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.05",
+          "code_description": "Postmenopausal osteoporosis, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.93",
+          "code_description": "Unspecified osteoporosis with pathological fracture, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.06",
+          "code_description": "Postmenopausal osteoporosis, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.07",
+          "code_description": "Postmenopausal osteoporosis, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.08",
+          "code_description": "Postmenopausal osteoporosis, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.09",
+          "code_description": "Postmenopausal osteoporosis, site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.1",
+          "code_description": "Postoophorectomy osteoporosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.10",
+          "code_description": "Postoophorectomy osteoporosis, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.11",
+          "code_description": "Postoophorectomy osteoporosis, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.12",
+          "code_description": "Postoophorectomy osteoporosis, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.13",
+          "code_description": "Postoophorectomy osteoporosis, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.14",
+          "code_description": "Postoophorectomy osteoporosis, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M81.15",
+          "code_description": "Postoophorectomy osteoporosis, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M80.94",
+          "code_description": "Unspecified osteoporosis with pathological fracture, hand",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}
