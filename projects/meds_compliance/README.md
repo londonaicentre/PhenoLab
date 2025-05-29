@@ -14,7 +14,8 @@ Please install the requirements and set up an env (see env.example).
 |File|Status|Task|Task owner|
 |-----|-----|-----|------|
 |lipid_meds.py|retired|built new app, see below| Jasjot|
-|lrd_compliance.py|work in progress|continue work on PDC and treatment switching| Jasjot|
-|pdc_analysis.py|work in progress|analysing PDC data| Jasjot|
-|
-  
+|lrd_compliance.py|work paused|continue work on PDC and treatment switching| Jasjot|
+|pdc_averages.py|retired |average PDC score compared to compiance status, need to put into notebook with wrapped sql and further analysis - done| Jasjot|
+|sql_table/pdc_tables.sql|archive|sql embedded in notebook below|Jasjot|
+|pdc_functions.py|work in progress - modules for pdc work|clean and tidy modules, get class working|Jasjot|
+|pdc_notebook(v1 and2)| work in origress - notebook for workflow|clean and comment code, next steps validate and outcomes|Jasjot|

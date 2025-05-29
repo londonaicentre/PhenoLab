@@ -7,4 +7,8 @@ plotly
 python-dotenv
 scipy
 streamlit
-
+ipykernel
+matplotlib
+word2number
+tableone
+seaborn
