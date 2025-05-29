@@ -25,10 +25,6 @@ LOADER_CONFIG = {
         'func': load_snomed,
         'table': 'NHS_GP_SNOMED_REFSETS'
     },
-    'bsabnf': {
-        'func': load_bsa_bnf,
-        'table': 'BSA_BNF_HIERARCHY'
-    },
     'nelseg': {
         'func': load_nel,
         'table': 'NEL_SEGMENT_DEFINITIONS'
