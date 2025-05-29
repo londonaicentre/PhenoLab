@@ -1,7 +1,0 @@
--e ../../../
-numpy
-pandas>=2, <3
-streamlit
-matplotlib
-plotly
-python-dotenv
