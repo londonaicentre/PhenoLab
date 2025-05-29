@@ -4,7 +4,7 @@
   "definition_version": "hba1c_definition_gp_20250318_135322",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "2025-03-18T13:50:35.036668",
-  "version_datetime": "2025-03-18T13:53:22.964076",
+  "version_datetime": "2025-05-12T14:51:39.635579",
   "codelists": [
     {
       "codelist_id": "8a85dfe6",
@@ -60,6 +60,26 @@
         {
           "code": "1049301000000100",
           "code_description": "Haemoglobin A1c level (diagnostic reference range) - International Federation of Clinical Chemistry and Laboratory Medicine standardised (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "3531000237106",
+          "code_description": "Percent of glycated haemoglobin A1c to haemoglobin A1 in blood (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "443911005",
+          "code_description": "Ordinal level of hemoglobin A1c (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1010941000000103",
+          "code_description": "Haemoglobin A1c (monitoring ranges) (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "491841000000105",
+          "code_description": "Haemoglobin A1c level (observable entity)",
           "code_vocabulary": "SNOMED"
         }
       ]
