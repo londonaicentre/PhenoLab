@@ -243,6 +243,23 @@ class SnowflakeConnection:
             print(f"Error executing query: {e}")
             raise e
 
+    def execute_query_to_list(self, query):
+        """
+        Executes a SQL query and returns first column as a list
+            query: predefined query
+        returns:
+            list: returns an empty list if nothing to return. Gives an error if there is a sql error
+        """
+        try:
+            result_df = self.execute_query_to_df(query)
+            if result_df.shape[0] != 0:
+                return result_df.iloc[:, 0].to_list()
+            else:
+                return []
+        except Exception as e:
+            print(f"Error executing query: {e}")
+            raise e
+
     def execute_query_to_polars(self, query: str) -> pl.DataFrame:
         """
         Executes a SQL query and returns results as a polars DataFrame
