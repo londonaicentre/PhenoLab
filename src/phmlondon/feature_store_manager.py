@@ -375,7 +375,7 @@ class FeatureStoreManager:
             # Create the new feature table
             self._create_feature_table_once_name_known(table_name, 
                                                 new_sql_select_query, 
-                                                feature_desc + change_description)
+                                                feature_desc + change_description) # currently, if this throws an error, get left with no registry entry but a feature store entry = BUG!!
 
             # Write to the registy
             feature_version = self._write_to_feature_version_registry(
