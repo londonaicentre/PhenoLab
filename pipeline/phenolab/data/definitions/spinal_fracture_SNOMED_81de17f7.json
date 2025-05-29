@@ -4,13 +4,13 @@
   "definition_version": "spinal_fracture_SNOMED_20250512_151603",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "0001-01-01T00:00:00",
-  "version_datetime": "2025-05-12T17:32:42.098916",
+  "version_datetime": "2025-05-19T23:22:44.813649",
   "codelists": [
     {
-      "codelist_id": "spinal_fracture_SNOMED_SNOMED_254815",
+      "codelist_id": "44ee6211",
       "codelist_name": "spinal_fracture_SNOMED_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "spinal_fracture_SNOMED_SNOMED_254815_20250512_161325",
+      "codelist_version": "spinal_fracture_SNOMED_SNOMED_20250512_161325",
       "codes": [
         {
           "code": "269061001",
@@ -2931,26 +2931,6 @@
           "code": "11310921000119104",
           "code_description": "Closed fracture of third lumbar vertebra (disorder)",
           "code_vocabulary": "SNOMED"
-        }
-      ]
-    },
-    {
-      "codelist_id": "spinal_fracture_SNOMED_ICD10_395365",
-      "codelist_name": "spinal_fracture_SNOMED_ICD10",
-      "codelist_vocabulary": "ICD10",
-      "codelist_version": "spinal_fracture_SNOMED_ICD10_395365_20250512_173205",
-      "codes": []
-    },
-    {
-      "codelist_id": "spinal_fracture_SNOMED_OPCS4_930133",
-      "codelist_name": "spinal_fracture_SNOMED_OPCS4",
-      "codelist_vocabulary": "OPCS4",
-      "codelist_version": "spinal_fracture_SNOMED_OPCS4_930133_20250512_173215",
-      "codes": [
-        {
-          "code": "V46.9",
-          "code_description": "Unspecified fixation of fracture of spine",
-          "code_vocabulary": "OPCS4"
         }
       ]
     }

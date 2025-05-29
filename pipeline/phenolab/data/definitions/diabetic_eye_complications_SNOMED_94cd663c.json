@@ -1,0 +1,183 @@
+{
+  "definition_id": "94cd663c",
+  "definition_name": "diabetic_eye_complications_SNOMED",
+  "definition_version": "diabetic_eye_complications_SNOMED_20250401_131625",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "2025-04-01T13:16:25.503336",
+  "version_datetime": "2025-05-19T23:22:44.813649",
+  "codelists": [
+    {
+      "codelist_id": "d789ba2f",
+      "codelist_name": "diabetic_eye_complications_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "diabetic_eye_complications_SNOMED_SNOMED_20250401_131740",
+      "codes": [
+        {
+          "code": "408410002",
+          "code_description": "On examination - left eye background diabetic retinopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "408409007",
+          "code_description": "On examination - right eye background diabetic retinopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "390834004",
+          "code_description": "Nonproliferative retinopathy due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "4855003",
+          "code_description": "Retinopathy due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "408412005",
+          "code_description": "On examination - left eye preproliferative diabetic retinopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "408411003",
+          "code_description": "On examination - right eye preproliferative diabetic retinopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "816177009",
+          "code_description": "Nonproliferative retinopathy of left eye due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "408413000",
+          "code_description": "On examination - right eye proliferative diabetic retinopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "816178004",
+          "code_description": "Nonproliferative retinopathy of right eye due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "408414006",
+          "code_description": "On examination - left eye proliferative diabetic retinopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "59276001",
+          "code_description": "Proliferative retinopathy due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "193349004",
+          "code_description": "Preproliferative retinopathy due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "422034002",
+          "code_description": "Retinopathy due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "312903003",
+          "code_description": "Mild nonproliferative retinopathy due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "414910007",
+          "code_description": "On examination - right eye stable treated proliferative diabetic retinopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "414894003",
+          "code_description": "On examination - left eye stable treated proliferative diabetic retinopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "312905005",
+          "code_description": "Severe nonproliferative retinopathy due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "312904009",
+          "code_description": "Moderate nonproliferative retinopathy due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "368711000119106",
+          "code_description": "Mild nonproliferative retinopathy due to secondary diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "267471001",
+          "code_description": "Diabetes + eye manifestation (& [cataract] or [retinopathy]) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "373041000000101",
+          "code_description": "Impaired vision due to diabetic retinopathy (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "417677008",
+          "code_description": "On examination - sight threatening diabetic retinopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "399871005",
+          "code_description": "Visually threatening retinopathy due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "769181007",
+          "code_description": "Preproliferative retinopathy of right eye due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "312908007",
+          "code_description": "Quiescent proliferative retinopathy due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "312906006",
+          "code_description": "Non-high-risk proliferative retinopathy due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "775841000000109",
+          "code_description": "Diabetic retinopathy detected by national screening programme (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "399876000",
+          "code_description": "Very severe nonproliferative retinopathy due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1196922005",
+          "code_description": "Neovascular glaucoma due to diabetes mellitus type 2 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "232022001",
+          "code_description": "Proliferative retinopathy with neovascularization elsewhere than the optic disc due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "399868002",
+          "code_description": "Intraretinal microvascular anomaly due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "713457002",
+          "code_description": "Neovascular glaucoma due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1003605004",
+          "code_description": "Glaucoma suspect due to diabetes mellitus type 2 (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "definition_id": "f2bd75e5",
+  "definition_name": "diabetic_renal_disorder_SNOMED",
+  "definition_version": "diabetic_renal_disorder_SNOMED_20250401_140752",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "2025-04-01T14:07:52.750657",
+  "version_datetime": "2025-05-19T23:22:44.813649",
+  "codelists": [
+    {
+      "codelist_id": "1e43c51a",
+      "codelist_name": "diabetic_renal_disorder_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "diabetic_renal_disorder_SNOMED_SNOMED_20250401_140801",
+      "codes": [
+        {
+          "code": "420279001",
+          "code_description": "Renal disorder due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "127013003",
+          "code_description": "Disorder of kidney due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "731000119105",
+          "code_description": "Chronic kidney disease stage 3 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "721000119107",
+          "code_description": "Chronic kidney disease stage 4 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "711000119100",
+          "code_description": "Chronic kidney disease stage 5 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "751000119104",
+          "code_description": "Chronic kidney disease stage 1 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "741000119101",
+          "code_description": "Chronic kidney disease stage 2 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "140111000119107",
+          "code_description": "Hypertension in chronic kidney disease stage 4 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "707221002",
+          "code_description": "Glomerulosclerosis of kidney due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "140101000119109",
+          "code_description": "Hypertension in chronic kidney disease stage 5 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "38046004",
+          "code_description": "Diffuse glomerulosclerosis of kidney due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "71421000119105",
+          "code_description": "Hypertension in chronic kidney disease due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "140131000119102",
+          "code_description": "Hypertension in chronic kidney disease stage 2 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332466004",
+          "code_description": "Hypertension in chronic kidney disease stage 3A due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "771000119108",
+          "code_description": "Chronic kidney disease due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332470007",
+          "code_description": "Chronic kidney disease stage 3A due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "140121000119100",
+          "code_description": "Hypertension in chronic kidney disease stage 3 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332469006",
+          "code_description": "Chronic kidney disease stage 3B due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "792926007",
+          "code_description": "Armanni-Ebstein kidney due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "425455002",
+          "code_description": "Glomerulonephritis due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

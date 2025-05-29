@@ -1,0 +1,12 @@
+{
+  "definition_id": "f91361c3",
+  "definition_name": "measurement_hba1c_SNOMED",
+  "standard_units": [],
+  "primary_standard_unit": null,
+  "unit_mappings": [],
+  "unit_conversions": [],
+  "created_datetime": "2025-05-19T23:23:56.063613",
+  "updated_datetime": "2025-05-19T23:23:56.063613",
+  "standard_measurement_config_id": "25fd708c",
+  "standard_measurement_config_version": "measurement_hba1c_SNOMED_20250519_232356"
+}

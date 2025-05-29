@@ -1,0 +1,46 @@
+{
+  "definition_id": "325078c1",
+  "definition_name": "subdural_haematoma_ICD10OPCS4",
+  "definition_version": "subdural_haematoma_ICD10OPCS4_20250513_175559",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-05-19T23:22:44.813649",
+  "codelists": [
+    {
+      "codelist_id": "149b5491",
+      "codelist_name": "subdural_haematoma_ICD10OPCS4_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "subdural_haematoma_ICD10OPCS4_ICD10_20250513_175619",
+      "codes": [
+        {
+          "code": "S06.5",
+          "code_description": "Traumatic subdural haemorrhage",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "S06.50",
+          "code_description": "Traumatic subdural haemorrhage, without open intracranial wound",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "S06.51",
+          "code_description": "Traumatic subdural haemorrhage, with open intracranial wound",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    },
+    {
+      "codelist_id": "6b3ea20a",
+      "codelist_name": "subdural_haematoma_ICD10OPCS4_OPCS4",
+      "codelist_vocabulary": "OPCS4",
+      "codelist_version": "subdural_haematoma_ICD10OPCS4_OPCS4_20250513_175625",
+      "codes": [
+        {
+          "code": "A41.1",
+          "code_description": "Evacuation of subdural haematoma",
+          "code_vocabulary": "OPCS4"
+        }
+      ]
+    }
+  ]
+}

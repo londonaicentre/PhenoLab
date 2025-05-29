@@ -4,13 +4,13 @@
   "definition_version": "subdural_haematoma_SNOMED_20250513_174956",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "0001-01-01T00:00:00",
-  "version_datetime": "2025-05-13T17:55:50.718910",
+  "version_datetime": "2025-05-19T23:22:44.813649",
   "codelists": [
     {
-      "codelist_id": "subdural_haematoma_SNOMED_SNOMED_795274",
+      "codelist_id": "04aa85aa",
       "codelist_name": "subdural_haematoma_SNOMED_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "subdural_haematoma_SNOMED_SNOMED_795274_20250513_175007",
+      "codelist_version": "subdural_haematoma_SNOMED_SNOMED_20250513_175007",
       "codes": [
         {
           "code": "262952002",
