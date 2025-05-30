@@ -3,10 +3,67 @@
   "definition_name": "measurement_blood_pressure_ambulatory_systolic_SNOMED",
   "standard_units": [],
   "primary_standard_unit": null,
-  "unit_mappings": [],
+  "unit_mappings": [
+    {
+      "source_unit": "mmHg",
+      "standard_unit": "",
+      "source_unit_count": 29197,
+      "source_unit_lq": 124.00000000000001,
+      "source_unit_median": 133.0,
+      "source_unit_uq": 143.06633262260127
+    },
+    {
+      "source_unit": "mm Hg",
+      "standard_unit": "",
+      "source_unit_count": 2207,
+      "source_unit_lq": 124.0,
+      "source_unit_median": 132.0,
+      "source_unit_uq": 142.0
+    },
+    {
+      "source_unit": "millimeter of mercury",
+      "standard_unit": "",
+      "source_unit_count": 783,
+      "source_unit_lq": 125.0,
+      "source_unit_median": 135.0,
+      "source_unit_uq": 145.0
+    },
+    {
+      "source_unit": "mm[Hg]",
+      "standard_unit": "",
+      "source_unit_count": 457,
+      "source_unit_lq": 123.0,
+      "source_unit_median": 134.0,
+      "source_unit_uq": 145.0
+    },
+    {
+      "source_unit": "mmhg",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 154.0,
+      "source_unit_median": 158.0,
+      "source_unit_uq": 162.0
+    },
+    {
+      "source_unit": "mm/Hg",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 129.25,
+      "source_unit_median": 130.5,
+      "source_unit_uq": 131.75
+    },
+    {
+      "source_unit": "mm/hg",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 129.0,
+      "source_unit_median": 129.0,
+      "source_unit_uq": 129.0
+    }
+  ],
   "unit_conversions": [],
   "created_datetime": "2025-05-19T23:23:56.062812",
-  "updated_datetime": "2025-05-19T23:23:56.062812",
+  "updated_datetime": "2025-05-30T23:58:12.370516",
   "standard_measurement_config_id": "f135a132",
-  "standard_measurement_config_version": "measurement_blood_pressure_ambulatory_systolic_SNOMED_20250519_232356"
+  "standard_measurement_config_version": "measurement_blood_pressure_ambulatory_systolic_SNOMED_20250530_235812"
 }

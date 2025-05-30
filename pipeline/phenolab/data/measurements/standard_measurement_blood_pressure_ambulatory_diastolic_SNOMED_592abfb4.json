@@ -3,10 +3,59 @@
   "definition_name": "measurement_blood_pressure_ambulatory_diastolic_SNOMED",
   "standard_units": [],
   "primary_standard_unit": null,
-  "unit_mappings": [],
+  "unit_mappings": [
+    {
+      "source_unit": "mmHg",
+      "standard_unit": "",
+      "source_unit_count": 28544,
+      "source_unit_lq": 74.99999999999999,
+      "source_unit_median": 82.0,
+      "source_unit_uq": 88.99999999999999
+    },
+    {
+      "source_unit": "mm Hg",
+      "standard_unit": "",
+      "source_unit_count": 2206,
+      "source_unit_lq": 77.0,
+      "source_unit_median": 83.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "millimeter of mercury",
+      "standard_unit": "",
+      "source_unit_count": 783,
+      "source_unit_lq": 74.0,
+      "source_unit_median": 80.0,
+      "source_unit_uq": 88.0
+    },
+    {
+      "source_unit": "mm[Hg]",
+      "standard_unit": "",
+      "source_unit_count": 454,
+      "source_unit_lq": 74.0,
+      "source_unit_median": 82.0,
+      "source_unit_uq": 91.0
+    },
+    {
+      "source_unit": "mmhg",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 84.75,
+      "source_unit_median": 86.5,
+      "source_unit_uq": 88.25
+    },
+    {
+      "source_unit": "mm/hg",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 81.0,
+      "source_unit_median": 81.0,
+      "source_unit_uq": 81.0
+    }
+  ],
   "unit_conversions": [],
   "created_datetime": "2025-05-19T23:23:56.060364",
-  "updated_datetime": "2025-05-19T23:23:56.060364",
+  "updated_datetime": "2025-05-30T23:58:15.955015",
   "standard_measurement_config_id": "592abfb4",
-  "standard_measurement_config_version": "measurement_blood_pressure_ambulatory_diastolic_SNOMED_20250519_232356"
+  "standard_measurement_config_version": "measurement_blood_pressure_ambulatory_diastolic_SNOMED_20250530_235815"
 }
