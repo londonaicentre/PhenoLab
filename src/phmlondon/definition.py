@@ -3,8 +3,10 @@ from datetime import datetime
 from enum import Enum
 from pprint import pprint
 from typing import Optional, Self
+import boto3
+from boto3.dynamodb.conditions import Key
+from dotenv import load_dotenv
 import hashlib
-import random
 import json
 import os
 
@@ -449,3 +451,35 @@ class Definition:
         print(f"Definition saved to {filepath}")
 
         return filepath
+
+    def save_to_dynamoDB(self):
+
+        load_dotenv() # to get AWS access keys from .env file; need to replace with better authentication method
+
+        dynamodb = boto3.resource("dynamodb", region_name='eu-north-1')
+        table = dynamodb.Table("definitions")
+
+        self.version_datetime = datetime.now()
+        table.put_item(Item=self.to_dict())
+
+        print(f"Item saved to DynamoDB table 'definitions' with ID {self.definition_id} and version {self.version_datetime}")
+
+    @classmethod
+    def load_from_dynamoDB(cls, definition_id: str) -> Self:
+
+        load_dotenv() # to get AWS access keys from .env file; need to replace with better authentication method
+
+        dynamodb = boto3.resource("dynamodb", region_name='eu-north-1')
+        table = dynamodb.Table("definitions")
+
+        response = table.query(KeyConditionExpression=Key('definition_id').eq(definition_id), 
+                            ScanIndexForward=False, Limit=1)
+        
+        items = response.get("Items", [])
+
+        if items:
+            latest_item = items[0]
+            print(f"Latest item found in DynamoDB with ID {latest_item['definition_id']} and version {latest_item['version_datetime']}")
+            return cls.from_dict(latest_item)
+        else:
+            print(f"No items found in DynamoDB with ID {definition_id}")
