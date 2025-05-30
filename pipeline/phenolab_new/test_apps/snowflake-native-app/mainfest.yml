@@ -1,4 +1,4 @@
-name: my_flask_native_app
+name: snowflake_native_app
 version: 0.1.0
 services:
   - name: web
