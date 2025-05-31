@@ -30,10 +30,12 @@ def create_distribution_plots(df_all, config):
     df_all_filtered = df_all[df_all['value'] <= percentile_995].copy()
 
     if 'converted_value' in df_all_filtered.columns:
-        converted_percentile_995 = df_all_filtered['converted_value'].quantile(0.995) if not df_all_filtered.empty else float('inf')
+        converted_percentile_995 = df_all_filtered['converted_value'].quantile(0.995) \
+            if not df_all_filtered.empty else float('inf')
         df_all_filtered = df_all_filtered[df_all_filtered['converted_value'] <= converted_percentile_995]
 
-    df_primary = df_all_filtered[['converted_value', 'converted_unit']].rename(columns={'converted_value': 'value', 'converted_unit': 'unit'})
+    df_primary = df_all_filtered[['converted_value', 'converted_unit']].rename(columns={'converted_value': 'value',
+                                                                                        'converted_unit': 'unit'})
 
     # Create 1x2 subplot grid
     fig = make_subplots(
@@ -140,12 +142,14 @@ def display_feature_creation(snowsesh):
     eligible_configs = get_available_measurement_configs()
 
     if not eligible_configs:
-        st.warning("No measurement configurations found. Please ensure measurements have standard units defined, primary standard unit is set, and unit mappings are defined.")
+        st.warning("No measurement configurations found. " \
+        "Please ensure measurements have standard units defined, " \
+        "primary standard unit is set, and unit mappings are defined.")
         return
 
-    st.write("""
-    This will create or update the **Base Measurements** feature table containing converted values from the standardised measurements shown on this page.
-    """)
+    st.write("""This will create or update the **Base Measurements** feature table \
+             containing converted values from the standardised measurements shown on this page.\
+             """)
 
     if st.button("Create / Update Base Measurements Table", type="primary", use_container_width=True):
         create_base_measurements_feature(snowsesh, eligible_configs)
