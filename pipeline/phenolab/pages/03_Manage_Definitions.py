@@ -1,27 +1,25 @@
 import datetime
 import glob
 import os
+import re
 import subprocess
 import sys
+from datetime import datetime
 
 import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
-from datetime import datetime
-
-from phmlondon.definition import Definition
-from phmlondon.snow_utils import SnowflakeConnection
-from utils.style_utils import set_font_lato
+from utils.database_utils import get_snowflake_connection
 from utils.definition_display_utils import (
     display_selected_codes,
     display_unified_code_browser,
     load_definition,
-    load_definitions_list
+    load_definitions_list,
 )
-import re
+from utils.style_utils import set_font_lato
 
-from phmlondon.config import SNOWFLAKE_DATABASE, DEFINITION_LIBRARY
-
+from phmlondon.config import DEFINITION_LIBRARY
+from phmlondon.definition import Definition
 
 # # 03_Manage_Definitions.py
 
@@ -202,17 +200,12 @@ def upload_definitions_to_snowflake():
         st.error("No definition files found to upload")
         return
 
-    # connect
-    with st.spinner("Connecting to Snowflake..."):
-        try:
-            snowsesh = SnowflakeConnection()
-            snowsesh.use_database(SNOWFLAKE_DATABASE)
-            snowsesh.use_schema(DEFINITION_LIBRARY)
-
-            st.success("Connected to Snowflake")
-        except Exception as e:
-            st.error(f"Failed to connect to Snowflake: {e}")
-            return
+    # Get the single connection (already connected to definition library by default)
+    try:
+        snowsesh = get_snowflake_connection()
+    except Exception as e:
+        st.error(f"Failed to get Snowflake connection: {e}")
+        return
 
     # upload_time = datetime.datetime.now()
     all_rows = pd.DataFrame()
@@ -394,7 +387,7 @@ def main():
         with b:
             st.text(" ")
             if definition_count > 0:
-                if st.button(f"Upload new / updated definitions to Snowflake"):
+                if st.button("Upload new / updated definitions to Snowflake"):
                     with maincol:
                         upload_definitions_to_snowflake()
             else:

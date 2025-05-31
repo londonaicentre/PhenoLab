@@ -2,12 +2,11 @@ import os
 
 import streamlit as st
 from dotenv import load_dotenv
+from utils.database_utils import get_snowflake_connection
 from utils.phenotype import ComparisonOperator, ConditionType, Phenotype, load_phenotype_from_json
 from utils.style_utils import set_font_lato
 
-from phmlondon.snow_utils import SnowflakeConnection
-from phmlondon.config import SNOWFLAKE_DATABASE, DEFINITION_LIBRARY
-
+from phmlondon.config import DEFINITION_LIBRARY, SNOWFLAKE_DATABASE
 
 # # 05_Build_A_Phenotype.py
 
@@ -147,15 +146,12 @@ def display_panel_2_definition_selection():
         - Click "Add" on a definition to select it for your phenotype
         """)
 
-    if "snowsesh" not in st.session_state:
-        with st.spinner("Connecting to Snowflake..."):
-            try:
-                st.session_state.snowsesh = SnowflakeConnection()
-                st.session_state.snowsesh.use_database(SNOWFLAKE_DATABASE)
-                st.session_state.snowsesh.use_schema(DEFINITION_LIBRARY)
-            except Exception as e:
-                st.error(f"Failed to connect to Snowflake: {e}")
-                return
+    # Get the single connection (already connected to definition library by default)
+    try:
+        snowsesh = get_snowflake_connection()
+    except Exception as e:
+        st.error(f"Failed to get Snowflake connection: {e}")
+        return
 
     # get available sources
     if "source_systems" not in st.session_state:
@@ -165,7 +161,7 @@ def display_panel_2_definition_selection():
             WHERE SOURCE_LOADER IS NOT NULL
             ORDER BY SOURCE_LOADER
             """
-            sources_df = st.session_state.snowsesh.execute_query_to_df(source_query)
+            sources_df = snowsesh.execute_query_to_df(source_query)
             source_systems = ["All"] + sources_df["SOURCE_LOADER"].tolist()
             st.session_state.source_systems = source_systems
         except Exception as e:
@@ -179,7 +175,7 @@ def display_panel_2_definition_selection():
 
     if st.button("Search"):
         with st.spinner("Searching definitions..."):
-            results = query_definition_store(st.session_state.snowsesh, search_term, source_system)
+            results = query_definition_store(snowsesh, search_term, source_system)
             if results is not None and not results.empty:
                 st.session_state.definition_results = results
                 st.success(f"Found {len(results)} definitions")

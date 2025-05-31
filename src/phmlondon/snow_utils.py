@@ -1,4 +1,6 @@
 import os
+from contextlib import contextmanager
+from typing import Optional
 
 import pandas as pd
 import polars as pl
@@ -71,6 +73,38 @@ class SnowflakeConnection:
         except Exception as e:
             print(f"Error setting schema {e}")
             raise e
+
+    @contextmanager
+    def use_context(self, database: Optional[str] = None, schema: Optional[str] = None):
+        """
+        Context manager for temporary database/schema switching.
+
+        Usage:
+            snowsesh = get_snowflake_connection()
+            with snowsesh.use_context(database="PROD_DWH", schema="ANALYST_PRIMARY_CARE"):
+                df = snowsesh.execute_query_to_df("SELECT * FROM some_table")
+
+            # connection then automatically returns to previous database/schema
+        """
+        # store current state
+        original_database = self.current_database
+        original_schema = self.current_schema
+
+        try:
+            # switch to new context
+            if database and database != self.current_database:
+                self.use_database(database)
+            if schema and schema != self.current_schema:
+                self.use_schema(schema)
+
+            yield self
+
+        finally:
+            # restore original state
+            if original_database and original_database != self.current_database:
+                self.use_database(original_database)
+            if original_schema and original_schema != self.current_schema:
+                self.use_schema(original_schema)
 
     def create_schema_if_not_exists(self, schema):
         """
@@ -301,3 +335,4 @@ class SnowflakeConnection:
         except Exception as e:
             print(f"Error executing sql file: {e}")
             raise
+
