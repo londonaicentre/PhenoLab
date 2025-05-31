@@ -165,16 +165,16 @@ def handle_upload_to_snowflake():
     except Exception as e:
         st.error(f"Failed to get Snowflake connection: {e}")
         return
-    
+
     definition_files = load_definitions_list()
-    
+
     with st.spinner(f"Processing {len(definition_files)} definition files..."):
         try:
             all_rows, definitions_to_add, definitions_to_remove = process_definitions_for_upload(snowsesh)
         except Exception as e:
             st.error(str(e))
             return
-    
+
     # Upload if there's data
     if all_rows is not None and not all_rows.empty:
         with st.spinner(f"Uploading {len(all_rows)} rows to Snowflake..."):
@@ -183,7 +183,7 @@ def handle_upload_to_snowflake():
                 df.columns = df.columns.str.upper()
                 snowsesh.load_dataframe_to_table(df=df, table_name="AIC_DEFINITIONS", mode="append")
                 st.success(f"Successfully uploaded new definitions {definitions_to_add} to the AIC definition library")
-                
+
                 # Delete old versions
                 for id, [name, current_version] in definitions_to_remove.items():
                     snowsesh.session.sql(
@@ -196,7 +196,7 @@ def handle_upload_to_snowflake():
                 return
     else:
         st.warning("No new definitions to upload")
-    
+
     # Update DEFINITIONSTORE
     with st.spinner("Updating DEFINITIONSTORE..."):
         try:

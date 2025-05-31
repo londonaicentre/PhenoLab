@@ -117,9 +117,9 @@ def apply_conversions(df, config: MeasurementConfig):
     return df_converted
 
 
-def create_distribution_plots(df_all, config: MeasurementConfig, selected_standard_unit: str = None):
+def create_distribution_plots(df_all, config: MeasurementConfig):
     """
-    Create four distribution plots in a 2x2 grid: unmapped, selected standard unit, primary unit, and percentiles
+    Create two distribution plots in a 1x2 grid: primary unit and percentiles
     """
     # apply 99.5 percentile cutoff - otherwise extreme outliers will hide true distribution
     percentile_995 = df_all['value'].quantile(0.995) if not df_all.empty else float('inf')
@@ -129,67 +129,27 @@ def create_distribution_plots(df_all, config: MeasurementConfig, selected_standa
         converted_percentile_995 = df_all_filtered['converted_value'].quantile(0.995) if not df_all_filtered.empty else float('inf')
         df_all_filtered = df_all_filtered[df_all_filtered['converted_value'] <= converted_percentile_995]
 
-    df_unmapped = df_all_filtered[df_all_filtered['mapped_unit'].isna()]
-    if selected_standard_unit:
-        df_standard = df_all_filtered[df_all_filtered['mapped_unit'] == selected_standard_unit]
-    else:
-        df_standard = pd.DataFrame()  # keep this empty if not yet selected
-
     df_primary = df_all_filtered[['converted_value', 'converted_unit']].rename(columns={'converted_value': 'value', 'converted_unit': 'unit'})
 
-    # Create 2x2 subplot grid
+    # Create 1x2 subplot grid
     fig = make_subplots(
-        rows=2, cols=2,
+        rows=1, cols=2,
         subplot_titles=(
-            f"Unmapped Units ({len(df_unmapped):,} values)",
-            f"Standard Unit: {selected_standard_unit or 'None Selected'} ({len(df_standard):,} values)",
             f"Primary Unit: {config.primary_standard_unit} ({len(df_primary):,} values)",
             f"Percentile Distribution ({config.primary_standard_unit})"
         ),
-        vertical_spacing=0.15,
-        horizontal_spacing=0.12,
-        specs=[[{"type": "histogram"}, {"type": "histogram"}],
-               [{"type": "histogram"}, {"type": "scatter"}]]
+        horizontal_spacing=0.15,
+        specs=[[{"type": "histogram"}, {"type": "scatter"}]]
     )
 
-    # plot 1: unmapped (top left)
-    if not df_unmapped.empty:
-        fig.add_trace(
-            go.Histogram(x=df_unmapped['value'], name="All Unmapped", nbinsx=50, marker_color='lightgray'),
-            row=1, col=1
-        )
-    else:
-        fig.add_annotation(
-            text="No unmapped units",
-            xref="x1", yref="y1",
-            x=0.5, y=0.5,
-            showarrow=False,
-            row=1, col=1
-        )
-
-    # plot 2: selected standard (top right)
-    if not df_standard.empty and selected_standard_unit:
-        fig.add_trace(
-            go.Histogram(x=df_standard['value'], name=selected_standard_unit, nbinsx=50, marker_color='steelblue'),
-            row=1, col=2
-        )
-    else:
-        fig.add_annotation(
-            text="Select a standard unit" if not selected_standard_unit else "No data",
-            xref="x2", yref="y2",
-            x=0.5, y=0.5,
-            showarrow=False,
-            row=1, col=2
-        )
-
-    # plot 3: primary (bottom left)
+    # plot 1: primary (left)
     if not df_primary.empty and config.primary_standard_unit:
         fig.add_trace(
             go.Histogram(x=df_primary['value'], name=config.primary_standard_unit, nbinsx=50, marker_color='darkgreen'),
-            row=2, col=1
+            row=1, col=1
         )
 
-    # plot 4: percentiles (bottom right)
+    # plot 2: percentiles (right)
     if not df_all.empty and 'converted_value' in df_all.columns:
         converted_values = df_all['converted_value'].dropna()
         if not converted_values.empty:
@@ -204,7 +164,7 @@ def create_distribution_plots(df_all, config: MeasurementConfig, selected_standa
                 marker=dict(size=8, color='darkgreen'),
                 line=dict(color='darkgreen', width=2),
                 name='Percentiles'
-            ), row=2, col=2)
+            ), row=1, col=2)
 
             # draw Median
             median_idx = percentiles.index(0.50)
@@ -213,23 +173,19 @@ def create_distribution_plots(df_all, config: MeasurementConfig, selected_standa
                 line_dash="dash",
                 line_color="gray",
                 annotation_text=f"Median: {percentile_values[median_idx]:.2f}",
-                row=2, col=2
+                row=1, col=2
             )
 
     # update axes
     fig.update_xaxes(title_text="Value", row=1, col=1)
-    fig.update_xaxes(title_text="Value", row=1, col=2)
-    fig.update_xaxes(title_text="Value", row=2, col=1)
-    fig.update_xaxes(title_text="Percentile", row=2, col=2)
+    fig.update_xaxes(title_text="Percentile", row=1, col=2)
 
     fig.update_yaxes(title_text="Count", row=1, col=1)
-    fig.update_yaxes(title_text="Count", row=1, col=2)
-    fig.update_yaxes(title_text="Count", row=2, col=1)
-    fig.update_yaxes(title_text=f"Value ({config.primary_standard_unit})", row=2, col=2)
+    fig.update_yaxes(title_text=f"Value ({config.primary_standard_unit})", row=1, col=2)
 
     # update layout
     fig.update_layout(
-        height=700,
+        height=400,
         showlegend=False,
         title_text=f"Measurement Value Distributions: {config.definition_name} (99.5 percentile cutoff applied)"
     )
@@ -246,7 +202,6 @@ def get_available_measurement_configs():
     - Have standard units defined
     - Have a primary standard unit set
     - Have unit mappings defined
-
 
     """
     measurement_configs = load_measurement_configs_list()
@@ -300,27 +255,15 @@ def display_measurement_analysis(snowsesh):
             st.warning(f"No measurement values found for {selected_measurement}")
             return
 
-        st.info(f"Loaded {len(df_values):,} measurement values")
-
+        # Count unmapped units
         df_mapped = apply_unit_mapping(df_values, config)
+        unmapped_count = df_mapped['mapped_unit'].isna().sum()
+
+        st.info(f"Loaded {len(df_values):,} measurement values (Unmapped = {unmapped_count:,})")
+
         df_all = apply_conversions(df_mapped, config)
 
-        standard_units_in_data = df_all[df_all['mapped_unit'].notna()]['mapped_unit'].unique()
-        standard_units_list = sorted([unit for unit in standard_units_in_data if pd.notna(unit)])
-
-        if standard_units_list:
-            selected_standard_unit = st.selectbox(
-                "Select a standard unit to display",
-                options=[""] + standard_units_list,
-                key="standard_unit_display_select"
-            )
-            if selected_standard_unit == "":
-                selected_standard_unit = None
-        else:
-            selected_standard_unit = None
-            st.info("No mapped standard units found in the data")
-
-        fig = create_distribution_plots(df_all, config, selected_standard_unit)
+        fig = create_distribution_plots(df_all, config)
         st.plotly_chart(fig, use_container_width=True)
 
 
@@ -424,13 +367,14 @@ def display_feature_creation(snowsesh):
         st.warning("No measurement configurations found. Please ensure measurements have standard units defined, primary standard unit is set, and unit mappings are defined.")
         return
 
-    st.subheader("Create Base Measurements Feature Table")
+    st.write("""
+    This will create or update the **Base Measurements** feature table containing converted values from the standardised measurements shown on this page.
+    """)
 
     if st.button("Create / Update Base Measurements Table", type="primary", use_container_width=True):
         create_base_measurements_feature(snowsesh, eligible_configs)
-    st.write("""
-    This will create or update the **Base Measurements** feature table containing standardised measurement data.
 
+    st.write("""
     **Table Schema:**
     - `PERSON_ID`: Patient identifier
     - `CLINICAL_EFFECTIVE_DATE`: Date of measurement
