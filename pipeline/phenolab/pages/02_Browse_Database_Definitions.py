@@ -8,7 +8,7 @@ from utils.database_utils import (
     get_snowflake_connection,
     return_codes_for_given_definition_id_as_df,
 )
-from utils.definition_display_utils import (
+from utils.definition_interaction_utils import (
     compare_definition_codes,
     display_definition_codes_summary,
     display_definition_metadata,

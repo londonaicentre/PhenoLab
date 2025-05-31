@@ -10,7 +10,7 @@ import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
 from utils.database_utils import get_snowflake_connection
-from utils.definition_display_utils import (
+from utils.definition_interaction_utils import (
     display_definition_from_file,
     display_selected_codes,
     display_unified_code_browser,
