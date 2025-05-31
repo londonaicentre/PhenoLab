@@ -221,7 +221,7 @@ def create_distribution_plots(df_all, config: MeasurementConfig, selected_standa
     fig.update_xaxes(title_text="Value", row=1, col=2)
     fig.update_xaxes(title_text="Value", row=2, col=1)
     fig.update_xaxes(title_text="Percentile", row=2, col=2)
-    
+
     fig.update_yaxes(title_text="Count", row=1, col=1)
     fig.update_yaxes(title_text="Count", row=1, col=2)
     fig.update_yaxes(title_text="Count", row=2, col=1)
@@ -425,7 +425,7 @@ def display_feature_creation(snowsesh):
         return
 
     st.subheader("Create Base Measurements Feature Table")
-    
+
     if st.button("Create / Update Base Measurements Table", type="primary", use_container_width=True):
         create_base_measurements_feature(snowsesh, eligible_configs)
     st.write("""
@@ -522,17 +522,17 @@ def create_base_measurements_feature(snowsesh: SnowflakeConnection, eligible_con
 def main():
     st.set_page_config(page_title="Measurement Feature Creation", layout="wide")
     set_font_lato()
-    st.title("Measurement Analysis & Feature Creation")
+    st.title("Measurement Distributions & Feature Creation")
     load_dotenv()
 
     snowsesh = get_snowflake_connection()
 
     # Create 2:1 column layout
     left_col, right_col = st.columns([2, 1])
-    
+
     with left_col:
         display_measurement_analysis(snowsesh)
-    
+
     with right_col:
         display_feature_creation(snowsesh)
 
