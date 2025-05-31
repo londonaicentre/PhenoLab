@@ -229,23 +229,20 @@ def display_panel_3_measurement_selection():
         st.info("Please create or load a phenotype first")
         return
 
-    # Get measurement features from feature store
     try:
         snowsesh = get_snowflake_connection()
     except Exception as e:
         st.error(f"Failed to get Snowflake connection: {e}")
         return
 
-    # Get available measurements from BASE_MEASUREMENTS tables
     measurement_features = get_available_measurements(snowsesh)
 
     if measurement_features.empty:
         st.warning("No measurement features found in the feature store")
         return
 
-    # Display measurement features
     search_term = st.text_input("Search measurement features")
-    
+
     if search_term:
         filtered_features = measurement_features[
             measurement_features['DEFINITION_NAME'].str.contains(search_term, case=False, na=False)
@@ -274,33 +271,31 @@ def display_panel_3_measurement_selection():
                     }
                     st.rerun()
 
-    # Configuration form for selected measurement
+    # configure selected measurement
     if "selected_measurement" in st.session_state:
         st.markdown("---")
         st.write(f"### Configuring MEASUREMENT condition for: **{st.session_state.selected_measurement['name']}**")
 
         with st.form(key="measurement_form"):
-            # Threshold configuration
+
             st.markdown("#### Threshold Configuration")
             comparison_operator = st.selectbox("Comparison operator", options=[op.value for op in ComparisonOperator])
-            
+
             col1, col2 = st.columns([2, 1])
             with col1:
                 threshold_value = st.number_input("Threshold value", value=0.0, step=0.1)
             with col2:
                 threshold_unit = st.text_input("Unit (e.g., mmHg)", value=st.session_state.selected_measurement.get("units", ""))
 
-            # Temporal pattern
             st.markdown("#### Temporal Pattern")
             col3, col4 = st.columns([1, 1])
             with col3:
-                number_of_measures = st.number_input("Number of measures required", min_value=1, value=1, 
+                number_of_measures = st.number_input("Number of measures required", min_value=1, value=1,
                                                    help="How many measurements must meet the threshold")
             with col4:
                 measure_time_window_days = st.number_input("Time window (days)", min_value=1, value=None,
                                                          help="Time window for collecting measurements (leave blank for any time)")
 
-            # Data quality filters
             st.markdown("#### Data Quality Filters")
             col5, col6 = st.columns([1, 1])
             with col5:
@@ -313,7 +308,6 @@ def display_panel_3_measurement_selection():
             submit_button = st.form_submit_button("Add MEASUREMENT Condition")
 
             if submit_button:
-                # Add the measurement condition
                 st.session_state.current_phenotype.add_condition_block(
                     definition_id=st.session_state.selected_measurement["id"],
                     definition_name=st.session_state.selected_measurement["name"],
@@ -357,7 +351,6 @@ def display_panel_4_condition_blocks():
         st.info("No condition blocks added yet.")
         return
 
-    # Display each condition block with details and Remove button
     with st.container(height=300):
         for label, block in phenotype.condition_blocks.items():
             with st.container():
@@ -402,7 +395,6 @@ def display_panel_5_expression_builder():
         st.info("Add condition blocks to Phenotype first")
         return
 
-    # Helper text
     st.write("Available blocks:")
     for label, block in phenotype.condition_blocks.items():
         st.write(f"**{label}**: {block.to_dsl_description()}")
@@ -410,7 +402,6 @@ def display_panel_5_expression_builder():
     st.write("Build your expression using blocks, operators (AND, OR, NOT), and parentheses.")
     st.write("Example: (A AND B) OR C")
 
-    # Expression input
     expression = st.text_input(
         "Enter logical expression",
         value=phenotype.expression,
@@ -432,7 +423,6 @@ def display_panel_5_expression_builder():
                     st.error(f"Invalid expression: {message}")
 
     with col2:
-        # Save phenotype
         if st.button("Save Phenotype"):
             if not phenotype.expression:
                 st.error("Cannot save: Expression is empty")
