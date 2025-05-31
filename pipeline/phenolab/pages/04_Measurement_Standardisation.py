@@ -1,18 +1,14 @@
-import glob
-import os
-from typing import Dict, List, Optional, Tuple
-
 import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
-from utils.database_utils import get_snowflake_connection, get_measurement_unit_statistics
-from utils.definition_display_utils import load_definition, load_definitions_list
-from utils.measurement import MeasurementConfig, UnitMapping, load_measurement_config_from_json
+from utils.database_utils import get_snowflake_connection
+from utils.measurement import MeasurementConfig
+from utils.measurement_interaction_utils import (
+    load_measurement_config,
+    load_measurement_configs_list,
+    update_all_measurement_configs,
+)
 from utils.style_utils import set_font_lato
-
-from phmlondon.config import DEFINITION_LIBRARY, SNOWFLAKE_DATABASE
-from phmlondon.definition import Definition
-from phmlondon.snow_utils import SnowflakeConnection
 
 # # 04_Measurement_Standardisation.py
 
@@ -24,161 +20,8 @@ from phmlondon.snow_utils import SnowflakeConnection
 # - Not yet feature complete!
 
 
-def load_measurement_definitions_list() -> List[str]:
-    """
-    Get list of definition files from /data/definitions that start with 'measurement_'
-    """
-    definitions_list = []
-    try:
-        if os.path.exists("data/definitions"):
-            definitions_list = [f for f in os.listdir("data/definitions")
-                               if f.endswith(".json") and "measurement_" in f]
-    except Exception as e:
-        st.error(f"Unable to list measurement definition files: {e}")
 
-    return definitions_list
-
-def load_measurement_configs_list() -> List[str]:
-    """
-    Get list of measurement config files from /data/measurements
-    """
-    config_list = []
-    try:
-        if os.path.exists("data/measurements"):
-            config_list = [f for f in os.listdir("data/measurements")
-                           if f.endswith(".json") and f.startswith("standard_")]
-    except Exception as e:
-        st.error(f"Unable to list measurement config files: {e}")
-
-    return config_list
-
-def load_measurement_config(filename: str) -> Optional[MeasurementConfig]:
-    """
-    Load measurement config from json
-    """
-    try:
-        file_path = os.path.join("data/measurements", filename)
-        config = load_measurement_config_from_json(file_path)
-        return config
-    except Exception as e:
-        st.error(f"Unable to load measurement config: {e}")
-        return None
-
-def create_missing_measurement_configs():
-    """
-    Check if each measurement_ definition has a corresponding standard_ config
-    Automagically create empty ones if missing
-    """
-    os.makedirs("data/measurements", exist_ok=True)
-
-    measurement_definitions = load_measurement_definitions_list()
-    measurement_configs = load_measurement_configs_list()
-
-    # 1. get definition ids from existing configs
-    config_definition_ids = set()
-    for config_file in measurement_configs:
-        try:
-            config = load_measurement_config(config_file)
-            if config:
-                config_definition_ids.add(config.definition_id)
-        except Exception as e:
-            st.warning(f"Could not load configuration file {config_file}: {e}")
-
-    # 2. create blank configs for measurements that are missing
-    created_count = 0
-    for def_file in measurement_definitions:
-        try:
-            file_path = os.path.join("data/definitions", def_file)
-            definition = load_definition(file_path)
-
-            if definition and definition.definition_id not in config_definition_ids:
-                config = MeasurementConfig(
-                    definition_id=definition.definition_id,
-                    definition_name=definition.definition_name,
-                    standard_measurement_config_id=None,  # generated post_init
-                    standard_measurement_config_version=None,  # generated post_init
-                )
-                config.save_to_json()
-                created_count += 1
-
-        except Exception as e:
-            st.warning(f"Could not process {def_file}: {e}")
-
-    return created_count
-
-def update_all_measurement_configs(snowsesh: SnowflakeConnection) -> Tuple[int, int, int]:
-    """
-    Button-triggered function to:
-    1. Create missing measurement configs for any measurement_ definitions
-    2. Only add new source units that don't exist in the config yet
-    Note that previously retrieved stats are not updated.
-
-    Returns:
-        Tuple[int, int, int]:
-            - count of new configs created
-            - count of configs updated
-            - count of new units added
-    """
-    os.makedirs("data/measurements", exist_ok=True)
-
-    # track for reporting
-    created_count = 0
-    updated_count = 0
-    new_units_count = 0
-
-    # 1) create missing measurement configs
-    missing_created = create_missing_measurement_configs()
-    created_count += missing_created
-
-    # 2) get all existing measurement config files
-    existing_configs = {}
-    for config_file in load_measurement_configs_list():
-        try:
-            config = load_measurement_config(config_file)
-            if config:
-                existing_configs[config.definition_name] = config
-        except Exception as e:
-            st.warning(f"Could not load config {config_file}: {e}")
-
-    # 3) per config, add only new units that don't exist yet
-    for def_name, config in existing_configs.items():
-        try:
-            unit_stats = get_measurement_unit_statistics(def_name, snowsesh)
-
-            if unit_stats is None or unit_stats.empty:
-                continue
-
-            existing_source_units = {m.source_unit for m in config.unit_mappings}
-            config_changed = False
-
-            for idx, row in unit_stats.iterrows():
-                source_unit = row['UNIT']
-
-                # add units that don't exist in the config with empty mappings
-                if source_unit not in existing_source_units:
-                    config.unit_mappings.append(UnitMapping(
-                        source_unit=source_unit,
-                        standard_unit="",
-                        source_unit_count=row['TOTAL_COUNT'],
-                        source_unit_lq=row['LOWER_QUARTILE'],
-                        source_unit_median=row['MEDIAN'],
-                        source_unit_uq=row['UPPER_QUARTILE']
-                    ))
-                    new_units_count += 1
-                    config_changed = True
-
-            # save if new units were added
-            if config_changed:
-                config.mark_modified()
-                config.save_to_json()
-                updated_count += 1
-
-        except Exception as e:
-            st.warning(f"Error processing {def_name}: {e}")
-
-    return created_count, updated_count, new_units_count
-
-def display_standard_units_panel(config: MeasurementConfig):
+def display_standard_units_panel(config):
     """
     Display panel for choosing and managing standard units.
     These are a set of canonical units onto which source units can map to.
@@ -228,7 +71,7 @@ def display_standard_units_panel(config: MeasurementConfig):
     else:
         st.info("No standard units defined.")
 
-def display_unit_mapping_panel(config: MeasurementConfig, snowsesh: SnowflakeConnection):
+def display_unit_mapping_panel(config, snowsesh):
     """
     Display panel for mapping source units to standard units
     """
@@ -304,7 +147,7 @@ def display_unit_mapping_panel(config: MeasurementConfig, snowsesh: SnowflakeCon
                 config.save_to_json()
                 st.rerun()
 
-def get_all_units_for_conversion(config: MeasurementConfig) -> List[str]:
+def get_all_units_for_conversion(config):
     """
     Get all standard units that need conversion to primary unit.
     Source units are not included as they map to standard units (same unit, different representation).
@@ -312,7 +155,7 @@ def get_all_units_for_conversion(config: MeasurementConfig) -> List[str]:
     # Only return standard units (including primary unit)
     return sorted(config.standard_units)
 
-def display_unit_conversion_panel(config: MeasurementConfig):
+def display_unit_conversion_panel(config):
     """
     Display panel for defining conversions from all units to the primary unit
     """
@@ -346,8 +189,7 @@ def display_unit_conversion_panel(config: MeasurementConfig):
     if config.primary_standard_unit:
         display_conversion_group(config, [config.primary_standard_unit], existing_conversions, "identity")
 
-def display_conversion_group(config: MeasurementConfig, units: List[str],
-                            existing_conversions: Dict, group_type: str):
+def display_conversion_group(config, units, existing_conversions, group_type):
     """
     Display a group of unit conversions with input fields
     """
