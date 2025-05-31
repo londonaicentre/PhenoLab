@@ -149,33 +149,26 @@ def get_measurement_unit_statistics(definition_name: str, _snowsesh: SnowflakeCo
 def get_available_measurements(_snowsesh):
     """
     Get available measurement definitions from BASE_MEASUREMENTS tables in feature store
-    
-    Returns:
-        pandas.DataFrame: Available measurement definitions with columns:
-        - DEFINITION_ID, DEFINITION_NAME, VALUE_UNITS, MEASUREMENT_COUNT, TABLE_NAME
     """
     try:
         with _snowsesh.use_context(database=SNOWFLAKE_DATABASE, schema=FEATURE_STORE):
-            # Get all BASE_MEASUREMENTS tables
             tables_query = f"""
-            SELECT TABLE_NAME 
-            FROM INFORMATION_SCHEMA.TABLES 
-            WHERE TABLE_SCHEMA = '{FEATURE_STORE}' 
+            SELECT TABLE_NAME
+            FROM INFORMATION_SCHEMA.TABLES
+            WHERE TABLE_SCHEMA = '{FEATURE_STORE}'
               AND TABLE_NAME LIKE 'BASE_MEASUREMENTS%'
             ORDER BY TABLE_NAME DESC
             """
             measurement_tables = _snowsesh.execute_query_to_df(tables_query)
-            
+
         if measurement_tables.empty:
             return pd.DataFrame()
-            
-        # Use the latest version (highest version number)
+
         latest_table = measurement_tables.iloc[0]['TABLE_NAME']
-        
-        # Get available measurement definitions from the table
+
         with _snowsesh.use_context(database=SNOWFLAKE_DATABASE, schema=FEATURE_STORE):
             definitions_query = f"""
-            SELECT DISTINCT 
+            SELECT DISTINCT
                 DEFINITION_ID,
                 DEFINITION_NAME,
                 VALUE_UNITS,
@@ -186,10 +179,144 @@ def get_available_measurements(_snowsesh):
             ORDER BY DEFINITION_NAME
             """
             measurement_features = _snowsesh.execute_query_to_df(definitions_query)
-            
+
         return measurement_features
-        
+
     except Exception as e:
         st.error(f"Error loading measurement features: {e}")
         return pd.DataFrame()
+
+
+@standard_query_cache
+def get_condition_patient_counts_by_year(definition_name: str, _snowsesh: SnowflakeConnection) -> pd.DataFrame:
+    """
+    Get unique patient counts by year for a given condition definition
+    Includes both SNOMED codes from OBSERVATION and ICD10/OPCS4 codes from BASE_APC_CONCEPTS
+
+    Args:
+        definition_name: Name of the condition definition
+        _snowsesh: Snowflake connection
+
+    Returns:
+        DataFrame with columns: YEAR, PATIENT_COUNT
+    """
+    # Get latest BASE_APC_CONCEPTS table
+    apc_table_query = f"""
+    SELECT TABLE_NAME
+    FROM {SNOWFLAKE_DATABASE}.INFORMATION_SCHEMA.TABLES
+    WHERE TABLE_SCHEMA = '{FEATURE_STORE}'
+      AND TABLE_NAME LIKE 'BASE_APC_CONCEPTS%'
+    ORDER BY TABLE_NAME DESC
+    LIMIT 1
+    """
+    apc_result = _snowsesh.execute_query_to_df(apc_table_query)
+    apc_table = apc_result.iloc[0]['TABLE_NAME'] if not apc_result.empty else None
+
+    query_parts = []
+
+    # SNOMED from OBSERVATION
+    query_parts.append(f"""
+    SELECT
+        YEAR(obs.CLINICAL_EFFECTIVE_DATE) AS YEAR,
+        obs.PERSON_ID
+    FROM {DDS_OBSERVATION} obs
+    LEFT JOIN {SNOWFLAKE_DATABASE}.{DEFINITION_LIBRARY}.DEFINITIONSTORE def
+        ON obs.CORE_CONCEPT_ID = def.DBID
+    WHERE def.DEFINITION_NAME = '{definition_name}'
+        AND def.VOCABULARY = 'SNOMED'
+        AND obs.CLINICAL_EFFECTIVE_DATE IS NOT NULL
+    """)
+
+    # ICD10/OPCS4 from BASE_APC_CONCEPTS
+    if apc_table:
+        query_parts.append(f"""
+        SELECT
+            YEAR(apc.ACTIVITY_DATE) AS YEAR,
+            apc.PERSON_ID
+        FROM {SNOWFLAKE_DATABASE}.{FEATURE_STORE}.{apc_table} apc
+        INNER JOIN {SNOWFLAKE_DATABASE}.{DEFINITION_LIBRARY}.DEFINITIONSTORE def
+            ON apc.VOCABULARY = def.VOCABULARY
+            AND apc.CONCEPT_CODE_STD = def.CODE
+        WHERE def.DEFINITION_NAME = '{definition_name}'
+            AND def.VOCABULARY IN ('ICD10', 'OPCS4')
+            AND apc.ACTIVITY_DATE IS NOT NULL
+        """)
+
+    # count patients per year
+    combined_query = f"""
+    WITH all_patients AS (
+        {' UNION '.join(query_parts)}
+    )
+    SELECT
+        YEAR,
+        COUNT(DISTINCT PERSON_ID) AS PATIENT_COUNT
+    FROM all_patients
+    GROUP BY YEAR
+    ORDER BY YEAR
+    """
+
+    return get_data_from_snowflake_to_dataframe(_snowsesh, combined_query)
+
+
+@standard_query_cache
+def get_unique_patients_for_condition(definition_name: str, _snowsesh: SnowflakeConnection) -> int:
+    """
+    Get total unique patient count for a condition definition
+    Includes both SNOMED codes from OBSERVATION and ICD10/OPCS4 codes from BASE_APC_CONCEPTS
+
+    Args:
+        definition_name: Name of the condition definition
+        _snowsesh: Snowflake connection
+
+    Returns:
+        Number of unique patients
+    """
+    # Get latest BASE_APC_CONCEPTS table
+    apc_table_query = f"""
+    SELECT TABLE_NAME
+    FROM {SNOWFLAKE_DATABASE}.INFORMATION_SCHEMA.TABLES
+    WHERE TABLE_SCHEMA = '{FEATURE_STORE}'
+      AND TABLE_NAME LIKE 'BASE_APC_CONCEPTS%'
+    ORDER BY TABLE_NAME DESC
+    LIMIT 1
+    """
+    apc_result = _snowsesh.execute_query_to_df(apc_table_query)
+    apc_table = apc_result.iloc[0]['TABLE_NAME'] if not apc_result.empty else None
+
+    # Build query with UNION for both sources
+    query_parts = []
+
+    # SNOMED from OBSERVATION
+    query_parts.append(f"""
+    SELECT DISTINCT obs.PERSON_ID
+    FROM {DDS_OBSERVATION} obs
+    LEFT JOIN {SNOWFLAKE_DATABASE}.{DEFINITION_LIBRARY}.DEFINITIONSTORE def
+        ON obs.CORE_CONCEPT_ID = def.DBID
+    WHERE def.DEFINITION_NAME = '{definition_name}'
+        AND def.VOCABULARY = 'SNOMED'
+    """)
+
+    # ICD10/OPCS4 from BASE_APC_CONCEPTS
+    if apc_table:
+        query_parts.append(f"""
+        SELECT DISTINCT apc.PERSON_ID
+        FROM {SNOWFLAKE_DATABASE}.{FEATURE_STORE}.{apc_table} apc
+        INNER JOIN {SNOWFLAKE_DATABASE}.{DEFINITION_LIBRARY}.DEFINITIONSTORE def
+            ON apc.VOCABULARY = def.VOCABULARY
+            AND apc.CONCEPT_CODE_STD = def.CODE
+        WHERE def.DEFINITION_NAME = '{definition_name}'
+            AND def.VOCABULARY IN ('ICD10', 'OPCS4')
+        """)
+
+    # count unique patients
+    combined_query = f"""
+    WITH all_patients AS (
+        {' UNION '.join(query_parts)}
+    )
+    SELECT COUNT(DISTINCT PERSON_ID) AS UNIQUE_PATIENTS
+    FROM all_patients
+    """
+
+    result = get_data_from_snowflake_to_dataframe(_snowsesh, combined_query)
+    return result.iloc[0]['UNIQUE_PATIENTS'] if not result.empty else 0
 

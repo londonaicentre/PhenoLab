@@ -3,7 +3,15 @@ import plotly.graph_objects as go
 import streamlit as st
 from dotenv import load_dotenv
 from plotly.subplots import make_subplots
-from utils.database_utils import get_snowflake_connection
+from utils.condition_interaction_utils import (
+    create_base_conditions_feature,
+    get_non_measurement_definitions,
+)
+from utils.database_utils import (
+    get_condition_patient_counts_by_year,
+    get_snowflake_connection,
+    get_unique_patients_for_condition,
+)
 from utils.measurement_interaction_utils import (
     apply_conversions,
     apply_unit_mapping,
@@ -13,11 +21,10 @@ from utils.measurement_interaction_utils import (
 )
 from utils.style_utils import set_font_lato
 
-# # 05_Measurement_Analysis.py
+# # 05_Base_Features.py
 
-# Page for viewing measurement distributions and creating measurement feature stores.
-#
-# Have separated from standardisation page to avoid rerun issues on tab switching.
+# Page for viewing definition and measurement distributions
+# Creating base feature stores for definition flags and measurements.
 
 
 
@@ -166,22 +173,118 @@ def display_feature_creation(snowsesh):
     - `VALUE_UNITS`: Primary standard unit (standardized)
     """)
 
+def create_condition_distribution_plot(df_yearly, definition_name):
+    """
+    Create a bar chart showing patient counts by year
+    """
+    fig = go.Figure()
+
+    fig.add_trace(go.Bar(
+        x=df_yearly['YEAR'],
+        y=df_yearly['PATIENT_COUNT'],
+        marker_color='darkblue',
+        name='Patient Count'
+    ))
+
+    fig.update_layout(
+        title=f"Unique Patients by Year: {definition_name}",
+        xaxis_title="Year",
+        yaxis_title="Number of Unique Patients",
+        height=400,
+        showlegend=False
+    )
+
+    return fig
+
+
+def display_condition_analysis(snowsesh):
+    """
+    Display condition analysis with patient counts by year
+    """
+    definitions = get_non_measurement_definitions()
+
+    if not definitions:
+        st.warning("No non-measurement definitions found. Please ensure definitions exist in the data/definitions folder.")
+        return
+
+    selected_condition = st.selectbox(
+        "Select a condition to view patient counts",
+        options=sorted(definitions.keys()),
+        key="condition_distribution_select"
+    )
+
+    if selected_condition:
+        with st.spinner("Loading patient counts..."):
+            df_yearly = get_condition_patient_counts_by_year(selected_condition, snowsesh)
+
+        if df_yearly.empty:
+            st.warning(f"No patients found for {selected_condition}")
+            return
+
+        total_observations = df_yearly['PATIENT_COUNT'].sum()
+        unique_patients = get_unique_patients_for_condition(selected_condition, snowsesh)
+
+        st.info(f"Total unique patients: {unique_patients:,} (Total observations: {total_observations:,})")
+
+        fig = create_condition_distribution_plot(df_yearly, selected_condition)
+        st.plotly_chart(fig, use_container_width=True)
+
+
+def display_condition_feature_creation(snowsesh):
+    """
+    Display UI for creating Base Conditions feature table
+    """
+    definitions = get_non_measurement_definitions()
+
+    if not definitions:
+        st.warning("No non-measurement definitions found. Please add definitions first.")
+        return
+
+    st.write(f"""This will create or update the **Base Conditions** feature table
+             containing condition flags for ALL {len(definitions)} non-measurement definitions.
+             """)
+
+    if st.button("Create / Update Base Conditions Table", type="primary", use_container_width=True):
+        all_definitions = list(definitions.keys())
+        create_base_conditions_feature(snowsesh, all_definitions)
+
+    st.write("""
+    **Table Schema:**
+    - `PERSON_ID`: Patient identifier
+    - `CLINICAL_EFFECTIVE_DATE`: Date of condition observation (or ACTIVITY_DATE for ICD10/OPCS4)
+    - `DEFINITION_ID`: Condition definition ID
+    - `DEFINITION_NAME`: Condition definition name
+    - `SOURCE_VOCABULARY`: Source vocabulary (SNOMED, ICD10, or OPCS4)
+    """)
+
+
 def main():
-    st.set_page_config(page_title="Measurement Feature Creation", layout="wide")
+    st.set_page_config(page_title="Base Feature Creation", layout="wide")
     set_font_lato()
-    st.title("Measurement Distributions & Feature Creation")
+    st.title("Distributions & Base Feature Creation")
     load_dotenv()
 
     snowsesh = get_snowflake_connection()
 
-    # Create 2:1 column layout
-    left_col, right_col = st.columns([2, 1])
+    tab1, tab2 = st.tabs(["Has Condition", "Measurements"])
 
-    with left_col:
-        display_measurement_analysis(snowsesh)
+    with tab1:
+        left_col, right_col = st.columns([2, 1])
 
-    with right_col:
-        display_feature_creation(snowsesh)
+        with left_col:
+            display_condition_analysis(snowsesh)
+
+        with right_col:
+            display_condition_feature_creation(snowsesh)
+
+    with tab2:
+        left_col, right_col = st.columns([2, 1])
+
+        with left_col:
+            display_measurement_analysis(snowsesh)
+
+        with right_col:
+            display_feature_creation(snowsesh)
 
 
 if __name__ == "__main__":
