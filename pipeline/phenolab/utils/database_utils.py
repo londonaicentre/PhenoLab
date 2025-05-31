@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 
 #from dotenv import load_dotenv
-from phmlondon.config import DDS_OBSERVATION, DEFINITION_LIBRARY, SNOWFLAKE_DATABASE
+from phmlondon.config import DDS_OBSERVATION, DEFINITION_LIBRARY, SNOWFLAKE_DATABASE, FEATURE_STORE
 from phmlondon.snow_utils import SnowflakeConnection
 
 """
@@ -144,4 +144,52 @@ def get_measurement_unit_statistics(definition_name: str, _snowsesh: SnowflakeCo
     """
     print(query)
     return _snowsesh.execute_query_to_df(query)
+
+
+def get_available_measurements(_snowsesh):
+    """
+    Get available measurement definitions from BASE_MEASUREMENTS tables in feature store
+    
+    Returns:
+        pandas.DataFrame: Available measurement definitions with columns:
+        - DEFINITION_ID, DEFINITION_NAME, VALUE_UNITS, MEASUREMENT_COUNT, TABLE_NAME
+    """
+    try:
+        with _snowsesh.use_context(database=SNOWFLAKE_DATABASE, schema=FEATURE_STORE):
+            # Get all BASE_MEASUREMENTS tables
+            tables_query = f"""
+            SELECT TABLE_NAME 
+            FROM INFORMATION_SCHEMA.TABLES 
+            WHERE TABLE_SCHEMA = '{FEATURE_STORE}' 
+              AND TABLE_NAME LIKE 'BASE_MEASUREMENTS%'
+            ORDER BY TABLE_NAME DESC
+            """
+            measurement_tables = _snowsesh.execute_query_to_df(tables_query)
+            
+        if measurement_tables.empty:
+            return pd.DataFrame()
+            
+        # Use the latest version (highest version number)
+        latest_table = measurement_tables.iloc[0]['TABLE_NAME']
+        
+        # Get available measurement definitions from the table
+        with _snowsesh.use_context(database=SNOWFLAKE_DATABASE, schema=FEATURE_STORE):
+            definitions_query = f"""
+            SELECT DISTINCT 
+                DEFINITION_ID,
+                DEFINITION_NAME,
+                VALUE_UNITS,
+                COUNT(*) as MEASUREMENT_COUNT,
+                '{latest_table}' as TABLE_NAME
+            FROM {latest_table}
+            GROUP BY DEFINITION_ID, DEFINITION_NAME, VALUE_UNITS
+            ORDER BY DEFINITION_NAME
+            """
+            measurement_features = _snowsesh.execute_query_to_df(definitions_query)
+            
+        return measurement_features
+        
+    except Exception as e:
+        st.error(f"Error loading measurement features: {e}")
+        return pd.DataFrame()
 
