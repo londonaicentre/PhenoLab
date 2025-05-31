@@ -153,17 +153,6 @@ def display_edit_definition_panel() -> str:
 
     st.markdown("---")
 
-def get_definitions_list():
-    """
-    Get list of all definition jsons from the definitions directory
-    """
-    definitions_dir = "data/definitions"
-    if not os.path.exists(definitions_dir):
-        return []
-
-    definition_files = glob.glob(os.path.join(definitions_dir, "*.json"))
-    return [os.path.basename(f) for f in definition_files]
-
 @st.cache_data(show_spinner=False)
 def display_definition_content(definition_file):
     """
@@ -195,7 +184,7 @@ def upload_definitions_to_snowflake():
     """
     Unions all and uploads to Snowflake Definition Library
     """
-    definition_files = get_definitions_list()
+    definition_files = load_definitions_list()
     if not definition_files:
         st.error("No definition files found to upload")
         return
@@ -363,7 +352,7 @@ def main():
 
         with col1:
             st.subheader("Available Definitions")
-            definition_files = get_definitions_list()
+            definition_files = load_definitions_list()
 
             if not definition_files:
                 st.info("No definition files found. Create some definitions first.")
@@ -383,7 +372,7 @@ def main():
         _, b, _ = st.columns(3)
         [maincol] = st.columns(1)
 
-        definition_count = len(get_definitions_list())
+        definition_count = len(load_definitions_list())
         with b:
             st.text(" ")
             if definition_count > 0:

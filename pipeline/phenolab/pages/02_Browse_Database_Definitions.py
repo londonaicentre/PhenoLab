@@ -3,14 +3,12 @@ import re
 import streamlit as st
 from dotenv import load_dotenv
 from utils.database_utils import (
-    get_snowflake_connection,
     get_aic_definitions,
-    get_data_from_snowflake_to_dataframe,
     get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list,
+    get_snowflake_connection,
+    return_codes_for_given_definition_id_as_df,
 )
 from utils.style_utils import set_font_lato
-
-from phmlondon.config import DEFINITION_LIBRARY, SNOWFLAKE_DATABASE
 
 # # 02_Browse_Database_Definitions.py
 
@@ -55,19 +53,7 @@ def create_definition_panel(snowsesh,
             # get codes for selected definition
             selected_id = definition_ids[definition_labels.index(selected_definition)]
 
-            codes_query = f"""
-            SELECT DISTINCT
-                CODE,
-                CODE_DESCRIPTION,
-                VOCABULARY,
-                DEFINITION_ID,
-                CODELIST_VERSION
-            FROM {SNOWFLAKE_DATABASE}.{DEFINITION_LIBRARY}.DEFINITIONSTORE
-            WHERE DEFINITION_ID = '{selected_id}'
-            ORDER BY VOCABULARY, CODE
-            """
-
-            codes_df = get_data_from_snowflake_to_dataframe(snowsesh, codes_query)
+            codes_df = return_codes_for_given_definition_id_as_df(snowsesh, selected_id)
 
             if not codes_df.empty:
                 st.write("Definition details:")
