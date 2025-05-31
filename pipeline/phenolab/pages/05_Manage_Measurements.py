@@ -119,7 +119,7 @@ def apply_conversions(df, config: MeasurementConfig):
 
 def create_distribution_plots(df_all, config: MeasurementConfig, selected_standard_unit: str = None):
     """
-    Create three distribution plots: unmapped, selected standard unit, and primary unit
+    Create four distribution plots in a 2x2 grid: unmapped, selected standard unit, primary unit, and percentiles
     """
     # apply 99.5 percentile cutoff - otherwise extreme outliers will hide true distribution
     percentile_995 = df_all['value'].quantile(0.995) if not df_all.empty else float('inf')
@@ -137,18 +137,22 @@ def create_distribution_plots(df_all, config: MeasurementConfig, selected_standa
 
     df_primary = df_all_filtered[['converted_value', 'converted_unit']].rename(columns={'converted_value': 'value', 'converted_unit': 'unit'})
 
-    # Plot
+    # Create 2x2 subplot grid
     fig = make_subplots(
-        rows=1, cols=3,
+        rows=2, cols=2,
         subplot_titles=(
             f"Unmapped Units ({len(df_unmapped):,} values)",
             f"Standard Unit: {selected_standard_unit or 'None Selected'} ({len(df_standard):,} values)",
-            f"Primary Unit: {config.primary_standard_unit} ({len(df_primary):,} values)"
+            f"Primary Unit: {config.primary_standard_unit} ({len(df_primary):,} values)",
+            f"Percentile Distribution ({config.primary_standard_unit})"
         ),
-        horizontal_spacing=0.1
+        vertical_spacing=0.15,
+        horizontal_spacing=0.12,
+        specs=[[{"type": "histogram"}, {"type": "histogram"}],
+               [{"type": "histogram"}, {"type": "scatter"}]]
     )
 
-    # plot 1: unmapped
+    # plot 1: unmapped (top left)
     if not df_unmapped.empty:
         fig.add_trace(
             go.Histogram(x=df_unmapped['value'], name="All Unmapped", nbinsx=50, marker_color='lightgray'),
@@ -163,7 +167,7 @@ def create_distribution_plots(df_all, config: MeasurementConfig, selected_standa
             row=1, col=1
         )
 
-    # plot 2: selected standard
+    # plot 2: selected standard (top right)
     if not df_standard.empty and selected_standard_unit:
         fig.add_trace(
             go.Histogram(x=df_standard['value'], name=selected_standard_unit, nbinsx=50, marker_color='steelblue'),
@@ -178,24 +182,57 @@ def create_distribution_plots(df_all, config: MeasurementConfig, selected_standa
             row=1, col=2
         )
 
-    # plot 3: primary
+    # plot 3: primary (bottom left)
     if not df_primary.empty and config.primary_standard_unit:
         fig.add_trace(
             go.Histogram(x=df_primary['value'], name=config.primary_standard_unit, nbinsx=50, marker_color='darkgreen'),
-            row=1, col=3
+            row=2, col=1
         )
 
-    # update
+    # plot 4: percentiles (bottom right)
+    if not df_all.empty and 'converted_value' in df_all.columns:
+        converted_values = df_all['converted_value'].dropna()
+        if not converted_values.empty:
+            percentiles = [0.005, 0.01, 0.05, 0.10, 0.25, 0.50, 0.75, 0.90, 0.95, 0.99, 0.995]
+            percentile_values = [converted_values.quantile(p) for p in percentiles]
+            percentile_labels = [f"{p*100:.1f}%" for p in percentiles]
+
+            fig.add_trace(go.Scatter(
+                x=percentile_labels,
+                y=percentile_values,
+                mode='lines+markers',
+                marker=dict(size=8, color='darkgreen'),
+                line=dict(color='darkgreen', width=2),
+                name='Percentiles'
+            ), row=2, col=2)
+
+            # draw Median
+            median_idx = percentiles.index(0.50)
+            fig.add_hline(
+                y=percentile_values[median_idx],
+                line_dash="dash",
+                line_color="gray",
+                annotation_text=f"Median: {percentile_values[median_idx]:.2f}",
+                row=2, col=2
+            )
+
+    # update axes
+    fig.update_xaxes(title_text="Value", row=1, col=1)
+    fig.update_xaxes(title_text="Value", row=1, col=2)
+    fig.update_xaxes(title_text="Value", row=2, col=1)
+    fig.update_xaxes(title_text="Percentile", row=2, col=2)
+    
+    fig.update_yaxes(title_text="Count", row=1, col=1)
+    fig.update_yaxes(title_text="Count", row=1, col=2)
+    fig.update_yaxes(title_text="Count", row=2, col=1)
+    fig.update_yaxes(title_text=f"Value ({config.primary_standard_unit})", row=2, col=2)
+
+    # update layout
     fig.update_layout(
-        height=400,
+        height=700,
         showlegend=False,
         title_text=f"Measurement Value Distributions: {config.definition_name} (99.5 percentile cutoff applied)"
     )
-
-    fig.update_xaxes(title_text="Value", row=1, col=1)
-    fig.update_xaxes(title_text="Value", row=1, col=2)
-    fig.update_xaxes(title_text="Value", row=1, col=3)
-    fig.update_yaxes(title_text="Count", row=1, col=1)
 
     return fig
 
@@ -234,8 +271,6 @@ def display_measurement_analysis(snowsesh):
     """
     Display measurement analysis with distribution visualizations
     """
-    st.subheader("Measurement Value Distributions")
-
     config_options = get_available_measurement_configs()
 
     if not config_options:
@@ -287,43 +322,6 @@ def display_measurement_analysis(snowsesh):
 
         fig = create_distribution_plots(df_all, config, selected_standard_unit)
         st.plotly_chart(fig, use_container_width=True)
-
-        # percentile distribution plot
-        if not df_all.empty and 'converted_value' in df_all.columns:
-            converted_values = df_all['converted_value'].dropna()
-            if not converted_values.empty:
-                percentiles = [0.005, 0.01, 0.05, 0.10, 0.25, 0.50, 0.75, 0.90, 0.95, 0.99, 0.995]
-                percentile_values = [converted_values.quantile(p) for p in percentiles]
-                percentile_labels = [f"{p*100:.1f}%" for p in percentiles]
-
-                fig_percentiles = go.Figure()
-                fig_percentiles.add_trace(go.Scatter(
-                    x=percentile_labels,
-                    y=percentile_values,
-                    mode='lines+markers',
-                    marker=dict(size=10, color='darkgreen'),
-                    line=dict(color='darkgreen', width=2),
-                    name='Percentiles'
-                ))
-
-                # draw Median
-                median_idx = percentiles.index(0.50)
-                fig_percentiles.add_hline(
-                    y=percentile_values[median_idx],
-                    line_dash="dash",
-                    line_color="gray",
-                    annotation_text=f"Median: {percentile_values[median_idx]:.2f}"
-                )
-
-                fig_percentiles.update_layout(
-                    title=f"Percentile Distribution of Primary Unit ({config.primary_standard_unit}) Values",
-                    xaxis_title="Percentile",
-                    yaxis_title=f"Value ({config.primary_standard_unit})",
-                    height=400,
-                    showlegend=False
-                )
-
-                st.plotly_chart(fig_percentiles, use_container_width=True)
 
 
 def create_base_measurements_sql(eligible_configs: Dict[str, MeasurementConfig]) -> str:
@@ -420,35 +418,29 @@ def display_feature_creation(snowsesh):
     """
     Display simplified measurement feature creation interface
     """
-    st.subheader("Create Base Measurements Feature Table")
-
     eligible_configs = get_available_measurement_configs()
 
     if not eligible_configs:
         st.warning("No measurement configurations found. Please ensure measurements have standard units defined, primary standard unit is set, and unit mappings are defined.")
         return
 
-    col1, col2 = st.columns([3, 1])
+    st.subheader("Create Base Measurements Feature Table")
+    
+    if st.button("Create / Update Base Measurements Table", type="primary", use_container_width=True):
+        create_base_measurements_feature(snowsesh, eligible_configs)
+    st.write("""
+    This will create or update the **Base Measurements** feature table containing standardised measurement data.
 
-    with col1:
-        st.write("""
-        This will create or update the **Base Measurements** feature table containing standardised measurement data.
-
-        **Table Schema:**
-        - `PERSON_ID`: Patient identifier
-        - `CLINICAL_EFFECTIVE_DATE`: Date of measurement
-        - `DEFINITION_ID`: Measurement definition ID
-        - `DEFINITION_NAME`: Measurement definition name
-        - `SOURCE_RESULT_VALUE`: Original measurement value
-        - `SOURCE_RESULT_VALUE_UNITS`: Original measurement unit
-        - `VALUE_AS_NUMBER`: Converted value in primary standard unit
-        - `VALUE_UNITS`: Primary standard unit (standardized)
-        """)
-
-    with col2:
-        st.write("")
-        if st.button("Create / Update Base Measurements Table", type="primary", use_container_width=True):
-            create_base_measurements_feature(snowsesh, eligible_configs)
+    **Table Schema:**
+    - `PERSON_ID`: Patient identifier
+    - `CLINICAL_EFFECTIVE_DATE`: Date of measurement
+    - `DEFINITION_ID`: Measurement definition ID
+    - `DEFINITION_NAME`: Measurement definition name
+    - `SOURCE_RESULT_VALUE`: Original measurement value
+    - `SOURCE_RESULT_VALUE_UNITS`: Original measurement unit
+    - `VALUE_AS_NUMBER`: Converted value in primary standard unit
+    - `VALUE_UNITS`: Primary standard unit (standardized)
+    """)
 
 
 def create_base_measurements_feature(snowsesh: SnowflakeConnection, eligible_configs: Dict[str, MeasurementConfig]):
@@ -535,11 +527,14 @@ def main():
 
     snowsesh = get_snowflake_connection()
 
-    display_measurement_analysis(snowsesh)
-
-    st.markdown("---")
-
-    display_feature_creation(snowsesh)
+    # Create 2:1 column layout
+    left_col, right_col = st.columns([2, 1])
+    
+    with left_col:
+        display_measurement_analysis(snowsesh)
+    
+    with right_col:
+        display_feature_creation(snowsesh)
 
 
 if __name__ == "__main__":
