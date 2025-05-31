@@ -267,9 +267,9 @@ def display_conversion_group(config, units, existing_conversions, group_type):
             st.rerun()
 
 def main():
-    st.set_page_config(page_title="Measurement Standardisation", layout="wide")
+    st.set_page_config(page_title="Standardise Measurements", layout="wide")
     set_font_lato()
-    st.title("Measurement Standardisation")
+    st.title("Standardise Measurements")
     load_dotenv()
 
     snowsesh = get_snowflake_connection()

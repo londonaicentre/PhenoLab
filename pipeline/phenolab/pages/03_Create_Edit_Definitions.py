@@ -208,9 +208,9 @@ def handle_upload_to_snowflake():
             st.error(f"Error executing update script: {str(e)}")
 
 def main():
-    st.set_page_config(page_title="Manage Definitions", layout="wide")
+    st.set_page_config(page_title="Create & Edit Definitions", layout="wide")
     set_font_lato()
-    st.title("Manage Definitions")
+    st.title("Create & Edit Definitions")
     load_dotenv()
 
     # initialise session state
