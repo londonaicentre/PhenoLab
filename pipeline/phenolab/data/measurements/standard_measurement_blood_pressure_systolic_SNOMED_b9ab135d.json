@@ -1,12 +1,14 @@
 {
   "definition_id": "01a91527",
   "definition_name": "measurement_blood_pressure_systolic_SNOMED",
-  "standard_units": [],
-  "primary_standard_unit": null,
+  "standard_units": [
+    "mmHg"
+  ],
+  "primary_standard_unit": "mmHg",
   "unit_mappings": [
     {
       "source_unit": "mmHg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 20929217,
       "source_unit_lq": 116.00000000000006,
       "source_unit_median": 128.0,
@@ -14,7 +16,7 @@
     },
     {
       "source_unit": "mm Hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 16204888,
       "source_unit_lq": 118.00000000000003,
       "source_unit_median": 129.99999999999974,
@@ -22,7 +24,7 @@
     },
     {
       "source_unit": "mm[Hg]",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 1305804,
       "source_unit_lq": 110.00000000000006,
       "source_unit_median": 121.4311917363031,
@@ -30,7 +32,7 @@
     },
     {
       "source_unit": "mm/Hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 25152,
       "source_unit_lq": 115.12422360248445,
       "source_unit_median": 130.0,
@@ -38,7 +40,7 @@
     },
     {
       "source_unit": "Mn/Hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 6580,
       "source_unit_lq": 119.99999999999999,
       "source_unit_median": 130.0,
@@ -46,7 +48,7 @@
     },
     {
       "source_unit": "millimeter of mercury",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 1059,
       "source_unit_lq": 119.0,
       "source_unit_median": 130.0,
@@ -54,7 +56,7 @@
     },
     {
       "source_unit": "Systolic",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 152,
       "source_unit_lq": 102.0,
       "source_unit_median": 110.0,
@@ -62,7 +64,7 @@
     },
     {
       "source_unit": "mm hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 146,
       "source_unit_lq": 116.25,
       "source_unit_median": 131.5,
@@ -70,7 +72,7 @@
     },
     {
       "source_unit": "mm.Hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 69,
       "source_unit_lq": 110.0,
       "source_unit_median": 120.0,
@@ -78,7 +80,7 @@
     },
     {
       "source_unit": "mmhg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 51,
       "source_unit_lq": 112.5,
       "source_unit_median": 121.0,
@@ -86,7 +88,7 @@
     },
     {
       "source_unit": "BP",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 29,
       "source_unit_lq": 120.0,
       "source_unit_median": 120.0,
@@ -94,7 +96,7 @@
     },
     {
       "source_unit": "mm hh",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 23,
       "source_unit_lq": 120.0,
       "source_unit_median": 138.0,
@@ -102,7 +104,7 @@
     },
     {
       "source_unit": "Mm/Hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 15,
       "source_unit_lq": 110.0,
       "source_unit_median": 110.0,
@@ -470,7 +472,7 @@
     },
     {
       "source_unit": "MM HG",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 1,
       "source_unit_lq": 100.0,
       "source_unit_median": 100.0,
@@ -967,7 +969,7 @@
   ],
   "unit_conversions": [],
   "created_datetime": "2025-05-19T23:23:56.059375",
-  "updated_datetime": "2025-05-30T23:58:11.851478",
+  "updated_datetime": "2025-05-31T14:40:36.406487",
   "standard_measurement_config_id": "b9ab135d",
-  "standard_measurement_config_version": "measurement_blood_pressure_systolic_SNOMED_20250530_235811"
+  "standard_measurement_config_version": "measurement_blood_pressure_systolic_SNOMED_20250531_144036"
 }

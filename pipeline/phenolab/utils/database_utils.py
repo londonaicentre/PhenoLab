@@ -1,38 +1,54 @@
 import pandas as pd
 import streamlit as st
-from dotenv import load_dotenv
 
+#from dotenv import load_dotenv
+from phmlondon.config import DDS_OBSERVATION, DEFINITION_LIBRARY, SNOWFLAKE_DATABASE
 from phmlondon.snow_utils import SnowflakeConnection
-from phmlondon.config import SNOWFLAKE_DATABASE, DEFINITION_LIBRARY, DDS_OBSERVATION
 
 """
 # database_utils.py
 
-Provides functions for connecting to Snowflake, querying data, /
-and retrieving information from DEFINITIONSTORE and related tables.
+Snowflake connection and database query functions.
 
-Can take environmental variables to adapt to different source database naming.
+Uses a single snowflake connectino, and context managers for temporary db/schema switching.
 
-TO DO
-- Replace DDS table/column names with env variables
+Uses parameters in config.py to adapt to different source database naming.
 """
 
 ### SNOWFLAKE CONNECTION
-@st.cache_resource(show_spinner="Connecting to Snowflake...")
-def connect_to_snowflake() -> SnowflakeConnection:
+def get_snowflake_connection() -> SnowflakeConnection:
     """
-    Creates a cached connection to Snowflake using config variables.
-    Returns:
-        SnowflakeConnection: Active connection to Snowflake
+    Get or create the single Snowflake connection for the session.
+
+    This creates one connection per Streamlit session and stores it in session state.
+    The connection can be used with different databases/schemas using the context manager:
+
+    E.g.:
+        snowsesh = get_snowflake_connection()
+
+        df = snowsesh.execute_query_to_df("SELECT * FROM my_table")
+
+        # use with different database/schema
+        with snowsesh.use_context(database="PROD_DWH", schema="ANALYST_PRIMARY_CARE"):
+            df2 = snowsesh.execute_query_to_df("SELECT * FROM other_table")
     """
+    if "snowflake_connection" not in st.session_state:
+        with st.spinner("Connecting to Snowflake..."):
+            try:
+                conn = SnowflakeConnection()
 
-    if "snowsesh" not in st.session_state:
-        st.session_state.snowsesh = SnowflakeConnection()
-        st.session_state.snowsesh.use_database(SNOWFLAKE_DATABASE)
-        st.session_state.snowsesh.use_schema(DEFINITION_LIBRARY)
+                # default db and schema
+                conn.use_database(SNOWFLAKE_DATABASE)
+                conn.use_schema(DEFINITION_LIBRARY)
+                st.session_state.snowflake_connection = conn
+            except Exception as e:
+                st.error(f"Failed to connect to Snowflake: {e}")
+                raise
 
-    snowsesh = st.session_state.snowsesh
-    return snowsesh
+    return st.session_state.snowflake_connection
+
+# BACKWARDS COMPATIBILITY
+connect_to_snowflake = get_snowflake_connection
 
 ### DATABASE READS
 def standard_query_cache(func):
@@ -66,12 +82,14 @@ def get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(
 
     return comparison_definitions["DEFINITION_ID"].to_list(), [
         f"[{row['DEFINITION_SOURCE']}] [{row['DEFINITION_ID']}] {row['DEFINITION_NAME']}"
-        for i, row in comparison_definitions.iterrows()
+        for _, row in comparison_definitions.iterrows()
     ]
 
 
 @standard_query_cache
-def return_codes_for_given_definition_id_as_df(_snowsesh: SnowflakeConnection, chosen_definition_id: str) -> pd.DataFrame:
+def return_codes_for_given_definition_id_as_df(
+    _snowsesh: SnowflakeConnection, chosen_definition_id: str
+) -> pd.DataFrame:
     codes_query = f"""
         SELECT DISTINCT
             CODE,
@@ -126,3 +144,4 @@ def get_measurement_unit_statistics(definition_name: str, _snowsesh: SnowflakeCo
     """
     print(query)
     return _snowsesh.execute_query_to_df(query)
+

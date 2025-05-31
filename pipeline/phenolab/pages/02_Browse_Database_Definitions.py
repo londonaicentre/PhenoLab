@@ -3,15 +3,14 @@ import re
 import streamlit as st
 from dotenv import load_dotenv
 from utils.database_utils import (
-    connect_to_snowflake,
+    get_snowflake_connection,
+    get_aic_definitions,
     get_data_from_snowflake_to_dataframe,
     get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list,
-    get_aic_definitions
 )
 from utils.style_utils import set_font_lato
 
-from phmlondon.config import SNOWFLAKE_DATABASE, DEFINITION_LIBRARY
-
+from phmlondon.config import DEFINITION_LIBRARY, SNOWFLAKE_DATABASE
 
 # # 02_Browse_Database_Definitions.py
 
@@ -26,7 +25,7 @@ def view_aic_definitions():
     """
     st.title("AI Centre Definitions")
 
-    snowsesh = connect_to_snowflake()
+    snowsesh = get_snowflake_connection()
 
     definitions = get_aic_definitions(snowsesh)
     st.dataframe(definitions)
@@ -123,7 +122,7 @@ def compare_definitions():
         )
 
     # get connection
-    snowsesh = connect_to_snowflake()
+    snowsesh = get_snowflake_connection()
 
     # get all definitions
     definition_ids, definition_labels = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(snowsesh)

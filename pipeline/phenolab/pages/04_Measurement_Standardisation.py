@@ -1,19 +1,18 @@
+import glob
 import os
+from typing import Dict, List, Optional, Tuple
+
+import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
-from typing import List, Optional, Tuple
-import glob
-import pandas as pd
+from utils.database_utils import get_snowflake_connection, get_measurement_unit_statistics
+from utils.definition_display_utils import load_definition, load_definitions_list
+from utils.measurement import MeasurementConfig, UnitMapping, load_measurement_config_from_json
+from utils.style_utils import set_font_lato
 
+from phmlondon.config import DEFINITION_LIBRARY, SNOWFLAKE_DATABASE
 from phmlondon.definition import Definition
 from phmlondon.snow_utils import SnowflakeConnection
-from utils.style_utils import set_font_lato
-from utils.definition_display_utils import load_definition, load_definitions_list
-from utils.database_utils import connect_to_snowflake, get_measurement_unit_statistics
-
-from utils.measurement import MeasurementConfig, UnitMapping, load_measurement_config_from_json
-from phmlondon.config import SNOWFLAKE_DATABASE, DEFINITION_LIBRARY
-
 
 # # 04_Measurement_Standardisation.py
 
@@ -305,15 +304,133 @@ def display_unit_mapping_panel(config: MeasurementConfig, snowsesh: SnowflakeCon
                 config.save_to_json()
                 st.rerun()
 
+def get_all_units_for_conversion(config: MeasurementConfig) -> List[str]:
+    """
+    Get all standard units that need conversion to primary unit.
+    Source units are not included as they map to standard units (same unit, different representation).
+    """
+    # Only return standard units (including primary unit)
+    return sorted(config.standard_units)
+
+def display_unit_conversion_panel(config: MeasurementConfig):
+    """
+    Display panel for defining conversions from all units to the primary unit
+    """
+    st.subheader("Define Unit Conversions to Primary Unit")
+
+    if not config.primary_standard_unit:
+        st.warning("Please set a primary standard unit first.")
+        return
+
+    st.info(f"**Primary Unit**: {config.primary_standard_unit}")
+    st.write("Define conversions from all standard units to the primary unit using the formula:")
+    st.code("converted_value = (original_value + pre_offset) * multiply_by + post_offset")
+
+    all_units = get_all_units_for_conversion(config)
+
+    if not all_units:
+        st.warning("No units available for conversion.")
+        return
+
+    existing_conversions = {}
+    for conv in config.unit_conversions:
+        if conv.convert_to_unit == config.primary_standard_unit:
+            existing_conversions[conv.convert_from_unit] = conv
+
+    st.markdown("### Standard Units to Primary Unit")
+    standard_units = [u for u in all_units if u != config.primary_standard_unit]
+    if standard_units:
+        display_conversion_group(config, standard_units, existing_conversions, "standard")
+
+    st.markdown("### Primary (identity conversion)")
+    if config.primary_standard_unit:
+        display_conversion_group(config, [config.primary_standard_unit], existing_conversions, "identity")
+
+def display_conversion_group(config: MeasurementConfig, units: List[str],
+                            existing_conversions: Dict, group_type: str):
+    """
+    Display a group of unit conversions with input fields
+    """
+    column_layout = [3, 2, 2, 2, 1]
+    header_cols = st.columns(column_layout)
+    headers = ["**From Unit**", "**Pre-offset**", "**Multiply by**", "**Post-offset**", "**Status**"]
+    for col, header in zip(header_cols, headers):
+        col.write(header)
+
+    for unit in units:
+        cols = st.columns(column_layout)
+
+        cols[0].write(f"{unit} → {config.primary_standard_unit}")
+
+        existing = existing_conversions.get(unit)
+        if unit == config.primary_standard_unit:
+            # default identity conversio
+            pre_offset = 0.0
+            multiply_by = 1.0
+            post_offset = 0.0
+            is_identity = True
+        else:
+            pre_offset = existing.pre_offset if existing else 0.0
+            multiply_by = existing.multiply_by if existing else 1.0
+            post_offset = existing.post_offset if existing else 0.0
+            is_identity = False
+
+        # Conversion value entry fields
+        key_suffix = f"{group_type}_{unit}"
+        new_pre_offset = cols[1].number_input(
+            "Pre-offset",
+            value=float(pre_offset),
+            key=f"pre_{key_suffix}",
+            disabled=is_identity,
+            label_visibility="collapsed"
+        )
+
+        new_multiply_by = cols[2].number_input(
+            "Multiply by",
+            value=float(multiply_by),
+            key=f"mult_{key_suffix}",
+            disabled=is_identity,
+            label_visibility="collapsed"
+        )
+
+        new_post_offset = cols[3].number_input(
+            "Post-offset",
+            value=float(post_offset),
+            key=f"post_{key_suffix}",
+            disabled=is_identity,
+            label_visibility="collapsed"
+        )
+
+        if is_identity:
+            cols[4].write("Identity")
+        elif existing and existing.multiply_by != 1.0:
+            cols[4].write("Defined")
+        else:
+            cols[4].write("Default")
+
+        # update if values change
+        if not is_identity and (
+            new_pre_offset != pre_offset or
+            new_multiply_by != multiply_by or
+            new_post_offset != post_offset
+        ):
+            config.add_unit_conversion(
+                convert_from_unit=unit,
+                convert_to_unit=config.primary_standard_unit,
+                pre_offset=new_pre_offset,
+                multiply_by=new_multiply_by,
+                post_offset=new_post_offset
+            )
+            config.save_to_json()
+            st.rerun()
+
 def main():
     st.set_page_config(page_title="Measurement Standardisation", layout="wide")
     set_font_lato()
     st.title("Measurement Standardisation")
     load_dotenv()
 
-    if "snowsesh" not in st.session_state:
-        with st.spinner("Connecting to Snowflake..."):
-            st.session_state.snowsesh = connect_to_snowflake()
+    snowsesh = get_snowflake_connection()
 
     if "selected_definition" not in st.session_state:
         st.session_state.selected_definition = None
@@ -330,7 +447,7 @@ def main():
     with col2:
         if st.button("Update All Configs", use_container_width=True):
             with st.spinner("Updating measurement configurations..."):
-                created, updated, new_units = update_all_measurement_configs(st.session_state.snowsesh)
+                created, updated, new_units = update_all_measurement_configs(snowsesh)
 
                 message_parts = []
                 if created > 0:
@@ -347,66 +464,62 @@ def main():
 
     st.markdown("---")
 
-    # create tabs
-    unit_std_tab, cleaning_tab, feature_tab = st.tabs([
-        "Unit Mapping",
-        "Measurement Cleaning",
-        "Feature Generation"
-    ])
+    st.subheader("Select Measurement Config File")
 
-    # TAB 1: UNIT MAPPING
-    with unit_std_tab:
-        st.subheader("Select Measurement Config File")
+    # 1. refresh configs
+    measurement_configs = load_measurement_configs_list()
+    if not measurement_configs:
+        st.warning("No measurement configurations found. Please check data/measurements.")
+        return
 
-        # 1. refresh configs
-        measurement_configs = load_measurement_configs_list()
-        if not measurement_configs:
-            st.warning("No measurement configurations found. Please check data/measurements.")
-            return
+    # 2. map definition name to filename
+    config_by_name = {}
 
-        # 2. map definition name to filename
-        config_by_name = {}
-
-        for config_file in measurement_configs:
-            try:
-                config = load_measurement_config(config_file)
-                if config:
-                    config_by_name[config.definition_name] = config_file
-            except Exception as e:
-                st.error(f"Error loading {config_file}: {e}")
-                pass
-
-        if not config_by_name:
-            st.warning("Could not load any valid measurement configurations.")
-            return
-
-        # 4. selection + load
-        selected_def_name = st.selectbox(
-            "Select a measurement configuration",
-            options=sorted(config_by_name.keys()),
-            key="measurement_config_select"
-        )
-
-        if selected_def_name:
-            config_filename = config_by_name[selected_def_name]
-            config = load_measurement_config(config_filename)
-
+    for config_file in measurement_configs:
+        try:
+            config = load_measurement_config(config_file)
             if config:
-                st.session_state.selected_definition = selected_def_name
-                st.session_state.selected_config = config
+                config_by_name[config.definition_name] = config_file
+        except Exception as e:
+            st.error(f"Error loading {config_file}: {e}")
+            pass
 
-                st.info(f"**Selected Configuration**: {config.definition_name}")
-                st.markdown("---")
+    if not config_by_name:
+        st.warning("Could not load any valid measurement configurations.")
+        return
 
-                # UI: standard units selection panel
-                display_standard_units_panel(config)
-                st.markdown("---")
+    # 4. selection + load
+    selected_def_name = st.selectbox(
+        "Select a measurement configuration",
+        options=sorted(config_by_name.keys()),
+        key="measurement_config_select"
+    )
 
-                # UI: unit mapping panel
-                if config.standard_units:
-                    display_unit_mapping_panel(config, st.session_state.snowsesh)
-                else:
-                    st.info("Please add standard units first to enable unit mapping.")
+    if selected_def_name:
+        config_filename = config_by_name[selected_def_name]
+        config = load_measurement_config(config_filename)
+
+        if config:
+            st.session_state.selected_definition = selected_def_name
+            st.session_state.selected_config = config
+
+            st.info(f"**Selected Configuration**: {config.definition_name}")
+            st.markdown("---")
+
+            # UI: standard units selection panel
+            display_standard_units_panel(config)
+            st.markdown("---")
+
+            # UI: unit mapping panel
+            if config.standard_units:
+                display_unit_mapping_panel(config, snowsesh)
+
+                # UI: unit conversion panel
+                if config.primary_standard_unit:
+                    st.markdown("---")
+                    display_unit_conversion_panel(config)
+            else:
+                st.info("Please add standard units first to enable unit mapping.")
 
 if __name__ == "__main__":
     main()

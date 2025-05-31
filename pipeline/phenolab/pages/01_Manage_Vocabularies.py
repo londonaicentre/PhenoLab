@@ -4,13 +4,12 @@ import os
 import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
-
-from phmlondon.snow_utils import SnowflakeConnection
+from utils.database_utils import get_snowflake_connection
 from utils.style_utils import set_font_lato
-from phmlondon.config import SNOWFLAKE_DATABASE, FEATURE_STORE
 
+from phmlondon.config import FEATURE_STORE, SNOWFLAKE_DATABASE
 
-# # 01_Load_or_Generate_Vocab.py
+# # 01_Manage_Vocabularies.py
 
 # This page allows users to load an existing vocabulary or generate a new one from /
 # Snowflake data sources. It extracts clinical codes (SNOMED, ICD10, OPCS4) with /
@@ -106,15 +105,16 @@ def generate_vocab_list():
         # updating status
         status_placeholder = st.empty()
 
-        snowsesh = SnowflakeConnection()
+        # Get single connection
+        conn = get_snowflake_connection()
         concept_dfs = []
 
         # 1. Primary care observations (SNOMED)
         status_placeholder.info("Extracting primary care observation SNOMED codes...")
-        snowsesh.use_database("PROD_DWH")
-        snowsesh.use_schema("ANALYST_PRIMARY_CARE")
 
-        observation_df = snowsesh.execute_query_to_df(OBSERVATION_SNOMED_SQL)
+        # Use context manager for PROD_DWH database
+        with conn.use_context(database="PROD_DWH", schema="ANALYST_PRIMARY_CARE"):
+            observation_df = conn.execute_query_to_df(OBSERVATION_SNOMED_SQL)
         concept_dfs.append(observation_df)
         status_placeholder.success(f"Extracted {len(observation_df)} primary care observation SNOMED codes")
 
@@ -136,10 +136,11 @@ def generate_vocab_list():
             print(reference_df)
             # 3. Extract hospital usage statistics for these codes
             status_placeholder.info("Extracting hospital usage statistics...")
-            snowsesh.use_database(SNOWFLAKE_DATABASE)
 
-            hospital_query = HOSPITAL_CODES_SQL.format(database=SNOWFLAKE_DATABASE, feature_store=FEATURE_STORE)
-            hospital_df = snowsesh.execute_query_to_df(hospital_query)
+            # Use context manager for feature store database
+            with conn.use_context(database=SNOWFLAKE_DATABASE, schema=FEATURE_STORE):
+                hospital_query = HOSPITAL_CODES_SQL.format(database=SNOWFLAKE_DATABASE, feature_store=FEATURE_STORE)
+                hospital_df = conn.execute_query_to_df(hospital_query)
 
             print(hospital_df)
 
@@ -204,11 +205,11 @@ def generate_vocab_list():
         raise e
 
 def main():
-    st.set_page_config(page_title="Load or Generate Vocabulary", layout="wide")
+    st.set_page_config(page_title="Manage Vocabularies", layout="wide")
 
     set_font_lato()
 
-    st.title("Load or Generate Vocabulary")
+    st.title("Manage Vocabularies")
 
     load_dotenv()
 
@@ -255,12 +256,13 @@ def main():
 
     # display the vocabulary
     if st.session_state.codes is not None:
-        st.subheader("Vocabulary")
+        st.subheader("Currently Loaded Vocabulary")
+
         df_display = st.session_state.codes.head(100)
         st.dataframe(df_display, use_container_width=True)
 
         total_codes = len(st.session_state.codes)
-        st.info(f"Showing top 100 of {total_codes} total codes")
+        st.info(f"Showing top 100 of {total_codes:,} total codes")
     else:
         st.info("Please load an existing vocabulary or generate a new one.")
 
