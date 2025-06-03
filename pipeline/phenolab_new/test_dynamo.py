@@ -11,4 +11,5 @@ def load():
     print(diabetes)
 
 if __name__ == "__main__":
+    create()
     load()
