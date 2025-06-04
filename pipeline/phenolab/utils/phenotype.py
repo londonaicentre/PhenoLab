@@ -76,6 +76,10 @@ class ConditionBlock:
     comparison_operator: Optional[ComparisonOperator] = None
     threshold_value: Optional[float] = None
     threshold_unit: Optional[str] = None
+    number_of_measures: Optional[int] = None  # Number of measurements required
+    measure_time_window_days: Optional[int] = None  # Time window in days
+    value_lower_cutoff: Optional[float] = None  # Data quality: exclude values below this
+    value_upper_cutoff: Optional[float] = None  # Data quality: exclude values above this
 
     def to_dict(self) -> dict:
         """
@@ -93,6 +97,10 @@ class ConditionBlock:
             result["comparison_operator"] = self.comparison_operator
             result["threshold_value"] = self.threshold_value
             result["threshold_unit"] = self.threshold_unit
+            result["number_of_measures"] = self.number_of_measures
+            result["measure_time_window_days"] = self.measure_time_window_days
+            result["value_lower_cutoff"] = self.value_lower_cutoff
+            result["value_upper_cutoff"] = self.value_upper_cutoff
 
         return result
 
@@ -110,6 +118,10 @@ class ConditionBlock:
             comparison_operator=data.get("comparison_operator"),
             threshold_value=data.get("threshold_value"),
             threshold_unit=data.get("threshold_unit"),
+            number_of_measures=data.get("number_of_measures"),
+            measure_time_window_days=data.get("measure_time_window_days"),
+            value_lower_cutoff=data.get("value_lower_cutoff"),
+            value_upper_cutoff=data.get("value_upper_cutoff"),
         )
 
     def to_dsl_description(self) -> str:
@@ -120,7 +132,15 @@ class ConditionBlock:
         if self.condition_type == ConditionType.HAS_DEFINITION:
             return f"Has any code from '{self.definition_name}'{source_info}"
         else:
-            return f"'{self.definition_name}'{source_info} {self.comparison_operator} {self.threshold_value} {self.threshold_unit}"
+            base_desc = f"'{self.definition_name}'{source_info} {self.comparison_operator} {self.threshold_value} {self.threshold_unit}"
+            
+            # Add temporal/frequency constraints if present
+            if self.number_of_measures and self.measure_time_window_days:
+                return f"At least {self.number_of_measures} measurements of {base_desc} within {self.measure_time_window_days} days"
+            elif self.number_of_measures:
+                return f"At least {self.number_of_measures} measurements of {base_desc}"
+            else:
+                return base_desc
 
 
 @dataclass
@@ -181,6 +201,10 @@ class Phenotype:
         comparison_operator: Optional[ComparisonOperator] = None,
         threshold_value: Optional[float] = None,
         threshold_unit: Optional[str] = None,
+        number_of_measures: Optional[int] = None,
+        measure_time_window_days: Optional[int] = None,
+        value_lower_cutoff: Optional[float] = None,
+        value_upper_cutoff: Optional[float] = None,
     ) -> str:
         """
         Add a new condition block to the phenotype
@@ -200,6 +224,14 @@ class Phenotype:
                 Threshold for measurement conditions
             threshold_unit:
                 Unit for the value being measured on
+            number_of_measures:
+                Number of measurements required (for temporal patterns)
+            measure_time_window_days:
+                Time window in days for measurement collection
+            value_lower_cutoff:
+                Data quality filter: exclude values below this threshold
+            value_upper_cutoff:
+                Data quality filter: exclude values above this threshold
 
         Returns:
             The label assigned to the block (e.g., "A", "B", "C")
@@ -222,6 +254,10 @@ class Phenotype:
             comparison_operator=comparison_operator,
             threshold_value=threshold_value,
             threshold_unit=threshold_unit,
+            number_of_measures=number_of_measures,
+            measure_time_window_days=measure_time_window_days,
+            value_lower_cutoff=value_lower_cutoff,
+            value_upper_cutoff=value_upper_cutoff,
         )
 
         # add to condition blocks

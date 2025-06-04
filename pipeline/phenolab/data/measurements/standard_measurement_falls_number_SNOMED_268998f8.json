@@ -1,12 +1,19 @@
 {
   "definition_id": "7fc04cdc",
   "definition_name": "measurement_falls_number_SNOMED",
-  "standard_units": [],
-  "primary_standard_unit": null,
+  "standard_units": [
+    "per_month",
+    "per_year",
+    "per_week",
+    "per_6months",
+    "per_day",
+    "per_3months"
+  ],
+  "primary_standard_unit": "per_month",
   "unit_mappings": [
     {
       "source_unit": "/year",
-      "standard_unit": "",
+      "standard_unit": "per_year",
       "source_unit_count": 109682,
       "source_unit_lq": 0.0,
       "source_unit_median": 0.0,
@@ -14,7 +21,7 @@
     },
     {
       "source_unit": "Unk UoM",
-      "standard_unit": "",
+      "standard_unit": "per_year",
       "source_unit_count": 1466,
       "source_unit_lq": 0.0,
       "source_unit_median": 0.0,
@@ -22,7 +29,7 @@
     },
     {
       "source_unit": "/month",
-      "standard_unit": "",
+      "standard_unit": "per_month",
       "source_unit_count": 10,
       "source_unit_lq": 2.25,
       "source_unit_median": 3.0,
@@ -30,7 +37,7 @@
     },
     {
       "source_unit": "/week",
-      "standard_unit": "",
+      "standard_unit": "per_week",
       "source_unit_count": 10,
       "source_unit_lq": 2.0,
       "source_unit_median": 3.5,
@@ -38,7 +45,7 @@
     },
     {
       "source_unit": "6 months",
-      "standard_unit": "",
+      "standard_unit": "per_6months",
       "source_unit_count": 9,
       "source_unit_lq": 1.0,
       "source_unit_median": 1.0,
@@ -46,7 +53,7 @@
     },
     {
       "source_unit": "/6 months",
-      "standard_unit": "",
+      "standard_unit": "per_6months",
       "source_unit_count": 7,
       "source_unit_lq": 1.0,
       "source_unit_median": 1.0,
@@ -54,7 +61,7 @@
     },
     {
       "source_unit": "/6months",
-      "standard_unit": "",
+      "standard_unit": "per_6months",
       "source_unit_count": 3,
       "source_unit_lq": 1.0,
       "source_unit_median": 1.0,
@@ -62,7 +69,7 @@
     },
     {
       "source_unit": "year",
-      "standard_unit": "",
+      "standard_unit": "per_year",
       "source_unit_count": 2,
       "source_unit_lq": 1.0,
       "source_unit_median": 2.0,
@@ -70,7 +77,7 @@
     },
     {
       "source_unit": "day",
-      "standard_unit": "",
+      "standard_unit": "per_day",
       "source_unit_count": 1,
       "source_unit_lq": 1.0,
       "source_unit_median": 1.0,
@@ -78,7 +85,7 @@
     },
     {
       "source_unit": "months",
-      "standard_unit": "",
+      "standard_unit": "per_month",
       "source_unit_count": 1,
       "source_unit_lq": 1.0,
       "source_unit_median": 1.0,
@@ -94,7 +101,7 @@
     },
     {
       "source_unit": "in 3 months",
-      "standard_unit": "",
+      "standard_unit": "per_3months",
       "source_unit_count": 1,
       "source_unit_lq": 3.0,
       "source_unit_median": 3.0,
@@ -102,7 +109,7 @@
     },
     {
       "source_unit": "/day",
-      "standard_unit": "",
+      "standard_unit": "per_day",
       "source_unit_count": 1,
       "source_unit_lq": 3.0,
       "source_unit_median": 3.0,
@@ -134,7 +141,7 @@
     },
     {
       "source_unit": "/years",
-      "standard_unit": "",
+      "standard_unit": "per_year",
       "source_unit_count": 1,
       "source_unit_lq": 1.0,
       "source_unit_median": 1.0,
@@ -142,7 +149,7 @@
     },
     {
       "source_unit": "Month",
-      "standard_unit": "",
+      "standard_unit": "per_month",
       "source_unit_count": 1,
       "source_unit_lq": 3.0,
       "source_unit_median": 3.0,
@@ -158,16 +165,52 @@
     },
     {
       "source_unit": "/in the last 1 week",
-      "standard_unit": "",
+      "standard_unit": "per_week",
       "source_unit_count": 1,
       "source_unit_lq": 2.0,
       "source_unit_median": 2.0,
       "source_unit_uq": 2.0
     }
   ],
-  "unit_conversions": [],
+  "unit_conversions": [
+    {
+      "convert_from_unit": "per_3months",
+      "convert_to_unit": "per_month",
+      "pre_offset": 0.0,
+      "multiply_by": 0.33,
+      "post_offset": 0.0
+    },
+    {
+      "convert_from_unit": "per_6months",
+      "convert_to_unit": "per_month",
+      "pre_offset": 0.0,
+      "multiply_by": 0.17,
+      "post_offset": 0.0
+    },
+    {
+      "convert_from_unit": "per_day",
+      "convert_to_unit": "per_month",
+      "pre_offset": 0.0,
+      "multiply_by": 30.0,
+      "post_offset": 0.0
+    },
+    {
+      "convert_from_unit": "per_week",
+      "convert_to_unit": "per_month",
+      "pre_offset": 0.0,
+      "multiply_by": 4.4,
+      "post_offset": 0.0
+    },
+    {
+      "convert_from_unit": "per_year",
+      "convert_to_unit": "per_month",
+      "pre_offset": 0.0,
+      "multiply_by": 0.08,
+      "post_offset": 0.0
+    }
+  ],
   "created_datetime": "2025-05-19T23:23:56.061230",
-  "updated_datetime": "2025-05-19T23:24:04.726735",
+  "updated_datetime": "2025-05-31T16:56:01.927265",
   "standard_measurement_config_id": "268998f8",
-  "standard_measurement_config_version": "measurement_falls_number_SNOMED_20250519_232404"
+  "standard_measurement_config_version": "measurement_falls_number_SNOMED_20250531_165601"
 }

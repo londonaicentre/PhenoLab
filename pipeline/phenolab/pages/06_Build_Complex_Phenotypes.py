@@ -2,12 +2,11 @@ import os
 
 import streamlit as st
 from dotenv import load_dotenv
+from utils.database_utils import get_snowflake_connection, get_available_measurements
 from utils.phenotype import ComparisonOperator, ConditionType, Phenotype, load_phenotype_from_json
 from utils.style_utils import set_font_lato
 
-from phmlondon.snow_utils import SnowflakeConnection
-from phmlondon.config import SNOWFLAKE_DATABASE, DEFINITION_LIBRARY
-
+from phmlondon.config import DEFINITION_LIBRARY, SNOWFLAKE_DATABASE, FEATURE_METADATA
 
 # # 05_Build_A_Phenotype.py
 
@@ -134,28 +133,24 @@ def display_panel_1_phenotype_management():
 
 def display_panel_2_definition_selection():
     """
-    Panel 2: Definition search and selection
+    Panel 2: Definition search and selection for HAS conditions
     """
-    st.subheader("2. Definition Selection")
+    st.subheader("2. Add HAS Condition")
 
-    with st.expander("Selecting Definitions", expanded=False):
+    with st.expander("Creating HAS Conditions", expanded=False):
         st.write("""
-        **Searching for Definitions**
-        - Select a source system from DEFINITIONSTORE using the dropdown
-        - Enter search terms to filter definitions by name
-        - Click "Search" to find matching definitions
-        - Click "Add" on a definition to select it for your phenotype
+        **HAS Conditions**
+        - Search for clinical definitions (code lists) from the definition store
+        - Click "Add HAS Condition" to create a condition that checks if a patient has any code from the selected definition
+        - Example: "Patient has any diabetes diagnosis code"
         """)
 
-    if "snowsesh" not in st.session_state:
-        with st.spinner("Connecting to Snowflake..."):
-            try:
-                st.session_state.snowsesh = SnowflakeConnection()
-                st.session_state.snowsesh.use_database(SNOWFLAKE_DATABASE)
-                st.session_state.snowsesh.use_schema(DEFINITION_LIBRARY)
-            except Exception as e:
-                st.error(f"Failed to connect to Snowflake: {e}")
-                return
+    # Get the single connection (already connected to definition library by default)
+    try:
+        snowsesh = get_snowflake_connection()
+    except Exception as e:
+        st.error(f"Failed to get Snowflake connection: {e}")
+        return
 
     # get available sources
     if "source_systems" not in st.session_state:
@@ -165,7 +160,7 @@ def display_panel_2_definition_selection():
             WHERE SOURCE_LOADER IS NOT NULL
             ORDER BY SOURCE_LOADER
             """
-            sources_df = st.session_state.snowsesh.execute_query_to_df(source_query)
+            sources_df = snowsesh.execute_query_to_df(source_query)
             source_systems = ["All"] + sources_df["SOURCE_LOADER"].tolist()
             st.session_state.source_systems = source_systems
         except Exception as e:
@@ -179,7 +174,7 @@ def display_panel_2_definition_selection():
 
     if st.button("Search"):
         with st.spinner("Searching definitions..."):
-            results = query_definition_store(st.session_state.snowsesh, search_term, source_system)
+            results = query_definition_store(snowsesh, search_term, source_system)
             if results is not None and not results.empty:
                 st.session_state.definition_results = results
                 st.success(f"Found {len(results)} definitions")
@@ -201,84 +196,135 @@ def display_panel_2_definition_selection():
                     )
 
                 with col2:
-                    # form to configure condition
-                    if st.button("Add", key=f"add_{idx}"):
-                        st.session_state.selected_definition = {
-                            "id": row["DEFINITION_ID"],
-                            "name": row["DEFINITION_NAME"],
-                            "source": row["DEFINITION_SOURCE"],
-                        }
-                        st.rerun()
+                    if st.button("Add HAS Condition", key=f"add_has_{idx}"):
+                        if not st.session_state.current_phenotype:
+                            st.error("Please create or load a phenotype first")
+                        else:
+                            # Directly add HAS condition
+                            st.session_state.current_phenotype.add_condition_block(
+                                definition_id=row["DEFINITION_ID"],
+                                definition_name=row["DEFINITION_NAME"],
+                                definition_source=row["DEFINITION_SOURCE"],
+                                condition_type=ConditionType.HAS_DEFINITION,
+                            )
+                            st.success(f"Added HAS condition for {row['DEFINITION_NAME']}")
+                            st.rerun()
 
 
-def display_panel_3_condition_configuration():
+def display_panel_3_measurement_selection():
     """
-    Panel 3: Configure selected definition as a condition
+    Panel 3: Measurement feature store selection for MEASUREMENT conditions
     """
-    st.subheader("3. Condition Configuration")
+    st.subheader("3. Add MEASUREMENT Condition")
 
-    with st.expander("Configuring Conditions", expanded=False):
+    with st.expander("Creating MEASUREMENT Conditions", expanded=False):
         st.write("""
-        **Configuring Conditions**
-        - Choose the condition type:
-        - HAS: Patient has a code from this definition
-        - MEASURE: Measurement from this definition meets specified criteria
-        - For MEASURE type, set comparison operator, threshold value, and unit
-        - Click "Add to phenotype" to add this as a condition block
+        **MEASUREMENT Conditions**
+        - Browse measurement features from the feature store
+        - Configure thresholds, temporal patterns, and data quality filters
+        - Example: "2 BP systolic measurements >140 mmHg within 14 days"
         """)
 
     if not st.session_state.current_phenotype:
         st.info("Please create or load a phenotype first")
         return
 
-    # configure definition
-    if "selected_definition" in st.session_state:
-        st.write(f"Configuring condition for: **{st.session_state.selected_definition['name']}**")
+    try:
+        snowsesh = get_snowflake_connection()
+    except Exception as e:
+        st.error(f"Failed to get Snowflake connection: {e}")
+        return
 
-        with st.form(key="condition_form"):
-            condition_type = st.radio(
-                "Condition type", options=[ConditionType.HAS_DEFINITION.value, ConditionType.MEASUREMENT.value]
-            )
+    measurement_features = get_available_measurements(snowsesh)
 
-            # always show measurement parameters
-            # **couldn't get conditional display to work**
-            st.markdown("### Measurement Parameters (only used for MEASURE type)")
+    if measurement_features.empty:
+        st.warning("No measurement features found in the feature store")
+        return
 
+    search_term = st.text_input("Search measurement features")
+
+    if search_term:
+        filtered_features = measurement_features[
+            measurement_features['DEFINITION_NAME'].str.contains(search_term, case=False, na=False)
+        ]
+    else:
+        filtered_features = measurement_features
+
+    st.write(f"Found {len(filtered_features)} measurement features")
+
+    with st.container(height=300):
+        for idx, row in filtered_features.iterrows():
+            col1, col2 = st.columns([3, 1])
+
+            with col1:
+                st.write(f"**{row['DEFINITION_NAME']}**")
+                st.caption(f"Units: {row['VALUE_UNITS']} | Count: {row['MEASUREMENT_COUNT']:,} measurements")
+                st.caption(f"ID: {row['DEFINITION_ID']} | Table: {row['TABLE_NAME']}")
+
+            with col2:
+                if st.button("Configure", key=f"config_measure_{idx}"):
+                    st.session_state.selected_measurement = {
+                        "id": row["DEFINITION_ID"],
+                        "name": row["DEFINITION_NAME"],
+                        "units": row["VALUE_UNITS"],
+                        "table_name": row["TABLE_NAME"],
+                    }
+                    st.rerun()
+
+    # configure selected measurement
+    if "selected_measurement" in st.session_state:
+        st.markdown("---")
+        st.write(f"### Configuring MEASUREMENT condition for: **{st.session_state.selected_measurement['name']}**")
+
+        with st.form(key="measurement_form"):
+
+            st.markdown("#### Threshold Configuration")
             comparison_operator = st.selectbox("Comparison operator", options=[op.value for op in ComparisonOperator])
 
             col1, col2 = st.columns([2, 1])
             with col1:
                 threshold_value = st.number_input("Threshold value", value=0.0, step=0.1)
             with col2:
-                threshold_unit = st.text_input("Unit (e.g., mmHg)", value="")
+                threshold_unit = st.text_input("Unit (e.g., mmHg)", value=st.session_state.selected_measurement.get("units", ""))
 
-            submit_button = st.form_submit_button("Add to phenotype")
+            st.markdown("#### Temporal Pattern")
+            col3, col4 = st.columns([1, 1])
+            with col3:
+                number_of_measures = st.number_input("Number of measures required", min_value=1, value=1,
+                                                   help="How many measurements must meet the threshold")
+            with col4:
+                measure_time_window_days = st.number_input("Time window (days)", min_value=1, value=None,
+                                                         help="Time window for collecting measurements (leave blank for any time)")
+
+            st.markdown("#### Data Quality Filters")
+            col5, col6 = st.columns([1, 1])
+            with col5:
+                value_lower_cutoff = st.number_input("Lower cutoff (exclude values below)", value=None,
+                                                   help="Exclude measurements below this value for data quality")
+            with col6:
+                value_upper_cutoff = st.number_input("Upper cutoff (exclude values above)", value=None,
+                                                   help="Exclude measurements above this value for data quality")
+
+            submit_button = st.form_submit_button("Add MEASUREMENT Condition")
 
             if submit_button:
-                # for HAS_DEFINITION, ignore the measurement parameters
-                if condition_type == ConditionType.HAS_DEFINITION.value:
-                    comparison_operator = None
-                    threshold_value = None
-                    threshold_unit = None
-
-                definition_source = st.session_state.selected_definition.get("source", "CUSTOM")
-
-                # add the condition block to the phenotype
                 st.session_state.current_phenotype.add_condition_block(
-                    definition_id=st.session_state.selected_definition["id"],
-                    definition_name=st.session_state.selected_definition["name"],
-                    definition_source=definition_source,
-                    condition_type=condition_type,
+                    definition_id=st.session_state.selected_measurement["id"],
+                    definition_name=st.session_state.selected_measurement["name"],
+                    definition_source="FEATURE_STORE",
+                    condition_type=ConditionType.MEASUREMENT,
                     comparison_operator=comparison_operator,
                     threshold_value=threshold_value,
                     threshold_unit=threshold_unit,
+                    number_of_measures=number_of_measures,
+                    measure_time_window_days=measure_time_window_days,
+                    value_lower_cutoff=value_lower_cutoff,
+                    value_upper_cutoff=value_upper_cutoff,
                 )
 
-                # clear deftiniion at end
-                del st.session_state.selected_definition
+                st.success(f"Added MEASUREMENT condition for {st.session_state.selected_measurement['name']}")
+                del st.session_state.selected_measurement
                 st.rerun()
-    else:
-        st.info("Select a Definition to configure it as a condition")
 
 
 def display_panel_4_condition_blocks():
@@ -305,7 +351,6 @@ def display_panel_4_condition_blocks():
         st.info("No condition blocks added yet.")
         return
 
-    # Display each condition block with details and Remove button
     with st.container(height=300):
         for label, block in phenotype.condition_blocks.items():
             with st.container():
@@ -350,7 +395,6 @@ def display_panel_5_expression_builder():
         st.info("Add condition blocks to Phenotype first")
         return
 
-    # Helper text
     st.write("Available blocks:")
     for label, block in phenotype.condition_blocks.items():
         st.write(f"**{label}**: {block.to_dsl_description()}")
@@ -358,7 +402,6 @@ def display_panel_5_expression_builder():
     st.write("Build your expression using blocks, operators (AND, OR, NOT), and parentheses.")
     st.write("Example: (A AND B) OR C")
 
-    # Expression input
     expression = st.text_input(
         "Enter logical expression",
         value=phenotype.expression,
@@ -380,7 +423,6 @@ def display_panel_5_expression_builder():
                     st.error(f"Invalid expression: {message}")
 
     with col2:
-        # Save phenotype
         if st.button("Save Phenotype"):
             if not phenotype.expression:
                 st.error("Cannot save: Expression is empty")
@@ -410,13 +452,13 @@ def main():
     display_panel_1_phenotype_management()
     st.markdown("---")
 
-    # Panel 2 & 3: Definition Selection and Condition Configuration
+    # Panel 2 & 3: HAS and MEASUREMENT Condition Creation
     col1, col2 = st.columns([1, 1])
     with col1:
         display_panel_2_definition_selection()
 
     with col2:
-        display_panel_3_condition_configuration()
+        display_panel_3_measurement_selection()
 
     st.markdown("---")
 

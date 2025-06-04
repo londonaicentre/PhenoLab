@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 from typing import List, Optional, Tuple
 
 import pandas as pd
@@ -8,7 +9,8 @@ from utils.database_utils import (
     get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list,
     return_codes_for_given_definition_id_as_df,
 )
-from phmlondon.config import SNOWFLAKE_DATABASE, DEFINITION_LIBRARY
+
+from phmlondon.config import DEFINITION_LIBRARY, SNOWFLAKE_DATABASE
 from phmlondon.definition import Code, Definition, VocabularyType
 
 """
@@ -392,3 +394,149 @@ def display_selected_codes(key_suffix=""):
                 st.markdown("---")
         elif st.session_state.current_definition:
             st.info("No codes selected. Find and add codes with the search panel.")
+
+
+def compare_definition_codes(codes_df1, codes_df2):
+    """
+    Compare two definition code dataframes and return analysis
+    """
+    codes_1 = set(codes_df1["CODE"])
+    codes_2 = set(codes_df2["CODE"])
+
+    shared_codes = codes_1.intersection(codes_2)
+    only_in_1 = codes_1.difference(codes_2)
+    only_in_2 = codes_2.difference(codes_1)
+
+    return {
+        "shared": shared_codes,
+        "only_in_1": only_in_1,
+        "only_in_2": only_in_2,
+        "shared_count": len(shared_codes),
+        "only_in_1_count": len(only_in_1),
+        "only_in_2_count": len(only_in_2)
+    }
+
+
+def get_missing_codes_df(codes_df, other_codes_df):
+    """
+    Find codes in other_codes_df that are missing from codes_df
+    """
+    return other_codes_df[~other_codes_df["CODE"].isin(codes_df["CODE"])]
+
+
+def display_definition_metadata(codes_df):
+    """
+    Display definition metadata from a codes dataframe
+    """
+    if not codes_df.empty:
+        st.write("Definition details:")
+        st.dataframe(codes_df.loc[:, ["DEFINITION_ID", "CODELIST_VERSION", "VOCABULARY"]].drop_duplicates())
+
+
+def display_definition_codes_summary(codes_df):
+    """
+    Display codes from a definition dataframe with summary
+    """
+    if not codes_df.empty:
+        st.write("Codes:")
+        st.dataframe(codes_df.loc[:, ["CODE", "CODE_DESCRIPTION", "VOCABULARY"]])
+        st.write(f"Total codes: {len(codes_df)}")
+    else:
+        st.write("No codes found for the selected definition.")
+
+
+@st.cache_data(show_spinner=False)
+def display_definition_from_file(definition_file):
+    """
+    Display content from a definition json file
+    """
+    try:
+        file_path = os.path.join("data/definitions", definition_file)
+        definition = Definition.from_json(file_path)
+
+        # definition info
+        st.caption(f"Definition: {definition.definition_name}")
+
+        # codelists and codes
+        total_codes = 0
+        for codelist in definition.codelists:
+            with st.expander(f"{codelist.codelist_vocabulary.value} ({len(codelist.codes)} codes)"):
+                for code in codelist.codes:
+                    st.text(f"{code.code}: {code.code_description}")
+                total_codes += len(codelist.codes)
+
+        st.info(f"Total: {len(definition.codelists)} codelists, {total_codes} codes")
+
+        return definition
+    except Exception as e:
+        st.error(f"Error loading definition: {e}")
+        return None
+
+
+def process_definitions_for_upload(snowsesh):
+    """
+    Process all definition files and prepare them for upload to Snowflake
+    """
+    definition_files = load_definitions_list()
+    if not definition_files:
+        return None, [], {}
+
+    all_rows = pd.DataFrame()
+    definitions_to_remove = {}
+    definitions_to_add = []
+
+    for def_file in definition_files:
+        try:
+            file_path = os.path.join("data/definitions", def_file)
+            definition = Definition.from_json(file_path)
+
+            query = f"""
+            SELECT DEFINITION_ID, DEFINITION_NAME, VERSION_DATETIME
+            FROM AIC_DEFINITIONS
+            WHERE DEFINITION_ID = '{definition.definition_id}'
+            """
+            existing_definition = snowsesh.execute_query_to_df(query)
+
+            if not existing_definition.empty:
+                max_version_in_db = existing_definition["VERSION_DATETIME"].max()
+                current_version = definition.version_datetime
+
+                if current_version == max_version_in_db:
+                    continue  # skip if already exists
+
+                if current_version < max_version_in_db:
+                    continue  # skip if newer version exists
+
+                # record that we want to delete the old one
+                definitions_to_remove[definition.definition_id] = [definition.definition_name, current_version]
+
+            definition.uploaded_datetime = datetime.now()
+
+            all_rows = pd.concat([all_rows, definition.to_dataframe()])
+            definitions_to_add.append(definition.definition_name)
+
+        except Exception as e:
+            raise Exception(f"Error processing {def_file}: {e}")
+
+    return all_rows, definitions_to_add, definitions_to_remove
+
+
+def run_definition_update_script():
+    """
+    Run the update.py script to refresh DEFINITIONSTORE
+    """
+    import subprocess
+    import sys
+
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    update_script_path = os.path.normpath(
+        os.path.join(current_dir, "../../definition_library/update.py")
+    )
+
+    if not os.path.exists(update_script_path):
+        raise FileNotFoundError(f"Update script not found at {update_script_path}")
+
+    result = subprocess.run(
+        [sys.executable, update_script_path], capture_output=True, text=True, check=True
+    )
+    return result

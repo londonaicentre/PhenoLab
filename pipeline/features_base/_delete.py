@@ -9,7 +9,7 @@ snowsesh = SnowflakeConnection()
 snowsesh.use_database(SNOWFLAKE_DATABASE)
 snowsesh.use_schema(FEATURE_STORE)
 
-table_to_delete = ""
+table_to_delete = "BASE_MEASUREMENTS_V4"
 
 fsm = FeatureStoreManager(snowsesh, SNOWFLAKE_DATABASE, FEATURE_STORE, FEATURE_METADATA)
 

@@ -1,0 +1,1168 @@
+{
+  "definition_id": "b9e6b535",
+  "definition_name": "diabetes_type_1_SNOMED",
+  "definition_version": "diabetes_type_1_SNOMED_20250531_171335",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-05-31T17:20:06.740964",
+  "codelists": [
+    {
+      "codelist_id": "diabetes_type_1_SNOMED_SNOMED_b4b74da4",
+      "codelist_name": "diabetes_type_1_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "diabetes_type_1_SNOMED_SNOMED_b4b74da4_20250531_171348",
+      "codes": [
+        {
+          "code": "279291000000109",
+          "code_description": "Diabetes type 1 review (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "274589008",
+          "code_description": "[EDTA] Diabetes Type I (insulin dependent) associated with renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "416751000000107",
+          "code_description": "Diabetes Type I (insulin dependent) associated with renal failure - European Dialysis and Transplant Association (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "279311000000105",
+          "code_description": "Diabetes type 1 review ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "279301000000108",
+          "code_description": "Diabetes type 1 review ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "46635009",
+          "code_description": "Diabetes mellitus type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "420270002",
+          "code_description": "Ketoacidosis due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "713702000",
+          "code_description": "Gastroparesis due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401110002",
+          "code_description": "Type 1 diabetes mellitus with persistent microalbuminuria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "420789003",
+          "code_description": "Retinopathy due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "421893009",
+          "code_description": "Renal disorder due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "420514000",
+          "code_description": "Persistent proteinuria due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "472970003",
+          "code_description": "History of diabetes mellitus type 1 (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "422228004",
+          "code_description": "Multiple complications due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "421075007",
+          "code_description": "Ketoacidotic coma due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "199229001",
+          "code_description": "Pre-existing type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "609562003",
+          "code_description": "Maturity onset diabetes of the young, type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1217068008",
+          "code_description": "Fulminant type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "71771000119100",
+          "code_description": "Neuropathic arthropathy due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1373531000000104",
+          "code_description": "Type 1 Diabetes Distress Scale total score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "421920002",
+          "code_description": "Cataract of eye due to diabetes mellitus type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "18521000119106",
+          "code_description": "Microalbuminuria due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "420486006",
+          "code_description": "Exudative maculopathy due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "713705003",
+          "code_description": "Polyneuropathy due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "421305000",
+          "code_description": "Persistent microalbuminuria due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "739681000",
+          "code_description": "Disorder of eye due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "243421000119104",
+          "code_description": "Proteinuria due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "421468001",
+          "code_description": "Disorder of nervous system due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190330002",
+          "code_description": "Hyperosmolar coma due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "137941000119106",
+          "code_description": "Hyperlipidemia due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "421365002",
+          "code_description": "Peripheral circulatory disorder due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1290118005",
+          "code_description": "Presymptomatic diabetes mellitus type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "421437000",
+          "code_description": "Hypoglycemic coma due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314893005",
+          "code_description": "Arthropathy due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "31211000119101",
+          "code_description": "Peripheral angiopathy due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1067201000000106",
+          "code_description": "Eating disorder co-occurrent with diabetes mellitus type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1571000119104",
+          "code_description": "Mixed hyperlipidemia due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "90741000119107",
+          "code_description": "Chronic kidney disease stage 3 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82581000119105",
+          "code_description": "Rubeosis iridis due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "367991000119101",
+          "code_description": "Hyperglycemia due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "90751000119109",
+          "code_description": "Chronic kidney disease stage 4 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "706894000",
+          "code_description": "Retinopathy due to unstable diabetes mellitus type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16746941000119104",
+          "code_description": "Severe nonproliferative retinopathy of left eye due to diabetes mellitus type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "609566000",
+          "code_description": "Pregnancy and type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "870528001",
+          "code_description": "Newly diagnosed type 1 diabetes mellitus (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "87491000119107",
+          "code_description": "Ulcer of forefoot due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "789571005",
+          "code_description": "Ulcer of heel due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "71721000119101",
+          "code_description": "Nephrotic syndrome due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16746741000119102",
+          "code_description": "Nonproliferative retinopathy of right eye due to diabetes mellitus type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "198661000000102",
+          "code_description": "Type 1 diabetes mellitus with gastroparesis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "719761003",
+          "code_description": "Maternal history of diabetes mellitus type 1 (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16745411000119104",
+          "code_description": "Mild nonproliferative retinopathy of bilateral eyes due to diabetes mellitus type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "83031000000101",
+          "code_description": "Type 1 diabetes mellitus with ketoacidosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "789572003",
+          "code_description": "Ulcer of midfoot due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "425159004",
+          "code_description": "Diabetic gastroparesis associated with type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "368521000119107",
+          "code_description": "Disorder of nerve co-occurrent and due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "408287009",
+          "code_description": "Type 1 diabetes mellitus with exudative maculopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16746661000119106",
+          "code_description": "Nonproliferative retinopathy of bilateral eyes due to diabetes mellitus type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82571000119107",
+          "code_description": "Traction detachment of retina due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "128001000119105",
+          "code_description": "Hypertension concurrent and due to end stage renal disease on dialysis due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "104011000000100",
+          "code_description": "Type 1 diabetes mellitus with exudative maculopathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "72021000119109",
+          "code_description": "Dermopathy due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16745891000119105",
+          "code_description": "Mild nonproliferative retinopathy of left eye due to diabetes mellitus type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1196923000",
+          "code_description": "Neovascular glaucoma due to diabetes mellitus type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "83041000000105",
+          "code_description": "Type 1 diabetes mellitus with ketoacidotic coma",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1373521000000101",
+          "code_description": "Type 1 Diabetes Distress Scale (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "164881000119109",
+          "code_description": "Ulcer of foot due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "709981000000101",
+          "code_description": "Family history of diabetes mellitus type 1 ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1373561000000109",
+          "code_description": "Type 1 Diabetes Distress Scale Management Distress score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1373611000000106",
+          "code_description": "Type 1 Diabetes Distress Scale Friend/Family Distress score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332472004",
+          "code_description": "Chronic kidney disease stage 3A due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "87481000119109",
+          "code_description": "Heel AND/OR midfoot ulcer due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426907004",
+          "code_description": "Small vessel disease due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16747341000119101",
+          "code_description": "Severe nonproliferative retinopathy of right eye due to diabetes mellitus type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332436006",
+          "code_description": "Hypertension in chronic kidney disease stage 3B due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16891191000119108",
+          "code_description": "Coronary artery disease due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "83011000000109",
+          "code_description": "Type 1 diabetes mellitus with persistent proteinuria",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "769219006",
+          "code_description": "Macular edema due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1373591000000103",
+          "code_description": "Type 1 Diabetes Distress Scale Eating Distress score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "213991000000107",
+          "code_description": "Type 1 diabetes mellitus with gastroparesis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "104951000119106",
+          "code_description": "Vitreous hemorrhage due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "609564002",
+          "code_description": "Pre-existing type 1 diabetes mellitus in pregnancy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "90771000119100",
+          "code_description": "End stage renal disease on dialysis due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "60961000119107",
+          "code_description": "Nonproliferative diabetic retinopathy due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332441003",
+          "code_description": "Hypertension in chronic kidney disease stage 3A due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "72041000119103",
+          "code_description": "Osteomyelitis due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16697521000119104",
+          "code_description": "Moderate nonproliferative retinopathy of bilateral eyes due to diabetes mellitus type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1373581000000100",
+          "code_description": "Type 1 Diabetes Distress Scale Negative Social Perceptions score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "368551000119104",
+          "code_description": "Dyslipidemia due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16747741000119100",
+          "code_description": "Proliferative retinopathy of left eye due to diabetes mellitus type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "90721000119101",
+          "code_description": "Chronic kidney disease stage 1 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "71701000119105",
+          "code_description": "Hypertension in chronic kidney disease due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "420868002",
+          "code_description": "Disorder due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "706891008",
+          "code_description": "Neuropathy due to unstable diabetes mellitus type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16745611000119102",
+          "code_description": "Mild nonproliferative retinopathy of right eye due to diabetes mellitus type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1054391000000105",
+          "code_description": "Maternal history of type 1 diabetes mellitus (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "712882000",
+          "code_description": "Autonomic neuropathy due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332442005",
+          "code_description": "Hypertension in chronic kidney disease stage 3 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "609578001",
+          "code_description": "Maturity-onset diabetes of the young, type 11 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "90761000119106",
+          "code_description": "Chronic kidney disease stage 5 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "83021000000103",
+          "code_description": "Type 1 diabetes mellitus with persistent microalbuminuria",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "60991000119100",
+          "code_description": "Blindness due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "72141000119104",
+          "code_description": "Chronic ulcer of skin due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "78441000000102",
+          "code_description": "Type 1 diabetes mellitus with ketoacidosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "72031000119107",
+          "code_description": "Severe malnutrition due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "367211000119103",
+          "code_description": "Inflammatory dermatosis due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "420918009",
+          "code_description": "Mononeuropathy due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "109171000119104",
+          "code_description": "Retinal edema due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332468003",
+          "code_description": "Hypertension in chronic kidney disease stage 4 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16745211000119100",
+          "code_description": "Nonproliferative retinopathy of left eye due to diabetes mellitus type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "368561000119102",
+          "code_description": "Hyperosmolarity due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "420825003",
+          "code_description": "Gangrene due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "120711000119108",
+          "code_description": "Hypoglycemic unawareness due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "427571000",
+          "code_description": "Lumbosacral radiculoplexus neuropathy due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "772031000000104",
+          "code_description": "History of diabetes mellitus type 1 (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "721283000",
+          "code_description": "Acidosis due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1373551000000106",
+          "code_description": "Type 1 Diabetes Distress Scale Powerlessness score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "96441000119101",
+          "code_description": "Chronic kidney disease due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332467008",
+          "code_description": "Hypertension in chronic kidney disease stage 5 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16749781000119101",
+          "code_description": "Proliferative retinopathy of bilateral eyes due to diabetes mellitus type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "87471000119106",
+          "code_description": "Ulcer of ankle due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "789542009",
+          "code_description": "Neuropathy due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16747101000119101",
+          "code_description": "Severe nonproliferative retinopathy of bilateral eyes due to diabetes mellitus type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16748741000119101",
+          "code_description": "Proliferative retinopathy of right eye due to diabetes mellitus type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "368541000119101",
+          "code_description": "Cheiroarthropathy due to diabetes mellitus type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16697471000119102",
+          "code_description": "Moderate nonproliferative retinopathy of right eye due to diabetes mellitus type 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "770098001",
+          "code_description": "Cranial nerve palsy due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1373601000000109",
+          "code_description": "Type 1 Diabetes Distress Scale Physician Distress score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "425442003",
+          "code_description": "Diabetic autonomic neuropathy associated with type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10656231000119100",
+          "code_description": "Ulcer of skin of toe due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "102781000119107",
+          "code_description": "Sensory neuropathy due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "84371000119108",
+          "code_description": "Hypoglycemia due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401109007",
+          "code_description": "Type 1 diabetes mellitus with persistent proteinuria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "138881000119106",
+          "code_description": "Mild nonproliferative retinopathy due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "709971000000103",
+          "code_description": "Family history of diabetes mellitus type 1 (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "60971000119101",
+          "code_description": "Proliferative retinopathy due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1373541000000108",
+          "code_description": "Assessment using Type 1 Diabetes Distress Scale (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332471006",
+          "code_description": "Chronic kidney disease stage 3B due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1373571000000102",
+          "code_description": "Type 1 Diabetes Distress Scale Hypoglycemia Distress score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "90731000119103",
+          "code_description": "Chronic kidney disease stage 2 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "110141000119100",
+          "code_description": "Ulcer of lower limb due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "138891000119109",
+          "code_description": "Moderate nonproliferative retinopathy due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "691000119103",
+          "code_description": "Erectile dysfunction due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "104941000119109",
+          "code_description": "Ischemia of retina due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "428896009",
+          "code_description": "Hyperosmolality due to uncontrolled type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "71791000119104",
+          "code_description": "Peripheral neuropathy due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332464001",
+          "code_description": "Hypertension in chronic kidney disease stage 2 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "31321000119102",
+          "code_description": "Diabetes mellitus type 1 without retinopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43521000000100",
+          "code_description": "Type I diabetes mellitus",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314894004",
+          "code_description": "Type I diabetes mellitus with neuropathic arthropathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82911000000104",
+          "code_description": "Type I diabetes mellitus with retinopathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82941000000103",
+          "code_description": "Type I diabetes mellitus with mononeuropathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82981000000106",
+          "code_description": "Type I diabetes mellitus with diabetic cataract",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82861000000108",
+          "code_description": "Type I diabetes mellitus with neurological complications",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82891000000102",
+          "code_description": "Type I diabetes mellitus with ulcer",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190367005",
+          "code_description": "Unstable type I diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82901000000101",
+          "code_description": "Type I diabetes mellitus with gangrene",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190376003",
+          "code_description": "Type I diabetes mellitus with nephropathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43681000000103",
+          "code_description": "Type I diabetes mellitus with diabetic cataract",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "50221000000109",
+          "code_description": "Type I diabetes mellitus with arthropathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190371008",
+          "code_description": "Type I diabetes mellitus - poor control (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "444073006",
+          "code_description": "Type I diabetes mellitus uncontrolled (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "313435000",
+          "code_description": "Type I diabetes mellitus without complication (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190372001",
+          "code_description": "Type I diabetes mellitus maturity onset (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190369008",
+          "code_description": "Type I diabetes mellitus with gangrene (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "429094000",
+          "code_description": "Dietary education for type I diabetes mellitus (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "754461000000105",
+          "code_description": "Referral to type I diabetes structured education programme (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314771006",
+          "code_description": "Type I diabetes mellitus with hypoglycemic coma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "290002008",
+          "code_description": "Brittle type I diabetes mellitus (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "703137001",
+          "code_description": "Type I diabetes mellitus in remission (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190368000",
+          "code_description": "Type I diabetes mellitus with ulcer (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "888191000000107",
+          "code_description": "Type I diabetes mellitus in remission (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43551000000105",
+          "code_description": "Type I diabetes mellitus with neurological complications",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "50211000000103",
+          "code_description": "Type I diabetes mellitus - poor control",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43571000000101",
+          "code_description": "Unstable type I diabetes mellitus",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190375004",
+          "code_description": "Type I diabetes mellitus with polyneuropathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43641000000106",
+          "code_description": "Type I diabetes mellitus with mononeuropathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "371054002",
+          "code_description": "Type I diabetes mellitus with complication (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82961000000102",
+          "code_description": "Type I diabetes mellitus with nephropathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190379005",
+          "code_description": "Type I diabetes mellitus with peripheral angiopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "888201000000109",
+          "code_description": "Type I diabetes mellitus in remission ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43611000000105",
+          "code_description": "Type I diabetes mellitus - poor control",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43771000000109",
+          "code_description": "Type II diabetes mellitus with ulcer",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43621000000104",
+          "code_description": "Type I diabetes mellitus maturity onset",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190378002",
+          "code_description": "Type I diabetes mellitus with diabetic cataract (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "47481000000105",
+          "code_description": "Type I diabetes mellitus",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82881000000104",
+          "code_description": "Unstable type I diabetes mellitus",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82951000000100",
+          "code_description": "Type I diabetes mellitus with polyneuropathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82871000000101",
+          "code_description": "Type I diabetes mellitus with multiple complications",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314887002",
+          "code_description": "Type I diabetes mellitus with diabetic cataract (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314369009",
+          "code_description": "Type I diabetes mellitus with polyneuropathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190362004",
+          "code_description": "Type I diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190366001",
+          "code_description": "Type I diabetes mellitus with multiple complications (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "444074000",
+          "code_description": "Type I diabetes mellitus well controlled (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43601000000108",
+          "code_description": "Type I diabetes mellitus with retinopathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43591000000102",
+          "code_description": "Type I diabetes mellitus with gangrene",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43691000000101",
+          "code_description": "Type I diabetes mellitus with peripheral angiopathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190381007",
+          "code_description": "Type I diabetes mellitus with neuropathic arthropathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "83001000000107",
+          "code_description": "Type I diabetes mellitus with neuropathic arthropathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82921000000105",
+          "code_description": "Type I diabetes mellitus maturity onset",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43651000000109",
+          "code_description": "Type I diabetes mellitus with polyneuropathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43711000000104",
+          "code_description": "Type I diabetes mellitus with neuropathic arthropathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82931000000107",
+          "code_description": "Type I diabetes mellitus without complication",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190365002",
+          "code_description": "Type I diabetes mellitus with neurological complications (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43561000000108",
+          "code_description": "Type I diabetes mellitus with multiple complications",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43631000000102",
+          "code_description": "Type I diabetes mellitus without complication",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190363009",
+          "code_description": "Type I diabetes mellitus with renal complications (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314377008",
+          "code_description": "Type I diabetes mellitus with nephropathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43701000000101",
+          "code_description": "Type I diabetes mellitus with arthropathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43661000000107",
+          "code_description": "Type I diabetes mellitus with nephropathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "23045005",
+          "code_description": "Insulin dependent diabetes mellitus type IA (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82971000000109",
+          "code_description": "Type I diabetes mellitus with hypoglycaemic coma",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82841000000107",
+          "code_description": "Type I diabetes mellitus with renal complications",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "371055001",
+          "code_description": "Type I diabetes mellitus with ketoacidosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "50201000000100",
+          "code_description": "Type I diabetes mellitus",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190377007",
+          "code_description": "Type I diabetes mellitus with hypoglycaemic coma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190370009",
+          "code_description": "Type I diabetes mellitus with retinopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43541000000107",
+          "code_description": "Type I diabetes mellitus with ophthalmic complications",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314368001",
+          "code_description": "Type I diabetes mellitus with mononeuropathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190373006",
+          "code_description": "Type I diabetes mellitus without complication (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82851000000105",
+          "code_description": "Type I diabetes mellitus with ophthalmic complications",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190364003",
+          "code_description": "Type I diabetes mellitus with ophthalmic complications (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43581000000104",
+          "code_description": "Type I diabetes mellitus with ulcer",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190380008",
+          "code_description": "Type I diabetes mellitus with arthropathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82991000000108",
+          "code_description": "Type I diabetes mellitus with peripheral angiopathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43671000000100",
+          "code_description": "Type I diabetes mellitus with hypoglycaemic coma",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43531000000103",
+          "code_description": "Type I diabetes mellitus with renal complications",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314892000",
+          "code_description": "Type I diabetes mellitus with peripheral angiopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190374000",
+          "code_description": "Type I diabetes mellitus with mononeuropathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1561000119105",
+          "code_description": "Diabetic peripheral neuropathy associated with type I diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}
