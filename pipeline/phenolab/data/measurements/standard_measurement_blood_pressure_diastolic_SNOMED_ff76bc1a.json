@@ -1,12 +1,14 @@
 {
   "definition_id": "8a1314d4",
   "definition_name": "measurement_blood_pressure_diastolic_SNOMED",
-  "standard_units": [],
-  "primary_standard_unit": null,
+  "standard_units": [
+    "mmHg"
+  ],
+  "primary_standard_unit": "mmHg",
   "unit_mappings": [
     {
       "source_unit": "mmHg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 20919409,
       "source_unit_lq": 70.00000000000003,
       "source_unit_median": 77.99999999999994,
@@ -14,7 +16,7 @@
     },
     {
       "source_unit": "mm Hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 16056319,
       "source_unit_lq": 70.00000000000003,
       "source_unit_median": 79.9999999999999,
@@ -22,7 +24,7 @@
     },
     {
       "source_unit": "mm[Hg]",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 1304329,
       "source_unit_lq": 68.99999999999997,
       "source_unit_median": 75.9817828721484,
@@ -30,7 +32,7 @@
     },
     {
       "source_unit": "mm/Hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 25008,
       "source_unit_lq": 70.0,
       "source_unit_median": 80.0,
@@ -38,7 +40,7 @@
     },
     {
       "source_unit": "Mn/Hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 6580,
       "source_unit_lq": 70.0,
       "source_unit_median": 80.0,
@@ -46,7 +48,7 @@
     },
     {
       "source_unit": "millimeter of mercury",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 1059,
       "source_unit_lq": 72.0,
       "source_unit_median": 79.0,
@@ -54,7 +56,7 @@
     },
     {
       "source_unit": "Diastolic",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 152,
       "source_unit_lq": 60.0,
       "source_unit_median": 70.0,
@@ -62,7 +64,7 @@
     },
     {
       "source_unit": "mm hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 90,
       "source_unit_lq": 70.0,
       "source_unit_median": 78.0,
@@ -70,7 +72,7 @@
     },
     {
       "source_unit": "mm.Hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 69,
       "source_unit_lq": 60.0,
       "source_unit_median": 70.0,
@@ -78,7 +80,7 @@
     },
     {
       "source_unit": "BP",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 39,
       "source_unit_lq": 61.5,
       "source_unit_median": 80.0,
@@ -86,7 +88,7 @@
     },
     {
       "source_unit": "mm/hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 31,
       "source_unit_lq": 86.0,
       "source_unit_median": 86.0,
@@ -94,7 +96,7 @@
     },
     {
       "source_unit": "mm hh",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 23,
       "source_unit_lq": 74.5,
       "source_unit_median": 86.0,
@@ -102,7 +104,7 @@
     },
     {
       "source_unit": "Mm/Hg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 15,
       "source_unit_lq": 69.0,
       "source_unit_median": 70.0,
@@ -110,7 +112,7 @@
     },
     {
       "source_unit": "mg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 12,
       "source_unit_lq": 69.0,
       "source_unit_median": 78.0,
@@ -118,7 +120,7 @@
     },
     {
       "source_unit": "mmhg",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 12,
       "source_unit_lq": 76.0,
       "source_unit_median": 79.5,
@@ -126,7 +128,7 @@
     },
     {
       "source_unit": "114/80",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 4,
       "source_unit_lq": 80.0,
       "source_unit_median": 80.0,
@@ -134,7 +136,7 @@
     },
     {
       "source_unit": "123/86",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 4,
       "source_unit_lq": 86.0,
       "source_unit_median": 86.0,
@@ -142,7 +144,7 @@
     },
     {
       "source_unit": "104/74",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 4,
       "source_unit_lq": 74.0,
       "source_unit_median": 74.0,
@@ -150,7 +152,7 @@
     },
     {
       "source_unit": "8B3x83",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 4,
       "source_unit_lq": 83.0,
       "source_unit_median": 83.0,
@@ -158,7 +160,7 @@
     },
     {
       "source_unit": "105/72",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 4,
       "source_unit_lq": 72.0,
       "source_unit_median": 72.0,
@@ -166,7 +168,7 @@
     },
     {
       "source_unit": "112/77",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 4,
       "source_unit_lq": 77.0,
       "source_unit_median": 77.0,
@@ -174,7 +176,7 @@
     },
     {
       "source_unit": "114/76",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 4,
       "source_unit_lq": 76.0,
       "source_unit_median": 76.0,
@@ -182,7 +184,7 @@
     },
     {
       "source_unit": "102/69",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 3,
       "source_unit_lq": 69.0,
       "source_unit_median": 69.0,
@@ -190,7 +192,7 @@
     },
     {
       "source_unit": "103/68",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 3,
       "source_unit_lq": 68.0,
       "source_unit_median": 68.0,
@@ -198,7 +200,7 @@
     },
     {
       "source_unit": "122/79",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 3,
       "source_unit_lq": 79.0,
       "source_unit_median": 79.0,
@@ -206,7 +208,7 @@
     },
     {
       "source_unit": "123/76",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 3,
       "source_unit_lq": 76.0,
       "source_unit_median": 76.0,
@@ -214,7 +216,7 @@
     },
     {
       "source_unit": "mm(Hg)",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 3,
       "source_unit_lq": 73.0,
       "source_unit_median": 76.0,
@@ -222,7 +224,7 @@
     },
     {
       "source_unit": "106/79",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 3,
       "source_unit_lq": 79.0,
       "source_unit_median": 79.0,
@@ -230,7 +232,7 @@
     },
     {
       "source_unit": "124/75",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 3,
       "source_unit_lq": 75.0,
       "source_unit_median": 75.0,
@@ -238,7 +240,7 @@
     },
     {
       "source_unit": "105/79",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 3,
       "source_unit_lq": 79.0,
       "source_unit_median": 79.0,
@@ -246,7 +248,7 @@
     },
     {
       "source_unit": "119/74",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 3,
       "source_unit_lq": 74.0,
       "source_unit_median": 74.0,
@@ -254,7 +256,7 @@
     },
     {
       "source_unit": "112/73",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 3,
       "source_unit_lq": 73.0,
       "source_unit_median": 73.0,
@@ -262,7 +264,7 @@
     },
     {
       "source_unit": "91/68",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 3,
       "source_unit_lq": 68.0,
       "source_unit_median": 68.0,
@@ -270,7 +272,7 @@
     },
     {
       "source_unit": "120/88",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 3,
       "source_unit_lq": 88.0,
       "source_unit_median": 88.0,
@@ -278,7 +280,7 @@
     },
     {
       "source_unit": "100/71",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 3,
       "source_unit_lq": 71.0,
       "source_unit_median": 71.0,
@@ -286,7 +288,7 @@
     },
     {
       "source_unit": "117/78",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 3,
       "source_unit_lq": 78.0,
       "source_unit_median": 78.0,
@@ -294,7 +296,7 @@
     },
     {
       "source_unit": "111/77",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 3,
       "source_unit_lq": 77.0,
       "source_unit_median": 77.0,
@@ -302,7 +304,7 @@
     },
     {
       "source_unit": "108/72",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 2,
       "source_unit_lq": 72.0,
       "source_unit_median": 72.0,
@@ -310,7 +312,7 @@
     },
     {
       "source_unit": "112/84",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 2,
       "source_unit_lq": 84.0,
       "source_unit_median": 84.0,
@@ -318,7 +320,7 @@
     },
     {
       "source_unit": "80",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 2,
       "source_unit_lq": 90.0,
       "source_unit_median": 90.0,
@@ -326,7 +328,7 @@
     },
     {
       "source_unit": "113/76",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 2,
       "source_unit_lq": 76.0,
       "source_unit_median": 76.0,
@@ -334,7 +336,7 @@
     },
     {
       "source_unit": "127/75",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 2,
       "source_unit_lq": 75.0,
       "source_unit_median": 75.0,
@@ -342,7 +344,7 @@
     },
     {
       "source_unit": "119/79",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 2,
       "source_unit_lq": 79.0,
       "source_unit_median": 79.0,
@@ -350,7 +352,7 @@
     },
     {
       "source_unit": "145/93",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 2,
       "source_unit_lq": 93.0,
       "source_unit_median": 93.0,
@@ -358,7 +360,7 @@
     },
     {
       "source_unit": "118/80",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 2,
       "source_unit_lq": 80.0,
       "source_unit_median": 80.0,
@@ -366,7 +368,7 @@
     },
     {
       "source_unit": "146/90",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 2,
       "source_unit_lq": 90.0,
       "source_unit_median": 90.0,
@@ -374,7 +376,7 @@
     },
     {
       "source_unit": "125/85",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 2,
       "source_unit_lq": 85.0,
       "source_unit_median": 85.0,
@@ -382,7 +384,7 @@
     },
     {
       "source_unit": "128/82",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 2,
       "source_unit_lq": 82.0,
       "source_unit_median": 82.0,
@@ -390,7 +392,7 @@
     },
     {
       "source_unit": "110/79",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 2,
       "source_unit_lq": 79.0,
       "source_unit_median": 79.0,
@@ -398,7 +400,7 @@
     },
     {
       "source_unit": "116/80",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 2,
       "source_unit_lq": 80.0,
       "source_unit_median": 80.0,
@@ -406,7 +408,7 @@
     },
     {
       "source_unit": "124/76",
-      "standard_unit": "",
+      "standard_unit": "mmHg",
       "source_unit_count": 2,
       "source_unit_lq": 76.0,
       "source_unit_median": 76.0,
@@ -1711,7 +1713,7 @@
   ],
   "unit_conversions": [],
   "created_datetime": "2025-05-19T23:23:56.062237",
-  "updated_datetime": "2025-05-30T23:58:09.724544",
+  "updated_datetime": "2025-05-31T00:07:25.355357",
   "standard_measurement_config_id": "ff76bc1a",
-  "standard_measurement_config_version": "measurement_blood_pressure_diastolic_SNOMED_20250530_235809"
+  "standard_measurement_config_version": "measurement_blood_pressure_diastolic_SNOMED_20250531_000725"
 }
