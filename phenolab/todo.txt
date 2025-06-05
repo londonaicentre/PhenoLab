@@ -1,0 +1,9 @@
+(1) deployment from localhost -> snowflake
+x definition_library needs to become part of phenolab
+- fix dependencies
+- github actions
+- fix definition_library backend
+- get rid of pipeline folder
+(2) ICB table with 'starterpack' model
+(3) external definitions starterpack
+(4) aesthetic changes
