@@ -3,3 +3,7 @@ channels:
   - snowflake
 dependencies:
   - python-dotenv
+  - plotly
+  - pandas
+  - polars
+  - boto3

@@ -4,6 +4,10 @@ entities:
     type: streamlit
     query_warehouse: INTELLIGENCE_XS
     main_file: PhenoLab.py
+    stage: phenolab
     artifacts:
       - PhenoLab.py
+      - utils
+      - pages
+      - data
       - environment.yml
