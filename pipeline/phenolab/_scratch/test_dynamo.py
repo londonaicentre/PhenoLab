@@ -1,3 +1,7 @@
+"""
+Script to test the loading and saving of a Definition object to DynamoDB.
+"""
+
 from phmlondon.definition import Definition
 
 def create():
