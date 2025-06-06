@@ -3,7 +3,10 @@ import streamlit as st
 
 #from dotenv import load_dotenv
 from phmlondon.config import DDS_OBSERVATION, DEFINITION_LIBRARY, SNOWFLAKE_DATABASE, FEATURE_STORE
-from phmlondon.snow_utils import SnowflakeConnection
+# from phmlondon.snow_utils import SnowflakeConnection
+from snowflake.snowpark import Session
+from snowflake.snowpark.context import get_active_session
+from snowflake.snowpark.exceptions import SnowparkSessionException
 
 """
 # database_utils.py
@@ -16,39 +19,48 @@ Uses parameters in config.py to adapt to different source database naming.
 """
 
 ### SNOWFLAKE CONNECTION
-def get_snowflake_connection() -> SnowflakeConnection:
-    """
-    Get or create the single Snowflake connection for the session.
+# def get_snowflake_connection() -> SnowflakeConnection:
+#     """
+#     Get or create the single Snowflake connection for the session.
 
-    This creates one connection per Streamlit session and stores it in session state.
-    The connection can be used with different databases/schemas using the context manager:
+#     This creates one connection per Streamlit session and stores it in session state.
+#     The connection can be used with different databases/schemas using the context manager:
 
-    E.g.:
-        snowsesh = get_snowflake_connection()
+#     E.g.:
+#         snowsesh = get_snowflake_connection()
 
-        df = snowsesh.execute_query_to_df("SELECT * FROM my_table")
+#         df = snowsesh.execute_query_to_df("SELECT * FROM my_table")
 
-        # use with different database/schema
-        with snowsesh.use_context(database="PROD_DWH", schema="ANALYST_PRIMARY_CARE"):
-            df2 = snowsesh.execute_query_to_df("SELECT * FROM other_table")
-    """
-    if "snowflake_connection" not in st.session_state:
-        with st.spinner("Connecting to Snowflake..."):
-            try:
-                conn = SnowflakeConnection()
+#         # use with different database/schema
+#         with snowsesh.use_context(database="PROD_DWH", schema="ANALYST_PRIMARY_CARE"):
+#             df2 = snowsesh.execute_query_to_df("SELECT * FROM other_table")
+#     """
+#     if "snowflake_connection" not in st.session_state:
+#         with st.spinner("Connecting to Snowflake..."):
+#             try:
+#                 conn = SnowflakeConnection()
 
-                # default db and schema
-                conn.use_database(SNOWFLAKE_DATABASE)
-                conn.use_schema(DEFINITION_LIBRARY)
-                st.session_state.snowflake_connection = conn
-            except Exception as e:
-                st.error(f"Failed to connect to Snowflake: {e}")
-                raise
+#                 # default db and schema
+#                 conn.use_database(SNOWFLAKE_DATABASE)
+#                 conn.use_schema(DEFINITION_LIBRARY)
+#                 st.session_state.snowflake_connection = conn
+#             except Exception as e:
+#                 st.error(f"Failed to connect to Snowflake: {e}")
+#                 raise
 
-    return st.session_state.snowflake_connection
+#     return st.session_state.snowflake_connection
+
+def get_snowflake_session() -> Session:
+    try:
+        return get_active_session() # this function works for Snowflake on Streamlit 
+    except SnowparkSessionException:
+        return st.connection("snowflake").session() # this functions works for a local connection for running on 
+        # localhost
+        # need to have a snowflake connection file and a default connection set up
+        # (NB snowflake documentation says it should work on snowflake on Streamlit too, but it doesn't)
 
 # BACKWARDS COMPATIBILITY
-connect_to_snowflake = get_snowflake_connection
+# connect_to_snowflake = get_snowflake_connection
 
 ### DATABASE READS
 def standard_query_cache(func):
@@ -59,18 +71,18 @@ def standard_query_cache(func):
 
 
 @standard_query_cache
-def get_data_from_snowflake_to_dataframe(_snowsesh: SnowflakeConnection, query: str) -> pd.DataFrame:
-    return _snowsesh.execute_query_to_df(query)
+def get_data_from_snowflake_to_dataframe(_session: Session, query: str) -> pd.DataFrame:
+    return _session.sql(query).to_pandas()
 
 
 @standard_query_cache
-def get_data_from_snowflake_to_list(_snowsesh: SnowflakeConnection, query: str) -> list:
-    return _snowsesh.session.sql(query).collect()
+def get_data_from_snowflake_to_list(_session: Session, query: str) -> list:
+    return _session.sql(query).collect()
 
 
 @standard_query_cache
 def get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(
-    _snowsesh: SnowflakeConnection,
+    _session: Session,
 ) -> tuple[list, list]:
     comparison_query = f"""
     SELECT DISTINCT DEFINITION_SOURCE, DEFINITION_ID, DEFINITION_NAME
@@ -78,7 +90,7 @@ def get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(
     ORDER BY DEFINITION_NAME
     """
     # comparison_defintions = _snowsesh.execute_query_to_df(comparison_query)
-    comparison_definitions = get_data_from_snowflake_to_dataframe(_snowsesh, comparison_query)
+    comparison_definitions = get_data_from_snowflake_to_dataframe(_session, comparison_query)
 
     return comparison_definitions["DEFINITION_ID"].to_list(), [
         f"[{row['DEFINITION_SOURCE']}] [{row['DEFINITION_ID']}] {row['DEFINITION_NAME']}"
@@ -88,7 +100,7 @@ def get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(
 
 @standard_query_cache
 def return_codes_for_given_definition_id_as_df(
-    _snowsesh: SnowflakeConnection, chosen_definition_id: str
+    _session: Session, chosen_definition_id: str
 ) -> pd.DataFrame:
     codes_query = f"""
         SELECT DISTINCT
@@ -101,11 +113,11 @@ def return_codes_for_given_definition_id_as_df(
         WHERE DEFINITION_ID = '{chosen_definition_id}'
         ORDER BY VOCABULARY, CODE
         """
-    return get_data_from_snowflake_to_dataframe(_snowsesh, codes_query)
+    return get_data_from_snowflake_to_dataframe(_session, codes_query)
 
 
 @standard_query_cache
-def get_aic_definitions(_snowsesh: SnowflakeConnection) -> pd.DataFrame:
+def get_aic_definitions(_session: Session) -> pd.DataFrame:
     """
     Get all AI Centre definitions with metadata
     """
@@ -116,11 +128,11 @@ def get_aic_definitions(_snowsesh: SnowflakeConnection) -> pd.DataFrame:
     GROUP BY DEFINITION_ID, DEFINITION_NAME, VERSION_DATETIME, UPLOADED_DATETIME
     ORDER BY DEFINITION_NAME
     """
-    return get_data_from_snowflake_to_dataframe(_snowsesh, query)
+    return get_data_from_snowflake_to_dataframe(_session, query)
 
 
 @standard_query_cache
-def get_measurement_unit_statistics(definition_name: str, _snowsesh: SnowflakeConnection) -> pd.DataFrame:
+def get_measurement_unit_statistics(definition_name: str, _session: Session) -> pd.DataFrame:
     """
     Get statistics for all units associated with a measurement definition
     """
@@ -143,59 +155,63 @@ def get_measurement_unit_statistics(definition_name: str, _snowsesh: SnowflakeCo
     ORDER BY total_count DESC
     """
     print(query)
-    return _snowsesh.execute_query_to_df(query)
+    return get_data_from_snowflake_to_dataframe(_session, query)
 
 
-def get_available_measurements(_snowsesh):
+def get_available_measurements(_session):
     """
     Get available measurement definitions from BASE_MEASUREMENTS tables in feature store
     """
-    try:
-        with _snowsesh.use_context(database=SNOWFLAKE_DATABASE, schema=FEATURE_STORE):
-            tables_query = f"""
-            SELECT TABLE_NAME
-            FROM INFORMATION_SCHEMA.TABLES
-            WHERE TABLE_SCHEMA = '{FEATURE_STORE}'
-              AND TABLE_NAME LIKE 'BASE_MEASUREMENTS%'
-            ORDER BY TABLE_NAME DESC
-            """
-            measurement_tables = _snowsesh.execute_query_to_df(tables_query)
+    # try:
+    _session.use_database(SNOWFLAKE_DATABASE)
+    _session.use_schema(FEATURE_STORE)
+    # with _session.use_context(database=SNOWFLAKE_DATABASE, schema=FEATURE_STORE):
+    tables_query = f"""
+    SELECT TABLE_NAME
+    FROM INFORMATION_SCHEMA.TABLES
+    WHERE TABLE_SCHEMA = '{FEATURE_STORE}'
+        AND TABLE_NAME LIKE 'BASE_MEASUREMENTS%'
+    ORDER BY TABLE_NAME DESC
+    """
+    measurement_tables = get_data_from_snowflake_to_dataframe(_session, tables_query)
 
-        if measurement_tables.empty:
-            return pd.DataFrame()
-
-        latest_table = measurement_tables.iloc[0]['TABLE_NAME']
-
-        with _snowsesh.use_context(database=SNOWFLAKE_DATABASE, schema=FEATURE_STORE):
-            definitions_query = f"""
-            SELECT DISTINCT
-                DEFINITION_ID,
-                DEFINITION_NAME,
-                VALUE_UNITS,
-                COUNT(*) as MEASUREMENT_COUNT,
-                '{latest_table}' as TABLE_NAME
-            FROM {latest_table}
-            GROUP BY DEFINITION_ID, DEFINITION_NAME, VALUE_UNITS
-            ORDER BY DEFINITION_NAME
-            """
-            measurement_features = _snowsesh.execute_query_to_df(definitions_query)
-
-        return measurement_features
-
-    except Exception as e:
-        st.error(f"Error loading measurement features: {e}")
+    if measurement_tables.empty:
         return pd.DataFrame()
+
+    latest_table = measurement_tables.iloc[0]['TABLE_NAME']
+
+    _session.use_database(SNOWFLAKE_DATABASE)
+    _session.use_schema(FEATURE_STORE)
+    # with _session.use_context(database=SNOWFLAKE_DATABASE, schema=FEATURE_STORE):
+    definitions_query = f"""
+    SELECT DISTINCT
+        DEFINITION_ID,
+        DEFINITION_NAME,
+        VALUE_UNITS,
+        COUNT(*) as MEASUREMENT_COUNT,
+        '{latest_table}' as TABLE_NAME
+    FROM {latest_table}
+    GROUP BY DEFINITION_ID, DEFINITION_NAME, VALUE_UNITS
+    ORDER BY DEFINITION_NAME
+    """
+    measurement_features = get_data_from_snowflake_to_dataframe(_session, definitions_query)
+
+    return measurement_features
+
+    # except Exception as e:
+    #     st.error(f"Error loading measurement features: {e}")
+    #     return pd.DataFrame()
 
 
 @standard_query_cache
-def get_condition_patient_counts_by_year(definition_name: str, _snowsesh: SnowflakeConnection) -> pd.DataFrame:
+def get_condition_patient_counts_by_year(definition_name: str, _session: Session) -> pd.DataFrame:
     """
     Get unique patient counts by year for a given condition definition
     Includes both SNOMED codes from OBSERVATION and ICD10/OPCS4 codes from BASE_APC_CONCEPTS
 
     Args:
         definition_name: Name of the condition definition
-        _snowsesh: Snowflake connection
+        _session: Snowflake connection
 
     Returns:
         DataFrame with columns: YEAR, PATIENT_COUNT
@@ -209,7 +225,7 @@ def get_condition_patient_counts_by_year(definition_name: str, _snowsesh: Snowfl
     ORDER BY TABLE_NAME DESC
     LIMIT 1
     """
-    apc_result = _snowsesh.execute_query_to_df(apc_table_query)
+    apc_result = get_data_from_snowflake_to_dataframe(_session, apc_table_query)
     apc_table = apc_result.iloc[0]['TABLE_NAME'] if not apc_result.empty else None
 
     query_parts = []
@@ -255,18 +271,18 @@ def get_condition_patient_counts_by_year(definition_name: str, _snowsesh: Snowfl
     ORDER BY YEAR
     """
 
-    return get_data_from_snowflake_to_dataframe(_snowsesh, combined_query)
+    return get_data_from_snowflake_to_dataframe(_session, combined_query)
 
 
 @standard_query_cache
-def get_unique_patients_for_condition(definition_name: str, _snowsesh: SnowflakeConnection) -> int:
+def get_unique_patients_for_condition(definition_name: str, _session: Session) -> int:
     """
     Get total unique patient count for a condition definition
     Includes both SNOMED codes from OBSERVATION and ICD10/OPCS4 codes from BASE_APC_CONCEPTS
 
     Args:
         definition_name: Name of the condition definition
-        _snowsesh: Snowflake connection
+        _session: Snowflake connection
 
     Returns:
         Number of unique patients
@@ -280,7 +296,7 @@ def get_unique_patients_for_condition(definition_name: str, _snowsesh: Snowflake
     ORDER BY TABLE_NAME DESC
     LIMIT 1
     """
-    apc_result = _snowsesh.execute_query_to_df(apc_table_query)
+    apc_result = get_data_from_snowflake_to_dataframe(_session, apc_table_query)
     apc_table = apc_result.iloc[0]['TABLE_NAME'] if not apc_result.empty else None
 
     # Build query with UNION for both sources
@@ -317,6 +333,6 @@ def get_unique_patients_for_condition(definition_name: str, _snowsesh: Snowflake
     FROM all_patients
     """
 
-    result = get_data_from_snowflake_to_dataframe(_snowsesh, combined_query)
+    result = get_data_from_snowflake_to_dataframe(_session, combined_query)
     return result.iloc[0]['UNIQUE_PATIENTS'] if not result.empty else 0
 

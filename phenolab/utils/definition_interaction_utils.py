@@ -5,7 +5,7 @@ from typing import List, Optional, Tuple
 import pandas as pd
 import streamlit as st
 from utils.database_utils import (
-    connect_to_snowflake,
+    # connect_to_snowflake,
     get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list,
     return_codes_for_given_definition_id_as_df,
 )
@@ -473,7 +473,7 @@ def display_definition_from_file(definition_file):
         return None
 
 
-def process_definitions_for_upload(snowsesh):
+def process_definitions_for_upload(session):
     """
     Process all definition files and prepare them for upload to Snowflake
     """
@@ -492,10 +492,10 @@ def process_definitions_for_upload(snowsesh):
 
             query = f"""
             SELECT DEFINITION_ID, DEFINITION_NAME, VERSION_DATETIME
-            FROM AIC_DEFINITIONS
+            FROM INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.AIC_DEFINITIONS
             WHERE DEFINITION_ID = '{definition.definition_id}'
             """
-            existing_definition = snowsesh.execute_query_to_df(query)
+            existing_definition = session.sql(query).to_pandas()
 
             if not existing_definition.empty:
                 max_version_in_db = existing_definition["VERSION_DATETIME"].max()
@@ -530,7 +530,7 @@ def run_definition_update_script():
 
     current_dir = os.path.dirname(os.path.abspath(__file__))
     update_script_path = os.path.normpath(
-        os.path.join(current_dir, "../../definition_library/update.py")
+        os.path.join(current_dir, "../../pipeline/definition_library/update.py")
     )
 
     if not os.path.exists(update_script_path):

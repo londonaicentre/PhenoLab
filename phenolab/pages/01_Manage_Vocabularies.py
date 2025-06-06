@@ -4,7 +4,8 @@ import os
 import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
-from utils.database_utils import get_snowflake_connection
+# from utils.database_utils import get_snowflake_connection
+from utils.database_utils import get_snowflake_session
 from utils.style_utils import set_font_lato
 
 from phmlondon.config import FEATURE_STORE, SNOWFLAKE_DATABASE
@@ -106,15 +107,20 @@ def generate_vocab_list():
         status_placeholder = st.empty()
 
         # Get single connection
-        conn = get_snowflake_connection()
+        # conn = get_snowflake_connection()
+        session = get_snowflake_session()
+
         concept_dfs = []
 
         # 1. Primary care observations (SNOMED)
         status_placeholder.info("Extracting primary care observation SNOMED codes...")
 
+        session.use_database("PROD_DWH")
+        session.use_schema("ANALYST_PRIMARY_CARE")
+        observation_df = session.sql(OBSERVATION_SNOMED_SQL).to_pandas()
         # Use context manager for PROD_DWH database
-        with conn.use_context(database="PROD_DWH", schema="ANALYST_PRIMARY_CARE"):
-            observation_df = conn.execute_query_to_df(OBSERVATION_SNOMED_SQL)
+        # with conn.use_context(database="PROD_DWH", schema="ANALYST_PRIMARY_CARE"):
+        #     observation_df = conn.execute_query_to_df(OBSERVATION_SNOMED_SQL)
         concept_dfs.append(observation_df)
         status_placeholder.success(f"Extracted {len(observation_df)} primary care observation SNOMED codes")
 

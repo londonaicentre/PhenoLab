@@ -1,9 +1,18 @@
 (1) deployment from localhost -> snowflake
 x definition_library needs to become part of phenolab
-- fix dependencies
+x fix dependencies
 - github actions
+- fix connection to snowflake
 - fix definition_library backend
 - get rid of pipeline folder
+- check wether feature store manager still works
+- is update.py the best way to do things? at least change the session management
 (2) ICB table with 'starterpack' model
 (3) external definitions starterpack
 (4) aesthetic changes
+(5) general/misc
+- redundant imports
+- get rid of some of the database utils functions
+- add some tests?
+- check if config in PHMutils should be part of phenolab
+(6) delete definition option?

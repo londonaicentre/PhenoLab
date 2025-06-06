@@ -4,8 +4,9 @@ import os
 import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
-from utils.database_utils import get_snowflake_connection
+from utils.database_utils import get_snowflake_session
 from utils.style_utils import set_font_lato
+
 
 # # PhenoLab.py
 
@@ -15,7 +16,7 @@ from utils.style_utils import set_font_lato
 
 st.set_page_config(page_title="PhenoLab", layout="wide", initial_sidebar_state="expanded")
 set_font_lato()
-load_dotenv()
+load_dotenv(override=True)
 
 def preload_vocabulary():
     """
@@ -52,15 +53,17 @@ else:
     vocab_message = "Vocabulary loaded in session"
 
 # initialise snowflake connection
+session = get_snowflake_session()
 try:
-    snowsesh = get_snowflake_connection()
+    session.sql("SELECT 1").collect()
     connection_status = "Connected to Snowflake"
 except Exception as e:
     connection_status = f"Connection failed: {e}"
 
 ## PAGE DISPLAY
-
 st.title("PhenoLab: Clinical Definitions and Phenotype Creator")
+
+st.write(st.__version__)
 
 # display snowflake status
 st.markdown(f"Connection Status: `{connection_status}`")
@@ -80,13 +83,13 @@ PhenoLab helps manage:
 3. **Phenotypes**: Patient-centric clinical labels based on logical operations applied to these definitions)
 """)
 
-with st.expander("Snowflake Connection Setup"):
-    st.markdown("""
-    Required environment variables `.env`:
-    - `SNOWFLAKE_SERVER`: Snowflake account identifier
-    - `SNOWFLAKE_USER`: Snowflake username
-    - `SNOWFLAKE_USERGROUP`: Snowflake role
-    """)
+# with st.expander("Snowflake Connection Setup"):
+#     st.markdown("""
+#     Required environment variables `.env`:
+#     - `SNOWFLAKE_SERVER`: Snowflake account identifier
+#     - `SNOWFLAKE_USER`: Snowflake username
+#     - `SNOWFLAKE_USERGROUP`: Snowflake role
+#     """)
 
 st.markdown("---")
 st.markdown("2025 London AI Centre & OneLondon")

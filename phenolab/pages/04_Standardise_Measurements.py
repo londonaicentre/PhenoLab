@@ -1,7 +1,8 @@
 import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
-from utils.database_utils import get_snowflake_connection
+# from utils.database_utils import get_snowflake_connection
+from utils.database_utils import get_snowflake_session
 from utils.measurement import MeasurementConfig
 from utils.measurement_interaction_utils import (
     load_measurement_config,
@@ -71,7 +72,7 @@ def display_standard_units_panel(config):
     else:
         st.info("No standard units defined.")
 
-def display_unit_mapping_panel(config, snowsesh):
+def display_unit_mapping_panel(config):
     """
     Display panel for mapping source units to standard units
     """
@@ -272,7 +273,8 @@ def main():
     st.title("Standardise Measurements")
     load_dotenv()
 
-    snowsesh = get_snowflake_connection()
+    # snowsesh = get_snowflake_connection()
+    session = get_snowflake_session()
 
     if "selected_definition" not in st.session_state:
         st.session_state.selected_definition = None
@@ -289,7 +291,7 @@ def main():
     with col2:
         if st.button("Update All Configs", use_container_width=True):
             with st.spinner("Updating measurement configurations..."):
-                created, updated, new_units = update_all_measurement_configs(snowsesh)
+                created, updated, new_units = update_all_measurement_configs(session)
 
                 message_parts = []
                 if created > 0:
@@ -354,7 +356,7 @@ def main():
 
             # UI: unit mapping panel
             if config.standard_units:
-                display_unit_mapping_panel(config, snowsesh)
+                display_unit_mapping_panel(config)
 
                 # UI: unit conversion panel
                 if config.primary_standard_unit:

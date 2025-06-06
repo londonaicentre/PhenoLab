@@ -94,7 +94,7 @@ def create_missing_measurement_configs():
     return created_count
 
 
-def update_all_measurement_configs(snowsesh):
+def update_all_measurement_configs(session):
     """
     Update all measurement configs with new units from Snowflake usage data
     """
@@ -117,37 +117,37 @@ def update_all_measurement_configs(snowsesh):
             st.warning(f"Could not load config {config_file}: {e}")
 
     for def_name, config in existing_configs.items():
-        try:
-            unit_stats = get_measurement_unit_statistics(def_name, snowsesh)
+        # try:
+        unit_stats = get_measurement_unit_statistics(def_name, session)
 
-            if unit_stats is None or unit_stats.empty:
-                continue
+        if unit_stats is None or unit_stats.empty:
+            continue
 
-            existing_source_units = {m.source_unit for m in config.unit_mappings}
-            config_changed = False
+        existing_source_units = {m.source_unit for m in config.unit_mappings}
+        config_changed = False
 
-            for idx, row in unit_stats.iterrows():
-                source_unit = row['UNIT']
+        for idx, row in unit_stats.iterrows():
+            source_unit = row['UNIT']
 
-                if source_unit not in existing_source_units:
-                    config.unit_mappings.append(UnitMapping(
-                        source_unit=source_unit,
-                        standard_unit="",
-                        source_unit_count=row['TOTAL_COUNT'],
-                        source_unit_lq=row['LOWER_QUARTILE'],
-                        source_unit_median=row['MEDIAN'],
-                        source_unit_uq=row['UPPER_QUARTILE']
-                    ))
-                    new_units_count += 1
-                    config_changed = True
+            if source_unit not in existing_source_units:
+                config.unit_mappings.append(UnitMapping(
+                    source_unit=source_unit,
+                    standard_unit="",
+                    source_unit_count=row['TOTAL_COUNT'],
+                    source_unit_lq=row['LOWER_QUARTILE'],
+                    source_unit_median=row['MEDIAN'],
+                    source_unit_uq=row['UPPER_QUARTILE']
+                ))
+                new_units_count += 1
+                config_changed = True
 
-            if config_changed:
-                config.mark_modified()
-                config.save_to_json()
-                updated_count += 1
+        if config_changed:
+            config.mark_modified()
+            config.save_to_json()
+            updated_count += 1
 
-        except Exception as e:
-            st.warning(f"Error processing {def_name}: {e}")
+        # except Exception as e:
+        #     st.warning(f"Error processing {def_name}: {e}")
 
     return created_count, updated_count, new_units_count
 
@@ -175,7 +175,7 @@ def get_available_measurement_configs():
 
 
 @st.cache_data(ttl=600, show_spinner="Loading measurement values...")
-def get_measurement_values(definition_name, _snowsesh):
+def get_measurement_values(definition_name, _session):
     """
     Get actual measurement values for a definition from Snowflake
     """
@@ -191,7 +191,7 @@ def get_measurement_values(definition_name, _snowsesh):
         AND TRY_CAST(RESULT_VALUE AS FLOAT) IS NOT NULL
     LIMIT 100000
     """
-    df = _snowsesh.execute_query_to_df(query)
+    df = _session.sql(query).to_pandas()
     df.columns = df.columns.str.lower()
     return df
 
@@ -320,7 +320,7 @@ def create_base_measurements_sql(eligible_configs):
     return final_query
 
 
-def create_base_measurements_feature(snowsesh, eligible_configs):
+def create_base_measurements_feature(session, eligible_configs):
     """
     Create or update Base Measurements feature table using FeatureStoreManager
     """
@@ -334,7 +334,7 @@ def create_base_measurements_feature(snowsesh, eligible_configs):
 
         with st.spinner("Initialising Feature Store Manager..."):
             feature_manager = FeatureStoreManager(
-                connection=snowsesh,
+                connection=session,
                 database=SNOWFLAKE_DATABASE,
                 schema=FEATURE_STORE,
                 metadata_schema=FEATURE_METADATA
@@ -345,12 +345,18 @@ def create_base_measurements_feature(snowsesh, eligible_configs):
         feature_format = "tabular"
 
         with st.spinner("Creating or updating Base Measurements feature table..."):
-            session = snowsesh.session
-            with snowsesh.use_context(database=SNOWFLAKE_DATABASE, schema=FEATURE_METADATA):
-                feature_id_result = session.sql(f"""
+            session.use_database(SNOWFLAKE_DATABASE)
+            session.use_schema(FEATURE_METADATA)
+            feature_id_result = session.sql(f"""
                     SELECT feature_id FROM feature_registry
                     WHERE feature_name = '{feature_name}'
                 """).collect()
+            # session = snowsesh.session
+            # with snowsesh.use_context(database=SNOWFLAKE_DATABASE, schema=FEATURE_METADATA):
+                # feature_id_result = session.sql(f"""
+                #     SELECT feature_id FROM feature_registry
+                #     WHERE feature_name = '{feature_name}'
+                # """).collect()
 
             if feature_id_result:
                 st.info("Feature already exists. Updating with new data...")
@@ -383,10 +389,15 @@ def create_base_measurements_feature(snowsesh, eligible_configs):
                 st.write(f"**Table Name:** {table_name}")
 
             try:
-                with snowsesh.use_context(database=SNOWFLAKE_DATABASE, schema=FEATURE_STORE):
-                    count_result = snowsesh.execute_query_to_df(f"SELECT COUNT(*) as row_count FROM {table_name}")
-                    row_count = count_result.iloc[0]['ROW_COUNT']
-                    st.write(f"**Rows Created:** {row_count:,}")
+                session.use_database(SNOWFLAKE_DATABASE)
+                session.use_schema(FEATURE_STORE)
+                count_result = session.sql(f"SELECT COUNT(*) as row_count FROM {table_name}").to_pandas()
+                row_count = count_result.iloc[0]['ROW_COUNT']
+                st.write(f"**Rows Created:** {row_count:,}")
+                # with snowsesh.use_context(database=SNOWFLAKE_DATABASE, schema=FEATURE_STORE):
+                #     count_result = snowsesh.execute_query_to_df(f"SELECT COUNT(*) as row_count FROM {table_name}")
+                #     row_count = count_result.iloc[0]['ROW_COUNT']
+                #     st.write(f"**Rows Created:** {row_count:,}")
             except Exception as e:
                 st.warning(f"Could not get row count: {e}")
 
