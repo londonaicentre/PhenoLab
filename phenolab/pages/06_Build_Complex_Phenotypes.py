@@ -4,7 +4,7 @@ import streamlit as st
 from dotenv import load_dotenv
 from utils.database_utils import get_snowflake_session, get_available_measurements
 from utils.phenotype import ComparisonOperator, ConditionType, Phenotype, load_phenotype_from_json
-from utils.style_utils import set_font_lato
+from utils.style_utils import set_font_lato, container_object_with_height_if_possible   
 
 from phmlondon.config import DEFINITION_LIBRARY, SNOWFLAKE_DATABASE, FEATURE_METADATA
 
@@ -187,7 +187,7 @@ def display_panel_2_definition_selection():
 
     # display results
     if "definition_results" in st.session_state and st.session_state.definition_results is not None:
-        with st.container(height=300):
+        with container_object_with_height_if_possible(height=300):
             st.write("Definitions:")
             for idx, row in st.session_state.definition_results.iterrows():
                 col1, col2 = st.columns([3, 1])
@@ -257,7 +257,7 @@ def display_panel_3_measurement_selection():
 
     st.write(f"Found {len(filtered_features)} measurement features")
 
-    with st.container(height=300):
+    with container_object_with_height_if_possible(height=300):
         for idx, row in filtered_features.iterrows():
             col1, col2 = st.columns([3, 1])
 
@@ -356,7 +356,7 @@ def display_panel_4_condition_blocks():
         st.info("No condition blocks added yet.")
         return
 
-    with st.container(height=300):
+    with container_object_with_height_if_possible(300):
         for label, block in phenotype.condition_blocks.items():
             with st.container():
                 col1, col2 = st.columns([4, 1])

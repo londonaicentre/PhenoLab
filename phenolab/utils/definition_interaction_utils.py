@@ -6,10 +6,11 @@ import pandas as pd
 import streamlit as st
 from utils.database_utils import (
     # connect_to_snowflake,
+    get_snowflake_session,
     get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list,
     return_codes_for_given_definition_id_as_df,
 )
-
+from utils.style_utils import container_object_with_height_if_possible
 from phmlondon.config import DEFINITION_LIBRARY, SNOWFLAKE_DATABASE
 from phmlondon.definition import Code, Definition, VocabularyType
 
@@ -245,9 +246,9 @@ def display_unified_code_browser(code_types, key_suffix=""):
         horizontal=True,
         key=f"source_type_radio_{key_suffix}"  # unique key allows re-use in same page (i.e. multiple tabs)
     )
-
+    
     # search box
-    with st.container(height=210):
+    with st.container():
         search_term = st.text_input(
             "Filter codes",
             placeholder="Simple search or use (term1) AND/OR/NOT (term2)",
@@ -268,8 +269,9 @@ def display_unified_code_browser(code_types, key_suffix=""):
                 st.info("No codes found matching the search criteria")
                 return filtered_codes, search_term
         else:
-            conn = connect_to_snowflake()
-            id_list, definitions_list = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(conn)
+            # conn = connect_to_snowflake()
+            session = get_snowflake_session()
+            id_list, definitions_list = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(session)
             chosen_definition = st.selectbox(
                 label="Choose an existing definition (start typing to search)",
                 options=definitions_list,
@@ -278,7 +280,7 @@ def display_unified_code_browser(code_types, key_suffix=""):
 
             if chosen_definition:
                 chosen_definition_id = id_list[definitions_list.index(chosen_definition)]
-                definition_codes_df = return_codes_for_given_definition_id_as_df(conn, chosen_definition_id)
+                definition_codes_df = return_codes_for_given_definition_id_as_df(session, chosen_definition_id)
 
                 if search_term:
                     parsed_query = parse_search_query(search_term)
@@ -292,7 +294,7 @@ def display_unified_code_browser(code_types, key_suffix=""):
                 return None, search_term
 
     # results of filter
-    with st.container(height=500):
+    with container_object_with_height_if_possible(500):
         if 'filtered_codes' in locals() and not filtered_codes.empty:
             for idx, row in filtered_codes.head(500).iterrows():
                 col1a, col1b = st.columns([9, 1])
@@ -341,7 +343,7 @@ def display_selected_codes(key_suffix=""):
     st.subheader("Selected codes")
 
     # FIXED CONTAINER
-    with st.container(height=210):
+    with container_object_with_height_if_possible(210):
         # current definition information
         if st.session_state.current_definition:
             definition = st.session_state.current_definition
@@ -363,7 +365,7 @@ def display_selected_codes(key_suffix=""):
             st.info("Create a definition first.")
 
     # SCROLLING CONTAINER
-    with st.container(height=1090):
+    with container_object_with_height_if_possible(1090):
         # if st.session_state.selected_codes:
         if st.session_state.current_definition and st.session_state.current_definition.codes:
             # grouping by vocab (i.e. codelist)
@@ -530,7 +532,7 @@ def run_definition_update_script():
 
     current_dir = os.path.dirname(os.path.abspath(__file__))
     update_script_path = os.path.normpath(
-        os.path.join(current_dir, "../../pipeline/definition_library/update.py")
+        os.path.join(current_dir, "../../pidefinition_library/update.py")
     )
 
     if not os.path.exists(update_script_path):
@@ -540,3 +542,4 @@ def run_definition_update_script():
         [sys.executable, update_script_path], capture_output=True, text=True, check=True
     )
     return result
+

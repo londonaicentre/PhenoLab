@@ -9,7 +9,7 @@ from utils.measurement_interaction_utils import (
     load_measurement_configs_list,
     update_all_measurement_configs,
 )
-from utils.style_utils import set_font_lato
+from utils.style_utils import set_font_lato, container_object_with_height_if_possible
 
 # # 04_Measurement_Standardisation.py
 
@@ -104,7 +104,7 @@ def display_unit_mapping_panel(config):
     for col, header in zip(header_cols, headers):
         col.write(header)
 
-    with st.container(height=600):
+    with container_object_with_height_if_possible(600):
         for _, row in unit_stats_df.iterrows():
             source_unit = row['UNIT']
             current_mapping = current_mappings.get(source_unit, "")

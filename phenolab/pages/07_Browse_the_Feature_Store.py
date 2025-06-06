@@ -28,9 +28,9 @@ session = get_snowflake_session()
 
 st.header('Features')
 
-session.use_database(SNOWFLAKE_DATABASE)
-session.use_schema(FEATURE_METADATA)
-features_query = "SELECT * FROM FEATURE_REGISTRY"
+# session.use_database(SNOWFLAKE_DATABASE)
+# session.use_schema(FEATURE_METADATA)
+features_query = f"SELECT * FROM {SNOWFLAKE_DATABASE}.{FEATURE_METADATA}.FEATURE_REGISTRY"
 features = session.sql(features_query).to_pandas()
 st.dataframe(features)
 # with conn.use_context(database=SNOWFLAKE_DATABASE, schema=FEATURE_METADATA):
@@ -39,9 +39,9 @@ st.dataframe(features)
 #     st.dataframe(features)
 
 st.header('Feature versions')
-session.use_database(SNOWFLAKE_DATABASE)
-session.use_schema(FEATURE_METADATA)
-versions_query = "SELECT * FROM FEATURE_VERSION_REGISTRY"
+# session.use_database(SNOWFLAKE_DATABASE)
+# session.use_schema(FEATURE_METADATA)
+versions_query = f"SELECT * FROM {SNOWFLAKE_DATABASE}.{FEATURE_METADATA}.FEATURE_VERSION_REGISTRY"
 versions = session.sql(versions_query).to_pandas()
 st.dataframe(versions)
 # with conn.use_context(database=SNOWFLAKE_DATABASE, schema=FEATURE_METADATA):
