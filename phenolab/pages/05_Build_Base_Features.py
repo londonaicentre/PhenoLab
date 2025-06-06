@@ -9,7 +9,8 @@ from utils.condition_interaction_utils import (
 )
 from utils.database_utils import (
     get_condition_patient_counts_by_year,
-    get_snowflake_connection,
+    # get_snowflake_connection,
+    get_snowflake_session,
     get_unique_patients_for_condition,
 )
 from utils.measurement_interaction_utils import (
@@ -105,7 +106,7 @@ def create_distribution_plots(df_all, config):
 
 
 
-def display_measurement_analysis(snowsesh):
+def display_measurement_analysis(session):
     config_options = get_available_measurement_configs()
 
     if not config_options:
@@ -128,7 +129,7 @@ def display_measurement_analysis(snowsesh):
             return
 
         with st.spinner("Loading measurement values..."):
-            df_values = get_measurement_values(selected_measurement, snowsesh)
+            df_values = get_measurement_values(selected_measurement, session)
 
         if df_values.empty:
             st.warning(f"No measurement values found for {selected_measurement}")
@@ -145,7 +146,7 @@ def display_measurement_analysis(snowsesh):
         st.plotly_chart(fig, use_container_width=True)
 
 
-def display_feature_creation(snowsesh):
+def display_feature_creation(session):
     eligible_configs = get_available_measurement_configs()
 
     if not eligible_configs:
@@ -159,7 +160,7 @@ def display_feature_creation(snowsesh):
              """)
 
     if st.button("Create / Update Base Measurements Table", type="primary", use_container_width=True):
-        create_base_measurements_feature(snowsesh, eligible_configs)
+        create_base_measurements_feature(session, eligible_configs)
 
     st.write("""
     **Table Schema:**
@@ -197,7 +198,7 @@ def create_condition_distribution_plot(df_yearly, definition_name):
     return fig
 
 
-def display_condition_analysis(snowsesh):
+def display_condition_analysis(session):
     """
     Display condition analysis with patient counts by year
     """
@@ -215,14 +216,14 @@ def display_condition_analysis(snowsesh):
 
     if selected_condition:
         with st.spinner("Loading patient counts..."):
-            df_yearly = get_condition_patient_counts_by_year(selected_condition, snowsesh)
+            df_yearly = get_condition_patient_counts_by_year(selected_condition, session)
 
         if df_yearly.empty:
             st.warning(f"No patients found for {selected_condition}")
             return
 
         total_observations = df_yearly['PATIENT_COUNT'].sum()
-        unique_patients = get_unique_patients_for_condition(selected_condition, snowsesh)
+        unique_patients = get_unique_patients_for_condition(selected_condition, session)
 
         st.info(f"Total unique patients: {unique_patients:,} (Total observations: {total_observations:,})")
 
@@ -230,7 +231,7 @@ def display_condition_analysis(snowsesh):
         st.plotly_chart(fig, use_container_width=True)
 
 
-def display_condition_feature_creation(snowsesh):
+def display_condition_feature_creation(session):
     """
     Display UI for creating Base Conditions feature table
     """
@@ -246,7 +247,7 @@ def display_condition_feature_creation(snowsesh):
 
     if st.button("Create / Update Base Conditions Table", type="primary", use_container_width=True):
         all_definitions = list(definitions.keys())
-        create_base_conditions_feature(snowsesh, all_definitions)
+        create_base_conditions_feature(session, all_definitions)
 
     st.write("""
     **Table Schema:**
@@ -264,7 +265,8 @@ def main():
     st.title("Distributions & Base Feature Creation")
     load_dotenv()
 
-    snowsesh = get_snowflake_connection()
+    # snowsesh = get_snowflake_connection()
+    session = get_snowflake_session()
 
     tab1, tab2 = st.tabs(["Has Condition", "Measurements"])
 
@@ -272,19 +274,19 @@ def main():
         left_col, right_col = st.columns([2, 1])
 
         with left_col:
-            display_condition_analysis(snowsesh)
+            display_condition_analysis(session)
 
         with right_col:
-            display_condition_feature_creation(snowsesh)
+            display_condition_feature_creation(session)
 
     with tab2:
         left_col, right_col = st.columns([2, 1])
 
         with left_col:
-            display_measurement_analysis(snowsesh)
+            display_measurement_analysis(session)
 
         with right_col:
-            display_feature_creation(snowsesh)
+            display_feature_creation(session)
 
 
 if __name__ == "__main__":

@@ -4,8 +4,8 @@ import streamlit as st
 from dotenv import load_dotenv
 from utils.database_utils import (
     get_aic_definitions,
+    get_snowflake_session,
     get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list,
-    get_snowflake_connection,
     return_codes_for_given_definition_id_as_df,
 )
 from utils.definition_interaction_utils import (
@@ -29,16 +29,16 @@ def view_aic_definitions():
     """
     st.title("AI Centre Definitions")
 
-    snowsesh = get_snowflake_connection()
+    session = get_snowflake_session()
 
-    definitions = get_aic_definitions(snowsesh)
+    definitions = get_aic_definitions(session)
     st.dataframe(definitions)
 
     if st.button("Refresh", key="aic_refresh_button"):
-        get_aic_definitions(snowsesh)
+        get_aic_definitions(session)
         st.rerun()
 
-def create_definition_panel(snowsesh,
+def create_definition_panel(session,
                             column,
                             panel_name,
                             definition_ids,
@@ -59,7 +59,7 @@ def create_definition_panel(snowsesh,
             # get codes for selected definition
             selected_id = definition_ids[definition_labels.index(selected_definition)]
 
-            codes_df = return_codes_for_given_definition_id_as_df(snowsesh, selected_id)
+            codes_df = return_codes_for_given_definition_id_as_df(session, selected_id)
 
             display_definition_metadata(codes_df)
             display_definition_codes_summary(codes_df)
@@ -105,16 +105,16 @@ def compare_definitions():
         )
 
     # get connection
-    snowsesh = get_snowflake_connection()
+    session = get_snowflake_session()
 
     # get all definitions
-    definition_ids, definition_labels = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(snowsesh)
+    definition_ids, definition_labels = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(session)
 
     # show two definition panels
     left_col, right_col = st.columns(2)
 
-    create_definition_panel(snowsesh, left_col, "A", definition_ids, definition_labels)
-    create_definition_panel(snowsesh, right_col, "B", definition_ids, definition_labels)
+    create_definition_panel(session, left_col, "A", definition_ids, definition_labels)
+    create_definition_panel(session, right_col, "B", definition_ids, definition_labels)
 
     col2, _ = st.columns(2)
     with col2:

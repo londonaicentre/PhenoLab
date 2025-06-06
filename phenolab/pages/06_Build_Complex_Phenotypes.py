@@ -2,7 +2,7 @@ import os
 
 import streamlit as st
 from dotenv import load_dotenv
-from utils.database_utils import get_snowflake_connection, get_available_measurements
+from utils.database_utils import get_snowflake_session, get_available_measurements
 from utils.phenotype import ComparisonOperator, ConditionType, Phenotype, load_phenotype_from_json
 from utils.style_utils import set_font_lato
 
@@ -44,7 +44,7 @@ def load_phenotype(file_path):
         return None
 
 
-def query_definition_store(snowsesh, search_term, source_system):
+def query_definition_store(session, search_term, source_system):
     """
     Query the DEFINITIONSTORE view with filters
     """
@@ -77,7 +77,8 @@ def query_definition_store(snowsesh, search_term, source_system):
     """
 
     try:
-        return snowsesh.execute_query_to_df(query)
+        # return snowsesh.execute_query_to_df(query)
+        return session.sql(query).to_pandas()
     except Exception as e:
         st.error(f"Error querying DEFINITIONSTORE: {e}")
         return None
@@ -147,7 +148,8 @@ def display_panel_2_definition_selection():
 
     # Get the single connection (already connected to definition library by default)
     try:
-        snowsesh = get_snowflake_connection()
+        # snowsesh = get_snowflake_connection()
+        session = get_snowflake_session()
     except Exception as e:
         st.error(f"Failed to get Snowflake connection: {e}")
         return
@@ -160,7 +162,8 @@ def display_panel_2_definition_selection():
             WHERE SOURCE_LOADER IS NOT NULL
             ORDER BY SOURCE_LOADER
             """
-            sources_df = snowsesh.execute_query_to_df(source_query)
+            # sources_df = snowsesh.execute_query_to_df(source_query)
+            sources_df = session.sql(source_query).to_pandas()
             source_systems = ["All"] + sources_df["SOURCE_LOADER"].tolist()
             st.session_state.source_systems = source_systems
         except Exception as e:
@@ -174,7 +177,7 @@ def display_panel_2_definition_selection():
 
     if st.button("Search"):
         with st.spinner("Searching definitions..."):
-            results = query_definition_store(snowsesh, search_term, source_system)
+            results = query_definition_store(session, search_term, source_system)
             if results is not None and not results.empty:
                 st.session_state.definition_results = results
                 st.success(f"Found {len(results)} definitions")
@@ -230,12 +233,14 @@ def display_panel_3_measurement_selection():
         return
 
     try:
-        snowsesh = get_snowflake_connection()
+        # snowsesh = get_snowflake_connection()
+        session = get_snowflake_session()
     except Exception as e:
         st.error(f"Failed to get Snowflake connection: {e}")
         return
 
-    measurement_features = get_available_measurements(snowsesh)
+    # measurement_features = get_available_measurements(snowsesh)
+    measurement_features = get_available_measurements(session)
 
     if measurement_features.empty:
         st.warning("No measurement features found in the feature store")
