@@ -63,7 +63,7 @@ except Exception as e:
 ## PAGE DISPLAY
 st.title("PhenoLab: Clinical Definitions and Phenotype Creator")
 
-st.write(st.__version__)
+# st.write(st.__version__)
 
 # display snowflake status
 st.markdown(f"Connection Status: `{connection_status}`")
