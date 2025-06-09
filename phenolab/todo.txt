@@ -4,10 +4,14 @@ x fix dependencies
 - github actions
 x fix connection to snowflake
 - fix definition_library backend
+- fix update.py. Is update.py the best way to do things? at least change the session management
 - get rid of pipeline folder
 - check whether feature store manager still works after refactoring of connection
-- is update.py the best way to do things? at least change the session management
 (2) ICB table with 'starterpack' model
+- create ICB table
+- definitions should go to ICB table
+- UNLESS we create them as jsons/export as jsons
+- existing NEL segments need to go in ICB table
 (3) external definitions starterpack
 (4) aesthetic changes
 (5) general/misc

@@ -4,8 +4,8 @@ import pandas as pd
 import git
 from dotenv import load_dotenv
 from snowflake.snowpark import Session
-from base.scrape_open_codelists import return_version_id_from_open_codelist_url
-from base.load_tables import load_definitions_to_snowflake
+from definition_library.loaders.scrape_open_codelists import return_version_id_from_open_codelist_url
+from definition_library.loaders.create_tables import load_definitions_to_snowflake
 from phmlondon.definition import Definition
 from phmlondon.snow_utils import SnowflakeConnection
 
