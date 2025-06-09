@@ -9,6 +9,7 @@ from utils.style_utils import set_font_lato
 from utils.definition_interaction_utils import update_aic_definitions_table
 
 from definition_library.loaders.load_hdruk import retrieve_hdruk_definitions_and_add_to_snowflake
+from definition_library.loaders.load_open_codelists import retrieve_open_codelists_definitions_and_add_to_snowflake
 
 # # PhenoLab.py
 
@@ -94,9 +95,23 @@ if 'checked_database' in st.session_state:
 else: # only want to do this once per session
     update_aic_definitions_table(session)
     st.session_state['checked_database'] = True
+
+# 2. HDRUK
 if 'uploaded_hdruk_defs' not in st.session_state:
     retrieve_hdruk_definitions_and_add_to_snowflake(session, 
         database="INTELLIGENCE_DEV", schema="AI_CENTRE_DEFINITION_LIBRARY")
+    
+# 3. NHS GP refsets
+if 'uploaded_nhs_gp_defs' not in st.session_state:
+    pass # need to sort this out once I have access or else we download as static file
+
+# 4. Open Codelists
+if 'uploaded_open_codelists_defs' not in st.session_state:
+    retrieve_open_codelists_definitions_and_add_to_snowflake(session, 
+        database="INTELLIGENCE_DEV", schema="AI_CENTRE_DEFINITION_LIBRARY")
+    
+# 5. BNF definitions
+
 # 2. general
 # 3. empty table for ICB definitions
 # 3. collate

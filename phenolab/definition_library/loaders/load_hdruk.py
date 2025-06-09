@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 from snowflake.snowpark import Session
 from phmlondon.definition import Definition
-from base.load_tables import load_definitions_to_snowflake
+from definition_library.loaders.create_tables import load_definitions_to_snowflake
 from phmlondon.hdruk_api import HDRUKLibraryClient
 from phmlondon.snow_utils import SnowflakeConnection
 

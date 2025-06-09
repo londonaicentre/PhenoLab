@@ -5,3 +5,5 @@ on:
     branches:
       - main
 
+# snow streamlit deploy --replace
+# snow stage copy src/phmlondon @phenolab/phmlondon --recursive

@@ -54,6 +54,7 @@ vocab_mappings = {
     "Med codes": VocabularyType.MEDCODE,  # HDRUK
     "BNF codes": VocabularyType.BNF,  # HDRUK
     "SNOMED CT": VocabularyType.SNOMED,  # Open Codelists
+    "SNOMED CT (UK Clinical Edition)": VocabularyType.SNOMED,  # Open Codelists
     "Read V2": VocabularyType.READV2,  # Open Codelists
     "CTV3 (Read V3)": VocabularyType.READV3,  # Open Codelists
     "ICD-10": VocabularyType.ICD10,  # Open Codelists
