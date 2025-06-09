@@ -10,6 +10,7 @@ from utils.definition_interaction_utils import update_aic_definitions_table
 
 from definition_library.loaders.load_hdruk import retrieve_hdruk_definitions_and_add_to_snowflake
 from definition_library.loaders.load_open_codelists import retrieve_open_codelists_definitions_and_add_to_snowflake
+from definition_library.loaders.load_bnf_to_snomed import retrieve_bnf_definitions_and_add_to_snowflake
 
 # # PhenoLab.py
 
@@ -93,13 +94,16 @@ st.write("Database status:")
 if 'checked_database' in st.session_state:
     st.markdown('`Database checked`')
 else: # only want to do this once per session
-    update_aic_definitions_table(session)
-    st.session_state['checked_database'] = True
+    with st.spinner("Loading AI Centre definitions..."):
+        update_aic_definitions_table(session)
+        st.session_state['checked_database'] = True
 
 # 2. HDRUK
 if 'uploaded_hdruk_defs' not in st.session_state:
-    retrieve_hdruk_definitions_and_add_to_snowflake(session, 
+    with st.spinner("Retrieving HDRUK definitions..."): 
+        retrieve_hdruk_definitions_and_add_to_snowflake(session, 
         database="INTELLIGENCE_DEV", schema="AI_CENTRE_DEFINITION_LIBRARY")
+        st.session_state['uploaded_hdruk_defs'] = True
     
 # 3. NHS GP refsets
 if 'uploaded_nhs_gp_defs' not in st.session_state:
@@ -107,10 +111,17 @@ if 'uploaded_nhs_gp_defs' not in st.session_state:
 
 # 4. Open Codelists
 if 'uploaded_open_codelists_defs' not in st.session_state:
-    retrieve_open_codelists_definitions_and_add_to_snowflake(session, 
+    with st.spinner("Retrieving Open Codelists definitions..."): 
+        retrieve_open_codelists_definitions_and_add_to_snowflake(session, 
         database="INTELLIGENCE_DEV", schema="AI_CENTRE_DEFINITION_LIBRARY")
+        st.session_state['uploaded_open_codelists_defs'] = True
     
 # 5. BNF definitions
+if 'uploaded_bnf_defs' not in st.session_state:
+    with st.spinner("Retrieving BNF definitions..."): 
+        retrieve_bnf_definitions_and_add_to_snowflake(session, 
+        database="INTELLIGENCE_DEV", schema="AI_CENTRE_DEFINITION_LIBRARY")
+        st.session_state['uploaded_bnf_defs'] = True
 
 # 2. general
 # 3. empty table for ICB definitions

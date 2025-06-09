@@ -72,7 +72,7 @@ def open_codelists_url_and_csv_to_definition(url: str, csv_path: str) -> pd.Data
     # print(vocabulary)
     # print(version_id)
 
-    df_from_file = pd.read_csv(csv_path)
+    df_from_file = pd.read_csv('definition_library/loaders/' + csv_path)
     # print(df_from_file)
 
     df_to_create_definition = df_from_file.iloc[:, [0, 1]].set_axis(["code", "code_description"], axis=1)

@@ -10,9 +10,10 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
+from snowflake.snowpark import Session
 from phmlondon.definition import Code, Codelist, Definition, DefinitionSource, VocabularyType
-from loaders.base.load_tables import load_definitions_to_snowflake
 from phmlondon.snow_utils import SnowflakeConnection
+from definition_library.loaders.create_tables import load_definitions_to_snowflake
 
 
 def process_snomed_mappings(xlsx_files):
@@ -29,7 +30,10 @@ def build_definitions(zip_name, mapping_files):
     Build definitions from BNF chemical substances and SNOMED mappings
     """
     # BSA BNF hierarchy
-    with zipfile.ZipFile(f"loaders/data/bsa_bnf/{zip_name}", "r") as zip_ref:
+    from pathlib import Path
+    print(Path("data/bsa_bnf").resolve())
+
+    with zipfile.ZipFile(f"definition_library/loaders/data/bsa_bnf/{zip_name}", "r") as zip_ref:
         csv_name = zip_ref.namelist()[0]
         with zip_ref.open(csv_name) as csv_file:
             bnf_df = pd.read_csv(BytesIO(csv_file.read()))
@@ -96,16 +100,11 @@ def build_definitions(zip_name, mapping_files):
     return pd.concat([p.to_dataframe() for p in definitions], ignore_index=True)
 
 
-def main():
-    load_dotenv()
-
-    snowsesh = SnowflakeConnection()
-    snowsesh.use_database("INTELLIGENCE_DEV")
-    snowsesh.use_schema("AI_CENTRE_DEFINITION_LIBRARY")
-
-    mapping_files = Path("loaders/data/bnf_to_snomed/").glob("*.xlsx")
+def retrieve_bnf_definitions_and_add_to_snowflake(session: Session, database: str = "INTELLIGENCE_DEV",
+        schema: str = "AI_CENTRE_DEFINITION_LIBRARY"):
+                                                  
+    mapping_files = Path("definition_library/loaders/data/bnf_to_snomed/").glob("*.xlsx")
     definition_df = build_definitions("20241101_bsa_bnf.zip", mapping_files)
-
     print("Definitions built")
     definition_df.columns = definition_df.columns.str.upper()
     print("success in naming!")
@@ -114,13 +113,15 @@ def main():
     definition_df = definition_df[~definition_df["DEFINITION_NAME"].str.contains("DUMMY")]
 
     load_definitions_to_snowflake(
-        snowsesh=snowsesh, df=definition_df, table_name="BSA_BNF_SNOMED_MAPPINGS"
+        session=session, df=definition_df, table_name="BSA_BNF_SNOMED_MAPPINGS", database="INTELLIGENCE_DEV",
+        schema="AI_CENTRE_DEFINITION_LIBRARY"
     )
     print("uploaded to snowflake!")
 
-    snowsesh.session.close()
-
 if __name__ == "__main__":
-    print("ERROR: This script should not be run directly.")
-    print("Please run from update.py using the appropriate flag.")
-    sys.exit(1)
+    # print("ERROR: This script should not be run directly.")
+    # print("Please run from update.py using the appropriate flag.")
+    # sys.exit(1)
+    load_dotenv(override=True)
+    conn = SnowflakeConnection()
+    retrieve_bnf_definitions_and_add_to_snowflake(session=conn.session)
