@@ -1,14 +1,12 @@
-## prevents load from failing
-import sys
-
 ## Must be run from update.py
 from datetime import datetime
 
 import pandas as pd
 from dotenv import load_dotenv
 
+from snowflake.snowpark import Session
 from phmlondon.definition import Definition
-from loaders.base.load_tables import load_definitions_to_snowflake
+from base.load_tables import load_definitions_to_snowflake
 from phmlondon.hdruk_api import HDRUKLibraryClient
 from phmlondon.snow_utils import SnowflakeConnection
 
@@ -64,77 +62,97 @@ definition_list = [
     ("PH1009", 2187),  # BHF Hypercholesterolaemia (SNOMED)
     ("PH1001", 2179),  # BHF Cancer (ICD10, SNOMED)
 ]
-#######################################################
+######################################################
 
 
-def retrieve_hdruk_definitions(phenotype_id: str, version_id: int) -> pd.DataFrame:
+def retrieve_hdruk_definition(phenotype_id: str, version_id: int) -> list[dict]:
     """
-    Retrieves definition data from HDRUK API and returns as a DataFrame.
+    Retrieves definition data from HDRUK API and returns as a List of dictionaries.
     Args:
         phenotype_id (str):
             ID of the definition
         version_id (int):
             Version of the definition
     Returns:
-        DataFrame containing definition data
+        List containing definition data (dict per code item)
     """
-    try:
-        print(f"Processing definition {phenotype_id} version {version_id}...")
+    print(f"Processing HDRUK definition {phenotype_id} version {version_id}...")
 
-        hdr_client = HDRUKLibraryClient()
+    hdr_client = HDRUKLibraryClient()
 
-        # Get codelist data from API
-        codelist_df = hdr_client.get_phenotype_codelist(
-            phenotype_id=phenotype_id, version_id=version_id, output_format="db"
-        )
+    # Get codelist data from API
+    codelist_df = hdr_client.get_phenotype_codelist(
+        phenotype_id=phenotype_id, version_id=version_id, output_format="db"
+    )
 
-        codelist_df["definition_id"] = phenotype_id
-        codelist_df["definition_source"] = "HDRUK"
-        codelist_df["definition_name"] = codelist_df["phenotype_name"]
-        codelist_df["definition_version"] = codelist_df["phenotype_version"].astype(str)
-        print(codelist_df.columns)
+    codelist_df["definition_id"] = phenotype_id
+    codelist_df["definition_source"] = "HDRUK"
+    codelist_df["definition_name"] = codelist_df["phenotype_name"]
+    codelist_df["definition_version"] = codelist_df["phenotype_version"].astype(str)
+    # print(codelist_df.columns)
 
-        # Transform to definition object
-        definition = Definition.from_dataframe(codelist_df)
-        definition.uploaded_datetime = datetime.now()
+    # Transform to definition object
+    definition = Definition.from_dataframe(codelist_df)
+    definition.uploaded_datetime = datetime.now()
 
-        # Convert to pandas df
-        df = definition.to_dataframe()
-        df.columns = df.columns.str.upper()
+    return definition.aslist
 
-        print(f"Retrieved and transformed definition {phenotype_id}")
-        print("DataFrame preview:")
-        print(df.head())
+def retrieve_hdruk_definitions_from_list(definition_list: list) -> pd.DataFrame:
+    """
+    Takes a list of tuples representing HDRUK defintions and returns a dataframe with them all represented.
+    Args:
+        definition_list (list):
+            List of tuples of phenotype ID, version ID
+    Returns:
+        DataFrame containing all data
+    """
+    
+    all_definitions = []
+    for phenotype_id, version_id in definition_list:
+        new_def = retrieve_hdruk_definition(phenotype_id, version_id)
+        all_definitions.extend(new_def)
+    # print(all_definitions)
 
-        return df
+    print('HDRUK definitions retrieved successfully')
+    df = pd.DataFrame(all_definitions)
+    df.columns = df.columns.str.upper()  # Ensure all columns are uppercase
 
-    except Exception as e:
-        print(f"Error retrieving definition {phenotype_id}: {e}")
-        raise e
+    # print(df)
+    # print(df.dtypes)
 
+    return df
 
-def main():
-    load_dotenv()
+def retrieve_hdruk_definitions_and_add_to_snowflake(session: Session, database: str = "INTELLIGENCE_DEV",
+        schema: str = "AI_CENTRE_DEFINITION_LIBRARY"):
+    df = retrieve_hdruk_definitions_from_list(definition_list)
+    load_definitions_to_snowflake(session=session, df=df, table_name="HDRUK_DEFINITIONS", 
+        database="INTELLIGENCE_DEV", schema="AI_CENTRE_DEFINITION_LIBRARY")
 
-    snowsesh = SnowflakeConnection()
-    snowsesh.use_database("INTELLIGENCE_DEV")
-    snowsesh.use_schema("AI_CENTRE_DEFINITION_LIBRARY")
+# def main():
+#     load_dotenv()
 
-    try:
-        for phenotype_id, version_id in definition_list:
-            df = retrieve_hdruk_definitions(phenotype_id, version_id)
+#     conn = SnowflakeConnection()
+#     conn.use_database("INTELLIGENCE_DEV")
+#     conn.use_schema("AI_CENTRE_DEFINITION_LIBRARY")
 
-            load_definitions_to_snowflake(snowsesh=snowsesh, df=df, table_name="HDRUK_DEFINITIONS")
-            print(f"Completed processing definition {phenotype_id}")
+#     try:
+#         for phenotype_id, version_id in definition_list:
+#             df = retrieve_hdruk_definition(phenotype_id, version_id)
 
-    except Exception as e:
-        print(f"Failed to load definition {phenotype_id}: {e}")
-        raise e
-    finally:
-        snowsesh.session.close()
+#             load_definitions_to_snowflake(snowsesh=conn.session, df=df, table_name="HDRUK_DEFINITIONS")
+#             print(f"Completed processing definition {phenotype_id}")
+
+#     except Exception as e:
+#         print(f"Failed to load definition {phenotype_id}: {e}")
+#         raise e
+#     finally:
+#         conn.session.close()
 
 
 if __name__ == "__main__":
-    print("ERROR: This script should not be run directly.")
-    print("Please run from update.py using the appropriate flag.")
-    sys.exit(1)
+
+    load_dotenv(override=True)
+    conn = SnowflakeConnection()
+    conn.use_database("INTELLIGENCE_DEV")
+    conn.use_schema("AI_CENTRE_DEFINITION_LIBRARY")
+    retrieve_hdruk_definitions_and_add_to_snowflake(session=conn.session)

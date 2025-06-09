@@ -8,6 +8,8 @@ from utils.database_utils import get_snowflake_session
 from utils.style_utils import set_font_lato
 from utils.definition_interaction_utils import update_aic_definitions_table
 
+from definition_library.loaders.load_hdruk import retrieve_hdruk_definitions_and_add_to_snowflake
+
 # # PhenoLab.py
 
 # Main entry point for PhenoLab application.
@@ -85,14 +87,18 @@ PhenoLab helps manage:
 
 st.markdown("---")
 # Populate the definition tables
-# 1. aicentre
+# 1. AI Centre
 st.write("Database status:")
 if 'checked_database' in st.session_state:
     st.markdown('`Database checked`')
 else: # only want to do this once per session
     update_aic_definitions_table(session)
     st.session_state['checked_database'] = True
+if 'uploaded_hdruk_defs' not in st.session_state:
+    retrieve_hdruk_definitions_and_add_to_snowflake(session, 
+        database="INTELLIGENCE_DEV", schema="AI_CENTRE_DEFINITION_LIBRARY")
 # 2. general
+# 3. empty table for ICB definitions
 # 3. collate
 
 st.markdown("---")
