@@ -2,12 +2,10 @@ from datetime import datetime
 
 import pandas as pd
 import git
-import os
-from pathlib import Path
 from dotenv import load_dotenv
-from loaders.base.scrape_open_codelists import return_version_id_from_open_codelist_url
-
-from loaders.base.load_tables import load_definitions_to_snowflake
+from snowflake.snowpark import Session
+from base.scrape_open_codelists import return_version_id_from_open_codelist_url
+from base.load_tables import load_definitions_to_snowflake
 from phmlondon.definition import Definition
 from phmlondon.snow_utils import SnowflakeConnection
 
@@ -74,7 +72,7 @@ def open_codelists_url_and_csv_to_definition(url: str, csv_path: str) -> pd.Data
     # print(vocabulary)
     # print(version_id)
 
-    df_from_file = pd.read_csv('loaders/' + csv_path)
+    df_from_file = pd.read_csv(csv_path)
     # print(df_from_file)
 
     df_to_create_definition = df_from_file.iloc[:, [0, 1]].set_axis(["code", "code_description"], axis=1)
@@ -93,33 +91,46 @@ def open_codelists_url_and_csv_to_definition(url: str, csv_path: str) -> pd.Data
     definition = Definition.from_dataframe(df_to_create_definition)
     definition.uploaded_datetime = datetime.now()
 
-    df = definition.to_dataframe()
-    df.columns = df.columns.str.upper()
+    # df = definition.to_dataframe()
+    # df.columns = df.columns.str.upper()
 
     print(f"Retrieved and transformed definition {codelist_id}")
-    print("DataFrame preview:")
-    print(df.head())
+    # print("DataFrame preview:")
+    # print(df.head())
 
-    return df
+    return definition.aslist
 
-def main():
-    load_dotenv()
+def retreive_open_codelists_definitions_from_list(definition_list: list) -> pd.DataFrame:
+    """
+    Takes a list of OpenCodelists URLs and their corresponding CSV paths, retrieves the definitions, and returns a
+    DataFrame with all definitions represented.
 
-    snowsesh = SnowflakeConnection()
-    snowsesh.use_database("INTELLIGENCE_DEV")
-    snowsesh.use_schema("AI_CENTRE_DEFINITION_LIBRARY")
+    Args:
+        definition_list (list): List of tuples containing OpenCodelists URL and CSV path
+    Returns:
+        pd.DataFrame: DataFrame containing all definitions
+    """
+    all_definitions = []
+    for url, csv_path in definition_list.items():
+        print(url)
+        definition = open_codelists_url_and_csv_to_definition(url, csv_path)
+        all_definitions.extend(definition)
 
-    try:
-        for url, csv_path in definitions_to_load.items():
-            df = open_codelists_url_and_csv_to_definition(url, csv_path)
-            load_definitions_to_snowflake(snowsesh=snowsesh, df=df, table_name="OPEN_CODELISTS")
-            print(f"Completed processing definition {url}")
-    except Exception as e:
-        print(f"Failed to load definition {url}: {e}")
-        raise e
-    finally:
-        snowsesh.session.close()
+    print('OpenCodelists definitions retrieved successfully')
+    # combined_df = pd.concat(all_definitions, ignore_index=True)
+    combined_df = pd.DataFrame(all_definitions)
+    combined_df.columns = combined_df.columns.str.upper()
 
+    return combined_df
+
+def retrieve_open_codelists_definitions_and_add_to_snowflake(session: Session, database: str = "INTELLIGENCE_DEV",
+        schema: str = "AI_CENTRE_DEFINITION_LIBRARY"):
+    df = retreive_open_codelists_definitions_from_list(definitions_to_load)
+    load_definitions_to_snowflake(session=session, df=df, table_name="OPEN_CODELISTS", 
+        database=database, schema=schema)
+    
 if __name__ == "__main__":
-    print("ERROR: This script should not be run directly.")
-    print("Please run from update.py using the appropriate flag.")
+    load_dotenv(override=True)
+    conn = SnowflakeConnection()
+    retrieve_open_codelists_definitions_and_add_to_snowflake(session=conn.session,
+        database="INTELLIGENCE_DEV", schema="AI_CENTRE_DEFINITION_LIBRARY")
