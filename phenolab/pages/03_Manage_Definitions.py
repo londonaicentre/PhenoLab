@@ -9,7 +9,7 @@ from datetime import datetime
 import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
-from utils.database_utils import get_snowflake_session
+from utils.database_utils import update_aic_definitions_table
 from utils.definition_interaction_utils import (
     display_definition_from_file,
     display_selected_codes,
@@ -156,64 +156,6 @@ def display_edit_definition_panel() -> str:
 
     st.markdown("---")
 
-def handle_upload_to_snowflake():
-    """
-    UI handler for uploading definitions to Snowflake
-    """
-    session = get_snowflake_session()
-    # try:
-    #     snowsesh = get_snowflake_connection()
-    # except Exception as e:
-    #     st.error(f"Failed to get Snowflake connection: {e}")
-    #     return
-
-    definition_files = load_definitions_list()
-
-    with st.spinner(f"Processing {len(definition_files)} definition files..."):
-        try:
-            all_rows, definitions_to_add, definitions_to_remove = process_definitions_for_upload(session)
-        except Exception as e:
-            st.error(str(e))
-            return
-
-    # Upload if there's data
-    if all_rows is not None and not all_rows.empty:
-        with st.spinner(f"Uploading {len(all_rows)} rows to Snowflake..."):
-            try:
-                df = all_rows.copy()
-                df.columns = df.columns.str.upper()
-                print('a')
-                session.write_pandas(df, 
-                                    database="INTELLIGENCE_DEV",
-                                    schema="AI_CENTRE_DEFINITION_LIBRARY",
-                                    table_name="AIC_DEFINITIONS", 
-                                    overwrite=False)
-                # snowsesh.load_dataframe_to_table(df=df, table_name="AIC_DEFINITIONS", mode="append")
-                st.success(f"Successfully uploaded new definitions {definitions_to_add} to the AIC definition library")
-
-                # Delete old versions
-                for id, [name, current_version] in definitions_to_remove.items():
-                    session.sql(
-                        f"""DELETE FROM AIC_DEFINITIONS WHERE DEFINITION_ID = '{id}' AND
-                        VERSION_DATETIME != CAST('{current_version}' AS TIMESTAMP)"""
-                    ).collect()
-                    st.info(f"Deleted old version(s) of {name}")
-            except Exception as e:
-                st.error(f"Error uploading to Snowflake: {e}")
-                return
-    else:
-        st.warning("No new definitions to upload")
-
-    # Update DEFINITIONSTORE
-    with st.spinner("Updating DEFINITIONSTORE..."):
-        try:
-            run_definition_update_script()
-            st.success("Definition store updated successfully")
-        except subprocess.CalledProcessError as e:
-            st.error(f"Error updating definition store: {e.stderr}")
-        except Exception as e:
-            st.error(f"Error executing update script: {str(e)}")
-
 def main():
     st.set_page_config(page_title="Manage Definitions", layout="wide")
     set_font_lato()
@@ -303,7 +245,7 @@ def main():
             if definition_count > 0:
                 if st.button("Upload new / updated definitions to Snowflake"):
                     with maincol:
-                        handle_upload_to_snowflake()
+                        update_aic_definitions_table()
             else:
                 st.warning("No definitions available to upload")
 

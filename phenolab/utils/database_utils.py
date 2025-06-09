@@ -335,4 +335,3 @@ def get_unique_patients_for_condition(definition_name: str, _session: Session) -
 
     result = get_data_from_snowflake_to_dataframe(_session, combined_query)
     return result.iloc[0]['UNIQUE_PATIENTS'] if not result.empty else 0
-
