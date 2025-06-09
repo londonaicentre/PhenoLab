@@ -1,17 +1,22 @@
 import pandas as pd
+from snowflake.snowpark import Session
 
-
-def create_definition_table(snowsesh, table_name: str):
+def create_definition_table(session: Session, table_name: str, 
+        database: str = "INTELLIGENCE_DEV", schema: str = "AI_CENTRE_DEFINITION_LIBRARY"):
     """
     Creates a definition table if it doesn't exist.
     Args:
-        snowsesh:
+        session:
             Snowflake session object
         table_name(str):
             Name of the table to create
+        database (str):
+            Name of the database
+        schema (str):
+            Name of the schema
     """
     create_table_sql = f"""
-    CREATE TABLE IF NOT EXISTS {table_name}(
+    CREATE TABLE IF NOT EXISTS {database}.{schema}.{table_name}(
         CODE VARCHAR,
         CODE_DESCRIPTION VARCHAR,
         VOCABULARY VARCHAR,
@@ -26,49 +31,52 @@ def create_definition_table(snowsesh, table_name: str):
         UPLOADED_DATETIME TIMESTAMP_NTZ
     )
     """
-    snowsesh.execute_query(create_table_sql)
+    session.sql(create_table_sql).collect()
     print("Target table ensured")
 
 
-def create_temp_definition_table(snowsesh, df: pd.DataFrame, table_name: str):
+def create_temp_definition_table(session: Session, df: pd.DataFrame, table_name: str, 
+        database: str = "INTELLIGENCE_DEV", schema: str = "AI_CENTRE_DEFINITION_LIBRARY"):
     """
     Creates a temporary table from a pandas DataFrame.
     The temporary table name will be prefixed with TEMP_.
     Args:
-        snowsesh:
+        session:
             Snowflake session object
         df (pd.DataFrame):
             Pandas df containing definition data
         table_name (str):
             Name of the target table (without TEMP_ prefix)
+        database (str):
+            Name of the database
+        schema (str):
+            Name of the schema
     """
     temp_table = f"TEMP_{table_name}"
-
-    snowsesh.load_dataframe_to_table(
-        df=df, table_name=temp_table, mode="overwrite", table_type="temporary"
-    )
+    session.write_pandas(df, table_name=temp_table, overwrite=True, table_type="temporary", 
+        use_logical_type=True, database=database, schema=schema)
     print("Loaded data to temporary table")
 
 
 def merge_definition_tables(
-    snowsesh,
+    session: Session,
     table_name: str,
+    database: str = "INTELLIGENCE_DEV",
+    schema: str = "AI_CENTRE_DEFINITION_LIBRARY"
 ):
     """
     Merges data from a source table into a target table.
 
     Args:
-        snowsesh:
+        session:
             Snowflake session object
         table_name (str):
             Name of the target table
     """
     merge_sql = f"""
-    MERGE INTO {table_name} target
-    USING TEMP_{table_name} source
+    MERGE INTO {database}.{schema}.{table_name} target
+    USING {database}.{schema}.TEMP_{table_name} source
     ON target.CODE = source.CODE
-    AND target.CODE_DESCRIPTION = source.CODE_DESCRIPTION
-    AND target.VOCABULARY = source.VOCABULARY
     AND target.CODELIST_VERSION = source.CODELIST_VERSION
     AND target.DEFINITION_NAME = source.DEFINITION_NAME
     AND target.DEFINITION_VERSION = source.DEFINITION_VERSION
@@ -88,38 +96,31 @@ def merge_definition_tables(
             source.VERSION_DATETIME, source.UPLOADED_DATETIME
         )
     """
-    snowsesh.execute_query(merge_sql)
+    session.sql(merge_sql).collect()
     print("Merged data into main table")
 
 
-def load_definitions_to_snowflake(snowsesh, df: pd.DataFrame, table_name: str):
+def load_definitions_to_snowflake(session: Session, df: pd.DataFrame, table_name: str, 
+        database: str = "INTELLIGENCE_DEV", schema: str = "AI_CENTRE_DEFINITION_LIBRARY"):
     """
     Loads definition data to Snowflake using staging pattern.
     Args:
-        snowsesh:
+        session:
             Snowflake session
         df (pd.DataFrame):
             DataFrame containing definition data
         table_name (str):
             Name of target table
     """
-    try:
-        # Create permanent target table if not exists
-        create_definition_table(snowsesh, table_name)
 
-        # Load to temp table
-        create_temp_definition_table(snowsesh, df, table_name)
+    # Create permanent target table if not exists
+    create_definition_table(session, table_name, database, schema)
 
-        # Merge temp into permanent table
-        merge_definition_tables(snowsesh, table_name)
+    # Load to temp table
+    create_temp_definition_table(session, df, table_name, database, schema)
 
-    except Exception as e:
-        print(f"Error loading definitions: {e}")
-        raise e
-    finally:
-        # Clean up
-        try:
-            snowsesh.execute_query(f"DROP TABLE IF EXISTS TEMP_{table_name}")
-            print("Temporary table dropped")
-        except Exception as e:
-            print(f"Failed to clean up temporary table: {e}")
+    # Merge temp into permanent table
+    merge_definition_tables(session, table_name, database, schema)
+
+    session.sql(f"DROP TABLE IF EXISTS {database}.{schema}.TEMP_{table_name}").collect()
+    print("Temporary table dropped")

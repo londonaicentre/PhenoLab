@@ -165,11 +165,12 @@ class Definition:
     @property
     def codes(self) -> list[Code]:
         return [code for codelist in self.codelists for code in codelist.codes]
+    
+    @property
+    def aslist(self) -> list[dict]:
+        return self.to_list()
 
-    def to_dataframe(self) -> pd.DataFrame:
-        """
-        Create a pandas dataframe for the definition object
-        """
+    def to_list(self) -> list[dict]:
         definition_records = []
         for codelist in self.codelists:
             for code in codelist.codes:
@@ -188,8 +189,13 @@ class Definition:
                     "uploaded_datetime": self.uploaded_datetime,
                 }
                 definition_records.append(record)
+        return definition_records
 
-        return pd.DataFrame(definition_records)
+    def to_dataframe(self) -> pd.DataFrame:
+        """
+        Create a pandas dataframe for the definition object
+        """
+        return pd.DataFrame(self.aslist)
 
     @classmethod
     def from_dataframe(cls, input_df: pd.DataFrame) -> Self:

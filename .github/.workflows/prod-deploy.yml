@@ -1,0 +1,7 @@
+name: Deploy phenolab to production
+
+on:
+  push:
+    branches:
+      - main
+
