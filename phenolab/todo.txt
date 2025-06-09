@@ -2,10 +2,10 @@
 x definition_library needs to become part of phenolab
 x fix dependencies
 - github actions
-- fix connection to snowflake
+x fix connection to snowflake
 - fix definition_library backend
 - get rid of pipeline folder
-- check wether feature store manager still works
+- check whether feature store manager still works after refactoring of connection
 - is update.py the best way to do things? at least change the session management
 (2) ICB table with 'starterpack' model
 (3) external definitions starterpack
@@ -16,3 +16,5 @@ x fix dependencies
 - add some tests?
 - check if config in PHMutils should be part of phenolab
 (6) delete definition option?
+(7) phenotypes
+(8) measurements

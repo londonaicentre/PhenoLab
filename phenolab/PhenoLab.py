@@ -6,7 +6,7 @@ import streamlit as st
 from dotenv import load_dotenv
 from utils.database_utils import get_snowflake_session
 from utils.style_utils import set_font_lato
-
+from utils.definition_interaction_utils import update_aic_definitions_table
 
 # # PhenoLab.py
 
@@ -83,13 +83,20 @@ PhenoLab helps manage:
 3. **Phenotypes**: Patient-centric clinical labels based on logical operations applied to these definitions)
 """)
 
-# with st.expander("Snowflake Connection Setup"):
-#     st.markdown("""
-#     Required environment variables `.env`:
-#     - `SNOWFLAKE_SERVER`: Snowflake account identifier
-#     - `SNOWFLAKE_USER`: Snowflake username
-#     - `SNOWFLAKE_USERGROUP`: Snowflake role
-#     """)
+st.markdown("---")
+# Populate the definition tables
+# 1. aicentre
+st.write("Database status:")
+if 'checked_database' in st.session_state:
+    st.markdown('`Database checked`')
+else: # only want to do this once per session
+    update_aic_definitions_table(session)
+    st.session_state['checked_database'] = True
+# 2. general
+# 3. collate
 
 st.markdown("---")
 st.markdown("2025 London AI Centre & OneLondon")
+
+st.write("Running streamlit version:", st.__version__)
+

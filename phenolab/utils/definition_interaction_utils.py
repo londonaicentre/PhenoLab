@@ -4,6 +4,7 @@ from typing import List, Optional, Tuple
 
 import pandas as pd
 import streamlit as st
+from snowflake.snowpark import Session
 from utils.database_utils import (
     # connect_to_snowflake,
     get_snowflake_session,
@@ -488,40 +489,78 @@ def process_definitions_for_upload(session):
     definitions_to_add = []
 
     for def_file in definition_files:
-        try:
-            file_path = os.path.join("data/definitions", def_file)
-            definition = Definition.from_json(file_path)
+        file_path = os.path.join("data/definitions", def_file)
+        definition = Definition.from_json(file_path)
 
-            query = f"""
-            SELECT DEFINITION_ID, DEFINITION_NAME, VERSION_DATETIME
-            FROM INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.AIC_DEFINITIONS
-            WHERE DEFINITION_ID = '{definition.definition_id}'
-            """
-            existing_definition = session.sql(query).to_pandas()
+        query = f"""
+        SELECT DEFINITION_ID, DEFINITION_NAME, VERSION_DATETIME
+        FROM INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.AIC_DEFINITIONS
+        WHERE DEFINITION_ID = '{definition.definition_id}'
+        """
+        existing_definition = session.sql(query).to_pandas()
 
-            if not existing_definition.empty:
-                max_version_in_db = existing_definition["VERSION_DATETIME"].max()
-                current_version = definition.version_datetime
+        if not existing_definition.empty:
+            max_version_in_db = existing_definition["VERSION_DATETIME"].max()
+            current_version = definition.version_datetime
 
-                if current_version == max_version_in_db:
-                    continue  # skip if already exists
+            if current_version == max_version_in_db:
+                continue  # skip if already exists
 
-                if current_version < max_version_in_db:
-                    continue  # skip if newer version exists
+            if current_version < max_version_in_db:
+                continue  # skip if newer version exists
 
-                # record that we want to delete the old one
-                definitions_to_remove[definition.definition_id] = [definition.definition_name, current_version]
+            # record that we want to delete the old one
+            definitions_to_remove[definition.definition_id] = [definition.definition_name, current_version]
 
-            definition.uploaded_datetime = datetime.now()
+        definition.uploaded_datetime = datetime.now()
 
-            all_rows = pd.concat([all_rows, definition.to_dataframe()])
-            definitions_to_add.append(definition.definition_name)
-
-        except Exception as e:
-            raise Exception(f"Error processing {def_file}: {e}")
+        all_rows = pd.concat([all_rows, definition.to_dataframe()])
+        definitions_to_add.append(definition.definition_name)
 
     return all_rows, definitions_to_add, definitions_to_remove
 
+def update_aic_definitions_table(session: Session):
+    """
+    Update the AIC_DEFINITIONS table with new or updated definitions from local files.
+    """
+
+    definition_files = load_definitions_list()
+
+    with st.spinner(f"Processing {len(definition_files)} definition files..."):
+        all_rows, definitions_to_add, definitions_to_remove = process_definitions_for_upload(session)
+
+    # Upload if there's data
+    if all_rows is not None and not all_rows.empty:
+        with st.spinner(f"Uploading {len(all_rows)} rows to Snowflake..."):
+            df = all_rows.copy()
+            df.columns = df.columns.str.upper()
+            session.write_pandas(df, 
+                                database="INTELLIGENCE_DEV",
+                                schema="AI_CENTRE_DEFINITION_LIBRARY",
+                                table_name="AIC_DEFINITIONS", 
+                                overwrite=False)
+            # snowsesh.load_dataframe_to_table(df=df, table_name="AIC_DEFINITIONS", mode="append")
+            st.success(f"Successfully uploaded new definitions {definitions_to_add} to the AIC definition library")
+
+            # Delete old versions
+            for id, [name, current_version] in definitions_to_remove.items():
+                session.sql(
+                    f"""DELETE FROM AIC_DEFINITIONS WHERE DEFINITION_ID = '{id}' AND
+                    VERSION_DATETIME != CAST('{current_version}' AS TIMESTAMP)"""
+                ).collect()
+                st.info(f"Deleted old version(s) of {name}")
+    else:
+        st.warning("No new definitions to upload")
+
+    # # Update DEFINITIONSTORE
+    # with st.spinner("Updating DEFINITIONSTORE..."):
+    #     try:
+    #         run_definition_update_script()
+    #         st.success("Definition store updated successfully")
+    #     except subprocess.CalledProcessError as e:
+    #         st.error(f"Error updating definition store: {e.stderr}")
+    #     except Exception as e:
+    #         st.error(f"Error executing update script: {str(e)}")
 
 def run_definition_update_script():
     """
