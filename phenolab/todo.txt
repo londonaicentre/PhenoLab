@@ -4,22 +4,35 @@ x fix dependencies
 - github actions
 x fix connection to snowflake
 x fix definition_library backend
-- fix update.py. Is update.py the best way to do things? at least change the session management
+x fix update.py. Is update.py the best way to do things? at least change the session management
+- dependencies on streamlit is an issue...go to static downloads
 - get rid of pipeline folder
 - check whether feature store manager still works after refactoring of connection
 - need to add in NHS GP table and NEL segments
+- maybe should/check fix 'uploaded datetime', especially for those where doing asynchronous upload
+- fix the database/schema defaults because I think i did them wrong
+
 (2) ICB table with 'starterpack' model
 - create ICB table
 - definitions should go to ICB table
 - UNLESS we create them as jsons/export as jsons
 - existing NEL segments need to go in ICB table
+
 (3) external definitions starterpack
+x done 
+
 (4) aesthetic changes
+
 (5) general/misc
 - redundant imports
 - get rid of some of the database utils functions
 - add some tests?
 - check if config in PHMutils should be part of phenolab
+
 (6) delete definition option?
+
 (7) phenotypes
+
 (8) measurements
+
+(9) vocab loading

@@ -10,4 +10,5 @@ entities:
       - utils
       - pages
       - data
+      - definition_library
       - environment.yml
