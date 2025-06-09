@@ -153,6 +153,5 @@ if __name__ == "__main__":
 
     load_dotenv(override=True)
     conn = SnowflakeConnection()
-    conn.use_database("INTELLIGENCE_DEV")
-    conn.use_schema("AI_CENTRE_DEFINITION_LIBRARY")
-    retrieve_hdruk_definitions_and_add_to_snowflake(session=conn.session)
+    retrieve_hdruk_definitions_and_add_to_snowflake(session=conn.session, database="INTELLIGENCE_DEV",
+        schema="AI_CENTRE_DEFINITION_LIBRARY")

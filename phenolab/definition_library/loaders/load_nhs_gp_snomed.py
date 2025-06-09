@@ -14,7 +14,7 @@ from phmlondon.definition import (
     DefinitionSource,
     VocabularyType,
 )
-from loaders.base.load_tables import load_definitions_to_snowflake
+from base.load_tables import load_definitions_to_snowflake
 from phmlondon.onto_utils import FHIRTerminologyClient
 from phmlondon.snow_utils import SnowflakeConnection
 
@@ -125,7 +125,7 @@ def retrieve_snomed_definitions(url: str) -> pd.DataFrame:
 
 
 def main():
-    load_dotenv()
+    load_dotenv(override=True)
 
     snowsesh = SnowflakeConnection()
     snowsesh.use_database("INTELLIGENCE_DEV")
@@ -153,6 +153,8 @@ def main():
 
 
 if __name__ == "__main__":
-    print("ERROR: This script should not be run directly.")
-    print("Please run from update.py using the appropriate flag.")
-    sys.exit(1)
+    # print("ERROR: This script should not be run directly.")
+    # print("Please run from update.py using the appropriate flag.")
+    # sys.exit(1)
+
+    main()
