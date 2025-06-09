@@ -1,56 +1,22 @@
 """
-Script to update definitions from a particular source (HDRUK, GP refsets, BNF, NEL) - the source
-is specified as an input
+This script created the DEFINITIONSTORE view in Snowflake, which unifies various definition tables and includes 
+datbase ID (DBID) mappings. It only needs to be run once to set up the view, and then only needs to be updated if there
+is a change to the structure of the underlying tables or if new tables are added. As such, it is not called anywhere and 
+should be run manually once when setting up PhenoLab on a new Snowflake instance.
 """
-
-
-from typing import Dict
-
-from dotenv import load_dotenv
 from snowflake.snowpark import Session
-# from loaders.load_bnf_to_snomed import main as load_bsa_bnf_snomed
-# from loaders.load_bsa_bnf import main as load_bsa_bnf
-# #from loaders.load_hdruk import main as load_hdruk
-# from loaders.load_nel_segments import main as load_nel
-# from loaders.load_nhs_gp_snomed import main as load_snomed
-#from loaders.load_open_codelists import main as load_open_codelists
-
-from phmlondon.snow_utils import SnowflakeConnection
-
-# LOADER_CONFIG = {
-#     # 'hdruk': {
-#     #     'func': load_hdruk,
-#     #     'table': 'HDRUK_DEFINITIONS'
-#     # },
-#     'gpsnomed': {
-#         #'func': load_snomed,
-#         'table': 'NHS_GP_SNOMED_REFSETS'
-#     },
-#     'nelseg': {
-#         #'func': load_nel,
-#         'table': 'NEL_SEGMENT_DEFINITIONS'
-#     },
-#     'bsabnfsnomed': {
-#         #'func': load_bsa_bnf_snomed,
-#         'table': 'BSA_BNF_SNOMED_MAPPINGS'
-#     },
-#     'aicentre': {
-#         'table': 'AIC_DEFINITIONS'
-#     },
-#     # 'opencodelists': {
-#     #     'func': load_open_codelists,
-#     #     'table': 'OPEN_CODELISTS'
-#     # },
-# }
-
 
 def create_definitionstore_view(session: Session, database: str = "INTELLIGENCE_DEV",
         schema: str = "AI_CENTRE_DEFINITION_LIBRARY"):
     """
     Creates unified view of all definition tables with DBID mappings
     Args:
-        snowsesh:
-            Active Snowflake session
+        session (Session):
+            Snowflake session
+        database (str):
+            Name of the database to create the view in
+        schema (str):
+            Name of the schema to create the view in
     """
 
     TABLES = [
@@ -90,53 +56,13 @@ def create_definitionstore_view(session: Session, database: str = "INTELLIGENCE_
     session.sql(view_sql).collect()
     print("Created DEFINITIONSTORE view with DBID mappings")
 
-
-# def run_loaders(loader_flags: Dict[str, bool]):
-#     """
-#     Runs selected definition loaders and recreates unified view
-#     Args:
-#         loader_flags: dictionary of loader names + flags
-#     """
-#     load_dotenv()
-#     snowsesh = SnowflakeConnection()
-#     snowsesh.use_database("INTELLIGENCE_DEV")
-#     snowsesh.execute_query("CREATE SCHEMA IF NOT EXISTS AI_CENTRE_DEFINITION_LIBRARY")
-#     snowsesh.use_schema("AI_CENTRE_DEFINITION_LIBRARY")
-
-#     try:
-#         for loader_name, run_loader in loader_flags.items():
-#             if run_loader and loader_name in LOADER_CONFIG:
-#                 print(f"Running {loader_name} loader...")
-#                 LOADER_CONFIG[loader_name]["func"]()
-#                 print(f"{loader_name} loader completed")
-
-#         # Always create view regardless of which loaders ran
-#         create_definitionstore_view(snowsesh)
-
-#     except Exception as e:
-#         print(f"Error in loader execution: {e}")
-#         raise e
-#     finally:
-#         snowsesh.session.close()
-
-
 def main():
-    load_dotenv(override=True)
-    conn = SnowflakeConnection()
+    session = Session.builder.config("connection_name", "nel_icb").create()
     create_definitionstore_view(
-        session=conn.session,
+        session=session,
         database="INTELLIGENCE_DEV",
         schema="AI_CENTRE_DEFINITION_LIBRARY"
     )
-
-    # parser = argparse.ArgumentParser(description="Run definition loaders")
-
-    # for loader_name in LOADER_CONFIG:
-    #     parser.add_argument(f"--{loader_name}", action="store_true")
-
-    # args = vars(parser.parse_args())
-    # run_loaders(args)
-
 
 if __name__ == "__main__":
     main()
