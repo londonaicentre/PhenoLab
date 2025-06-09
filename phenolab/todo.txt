@@ -3,10 +3,11 @@ x definition_library needs to become part of phenolab
 x fix dependencies
 - github actions
 x fix connection to snowflake
-- fix definition_library backend
+x fix definition_library backend
 - fix update.py. Is update.py the best way to do things? at least change the session management
 - get rid of pipeline folder
 - check whether feature store manager still works after refactoring of connection
+- need to add in NHS GP table and NEL segments
 (2) ICB table with 'starterpack' model
 - create ICB table
 - definitions should go to ICB table
