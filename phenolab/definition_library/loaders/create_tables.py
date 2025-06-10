@@ -1,5 +1,6 @@
 import pandas as pd
 from snowflake.snowpark import Session
+from snowflake.connector.errors import ProgrammingError
 
 def create_definition_table(session: Session, table_name: str, 
         database: str = "INTELLIGENCE_DEV", schema: str = "AI_CENTRE_DEFINITION_LIBRARY"):
@@ -53,8 +54,14 @@ def create_temp_definition_table(session: Session, df: pd.DataFrame, table_name:
             Name of the schema
     """
     temp_table = f"TEMP_{table_name}"
-    session.write_pandas(df, table_name=temp_table, overwrite=True, table_type="temporary", 
-        use_logical_type=True, database=database, schema=schema)
+    try:
+        session.write_pandas(df, table_name=temp_table, overwrite=True, table_type="temporary", 
+            use_logical_type=True, database=database, schema=schema)
+    except ProgrammingError:
+        # Snowflake on streamlit does not allow temporary tables, so we use a normal table
+        # There's a manual drop of this table after the merge
+        session.write_pandas(df, table_name=temp_table, overwrite=True, 
+            use_logical_type=True, database=database, schema=schema)
     print("Loaded data to temporary table")
 
 

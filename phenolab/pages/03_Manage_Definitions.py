@@ -9,7 +9,7 @@ from datetime import datetime
 import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
-from utils.database_utils import update_aic_definitions_table
+# from utils.database_utils import update_aic_definitions_table
 from utils.definition_interaction_utils import (
     display_definition_from_file,
     display_selected_codes,
@@ -18,6 +18,7 @@ from utils.definition_interaction_utils import (
     load_definitions_list,
     process_definitions_for_upload,
     run_definition_update_script,
+    update_aic_definitions_table
 )
 from utils.style_utils import set_font_lato
 
