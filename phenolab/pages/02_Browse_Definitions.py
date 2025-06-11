@@ -1,7 +1,5 @@
-import re
-
 import streamlit as st
-from dotenv import load_dotenv
+from snowflake.snowpark import Session
 from utils.database_utils import (
     get_aic_definitions,
     get_snowflake_session,
@@ -23,20 +21,41 @@ from utils.style_utils import set_font_lato
 # Users can identify shared and unique codes, for validation and refinement.
 
 
-def view_aic_definitions():
+# def view_aic_definitions():
+#     """
+#     Display AIC Definitions
+#     """
+#     st.title("AI Centre Definitions")
+
+#     session = get_snowflake_session()
+
+#     definitions = get_aic_definitions(session)
+#     st.dataframe(definitions)
+
+#     if st.button("Refresh", key="aic_refresh_button"):
+#         get_aic_definitions(session)
+#         st.rerun()
+
+def view_definitions(session: Session, database: str, schema: str):
     """
-    Display AIC Definitions
+    Users can select which tables they would like to view definitions from
     """
-    st.title("AI Centre Definitions")
+    st.title("Browse definitions")
 
-    session = get_snowflake_session()
+    all_tables = [row["name"] for row in session.sql(f"SHOW TABLES IN SCHEMA {database}.{schema}").collect()]
 
-    definitions = get_aic_definitions(session)
-    st.dataframe(definitions)
+    chosen_tables = st.multiselect("Select definition source", options=all_tables, default='AIC_DEFINITIONS')
+    table_list_str = ', '.join([f"'{t}'" for t in chosen_tables])
 
-    if st.button("Refresh", key="aic_refresh_button"):
-        get_aic_definitions(session)
-        st.rerun()
+    query = f"""SELECT DEFINITION_ID, DEFINITION_NAME, DEFINITION_SOURCE,
+    VERSION_DATETIME, UPLOADED_DATETIME,
+    FROM {database}.{schema}.DEFINITIONSTORE
+    WHERE SOURCE_TABLE IN ({table_list_str})
+    GROUP BY DEFINITION_ID, DEFINITION_NAME, VERSION_DATETIME, UPLOADED_DATETIME, DEFINITION_SOURCE
+    ORDER BY DEFINITION_NAME"""
+    df = session.sql(query).to_pandas()
+
+    st.dataframe(df)
 
 def create_definition_panel(session,
                             column,
@@ -156,19 +175,20 @@ def main():
     st.set_page_config(page_title="Browse Definitions", layout="wide", initial_sidebar_state="expanded")
     set_font_lato()
 
-    load_dotenv()
+    session = get_snowflake_session()
 
     # create tabs for each section
-    view_tab, compare_tab = st.tabs(["View AIC Definitions", "Compare Definitions"])
+    view_tab, compare_tab = st.tabs(["View Definitions", "Compare Definitions"])
 
     # TAB 1: LIST AIC DEFS
     with view_tab:
-        view_aic_definitions()
+        # view_aic_definitions()
+        view_definitions(session, "INTELLIGENCE_DEV", "AI_CENTRE_DEFINITION_LIBRARY")
 
     # TAB 2: COMPARE BETWEEN DEFS
     with compare_tab:
         compare_definitions()
-
+     
 
 if __name__ == "__main__":
     main()
