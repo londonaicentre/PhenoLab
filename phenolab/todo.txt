@@ -12,8 +12,8 @@ x check whether feature store manager still works after refactoring of connectio
 x maybe should/check fix 'uploaded datetime', especially for those where doing asynchronous upload
 x fix the database/schema defaults because I think i did them wrong
 x tidy up main page appearance
-- update definition_library readme.md
-- page to browse by source
+x update definition_library readme.md
+x page to browse by source
 
 (2a) CI approach
 - github actions
@@ -33,7 +33,11 @@ x done
 - redundant imports
 - get rid of some of the database utils functions
 - add some tests?
-- check if config in PHMutils should be part of phenolab
+
+(5b) ICB-specific config
+- check if config in PHMutils should be part of phenolab or more likely, switch to a config file
+- see if the config is a good idea/should be refactored/homogenised with database/schema
+- get rid of load_dotenv?
 
 (6) delete definition option?
 

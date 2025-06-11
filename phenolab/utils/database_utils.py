@@ -18,38 +18,6 @@ Uses a single snowflake connectino, and context managers for temporary db/schema
 Uses parameters in config.py to adapt to different source database naming.
 """
 
-### SNOWFLAKE CONNECTION
-# def get_snowflake_connection() -> SnowflakeConnection:
-#     """
-#     Get or create the single Snowflake connection for the session.
-
-#     This creates one connection per Streamlit session and stores it in session state.
-#     The connection can be used with different databases/schemas using the context manager:
-
-#     E.g.:
-#         snowsesh = get_snowflake_connection()
-
-#         df = snowsesh.execute_query_to_df("SELECT * FROM my_table")
-
-#         # use with different database/schema
-#         with snowsesh.use_context(database="PROD_DWH", schema="ANALYST_PRIMARY_CARE"):
-#             df2 = snowsesh.execute_query_to_df("SELECT * FROM other_table")
-#     """
-#     if "snowflake_connection" not in st.session_state:
-#         with st.spinner("Connecting to Snowflake..."):
-#             try:
-#                 conn = SnowflakeConnection()
-
-#                 # default db and schema
-#                 conn.use_database(SNOWFLAKE_DATABASE)
-#                 conn.use_schema(DEFINITION_LIBRARY)
-#                 st.session_state.snowflake_connection = conn
-#             except Exception as e:
-#                 st.error(f"Failed to connect to Snowflake: {e}")
-#                 raise
-
-#     return st.session_state.snowflake_connection
-
 def get_snowflake_session() -> Session:
     try:
         return get_active_session() # this function works for Snowflake on Streamlit 
@@ -59,8 +27,6 @@ def get_snowflake_session() -> Session:
         # need to have a snowflake connection file and a default connection set up
         # (NB snowflake documentation says it should work on snowflake on Streamlit too, but it doesn't)
 
-# BACKWARDS COMPATIBILITY
-# connect_to_snowflake = get_snowflake_connection
 
 ### DATABASE READS
 def standard_query_cache(func):
@@ -129,6 +95,8 @@ def get_aic_definitions(_session: Session) -> pd.DataFrame:
     ORDER BY DEFINITION_NAME
     """
     return get_data_from_snowflake_to_dataframe(_session, query)
+
+
 
 
 @standard_query_cache
