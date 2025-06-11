@@ -1,9 +1,0 @@
-name: Deploy phenolab to production
-
-on:
-  push:
-    branches:
-      - main
-
-# snow streamlit deploy --replace
-# snow stage copy src/phmlondon @phenolab/phmlondon --recursive
