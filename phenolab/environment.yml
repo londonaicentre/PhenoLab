@@ -7,5 +7,4 @@ dependencies:
   - plotly
   - pandas
   - polars
-  - boto3
   - openpyxl
