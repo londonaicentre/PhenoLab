@@ -519,7 +519,9 @@ def process_definitions_for_upload(session):
 
     return all_rows, definitions_to_add, definitions_to_remove
 
-def update_aic_definitions_table(session: Session):
+def update_aic_definitions_table(session: Session, 
+                                database: str = "INTELLIGENCE_DEV", 
+                                schema: str = "AI_CENTRE_DEFINITION_LIBRARY"):
     """
     Update the AIC_DEFINITIONS table with new or updated definitions from local files.
     """
@@ -535,8 +537,8 @@ def update_aic_definitions_table(session: Session):
             df = all_rows.copy()
             df.columns = df.columns.str.upper()
             session.write_pandas(df, 
-                                database="INTELLIGENCE_DEV",
-                                schema="AI_CENTRE_DEFINITION_LIBRARY",
+                                database=database,
+                                schema=schema,
                                 table_name="AIC_DEFINITIONS", 
                                 overwrite=False)
             # snowsesh.load_dataframe_to_table(df=df, table_name="AIC_DEFINITIONS", mode="append")
