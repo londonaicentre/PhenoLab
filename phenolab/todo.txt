@@ -45,3 +45,6 @@ x done
 
 (10) base features
 - get rid of pipeline folder
+
+(11) ugggh
+- retrieving bnf definitions is very slow
