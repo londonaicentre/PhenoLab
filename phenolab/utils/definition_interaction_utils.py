@@ -521,7 +521,8 @@ def process_definitions_for_upload(session):
 
 def update_aic_definitions_table(session: Session, 
                                 database: str = "INTELLIGENCE_DEV", 
-                                schema: str = "AI_CENTRE_DEFINITION_LIBRARY"):
+                                schema: str = "AI_CENTRE_DEFINITION_LIBRARY", 
+                                verbose: bool = True):
     """
     Update the AIC_DEFINITIONS table with new or updated definitions from local files.
     """
@@ -542,7 +543,8 @@ def update_aic_definitions_table(session: Session,
                                 table_name="AIC_DEFINITIONS", 
                                 overwrite=False)
             # snowsesh.load_dataframe_to_table(df=df, table_name="AIC_DEFINITIONS", mode="append")
-            st.success(f"Successfully uploaded new definitions {definitions_to_add} to the AIC definition library")
+            if verbose:
+                st.success(f"Successfully uploaded new definitions {definitions_to_add} to the AIC definition library")
 
             # Delete old versions
             for id, [name, current_version] in definitions_to_remove.items():
@@ -550,9 +552,11 @@ def update_aic_definitions_table(session: Session,
                     f"""DELETE FROM AIC_DEFINITIONS WHERE DEFINITION_ID = '{id}' AND
                     VERSION_DATETIME != CAST('{current_version}' AS TIMESTAMP)"""
                 ).collect()
-                st.info(f"Deleted old version(s) of {name}")
+                if verbose:
+                    st.info(f"Deleted old version(s) of {name}")
     else:
-        st.warning("No new definitions to upload")
+        if verbose:
+            st.warning("No new definitions to upload")
 
     # # Update DEFINITIONSTORE
     # with st.spinner("Updating DEFINITIONSTORE..."):
