@@ -11,7 +11,7 @@ x check whether feature store manager still works after refactoring of connectio
 - >> need to add in NHS GP table and NEL segments <<
 x maybe should/check fix 'uploaded datetime', especially for those where doing asynchronous upload
 x fix the database/schema defaults because I think i did them wrong
-- tidy up main page appearance
+x tidy up main page appearance
 - update definition_library readme.md
 - page to browse by source
 
