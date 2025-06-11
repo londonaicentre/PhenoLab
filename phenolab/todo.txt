@@ -6,12 +6,11 @@ x fix definition_library backend
 x fix update.py. Is update.py the best way to do things? at least change the session management
 x dependencies on streamlit is an issue...go to static downloads
 x temp tables
-- openpyxl
-- get rid of pipeline folder
-- check whether feature store manager still works after refactoring of connection
-- need to add in NHS GP table and NEL segments
-- maybe should/check fix 'uploaded datetime', especially for those where doing asynchronous upload
-- fix the database/schema defaults because I think i did them wrong
+x openpyxl
+x check whether feature store manager still works after refactoring of connection
+- >> need to add in NHS GP table and NEL segments <<
+x maybe should/check fix 'uploaded datetime', especially for those where doing asynchronous upload
+x fix the database/schema defaults because I think i did them wrong
 - tidy up main page appearance
 - update definition_library readme.md
 - page to browse by source
@@ -43,3 +42,6 @@ x done
 (8) measurements
 
 (9) vocab loading
+
+(10) base features
+- get rid of pipeline folder

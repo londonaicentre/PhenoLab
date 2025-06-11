@@ -95,7 +95,7 @@ if 'checked_database' in st.session_state:
     st.markdown('`Database checked`')
 else: # only want to do this once per session
     with st.spinner("Loading AI Centre definitions..."):
-        update_aic_definitions_table(session)
+        update_aic_definitions_table(session, database="INTELLIGENCE_DEV", schema="AI_CENTRE_DEFINITION_LIBRARY")
         st.session_state['checked_database'] = True
 
 # 2. HDRUK

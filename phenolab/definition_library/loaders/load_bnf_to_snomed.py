@@ -113,8 +113,7 @@ def retrieve_bnf_definitions_and_add_to_snowflake(session: Session, database: st
     definition_df = definition_df[~definition_df["DEFINITION_NAME"].str.contains("DUMMY")]
 
     load_definitions_to_snowflake(
-        session=session, df=definition_df, table_name="BSA_BNF_SNOMED_MAPPINGS", database="INTELLIGENCE_DEV",
-        schema="AI_CENTRE_DEFINITION_LIBRARY"
+        session=session, df=definition_df, table_name="BSA_BNF_SNOMED_MAPPINGS", database=database, schema=schema
     )
     print("uploaded to snowflake!")
 
