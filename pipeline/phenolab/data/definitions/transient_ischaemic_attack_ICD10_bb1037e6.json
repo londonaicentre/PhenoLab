@@ -1,0 +1,33 @@
+{
+  "definition_id": "bb1037e6",
+  "definition_name": "transient_ischaemic_attack_ICD10",
+  "definition_version": "transient_ischaemic_attack_ICD10_20250612_124144",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-06-12T12:42:05.695480",
+  "codelists": [
+    {
+      "codelist_id": "transient_ischaemic_attack_ICD10_ICD10_da66f76b",
+      "codelist_name": "transient_ischaemic_attack_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "transient_ischaemic_attack_ICD10_ICD10_da66f76b_20250612_124150",
+      "codes": [
+        {
+          "code": "G45.9",
+          "code_description": "Transient cerebral ischaemic attack, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "G45.8",
+          "code_description": "Other transient cerebral ischaemic attacks and related syndromes",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "G45",
+          "code_description": "Transient cerebral ischaemic attacks and related syndromes",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

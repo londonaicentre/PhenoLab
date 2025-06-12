@@ -187,7 +187,6 @@ def get_available_measurements(_snowsesh):
         return pd.DataFrame()
 
 
-@standard_query_cache
 def get_condition_patient_counts_by_year(definition_name: str, _snowsesh: SnowflakeConnection) -> pd.DataFrame:
     """
     Get unique patient counts by year for a given condition definition
@@ -258,7 +257,6 @@ def get_condition_patient_counts_by_year(definition_name: str, _snowsesh: Snowfl
     return get_data_from_snowflake_to_dataframe(_snowsesh, combined_query)
 
 
-@standard_query_cache
 def get_unique_patients_for_condition(definition_name: str, _snowsesh: SnowflakeConnection) -> int:
     """
     Get total unique patient count for a condition definition

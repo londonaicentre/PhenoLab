@@ -1,0 +1,178 @@
+{
+  "definition_id": "2995cd5f",
+  "definition_name": "atrial_fibrillation_SNOMED",
+  "definition_version": "atrial_fibrillation_SNOMED_20250612_132330",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-06-12T13:24:58.794706",
+  "codelists": [
+    {
+      "codelist_id": "atrial_fibrillation_SNOMED_SNOMED_d9024d8f",
+      "codelist_name": "atrial_fibrillation_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "atrial_fibrillation_SNOMED_SNOMED_d9024d8f_20250612_132342",
+      "codes": [
+        {
+          "code": "49436004",
+          "code_description": "Atrial fibrillation (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "282825002",
+          "code_description": "Paroxysmal atrial fibrillation (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195080001",
+          "code_description": "Atrial fibrillation and flutter (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "164889003",
+          "code_description": "Electrocardiographic atrial fibrillation (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "248411000000105",
+          "code_description": "Atrial fibrillation annual review (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "134377004",
+          "code_description": "Atrial fibrillation monitoring (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "312442005",
+          "code_description": "History of atrial fibrillation (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "847611000000104",
+          "code_description": "Atrial fibrillation care pathway (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "717221000000101",
+          "code_description": "Atrial fibrillation monitoring first letter (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "711411000000101",
+          "code_description": "Atrial fibrillation monitoring invitation (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "716721000000107",
+          "code_description": "Atrial fibrillation monitoring telephone invitation (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "716981000000106",
+          "code_description": "Atrial fibrillation monitoring second letter (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "716181000000109",
+          "code_description": "Atrial fibrillation monitoring third letter (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "713801000000102",
+          "code_description": "Atrial fibrillation monitoring administration (record artifact)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "440059007",
+          "code_description": "Persistent atrial fibrillation (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314208002",
+          "code_description": "Rapid atrial fibrillation (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "120041000119109",
+          "code_description": "Atrial fibrillation with rapid ventricular response (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "440028005",
+          "code_description": "Permanent atrial fibrillation (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1066831000000104",
+          "code_description": "Atrial fibrillation detected (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "717011000000100",
+          "code_description": "Atrial fibrillation monitoring verbal invitation (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "300996004",
+          "code_description": "Controlled atrial fibrillation (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426749004",
+          "code_description": "Chronic atrial fibrillation (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233911009",
+          "code_description": "Non-rheumatic atrial fibrillation (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "758600000",
+          "code_description": "Referral to atrial fibrillation clinic (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233910005",
+          "code_description": "Lone atrial fibrillation (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "313377641000119105",
+          "code_description": "Atrial fibrillation due to heart valve disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762247006",
+          "code_description": "Preexcited atrial fibrillation (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1010405004",
+          "code_description": "Paroxysmal atrial fibrillation with rapid ventricular response (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "449863006",
+          "code_description": "Insertion of pacemaker for control of atrial fibrillation (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266306001",
+          "code_description": "(Atrial fibrillation) or (atrial flutter) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "467643831000119105",
+          "code_description": "Paroxysmal atrial fibrillation due to heart valve disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "706923002",
+          "code_description": "Longstanding persistent atrial fibrillation (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}
