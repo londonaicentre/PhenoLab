@@ -127,7 +127,8 @@ def compare_definitions():
     session = get_snowflake_session()
 
     # get all definitions
-    definition_ids, definition_labels = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(session)
+    definition_ids, definition_labels = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(
+        session, st.session_state.config)
 
     # show two definition panels
     left_col, right_col = st.columns(2)

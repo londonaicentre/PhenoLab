@@ -22,8 +22,6 @@ from definition_library.loaders.load_bnf_to_snomed import retrieve_bnf_definitio
 st.set_page_config(page_title="PhenoLab", layout="wide", initial_sidebar_state="expanded")
 set_font_lato()
 # load_dotenv(override=True)
-st.session_state.config = load_config()
-print(st.session_state.config)
 
 def preload_vocabulary():
     """
@@ -67,6 +65,10 @@ try:
 except Exception as e:
     connection_status = f"Connection failed: {e}"
 
+# Load configuration file
+st.session_state.config = load_config(session)
+print(st.session_state.config)
+
 ## PAGE DISPLAY
 st.title("PhenoLab: Clinical Definition and Phenotype Creator")
 
@@ -80,6 +82,8 @@ if vocab_loaded:
     st.markdown(f"Vocabulary Status: `{vocab_message}`")
 else:
     st.markdown(f"Vocabulary Status: `{vocab_message}`")
+
+st.markdown(f"Configuration: `{st.session_state.config['icb_name']}`")
 
 # Populate the definition tables - once per session only
 # 1. AI Centre

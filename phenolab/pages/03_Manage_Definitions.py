@@ -22,7 +22,6 @@ from utils.definition_interaction_utils import (
 )
 from utils.style_utils import set_font_lato
 
-from phmlondon.config import DEFINITION_LIBRARY
 from phmlondon.definition import Definition
 
 # # 03_Manage_Definitions.py
@@ -195,7 +194,7 @@ def main():
 
         col1, col2 = st.columns([1, 1])
         with col1:
-            display_unified_code_browser(code_types, key_suffix="create", st.session_state.config)
+            display_unified_code_browser(code_types, st.session_state.config, key_suffix="create")
         with col2:
             display_selected_codes(key_suffix="create")
 
@@ -210,7 +209,7 @@ def main():
 
         col1, col2 = st.columns([1, 1])
         with col1:
-            display_unified_code_browser(code_types, key_suffix="edit", st.session_state.config)
+            display_unified_code_browser(code_types, st.session_state.config, key_suffix="edit")
         with col2:
             display_selected_codes(key_suffix="edit")
 
@@ -235,7 +234,7 @@ def main():
 
         st.markdown("---")
 
-        st.markdown(f"This will upload all definitions to `{DEFINITION_LIBRARY}.AIC_DEFINITIONS` and refresh `DEFINITIONSTORE`." \
+        st.markdown(f"This will upload all definitions to `{st.session_state.config['definition_library']['database']}.{st.session_state.config['definition_library']['schema']}.AIC_DEFINITIONS` and refresh `DEFINITIONSTORE`." \
         "Updated definitions will overwrite previous versions.")
         _, b, _ = st.columns(3)
         [maincol] = st.columns(1)

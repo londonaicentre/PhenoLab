@@ -52,7 +52,7 @@ def query_definition_store(session, search_term, source_system):
         DEFINITION_NAME,
         DEFINITION_VERSION,
         DEFINITION_SOURCE,
-        SOURCE_LOADER,
+        SOURCE_TABLE,
         COUNT(*) AS CODE_COUNT
     FROM {st.session_state.config["definition_library"]["database"]}.
     {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
@@ -61,7 +61,7 @@ def query_definition_store(session, search_term, source_system):
     where_clauses = []
 
     if source_system != "All":
-        where_clauses.append(f"SOURCE_LOADER = '{source_system}'")
+        where_clauses.append(f"SOURCE_TABLE = '{source_system}'")
 
     if search_term:
         where_clauses.append(f"DEFINITION_NAME ILIKE '%{search_term}%'")
@@ -70,7 +70,7 @@ def query_definition_store(session, search_term, source_system):
         query += " WHERE " + " AND ".join(where_clauses)
 
     query += """
-    GROUP BY DEFINITION_ID, DEFINITION_NAME, DEFINITION_VERSION, DEFINITION_SOURCE, SOURCE_LOADER
+    GROUP BY DEFINITION_ID, DEFINITION_NAME, DEFINITION_VERSION, DEFINITION_SOURCE, SOURCE_TABLE
     ORDER BY DEFINITION_NAME
     LIMIT 100
     """
@@ -157,14 +157,14 @@ def display_panel_2_definition_selection():
     if "source_systems" not in st.session_state:
         try:
             source_query = f"""
-            SELECT DISTINCT SOURCE_LOADER FROM {st.session_state.config["definition_library"]["database"]}.
+            SELECT DISTINCT SOURCE_TABLE FROM {st.session_state.config["definition_library"]["database"]}.
             {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
-            WHERE SOURCE_LOADER IS NOT NULL
-            ORDER BY SOURCE_LOADER
+            WHERE SOURCE_TABLE IS NOT NULL
+            ORDER BY SOURCE_TABLE
             """
             # sources_df = snowsesh.execute_query_to_df(source_query)
             sources_df = session.sql(source_query).to_pandas()
-            source_systems = ["All"] + sources_df["SOURCE_LOADER"].tolist()
+            source_systems = ["All"] + sources_df["SOURCE_TABLE"].tolist()
             st.session_state.source_systems = source_systems
         except Exception as e:
             st.error(f"Error fetching source systems: {e}")
