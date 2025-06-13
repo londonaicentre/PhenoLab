@@ -1,3 +1,4 @@
+icb_name: NEL
 definition_library:
   database: INTELLIGENCE_DEV
   schema: AI_CENTRE_DEFINITION_LIBRARY

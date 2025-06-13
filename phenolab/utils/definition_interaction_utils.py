@@ -228,7 +228,7 @@ def filter_codes(df: pd.DataFrame, search_term: str, code_type: str) -> pd.DataF
 
     return filtered_df.sort_values("CODE_COUNT", ascending=False) if "CODE_COUNT" in filtered_df.columns else filtered_df
 
-def display_unified_code_browser(code_types, key_suffix="", config):
+def display_unified_code_browser(code_types, config, key_suffix=""):
     """
     Unified code browser that allows selection from global vocabulary or existing definitions
     Args:

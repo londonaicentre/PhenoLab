@@ -74,7 +74,7 @@ def return_codes_for_given_definition_id_as_df(
             VOCABULARY,
             DEFINITION_ID,
             CODELIST_VERSION
-        FROM {config["definition_store"]["database"]}.{config["definition_store"]["schema"]}.DEFINITIONSTORE
+        FROM {config["definition_library"]["database"]}.{config["definition_library"]["schema"]}.DEFINITIONSTORE
         WHERE DEFINITION_ID = '{chosen_definition_id}'
         ORDER BY VOCABULARY, CODE
         """

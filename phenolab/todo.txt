@@ -8,7 +8,9 @@ x dependencies on streamlit is an issue...go to static downloads
 x temp tables
 x openpyxl
 x check whether feature store manager still works after refactoring of connection
-- >> need to add in NHS GP table and NEL segments <<
+- NHS GP table
+- NEL segments
+- retrieving bnf definitions is very slow
 x maybe should/check fix 'uploaded datetime', especially for those where doing asynchronous upload
 x fix the database/schema defaults because I think i did them wrong
 x tidy up main page appearance
@@ -17,6 +19,7 @@ x page to browse by source
 
 (2a) CI approach
 - github actions
+- dev and prod
 
 (2b) ICB table with 'starterpack' model
 - create ICB table
@@ -28,6 +31,9 @@ x page to browse by source
 x done 
 
 (4) aesthetic changes
+- colour scheme
+- reduce labels/visual clutter
+- rename definition panels
 
 (5) general/misc
 - redundant imports!
@@ -44,21 +50,25 @@ x config for environmental variables
 - local config
 - people should be using snowflake config rather than .env - replace examples
 - explain all in readme
+
+(5c) tidying
 - finish converting away from Snowflake Connection & context manager to explicit management
 
-(6) delete definition option?
+(5d) search definitions page
+
+(6) delete definition option
 
 (7) phenotypes
+- how to turn into SQL? (or should we remove from interface)
 
 (8) measurements
+- measurement config files
 
 (9) vocab loading
+- push further down list
 
 (10) base features
 - need to sort out config thingy as have made config part of phenolab
 - get rid of pipeline folder
 
-(11) ugggh
-- retrieving bnf definitions is very slow
-
-(12) snowflake feature store
+(12) snowflake feature store/get rid of feature store altogether
