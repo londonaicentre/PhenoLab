@@ -35,10 +35,13 @@ x done
 - add some tests?
 
 (5b) ICB-specific config
-- check if config in PHMutils should be part of phenolab or more likely, switch to a config file
-- see if the config is a good idea/should be refactored/homogenised with database/schema
+x check if config in PHMutils should be part of phenolab or more likely, switch to a config file
+x see if the config is a good idea/should be refactored/homogenised with database/schema
+- refactor
 - get rid of load_dotenv?
 - see if can use get_account() to select config file
+- config for environmental variables
+- local config
 - people should be using snowflake config rather than .env - replace examples
 - explain all in readme
 - finish converting away from Snowflake Connection & context manager to explicit management
@@ -52,6 +55,7 @@ x done
 (9) vocab loading
 
 (10) base features
+- need to sort out config thingy as have made config part of phenolab
 - get rid of pipeline folder
 
 (11) ugggh
