@@ -18,9 +18,6 @@ from definition_library.loaders.load_bnf_to_snomed import retrieve_bnf_definitio
 # Creates the single Snowflake connection used throughout the app.
 # Pre-Loads the most recent vocabulary (if available)
 
-st.set_page_config(page_title="PhenoLab", layout="wide", initial_sidebar_state="expanded")
-set_font_lato()
-
 def preload_vocabulary():
     """
     Preload the most recent vocabulary file if available.
@@ -42,10 +39,13 @@ def preload_vocabulary():
 
         st.session_state.codes = vocab_df
 
-        return True, "Vocabulary loaded in session"
+        return True, "Vocabulary loaded"
 
     except Exception as e:
         return False, f"Error loading vocabulary: {e}"
+
+st.set_page_config(page_title="PhenoLab", layout="wide", initial_sidebar_state="expanded")
+set_font_lato()
 
 # vocabulary session state
 if "codes" not in st.session_state:
@@ -70,72 +70,74 @@ print(st.session_state.config)
 ## PAGE DISPLAY
 st.title("PhenoLab: Clinical Definition and Phenotype Creator")
 
-# st.write(st.__version__)
+col1, col2 = st.columns(2)
 
-# display snowflake status
-st.markdown(f"Connection Status: `{connection_status}`")
+with col1:
+    # display snowflake status
+    st.markdown(f"Connection Status: `{connection_status}`")
 
-# display vocab status
-if vocab_loaded:
-    st.markdown(f"Vocabulary Status: `{vocab_message}`")
-else:
-    st.markdown(f"Vocabulary Status: `{vocab_message}`")
+    # display vocab status
+    if vocab_loaded:
+        st.markdown(f"Vocabulary Status: `{vocab_message}`")
+    else:
+        st.markdown(f"Vocabulary Status: `{vocab_message}`")
 
-st.markdown(f"Configuration: `{st.session_state.config['icb_name']}`")
+with col2:
+    st.markdown(f"Configuration: `{st.session_state.config['icb_name']}`")
 
-# Populate the definition tables - once per session only
-# 1. AI Centre
-if 'uploaded_aic_definitions' not in st.session_state:
-    with st.spinner("Loading AI Centre definitions...", show_time=True):
-        update_aic_definitions_table(
-            session, 
-            database=st.session_state.config["definition_library"]["database"], 
-            schema=st.session_state.config["definition_library"]["schema"], 
-            verbose=False)
-        st.session_state['uploaded_aic_definitions'] = True
+    # Populate the definition tables - once per session only
+    # 1. AI Centre
+    if 'uploaded_aic_definitions' not in st.session_state:
+        with st.spinner("Loading AI Centre definitions...", show_time=True):
+            update_aic_definitions_table(
+                session, 
+                database=st.session_state.config["definition_library"]["database"], 
+                schema=st.session_state.config["definition_library"]["schema"], 
+                verbose=False)
+            st.session_state['uploaded_aic_definitions'] = True
 
-# 2. HDRUK
-if 'uploaded_hdruk_defs' not in st.session_state:
-    with st.spinner("Retrieving HDRUK definitions...", show_time=True): 
-        retrieve_hdruk_definitions_and_add_to_snowflake(session, 
-            database=st.session_state.config["definition_library"]["database"], 
-            schema=st.session_state.config["definition_library"]["schema"])
-        st.session_state['uploaded_hdruk_defs'] = True
-    
-# 3. NHS GP refsets
-if 'uploaded_nhs_gp_defs' not in st.session_state:
-    pass # need to sort this out once I have access or else we download as static file
-    st.session_state['uploaded_nhs_gp_defs'] = True
+    # 2. HDRUK
+    if 'uploaded_hdruk_defs' not in st.session_state:
+        with st.spinner("Retrieving HDRUK definitions...", show_time=True): 
+            retrieve_hdruk_definitions_and_add_to_snowflake(session, 
+                database=st.session_state.config["definition_library"]["database"], 
+                schema=st.session_state.config["definition_library"]["schema"])
+            st.session_state['uploaded_hdruk_defs'] = True
+        
+    # 3. NHS GP refsets
+    if 'uploaded_nhs_gp_defs' not in st.session_state:
+        pass # need to sort this out once I have access or else we download as static file
+        st.session_state['uploaded_nhs_gp_defs'] = True
 
-# 4. Open Codelists
-if 'uploaded_open_codelists_defs' not in st.session_state:
-    with st.spinner("Retrieving Open Codelists definitions...", show_time=True): 
-        retrieve_open_codelists_definitions_and_add_to_snowflake(session, 
-            database=st.session_state.config["definition_library"]["database"], 
-            schema=st.session_state.config["definition_library"]["schema"])
-        st.session_state['uploaded_open_codelists_defs'] = True
-    
-# 5. BNF definitions
-if 'uploaded_bnf_defs' not in st.session_state:
-    with st.spinner("Retrieving BNF definitions...", show_time=True): 
-        retrieve_bnf_definitions_and_add_to_snowflake(session, 
-            database=st.session_state.config["definition_library"]["database"], 
-            schema=st.session_state.config["definition_library"]["schema"])
-        st.session_state['uploaded_bnf_defs'] = True
+    # 4. Open Codelists
+    if 'uploaded_open_codelists_defs' not in st.session_state:
+        with st.spinner("Retrieving Open Codelists definitions...", show_time=True): 
+            retrieve_open_codelists_definitions_and_add_to_snowflake(session, 
+                database=st.session_state.config["definition_library"]["database"], 
+                schema=st.session_state.config["definition_library"]["schema"])
+            st.session_state['uploaded_open_codelists_defs'] = True
+        
+    # 5. BNF definitions
+    if 'uploaded_bnf_defs' not in st.session_state:
+        with st.spinner("Retrieving BNF definitions...", show_time=True): 
+            retrieve_bnf_definitions_and_add_to_snowflake(session, 
+                database=st.session_state.config["definition_library"]["database"], 
+                schema=st.session_state.config["definition_library"]["schema"])
+            st.session_state['uploaded_bnf_defs'] = True
 
-required_checks = [
-    'uploaded_aic_definitions',
-    'uploaded_hdruk_defs',
-    'uploaded_nhs_gp_defs',
-    'uploaded_open_codelists_defs',
-    'uploaded_bnf_defs'
-]
+    required_checks = [
+        'uploaded_aic_definitions',
+        'uploaded_hdruk_defs',
+        'uploaded_nhs_gp_defs',
+        'uploaded_open_codelists_defs',
+        'uploaded_bnf_defs'
+    ]
 
-if all(key in st.session_state for key in required_checks):
-    st.markdown('Database status: `Database checked`')
-else:
-    st.markdown('Databse status:')
-    st.warning('Missing database checks')
+    if all(key in st.session_state for key in required_checks):
+        st.markdown('Database status: `Database checked`')
+    else:
+        st.markdown('Databse status:')
+        st.warning('Missing database checks')
 
 st.markdown("---")
 
