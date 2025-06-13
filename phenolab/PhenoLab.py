@@ -3,7 +3,6 @@ import os
 
 import pandas as pd
 import streamlit as st
-# from dotenv import load_dotenv
 
 from utils.database_utils import get_snowflake_session
 from utils.style_utils import set_font_lato
@@ -21,7 +20,6 @@ from definition_library.loaders.load_bnf_to_snomed import retrieve_bnf_definitio
 
 st.set_page_config(page_title="PhenoLab", layout="wide", initial_sidebar_state="expanded")
 set_font_lato()
-# load_dotenv(override=True)
 
 def preload_vocabulary():
     """

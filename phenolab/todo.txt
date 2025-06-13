@@ -47,7 +47,8 @@ x refactor
 x get rid of load_dotenv?
 x see if can use get_account() to select config file
 x config for environmental variables
-- local config
+x local config
+- environment.yml fix 
 - people should be using snowflake config rather than .env - replace examples
 - explain all in readme
 
@@ -72,3 +73,5 @@ x config for environmental variables
 - get rid of pipeline folder
 
 (12) snowflake feature store/get rid of feature store altogether
+
+(13) package as snowflake native app?
