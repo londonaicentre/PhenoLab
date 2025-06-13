@@ -31,7 +31,7 @@ x page to browse by source
 x done 
 
 (4) aesthetic changes
-- colour scheme
+x colour scheme
 - reduce labels/visual clutter
 - rename definition panels
 
