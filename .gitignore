@@ -7,3 +7,5 @@ __pycache__
 *.ipynb~
 .vscode
 .ruff_cache
+phenolab/output
+.github/.workflows/prod-deploy.yml

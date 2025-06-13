@@ -1,0 +1,78 @@
+import re
+from datetime import datetime
+
+import requests
+from bs4 import BeautifulSoup
+
+
+def return_version_id_from_open_codelist_url(url: str) -> tuple[str, str, str, str, str]:
+    """
+    Given a URL to an open codelist, scrape the HTML to return the vocabulary, codelist name, codelist id, version id,
+    and version datetime.
+
+    Args:
+        url (str): URL of the OpenCodelists codelist
+    Returns:
+        tuple[str, str, str, str, str]: vocabulary, codelist_name, codelist_id, version_id, version_datetime
+    """
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    dl_items = soup.find_all("div", class_="list-group-item")
+
+    for item in dl_items:
+        dt = item.find("dt")
+        dd = item.find("dd")
+        if dt and dd:
+            label = dt.get_text(strip=True)
+            value = dd.get_text(strip=True)
+
+            if label == "Codelist ID":
+                codelist_id = value
+            elif label == "Version ID":
+                version_id = value
+            elif label == "Coding system": # this is the vocabulary name
+                vocabulary = value
+
+    # sidebar_items = [e.text for e in soup.find_all("dd", class_="pb-2 border-bottom")]
+    # if len(sidebar_items) == 6:
+    #     vocabulary, _, _, codelist_id, _, version_id = sidebar_items
+    # elif len(sidebar_items) == 5:
+    #     vocabulary, _, _, codelist_id, version_id = sidebar_items
+    #     # this is pretty hacky, but it seems some codelists have a version tag and some don't, so sometimes the sidebar
+    #     # is 6 items long and sometimes 5
+    # else:
+    #     raise ValueError("Unexpected number of sidebar items")
+
+    codelist_name = soup.find("h1").text.strip()
+
+    date_string = soup.find("span", class_="created d-block p-0").text
+    date_string = re.sub(r"\s+", " ", date_string).strip()
+    version_datetime = datetime.strptime(date_string, "Created: %d %b %Y at %H:%M")
+    # print(version_datetime)
+
+    # csv_link = (
+    #     "https://www.opencodelists.org"
+    #     + [link.get("href") for link in soup.find_all("a")
+    #     if "download.csv" in link.get("href")][0]
+    # )
+    #  print(csv_link)
+    # unfortunately trying to open the csv with pandas (via requests) gives a 403 error
+
+    print(f"Vocabulary: {vocabulary}")
+    print(f"Codelist Name: {codelist_name}")
+    print(f"Codelist ID: {codelist_id}")
+    print(f"Version ID: {version_id}")
+    print(f"Version Datetime: {version_datetime}")
+
+    return vocabulary, codelist_name, codelist_id, version_id, version_datetime
+
+
+if __name__ == "__main__":
+    vocabulary, codelist_name, codelist_id, version_id, version_datetime = return_version_id_from_open_codelist_url(
+        "https://www.opencodelists.org/codelist/nhsd-primary-care-domain-refsets/abpm_cod/20241205/"
+    )
+    
+    vocabulary, codelist_name, codelist_id, version_id, version_datetime = return_version_id_from_open_codelist_url(
+        "https://www.opencodelists.org/codelist/opensafely/hypertension-snomed/2020-04-28/"
+    )

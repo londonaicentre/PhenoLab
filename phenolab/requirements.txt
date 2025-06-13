@@ -1,0 +1,8 @@
+# Tested in Python 3.11.2 environment
+-e ../
+streamlit
+python-dotenv
+plotly
+pandas
+polars
+openpyxl

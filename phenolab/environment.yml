@@ -1,0 +1,10 @@
+name: sf_env
+channels:
+  - snowflake
+dependencies:
+  - streamlit
+  - python-dotenv
+  - plotly
+  - pandas
+  - polars
+  - openpyxl
