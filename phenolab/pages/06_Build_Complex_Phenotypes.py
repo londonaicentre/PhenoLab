@@ -240,7 +240,7 @@ def display_panel_3_measurement_selection():
         return
 
     # measurement_features = get_available_measurements(snowsesh)
-    measurement_features = get_available_measurements(session)
+    measurement_features = get_available_measurements(session, st.session_state.config)
 
     if measurement_features.empty:
         st.warning("No measurement features found in the feature store")

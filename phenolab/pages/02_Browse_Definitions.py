@@ -78,7 +78,7 @@ def create_definition_panel(session,
             # get codes for selected definition
             selected_id = definition_ids[definition_labels.index(selected_definition)]
 
-            codes_df = return_codes_for_given_definition_id_as_df(session, selected_id)
+            codes_df = return_codes_for_given_definition_id_as_df(session, selected_id, st.session_state.config)
 
             display_definition_metadata(codes_df)
             display_definition_codes_summary(codes_df)

@@ -291,7 +291,7 @@ def main():
     with col2:
         if st.button("Update All Configs", use_container_width=True):
             with st.spinner("Updating measurement configurations..."):
-                created, updated, new_units = update_all_measurement_configs(session)
+                created, updated, new_units = update_all_measurement_configs(session, st.session_state.config)
 
                 message_parts = []
                 if created > 0:

@@ -8,7 +8,6 @@ from utils.database_utils import get_measurement_unit_statistics
 from utils.definition_interaction_utils import load_definition
 from utils.measurement import MeasurementConfig, UnitMapping, load_measurement_config_from_json
 
-from phmlondon.config import DDS_OBSERVATION, DEFINITION_LIBRARY, FEATURE_METADATA, FEATURE_STORE, SNOWFLAKE_DATABASE
 from phmlondon.feature_store_manager import FeatureStoreManager
 from phmlondon.snow_utils import SnowflakeConnection
 
@@ -94,7 +93,7 @@ def create_missing_measurement_configs():
     return created_count
 
 
-def update_all_measurement_configs(session):
+def update_all_measurement_configs(session, config: dict):
     """
     Update all measurement configs with new units from Snowflake usage data
     """
@@ -118,7 +117,7 @@ def update_all_measurement_configs(session):
 
     for def_name, config in existing_configs.items():
         # try:
-        unit_stats = get_measurement_unit_statistics(def_name, session)
+        unit_stats = get_measurement_unit_statistics(def_name, session, config)
 
         if unit_stats is None or unit_stats.empty:
             continue
@@ -175,7 +174,7 @@ def get_available_measurement_configs():
 
 
 @st.cache_data(ttl=600, show_spinner="Loading measurement values...")
-def get_measurement_values(definition_name, _session):
+def get_measurement_values(definition_name, _session, config):
     """
     Get actual measurement values for a definition from Snowflake
     """
@@ -183,8 +182,8 @@ def get_measurement_values(definition_name, _session):
     SELECT
         RESULT_VALUE_UNITS AS unit,
         TRY_CAST(RESULT_VALUE AS FLOAT) AS value
-    FROM {DDS_OBSERVATION} obs
-    LEFT JOIN {SNOWFLAKE_DATABASE}.{DEFINITION_LIBRARY}.DEFINITIONSTORE def
+    FROM {config["gp_observation_table"]} obs
+    LEFT JOIN {config["definition_library"]["database"]}.{config["definition_library"]["schema"]}.DEFINITIONSTORE def
         ON obs.CORE_CONCEPT_ID = def.DBID
     WHERE def.DEFINITION_NAME = '{definition_name}'
         AND RESULT_VALUE IS NOT NULL
@@ -236,7 +235,7 @@ def apply_conversions(df, config):
     return df_converted
 
 
-def create_base_measurements_sql(eligible_configs):
+def create_base_measurements_sql(eligible_configs, phenolab_config: dict):
     """
     Generate dynamic SQL query for Base Measurements feature table
     """
@@ -299,8 +298,8 @@ def create_base_measurements_sql(eligible_configs):
             obs.RESULT_VALUE_UNITS AS SOURCE_RESULT_VALUE_UNITS,
             {conversion_case_sql.replace('mapped_unit', f'({mapping_case_sql})')} AS VALUE_AS_NUMBER,
             '{config.primary_standard_unit}' AS VALUE_UNITS
-        FROM {DDS_OBSERVATION} obs
-        LEFT JOIN {SNOWFLAKE_DATABASE}.{DEFINITION_LIBRARY}.DEFINITIONSTORE def
+        FROM {phenolab_config["gp_observation_table"]} obs
+        LEFT JOIN {phenolab_config["definition_library"]["database"]}.{phenolab_config["definition_library"]["schema"]}.DEFINITIONSTORE def
             ON obs.CORE_CONCEPT_ID = def.DBID
         WHERE def.DEFINITION_NAME = '{definition_name}'
             AND obs.RESULT_VALUE IS NOT NULL
@@ -320,13 +319,13 @@ def create_base_measurements_sql(eligible_configs):
     return final_query
 
 
-def create_base_measurements_feature(session, eligible_configs):
+def create_base_measurements_feature(session, phenolab_config, eligible_configs):
     """
     Create or update Base Measurements feature table using FeatureStoreManager
     """
     try:
         with st.spinner("Generating SQL query..."):
-            sql_query = create_base_measurements_sql(eligible_configs)
+            sql_query = create_base_measurements_sql(eligible_configs, phenolab_config)
 
         if not sql_query:
             st.error("Failed to generate SQL query. No eligible measurements found.")
@@ -335,18 +334,18 @@ def create_base_measurements_feature(session, eligible_configs):
         with st.spinner("Initialising Feature Store Manager..."):
             feature_manager = FeatureStoreManager(
                 connection=session,
-                database=SNOWFLAKE_DATABASE,
-                schema=FEATURE_STORE,
-                metadata_schema=FEATURE_METADATA
+                database=phenolab_config["feature_store"]["database"],
+                schema=phenolab_config["feature_store"]["schema"],
+                metadata_schema=phenolab_config["feature_store"]["metadata_schema"]
             )
 
         feature_name = "BASE_MEASUREMENTS"
-        feature_desc = f"Standardised measuremeznt data from {len(eligible_configs)} measurement definitions with unit conversions applied"
+        feature_desc = f"Standardised measurement data from {len(eligible_configs)} measurement definitions with unit conversions applied"
         feature_format = "tabular"
 
         with st.spinner("Creating or updating Base Measurements feature table..."):
-            session.use_database(SNOWFLAKE_DATABASE)
-            session.use_schema(FEATURE_METADATA)
+            session.use_database(phenolab_config["feature_store"]["database"])
+            session.use_schema(phenolab_config["feature_store"]["metadata_schema"])
             feature_id_result = session.sql(f"""
                     SELECT feature_id FROM feature_registry
                     WHERE feature_name = '{feature_name}'
@@ -389,8 +388,8 @@ def create_base_measurements_feature(session, eligible_configs):
                 st.write(f"**Table Name:** {table_name}")
 
             try:
-                session.use_database(SNOWFLAKE_DATABASE)
-                session.use_schema(FEATURE_STORE)
+                session.use_database(phenolab_config["feature_store"]["database"])
+                session.use_schema(phenolab_config["feature_store"]["metadata_schema"])
                 count_result = session.sql(f"SELECT COUNT(*) as row_count FROM {table_name}").to_pandas()
                 row_count = count_result.iloc[0]['ROW_COUNT']
                 st.write(f"**Rows Created:** {row_count:,}")
