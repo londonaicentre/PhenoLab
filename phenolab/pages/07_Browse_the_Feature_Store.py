@@ -26,12 +26,20 @@ session = get_snowflake_session()
 
 st.header('Features')
 
-features_query = f"SELECT * FROM {st.session_state.config['feature_store']['database']}.{st.session_state.config['feature_store']['metadata_schema']}.FEATURE_REGISTRY"
+features_query = f"""
+    SELECT * FROM 
+    {st.session_state.config['feature_store']['database']}.
+    {st.session_state.config['feature_store']['metadata_schema']}.FEATURE_REGISTRY
+"""
 features = session.sql(features_query).to_pandas()
 st.dataframe(features)
 
 
 st.header('Feature versions')
-versions_query = f"SELECT * FROM {st.session_state.config['feature_store']['database']}.{st.session_state.config['feature_store']['metadata_schema']}.FEATURE_VERSION_REGISTRY"
+versions_query = f"""
+    SELECT * FROM 
+    {st.session_state.config['feature_store']['database']}.
+    {st.session_state.config['feature_store']['metadata_schema']}.FEATURE_VERSION_REGISTRY
+"""
 versions = session.sql(versions_query).to_pandas()
 st.dataframe(versions)

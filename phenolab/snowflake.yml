@@ -9,6 +9,7 @@ entities:
       - PhenoLab.py
       - utils
       - pages
+      - configs
       - data
       - definition_library
       - environment.yml
