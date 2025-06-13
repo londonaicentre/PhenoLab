@@ -1,0 +1,467 @@
+CODE,CODE_DESCRIPTION,VOCABULARY,CODELIST_ID,CODELIST_NAME,CODELIST_VERSION,DEFINITION_ID,DEFINITION_NAME,DEFINITION_VERSION,DEFINITION_SOURCE,VERSION_DATETIME,UPLOADED_DATETIME
+C108011,Type I diabetes mellitus with renal complications,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108012,Type 1 diabetes mellitus with renal complications,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108.12,Type 1 diabetes mellitus,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108.13,Type I diabetes mellitus,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108211,Type I diabetes mellitus with neurological complications,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108212,Type 1 diabetes mellitus with neurological complications,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108411,Unstable type I diabetes mellitus,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108412,Unstable type 1 diabetes mellitus,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108511,Type I diabetes mellitus with ulcer,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108512,Type 1 diabetes mellitus with ulcer,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108711,Type I diabetes mellitus with retinopathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108712,Type 1 diabetes mellitus with retinopathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108811,Type I diabetes mellitus - poor control,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108812,Type 1 diabetes mellitus - poor control,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108911,Type I diabetes mellitus maturity onset,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108912,Type 1 diabetes mellitus maturity onset,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108A11,Type I diabetes mellitus without complication,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108D11,Type I diabetes mellitus with nephropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108E11,Type I diabetes mellitus with hypoglycaemic coma,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108E12,Type 1 diabetes mellitus with hypoglycaemic coma,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108F11,Type I diabetes mellitus with diabetic cataract,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108H11,Type I diabetes mellitus with arthropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108J11,Type I diabetes mellitus with neuropathic arthropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C108J12,Type 1 diabetes mellitus with neuropathic arthropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109011,Type II diabetes mellitus with renal complications,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109012,Type 2 diabetes mellitus with renal complications,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109111,Type II diabetes mellitus with ophthalmic complications,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109112,Type 2 diabetes mellitus with ophthalmic complications,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109.12,Type 2 diabetes mellitus,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109.13,Type II diabetes mellitus,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109211,Type II diabetes mellitus with neurological complications,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109212,Type 2 diabetes mellitus with neurological complications,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109411,Type II diabetes mellitus with ulcer,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109412,Type 2 diabetes mellitus with ulcer,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109511,Type II diabetes mellitus with gangrene,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109512,Type 2 diabetes mellitus with gangrene,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109611,Type II diabetes mellitus with retinopathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109612,Type 2 diabetes mellitus with retinopathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109711,Type II diabetes mellitus - poor control,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109712,Type 2 diabetes mellitus - poor control,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109A11,Type II diabetes mellitus with mononeuropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109B11,Type II diabetes mellitus with polyneuropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109C11,Type II diabetes mellitus with nephropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109C12,Type 2 diabetes mellitus with nephropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109D11,Type II diabetes mellitus with hypoglycaemic coma,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109D12,Type 2 diabetes mellitus with hypoglycaemic coma,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109E11,Type II diabetes mellitus with diabetic cataract,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109E12,Type 2 diabetes mellitus with diabetic cataract,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109F11,Type II diabetes mellitus with peripheral angiopathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109F12,Type 2 diabetes mellitus with peripheral angiopathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109G11,Type II diabetes mellitus with arthropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109G12,Type 2 diabetes mellitus with arthropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109H11,Type II diabetes mellitus with neuropathic arthropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109H12,Type 2 diabetes mellitus with neuropathic arthropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109J00,Insulin treated Type 2 diabetes mellitus,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109J12,Insulin treated Type II diabetes mellitus,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C109K00,Hyperosmolar non-ketotic state in type 2 diabetes mellitus,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10E.00,Type 1 diabetes mellitus,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10E000,Type 1 diabetes mellitus with renal complications,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10E100,Type 1 diabetes mellitus with ophthalmic complications,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10E.11,Type I diabetes mellitus,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10E200,Type 1 diabetes mellitus with neurological complications,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10E300,Type 1 diabetes mellitus with multiple complications,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10E311,Type I diabetes mellitus with multiple complications,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10E400,Unstable type 1 diabetes mellitus,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10E411,Unstable type I diabetes mellitus,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10E500,Type 1 diabetes mellitus with ulcer,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10E511,Type I diabetes mellitus with ulcer,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10E600,Type 1 diabetes mellitus with gangrene,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10E700,Type 1 diabetes mellitus with retinopathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10E711,Type I diabetes mellitus with retinopathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10E800,Type 1 diabetes mellitus - poor control,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10E900,Type 1 diabetes mellitus maturity onset,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10E911,Type I diabetes mellitus maturity onset,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10EA00,Type 1 diabetes mellitus without complication,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10EA11,Type I diabetes mellitus without complication,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10EB00,Type 1 diabetes mellitus with mononeuropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10EC00,Type 1 diabetes mellitus with polyneuropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10EC11,Type I diabetes mellitus with polyneuropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10ED00,Type 1 diabetes mellitus with nephropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10EE00,Type 1 diabetes mellitus with hypoglycaemic coma,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10EF00,Type 1 diabetes mellitus with diabetic cataract,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10EG00,Type 1 diabetes mellitus with peripheral angiopathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10EH00,Type 1 diabetes mellitus with arthropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10EJ00,Type 1 diabetes mellitus with neuropathic arthropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10EK00,Type 1 diabetes mellitus with persistent proteinuria,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10EL00,Type 1 diabetes mellitus with persistent microalbuminuria,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10EM00,Type 1 diabetes mellitus with ketoacidosis,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10EM11,Type I diabetes mellitus with ketoacidosis,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10EN00,Type 1 diabetes mellitus with ketoacidotic coma,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10EN11,Type I diabetes mellitus with ketoacidotic coma,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10EP00,Type 1 diabetes mellitus with exudative maculopathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10EP11,Type I diabetes mellitus with exudative maculopathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10EQ00,Type 1 diabetes mellitus with gastroparesis,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10F.00,Type 2 diabetes mellitus,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10F000,Type 2 diabetes mellitus with renal complications,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10F011,Type II diabetes mellitus with renal complications,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10F100,Type 2 diabetes mellitus with ophthalmic complications,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10F.11,Type II diabetes mellitus,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10F200,Type 2 diabetes mellitus with neurological complications,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10F211,Type II diabetes mellitus with neurological complications,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10F300,Type 2 diabetes mellitus with multiple complications,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10F311,Type II diabetes mellitus with multiple complications,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10F400,Type 2 diabetes mellitus with ulcer,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10F411,Type II diabetes mellitus with ulcer,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10F500,Type 2 diabetes mellitus with gangrene,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10F600,Type 2 diabetes mellitus with retinopathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10F611,Type II diabetes mellitus with retinopathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10F700,Type 2 diabetes mellitus - poor control,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10F711,Type II diabetes mellitus - poor control,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10F900,Type 2 diabetes mellitus without complication,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10F911,Type II diabetes mellitus without complication,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FA00,Type 2 diabetes mellitus with mononeuropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FA11,Type II diabetes mellitus with mononeuropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FB00,Type 2 diabetes mellitus with polyneuropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FB11,Type II diabetes mellitus with polyneuropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FC00,Type 2 diabetes mellitus with nephropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FD00,Type 2 diabetes mellitus with hypoglycaemic coma,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FD11,Type II diabetes mellitus with hypoglycaemic coma,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FE00,Type 2 diabetes mellitus with diabetic cataract,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FE11,Type II diabetes mellitus with diabetic cataract,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FF00,Type 2 diabetes mellitus with peripheral angiopathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FG00,Type 2 diabetes mellitus with arthropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FH00,Type 2 diabetes mellitus with neuropathic arthropathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FJ00,Insulin treated Type 2 diabetes mellitus,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FJ11,Insulin treated Type II diabetes mellitus,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FK00,Hyperosmolar non-ketotic state in type 2 diabetes mellitus,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FL00,Type 2 diabetes mellitus with persistent proteinuria,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FL11,Type II diabetes mellitus with persistent proteinuria,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FM00,Type 2 diabetes mellitus with persistent microalbuminuria,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FM11,Type II diabetes mellitus with persistent microalbuminuria,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FN00,Type 2 diabetes mellitus with ketoacidosis,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FP00,Type 2 diabetes mellitus with ketoacidotic coma,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FQ00,Type 2 diabetes mellitus with exudative maculopathy,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+C10FR00,Type 2 diabetes mellitus with gastroparesis,READ 2,1120,Diabetes - Primary care,3379,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+10418,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+10692,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+12455,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+12640,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+12736,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+1407,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+1549,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+17545,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+17858,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+17859,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+18143,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+18209,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+18219,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+18230,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+18264,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+18278,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+18387,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+18390,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+18425,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+18496,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+18642,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+18683,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+18777,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+21983,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+22871,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+22884,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+24423,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+24458,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+24836,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+25591,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+25627,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+26054,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+30294,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+30323,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+32627,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+34268,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+34450,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+35288,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+35385,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+36633,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+37806,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+38161,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+39070,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+40682,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+40837,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+41049,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+42729,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+42762,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+42831,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+43227,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+43921,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+44779,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+44982,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+45913,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+45914,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+45919,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+46150,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+46301,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+46850,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+46917,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+47315,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+47321,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+47409,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+47582,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+47649,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+47650,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+47816,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+47954,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+48192,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+49074,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+49146,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+49554,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+49655,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+49869,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+49949,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+50225,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+50527,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+50813,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+51756,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+51957,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+53392,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+54008,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+54899,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+55075,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+55239,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+56268,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+57278,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+58604,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+59253,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+59725,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+60107,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+60208,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+60699,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+60796,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+61071,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+61344,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+61829,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+62107,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+62209,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+62352,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+62613,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+62674,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+63017,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+63690,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+64571,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+64668,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+65267,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+65704,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+66145,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+66872,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+66965,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+67905,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+68105,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+68390,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+69676,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+69993,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+70316,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+70766,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+758,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+85991,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+91646,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+91942,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+91943,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+93468,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+93727,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+93878,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+95343,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+95351,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+95992,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+96235,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+97446,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+97474,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+97894,Type I diabetes mellitus (3),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+98616,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+98723,Type II diabetes mellitus (4),MEDCODE,1121,Diabetes - Primary care,3381,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+E10,Insulin-dependent diabetes mellitus,ICD10,1122,Diabetes - Secondary care - Diagnoses,3383,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+E11,Non-insulin-dependent diabetes mellitus,ICD10,1122,Diabetes - Secondary care - Diagnoses,3383,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+E12,Malnutrition-related diabetes mellitus,ICD10,1122,Diabetes - Secondary care - Diagnoses,3383,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+E13,Other specified diabetes mellitus,ICD10,1122,Diabetes - Secondary care - Diagnoses,3383,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+E14,Unspecified diabetes mellitus,ICD10,1122,Diabetes - Secondary care - Diagnoses,3383,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+G590,Diabetic mononeuropathy,ICD10,1122,Diabetes - Secondary care - Diagnoses,3383,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+G632,Diabetic polyneuropathy,ICD10,1122,Diabetes - Secondary care - Diagnoses,3383,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+H280,Diabetic cataract,ICD10,1122,Diabetes - Secondary care - Diagnoses,3383,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+H360,Diabetic retinopathy,ICD10,1122,Diabetes - Secondary care - Diagnoses,3383,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+M142,Diabetic arthropathy,ICD10,1122,Diabetes - Secondary care - Diagnoses,3383,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+N083,Glomerular disorders in diabetes mellitus,ICD10,1122,Diabetes - Secondary care - Diagnoses,3383,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+O240,"Diabetes mellitus in pregnancy: Pre-existing diabetes mellitus, insulin-dependent",ICD10,1122,Diabetes - Secondary care - Diagnoses,3383,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+O241,"Diabetes mellitus in pregnancy: Pre-existing diabetes mellitus, non-insulin-dependent",ICD10,1122,Diabetes - Secondary care - Diagnoses,3383,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+O242,Diabetes mellitus in pregnancy: Pre-existing malnutrition-related diabetes mellitus,ICD10,1122,Diabetes - Secondary care - Diagnoses,3383,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+O243,"Diabetes mellitus in pregnancy: Pre-existing diabetes mellitus, unspecified",ICD10,1122,Diabetes - Secondary care - Diagnoses,3383,PH152,Diabetes,304,HDRUK,2021-10-06 16:05:22.521906+00:00,2025-06-09 21:34:10.340168
+14A2.00,H/O: hypertension,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+2126100,Hypertension resolved,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+212K.00,Hypertension resolved,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+6146200,Hypertension induced by oral contraceptive pill,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+6624,Borderline hyperten:yearly obs,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+6627,Good hypertension control,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+6628,Poor hypertension control,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+662b.00,Moderate hypertension control,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+662c.00,Hypertension six month review,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+662d.00,Hypertension annual review,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+662F.00,Hypertension treatm. started,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+662G.00,Hypertensive treatm.changed,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+662O.00,On treatment for hypertension,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+662r.00,Trial withdrawal of antihypertensive therapy,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+7Q01.00,High cost hypertension drugs,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+8B26.00,Antihypertensive therapy,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+8BL0.00,Patient on maximal tolerated antihypertensive therapy,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+8I3N.00,Hypertension treatment refused,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+9OI9.00,Hypertens.monitor deleted,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+F404200,Blind hypertensive eye,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+F421300,Hypertensive retinopathy,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G2...00,Hypertensive disease,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G20..00,Essential hypertension,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G200.00,Malignant essential hypertension,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G201.00,Benign essential hypertension,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G202.00,Systolic hypertension,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G203.00,Diastolic hypertension,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G20z.00,Essential hypertension NOS,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G20z.11,Hypertension NOS,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G21..00,Hypertensive heart disease,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G210.00,Malignant hypertensive heart disease,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G210000,Malignant hypertensive heart disease without CCF,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G210100,Malignant hypertensive heart disease with CCF,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G2...11,BP - hypertensive disease,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G211.00,Benign hypertensive heart disease,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G211000,Benign hypertensive heart disease without CCF,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G211100,Benign hypertensive heart disease with CCF,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G21z.00,Hypertensive heart disease NOS,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G21z000,Hypertensive heart disease NOS without CCF,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G21z011,Cardiomegaly - hypertensive,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G21z100,Hypertensive heart disease NOS with CCF,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G21zz00,Hypertensive heart disease NOS,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G22..00,Hypertensive renal disease,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G220.00,Malignant hypertensive renal disease,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G221.00,Benign hypertensive renal disease,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G222.00,Hypertensive renal disease with renal failure,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G22z.00,Hypertensive renal disease NOS,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G22z.11,Renal hypertension,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G23..00,Hypertensive heart and renal disease,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G230.00,Malignant hypertensive heart and renal disease,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G231.00,Benign hypertensive heart and renal disease,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G232.00,Hypertensive heart&renal dis wth (congestive) heart failure,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G233.00,Hypertensive heart and renal disease with renal failure,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G234.00,Hyperten heart&renal dis+both(congestv)heart and renal fail,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G23z.00,Hypertensive heart and renal disease NOS,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G24..00,Secondary hypertension,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G240.00,Secondary malignant hypertension,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G240000,Secondary malignant renovascular hypertension,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G240z00,Secondary malignant hypertension NOS,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G241.00,Secondary benign hypertension,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G241000,Secondary benign renovascular hypertension,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G241z00,Secondary benign hypertension NOS,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G244.00,Hypertension secondary to endocrine disorders,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G24z.00,Secondary hypertension NOS,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G24z000,Secondary renovascular hypertension NOS,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G24z100,Hypertension secondary to drug,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G24zz00,Secondary hypertension NOS,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G2y..00,Other specified hypertensive disease,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G2z..00,Hypertensive disease NOS,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G672.00,Hypertensive encephalopathy,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+G672.11,Hypertensive crisis,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+Gyu2.00,[X]Hypertensive diseases,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+Gyu2100,[X]Hypertension secondary to other renal disorders,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+L122.00,Other pre-existing hypertension in preg/childbirth/puerp,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+L122000,Other pre-existing hypertension in preg/childb/puerp unspec,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+L122100,Other pre-existing hypertension in preg/childb/puerp - deliv,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+L122300,Other pre-exist hypertension in preg/childb/puerp-not deliv,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+L122z00,Other pre-existing hypertension in preg/childb/puerp NOS,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+L127.00,Pre-eclampsia or eclampsia with pre-existing hypertension,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+L127z00,Pre-eclampsia or eclampsia + pre-existing hypertension NOS,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+L128.00,Pre-exist hypertension compl preg childbirth and puerperium,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+L128000,Pre-exist hyperten heart dis compl preg childbth+puerperium,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+L128200,Pre-exist 2ndry hypertens comp preg childbth and puerperium,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+TJC7.00,Adverse reaction to other antihypertensives,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+TJC7z00,Adverse reaction to antihypertensives NOS,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+U60C500,"[X]Oth antihyperten drug caus advers eff in therap use, NEC",READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+U60C511,[X] Adverse reaction to other antihypertensives,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+U60C51A,[X] Adverse reaction to antihypertensives NOS,READ 2,1227,Hypertension - Primary care,3593,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+10818,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+11056,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+13188,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+15106,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+15377,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+16059,Secondary hypertension (4),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+16173,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+16292,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+16565,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+18057,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+18482,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+18590,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+18765,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+1894,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+19070,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+19342,History of hypertension (1),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+204,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+20497,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+21660,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+21826,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+21837,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+22333,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+25371,Secondary hypertension (4),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+2666,History of hypertension (1),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+27511,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+28684,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+29310,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+30770,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+31341,Secondary hypertension (4),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+31387,Secondary hypertension (4),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+31464,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+31755,Secondary hypertension (4),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+31816,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+32423,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+3269,History of hypertension (1),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+32976,Secondary hypertension (4),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+3425,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+34744,Secondary hypertension (4),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+37086,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+3712,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+39649,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+3979,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+42229,Secondary hypertension (4),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+43664,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+4372,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+43935,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+44350,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+44549,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+4668,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+50157,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+51635,Secondary hypertension (4),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+52127,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+52427,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+52621,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+57288,Secondary hypertension (4),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+57987,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+59383,Secondary hypertension (4),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+60655,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+61166,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+61660,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+62432,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+62718,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+63000,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+63164,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+63466,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+66567,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+66645,History of hypertension (1),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+6702,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+67232,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+68659,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+69753,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+7057,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+72030,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+72668,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+7329,Secondary hypertension (4),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+73293,Secondary hypertension (4),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+73586,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+799,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+8296,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+83473,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+85944,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+8732,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+8857,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+93055,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+95334,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+95359,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+96743,Hypertension (3),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+97533,Secondary hypertension (4),MEDCODE,1228,Hypertension - Primary care,3595,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+I10,Essential (primary) hypertension,ICD10,1229,Hypertension - Secondary care - Diagnoses,3597,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+I11,Hypertensive heart disease,ICD10,1229,Hypertension - Secondary care - Diagnoses,3597,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+I12,Hypertensive renal disease,ICD10,1229,Hypertension - Secondary care - Diagnoses,3597,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+I13,Hypertensive heart and renal disease,ICD10,1229,Hypertension - Secondary care - Diagnoses,3597,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
+I15,Secondary hypertension,ICD10,1229,Hypertension - Secondary care - Diagnoses,3597,PH189,Hypertension,378,HDRUK,2021-10-06 16:07:01.935905+00:00,2025-06-09 21:34:10.871652
