@@ -247,7 +247,7 @@ def display_condition_feature_creation(session):
 
     if st.button("Create / Update Base Conditions Table", type="primary", use_container_width=True):
         all_definitions = list(definitions.keys())
-        create_base_conditions_feature(session, all_definitions)
+        create_base_conditions_feature(session, all_definitions, st.session_state.config)
 
     st.write("""
     **Table Schema:**
