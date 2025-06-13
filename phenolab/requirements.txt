@@ -1,11 +1,8 @@
 # Tested in Python 3.11.2 environment
--e ../../
-numpy
-pandas>=2, <3
-PyYAML>=6, <7
-fastparquet
-lxml
-python-dotenv
+-e ../
 streamlit
+python-dotenv
+plotly
+pandas
+polars
 openpyxl
-boto3
