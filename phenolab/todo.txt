@@ -10,7 +10,7 @@ x openpyxl
 x check whether feature store manager still works after refactoring of connection
 - NHS GP table
 - NEL segments
-- retrieving bnf definitions is very slow
+x retrieving bnf definitions is very slow
 x maybe should/check fix 'uploaded datetime', especially for those where doing asynchronous upload
 x fix the database/schema defaults because I think i did them wrong
 x tidy up main page appearance
@@ -74,4 +74,4 @@ x local config
 
 (12) snowflake feature store/get rid of feature store altogether
 
-(13) package as snowflake native app?
+(13) package as snowflake native app & therefore sort environment.yml issue?
