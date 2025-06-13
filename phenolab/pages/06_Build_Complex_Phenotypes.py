@@ -6,8 +6,6 @@ from utils.database_utils import get_snowflake_session, get_available_measuremen
 from utils.phenotype import ComparisonOperator, ConditionType, Phenotype, load_phenotype_from_json
 from utils.style_utils import set_font_lato, container_object_with_height_if_possible   
 
-from phmlondon.config import DEFINITION_LIBRARY, SNOWFLAKE_DATABASE, FEATURE_METADATA
-
 # # 05_Build_A_Phenotype.py
 
 # This page facilitates the creation of phenotypes by combining clinical definitions /
@@ -56,7 +54,8 @@ def query_definition_store(session, search_term, source_system):
         DEFINITION_SOURCE,
         SOURCE_LOADER,
         COUNT(*) AS CODE_COUNT
-    FROM {SNOWFLAKE_DATABASE}.{DEFINITION_LIBRARY}.DEFINITIONSTORE
+    FROM {st.session_state.config["definition_library"]["database"]}.
+    {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
     """
 
     where_clauses = []
@@ -158,7 +157,8 @@ def display_panel_2_definition_selection():
     if "source_systems" not in st.session_state:
         try:
             source_query = f"""
-            SELECT DISTINCT SOURCE_LOADER FROM {SNOWFLAKE_DATABASE}.{DEFINITION_LIBRARY}.DEFINITIONSTORE
+            SELECT DISTINCT SOURCE_LOADER FROM {st.session_state.config["definition_library"]["database"]}.
+            {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
             WHERE SOURCE_LOADER IS NOT NULL
             ORDER BY SOURCE_LOADER
             """
