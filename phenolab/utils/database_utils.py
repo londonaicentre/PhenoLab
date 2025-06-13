@@ -2,7 +2,6 @@ import pandas as pd
 import streamlit as st
 
 #from dotenv import load_dotenv
-from phmlondon.config import DDS_OBSERVATION, DEFINITION_LIBRARY, SNOWFLAKE_DATABASE, FEATURE_STORE
 # from phmlondon.snow_utils import SnowflakeConnection
 from snowflake.snowpark import Session
 from snowflake.snowpark.context import get_active_session
@@ -48,11 +47,11 @@ def get_data_from_snowflake_to_list(_session: Session, query: str) -> list:
 
 @standard_query_cache
 def get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(
-    _session: Session,
+    _session: Session, config: dict
 ) -> tuple[list, list]:
     comparison_query = f"""
     SELECT DISTINCT DEFINITION_SOURCE, DEFINITION_ID, DEFINITION_NAME
-    FROM {SNOWFLAKE_DATABASE}.{DEFINITION_LIBRARY}.DEFINITIONSTORE
+    FROM {config["definition_library"]["database"]}.{config["definition_library"]["schema"]}.DEFINITIONSTORE
     ORDER BY DEFINITION_NAME
     """
     # comparison_defintions = _snowsesh.execute_query_to_df(comparison_query)
@@ -66,7 +65,7 @@ def get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(
 
 @standard_query_cache
 def return_codes_for_given_definition_id_as_df(
-    _session: Session, chosen_definition_id: str
+    _session: Session, chosen_definition_id: str, config: dict
 ) -> pd.DataFrame:
     codes_query = f"""
         SELECT DISTINCT
@@ -75,7 +74,7 @@ def return_codes_for_given_definition_id_as_df(
             VOCABULARY,
             DEFINITION_ID,
             CODELIST_VERSION
-        FROM {SNOWFLAKE_DATABASE}.{DEFINITION_LIBRARY}.DEFINITIONSTORE
+        FROM {config["definition_store"]["database"]}.{config["definition_store"]["schema"]}.DEFINITIONSTORE
         WHERE DEFINITION_ID = '{chosen_definition_id}'
         ORDER BY VOCABULARY, CODE
         """
@@ -83,14 +82,14 @@ def return_codes_for_given_definition_id_as_df(
 
 
 @standard_query_cache
-def get_aic_definitions(_session: Session) -> pd.DataFrame:
+def get_aic_definitions(_session: Session, config: dict) -> pd.DataFrame:
     """
     Get all AI Centre definitions with metadata
     """
     query = f"""
     SELECT DEFINITION_ID, DEFINITION_NAME,
         VERSION_DATETIME, UPLOADED_DATETIME
-    FROM {DEFINITION_LIBRARY}.AIC_DEFINITIONS
+    FROM {config["definition_library"]["database"]}.{config["definition_library"]["schema"]}.AIC_DEFINITIONS
     GROUP BY DEFINITION_ID, DEFINITION_NAME, VERSION_DATETIME, UPLOADED_DATETIME
     ORDER BY DEFINITION_NAME
     """
@@ -100,7 +99,7 @@ def get_aic_definitions(_session: Session) -> pd.DataFrame:
 
 
 @standard_query_cache
-def get_measurement_unit_statistics(definition_name: str, _session: Session) -> pd.DataFrame:
+def get_measurement_unit_statistics(definition_name: str, _session: Session, config: dict) -> pd.DataFrame:
     """
     Get statistics for all units associated with a measurement definition
     """
@@ -114,8 +113,8 @@ def get_measurement_unit_statistics(definition_name: str, _session: Session) -> 
         APPROX_PERCENTILE(TRY_CAST(RESULT_VALUE AS FLOAT), 0.75) AS upper_quartile,
         MIN(TRY_CAST(RESULT_VALUE AS FLOAT)) AS min_value,
         MAX(TRY_CAST(RESULT_VALUE AS FLOAT)) AS max_value
-    FROM {DDS_OBSERVATION} obs
-    LEFT JOIN {SNOWFLAKE_DATABASE}.{DEFINITION_LIBRARY}.DEFINITIONSTORE def
+    FROM {config["gp_observation_table"]} obs
+    LEFT JOIN {config["definition_library"]["database"]}.{config["definition_library"]["schema"]}.DEFINITIONSTORE def
         ON obs.CORE_CONCEPT_ID = def.DBID
     WHERE RESULT_VALUE_UNITS IS NOT NULL
     AND def.DEFINITION_NAME = '{definition_name}'
@@ -126,18 +125,18 @@ def get_measurement_unit_statistics(definition_name: str, _session: Session) -> 
     return get_data_from_snowflake_to_dataframe(_session, query)
 
 
-def get_available_measurements(_session):
+def get_available_measurements(_session, config: dict) -> pd.DataFrame: 
     """
     Get available measurement definitions from BASE_MEASUREMENTS tables in feature store
     """
     # try:
-    _session.use_database(SNOWFLAKE_DATABASE)
-    _session.use_schema(FEATURE_STORE)
+    _session.use_database(config["feature_store"]["database"])
+    _session.use_schema(config["feature_store"]["schema"])
     # with _session.use_context(database=SNOWFLAKE_DATABASE, schema=FEATURE_STORE):
     tables_query = f"""
     SELECT TABLE_NAME
     FROM INFORMATION_SCHEMA.TABLES
-    WHERE TABLE_SCHEMA = '{FEATURE_STORE}'
+    WHERE TABLE_SCHEMA = '{config["feature_store"]["schema"]}'
         AND TABLE_NAME LIKE 'BASE_MEASUREMENTS%'
     ORDER BY TABLE_NAME DESC
     """
@@ -148,8 +147,8 @@ def get_available_measurements(_session):
 
     latest_table = measurement_tables.iloc[0]['TABLE_NAME']
 
-    _session.use_database(SNOWFLAKE_DATABASE)
-    _session.use_schema(FEATURE_STORE)
+    _session.use_database(config["feature_store"]["database"])
+    _session.use_schema(config["feature_store"]["schema"])
     # with _session.use_context(database=SNOWFLAKE_DATABASE, schema=FEATURE_STORE):
     definitions_query = f"""
     SELECT DISTINCT
@@ -172,7 +171,7 @@ def get_available_measurements(_session):
 
 
 @standard_query_cache
-def get_condition_patient_counts_by_year(definition_name: str, _session: Session) -> pd.DataFrame:
+def get_condition_patient_counts_by_year(definition_name: str, _session: Session, config: dict) -> pd.DataFrame:
     """
     Get unique patient counts by year for a given condition definition
     Includes both SNOMED codes from OBSERVATION and ICD10/OPCS4 codes from BASE_APC_CONCEPTS
@@ -187,8 +186,8 @@ def get_condition_patient_counts_by_year(definition_name: str, _session: Session
     # Get latest BASE_APC_CONCEPTS table
     apc_table_query = f"""
     SELECT TABLE_NAME
-    FROM {SNOWFLAKE_DATABASE}.INFORMATION_SCHEMA.TABLES
-    WHERE TABLE_SCHEMA = '{FEATURE_STORE}'
+    FROM {config["feature_store"]["database"]}.INFORMATION_SCHEMA.TABLES
+    WHERE TABLE_SCHEMA = '{config["feature_store"]["schema"]}'
       AND TABLE_NAME LIKE 'BASE_APC_CONCEPTS%'
     ORDER BY TABLE_NAME DESC
     LIMIT 1
@@ -203,8 +202,8 @@ def get_condition_patient_counts_by_year(definition_name: str, _session: Session
     SELECT
         YEAR(obs.CLINICAL_EFFECTIVE_DATE) AS YEAR,
         obs.PERSON_ID
-    FROM {DDS_OBSERVATION} obs
-    LEFT JOIN {SNOWFLAKE_DATABASE}.{DEFINITION_LIBRARY}.DEFINITIONSTORE def
+    FROM {config["gp_observation_table"]} obs
+    LEFT JOIN {config["definition_library"]["database"]}.{config["definition_library"]["schema"]}.DEFINITIONSTORE def
         ON obs.CORE_CONCEPT_ID = def.DBID
     WHERE def.DEFINITION_NAME = '{definition_name}'
         AND def.VOCABULARY = 'SNOMED'
@@ -217,8 +216,8 @@ def get_condition_patient_counts_by_year(definition_name: str, _session: Session
         SELECT
             YEAR(apc.ACTIVITY_DATE) AS YEAR,
             apc.PERSON_ID
-        FROM {SNOWFLAKE_DATABASE}.{FEATURE_STORE}.{apc_table} apc
-        INNER JOIN {SNOWFLAKE_DATABASE}.{DEFINITION_LIBRARY}.DEFINITIONSTORE def
+        FROM {config["feature_store"]["database"]}.{config["feature_store"]["schema"]}.{apc_table} apc
+        INNER JOIN {config["definition_library"]["database"]}.{config["definition_library"]["schema"]}.DEFINITIONSTORE def
             ON apc.VOCABULARY = def.VOCABULARY
             AND apc.CONCEPT_CODE_STD = def.CODE
         WHERE def.DEFINITION_NAME = '{definition_name}'
@@ -243,7 +242,7 @@ def get_condition_patient_counts_by_year(definition_name: str, _session: Session
 
 
 @standard_query_cache
-def get_unique_patients_for_condition(definition_name: str, _session: Session) -> int:
+def get_unique_patients_for_condition(definition_name: str, _session: Session, config: dict) -> int:
     """
     Get total unique patient count for a condition definition
     Includes both SNOMED codes from OBSERVATION and ICD10/OPCS4 codes from BASE_APC_CONCEPTS
@@ -258,8 +257,8 @@ def get_unique_patients_for_condition(definition_name: str, _session: Session) -
     # Get latest BASE_APC_CONCEPTS table
     apc_table_query = f"""
     SELECT TABLE_NAME
-    FROM {SNOWFLAKE_DATABASE}.INFORMATION_SCHEMA.TABLES
-    WHERE TABLE_SCHEMA = '{FEATURE_STORE}'
+    FROM {config["feature_store"]["database"]}.INFORMATION_SCHEMA.TABLES
+    WHERE TABLE_SCHEMA = '{config["feature_store"]["schema"]}'
       AND TABLE_NAME LIKE 'BASE_APC_CONCEPTS%'
     ORDER BY TABLE_NAME DESC
     LIMIT 1
@@ -273,8 +272,8 @@ def get_unique_patients_for_condition(definition_name: str, _session: Session) -
     # SNOMED from OBSERVATION
     query_parts.append(f"""
     SELECT DISTINCT obs.PERSON_ID
-    FROM {DDS_OBSERVATION} obs
-    LEFT JOIN {SNOWFLAKE_DATABASE}.{DEFINITION_LIBRARY}.DEFINITIONSTORE def
+    FROM {config["gp_observation_table"]} obs
+    LEFT JOIN {config["definition_library"]["database"]}.{config["definition_library"]["schema"]}.DEFINITIONSTORE def
         ON obs.CORE_CONCEPT_ID = def.DBID
     WHERE def.DEFINITION_NAME = '{definition_name}'
         AND def.VOCABULARY = 'SNOMED'
@@ -284,8 +283,8 @@ def get_unique_patients_for_condition(definition_name: str, _session: Session) -
     if apc_table:
         query_parts.append(f"""
         SELECT DISTINCT apc.PERSON_ID
-        FROM {SNOWFLAKE_DATABASE}.{FEATURE_STORE}.{apc_table} apc
-        INNER JOIN {SNOWFLAKE_DATABASE}.{DEFINITION_LIBRARY}.DEFINITIONSTORE def
+        FROM {config["feature_store"]["database"]}.{config["feature_store"]["schema"]}.{apc_table} apc
+        INNER JOIN {config["definition_library"]["database"]}.{config["definition_library"]["schema"]}.DEFINITIONSTORE def
             ON apc.VOCABULARY = def.VOCABULARY
             AND apc.CONCEPT_CODE_STD = def.CODE
         WHERE def.DEFINITION_NAME = '{definition_name}'

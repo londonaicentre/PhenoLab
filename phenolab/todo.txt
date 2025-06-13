@@ -41,6 +41,7 @@ x done
 - see if can use get_account() to select config file
 - people should be using snowflake config rather than .env - replace examples
 - explain all in readme
+- finish converting away from Snowflake Connection & context manager to explicit management
 
 (6) delete definition option?
 

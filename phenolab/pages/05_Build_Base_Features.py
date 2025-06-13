@@ -129,7 +129,7 @@ def display_measurement_analysis(session):
             return
 
         with st.spinner("Loading measurement values..."):
-            df_values = get_measurement_values(selected_measurement, session)
+            df_values = get_measurement_values(selected_measurement, session, st.session_state.config)
 
         if df_values.empty:
             st.warning(f"No measurement values found for {selected_measurement}")
@@ -160,7 +160,7 @@ def display_feature_creation(session):
              """)
 
     if st.button("Create / Update Base Measurements Table", type="primary", use_container_width=True):
-        create_base_measurements_feature(session, eligible_configs)
+        create_base_measurements_feature(session, st.session_state, eligible_configs)
 
     st.write("""
     **Table Schema:**
@@ -216,14 +216,14 @@ def display_condition_analysis(session):
 
     if selected_condition:
         with st.spinner("Loading patient counts..."):
-            df_yearly = get_condition_patient_counts_by_year(selected_condition, session)
+            df_yearly = get_condition_patient_counts_by_year(selected_condition, session, st.session_state.config)
 
         if df_yearly.empty:
             st.warning(f"No patients found for {selected_condition}")
             return
 
         total_observations = df_yearly['PATIENT_COUNT'].sum()
-        unique_patients = get_unique_patients_for_condition(selected_condition, session)
+        unique_patients = get_unique_patients_for_condition(selected_condition, session, st.session_state.config)
 
         st.info(f"Total unique patients: {unique_patients:,} (Total observations: {total_observations:,})")
 
