@@ -23,6 +23,7 @@ st.set_page_config(page_title="PhenoLab", layout="wide", initial_sidebar_state="
 set_font_lato()
 # load_dotenv(override=True)
 st.session_state.config = load_config()
+print(st.session_state.config)
 
 def preload_vocabulary():
     """
@@ -86,8 +87,8 @@ if 'uploaded_aic_definitions' not in st.session_state:
     with st.spinner("Loading AI Centre definitions...", show_time=True):
         update_aic_definitions_table(
             session, 
-            database="st.session_state.config[definition_library][database]", 
-            schema="st.session_state.config[definition_library][schema]", 
+            database=st.session_state.config["definition_library"]["database"], 
+            schema=st.session_state.config["definition_library"]["schema"], 
             verbose=False)
         st.session_state['uploaded_aic_definitions'] = True
 
@@ -95,8 +96,8 @@ if 'uploaded_aic_definitions' not in st.session_state:
 if 'uploaded_hdruk_defs' not in st.session_state:
     with st.spinner("Retrieving HDRUK definitions...", show_time=True): 
         retrieve_hdruk_definitions_and_add_to_snowflake(session, 
-            database="st.session_state.config[definition_library][database]", 
-            schema="st.session_state.config[definition_library][schema]")
+            database=st.session_state.config["definition_library"]["database"], 
+            schema=st.session_state.config["definition_library"]["schema"])
         st.session_state['uploaded_hdruk_defs'] = True
     
 # 3. NHS GP refsets
@@ -108,16 +109,16 @@ if 'uploaded_nhs_gp_defs' not in st.session_state:
 if 'uploaded_open_codelists_defs' not in st.session_state:
     with st.spinner("Retrieving Open Codelists definitions...", show_time=True): 
         retrieve_open_codelists_definitions_and_add_to_snowflake(session, 
-            database="st.session_state.config[definition_library][database]", 
-            schema="st.session_state.config[definition_library][schema]")
+            database=st.session_state.config["definition_library"]["database"], 
+            schema=st.session_state.config["definition_library"]["schema"])
         st.session_state['uploaded_open_codelists_defs'] = True
     
 # 5. BNF definitions
 if 'uploaded_bnf_defs' not in st.session_state:
     with st.spinner("Retrieving BNF definitions...", show_time=True): 
         retrieve_bnf_definitions_and_add_to_snowflake(session, 
-            database="st.session_state.config[definition_library][database]", 
-            schema="st.session_state.config[definition_library][schema]")
+            database=st.session_state.config["definition_library"]["database"], 
+            schema=st.session_state.config["definition_library"]["schema"])
         st.session_state['uploaded_bnf_defs'] = True
 
 required_checks = [

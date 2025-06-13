@@ -30,7 +30,7 @@ x done
 (4) aesthetic changes
 
 (5) general/misc
-- redundant imports
+- redundant imports!
 - get rid of some of the database utils functions
 - add some tests?
 
@@ -38,6 +38,9 @@ x done
 - check if config in PHMutils should be part of phenolab or more likely, switch to a config file
 - see if the config is a good idea/should be refactored/homogenised with database/schema
 - get rid of load_dotenv?
+- see if can use get_account() to select config file
+- people should be using snowflake config rather than .env - replace examples
+- explain all in readme
 
 (6) delete definition option?
 
@@ -52,3 +55,5 @@ x done
 
 (11) ugggh
 - retrieving bnf definitions is very slow
+
+(12) snowflake feature store

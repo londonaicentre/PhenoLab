@@ -41,7 +41,7 @@ def view_definitions(session: Session, database: str, schema: str):
     Users can select which tables they would like to view definitions from
     """
     st.title("Browse definitions")
-
+  
     all_tables = [row["name"] for row in session.sql(f"SHOW TABLES IN SCHEMA {database}.{schema}").collect()]
 
     chosen_tables = st.multiselect("Select definition source", options=all_tables, default='AIC_DEFINITIONS')

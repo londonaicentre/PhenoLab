@@ -8,8 +8,6 @@ from dotenv import load_dotenv
 from utils.database_utils import get_snowflake_session
 from utils.style_utils import set_font_lato
 
-from phmlondon.config import FEATURE_STORE, SNOWFLAKE_DATABASE
-
 # # 01_Manage_Vocabularies.py
 
 # This page allows users to load an existing vocabulary or generate a new one from /
@@ -144,9 +142,13 @@ def generate_vocab_list():
             status_placeholder.info("Extracting hospital usage statistics...")
 
             # Use context manager for feature store database
-            with conn.use_context(database=SNOWFLAKE_DATABASE, schema=FEATURE_STORE):
-                hospital_query = HOSPITAL_CODES_SQL.format(database=SNOWFLAKE_DATABASE, feature_store=FEATURE_STORE)
-                hospital_df = conn.execute_query_to_df(hospital_query)
+            # with conn.use_context(database=st.session_state.config[feature_store]["database"], schema=st.session_state.config[feature_store]["schema"]):
+            #     hospital_query = HOSPITAL_CODES_SQL.format(database=st.session_state.config[feature_store]["database"], feature_store=st.session_state.config[feature_store]["schema"])
+            #     hospital_df = conn.execute_query_to_df(hospital_query)
+            hospital_query = HOSPITAL_CODES_SQL.format(
+                database=st.session_state.config["schema"]["database"], 
+                feature_store=st.session_state.config["schema"]["schema"])
+            hospital_df = session.sql(hospital_query).to_pandas()
 
             print(hospital_df)
 
