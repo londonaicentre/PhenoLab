@@ -37,10 +37,10 @@ x done
 (5b) ICB-specific config
 x check if config in PHMutils should be part of phenolab or more likely, switch to a config file
 x see if the config is a good idea/should be refactored/homogenised with database/schema
-- refactor
-- get rid of load_dotenv?
-- see if can use get_account() to select config file
-- config for environmental variables
+x refactor
+x get rid of load_dotenv?
+x see if can use get_account() to select config file
+x config for environmental variables
 - local config
 - people should be using snowflake config rather than .env - replace examples
 - explain all in readme
