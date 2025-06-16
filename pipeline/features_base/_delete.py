@@ -9,7 +9,7 @@ snowsesh = SnowflakeConnection()
 snowsesh.use_database(SNOWFLAKE_DATABASE)
 snowsesh.use_schema(FEATURE_STORE)
 
-table_to_delete = "BASE_MEASUREMENTS_V4"
+table_to_delete = "BASE_UNIFIED_EMERGENCY_CARE"
 
 fsm = FeatureStoreManager(snowsesh, SNOWFLAKE_DATABASE, FEATURE_STORE, FEATURE_METADATA)
 
@@ -17,7 +17,7 @@ snowsesh.use_schema(FEATURE_METADATA)
 result = snowsesh.session.sql(f"""
     SELECT feature_id
     FROM feature_registry
-    WHERE feature_name = {table_to_delete}
+    WHERE feature_name = \'{table_to_delete}\'
 """).collect()
 
 if result:
