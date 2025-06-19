@@ -1,0 +1,9 @@
+icb_name: NEL
+definition_library:
+  database: INTELLIGENCE_DEV
+  schema: AI_CENTRE_DEFINITION_LIBRARY
+feature_store:
+  database: INTELLIGENCE_DEV
+  schema: AI_CENTRE_FEATURE_STORE
+  metadata_schema: AI_CENTRE_FEATURE_STORE_METADATA
+gp_observation_table: PROD_DWH.ANALYST_PRIMARY_CARE.OBSERVATION
