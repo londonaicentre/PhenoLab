@@ -9,7 +9,7 @@ x temp tables
 x openpyxl
 x check whether feature store manager still works after refactoring of connection
 - NHS GP table
-- NEL segments
+- NEL segments -> their own table
 x retrieving bnf definitions is very slow
 x maybe should/check fix 'uploaded datetime', especially for those where doing asynchronous upload
 x fix the database/schema defaults because I think i did them wrong
@@ -23,10 +23,9 @@ x page to browse by source
 
 (2b) ICB table with 'starterpack' model
 x create ICB table
-- definitions should go to ICB table
-- UNLESS we create them as jsons/export as jsons
-- existing NEL segments need to go in ICB table
-- debugging mode
+x definitions should go to ICB table
+x UNLESS we create them as jsons/export as jsons
+x debugging mode
 
 (3) external definitions starterpack
 x done 
