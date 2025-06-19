@@ -1,6 +1,26 @@
+# [theme]
+# base="dark"
+# primaryColor="#D2834B"
+
+# https://advanced-theming-anthropic.streamlit.app
+# https://github.com/jrieke/advanced-theming-anthropic/blob/main/.streamlit/config.toml
 [theme]
-base="dark"
-primaryColor="#D2834B"
+primaryColor = "#bb5a38"
+backgroundColor = "#f4f3ed"
+secondaryBackgroundColor = "#ecebe3"
+textColor = "#3d3a2a"
+linkColor = "#3d3a2a"
+borderColor = "#d3d2ca"
+showWidgetBorder = true
+baseRadius = "0.6rem"
+# font = "Styrene B"
+# codeFont = "Fira Code"
+codeBackgroundColor = "#ecebe4"
+showSidebarBorder = true
+
+[theme.sidebar]
+backgroundColor = "#e8e7dd"
+secondaryBackgroundColor = "#ecebe3"
 
 
 

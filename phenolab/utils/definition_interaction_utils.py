@@ -12,7 +12,6 @@ from utils.database_utils import (
     return_codes_for_given_definition_id_as_df,
 )
 from utils.style_utils import container_object_with_height_if_possible
-from phmlondon.config import DEFINITION_LIBRARY, SNOWFLAKE_DATABASE
 from phmlondon.definition import Code, Definition, VocabularyType
 
 """
@@ -229,7 +228,7 @@ def filter_codes(df: pd.DataFrame, search_term: str, code_type: str) -> pd.DataF
 
     return filtered_df.sort_values("CODE_COUNT", ascending=False) if "CODE_COUNT" in filtered_df.columns else filtered_df
 
-def display_unified_code_browser(code_types, key_suffix=""):
+def display_unified_code_browser(code_types, config, key_suffix=""):
     """
     Unified code browser that allows selection from global vocabulary or existing definitions
     Args:
@@ -281,7 +280,7 @@ def display_unified_code_browser(code_types, key_suffix=""):
 
             if chosen_definition:
                 chosen_definition_id = id_list[definitions_list.index(chosen_definition)]
-                definition_codes_df = return_codes_for_given_definition_id_as_df(session, chosen_definition_id)
+                definition_codes_df = return_codes_for_given_definition_id_as_df(session, chosen_definition_id, config)
 
                 if search_term:
                     parsed_query = parse_search_query(search_term)

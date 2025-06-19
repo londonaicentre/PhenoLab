@@ -1,10 +1,4 @@
-## prevents load from failing
-import sys
-
-## Must be run from update.py
-import zipfile
 from datetime import datetime
-from io import BytesIO
 from pathlib import Path
 
 import pandas as pd
@@ -25,18 +19,17 @@ def process_snomed_mappings(xlsx_files):
     return combined.drop_duplicates(subset=["BNF Code", "SNOMED Code"])
 
 
-def build_definitions(zip_name, mapping_files):
+def build_definitions(file_path, mapping_files):
     """
     Build definitions from BNF chemical substances and SNOMED mappings
     """
-    # BSA BNF hierarchy
-    from pathlib import Path
-    print(Path("data/bsa_bnf").resolve())
-
-    with zipfile.ZipFile(f"definition_library/loaders/data/bsa_bnf/{zip_name}", "r") as zip_ref:
-        csv_name = zip_ref.namelist()[0]
-        with zip_ref.open(csv_name) as csv_file:
-            bnf_df = pd.read_csv(BytesIO(csv_file.read()))
+    with open(file_path) as csv_file:
+        bnf_df = pd.read_csv(csv_file, 
+            usecols=["BNF Chemical Substance", 
+                     "BNF Subparagraph Code", 
+                     "BNF Subparagraph", 
+                     "BNF Chemical Substance Code"])
+    
     chemical_substances = bnf_df[
         ["BNF Chemical Substance", "BNF Subparagraph Code", "BNF Subparagraph", "BNF Chemical Substance Code"]
     ].drop_duplicates()
@@ -104,7 +97,8 @@ def retrieve_bnf_definitions_and_add_to_snowflake(session: Session, database: st
         schema: str = "AI_CENTRE_DEFINITION_LIBRARY"):
                                                   
     mapping_files = Path("definition_library/loaders/data/bnf_to_snomed/").glob("*.xlsx")
-    definition_df = build_definitions("20241101_bsa_bnf.zip", mapping_files)
+    definition_df = build_definitions(
+        "definition_library/loaders/data/bsa_bnf/20241101_1730476037387_BNF_Code_Information.csv", mapping_files)
     print("Definitions built")
     definition_df.columns = definition_df.columns.str.upper()
     print("success in naming!")
@@ -118,9 +112,6 @@ def retrieve_bnf_definitions_and_add_to_snowflake(session: Session, database: st
     print("uploaded to snowflake!")
 
 if __name__ == "__main__":
-    # print("ERROR: This script should not be run directly.")
-    # print("Please run from update.py using the appropriate flag.")
-    # sys.exit(1)
     load_dotenv(override=True)
     conn = SnowflakeConnection()
     retrieve_bnf_definitions_and_add_to_snowflake(session=conn.session)

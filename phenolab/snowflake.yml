@@ -7,8 +7,10 @@ entities:
     stage: phenolab
     artifacts:
       - PhenoLab.py
+      - .streamlit
       - utils
       - pages
+      - configs
       - data
       - definition_library
       - environment.yml

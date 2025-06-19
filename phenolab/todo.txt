@@ -8,7 +8,9 @@ x dependencies on streamlit is an issue...go to static downloads
 x temp tables
 x openpyxl
 x check whether feature store manager still works after refactoring of connection
-- >> need to add in NHS GP table and NEL segments <<
+- NHS GP table
+- NEL segments
+x retrieving bnf definitions is very slow
 x maybe should/check fix 'uploaded datetime', especially for those where doing asynchronous upload
 x fix the database/schema defaults because I think i did them wrong
 x tidy up main page appearance
@@ -17,6 +19,7 @@ x page to browse by source
 
 (2a) CI approach
 - github actions
+- dev and prod
 
 (2b) ICB table with 'starterpack' model
 - create ICB table
@@ -28,27 +31,47 @@ x page to browse by source
 x done 
 
 (4) aesthetic changes
+x colour scheme
+- reduce labels/visual clutter
+- rename definition panels
 
 (5) general/misc
-- redundant imports
+- redundant imports!
 - get rid of some of the database utils functions
 - add some tests?
 
 (5b) ICB-specific config
-- check if config in PHMutils should be part of phenolab or more likely, switch to a config file
-- see if the config is a good idea/should be refactored/homogenised with database/schema
-- get rid of load_dotenv?
+x check if config in PHMutils should be part of phenolab or more likely, switch to a config file
+x see if the config is a good idea/should be refactored/homogenised with database/schema
+x refactor
+x get rid of load_dotenv?
+x see if can use get_account() to select config file
+x config for environmental variables
+x local config
+- environment.yml fix 
+- people should be using snowflake config rather than .env - replace examples
+- explain all in readme
 
-(6) delete definition option?
+(5c) tidying
+- finish converting away from Snowflake Connection & context manager to explicit management
+
+(5d) search definitions page
+
+(6) delete definition option
 
 (7) phenotypes
+- how to turn into SQL? (or should we remove from interface)
 
 (8) measurements
+- measurement config files
 
 (9) vocab loading
+- push further down list
 
 (10) base features
+- need to sort out config thingy as have made config part of phenolab
 - get rid of pipeline folder
 
-(11) ugggh
-- retrieving bnf definitions is very slow
+(12) snowflake feature store/get rid of feature store altogether
+
+(13) package as snowflake native app & therefore sort environment.yml issue?
