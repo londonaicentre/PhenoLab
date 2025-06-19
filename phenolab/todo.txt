@@ -22,10 +22,11 @@ x page to browse by source
 - dev and prod
 
 (2b) ICB table with 'starterpack' model
-- create ICB table
+x create ICB table
 - definitions should go to ICB table
 - UNLESS we create them as jsons/export as jsons
 - existing NEL segments need to go in ICB table
+- debugging mode
 
 (3) external definitions starterpack
 x done 
@@ -39,6 +40,7 @@ x colour scheme
 - redundant imports!
 - get rid of some of the database utils functions
 - add some tests?
+- do I need to be calling (a) session and (b) config as function imports??
 
 (5b) ICB-specific config
 x check if config in PHMutils should be part of phenolab or more likely, switch to a config file

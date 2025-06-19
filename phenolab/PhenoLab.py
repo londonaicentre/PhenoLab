@@ -11,6 +11,7 @@ from utils.config_utils import load_config
 from definition_library.loaders.load_hdruk import retrieve_hdruk_definitions_and_add_to_snowflake
 from definition_library.loaders.load_open_codelists import retrieve_open_codelists_definitions_and_add_to_snowflake
 from definition_library.loaders.load_bnf_to_snomed import retrieve_bnf_definitions_and_add_to_snowflake
+from definition_library.loaders.create_tables import create_definition_table
 
 # # PhenoLab.py
 
@@ -125,18 +126,30 @@ with col2:
                 schema=st.session_state.config["definition_library"]["schema"])
             st.session_state['uploaded_bnf_defs'] = True
 
+    # 6. Table for local definitions
+    if 'created_local_definitions_table' not in st.session_state:
+        with st.spinner("Creating local definitions table...", show_time=True):
+            create_definition_table(
+                session, 
+                database=st.session_state.config["definition_library"]["database"], 
+                schema=st.session_state.config["definition_library"]["schema"],
+                table_name="ICB_DEFINITIONS"
+            )
+            st.session_state['created_local_definitions_table'] = True
+
     required_checks = [
         'uploaded_aic_definitions',
         'uploaded_hdruk_defs',
         'uploaded_nhs_gp_defs',
         'uploaded_open_codelists_defs',
-        'uploaded_bnf_defs'
+        'uploaded_bnf_defs',
+        'created_local_definitions_table'
     ]
 
-    if all(key in st.session_state for key in required_checks):
+    if all(st.session_state.get(key) for key in required_checks): #checks all true
         st.markdown('Database status: `Database checked`')
     else:
-        st.markdown('Databse status:')
+        st.markdown('Database status:')
         st.warning('Missing database checks')
 
 st.markdown("---")
