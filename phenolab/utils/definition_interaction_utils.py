@@ -355,7 +355,6 @@ def display_selected_codes(key_suffix=""):
 
             # component: save button
             if st.button("Save Definition", key=f"save_def_btn_{key_suffix}"):
-                st.session_state.config["local_development"] = False
                 if st.session_state.config["local_development"]:
                     filepath = definition.save_to_json()
                     st.success(f"Definition saved to: {filepath}")
