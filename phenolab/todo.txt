@@ -26,6 +26,8 @@ x create ICB table
 x definitions should go to ICB table
 x UNLESS we create them as jsons/export as jsons
 x debugging mode
+- fix problem with new jsons
+- 'Edit existing' needs to be either jsons or table according to whether local or remote
 
 (3) external definitions starterpack
 x done 

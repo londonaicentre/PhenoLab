@@ -551,7 +551,8 @@ def update_aic_definitions_table(session: Session,
                                 database=database,
                                 schema=schema,
                                 table_name="AIC_DEFINITIONS", 
-                                overwrite=False)
+                                overwrite=False,
+                                use_logical_type=True) # use_logical_type=True is needed to handle datetime cols correctly
             # snowsesh.load_dataframe_to_table(df=df, table_name="AIC_DEFINITIONS", mode="append")
             if verbose:
                 st.success(f"Successfully uploaded new definitions {definitions_to_add} to the AIC definition library")
