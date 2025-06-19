@@ -42,13 +42,12 @@ class DefinitionSource(Enum):
     AICENTRE = "AICENTRE"
 
 
-
 """
 This dictionary deals with the problem that different APIs return different strings for their
 vocabularies and we want to standardise things
 """
 vocab_mappings = {
-    "SNOMED  CT codes": VocabularyType.SNOMED,  # HDRUK
+    "SNOMED CT codes": VocabularyType.SNOMED,  # HDRUK
     "ICD10 codes": VocabularyType.ICD10,  # HDRUK
     "Read codes v2": VocabularyType.READV2,  # HDRUK
     "Med codes": VocabularyType.MEDCODE,  # HDRUK
@@ -59,6 +58,14 @@ vocab_mappings = {
     "CTV3 (Read V3)": VocabularyType.READV3,  # Open Codelists
     "ICD-10": VocabularyType.ICD10,  # Open Codelists
     "Dictionary of Medicines and Devices": VocabularyType.DMD,  # Open Codelists
+    "SNOMED": VocabularyType.SNOMED,  # Internal
+    "OPCS4": VocabularyType.OPCS4,  # Internal
+    "ICD10": VocabularyType.ICD10,  # Internal
+    "BNF": VocabularyType.BNF,  # Internal
+    "READ 2": VocabularyType.READV2,  # Internal
+    "READ 3": VocabularyType.READV3,  # Internal
+    "DM+D code scheme": VocabularyType.DMD,  # Internal
+    "MEDCODE": VocabularyType.MEDCODE,  # Internal
 }
 
 
