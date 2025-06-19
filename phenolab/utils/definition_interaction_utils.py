@@ -25,22 +25,32 @@ Provides functions to:
 - manage code selection when creating definitions
 """
 
-@st.cache_data(ttl=300)
+# @st.cache_data(ttl=300)
 def load_definitions_list() -> List[str]:
     """
     Get list of definition files from /data/definitions
     """
     definitions_list = []
-    try:
+    if st.session_state.config["local_development"]:
         if os.path.exists("data/definitions"):
             definitions_list = [f for f in os.listdir("data/definitions") if f.endswith(".json")]
-    except Exception as e:
-        st.error(f"Unable to list definition files: {e}")
+    else:
+        session = get_snowflake_session()
+        query = f"""
+        SELECT DEFINITION_VERSION
+        FROM {st.session_state.config["definition_library"]["database"]}.
+        {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
+        WHERE SOURCE_TABLE = 'ICB_DEFINITIONS'
+        GROUP BY DEFINITION_ID, DEFINITION_NAME, DEFINITION_VERSION, VERSION_DATETIME, UPLOADED_DATETIME, DEFINITION_SOURCE
+        ORDER BY DEFINITION_VERSION;
+        """
+        df = session.sql(query).to_pandas()
+        definitions_list = df["DEFINITION_VERSION"].tolist()
 
     return definitions_list
 
 
-def load_definition(file_path: str) -> Optional[Definition]:
+def load_local_definition(file_path: str) -> Optional[Definition]:
     """
     Load definition from json
     """
@@ -51,6 +61,17 @@ def load_definition(file_path: str) -> Optional[Definition]:
         st.error(f"Unable to load definition: {e}")
         return None
 
+def load_remote_definition(definition_name: str) -> Optional[Definition]:
+    """
+    Load definition from Snowflake
+    """
+    session = get_snowflake_session()
+    query = f"""SELECT * FROM {st.session_state.config["definition_library"]["database"]}.
+    {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
+    WHERE DEFINITION_VERSION = '{definition_name}';"""
+    df = session.sql(query).to_pandas()
+    df.columns = df.columns.str.lower()
+    return Definition.from_dataframe(df)
 
 def create_code_from_row(row: pd.Series) -> Code:
     """
@@ -69,7 +90,6 @@ def code_selected(row: pd.Series) -> bool:
 
     return any(c.code == row["CODE"] and c.code_vocabulary == VocabularyType(row["VOCABULARY"])
             for c in st.session_state.current_definition.codes)
-
 
 def display_code_and_checkbox(row: pd.Series, checkbox_key: str, key_suffix=""):
     """

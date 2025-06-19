@@ -19,17 +19,13 @@ def load_config(session: Session) -> dict:
     with open(f"configs/{phenolab_config}.yml", "r") as fid:
         config = yaml.safe_load(fid)
 
-        # Set whether we are developing locally or for the AI centre
-    # if os.getenv("LOCAL_DEVELOPMENT", "FALSE").upper() == "TRUE":
-    #     config["local_development"] = True
-    # else:
-    #     config["local_development"] = False
-
-    if os.getenv("GSETTINGS_SCHEMA_DIR") is not None:  
-    # This is a hideous hack, but this env variable exists on streamlit in snowflake
-        config["local_development"] = False
-    else:
-        config["local_development"] = True
+    if "local_development" not in config: # allow manual setting of local_development for debugging purposes, but in
+        # production is should be set automatically by the below
+        if os.getenv("GSETTINGS_SCHEMA_DIR") is not None:  
+        # This is a hideous hack, but this env variable exists on streamlit in snowflake
+            config["local_development"] = False
+        else:
+            config["local_development"] = True
 
     return config
 

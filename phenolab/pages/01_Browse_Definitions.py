@@ -44,18 +44,19 @@ def view_definitions(session: Session, database: str, schema: str):
   
     all_tables = [row["name"] for row in session.sql(f"SHOW TABLES IN SCHEMA {database}.{schema}").collect()]
 
-    chosen_tables = st.multiselect("Select definition source", options=all_tables, default='AIC_DEFINITIONS')
-    table_list_str = ', '.join([f"'{t}'" for t in chosen_tables])
+    chosen_tables = st.multiselect("Select definition source", options=all_tables, default='AIC_DEFINITIONS',
+                    placeholder="Choose an option")
+    if chosen_tables:
+        table_list_str = ', '.join([f"'{t}'" for t in chosen_tables])
+        query = f"""SELECT DEFINITION_ID, DEFINITION_NAME, DEFINITION_SOURCE,
+        VERSION_DATETIME, UPLOADED_DATETIME
+        FROM {database}.{schema}.DEFINITIONSTORE
+        WHERE SOURCE_TABLE IN ({table_list_str})
+        GROUP BY DEFINITION_ID, DEFINITION_NAME, VERSION_DATETIME, UPLOADED_DATETIME, DEFINITION_SOURCE
+        ORDER BY DEFINITION_NAME"""
+        df = session.sql(query).to_pandas()
 
-    query = f"""SELECT DEFINITION_ID, DEFINITION_NAME, DEFINITION_SOURCE,
-    VERSION_DATETIME, UPLOADED_DATETIME
-    FROM {database}.{schema}.DEFINITIONSTORE
-    WHERE SOURCE_TABLE IN ({table_list_str})
-    GROUP BY DEFINITION_ID, DEFINITION_NAME, VERSION_DATETIME, UPLOADED_DATETIME, DEFINITION_SOURCE
-    ORDER BY DEFINITION_NAME"""
-    df = session.sql(query).to_pandas()
-
-    st.dataframe(df)
+        st.dataframe(df)
 
 def create_definition_panel(session,
                             column,
