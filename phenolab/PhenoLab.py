@@ -88,7 +88,7 @@ with col2:
 
     if "debug_mode" not in st.session_state.config: #internal thing to make debugging faster 
         # - add "debug_mode" to config file and don't have to load db tables each time
-        
+
         # Populate the definition tables - once per session only
         # 1. AI Centre
         if 'uploaded_aic_definitions' not in st.session_state:
@@ -154,6 +154,8 @@ with col2:
         else:
             st.markdown('Database status:')
             st.warning('Missing database checks')
+    else:
+        st.markdown("Debug mode: `ON` - skipping database checks")
 
 st.markdown("---")
 
