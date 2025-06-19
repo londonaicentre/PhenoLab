@@ -48,7 +48,7 @@ def view_definitions(session: Session, database: str, schema: str):
     table_list_str = ', '.join([f"'{t}'" for t in chosen_tables])
 
     query = f"""SELECT DEFINITION_ID, DEFINITION_NAME, DEFINITION_SOURCE,
-    VERSION_DATETIME, UPLOADED_DATETIME,
+    VERSION_DATETIME, UPLOADED_DATETIME
     FROM {database}.{schema}.DEFINITIONSTORE
     WHERE SOURCE_TABLE IN ({table_list_str})
     GROUP BY DEFINITION_ID, DEFINITION_NAME, VERSION_DATETIME, UPLOADED_DATETIME, DEFINITION_SOURCE

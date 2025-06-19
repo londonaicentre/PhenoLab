@@ -355,12 +355,24 @@ def display_selected_codes(key_suffix=""):
 
             # component: save button
             if st.button("Save Definition", key=f"save_def_btn_{key_suffix}"):
-                try:
+                st.session_state.config["local_development"] = False
+                if st.session_state.config["local_development"]:
                     filepath = definition.save_to_json()
                     st.success(f"Definition saved to: {filepath}")
-                except Exception as e:
-                    st.error(f"Error saving definition: {e}")
-                    raise e
+                else: 
+                    session = get_snowflake_session()
+                    definition.version_datetime = datetime.now()
+                    definition.uploaded_datetime = datetime.now()
+                    df = definition.to_dataframe()
+                    df.columns = df.columns.str.upper()
+                    session.write_pandas(df, 
+                        database=st.session_state.config["definition_library"]["database"],
+                        schema=st.session_state.config["definition_library"]["schema"],
+                        table_name="ICB_DEFINITIONS", 
+                        overwrite=False,
+                        use_logical_type=True) #  use_logical_type=True is needed to handle datetime columns correctly
+                    # - this isn't properly documented anywhere in snowflake docs
+                    st.success(f"Definition saved to Snowflake: {st.session_state.config['definition_library']['database']}.{st.session_state.config['definition_library']['schema']}.ICB_DEFINITIONS")
         else:
             st.info("Create a definition first.")
 
