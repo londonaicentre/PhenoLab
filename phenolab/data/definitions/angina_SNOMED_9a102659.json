@@ -1,0 +1,193 @@
+{
+  "definition_id": "9a102659",
+  "definition_name": "angina_SNOMED",
+  "definition_version": "angina_SNOMED_20250612_130443",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-06-12T13:06:34.295817",
+  "codelists": [
+    {
+      "codelist_id": "angina_SNOMED_SNOMED_198e9f85",
+      "codelist_name": "angina_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "angina_SNOMED_SNOMED_198e9f85_20250612_130452",
+      "codes": [
+        {
+          "code": "194828000",
+          "code_description": "Angina (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233819005",
+          "code_description": "Stable angina (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "170594001",
+          "code_description": "Angina control - good (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "170593007",
+          "code_description": "Angina control (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "87343002",
+          "code_description": "Prinzmetal angina (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "300995000",
+          "code_description": "Exercise-induced angina (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "59021001",
+          "code_description": "Angina decubitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "170597008",
+          "code_description": "Angina control - worsening (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "170596004",
+          "code_description": "Angina control - improving (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "170595000",
+          "code_description": "Angina control - poor (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "371807002",
+          "code_description": "Atypical angina (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233821000",
+          "code_description": "New onset angina (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "308066006",
+          "code_description": "History of angina in last year (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "429559004",
+          "code_description": "Typical angina (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "811901000000107",
+          "code_description": "Angina self-management plan agreed (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "704207005",
+          "code_description": "Frequency of angina (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "315025001",
+          "code_description": "Refractory angina (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314116003",
+          "code_description": "Post infarct angina (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "308117007",
+          "code_description": "Antianginal therapy (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "35928006",
+          "code_description": "Nocturnal angina (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "811701000000105",
+          "code_description": "Angina self-management plan review (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "371809004",
+          "code_description": "Recurrent angina following placement of coronary artery stent (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "41334000",
+          "code_description": "Angina, class II (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "61490001",
+          "code_description": "Angina, class I (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194814006",
+          "code_description": "(Angina: [crescendo] or [unstable] or [at rest]) or (preinfarction syndrome) or (impending infarction) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15960061000119102",
+          "code_description": "Unstable angina co-occurrent and due to coronary arteriosclerosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "85284003",
+          "code_description": "Angina, class III (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "371806006",
+          "code_description": "Progressive angina (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "791000119109",
+          "code_description": "Angina due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "371810009",
+          "code_description": "Recurrent angina status post coronary artery bypass graft (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "853561000000109",
+          "code_description": "Referral to Angina Plan self-management programme (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15960141000119102",
+          "code_description": "Angina co-occurrent and due to coronary arteriosclerosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "182824004",
+          "code_description": "Antianginal therapy (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16754391000119100",
+          "code_description": "Stable angina due to coronary arteriosclerosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15960661000119107",
+          "code_description": "Unstable angina co-occurrent and due to arteriosclerosis of coronary artery bypass graft (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

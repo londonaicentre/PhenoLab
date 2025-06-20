@@ -1,0 +1,1003 @@
+{
+  "definition_id": "e2e0d6cc",
+  "definition_name": "cerebrovascular_accident_SNOMED",
+  "definition_version": "cerebrovascular_accident_SNOMED_20250612_123204",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-06-12T12:39:13.848197",
+  "codelists": [
+    {
+      "codelist_id": "cerebrovascular_accident_SNOMED_SNOMED_ad42ef2a",
+      "codelist_name": "cerebrovascular_accident_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "cerebrovascular_accident_SNOMED_SNOMED_ad42ef2a_20250612_123213",
+      "codes": [
+        {
+          "code": "230690007",
+          "code_description": "Cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "699270006",
+          "code_description": "Cerebrovascular accident annual review (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "275526006",
+          "code_description": "History of cerebrovascular accident (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230691006",
+          "code_description": "Cerebrovascular accident due to occlusion of cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195216008",
+          "code_description": "Left sided cerebral hemisphere cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195217004",
+          "code_description": "Right sided cerebral hemisphere cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "519751000000106",
+          "code_description": "Cerebrovascular accident 6 month review (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "685631000000102",
+          "code_description": "Stroke and cerebrovascular accident unspecified (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266315008",
+          "code_description": "(Cerebral infarct) or (cerebrovascular accident) or (undefined stroke/CVA) or (stroke NOS) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "769023031000119104",
+          "code_description": "Cerebrovascular accident of thalamus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195163003",
+          "code_description": "Intracerebral hemorrhage (& [cerebrovascular accident due to]) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16000511000119103",
+          "code_description": "Cerebrovascular accident due to occlusion of left middle cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "329641000119104",
+          "code_description": "Cerebrovascular accident due to thrombus of basilar artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16002111000119106",
+          "code_description": "Cerebrovascular accident due to thrombus of left middle cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "595899961000119100",
+          "code_description": "Cerebrovascular accident of basal ganglia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16000431000119109",
+          "code_description": "Cerebrovascular accident due to occlusion of right middle cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762005171000119101",
+          "code_description": "Acute cerebrovascular accident due to ischemia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "5571000124103",
+          "code_description": "Cerebrovascular accident with intracranial hemorrhage (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16002031000119102",
+          "code_description": "Cerebrovascular accident due to thrombus of right middle cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16644681000119102",
+          "code_description": "Cerebrovascular accident due to occlusion of bilateral pontine arteries (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "329461000119102",
+          "code_description": "Cerebrovascular accident due to occlusion of left cerebellar artery by embolus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "38595071000119104",
+          "code_description": "Cerebrovascular accident due to thrombosis of right posterior cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16896891000119106",
+          "code_description": "History of cerebrovascular accident due to ischemia (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16023911000119108",
+          "code_description": "Cerebrovascular accident due to occlusion of right carotid artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "281240008",
+          "code_description": "Extension of cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "851365731000119106",
+          "code_description": "Cerebrovascular accident due to thrombosis of left posterior cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "652287331000119104",
+          "code_description": "Cerebrovascular accident of brainstem (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "698767004",
+          "code_description": "Post-cerebrovascular accident epilepsy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16000351000119109",
+          "code_description": "Cerebrovascular accident due to occlusion of left posterior cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239965291000119107",
+          "code_description": "Cerebrovascular accident due to occlusion of basilar artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16000391000119104",
+          "code_description": "Cerebrovascular accident due to occlusion of right posterior cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "188174841000119103",
+          "code_description": "Cerebrovascular accident due to occlusion of bilateral middle cerebral arteries (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16024271000119107",
+          "code_description": "Cerebrovascular accident due to occlusion of right cerebellar artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "330791000119108",
+          "code_description": "Cerebrovascular accident due to thrombus of left carotid artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "329371000119101",
+          "code_description": "Cerebrovascular accident due to occlusion of left middle cerebral artery by embolus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16896851000119101",
+          "code_description": "History of embolic cerebrovascular accident (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "63230211000119103",
+          "code_description": "Acute cerebrovascular accident due to occlusion of left middle cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "496369931000119104",
+          "code_description": "Cerebrovascular accident due to thrombosis of right cerebellar artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16024111000119109",
+          "code_description": "Cerebrovascular accident due to occlusion of left carotid artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "939885431000119109",
+          "code_description": "Cerebrovascular accident due to embolism of bilateral middle cerebral arteries (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "957319791000119104",
+          "code_description": "Cerebrovascular accident due to thrombosis of left cerebellar artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16024071000119102",
+          "code_description": "Cerebrovascular accident due to occlusion of right anterior choroidal artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "329651000119102",
+          "code_description": "Cerebrovascular accident due to thrombus of right carotid artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "329361000119107",
+          "code_description": "Cerebrovascular accident due to occlusion of right middle cerebral artery by embolus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16026991000119107",
+          "code_description": "Cerebrovascular accident due to stenosis of left carotid artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "272202251000119109",
+          "code_description": "Acute cerebrovascular accident due to occlusion of right middle cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "117776611000119102",
+          "code_description": "Cerebrovascular accident due to occlusion of left posterior communicating artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "655081461000119101",
+          "code_description": "Cerebrovascular accident due to occlusion of right anterior cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "915141931000119109",
+          "code_description": "Cerebrovascular accident due to embolism of basilar artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "46583221000119102",
+          "code_description": "Acute cerebrovascular accident due to stenosis of left carotid artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "182960891000119101",
+          "code_description": "Cerebrovascular accident due to occlusion of left anterior cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "849488701000119104",
+          "code_description": "Cerebrovascular accident due to embolism of right anterior cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "699429007",
+          "code_description": "History of cerebrovascular accident in last eight weeks (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "329451000119104",
+          "code_description": "Cerebrovascular accident due to occlusion of right cerebellar artery by embolus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "97531000119106",
+          "code_description": "History of parietal cerebrovascular accident (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "152148641000119104",
+          "code_description": "Cerebrovascular accident due to embolism of bilateral carotid arteries (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "672461000119104",
+          "code_description": "Hemiplegia of dominant side due to and following ischemic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "672551000119100",
+          "code_description": "Aphasia due to and following hemorrhagic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "291111000119105",
+          "code_description": "Monoplegia of right nondominant upper limb due to and following cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "107557061000119108",
+          "code_description": "Cerebrovascular accident due to embolism of bilateral anterior cerebral arteries (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "384430101000119103",
+          "code_description": "Cerebrovascular accident due to embolism of right carotid artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16023991000119104",
+          "code_description": "Cerebrovascular accident due to occlusion of left pontine artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12204031000119101",
+          "code_description": "Cerebrovascular accident following procedure on heart (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16469821000119106",
+          "code_description": "Fatigue due to and following cerebrovascular accident with intracranial hemorrhage (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "563789641000119101",
+          "code_description": "Cerebrovascular accident due to thrombosis of bilateral carotid arteries (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16469991000119101",
+          "code_description": "Fatigue due to and following cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12242711000119109",
+          "code_description": "Weakness of left facial muscle due to and following cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "674111000119100",
+          "code_description": "Ataxia due to and following ischemic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "141811000119106",
+          "code_description": "History of hemorrhagic cerebrovascular accident with residual deficit (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195772021000119105",
+          "code_description": "Cerebrovascular accident due to thrombosis of left anterior cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "168747591000119109",
+          "code_description": "Cerebrovascular accident due to embolism of bilateral posterior cerebral arteries (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "672441000119103",
+          "code_description": "Hemiplegia of nondominant side due to and following ischemic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "672571000119109",
+          "code_description": "Cognitive deficit due to and following hemorrhagic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16026951000119102",
+          "code_description": "Cerebrovascular accident due to stenosis of right carotid artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16661971000119104",
+          "code_description": "Cerebrovascular accident due to stenosis of bilateral carotid arteries (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "759950981000119101",
+          "code_description": "Cerebrovascular accident due to thrombosis of left vertebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "502836591000119106",
+          "code_description": "Acute cerebrovascular accident due to occlusion of left carotid artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "690331000119109",
+          "code_description": "Speech and language deficit due to and following embolic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "672521000119108",
+          "code_description": "Dysphasia due to and following ischemic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "672501000119104",
+          "code_description": "Dysarthria due to and following ischemic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "433183000",
+          "code_description": "Neurogenic bladder as late effect of cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "427065003",
+          "code_description": "Monoplegia of dominant upper limb as a late effect of cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "440140008",
+          "code_description": "History of cerebrovascular accident with residual deficit (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "290931000119108",
+          "code_description": "Monoplegia of lower limb due to and following cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "48601000119107",
+          "code_description": "Paralytic syndrome on one side of the body as effect of cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16469931000119100",
+          "code_description": "Fatigue due to and following ischemic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "290631000119103",
+          "code_description": "Dysarthria due to and following cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426033005",
+          "code_description": "Dysphagia as a late effect of cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "720261501000119107",
+          "code_description": "Cerebrovascular accident due to occlusion of bilateral anterior cerebral arteries (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "291121000119103",
+          "code_description": "Monoplegia of upper limb due to and following cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16024151000119105",
+          "code_description": "Cerebrovascular accident due to occlusion of left cerebellar artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1269248000",
+          "code_description": "Cerebrovascular accident due to occlusion of anterior choroidal artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "290581000119101",
+          "code_description": "Ataxia due to and following cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12367511000119101",
+          "code_description": "Paraplegia due to and following cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "881694631000119107",
+          "code_description": "Cerebrovascular accident of medulla oblongata (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "488408691000119104",
+          "code_description": "Cerebrovascular accident due to thrombosis of bilateral cerebellar arteries (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "724787004",
+          "code_description": "Epilepsy due to cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "690271000119104",
+          "code_description": "Hemiplegia of nondominant side due to and following embolic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16470151000119106",
+          "code_description": "Urinary incontinence due to and following ischemic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "297778421000119102",
+          "code_description": "Cerebrovascular accident due to thrombosis of bilateral posterior cerebral arteries (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "425642008",
+          "code_description": "Monoplegia of dominant lower limb as a late effect of cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "931164671000119105",
+          "code_description": "Acute cerebrovascular accident due to embolism of right middle cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195208004",
+          "code_description": "CVA - cerebrovascular accident (& unspecified [& stroke]) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1131000119105",
+          "code_description": "Sequela of cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "292681000119101",
+          "code_description": "Cerebrovascular accident due to occlusion of right vertebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "674361000119104",
+          "code_description": "Apraxia due to and following ischemic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "849579281000119106",
+          "code_description": "Cerebrovascular accident due to occlusion of right posterior communicating artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "346674811000119104",
+          "code_description": "Cerebrovascular accident due to occlusion of bilateral cerebellar arteries (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "672561000119103",
+          "code_description": "Cognitive deficit due to and following ischemic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "40076141000119107",
+          "code_description": "Acute cerebrovascular accident due to occlusion of left posterior cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "828066161000119106",
+          "code_description": "Cerebrovascular accident due to thrombosis of right anterior cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "442181008",
+          "code_description": "Monoplegia of nondominant upper limb as a late effect of cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16470101000119107",
+          "code_description": "Urinary incontinence due to and following cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "429993008",
+          "code_description": "History of cerebrovascular accident without residual deficits (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "720849008",
+          "code_description": "Education about cerebrovascular accident (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401103008",
+          "code_description": "Cerebrovascular accident annual review (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16703661000119105",
+          "code_description": "Memory deficit due to and following cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "442733008",
+          "code_description": "Hemiplegia as late effect of cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "674401000119108",
+          "code_description": "Speech and language deficit due to and following ischemic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "674391000119106",
+          "code_description": "Speech and language deficit due to and following hemorrhagic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "732330391000119107",
+          "code_description": "Cerebrovascular accident due to embolism of bilateral vertebral arteries (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16644541000119106",
+          "code_description": "Cerebrovascular accident due to occlusion of bilateral carotid arteries (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "141821000119104",
+          "code_description": "History of ischemic cerebrovascular accident with residual deficit (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16260551000119106",
+          "code_description": "Dysphasia due to and following cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "186831000119104",
+          "code_description": "Apraxia due to and following cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "137592291000119101",
+          "code_description": "Acute cerebrovascular accident due to occlusion of right posterior cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "674121000119107",
+          "code_description": "Ataxia due to and following hemorrhagic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16024031000119100",
+          "code_description": "Cerebrovascular accident due to occlusion of right pontine artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "442212003",
+          "code_description": "Residual cognitive deficit as late effect of cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "672541000119102",
+          "code_description": "Aphasia due to and following ischemic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16023951000119109",
+          "code_description": "Cerebrovascular accident due to occlusion of left anterior choroidal artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "292671000119104",
+          "code_description": "Cerebrovascular accident due to stenosis of left vertebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "674091000119108",
+          "code_description": "Vertigo due to and following ischemic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "672511000119101",
+          "code_description": "Dysarthria due to and following hemorrhagic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "142031000119104",
+          "code_description": "Visual field defect due to and following cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "441960006",
+          "code_description": "Speech and language deficit as late effect of cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "713410003",
+          "code_description": "Pain following cerebrovascular accident (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "86553761000119103",
+          "code_description": "Cerebrovascular accident due to occlusion of bilateral posterior cerebral arteries (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "738211801000119107",
+          "code_description": "Acute cerebrovascular accident due to thrombosis of right middle cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "292691000119103",
+          "code_description": "Cerebrovascular accident due to occlusion of left vertebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "329421000119107",
+          "code_description": "Cerebrovascular accident due to occlusion of right posterior cerebral artery by embolus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "690351000119103",
+          "code_description": "Dysphasia due to and following embolic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16661931000119102",
+          "code_description": "Cerebrovascular accident due to stenosis of bilateral vertebral arteries (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "148871000119109",
+          "code_description": "Weakness as a late effect of cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "674371000119105",
+          "code_description": "Weakness of facial muscle due to and following hemorrhagic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "441991000",
+          "code_description": "Hemiparesis as late effect of cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "155405006",
+          "code_description": "(Cerebral infarct) or (cerebrovascular accident) or (undefined stroke/CVA) or (stroke NOS) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "690321000119106",
+          "code_description": "Aphasia due to and following embolic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "693158221000119105",
+          "code_description": "Acute cerebrovascular accident due to stenosis of right carotid artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16703761000119102",
+          "code_description": "Memory deficit due to and following ischemic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "716051003",
+          "code_description": "Cerebrovascular accident during surgery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "721711931000119105",
+          "code_description": "Cerebrovascular accident due to thrombosis of bilateral anterior cerebral arteries (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "329431000119105",
+          "code_description": "Cerebrovascular accident due to occlusion of left posterior cerebral artery by embolus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "690201000119109",
+          "code_description": "Ataxia due to and following embolic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "291091000119102",
+          "code_description": "Monoplegia of left nondominant upper limb due to and following cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "118961000119101",
+          "code_description": "History of hemorrhagic cerebrovascular accident without residual deficits (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "690311000119104",
+          "code_description": "Dysarthria due to and following embolic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16702561000119104",
+          "code_description": "Psychomotor retardation due to and following cerebrovascular accident with intracranial hemorrhage (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "407573811000119100",
+          "code_description": "Acute cerebrovascular accident due to occlusion of right carotid artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "428668000",
+          "code_description": "Apraxia due to cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "672531000119106",
+          "code_description": "Dysphasia due to and following hemorrhagic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195188006",
+          "code_description": "Cerebral arterial occlusion(&[cerebrovascular accident due to] or [stroke due to]) or (cerebral infarction) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16469881000119105",
+          "code_description": "Fatigue due to and following embolic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "442617003",
+          "code_description": "Aphasia as late effect of cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "578968971000119100",
+          "code_description": "Cerebrovascular accident due to thrombosis of bilateral vertebral arteries (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16703711000119100",
+          "code_description": "Memory deficit due to and following embolic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "58173271000119101",
+          "code_description": "Cerebrovascular accident due to embolism of bilateral cerebellar arteries (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "690341000119100",
+          "code_description": "Cognitive deficit due to and following embolic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "361000119103",
+          "code_description": "Paralytic syndrome on one side of the body as late effect of cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "511452481000119102",
+          "code_description": "Cerebrovascular accident due to thrombosis of right vertebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "674381000119108",
+          "code_description": "Weakness of facial muscle due to and following ischemic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "898941951000119108",
+          "code_description": "Cerebrovascular accident due to occlusion of bilateral vertebral arteries (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "716745004",
+          "code_description": "Livedo reticularis and cerebrovascular accident syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "517253051000119105",
+          "code_description": "Cerebrovascular accident due to embolism of left vertebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1269237007",
+          "code_description": "Cerebrovascular accident due to thrombosis of anterior cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "690301000119102",
+          "code_description": "Fluency disorder due to and following embolic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16703821000119101",
+          "code_description": "Memory deficit due to and following hemorrhagic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "251770561000119107",
+          "code_description": "Cerebrovascular accident due to embolism of left anterior cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "292661000119105",
+          "code_description": "Cerebrovascular accident due to stenosis of right vertebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82797006",
+          "code_description": "Cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16644981000119109",
+          "code_description": "Cerebrovascular accident due to occlusion of bilateral posterior communicating arteries (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "674161000119102",
+          "code_description": "Monoplegia of upper limb due to and following ischemic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12242751000119105",
+          "code_description": "Weakness of right facial muscle due to and following cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "788310011000119109",
+          "code_description": "Acute cerebrovascular accident due to occlusion of left cerebellar artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16470041000119105",
+          "code_description": "Urinary incontinence due to and following cerebrovascular accident with intracranial hemorrhage (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "441526008",
+          "code_description": "Infarct of cerebrum due to iatrogenic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "690171000119105",
+          "code_description": "Weakness of facial muscle due to and following embolic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "859422751000119101",
+          "code_description": "Cerebrovascular accident due to embolism of left carotid artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "704125007",
+          "code_description": "Cerebrovascular accident six month review (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "99051000119101",
+          "code_description": "History of lacunar cerebrovascular accident (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "738478141000119101",
+          "code_description": "Acute cerebrovascular accident due to occlusion of right cerebellar artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "290791000119105",
+          "code_description": "Fluency disorder due to and following cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "270883006",
+          "code_description": "Stroke and cerebrovascular accident unspecified (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16702671000119109",
+          "code_description": "Psychomotor retardation due to and following embolic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "806161651000119106",
+          "code_description": "Cerebrovascular accident due to embolism of right vertebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "346410121000119101",
+          "code_description": "Acute cerebrovascular accident due to thrombosis of left middle cerebral artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16470211000119100",
+          "code_description": "Urinary incontinence due to and following embolic cerebrovascular accident (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

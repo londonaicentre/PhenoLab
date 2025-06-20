@@ -1,0 +1,665 @@
+{
+  "definition_id": "9d99772c",
+  "definition_name": "ischaemic_heart_disease_unspecified_SNOMED",
+  "definition_version": "ischaemic_heart_disease_unspecified_SNOMED_20250612_130736",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-06-12T13:14:55.277658",
+  "codelists": [
+    {
+      "codelist_id": "ischaemic_heart_disease_unspecified_SNOMED_ICD10_dfbcb846",
+      "codelist_name": "ischaemic_heart_disease_unspecified_SNOMED_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "ischaemic_heart_disease_unspecified_SNOMED_ICD10_dfbcb846_20250612_130753",
+      "codes": []
+    },
+    {
+      "codelist_id": "ischaemic_heart_disease_unspecified_SNOMED_SNOMED_9dad0232",
+      "codelist_name": "ischaemic_heart_disease_unspecified_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "ischaemic_heart_disease_unspecified_SNOMED_SNOMED_9dad0232_20250612_130824",
+      "codes": [
+        {
+          "code": "205011000000103",
+          "code_description": "Suspected ischaemic heart disease (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194795001",
+          "code_description": "Ischaemic heart disease (& [arteriosclerotic]) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "320371000000101",
+          "code_description": "Emergency admission - ischaemic heart disease ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "414545008",
+          "code_description": "Ischemic heart disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "413838009",
+          "code_description": "Chronic ischemic heart disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "308068007",
+          "code_description": "History of treatment for ischemic heart disease (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "643861000000100",
+          "code_description": "Other acute and subacute ischemic heart disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "413439005",
+          "code_description": "Acute ischemic heart disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "713405002",
+          "code_description": "Subacute ischemic heart disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "712866001",
+          "code_description": "Resting ischemia co-occurrent and due to ischemic heart disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "699245006",
+          "code_description": "Emergency hospital admission for ischemic heart disease (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "32598000",
+          "code_description": "Acute ischemic heart disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194853002",
+          "code_description": "Other specified chronic ischemic heart disease NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "643891000000106",
+          "code_description": "Other acute and subacute ischemic heart disease NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194812005",
+          "code_description": "Other acute and subacute ischemic heart disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "653031000000100",
+          "code_description": "Other specified chronic ischemic heart disease NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195544005",
+          "code_description": "[X]Other forms of chronic ischemic heart disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194826001",
+          "code_description": "Other acute and subacute ischemic heart disease NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194877008",
+          "code_description": "Other specified ischemic heart disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194840000",
+          "code_description": "Other chronic ischemic heart disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "621601000000104",
+          "code_description": "Other chronic ischemic heart disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194854008",
+          "code_description": "Other chronic ischemic heart disease NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194851000",
+          "code_description": "Other specified chronic ischemic heart disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266289009",
+          "code_description": "Acute/subacute ischemic heart disease NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194878003",
+          "code_description": "Ischemic heart disease NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "315614006",
+          "code_description": "Coronary heart disease annual review (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "170601008",
+          "code_description": "Coronary heart disease monitoring (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "232717009",
+          "code_description": "Coronary artery bypass grafting (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401250009",
+          "code_description": "Coronary heart disease monitoring first letter (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "736368003",
+          "code_description": "Coronary heart disease care plan (record artifact)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "53741008",
+          "code_description": "Coronary arteriosclerosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "36969009",
+          "code_description": "Placement of stent in coronary artery (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "390799004",
+          "code_description": "Coronary heart disease review (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401251008",
+          "code_description": "Coronary heart disease monitoring second letter (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "31413008",
+          "code_description": "Operative procedure on coronary artery (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "394724007",
+          "code_description": "Coronary heart disease medication review (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "390907003",
+          "code_description": "Coronary heart disease monitoring administration (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "717111000000104",
+          "code_description": "Excepted from coronary heart disease quality indicators - patient unsuitable (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "3546002",
+          "code_description": "Aortocoronary artery bypass graft with saphenous vein graft (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "248461000000107",
+          "code_description": "Coronary heart disease monitoring telephone invitation (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401252001",
+          "code_description": "Coronary heart disease monitoring third letter (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "68466008",
+          "code_description": "Removal of coronary artery obstruction by percutaneous transluminal balloon, single vessel (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "429639007",
+          "code_description": "Percutaneous transluminal balloon angioplasty with insertion of stent into coronary artery (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "14201006",
+          "code_description": "Coronary angioplasty by open chest approach (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "399261000",
+          "code_description": "History of coronary artery bypass grafting (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "443502000",
+          "code_description": "Atherosclerosis of coronary artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401248001",
+          "code_description": "Attends coronary heart disease monitoring (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1083121000000102",
+          "code_description": "Coronary heart disease monitoring invitation (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "469611000000108",
+          "code_description": "[V]Presence of coronary artery bypass graft (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "398274000",
+          "code_description": "Coronary artery thrombosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194842008",
+          "code_description": "Single coronary vessel disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "203741000000101",
+          "code_description": "Insertion of drug-eluting coronary artery stent (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "408546009",
+          "code_description": "Coronary artery bypass graft occlusion (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401332000",
+          "code_description": "Coronary heart disease monitoring check done (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "85053006",
+          "code_description": "Percutaneous transluminal coronary angioplasty, multiple vessels (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "698376008",
+          "code_description": "Coronary angiography planned (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "175029007",
+          "code_description": "Prosthetic bypass of coronary artery (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "736968006",
+          "code_description": "Aortocoronary artery bypass of three coronary arteries with saphenous vein graft (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "936451000000108",
+          "code_description": "Percutaneous transluminal balloon angioplasty and insertion of drug eluting stent into coronary artery (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "232721002",
+          "code_description": "Coronary artery bypass grafts x 3 (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "414089002",
+          "code_description": "Emergency percutaneous coronary intervention (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "698378009",
+          "code_description": "Coronary artery bypass graft operation planned (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "286721000000101",
+          "code_description": "Review of patient at risk from coronary heart disease (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "175036008",
+          "code_description": "Revision of bypass for coronary artery (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "29843007",
+          "code_description": "Coronary atherectomy by laser (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "737431007",
+          "code_description": "Coronary heart disease risk clinical management plan (record artifact)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "41339005",
+          "code_description": "Coronary angioplasty (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "67682002",
+          "code_description": "Coronary artery atheroma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194823009",
+          "code_description": "Acute coronary insufficiency (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "315348000",
+          "code_description": "Asymptomatic coronary heart disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "232722009",
+          "code_description": "Coronary artery bypass grafts x 4 (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "719678003",
+          "code_description": "Non-obstructive atherosclerosis of coronary artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "736966005",
+          "code_description": "Aortocoronary artery bypass of four or more coronary arteries with saphenous vein graft (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "698377004",
+          "code_description": "Coronary angioplasty planned (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233970002",
+          "code_description": "Coronary artery stenosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "92517006",
+          "code_description": "Calcific coronary arteriosclerosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "397193006",
+          "code_description": "Percutaneous transluminal coronary angioplasty by rotoablation (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "428375006",
+          "code_description": "History of placement of stent for coronary artery disease (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "837091000000100",
+          "code_description": "History of acute coronary syndrome (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1083131000000100",
+          "code_description": "Coronary heart disease monitoring invitation email (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "736969003",
+          "code_description": "Aortocoronary artery bypass of two coronary arteries with saphenous vein graft (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "175006004",
+          "code_description": "Coronary artery operations (& bypass) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "223631000000109",
+          "code_description": "Percutaneous transluminal balloon angioplasty and stenting of coronary artery (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "232719007",
+          "code_description": "Coronary artery bypass graft x 1 (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "168937000",
+          "code_description": "Coronary arteriography awaited (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "175021005",
+          "code_description": "Allograft bypass of coronary artery (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "591161000000105",
+          "code_description": "Other open operations on coronary artery (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "175007008",
+          "code_description": "Saphenous vein graft replacement of one coronary artery (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "810681000000101",
+          "code_description": "Coronary microvascular disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "707828002",
+          "code_description": "Percutaneous transluminal cutting balloon angioplasty of coronary artery (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "424045003",
+          "code_description": "Myocardial bridge of coronary artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "175066001",
+          "code_description": "Percutaneous transluminal balloon angioplasty of bypass graft of coronary artery (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "384678000",
+          "code_description": "Transposition of coronary artery (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "175166003",
+          "code_description": "Coronary angiography using single catheter (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "20738002",
+          "code_description": "Endarterectomy of coronary artery (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "876859003",
+          "code_description": "Stenosis of anterior descending branch of left coronary artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233661000000101",
+          "code_description": "Percutaneous transluminal balloon angioplasty and insertion of 1-2 stents into coronary artery (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "237281000000104",
+          "code_description": "Percutaneous transluminal balloon angioplasty and insertion of 1-2 drug eluting stents into coronary artery (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "371803003",
+          "code_description": "Multi vessel coronary artery disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "175071008",
+          "code_description": "Percutaneous transluminal coronary thrombolysis using streptokinase (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "868245005",
+          "code_description": "Percutaneous coronary intervention of left coronary artery (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "175045009",
+          "code_description": "Connection of mammary artery to coronary artery (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "414024009",
+          "code_description": "Disorder of coronary artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "868248007",
+          "code_description": "Percutaneous coronary intervention of right coronary artery (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "703273002",
+          "code_description": "Heart failure with reduced ejection fraction due to coronary artery disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "175032005",
+          "code_description": "Prosthetic replacement of three coronary arteries (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "876856005",
+          "code_description": "Stenosis of right coronary artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "175048006",
+          "code_description": "Single anastomosis of mammary artery to left anterior descending coronary artery (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401331007",
+          "code_description": "Coronary heart disease monitoring default (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "123642008",
+          "code_description": "Right coronary artery occlusion (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "49673009",
+          "code_description": "Coronary angiography using two catheters (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "469031000000107",
+          "code_description": "[V]Presence of aortocoronary bypass graft (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "232726007",
+          "code_description": "Percutaneous endarterectomy of coronary artery (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "232723004",
+          "code_description": "Coronary artery bypass grafts x 5 (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "63739005",
+          "code_description": "Coronary occlusion (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "175039001",
+          "code_description": "Revision of bypass for three coronary arteries (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "840310005",
+          "code_description": "Occlusion of proximal portion of anterior descending branch of left coronary artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "175038009",
+          "code_description": "Revision of bypass for two coronary arteries (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "175025001",
+          "code_description": "Allograft replacement of three coronary arteries (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "371804009",
+          "code_description": "Left main coronary artery disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "117051000119103",
+          "code_description": "Chronic total occlusion of coronary artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "300920004",
+          "code_description": "Carotid atherosclerosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194841001",
+          "code_description": "Coronary (atherosclerosis or artery disease) or triple vessel disease of the heart (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "155316000",
+          "code_description": "Coronary atherosclerosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1033151000000100",
+          "code_description": "Non-obstructive coronary atherosclerosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1033161000000102",
+          "code_description": "Nonobstructive coronary atherosclerosis ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "41702007",
+          "code_description": "Coronary atherosclerosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266231003",
+          "code_description": "Coronary atherosclerosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}
