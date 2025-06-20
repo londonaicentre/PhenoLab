@@ -1,0 +1,38 @@
+{
+  "definition_id": "af1946e1",
+  "definition_name": "atrial_fibrillation_ICD10",
+  "definition_version": "atrial_fibrillation_ICD10_20250612_132506",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-06-12T13:25:19.724025",
+  "codelists": [
+    {
+      "codelist_id": "atrial_fibrillation_ICD10_ICD10_db3708b2",
+      "codelist_name": "atrial_fibrillation_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "atrial_fibrillation_ICD10_ICD10_db3708b2_20250612_132512",
+      "codes": [
+        {
+          "code": "I48.0",
+          "code_description": "Paroxysmal atrial fibrillation",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I48",
+          "code_description": "Atrial fibrillation and flutter",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I48.1",
+          "code_description": "Persistent atrial fibrillation",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I48.2",
+          "code_description": "Chronic atrial fibrillation",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}
