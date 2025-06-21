@@ -13,6 +13,7 @@ from utils.definition_interaction_utils import (
     get_missing_codes_df,
 )
 from utils.style_utils import set_font_lato
+from utils.config_utils import load_config
 
 # # 02_Browse_Database_Definitions.py
 
@@ -48,11 +49,11 @@ def view_definitions(session: Session, database: str, schema: str):
                     placeholder="Choose an option")
     if chosen_tables:
         table_list_str = ', '.join([f"'{t}'" for t in chosen_tables])
-        query = f"""SELECT DEFINITION_ID, DEFINITION_NAME, DEFINITION_SOURCE,
+        query = f"""SELECT DEFINITION_ID, DEFINITION_NAME, DEFINITION_VERSION, DEFINITION_SOURCE,
         VERSION_DATETIME, UPLOADED_DATETIME
         FROM {database}.{schema}.DEFINITIONSTORE
         WHERE SOURCE_TABLE IN ({table_list_str})
-        GROUP BY DEFINITION_ID, DEFINITION_NAME, VERSION_DATETIME, UPLOADED_DATETIME, DEFINITION_SOURCE
+        GROUP BY DEFINITION_ID, DEFINITION_NAME, DEFINITION_VERSION, VERSION_DATETIME, UPLOADED_DATETIME, DEFINITION_SOURCE
         ORDER BY DEFINITION_NAME"""
         df = session.sql(query).to_pandas()
 
@@ -176,8 +177,9 @@ def compare_definitions():
 def main():
     st.set_page_config(page_title="Browse Definitions", layout="wide", initial_sidebar_state="expanded")
     set_font_lato()
-
     session = get_snowflake_session()
+    if "config" not in st.session_state:
+        st.session_state.config = load_config(session)
 
     # create tabs for each section
     view_tab, compare_tab = st.tabs(["View Definitions", "Compare Definitions"])

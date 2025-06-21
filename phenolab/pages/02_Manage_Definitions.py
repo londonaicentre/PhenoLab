@@ -8,7 +8,7 @@ from datetime import datetime
 
 import pandas as pd
 import streamlit as st
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 # from utils.database_utils import update_aic_definitions_table
 from utils.definition_interaction_utils import (
     display_definition_from_file,
@@ -21,8 +21,9 @@ from utils.definition_interaction_utils import (
     run_definition_update_script,
     update_aic_definitions_table
 )
+from utils.database_utils import get_snowflake_session
 from utils.style_utils import set_font_lato
-
+from utils.config_utils import load_config, preload_vocabulary
 from phmlondon.definition import Definition
 
 # # 03_Manage_Definitions.py
@@ -153,10 +154,6 @@ def display_edit_definition_panel() -> str:
                     definition = load_local_definition(file_path)
                 else:
                     definition = load_remote_definition(selected_definition)
-                    if definition:
-                        st.session_state.current_definition = definition
-                    with col1:
-                        st.success(f"Loaded definition: {definition.definition_name}")
                 if definition:
                     st.session_state.current_definition = definition
                     with col1:
@@ -167,8 +164,12 @@ def display_edit_definition_panel() -> str:
 def main():
     st.set_page_config(page_title="Manage Definitions", layout="wide")
     set_font_lato()
+    if "config" not in st.session_state:
+        st.session_state.config = load_config(get_snowflake_session())
+    if "codes" not in st.session_state:
+        preload_vocabulary()
     st.title("Manage Definitions")
-    load_dotenv()
+    # load_dotenv()
 
     # initialise session state
     if "current_definition" not in st.session_state:
@@ -177,8 +178,6 @@ def main():
         st.session_state.create_tab_definition = None
     if "edit_tab_definition" not in st.session_state: # split create/edit to separate states
         st.session_state.edit_tab_definition = None
-    if "codes" not in st.session_state:
-        st.session_state.codes = None
 
     # confirm vocab is loaded
     if st.session_state.codes is None:

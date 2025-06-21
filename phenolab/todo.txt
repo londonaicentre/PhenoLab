@@ -62,6 +62,8 @@ x local config
 (5c) tidying
 - finish converting away from Snowflake Connection & context manager to explicit management
 - move all version control into definition.py class
+- should probably extract all session fetching and just put it in session_state as part of the setup
+- could make one function that did all the page setting up/checking the session_state e.g. for the configs
 
 (5d) search definitions page
 

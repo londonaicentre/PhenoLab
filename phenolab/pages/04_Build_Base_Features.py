@@ -21,6 +21,7 @@ from utils.measurement_interaction_utils import (
     get_measurement_values,
 )
 from utils.style_utils import set_font_lato
+from utils.config_utils import load_config
 
 # # 05_Base_Features.py
 
@@ -262,11 +263,13 @@ def display_condition_feature_creation(session):
 def main():
     st.set_page_config(page_title="Base Feature Creation", layout="wide")
     set_font_lato()
+    session = get_snowflake_session()
+    if "config" not in st.session_state:
+        st.session_state.config = load_config(session)
     st.title("Distributions & Base Feature Creation")
-    load_dotenv()
+    # load_dotenv()
 
     # snowsesh = get_snowflake_connection()
-    session = get_snowflake_session()
 
     tab1, tab2 = st.tabs(["Has Condition", "Measurements"])
 

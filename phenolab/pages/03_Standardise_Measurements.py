@@ -10,6 +10,7 @@ from utils.measurement_interaction_utils import (
     update_all_measurement_configs,
 )
 from utils.style_utils import set_font_lato, container_object_with_height_if_possible
+from utils.config_utils import load_config
 
 # # 04_Measurement_Standardisation.py
 
@@ -270,11 +271,13 @@ def display_conversion_group(config, units, existing_conversions, group_type):
 def main():
     st.set_page_config(page_title="Standardise Measurements", layout="wide")
     set_font_lato()
+    session = get_snowflake_session()
+    if "config" not in st.session_state:
+        st.session_state.config = load_config()
     st.title("Standardise Measurements")
-    load_dotenv()
+    # load_dotenv()
 
     # snowsesh = get_snowflake_connection()
-    session = get_snowflake_session()
 
     if "selected_definition" not in st.session_state:
         st.session_state.selected_definition = None

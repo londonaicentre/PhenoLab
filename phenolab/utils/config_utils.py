@@ -2,6 +2,9 @@ import os
 
 from dotenv import load_dotenv
 import yaml
+import glob
+import pandas as pd
+import streamlit as st
 from snowflake.snowpark import Session
 
 phenolab_config_mapping = {"SE56186": "nel_icb"}
@@ -28,6 +31,28 @@ def load_config(session: Session) -> dict:
             config["local_development"] = True
 
     return config
+
+def preload_vocabulary():
+    """
+    Preload the most recent vocabulary file if available.
+    """
+    vocab_dir = "data/vocab"
+    if not os.path.exists(vocab_dir):
+        return False, "Vocabulary directory not found"
+
+    vocab_files = glob.glob(os.path.join(vocab_dir, "vocab_*.parquet"))
+
+    if not vocab_files:
+        return False, "No vocabulary files found. Please generate a new vocabulary."
+
+    # sort by filename (yyyy-mm-dd)
+    most_recent_file = sorted(vocab_files)[-1]
+
+    vocab_df = pd.read_parquet(most_recent_file)
+
+    st.session_state.codes = vocab_df
+
+    return True, "Vocabulary loaded"
 
 if __name__ == "__main__":
     # Example usage/for debugging

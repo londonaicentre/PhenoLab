@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from utils.database_utils import get_snowflake_session, get_available_measurements
 from utils.phenotype import ComparisonOperator, ConditionType, Phenotype, load_phenotype_from_json
 from utils.style_utils import set_font_lato, container_object_with_height_if_possible   
+from utils.config_utils import load_config
 
 # # 05_Build_A_Phenotype.py
 
@@ -447,8 +448,10 @@ def display_panel_5_expression_builder():
 def main():
     st.set_page_config(page_title="Build A Phenotype", layout="wide")
     set_font_lato()
+    if "config" not in st.session_state:
+        st.session_state.config = load_config(get_snowflake_session())
     st.title("Build a phenotype")
-    load_dotenv()
+    # load_dotenv()
 
     if "current_phenotype" not in st.session_state:
         st.session_state.current_phenotype = None

@@ -33,7 +33,7 @@ def load_definitions_list() -> List[str]:
     definitions_list = []
     if st.session_state.config["local_development"]:
         if os.path.exists("data/definitions"):
-            definitions_list = [f for f in os.listdir("data/definitions") if f.endswith(".json")]
+            definitions_list = sorted([f for f in os.listdir("data/definitions") if f.endswith(".json")])
     else:
         session = get_snowflake_session()
         query = f"""
@@ -42,7 +42,7 @@ def load_definitions_list() -> List[str]:
         {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
         WHERE SOURCE_TABLE = 'ICB_DEFINITIONS'
         GROUP BY DEFINITION_ID, DEFINITION_NAME, DEFINITION_VERSION, VERSION_DATETIME, UPLOADED_DATETIME, DEFINITION_SOURCE
-        ORDER BY DEFINITION_VERSION;
+        ORDER BY DEFINITION_NAME;
         """
         df = session.sql(query).to_pandas()
         definitions_list = df["DEFINITION_VERSION"].tolist()
@@ -375,12 +375,12 @@ def display_selected_codes(key_suffix=""):
 
             # component: save button
             if st.button("Save Definition", key=f"save_def_btn_{key_suffix}"):
+                definition.update_version()
                 if st.session_state.config["local_development"]:
                     filepath = definition.save_to_json()
                     st.success(f"Definition saved to: {filepath}")
                 else: 
                     session = get_snowflake_session()
-                    definition.version_datetime = datetime.now()
                     definition.uploaded_datetime = datetime.now()
                     df = definition.to_dataframe()
                     df.columns = df.columns.str.upper()
@@ -391,7 +391,9 @@ def display_selected_codes(key_suffix=""):
                         overwrite=False,
                         use_logical_type=True) #  use_logical_type=True is needed to handle datetime columns correctly
                     # - this isn't properly documented anywhere in snowflake docs
-                    st.success(f"Definition saved to Snowflake: {st.session_state.config['definition_library']['database']}.{st.session_state.config['definition_library']['schema']}.ICB_DEFINITIONS")
+                    st.success(f"""Definition saved to Snowflake:
+                        {st.session_state.config['definition_library']['database']}.
+                        {st.session_state.config['definition_library']['schema']}.ICB_DEFINITIONS""")
         else:
             st.info("Create a definition first.")
 

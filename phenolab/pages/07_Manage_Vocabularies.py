@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 # from utils.database_utils import get_snowflake_connection
 from utils.database_utils import get_snowflake_session
 from utils.style_utils import set_font_lato
+from utils.config_utils import load_config
 
 # # 01_Manage_Vocabularies.py
 
@@ -216,10 +217,12 @@ def main():
     st.set_page_config(page_title="Manage Vocabularies", layout="wide")
 
     set_font_lato()
+    if "config" not in st.session_state:
+        st.session_state.config = load_config(get_snowflake_session())
 
     st.title("Manage Vocabularies")
 
-    load_dotenv()
+    # load_dotenv()
 
     # session state variables
     if "codes" not in st.session_state:
