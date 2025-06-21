@@ -2,6 +2,7 @@ import streamlit as st
 from dotenv import load_dotenv
 from utils.database_utils import get_data_from_snowflake_to_dataframe, get_snowflake_session
 from utils.style_utils import set_font_lato
+from utils.config_utils import load_config
 
 # # 07_Browse_the_Feature_Store.py
 
@@ -12,17 +13,17 @@ from utils.style_utils import set_font_lato
 st.set_page_config(page_title="Feature Store Browser", layout="wide", initial_sidebar_state="expanded")
 
 set_font_lato()
-
-load_dotenv()
+session = get_snowflake_session()
+if "config" not in st.session_state:
+    st.session_state.config = load_config(session)
+    
+# load_dotenv()
 
 st.title("Feature Store Browser")
 
 if st.button("Refresh Data"):
     get_data_from_snowflake_to_dataframe.clear()
     st.rerun()
-
-# conn = get_snowflake_connection()
-session = get_snowflake_session()
 
 st.header('Features')
 

@@ -7,7 +7,7 @@ import streamlit as st
 from utils.database_utils import get_snowflake_session
 from utils.style_utils import set_font_lato
 from utils.definition_interaction_utils import update_aic_definitions_table
-from utils.config_utils import load_config
+from utils.config_utils import load_config, preload_vocabulary
 from definition_library.loaders.load_hdruk import retrieve_hdruk_definitions_and_add_to_snowflake
 from definition_library.loaders.load_open_codelists import retrieve_open_codelists_definitions_and_add_to_snowflake
 from definition_library.loaders.load_bnf_to_snomed import retrieve_bnf_definitions_and_add_to_snowflake
@@ -18,32 +18,6 @@ from definition_library.loaders.create_tables import create_definition_table
 # Main entry point for PhenoLab application.
 # Creates the single Snowflake connection used throughout the app.
 # Pre-Loads the most recent vocabulary (if available)
-
-def preload_vocabulary():
-    """
-    Preload the most recent vocabulary file if available.
-    """
-    try:
-        vocab_dir = "data/vocab"
-        if not os.path.exists(vocab_dir):
-            return False, "Vocabulary directory not found"
-
-        vocab_files = glob.glob(os.path.join(vocab_dir, "vocab_*.parquet"))
-
-        if not vocab_files:
-            return False, "No vocabulary files found. Please generate a new vocabulary."
-
-        # sort by filename (yyyy-mm-dd)
-        most_recent_file = sorted(vocab_files)[-1]
-
-        vocab_df = pd.read_parquet(most_recent_file)
-
-        st.session_state.codes = vocab_df
-
-        return True, "Vocabulary loaded"
-
-    except Exception as e:
-        return False, f"Error loading vocabulary: {e}"
 
 st.set_page_config(page_title="PhenoLab", layout="wide", initial_sidebar_state="expanded")
 set_font_lato()
@@ -85,10 +59,10 @@ with col1:
 
 with col2:
     if st.session_state.config["local_development"]:
-        addendum_str = " Local Development Mode"
+        addendum_str = "+ `Local Development Mode`"
     else:
         addendum_str = ""
-    st.markdown(f"Configuration: `{st.session_state.config['icb_name']}` + `{addendum_str}`")
+    st.markdown(f"Configuration: `{st.session_state.config['icb_name']}`" + addendum_str)
 
     if "debug_mode" not in st.session_state.config: #internal thing to make debugging faster 
         # - add "debug_mode" to config file and don't have to load db tables each time
