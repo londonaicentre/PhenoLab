@@ -139,13 +139,16 @@ st.markdown("---")
 
 st.markdown("""
 PhenoLab helps manage:
-1. **Medical Definitions**: Collections of clinical codes from different vocabularies (SNOMED, ICD10, etc.) that represent specific medical concepts
-2. **Measurements**: Using definitions of measurements with numerical values, mapping and standardising units and conversions
-3. **Phenotypes**: Patient-centric clinical labels based on logical operations applied to these definitions)
+1. **Medical Definitions**: Collections of clinical codes from different vocabularies (SNOMED, ICD10, etc.) that 
+    represent specific medical concepts
+2. **Measurements**: Use definitions of codes with numerical values to map and standardising units and conversions
+3. **Phenotypes**: Patient-centric clinical labels based on logical operations applied to these definitions
 """)
 
 st.markdown("---")
-st.markdown("2025 London AI Centre & OneLondon")
-
-st.write("Running streamlit version:", st.__version__)
+col3, col4 = st.columns(2)
+with col3:
+    st.markdown("2025 London AI Centre & OneLondon")
+with col4:
+    st.write("Running streamlit version:", st.__version__)
 
