@@ -29,9 +29,9 @@ x debugging mode
 x fix problem with new jsons
 x 'Edit existing' needs to be either jsons or table according to whether local or remote
 x fix bug when no definition is selected
-- don't allow duplicate name uploads to ICB table/decide how to do versioning in case of edits
-- need to change definition behaviour to have proper versioning or else can't do edits to table-stored definitions
-- 'View & Upload'
+x don't allow duplicate name uploads to ICB table/decide how to do versioning in case of edits
+x need to change definition behaviour to have proper versioning or else can't do edits to table-stored definitions
+x 'View & Upload' tab
 
 (3) external definitions starterpack
 x done 
@@ -45,7 +45,8 @@ x colour scheme
 - redundant imports!
 - get rid of some of the database utils functions
 - add some tests?
-- do I need to be calling (a) session and (b) config as function imports??
+x do I need to be calling (a) session and (b) config as function imports?? (No - session state seems to exist across 
+imports too))
 
 (5b) ICB-specific config
 x check if config in PHMutils should be part of phenolab or more likely, switch to a config file
@@ -68,6 +69,7 @@ x local config
 (5d) search definitions page
 
 (6) delete definition option
+- add tab to page 2 to delete definition versions, both jsons and on database
 
 (7) phenotypes
 - how to turn into SQL? (or should we remove from interface)

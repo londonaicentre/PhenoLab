@@ -1,15 +1,7 @@
-import datetime
-import glob
 import os
 import re
-import subprocess
-import sys
-from datetime import datetime
 
-import pandas as pd
 import streamlit as st
-# from dotenv import load_dotenv
-# from utils.database_utils import update_aic_definitions_table
 from utils.definition_interaction_utils import (
     display_definition_from_file,
     display_selected_codes,
@@ -185,7 +177,11 @@ def main():
         return
 
     # create tabs for each section
-    create_tab, edit_tab, view_upload_tab = st.tabs(["Create New", "Edit Existing", "View & Upload"])
+    if st.session_state.config["local_development"]:
+    # upload tab is for pushing jsons to Snowflake - for local development only
+        create_tab, edit_tab, view_upload_tab = st.tabs(["Create New", "Edit Existing", "View & Upload"])
+    else:
+        create_tab, edit_tab = st.tabs(["Create New", "Edit Existing"])
 
     # get unique code types for filtering (used in create and edit tabs)
     code_types = ["All"] + list(st.session_state.codes["CODE_TYPE"].unique())
@@ -221,40 +217,43 @@ def main():
             display_selected_codes(key_suffix="edit")
 
     # TAB 3: VIEW AND UPLOAD DEFINITION
-    with view_upload_tab:
-        col1, col2 = st.columns([1, 1.5])
+    if st.session_state.config["local_development"]:
+        with view_upload_tab:
+            col1, col2 = st.columns([1, 1.5])
 
-        with col1:
-            st.subheader("Available Definitions")
-            definition_files = load_definitions_list()
+            with col1:
+                st.subheader("Available Definitions")
+                definition_files = load_definitions_list()
 
-            if not definition_files:
-                st.info("No definition files found. Create some definitions first.")
-            else:
-                selected_definition = st.selectbox("Select a definition to view", options=definition_files)
+                if not definition_files:
+                    st.info("No definition files found. Create some definitions first.")
+                else:
+                    selected_definition = st.selectbox("Select a definition to view", options=definition_files)
 
-        with col2:
-            if "selected_definition" in locals() and selected_definition:
-                display_definition_from_file(selected_definition)
-            else:
-                st.info("Select a definition from the list to view its contents")
+            with col2:
+                if "selected_definition" in locals() and selected_definition:
+                    display_definition_from_file(selected_definition)
+                else:
+                    st.info("Select a definition from the list to view its contents")
 
-        st.markdown("---")
+            st.markdown("---")
 
-        st.markdown(f"This will upload all definitions to `{st.session_state.config['definition_library']['database']}.{st.session_state.config['definition_library']['schema']}.AIC_DEFINITIONS` and refresh `DEFINITIONSTORE`." \
-        "Updated definitions will overwrite previous versions.")
-        _, b, _ = st.columns(3)
-        [maincol] = st.columns(1)
+            st.markdown(f"This will upload all definitions to `{st.session_state.config['definition_library']['database']}.{st.session_state.config['definition_library']['schema']}.AIC_DEFINITIONS` and refresh `DEFINITIONSTORE`." \
+            "Updated definitions will overwrite previous versions.")
+            _, b, _ = st.columns(3)
+            [maincol] = st.columns(1)
 
-        definition_count = len(load_definitions_list())
-        with b:
-            st.text(" ")
-            if definition_count > 0:
-                if st.button("Upload new / updated definitions to Snowflake"):
-                    with maincol:
-                        update_aic_definitions_table()
-            else:
-                st.warning("No definitions available to upload")
+            definition_count = len(load_definitions_list())
+            with b:
+                st.text(" ")
+                if definition_count > 0:
+                    if st.button("Upload new / updated definitions to Snowflake"):
+                        with maincol:
+                            update_aic_definitions_table(get_snowflake_session(), 
+                                database=st.session_state.config["definition_library"]["database"], 
+                                schema=st.session_state.config["definition_library"]["schema"])
+                else:
+                    st.warning("No definitions available to upload")
 
 if __name__ == "__main__":
     main()
