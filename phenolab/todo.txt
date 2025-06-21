@@ -39,7 +39,7 @@ x done
 (4) aesthetic changes
 x colour scheme
 - reduce labels/visual clutter
-- rename definition panels
+x rename definition panels
 
 (5) general/misc
 - redundant imports!
@@ -67,6 +67,7 @@ x local config
 - could make one function that did all the page setting up/checking the session_state e.g. for the configs
 
 (5d) search definitions page
+- page to search definition titles and then see codes within
 
 (6) delete definition option
 - add tab to page 2 to delete definition versions, both jsons and on database
@@ -75,6 +76,8 @@ x local config
 - how to turn into SQL? (or should we remove from interface)
 
 (8) measurements
+x fix load definition
+- fix load definition in page 2
 - measurement config files
 
 (9) vocab loading
@@ -87,3 +90,6 @@ x push further down list
 (12) snowflake feature store/get rid of feature store altogether
 
 (13) package as snowflake native app & therefore sort environment.yml issue?
+
+(14) remote deployment
+- need to push up again

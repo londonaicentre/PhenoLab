@@ -6,8 +6,7 @@ from utils.definition_interaction_utils import (
     display_definition_from_file,
     display_selected_codes,
     display_unified_code_browser,
-    load_local_definition,
-    load_remote_definition,
+    load_definition,
     load_definitions_list,
     process_definitions_for_upload,
     run_definition_update_script,
@@ -142,10 +141,8 @@ def display_edit_definition_panel() -> str:
         if selected_definition and st.button("Edit definition"):
             with st.spinner("Loading definition..."):
                 if st.session_state.config["local_development"]:
-                    file_path = os.path.join("data/definitions", selected_definition)
-                    definition = load_local_definition(file_path)
-                else:
-                    definition = load_remote_definition(selected_definition)
+                    selected_definition = os.path.join("data/definitions", selected_definition)
+                definition = load_definition(selected_definition)
                 if definition:
                     st.session_state.current_definition = definition
                     with col1:
