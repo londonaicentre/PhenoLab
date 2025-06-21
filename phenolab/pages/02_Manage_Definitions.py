@@ -157,6 +157,10 @@ def display_edit_definition_panel() -> str:
                         st.session_state.current_definition = definition
                     with col1:
                         st.success(f"Loaded definition: {definition.definition_name}")
+                if definition:
+                    st.session_state.current_definition = definition
+                    with col1:
+                        st.success(f"Loaded definition: {definition.definition_name}")
 
     st.markdown("---")
 
