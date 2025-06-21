@@ -84,7 +84,11 @@ with col1:
         st.markdown(f"Vocabulary Status: `{vocab_message}`")
 
 with col2:
-    st.markdown(f"Configuration: `{st.session_state.config['icb_name']}`")
+    if st.session_state.config["local_development"]:
+        addendum_str = " Local Development Mode"
+    else:
+        addendum_str = ""
+    st.markdown(f"Configuration: `{st.session_state.config['icb_name']}` + `{addendum_str}`")
 
     if "debug_mode" not in st.session_state.config: #internal thing to make debugging faster 
         # - add "debug_mode" to config file and don't have to load db tables each time

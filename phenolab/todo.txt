@@ -30,6 +30,7 @@ x fix problem with new jsons
 x 'Edit existing' needs to be either jsons or table according to whether local or remote
 x fix bug when no definition is selected
 - don't allow duplicate name uploads to ICB table/decide how to do versioning in case of edits
+- need to change definition behaviour to have proper versioning or else can't do edits to table-stored definitions
 - 'View & Upload'
 
 (3) external definitions starterpack
@@ -60,6 +61,7 @@ x local config
 
 (5c) tidying
 - finish converting away from Snowflake Connection & context manager to explicit management
+- move all version control into definition.py class
 
 (5d) search definitions page
 
