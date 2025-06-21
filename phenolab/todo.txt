@@ -46,7 +46,7 @@ x colour scheme
 - get rid of some of the database utils functions
 - add some tests?
 x do I need to be calling (a) session and (b) config as function imports?? (No - session state seems to exist across 
-imports too))
+imports too)
 
 (5b) ICB-specific config
 x check if config in PHMutils should be part of phenolab or more likely, switch to a config file
@@ -78,7 +78,7 @@ x local config
 - measurement config files
 
 (9) vocab loading
-- push further down list
+x push further down list
 
 (10) base features
 - need to sort out config thingy as have made config part of phenolab

@@ -41,12 +41,12 @@ def view_definitions(session: Session, database: str, schema: str):
     """
     Users can select which tables they would like to view definitions from
     """
-    st.title("Browse definitions")
+    # st.title("Browse definitions")
   
     all_tables = [row["name"] for row in session.sql(f"SHOW TABLES IN SCHEMA {database}.{schema}").collect()]
 
     chosen_tables = st.multiselect("Select definition source", options=all_tables, default='AIC_DEFINITIONS',
-                    placeholder="Choose an option")
+                    placeholder="Select a definition source", label_visibility="collapsed",)
     if chosen_tables:
         table_list_str = ', '.join([f"'{t}'" for t in chosen_tables])
         query = f"""SELECT DEFINITION_ID, DEFINITION_NAME, DEFINITION_VERSION, DEFINITION_SOURCE,
@@ -57,7 +57,8 @@ def view_definitions(session: Session, database: str, schema: str):
         ORDER BY DEFINITION_NAME"""
         df = session.sql(query).to_pandas()
 
-        st.dataframe(df)
+        st.text(" ")
+        st.dataframe(df, hide_index=True)
 
 def create_definition_panel(session,
                             column,
@@ -66,7 +67,7 @@ def create_definition_panel(session,
                             definition_labels
                             ):
     with column:
-        st.subheader(f"Definition Panel {panel_name}")
+        # st.subheader(f"Definition Panel {panel_name}")
 
         # select definition
         selected_definition = st.selectbox(
@@ -103,7 +104,7 @@ def show_missing_codes(column, panel_name):
 
             if not missing_codes.empty:
                 st.write(f"Codes in Panel {other_panel} missing from this panel:")
-                st.dataframe(missing_codes.loc[:, ["CODE", "CODE_DESCRIPTION", "VOCABULARY"]])
+                st.dataframe(missing_codes.loc[:, ["CODE", "CODE_DESCRIPTION", "VOCABULARY"]], hide_index=True)
                 st.write(f"Total missing codes: {len(missing_codes)}")
             else:
                 st.write(f"No codes from Panel {other_panel} are missing in this panel.")
@@ -115,13 +116,13 @@ def compare_definitions():
     """
     Compare definitions side-by-side
     """
-    st.title("Compare Definitions")
+    # st.title("Compare Definitions")
 
     st.write(
         """
-        Explore clinical codes within phenotype definitions with side-by-side comparison.
-        Select definitions in each panel to view their codes independently.
-        Summaries show shared codes, and non-overlapping codes, between definitions
+        Explore clinical codes within definitions with side-by-side comparison.
+        Select definitions in each panel to view their codes.
+        Summaries show shared codes, and non-overlapping codes between the two selected definitions
         """
         )
 
@@ -169,7 +170,7 @@ def compare_definitions():
         # hiding shared codes unless specifically selected
         if comparison["shared"] and st.checkbox("Show shared codes", key="show_shared_codes_checkbox"):
             shared_df = st.session_state["codes_A"][st.session_state["codes_A"]["CODE"].isin(comparison["shared"])]
-            st.dataframe(shared_df.loc[:, ["CODE", "CODE_DESCRIPTION", "VOCABULARY"]])
+            st.dataframe(shared_df.loc[:, ["CODE", "CODE_DESCRIPTION", "VOCABULARY"]], hide_index=True)
     else:
         st.info("Select definitions in both panels to see shared analysis.")
 
@@ -180,6 +181,8 @@ def main():
     session = get_snowflake_session()
     if "config" not in st.session_state:
         st.session_state.config = load_config(session)
+
+    st.title("Browse and compare definitions")
 
     # create tabs for each section
     view_tab, compare_tab = st.tabs(["View Definitions", "Compare Definitions"])

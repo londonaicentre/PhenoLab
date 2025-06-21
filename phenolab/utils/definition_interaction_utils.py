@@ -465,7 +465,8 @@ def display_definition_metadata(codes_df):
     """
     if not codes_df.empty:
         st.write("Definition details:")
-        st.dataframe(codes_df.loc[:, ["DEFINITION_ID", "CODELIST_VERSION", "VOCABULARY"]].drop_duplicates())
+        st.dataframe(codes_df.loc[:, ["DEFINITION_ID", "CODELIST_VERSION", "VOCABULARY"]].drop_duplicates(),
+            hide_index=True,)
 
 
 def display_definition_codes_summary(codes_df):
@@ -474,7 +475,7 @@ def display_definition_codes_summary(codes_df):
     """
     if not codes_df.empty:
         st.write("Codes:")
-        st.dataframe(codes_df.loc[:, ["CODE", "CODE_DESCRIPTION", "VOCABULARY"]])
+        st.dataframe(codes_df.loc[:, ["CODE", "CODE_DESCRIPTION", "VOCABULARY"]], hide_index=True)
         st.write(f"Total codes: {len(codes_df)}")
     else:
         st.write("No codes found for the selected definition.")
