@@ -49,26 +49,35 @@ def load_definitions_list() -> List[str]:
 
     return definitions_list
 
+def load_definition(file_path_or_definition_name: str) -> Optional[Definition]:
+    """
+    Switches between loading a definition form a local JSON or from the snowflake table according to the config
+    Args:
+        file_path_or_definition_name(str):
+            If local development, this is the path to the JSON file.
+            If remote, this is the definition version name to load from Snowflake.
+    Returns:
+        Definition object or None if not found
+    """
+    if st.session_state.config["local_development"]:
+        return load_local_definition(file_path_or_definition_name)
+    else:
+        return load_remote_definition(file_path_or_definition_name)
 
 def load_local_definition(file_path: str) -> Optional[Definition]:
     """
     Load definition from json
     """
-    try:
-        definition = Definition.from_json(file_path)
-        return definition
-    except Exception as e:
-        st.error(f"Unable to load definition: {e}")
-        return None
+    return Definition.from_json(file_path)
 
-def load_remote_definition(definition_name: str) -> Optional[Definition]:
+def load_remote_definition(definition_version_name: str) -> Optional[Definition]:
     """
     Load definition from Snowflake
     """
     session = get_snowflake_session()
     query = f"""SELECT * FROM {st.session_state.config["definition_library"]["database"]}.
     {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
-    WHERE DEFINITION_VERSION = '{definition_name}';"""
+    WHERE DEFINITION_VERSION = '{definition_version_name}';"""
     df = session.sql(query).to_pandas()
     df.columns = df.columns.str.lower()
     return Definition.from_dataframe(df)
