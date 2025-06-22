@@ -1,7 +1,6 @@
 import pandas as pd
 import streamlit as st
-from dotenv import load_dotenv
-# from utils.database_utils import get_snowflake_connection
+
 from utils.database_utils import get_snowflake_session
 from utils.measurement_interaction_utils import (
     load_measurement_config,

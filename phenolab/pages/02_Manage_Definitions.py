@@ -2,6 +2,7 @@ import os
 import re
 
 import streamlit as st
+
 from utils.definition_interaction_utils import (
     display_definition_from_file,
     display_selected_codes,
