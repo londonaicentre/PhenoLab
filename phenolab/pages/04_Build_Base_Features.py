@@ -1,15 +1,13 @@
-import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
-from dotenv import load_dotenv
 from plotly.subplots import make_subplots
+
 from utils.condition_interaction_utils import (
     create_base_conditions_feature,
     get_non_measurement_definitions,
 )
 from utils.database_utils import (
     get_condition_patient_counts_by_year,
-    # get_snowflake_connection,
     get_snowflake_session,
     get_unique_patients_for_condition,
 )
