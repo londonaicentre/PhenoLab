@@ -1,0 +1,83 @@
+{
+  "definition_id": "ef7039fb",
+  "definition_name": "ischaemic_heart_disease_unspecified_ICD10",
+  "definition_version": "ischaemic_heart_disease_unspecified_ICD10_20250612_131507",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-06-12T13:16:49.725031",
+  "codelists": [
+    {
+      "codelist_id": "ischaemic_heart_disease_unspecified_ICD10_ICD10_98c52ea1",
+      "codelist_name": "ischaemic_heart_disease_unspecified_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "ischaemic_heart_disease_unspecified_ICD10_ICD10_98c52ea1_20250612_131525",
+      "codes": [
+        {
+          "code": "I25.9",
+          "code_description": "Chronic ischaemic heart disease, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I24.9",
+          "code_description": "Acute ischaemic heart disease, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I25.8",
+          "code_description": "Other forms of chronic ischaemic heart disease",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I24.8",
+          "code_description": "Other forms of acute ischaemic heart disease",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I25",
+          "code_description": "Chronic ischaemic heart disease",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I20-I25",
+          "code_description": "Ischaemic heart diseases",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I24",
+          "code_description": "Other acute ischaemic heart diseases",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "Z95.5",
+          "code_description": "Presence of coronary angioplasty implant and graft",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "Z95.1",
+          "code_description": "Presence of aortocoronary bypass graft",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I24.0",
+          "code_description": "Coronary thrombosis not resulting in myocardial infarction",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "T82.2",
+          "code_description": "Mechanical complication of coronary artery bypass and valve grafts",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I25.1",
+          "code_description": "Atherosclerotic heart disease",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I25.0",
+          "code_description": "Atherosclerotic cardiovascular disease, so described",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

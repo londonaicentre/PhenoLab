@@ -1,0 +1,43 @@
+{
+  "definition_id": "a3cb03ec",
+  "definition_name": "transient_ischaemic_attack_SNOMED",
+  "definition_version": "transient_ischaemic_attack_SNOMED_20250612_122313",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-06-12T12:29:12.353503",
+  "codelists": [
+    {
+      "codelist_id": "transient_ischaemic_attack_SNOMED_SNOMED_feda65af",
+      "codelist_name": "transient_ischaemic_attack_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "transient_ischaemic_attack_SNOMED_SNOMED_feda65af_20250612_122355",
+      "codes": [
+        {
+          "code": "266257000",
+          "code_description": "Transient ischemic attack (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "161511000",
+          "code_description": "History of transient ischemic attack (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "751371000000107",
+          "code_description": "Personal history of transient ischaemic attack (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230716006",
+          "code_description": "Carotid territory transient ischemic attack (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "444172003",
+          "code_description": "Recurrent transient cerebral ischemic attack (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}
