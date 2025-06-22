@@ -34,3 +34,14 @@ conn.use_schema("AI_CENTRE_DEV") # adjust as appropriate
     
 conn.list_tables() # example of command you could run once connected to the database.
 ~~~~
+
+## Set up a snowflake connection for PhenoLab
+
+Phenolab uses Snowpark utilities to connect to Snowflake, rather than PHMLondon utils, so the above method using .env
+variables won't work.
+
+Either use [this page](https://docs.snowflake.com/en/developer-guide/snowpark/python/creating-session) to set up an
+connections.toml file (an example is given in the /Phenolab directory), or set up a default connnection on the Snowflake
+CLI - 
+[this internal tutorial](https://github.com/londonaicentre/sde_aic_internal_docs/blob/main/infra/snowflake_cli_setup.md)
+may help.

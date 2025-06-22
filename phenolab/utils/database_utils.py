@@ -77,22 +77,20 @@ def return_codes_for_given_definition_id_as_df(chosen_definition_id: str) -> pd.
     return get_data_from_snowflake_to_dataframe(codes_query)
 
 
-@standard_query_cache
-def get_aic_definitions() -> pd.DataFrame:
-    """
-    Get all AI Centre definitions with metadata
-    """
-    query = f"""
-    SELECT DEFINITION_ID, DEFINITION_NAME,
-        VERSION_DATETIME, UPLOADED_DATETIME
-    FROM {st.session_state.config["definition_library"]["database"]}.
-        {st.session_state.config["definition_library"]["schema"]}.AIC_DEFINITIONS
-    GROUP BY DEFINITION_ID, DEFINITION_NAME, VERSION_DATETIME, UPLOADED_DATETIME
-    ORDER BY DEFINITION_NAME
-    """
-    return get_data_from_snowflake_to_dataframe(query)
-
-
+# @standard_query_cache
+# def get_aic_definitions() -> pd.DataFrame:
+#     """
+#     Get all AI Centre definitions with metadata
+#     """
+#     query = f"""
+#     SELECT DEFINITION_ID, DEFINITION_NAME,
+#         VERSION_DATETIME, UPLOADED_DATETIME
+#     FROM {st.session_state.config["definition_library"]["database"]}.
+#         {st.session_state.config["definition_library"]["schema"]}.AIC_DEFINITIONS
+#     GROUP BY DEFINITION_ID, DEFINITION_NAME, VERSION_DATETIME, UPLOADED_DATETIME
+#     ORDER BY DEFINITION_NAME
+#     """
+#     return get_data_from_snowflake_to_dataframe(query)
 
 
 @standard_query_cache
