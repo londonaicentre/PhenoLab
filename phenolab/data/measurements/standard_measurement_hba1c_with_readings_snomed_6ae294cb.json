@@ -938,7 +938,7 @@
     }
   ],
   "created_datetime": "2025-05-30T23:58:04.184918",
-  "updated_datetime": "2025-05-31T09:39:22.734906",
+  "updated_datetime": "2025-06-21T21:39:14.713049",
   "standard_measurement_config_id": "6ae294cb",
-  "standard_measurement_config_version": "measurement_hba1c_with_readings_snomed_20250531_093922"
+  "standard_measurement_config_version": "measurement_hba1c_with_readings_snomed_20250621_213914"
 }

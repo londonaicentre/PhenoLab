@@ -1,7 +1,3 @@
-import glob
-import os
-
-import pandas as pd
 import streamlit as st
 
 from utils.database_utils import get_snowflake_session
@@ -31,15 +27,15 @@ else:
     vocab_message = "Vocabulary loaded in session"
 
 # initialise snowflake connection
-session = get_snowflake_session()
+st.session_state.session = get_snowflake_session()
 try:
-    session.sql("SELECT 1").collect()
+    st.session_state.session.sql("SELECT 1").collect()
     connection_status = "Connected to Snowflake"
 except Exception as e:
     connection_status = f"Connection failed: {e}"
 
 # Load configuration file
-st.session_state.config = load_config(session)
+st.session_state.config = load_config()
 print(st.session_state.config)
 
 ## PAGE DISPLAY
@@ -71,8 +67,7 @@ with col2:
         # 1. AI Centre
         if 'uploaded_aic_definitions' not in st.session_state:
             with st.spinner("Loading AI Centre definitions...", show_time=True):
-                update_aic_definitions_table(
-                    session, 
+                update_aic_definitions_table( 
                     database=st.session_state.config["definition_library"]["database"], 
                     schema=st.session_state.config["definition_library"]["schema"], 
                     verbose=False)
@@ -81,7 +76,7 @@ with col2:
         # 2. HDRUK
         if 'uploaded_hdruk_defs' not in st.session_state:
             with st.spinner("Retrieving HDRUK definitions...", show_time=True): 
-                retrieve_hdruk_definitions_and_add_to_snowflake(session, 
+                retrieve_hdruk_definitions_and_add_to_snowflake(
                     database=st.session_state.config["definition_library"]["database"], 
                     schema=st.session_state.config["definition_library"]["schema"])
                 st.session_state['uploaded_hdruk_defs'] = True
@@ -94,7 +89,7 @@ with col2:
         # 4. Open Codelists
         if 'uploaded_open_codelists_defs' not in st.session_state:
             with st.spinner("Retrieving Open Codelists definitions...", show_time=True): 
-                retrieve_open_codelists_definitions_and_add_to_snowflake(session, 
+                retrieve_open_codelists_definitions_and_add_to_snowflake( 
                     database=st.session_state.config["definition_library"]["database"], 
                     schema=st.session_state.config["definition_library"]["schema"])
                 st.session_state['uploaded_open_codelists_defs'] = True
@@ -102,7 +97,7 @@ with col2:
         # 5. BNF definitions
         if 'uploaded_bnf_defs' not in st.session_state:
             with st.spinner("Retrieving BNF definitions...", show_time=True): 
-                retrieve_bnf_definitions_and_add_to_snowflake(session, 
+                retrieve_bnf_definitions_and_add_to_snowflake(
                     database=st.session_state.config["definition_library"]["database"], 
                     schema=st.session_state.config["definition_library"]["schema"])
                 st.session_state['uploaded_bnf_defs'] = True
@@ -110,8 +105,7 @@ with col2:
         # 6. Table for local definitions
         if 'created_local_definitions_table' not in st.session_state:
             with st.spinner("Creating local definitions table...", show_time=True):
-                create_definition_table(
-                    session, 
+                create_definition_table( 
                     database=st.session_state.config["definition_library"]["database"], 
                     schema=st.session_state.config["definition_library"]["schema"],
                     table_name="ICB_DEFINITIONS"

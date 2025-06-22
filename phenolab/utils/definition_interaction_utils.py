@@ -1,13 +1,10 @@
 import os
 from datetime import datetime
-from typing import List, Optional, Tuple
+from typing import List, Optional
 
 import pandas as pd
 import streamlit as st
-from snowflake.snowpark import Session
 from utils.database_utils import (
-    # connect_to_snowflake,
-    get_snowflake_session,
     get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list,
     return_codes_for_given_definition_id_as_df,
 )
@@ -35,7 +32,6 @@ def load_definitions_list() -> List[str]:
         if os.path.exists("data/definitions"):
             definitions_list = sorted([f for f in os.listdir("data/definitions") if f.endswith(".json")])
     else:
-        session = get_snowflake_session()
         query = f"""
         SELECT DEFINITION_VERSION
         FROM {st.session_state.config["definition_library"]["database"]}.
@@ -44,7 +40,7 @@ def load_definitions_list() -> List[str]:
         GROUP BY DEFINITION_ID, DEFINITION_NAME, DEFINITION_VERSION, VERSION_DATETIME, UPLOADED_DATETIME, DEFINITION_SOURCE
         ORDER BY DEFINITION_NAME;
         """
-        df = session.sql(query).to_pandas()
+        df = st.session_state.session.sql(query).to_pandas()
         definitions_list = df["DEFINITION_VERSION"].tolist()
 
     return definitions_list
@@ -74,11 +70,10 @@ def load_remote_definition(definition_version_name: str) -> Optional[Definition]
     """
     Load definition from Snowflake
     """
-    session = get_snowflake_session()
     query = f"""SELECT * FROM {st.session_state.config["definition_library"]["database"]}.
     {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
     WHERE DEFINITION_VERSION = '{definition_version_name}';"""
-    df = session.sql(query).to_pandas()
+    df = st.session_state.session.sql(query).to_pandas()
     df.columns = df.columns.str.lower()
     return Definition.from_dataframe(df)
 
@@ -299,8 +294,7 @@ def display_unified_code_browser(code_types, config, key_suffix=""):
                 return filtered_codes, search_term
         else:
             # conn = connect_to_snowflake()
-            session = get_snowflake_session()
-            id_list, definitions_list = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(session)
+            id_list, definitions_list = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list()
             chosen_definition = st.selectbox(
                 label="Choose an existing definition (start typing to search)",
                 options=definitions_list,
@@ -309,7 +303,7 @@ def display_unified_code_browser(code_types, config, key_suffix=""):
 
             if chosen_definition:
                 chosen_definition_id = id_list[definitions_list.index(chosen_definition)]
-                definition_codes_df = return_codes_for_given_definition_id_as_df(session, chosen_definition_id, config)
+                definition_codes_df = return_codes_for_given_definition_id_as_df(chosen_definition_id)
 
                 if search_term:
                     parsed_query = parse_search_query(search_term)
@@ -389,11 +383,10 @@ def display_selected_codes(key_suffix=""):
                     filepath = definition.save_to_json()
                     st.success(f"Definition saved to: {filepath}")
                 else: 
-                    session = get_snowflake_session()
                     definition.uploaded_datetime = datetime.now()
                     df = definition.to_dataframe()
                     df.columns = df.columns.str.upper()
-                    session.write_pandas(df, 
+                    st.session_state.session.write_pandas(df, 
                         database=st.session_state.config["definition_library"]["database"],
                         schema=st.session_state.config["definition_library"]["schema"],
                         table_name="ICB_DEFINITIONS", 
@@ -518,7 +511,7 @@ def display_definition_from_file(definition_file):
         return None
 
 
-def process_definitions_for_upload(session):
+def process_definitions_for_upload():
     """
     Process all definition files and prepare them for upload to Snowflake
     """
@@ -539,7 +532,7 @@ def process_definitions_for_upload(session):
         FROM INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.AIC_DEFINITIONS
         WHERE DEFINITION_ID = '{definition.definition_id}'
         """
-        existing_definition = session.sql(query).to_pandas()
+        existing_definition = st.session_state.session.sql(query).to_pandas()
 
         if not existing_definition.empty:
             max_version_in_db = existing_definition["VERSION_DATETIME"].max()
@@ -561,8 +554,7 @@ def process_definitions_for_upload(session):
 
     return all_rows, definitions_to_add, definitions_to_remove
 
-def update_aic_definitions_table(session: Session, 
-                                database: str = "INTELLIGENCE_DEV", 
+def update_aic_definitions_table(database: str = "INTELLIGENCE_DEV", 
                                 schema: str = "AI_CENTRE_DEFINITION_LIBRARY", 
                                 verbose: bool = True):
     """
@@ -572,14 +564,14 @@ def update_aic_definitions_table(session: Session,
     definition_files = load_definitions_list()
 
     with st.spinner(f"Processing {len(definition_files)} definition files..."):
-        all_rows, definitions_to_add, definitions_to_remove = process_definitions_for_upload(session)
+        all_rows, definitions_to_add, definitions_to_remove = process_definitions_for_upload()
 
     # Upload if there's data
     if all_rows is not None and not all_rows.empty:
         with st.spinner(f"Uploading {len(all_rows)} rows to Snowflake..."):
             df = all_rows.copy()
             df.columns = df.columns.str.upper()
-            session.write_pandas(df, 
+            st.session_state.session.write_pandas(df, 
                                 database=database,
                                 schema=schema,
                                 table_name="AIC_DEFINITIONS", 
@@ -591,7 +583,7 @@ def update_aic_definitions_table(session: Session,
 
             # Delete old versions
             for id, [name, current_version] in definitions_to_remove.items():
-                session.sql(
+                st.session_state.session.sql(
                     f"""DELETE FROM AIC_DEFINITIONS WHERE DEFINITION_ID = '{id}' AND
                     VERSION_DATETIME != CAST('{current_version}' AS TIMESTAMP)"""
                 ).collect()
@@ -601,33 +593,23 @@ def update_aic_definitions_table(session: Session,
         if verbose:
             st.warning("No new definitions to upload")
 
-    # # Update DEFINITIONSTORE
-    # with st.spinner("Updating DEFINITIONSTORE..."):
-    #     try:
-    #         run_definition_update_script()
-    #         st.success("Definition store updated successfully")
-    #     except subprocess.CalledProcessError as e:
-    #         st.error(f"Error updating definition store: {e.stderr}")
-    #     except Exception as e:
-    #         st.error(f"Error executing update script: {str(e)}")
+# def run_definition_update_script():
+#     """
+#     Run the update.py script to refresh DEFINITIONSTORE
+#     """
+#     import subprocess
+#     import sys
 
-def run_definition_update_script():
-    """
-    Run the update.py script to refresh DEFINITIONSTORE
-    """
-    import subprocess
-    import sys
+#     current_dir = os.path.dirname(os.path.abspath(__file__))
+#     update_script_path = os.path.normpath(
+#         os.path.join(current_dir, "../../pidefinition_library/update.py")
+#     )
 
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    update_script_path = os.path.normpath(
-        os.path.join(current_dir, "../../pidefinition_library/update.py")
-    )
+#     if not os.path.exists(update_script_path):
+#         raise FileNotFoundError(f"Update script not found at {update_script_path}")
 
-    if not os.path.exists(update_script_path):
-        raise FileNotFoundError(f"Update script not found at {update_script_path}")
-
-    result = subprocess.run(
-        [sys.executable, update_script_path], capture_output=True, text=True, check=True
-    )
-    return result
+#     result = subprocess.run(
+#         [sys.executable, update_script_path], capture_output=True, text=True, check=True
+#     )
+#     return result
 

@@ -2,9 +2,10 @@ from datetime import datetime
 from pathlib import Path
 
 import pandas as pd
+import streamlit as st
 from dotenv import load_dotenv
-
 from snowflake.snowpark import Session
+
 from phmlondon.definition import Code, Codelist, Definition, DefinitionSource, VocabularyType
 from phmlondon.snow_utils import SnowflakeConnection
 from definition_library.loaders.create_tables import load_definitions_to_snowflake
@@ -93,7 +94,8 @@ def build_definitions(file_path, mapping_files):
     return pd.concat([p.to_dataframe() for p in definitions], ignore_index=True)
 
 
-def retrieve_bnf_definitions_and_add_to_snowflake(session: Session, database: str = "INTELLIGENCE_DEV",
+def retrieve_bnf_definitions_and_add_to_snowflake(
+        database: str = "INTELLIGENCE_DEV",
         schema: str = "AI_CENTRE_DEFINITION_LIBRARY"):
                                                   
     mapping_files = Path("definition_library/loaders/data/bnf_to_snomed/").glob("*.xlsx")
@@ -107,7 +109,11 @@ def retrieve_bnf_definitions_and_add_to_snowflake(session: Session, database: st
     definition_df = definition_df[~definition_df["DEFINITION_NAME"].str.contains("DUMMY")]
 
     load_definitions_to_snowflake(
-        session=session, df=definition_df, table_name="BSA_BNF_SNOMED_MAPPINGS", database=database, schema=schema
+        session=st.session_state.session, 
+        df=definition_df, 
+        table_name="BSA_BNF_SNOMED_MAPPINGS", 
+        database=database, 
+        schema=schema
     )
     print("uploaded to snowflake!")
 

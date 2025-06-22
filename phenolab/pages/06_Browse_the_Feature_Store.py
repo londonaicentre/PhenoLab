@@ -1,5 +1,5 @@
 import streamlit as st
-from dotenv import load_dotenv
+
 from utils.database_utils import get_data_from_snowflake_to_dataframe, get_snowflake_session
 from utils.style_utils import set_font_lato
 from utils.config_utils import load_config
@@ -13,9 +13,10 @@ from utils.config_utils import load_config
 st.set_page_config(page_title="Feature Store Browser", layout="wide", initial_sidebar_state="expanded")
 
 set_font_lato()
-session = get_snowflake_session()
+if "session" not in st.session_state:
+    st.session_state.session = get_snowflake_session()
 if "config" not in st.session_state:
-    st.session_state.config = load_config(session)
+    st.session_state.config = load_config()
     
 # load_dotenv()
 
@@ -32,7 +33,7 @@ features_query = f"""
     {st.session_state.config['feature_store']['database']}.
     {st.session_state.config['feature_store']['metadata_schema']}.FEATURE_REGISTRY
 """
-features = session.sql(features_query).to_pandas()
+features = st.session_state.session.sql(features_query).to_pandas()
 st.dataframe(features)
 
 
@@ -42,5 +43,5 @@ versions_query = f"""
     {st.session_state.config['feature_store']['database']}.
     {st.session_state.config['feature_store']['metadata_schema']}.FEATURE_VERSION_REGISTRY
 """
-versions = session.sql(versions_query).to_pandas()
+versions = st.session_state.session.sql(versions_query).to_pandas()
 st.dataframe(versions)

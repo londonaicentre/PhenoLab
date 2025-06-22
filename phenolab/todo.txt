@@ -56,15 +56,15 @@ x get rid of load_dotenv?
 x see if can use get_account() to select config file
 x config for environmental variables
 x local config
-- environment.yml fix 
+- environment.yml fix (could it be packaging as snowflake native app?)
 - people should be using snowflake config rather than .env - replace examples
 - explain all in readme
 
 (5c) tidying
 - finish converting away from Snowflake Connection & context manager to explicit management
 - move all version control into definition.py class
-- should probably extract all session fetching and just put it in session_state as part of the setup
-- could make one function that did all the page setting up/checking the session_state e.g. for the configs
+x should probably extract all session fetching and just put it in session_state as part of the setup
+x could make one function that did all the page setting up/checking the session_state e.g. for the configs
 
 (5d) search definitions page
 - page to search definition titles and then see codes within
@@ -77,19 +77,19 @@ x local config
 
 (8) measurements
 x fix load definition
-- fix load definition in page 2
-- measurement config files
+x fix load definition in page 2
+- *measurement config files -> remote version - how to?
 
 (9) vocab loading
 x push further down list
 
 (10) base features
+- *need to add definition version to base features?
+- *is it one per person or all?
 - need to sort out config thingy as have made config part of phenolab
 - get rid of pipeline folder
 
 (12) snowflake feature store/get rid of feature store altogether
-
-(13) package as snowflake native app & therefore sort environment.yml issue?
 
 (14) remote deployment
 - need to push up again

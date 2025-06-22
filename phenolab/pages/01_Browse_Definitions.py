@@ -1,7 +1,6 @@
 import streamlit as st
-from snowflake.snowpark import Session
+
 from utils.database_utils import (
-    get_aic_definitions,
     get_snowflake_session,
     get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list,
     return_codes_for_given_definition_id_as_df,
@@ -21,29 +20,14 @@ from utils.config_utils import load_config
 # perform side-by-side comparisons between all definitions in DEFINITIONSTORE. /
 # Users can identify shared and unique codes, for validation and refinement.
 
-
-# def view_aic_definitions():
-#     """
-#     Display AIC Definitions
-#     """
-#     st.title("AI Centre Definitions")
-
-#     session = get_snowflake_session()
-
-#     definitions = get_aic_definitions(session)
-#     st.dataframe(definitions)
-
-#     if st.button("Refresh", key="aic_refresh_button"):
-#         get_aic_definitions(session)
-#         st.rerun()
-
-def view_definitions(session: Session, database: str, schema: str):
+def view_definitions():
     """
     Users can select which tables they would like to view definitions from
     """
-    # st.title("Browse definitions")
-  
-    all_tables = [row["name"] for row in session.sql(f"SHOW TABLES IN SCHEMA {database}.{schema}").collect()]
+
+    all_tables = [row["name"] for row in st.session_state.session.sql(
+        f"""SHOW TABLES IN SCHEMA {st.session_state.config["definition_library"]["database"]}.
+            {st.session_state.config["definition_library"]["schema"]}""").collect()]
 
     chosen_tables = st.multiselect("Select definition source", options=all_tables, default='AIC_DEFINITIONS',
                     placeholder="Select a definition source", label_visibility="collapsed",)
@@ -51,17 +35,17 @@ def view_definitions(session: Session, database: str, schema: str):
         table_list_str = ', '.join([f"'{t}'" for t in chosen_tables])
         query = f"""SELECT DEFINITION_ID, DEFINITION_NAME, DEFINITION_VERSION, DEFINITION_SOURCE,
         VERSION_DATETIME, UPLOADED_DATETIME
-        FROM {database}.{schema}.DEFINITIONSTORE
+        FROM {st.session_state.config["definition_library"]["database"]}.
+            {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
         WHERE SOURCE_TABLE IN ({table_list_str})
         GROUP BY DEFINITION_ID, DEFINITION_NAME, DEFINITION_VERSION, VERSION_DATETIME, UPLOADED_DATETIME, DEFINITION_SOURCE
         ORDER BY DEFINITION_NAME"""
-        df = session.sql(query).to_pandas()
+        df = st.session_state.session.sql(query).to_pandas()
 
         st.text(" ")
         st.dataframe(df, hide_index=True)
 
-def create_definition_panel(session,
-                            column,
+def create_definition_panel(column,
                             panel_name,
                             definition_ids,
                             definition_labels
@@ -81,7 +65,7 @@ def create_definition_panel(session,
             # get codes for selected definition
             selected_id = definition_ids[definition_labels.index(selected_definition)]
 
-            codes_df = return_codes_for_given_definition_id_as_df(session, selected_id, st.session_state.config)
+            codes_df = return_codes_for_given_definition_id_as_df(selected_id)
 
             display_definition_metadata(codes_df)
             display_definition_codes_summary(codes_df)
@@ -126,18 +110,14 @@ def compare_definitions():
         """
         )
 
-    # get connection
-    session = get_snowflake_session()
-
     # get all definitions
-    definition_ids, definition_labels = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(
-        session, st.session_state.config)
+    definition_ids, definition_labels = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list()
 
     # show two definition panels
     left_col, right_col = st.columns(2)
 
-    create_definition_panel(session, left_col, "A", definition_ids, definition_labels)
-    create_definition_panel(session, right_col, "B", definition_ids, definition_labels)
+    create_definition_panel(left_col, "A", definition_ids, definition_labels)
+    create_definition_panel(right_col, "B", definition_ids, definition_labels)
 
     col2, _ = st.columns(2)
     with col2:
@@ -178,9 +158,10 @@ def compare_definitions():
 def main():
     st.set_page_config(page_title="Browse Definitions", layout="wide", initial_sidebar_state="expanded")
     set_font_lato()
-    session = get_snowflake_session()
+    if "session" not in st.session_state:
+        st.session_state.session = get_snowflake_session()
     if "config" not in st.session_state:
-        st.session_state.config = load_config(session)
+        st.session_state.config = load_config()
 
     st.title("Browse and compare definitions")
 
@@ -190,7 +171,7 @@ def main():
     # TAB 1: LIST AIC DEFS
     with view_tab:
         # view_aic_definitions()
-        view_definitions(session, "INTELLIGENCE_DEV", "AI_CENTRE_DEFINITION_LIBRARY")
+        view_definitions()
 
     # TAB 2: COMPARE BETWEEN DEFS
     with compare_tab:
