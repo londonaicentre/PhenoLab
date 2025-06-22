@@ -1,0 +1,178 @@
+{
+  "definition_id": "c7ded389",
+  "definition_name": "cerebrovascular_accident_ICD10",
+  "definition_version": "cerebrovascular_accident_ICD10_20250612_123923",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-06-12T12:41:31.005592",
+  "codelists": [
+    {
+      "codelist_id": "cerebrovascular_accident_ICD10_ICD10_81c388af",
+      "codelist_name": "cerebrovascular_accident_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "cerebrovascular_accident_ICD10_ICD10_81c388af_20250612_123936",
+      "codes": [
+        {
+          "code": "I64",
+          "code_description": "Stroke, not specified as haemorrhage or infarction",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I69.4",
+          "code_description": "Sequelae of stroke, not specified as haemorrhage or infarction",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "G46.4",
+          "code_description": "Cerebellar stroke syndrome",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "G46.3",
+          "code_description": "Brain stem stroke syndrome",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I63.5",
+          "code_description": "Cerebral infarction due to unspecified occlusion or stenosis of cerebral arteries",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I63.3",
+          "code_description": "Cerebral infarction due to thrombosis of cerebral arteries",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I63.9",
+          "code_description": "Cerebral infarction, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I63.8",
+          "code_description": "Other cerebral infarction",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I63.4",
+          "code_description": "Cerebral infarction due to embolism of cerebral arteries",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I69.3",
+          "code_description": "Sequelae of cerebral infarction",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I63.2",
+          "code_description": "Cerebral infarction due to unspecified occlusion or stenosis of precerebral arteries",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I63.0",
+          "code_description": "Cerebral infarction due to thrombosis of precerebral arteries",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I63.1",
+          "code_description": "Cerebral infarction due to embolism of precerebral arteries",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I63.6",
+          "code_description": "Cerebral infarction due to cerebral venous thrombosis, nonpyogenic",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I63",
+          "code_description": "Cerebral infarction",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I65",
+          "code_description": "Occlusion and stenosis of precerebral arteries, not resulting in cerebral infarction",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I66",
+          "code_description": "Occlusion and stenosis of cerebral arteries, not resulting in cerebral infarction",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I61.0",
+          "code_description": "Intracerebral haemorrhage in hemisphere, subcortical",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I61.9",
+          "code_description": "Intracerebral haemorrhage, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I61.1",
+          "code_description": "Intracerebral haemorrhage in hemisphere, cortical",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I61.5",
+          "code_description": "Intracerebral haemorrhage, intraventricular",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I61.8",
+          "code_description": "Other intracerebral haemorrhage",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I69.1",
+          "code_description": "Sequelae of intracerebral haemorrhage",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I60.1",
+          "code_description": "Subarachnoid haemorrhage from middle cerebral artery",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I61.4",
+          "code_description": "Intracerebral haemorrhage in cerebellum",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I61.3",
+          "code_description": "Intracerebral haemorrhage in brain stem",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I61.2",
+          "code_description": "Intracerebral haemorrhage in hemisphere, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I61.6",
+          "code_description": "Intracerebral haemorrhage, multiple localized",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "P52.4",
+          "code_description": "Intracerebral (nontraumatic) haemorrhage of fetus and newborn",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "P52.6",
+          "code_description": "Cerebellar (nontraumatic) and posterior fossa haemorrhage of fetus and newborn",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "P10.1",
+          "code_description": "Cerebral haemorrhage due to birth injury",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I61",
+          "code_description": "Intracerebral haemorrhage",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

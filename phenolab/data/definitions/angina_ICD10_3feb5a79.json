@@ -1,0 +1,43 @@
+{
+  "definition_id": "3feb5a79",
+  "definition_name": "angina_ICD10",
+  "definition_version": "angina_ICD10_20250612_130641",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-06-12T13:06:54.108000",
+  "codelists": [
+    {
+      "codelist_id": "angina_ICD10_ICD10_ce0f81d4",
+      "codelist_name": "angina_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "angina_ICD10_ICD10_ce0f81d4_20250612_130647",
+      "codes": [
+        {
+          "code": "I20.9",
+          "code_description": "Angina pectoris, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I20.8",
+          "code_description": "Other forms of angina pectoris",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I20.0",
+          "code_description": "Unstable angina",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I20.1",
+          "code_description": "Angina pectoris with documented spasm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I20",
+          "code_description": "Angina pectoris",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}
