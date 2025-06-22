@@ -8,8 +8,6 @@ from utils.definition_interaction_utils import (
     display_unified_code_browser,
     load_definition,
     load_definitions_list,
-    process_definitions_for_upload,
-    run_definition_update_script,
     update_aic_definitions_table
 )
 from utils.database_utils import get_snowflake_session
@@ -154,9 +152,11 @@ def main():
     st.set_page_config(page_title="Manage Definitions", layout="wide")
     set_font_lato()
     if "config" not in st.session_state:
-        st.session_state.config = load_config(get_snowflake_session())
+        st.session_state.config = load_config()
     if "codes" not in st.session_state:
         preload_vocabulary()
+    if "session" not in st.session_state:
+        st.session_state.session = get_snowflake_session()
     st.title("Manage Definitions")
     # load_dotenv()
 
@@ -246,7 +246,7 @@ def main():
                 if definition_count > 0:
                     if st.button("Upload new / updated definitions to Snowflake"):
                         with maincol:
-                            update_aic_definitions_table(get_snowflake_session(), 
+                            update_aic_definitions_table( 
                                 database=st.session_state.config["definition_library"]["database"], 
                                 schema=st.session_state.config["definition_library"]["schema"])
                 else:

@@ -1,7 +1,7 @@
 import os
 
 import streamlit as st
-from dotenv import load_dotenv
+
 from utils.database_utils import get_snowflake_session, get_available_measurements
 from utils.phenotype import ComparisonOperator, ConditionType, Phenotype, load_phenotype_from_json
 from utils.style_utils import set_font_lato, container_object_with_height_if_possible   
@@ -43,7 +43,7 @@ def load_phenotype(file_path):
         return None
 
 
-def query_definition_store(session, search_term, source_system):
+def query_definition_store(search_term, source_system):
     """
     Query the DEFINITIONSTORE view with filters
     """
@@ -78,7 +78,7 @@ def query_definition_store(session, search_term, source_system):
 
     try:
         # return snowsesh.execute_query_to_df(query)
-        return session.sql(query).to_pandas()
+        return st.session_state.session.sql(query).to_pandas()
     except Exception as e:
         st.error(f"Error querying DEFINITIONSTORE: {e}")
         return None
@@ -146,14 +146,6 @@ def display_panel_2_definition_selection():
         - Example: "Patient has any diabetes diagnosis code"
         """)
 
-    # Get the single connection (already connected to definition library by default)
-    try:
-        # snowsesh = get_snowflake_connection()
-        session = get_snowflake_session()
-    except Exception as e:
-        st.error(f"Failed to get Snowflake connection: {e}")
-        return
-
     # get available sources
     if "source_systems" not in st.session_state:
         try:
@@ -164,7 +156,7 @@ def display_panel_2_definition_selection():
             ORDER BY SOURCE_TABLE
             """
             # sources_df = snowsesh.execute_query_to_df(source_query)
-            sources_df = session.sql(source_query).to_pandas()
+            sources_df = st.session_state.session.sql(source_query).to_pandas()
             source_systems = ["All"] + sources_df["SOURCE_TABLE"].tolist()
             st.session_state.source_systems = source_systems
         except Exception as e:
@@ -178,7 +170,7 @@ def display_panel_2_definition_selection():
 
     if st.button("Search"):
         with st.spinner("Searching definitions..."):
-            results = query_definition_store(session, search_term, source_system)
+            results = query_definition_store(search_term, source_system)
             if results is not None and not results.empty:
                 st.session_state.definition_results = results
                 st.success(f"Found {len(results)} definitions")
@@ -233,15 +225,8 @@ def display_panel_3_measurement_selection():
         st.info("Please create or load a phenotype first")
         return
 
-    try:
-        # snowsesh = get_snowflake_connection()
-        session = get_snowflake_session()
-    except Exception as e:
-        st.error(f"Failed to get Snowflake connection: {e}")
-        return
-
     # measurement_features = get_available_measurements(snowsesh)
-    measurement_features = get_available_measurements(session, st.session_state.config)
+    measurement_features = get_available_measurements()
 
     if measurement_features.empty:
         st.warning("No measurement features found in the feature store")
@@ -448,8 +433,10 @@ def display_panel_5_expression_builder():
 def main():
     st.set_page_config(page_title="Build A Phenotype", layout="wide")
     set_font_lato()
+    if "session" not in st.session_state:
+        st.session_state.session = get_snowflake_session()
     if "config" not in st.session_state:
-        st.session_state.config = load_config(get_snowflake_session())
+        st.session_state.config = load_config()
     st.title("Build a phenotype")
     # load_dotenv()
 

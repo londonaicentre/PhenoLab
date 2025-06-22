@@ -5,15 +5,14 @@ import yaml
 import glob
 import pandas as pd
 import streamlit as st
-from snowflake.snowpark import Session
 
 phenolab_config_mapping = {"SE56186": "nel_icb"}
 
-def load_config(session: Session) -> dict:
+def load_config() -> dict:
     load_dotenv(override=True)
 
     # Find out which snowflake account we're on
-    account_name = session.sql("SELECT CURRENT_ACCOUNT();").collect()[0]["CURRENT_ACCOUNT()"]
+    account_name = st.session_state.session.sql("SELECT CURRENT_ACCOUNT();").collect()[0]["CURRENT_ACCOUNT()"]
     if account_name in phenolab_config_mapping:
         phenolab_config = phenolab_config_mapping[account_name]
     else:

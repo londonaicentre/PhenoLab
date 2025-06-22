@@ -3,8 +3,7 @@ import os
 
 import pandas as pd
 import streamlit as st
-from dotenv import load_dotenv
-# from utils.database_utils import get_snowflake_connection
+
 from utils.database_utils import get_snowflake_session
 from utils.style_utils import set_font_lato
 from utils.config_utils import load_config
@@ -105,18 +104,14 @@ def generate_vocab_list():
         # updating status
         status_placeholder = st.empty()
 
-        # Get single connection
-        # conn = get_snowflake_connection()
-        session = get_snowflake_session()
-
         concept_dfs = []
 
         # 1. Primary care observations (SNOMED)
         status_placeholder.info("Extracting primary care observation SNOMED codes...")
 
-        session.use_database("PROD_DWH")
-        session.use_schema("ANALYST_PRIMARY_CARE")
-        observation_df = session.sql(OBSERVATION_SNOMED_SQL).to_pandas()
+        # session.use_database("PROD_DWH")
+        # session.use_schema("ANALYST_PRIMARY_CARE")
+        observation_df = st.session_state.session.sql(OBSERVATION_SNOMED_SQL).to_pandas()
         # Use context manager for PROD_DWH database
         # with conn.use_context(database="PROD_DWH", schema="ANALYST_PRIMARY_CARE"):
         #     observation_df = conn.execute_query_to_df(OBSERVATION_SNOMED_SQL)
@@ -149,7 +144,7 @@ def generate_vocab_list():
             hospital_query = HOSPITAL_CODES_SQL.format(
                 database=st.session_state.config["schema"]["database"], 
                 feature_store=st.session_state.config["schema"]["schema"])
-            hospital_df = session.sql(hospital_query).to_pandas()
+            hospital_df = st.session_state.session.sql(hospital_query).to_pandas()
 
             print(hospital_df)
 
@@ -217,12 +212,12 @@ def main():
     st.set_page_config(page_title="Manage Vocabularies", layout="wide")
 
     set_font_lato()
+    if "session" not in st.session_state:
+        st.session_state.session = get_snowflake_session()
     if "config" not in st.session_state:
-        st.session_state.config = load_config(get_snowflake_session())
+        st.session_state.config = load_config()
 
     st.title("Manage Vocabularies")
-
-    # load_dotenv()
 
     # session state variables
     if "codes" not in st.session_state:
