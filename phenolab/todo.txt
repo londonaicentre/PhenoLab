@@ -94,4 +94,4 @@ x get rid of pipeline folder
 - *choose best option
 
 (14) remote deployment
-- need to push up again
+x need to push up again

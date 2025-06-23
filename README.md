@@ -45,3 +45,15 @@ connections.toml file (an example is given in the /Phenolab directory), or set u
 CLI - 
 [this internal tutorial](https://github.com/londonaicentre/sde_aic_internal_docs/blob/main/infra/snowflake_cli_setup.md)
 may help.
+
+## Manually push Phenolab up to snowflake stage
+
+```
+cd phenolab
+snow streamlit deploy --replace --prune
+```
+
+```
+cd ..
+snow stage copy src/phmlondon @phenolab/PhenoLab/phmlondon --recursive --overwrite
+```
