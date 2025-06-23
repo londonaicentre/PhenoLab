@@ -1,7 +1,7 @@
 import os
 
-from dotenv import load_dotenv
 import yaml
+from dotenv import load_dotenv
 from snowflake.snowpark import Session
 
 phenolab_config_mapping = {"SE56186": "nel_icb"}
@@ -15,7 +15,7 @@ def load_config(session: Session) -> dict:
         phenolab_config = phenolab_config_mapping[account_name]
     else:
         raise EnvironmentError("No matching configuration found for the current Snowflake account.")
-    
+
     with open(f"configs/{phenolab_config}.yml", "r") as fid:
         config = yaml.safe_load(fid)
 
@@ -25,7 +25,7 @@ def load_config(session: Session) -> dict:
     # else:
     #     config["local_development"] = False
 
-    if os.getenv("GSETTINGS_SCHEMA_DIR") is not None:  
+    if os.getenv("GSETTINGS_SCHEMA_DIR") is not None: 
     # This is a hideous hack, but this env variable exists on streamlit in snowflake
         config["local_development"] = False
     else:
