@@ -20,6 +20,7 @@ x page to browse by source
 (2a) CI approach
 - github actions
 - dev and prod
+- unit testing
 
 (2b) ICB table with 'starterpack' model
 x create ICB table
@@ -44,7 +45,6 @@ x rename definition panels
 (5) general/misc
 x redundant imports!
 x get rid of some of the database utils functions
-- add some tests?
 x do I need to be calling (a) session and (b) config as function imports?? (No - session state seems to exist across 
 imports too)
 
@@ -91,6 +91,7 @@ x need to sort out config thingy as have made config part of phenolab
 x get rid of pipeline folder
 
 (12) snowflake feature store/get rid of feature store altogether
+- *choose best option
 
 (14) remote deployment
 - need to push up again
