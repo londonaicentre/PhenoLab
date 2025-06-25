@@ -1,15 +1,14 @@
 import pandas as pd
 import streamlit as st
-from dotenv import load_dotenv
-# from utils.database_utils import get_snowflake_connection
+
 from utils.database_utils import get_snowflake_session
-from utils.measurement import MeasurementConfig
 from utils.measurement_interaction_utils import (
     load_measurement_config,
     load_measurement_configs_list,
     update_all_measurement_configs,
 )
 from utils.style_utils import set_font_lato, container_object_with_height_if_possible
+from utils.config_utils import load_config
 
 # # 04_Measurement_Standardisation.py
 
@@ -270,11 +269,14 @@ def display_conversion_group(config, units, existing_conversions, group_type):
 def main():
     st.set_page_config(page_title="Standardise Measurements", layout="wide")
     set_font_lato()
+    if "session" not in st.session_state:
+        st.session_state.session = get_snowflake_session()
+    if "config" not in st.session_state:
+        st.session_state.config = load_config()
     st.title("Standardise Measurements")
-    load_dotenv()
+    # load_dotenv()
 
     # snowsesh = get_snowflake_connection()
-    session = get_snowflake_session()
 
     if "selected_definition" not in st.session_state:
         st.session_state.selected_definition = None
@@ -291,7 +293,7 @@ def main():
     with col2:
         if st.button("Update All Configs", use_container_width=True):
             with st.spinner("Updating measurement configurations..."):
-                created, updated, new_units = update_all_measurement_configs(session, st.session_state.config)
+                created, updated, new_units = update_all_measurement_configs()
 
                 message_parts = []
                 if created > 0:

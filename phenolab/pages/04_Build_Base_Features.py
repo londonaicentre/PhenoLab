@@ -1,15 +1,13 @@
-import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
-from dotenv import load_dotenv
 from plotly.subplots import make_subplots
+
 from utils.condition_interaction_utils import (
     create_base_conditions_feature,
     get_non_measurement_definitions,
 )
 from utils.database_utils import (
     get_condition_patient_counts_by_year,
-    # get_snowflake_connection,
     get_snowflake_session,
     get_unique_patients_for_condition,
 )
@@ -21,6 +19,7 @@ from utils.measurement_interaction_utils import (
     get_measurement_values,
 )
 from utils.style_utils import set_font_lato
+from utils.config_utils import load_config
 
 # # 05_Base_Features.py
 
@@ -106,7 +105,7 @@ def create_distribution_plots(df_all, config):
 
 
 
-def display_measurement_analysis(session):
+def display_measurement_analysis():
     config_options = get_available_measurement_configs()
 
     if not config_options:
@@ -129,7 +128,7 @@ def display_measurement_analysis(session):
             return
 
         with st.spinner("Loading measurement values..."):
-            df_values = get_measurement_values(selected_measurement, session, st.session_state.config)
+            df_values = get_measurement_values(selected_measurement)
 
         if df_values.empty:
             st.warning(f"No measurement values found for {selected_measurement}")
@@ -146,7 +145,7 @@ def display_measurement_analysis(session):
         st.plotly_chart(fig, use_container_width=True)
 
 
-def display_feature_creation(session):
+def display_feature_creation():
     eligible_configs = get_available_measurement_configs()
 
     if not eligible_configs:
@@ -160,7 +159,7 @@ def display_feature_creation(session):
              """)
 
     if st.button("Create / Update Base Measurements Table", type="primary", use_container_width=True):
-        create_base_measurements_feature(session, st.session_state, eligible_configs)
+        create_base_measurements_feature(eligible_configs)
 
     st.write("""
     **Table Schema:**
@@ -198,7 +197,7 @@ def create_condition_distribution_plot(df_yearly, definition_name):
     return fig
 
 
-def display_condition_analysis(session):
+def display_condition_analysis():
     """
     Display condition analysis with patient counts by year
     """
@@ -216,14 +215,14 @@ def display_condition_analysis(session):
 
     if selected_condition:
         with st.spinner("Loading patient counts..."):
-            df_yearly = get_condition_patient_counts_by_year(selected_condition, session, st.session_state.config)
+            df_yearly = get_condition_patient_counts_by_year(selected_condition)
 
         if df_yearly.empty:
             st.warning(f"No patients found for {selected_condition}")
             return
 
         total_observations = df_yearly['PATIENT_COUNT'].sum()
-        unique_patients = get_unique_patients_for_condition(selected_condition, session, st.session_state.config)
+        unique_patients = get_unique_patients_for_condition(selected_condition)
 
         st.info(f"Total unique patients: {unique_patients:,} (Total observations: {total_observations:,})")
 
@@ -231,7 +230,7 @@ def display_condition_analysis(session):
         st.plotly_chart(fig, use_container_width=True)
 
 
-def display_condition_feature_creation(session):
+def display_condition_feature_creation():
     """
     Display UI for creating Base Conditions feature table
     """
@@ -247,7 +246,7 @@ def display_condition_feature_creation(session):
 
     if st.button("Create / Update Base Conditions Table", type="primary", use_container_width=True):
         all_definitions = list(definitions.keys())
-        create_base_conditions_feature(session, all_definitions, st.session_state.config)
+        create_base_conditions_feature(all_definitions)
 
     st.write("""
     **Table Schema:**
@@ -262,11 +261,14 @@ def display_condition_feature_creation(session):
 def main():
     st.set_page_config(page_title="Base Feature Creation", layout="wide")
     set_font_lato()
+    if "session" not in st.session_state:
+        st.session_state.session = get_snowflake_session()
+    if "config" not in st.session_state:
+        st.session_state.config = load_config()
     st.title("Distributions & Base Feature Creation")
-    load_dotenv()
+    # load_dotenv()
 
     # snowsesh = get_snowflake_connection()
-    session = get_snowflake_session()
 
     tab1, tab2 = st.tabs(["Has Condition", "Measurements"])
 
@@ -274,19 +276,19 @@ def main():
         left_col, right_col = st.columns([2, 1])
 
         with left_col:
-            display_condition_analysis(session)
+            display_condition_analysis()
 
         with right_col:
-            display_condition_feature_creation(session)
+            display_condition_feature_creation()
 
     with tab2:
         left_col, right_col = st.columns([2, 1])
 
         with left_col:
-            display_measurement_analysis(session)
+            display_measurement_analysis()
 
         with right_col:
-            display_feature_creation(session)
+            display_feature_creation()
 
 
 if __name__ == "__main__":
