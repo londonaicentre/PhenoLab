@@ -14,3 +14,4 @@ entities:
       - data
       - definition_library
       - environment.yml
+      - .env

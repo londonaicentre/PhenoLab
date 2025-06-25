@@ -6,15 +6,17 @@ import glob
 import pandas as pd
 import streamlit as st
 
-phenolab_config_mapping = {"SE56186": "nel_icb"}
+phenolab_config_mapping = {"SE56186": "nel_icb" }
 
 def load_config() -> dict:
     load_dotenv(override=True)
+    deploy_env = os.getenv("DEPLOY_ENV", "dev")
+    print(f"Running in environment: {deploy_env}")
 
     # Find out which snowflake account we're on
     account_name = st.session_state.session.sql("SELECT CURRENT_ACCOUNT();").collect()[0]["CURRENT_ACCOUNT()"]
     if account_name in phenolab_config_mapping:
-        phenolab_config = phenolab_config_mapping[account_name]
+        phenolab_config = phenolab_config_mapping[account_name] + "_" + deploy_env
     else:
         raise EnvironmentError("No matching configuration found for the current Snowflake account.")
     
@@ -28,6 +30,9 @@ def load_config() -> dict:
             config["local_development"] = False
         else:
             config["local_development"] = True
+
+    config["deploy_env"] = deploy_env
+    config["icb_name"] = phenolab_config_mapping[account_name]
 
     return config
 

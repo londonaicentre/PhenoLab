@@ -145,4 +145,6 @@ with col3:
     st.markdown("2025 London AI Centre & OneLondon")
 with col4:
     st.write("Running streamlit version:", st.__version__)
+if st.session_state.config["deploy_env"] == "dev":
+    st.markdown("**Development Mode**: `ON` - this is a development version of PhenoLab, not for production use")
 

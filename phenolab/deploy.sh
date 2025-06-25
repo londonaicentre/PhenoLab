@@ -1,12 +1,15 @@
 #!/bin/bash
 
-ENV=$1 
-echo "Deploying to environment: $ENV"
+DEPLOY_ENV=$1 
+echo "Deploying to environment: $DEPLOY_ENV"
 
-if [ "$DEVPROD" == "prod" ]; then
+if [ "$DEPLOY_ENV" == "prod" ]; then
   APP_TITLE="PhenoLab"
-else
+elif [ "$DEPLOY_ENV" == "dev" ]; then
   APP_TITLE="PhenoLab_dev"
+else
+  echo "Invalid environment specified. Use 'prod' or 'dev'."
+  exit 1
 fi
 
 # Generate snowflake.yml
@@ -15,16 +18,20 @@ sed "s|__APP_TITLE__|$APP_TITLE|g" snowflake.template.yml > snowflake.yml
 echo "Generated snowflake.yml:"
 cat snowflake.yml
 
-if [ "$ENV" == "prod" ]; then
+# Generate .env file and deploy to snowflake
+if [ "$DEPLOY_ENV" == "prod" ]; then
   echo "Deploying to production environment..."
+  echo "DEPLOY_ENV=$DEPLOY_ENV" > .env
   snow streamlit deploy --database "INTELLIGENCE_DEV" --schema "AI_CENTRE_DEV" --replace 
   # Could just be snow streamlit deploy --replace as the default database and schema are specified in the CLI config, 
   # but for clarity
-else
+elif [ "$DEPLOY_ENV" == "dev" ]; then
   echo "Deploying to DEV environment..."
+  echo "DEPLOY_ENV=$DEPLOY_ENV" > .env
   snow streamlit deploy --database "INTELLIGENCE_DEV" --schema "PHENOLAB_DEV" --replace
 fi
 
+# Check if the deployment was successful
 if [ $? -eq 0 ]; then
   echo "Deployment succeeded."
 else
@@ -32,4 +39,5 @@ else
 fi
 
 rm snowflake.yml
-echo "Temporary snowflake.yml file removed"
+rm .env
+echo "Temporary snowflake.yml and .env files removed"

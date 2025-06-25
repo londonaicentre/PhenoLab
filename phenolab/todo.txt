@@ -105,12 +105,17 @@ x copy PHM london to prod stage
 x need to have a different title for phenolab dev - may need to parameterise Snowflake.yml
 x dev definition definition_library
 x dev feature store
-- generate config files according to env and ICB
-- deletes scripts locally
-- Definition store view as setup script??
-- ?dynamically generate snowflake.yml/parameterise
-- bash script might need to move up one level?
-- update readme
+x generate config files according to env and ICB
+x deletes scripts locally
+- breaking due to missing definition...need to fix
+- change dev schemas and see if app still works
+- integrate local development mode into dev and prod? nel_icb_local.yml? think about how will run locally without bash
+script
+- does the ICB table need to be blocked in local development mode?/other tables?
+- Definition store view as setup script?
+- ?dynamically generate snowflake.yml/parameterise for warehouse name
+x bash script might need to move up one level?
+- update readme (including making deploy.sh executable)
 
 (2) ?Setup scripts
 - base features
