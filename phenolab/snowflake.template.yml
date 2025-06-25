@@ -1,6 +1,6 @@
 definition_version: 2
 entities:
-  PhenoLab:
+  __APP_TITLE__:
     type: streamlit
     query_warehouse: INTELLIGENCE_XS
     main_file: PhenoLab.py

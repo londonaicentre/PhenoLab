@@ -95,3 +95,50 @@ x get rid of pipeline folder
 
 (14) remote deployment
 x need to push up again
+
+------------
+To do post-meeting:
+(1) Dev/prod approach
+x create prod stage
+x bash script
+x copy PHM london to prod stage
+x need to have a different title for phenolab dev - may need to parameterise Snowflake.yml
+x dev definition definition_library
+x dev feature store
+- generate config files according to env and ICB
+- deletes scripts locally
+- Definition store view as setup script??
+- ?dynamically generate snowflake.yml/parameterise
+- bash script might need to move up one level?
+- update readme
+
+(2) ?Setup scripts
+- base features
+
+(3) Measurements
+- configs -> to tables
+- interfaces
+
+(4) Definitions -> base features
+- use latest  version
+
+(5) Extra features
+- search definitions
+- delte definitions
+
+(6) phenotypes
+- remove
+
+(7) decouple from PHM utils
+- get rid of phenolab
+- move definition.py
+- remove boto3 as requirement
+
+(8) tidying
+- move main phenolab to stage in its own schema?
+
+(9) readme updates
+- internal inc for phenolab deployment and development/external 
+- reorganise repo?
+- unit testing for external APIs?
+- make running tests part of bash script for dev?
