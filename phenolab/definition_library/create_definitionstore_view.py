@@ -25,7 +25,8 @@ def create_definitionstore_view(session: Session, database: str = "INTELLIGENCE_
         "HDRUK_DEFINITIONS",
         "NEL_SEGMENT_DEFINITIONS",
         "NHS_GP_SNOMED_REFSETS",
-        "OPEN_CODELISTS",]
+        "OPEN_CODELISTS",
+        "ICB_DEFINITIONS",]
 
     view_sql = f"""
     CREATE OR REPLACE VIEW {database}.{schema}.DEFINITIONSTORE AS

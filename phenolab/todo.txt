@@ -9,7 +9,7 @@ x temp tables
 x openpyxl
 x check whether feature store manager still works after refactoring of connection
 - NHS GP table
-- NEL segments
+- NEL segments -> their own table
 x retrieving bnf definitions is very slow
 x maybe should/check fix 'uploaded datetime', especially for those where doing asynchronous upload
 x fix the database/schema defaults because I think i did them wrong
@@ -20,12 +20,19 @@ x page to browse by source
 (2a) CI approach
 - github actions
 - dev and prod
+- unit testing
 
 (2b) ICB table with 'starterpack' model
-- create ICB table
-- definitions should go to ICB table
-- UNLESS we create them as jsons/export as jsons
-- existing NEL segments need to go in ICB table
+x create ICB table
+x definitions should go to ICB table
+x UNLESS we create them as jsons/export as jsons
+x debugging mode
+x fix problem with new jsons
+x 'Edit existing' needs to be either jsons or table according to whether local or remote
+x fix bug when no definition is selected
+x don't allow duplicate name uploads to ICB table/decide how to do versioning in case of edits
+x need to change definition behaviour to have proper versioning or else can't do edits to table-stored definitions
+x 'View & Upload' tab
 
 (3) external definitions starterpack
 x done 
@@ -33,12 +40,13 @@ x done
 (4) aesthetic changes
 x colour scheme
 - reduce labels/visual clutter
-- rename definition panels
+x rename definition panels
 
 (5) general/misc
-- redundant imports!
-- get rid of some of the database utils functions
-- add some tests?
+x redundant imports!
+x get rid of some of the database utils functions
+x do I need to be calling (a) session and (b) config as function imports?? (No - session state seems to exist across 
+imports too)
 
 (5b) ICB-specific config
 x check if config in PHMutils should be part of phenolab or more likely, switch to a config file
@@ -48,30 +56,42 @@ x get rid of load_dotenv?
 x see if can use get_account() to select config file
 x config for environmental variables
 x local config
-- environment.yml fix 
-- people should be using snowflake config rather than .env - replace examples
-- explain all in readme
+- environment.yml fix (could it be packaging as snowflake native app?)
+x people should be using snowflake config rather than .env - replace examples
+x explain all in readme
 
 (5c) tidying
-- finish converting away from Snowflake Connection & context manager to explicit management
+x finish converting away from Snowflake Connection & context manager to explicit management
+- move all version control into definition.py class
+x should probably extract all session fetching and just put it in session_state as part of the setup
+x could make one function that did all the page setting up/checking the session_state e.g. for the configs
 
 (5d) search definitions page
+- page to search definition titles and then see codes within
 
 (6) delete definition option
+- add tab to page 2 to delete definition versions, both jsons and on database
 
 (7) phenotypes
 - how to turn into SQL? (or should we remove from interface)
 
 (8) measurements
-- measurement config files
+x fix load definition
+x fix load definition in page 2
+- *measurement config files -> remote version - how to?
 
 (9) vocab loading
-- push further down list
+x push further down list
 
 (10) base features
-- need to sort out config thingy as have made config part of phenolab
-- get rid of pipeline folder
+- *need to add definition version to base features?
+- *is it one per person or all?
+x sort out pipeline/features_base
+x need to sort out config thingy as have made config part of phenolab
+x get rid of pipeline folder
 
 (12) snowflake feature store/get rid of feature store altogether
+- *choose best option
 
-(13) package as snowflake native app & therefore sort environment.yml issue?
+(14) remote deployment
+x need to push up again
