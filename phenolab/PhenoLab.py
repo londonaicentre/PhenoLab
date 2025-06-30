@@ -112,6 +112,7 @@ with col2:
         if 'created_local_definitions_table' not in st.session_state:
             with st.spinner("Creating local definitions table...", show_time=True):
                 create_definition_table( 
+                    session=st.session_state.session,
                     database=st.session_state.config["definition_library"]["database"], 
                     schema=st.session_state.config["definition_library"]["schema"],
                     table_name="ICB_DEFINITIONS"
