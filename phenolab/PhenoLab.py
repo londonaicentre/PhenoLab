@@ -67,6 +67,12 @@ with col2:
         # 1. AI Centre
         if 'uploaded_aic_definitions' not in st.session_state:
             with st.spinner("Loading AI Centre definitions...", show_time=True):
+                create_definition_table( 
+                    session=st.session_state.session,
+                    database=st.session_state.config["definition_library"]["database"], 
+                    schema=st.session_state.config["definition_library"]["schema"],
+                    table_name="AI_CENTRE_DEFINITIONS"
+                )
                 update_aic_definitions_table( 
                     database=st.session_state.config["definition_library"]["database"], 
                     schema=st.session_state.config["definition_library"]["schema"], 
@@ -106,6 +112,7 @@ with col2:
         if 'created_local_definitions_table' not in st.session_state:
             with st.spinner("Creating local definitions table...", show_time=True):
                 create_definition_table( 
+                    session=st.session_state.session,
                     database=st.session_state.config["definition_library"]["database"], 
                     schema=st.session_state.config["definition_library"]["schema"],
                     table_name="ICB_DEFINITIONS"
@@ -145,4 +152,6 @@ with col3:
     st.markdown("2025 London AI Centre & OneLondon")
 with col4:
     st.write("Running streamlit version:", st.__version__)
+if st.session_state.config["deploy_env"] == "dev":
+    st.markdown("**Development Mode**: `ON` - this is a development version of PhenoLab, not for production use")
 

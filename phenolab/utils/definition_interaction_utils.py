@@ -1,6 +1,6 @@
 import os
 from datetime import datetime
-from typing import List, Optional
+from typing import List, Optional, Tuple
 
 import pandas as pd
 import streamlit as st
@@ -27,23 +27,32 @@ def load_definitions_list() -> List[str]:
     """
     Get list of definition files from /data/definitions
     """
-    definitions_list = []
     if st.session_state.config["local_development"]:
-        if os.path.exists("data/definitions"):
-            definitions_list = sorted([f for f in os.listdir("data/definitions") if f.endswith(".json")])
+        return load_definitions_list_from_local_files()
     else:
-        query = f"""
+        return load_definitions_list_from_icb_table()
+
+def load_definitions_list_from_local_files() -> List[str]:
+    """
+    Get list of definition files from /data/definitions.
+    """
+    if os.path.exists("data/definitions"):
+        return sorted([f for f in os.listdir("data/definitions") if f.endswith(".json")])
+
+
+def load_definitions_list_from_icb_table() -> List[str]:
+    """
+    Get list of definition versions from the ICB_DEFINITIONS table in Snowflake.
+    """
+    query = f"""
         SELECT DEFINITION_VERSION
         FROM {st.session_state.config["definition_library"]["database"]}.
-        {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
-        WHERE SOURCE_TABLE = 'ICB_DEFINITIONS'
+        {st.session_state.config["definition_library"]["schema"]}.ICB_DEFINITIONS
         GROUP BY DEFINITION_ID, DEFINITION_NAME, DEFINITION_VERSION, VERSION_DATETIME, UPLOADED_DATETIME, DEFINITION_SOURCE
         ORDER BY DEFINITION_NAME;
         """
-        df = st.session_state.session.sql(query).to_pandas()
-        definitions_list = df["DEFINITION_VERSION"].tolist()
-
-    return definitions_list
+    df = st.session_state.session.sql(query).to_pandas()
+    return df["DEFINITION_VERSION"].tolist()
 
 def load_definition(file_path_or_definition_name: str) -> Optional[Definition]:
     """
@@ -510,12 +519,10 @@ def display_definition_from_file(definition_file):
         st.error(f"Error loading definition: {e}")
         return None
 
-
-def process_definitions_for_upload():
+def process_definitions_for_upload(definition_files: List[str]) -> Tuple[pd.DataFrame, List[str], dict]:
     """
     Process all definition files and prepare them for upload to Snowflake
     """
-    definition_files = load_definitions_list()
     if not definition_files:
         return None, [], {}
 
@@ -561,10 +568,10 @@ def update_aic_definitions_table(database: str = "INTELLIGENCE_DEV",
     Update the AIC_DEFINITIONS table with new or updated definitions from local files.
     """
 
-    definition_files = load_definitions_list()
+    definition_files = load_definitions_list_from_local_files()
 
     with st.spinner(f"Processing {len(definition_files)} definition files..."):
-        all_rows, definitions_to_add, definitions_to_remove = process_definitions_for_upload()
+        all_rows, definitions_to_add, definitions_to_remove = process_definitions_for_upload(definition_files)
 
     # Upload if there's data
     if all_rows is not None and not all_rows.empty:
@@ -592,24 +599,3 @@ def update_aic_definitions_table(database: str = "INTELLIGENCE_DEV",
     else:
         if verbose:
             st.warning("No new definitions to upload")
-
-# def run_definition_update_script():
-#     """
-#     Run the update.py script to refresh DEFINITIONSTORE
-#     """
-#     import subprocess
-#     import sys
-
-#     current_dir = os.path.dirname(os.path.abspath(__file__))
-#     update_script_path = os.path.normpath(
-#         os.path.join(current_dir, "../../pidefinition_library/update.py")
-#     )
-
-#     if not os.path.exists(update_script_path):
-#         raise FileNotFoundError(f"Update script not found at {update_script_path}")
-
-#     result = subprocess.run(
-#         [sys.executable, update_script_path], capture_output=True, text=True, check=True
-#     )
-#     return result
-
