@@ -113,9 +113,9 @@ x integrate local development mode into dev and prod? nel_icb_local.yml? think a
 script
 x does the ICB table need to be blocked in local development mode?/other tables?
 x Definition store view as setup script?
-- ?dynamically generate snowflake.yml/parameterise for warehouse name
+x ?dynamically generate snowflake.yml/parameterise for warehouse name
 x bash script might need to move up one level?
-- update readme (including making deploy.sh executable)
+x update readme (including making deploy.sh executable)
 
 (1b) bnf
 - try pre-generating BNF files for speed

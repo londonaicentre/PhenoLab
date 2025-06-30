@@ -1,6 +1,8 @@
 #!/bin/bash
 
-DEPLOY_ENV=$1 
+ICB=$1
+DEPLOY_ENV=$2
+echo "Deploying to ICB: $ICB"
 echo "Deploying to environment: $DEPLOY_ENV"
 
 if [ "$DEPLOY_ENV" == "prod" ]; then
@@ -14,7 +16,17 @@ fi
 
 # Generate snowflake.yml
 echo "Generating snowflake.yml with title: $APP_TITLE"
-sed "s|__APP_TITLE__|$APP_TITLE|g" snowflake.template.yml > snowflake.yml
+if [ "$ICB" = "nel" ]; then
+  WAREHOUSE="INTELLIGENCE_XS"
+elif [ "$ICB" = "sel" ]; then
+  WAREHOUSE="INTELLIGENCE_XS"
+else
+  echo "Unknown ICB: $ICB"
+  exit 1
+fi
+sed -e "s|__APP_TITLE__|$APP_TITLE|g" \
+    -e "s|__QUERY_WAREHOUSE__|$WAREHOUSE|g" \
+    snowflake.template.yml > snowflake.yml
 echo "Generated snowflake.yml:"
 cat snowflake.yml
 

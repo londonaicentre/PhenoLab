@@ -2,7 +2,7 @@ definition_version: 2
 entities:
   __APP_TITLE__:
     type: streamlit
-    query_warehouse: INTELLIGENCE_XS
+    query_warehouse: __QUERY_WAREHOUSE__
     main_file: PhenoLab.py
     stage: phenolab
     artifacts:
