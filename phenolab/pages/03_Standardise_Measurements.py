@@ -98,15 +98,14 @@ def display_unit_mapping_panel(config):
     # creat dict for quick lookup
     current_mappings = {m.source_unit: m.standard_unit for m in config.unit_mappings}
 
-    column_layout = [1, 2, 2, 1, 2, 1]
+    column_layout = [1, 2, 2, 1, 2]
     header_cols = st.columns(column_layout)
     headers = [
         "**Count**",
         "**Source Unit**",
         "**Median (IQR)**",
         "**%Numeric**",
-        "**Target Unit**",
-        "**Plot Distribution**"
+        "**Target Unit**"
         ]
     for col, header in zip(header_cols, headers, strict=False):
         col.write(header)
