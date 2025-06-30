@@ -1,5 +1,4 @@
 from datetime import datetime
-from pathlib import Path
 
 import pandas as pd
 import streamlit as st
@@ -7,7 +6,6 @@ from dotenv import load_dotenv
 from snowflake.snowpark import Session
 
 from utils.definition import Code, Codelist, Definition, DefinitionSource, VocabularyType
-from phmlondon.snow_utils import SnowflakeConnection
 from definition_library.loaders.create_tables import load_definitions_to_snowflake
 
 
@@ -85,5 +83,5 @@ def retrieve_bnf_definitions_and_add_to_snowflake(
 
 if __name__ == "__main__":
     load_dotenv(override=True)
-    conn = SnowflakeConnection()
-    retrieve_bnf_definitions_and_add_to_snowflake(session=conn.session)
+    session = Session.builder.config("connection_name", "nel_icb").create()
+    retrieve_bnf_definitions_and_add_to_snowflake()

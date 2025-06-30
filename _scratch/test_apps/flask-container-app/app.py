@@ -1,5 +1,4 @@
 from flask import Flask
-# from phmlondon.snow_utils import SnowflakeConnection
 from snowflake.snowpark import Session
 import os
 from dotenv import load_dotenv

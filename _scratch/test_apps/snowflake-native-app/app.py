@@ -1,5 +1,4 @@
 import streamlit as st
-# from phmlondon.snow_utils import SnowflakeConnection
 from snowflake.snowpark import Session
 import os
 from dotenv import load_dotenv

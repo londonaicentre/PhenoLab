@@ -138,9 +138,9 @@ x try pre-generating BNF files for speed
 - remove
 
 (7) decouple from PHM utils
-- get rid of phenolab
+- get rid of feature store
 x move definition.py
-- remove snowutils
+x remove snowutils
 - remove boto3 as requirement
 
 (8) tidying
@@ -154,3 +154,6 @@ x move definition.py
 
 (10) feature store
 - fix in dev
+
+(11) tidying up
+- read me clean up (x2)
