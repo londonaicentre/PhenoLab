@@ -6,7 +6,7 @@ import streamlit as st
 from dotenv import load_dotenv
 from snowflake.snowpark import Session
 
-from phmlondon.definition import Code, Codelist, Definition, DefinitionSource, VocabularyType
+from utils.definition import Code, Codelist, Definition, DefinitionSource, VocabularyType
 from phmlondon.snow_utils import SnowflakeConnection
 from definition_library.loaders.create_tables import load_definitions_to_snowflake
 

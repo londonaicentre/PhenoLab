@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 from dotenv import load_dotenv
 import os
-from phmlondon.definition import Definition
+from phenolab.utils.definition import Definition
 
 if st.button("Submit"):
 

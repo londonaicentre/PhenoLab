@@ -2,7 +2,7 @@
 Script to test the loading and saving of a Definition object to DynamoDB.
 """
 
-from phmlondon.definition import Definition
+from phenolab.utils.definition import Definition
 
 def create():
     diabetes = Definition.from_json('diabetes_mellitus_not_type1_SNOMED_7b322f7f.json')

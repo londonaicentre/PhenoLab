@@ -139,7 +139,8 @@ x try pre-generating BNF files for speed
 
 (7) decouple from PHM utils
 - get rid of phenolab
-- move definition.py
+x move definition.py
+- remove snowutils
 - remove boto3 as requirement
 
 (8) tidying

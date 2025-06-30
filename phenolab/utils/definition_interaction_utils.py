@@ -9,7 +9,7 @@ from utils.database_utils import (
     return_codes_for_given_definition_id_as_df,
 )
 from utils.style_utils import container_object_with_height_if_possible
-from phmlondon.definition import Code, Definition, VocabularyType
+from utils.definition import Code, Definition, VocabularyType
 
 """
 # definition_display_utils.py

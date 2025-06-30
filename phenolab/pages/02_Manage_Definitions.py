@@ -14,7 +14,7 @@ from utils.definition_interaction_utils import (
 from utils.database_utils import get_snowflake_session
 from utils.style_utils import set_font_lato
 from utils.config_utils import load_config, preload_vocabulary
-from phmlondon.definition import Definition
+from utils.definition import Definition
 
 # # 03_Manage_Definitions.py
 
