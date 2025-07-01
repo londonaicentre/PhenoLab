@@ -1,33 +1,46 @@
 import os
 
-from dotenv import load_dotenv
 import yaml
+from dotenv import load_dotenv
 import glob
 import pandas as pd
 import streamlit as st
 
-phenolab_config_mapping = {"SE56186": "nel_icb"}
+from snowflake.snowpark import Session
+
+phenolab_config_mapping = {"SE56186": "nel_icb" }
 
 def load_config() -> dict:
+
     load_dotenv(override=True)
+    if os.getenv("GSETTINGS_SCHEMA_DIR") is not None:  
+        # This is a hideous hack, but this env variable exists on streamlit in snowflake
+        local_development = False
+    else:
+        local_development = True
+
+    deploy_env = os.getenv("DEPLOY_ENV")
+    if deploy_env is None:
+        if local_development: # default is prod for local development and dev for remote
+            deploy_env = "prod"
+        else:
+            deploy_env = "dev"
+
+    print(f"Running in environment: {deploy_env}")
 
     # Find out which snowflake account we're on
     account_name = st.session_state.session.sql("SELECT CURRENT_ACCOUNT();").collect()[0]["CURRENT_ACCOUNT()"]
     if account_name in phenolab_config_mapping:
-        phenolab_config = phenolab_config_mapping[account_name]
+        phenolab_config = phenolab_config_mapping[account_name] + "_" + deploy_env
     else:
         raise EnvironmentError("No matching configuration found for the current Snowflake account.")
-    
+
     with open(f"configs/{phenolab_config}.yml", "r") as fid:
         config = yaml.safe_load(fid)
 
-    if "local_development" not in config: # allow manual setting of local_development for debugging purposes, but in
-        # production is should be set automatically by the below
-        if os.getenv("GSETTINGS_SCHEMA_DIR") is not None:  
-        # This is a hideous hack, but this env variable exists on streamlit in snowflake
-            config["local_development"] = False
-        else:
-            config["local_development"] = True
+    config["deploy_env"] = deploy_env
+    config["icb_name"] = phenolab_config_mapping[account_name]
+    config["local_development"] = local_development
 
     return config
 

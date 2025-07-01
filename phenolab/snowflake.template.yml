@@ -1,0 +1,17 @@
+definition_version: 2
+entities:
+  __APP_TITLE__:
+    type: streamlit
+    query_warehouse: __QUERY_WAREHOUSE__
+    main_file: PhenoLab.py
+    stage: phenolab
+    artifacts:
+      - PhenoLab.py
+      - .streamlit
+      - utils
+      - pages
+      - configs
+      - data
+      - definition_library
+      - environment.yml
+      - .env
