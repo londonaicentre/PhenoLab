@@ -99,8 +99,14 @@ def display_unit_mapping_panel(config):
 
     column_layout = [1, 2, 2, 1, 2]
     header_cols = st.columns(column_layout)
-    headers = ["**Count**", "**Source Unit**", "**LQ/MED/UQ**", "**%Numeric**", "**Target Unit**"]
-    for col, header in zip(header_cols, headers):
+    headers = [
+        "**Count**",
+        "**Source Unit**",
+        "**Median (IQR)**",
+        "**%Numeric**",
+        "**Target Unit**"
+        ]
+    for col, header in zip(header_cols, headers, strict=False):
         col.write(header)
 
     with container_object_with_height_if_possible(600):
@@ -118,12 +124,12 @@ def display_unit_mapping_panel(config):
                 lq = row['LOWER_QUARTILE'] if pd.notna(row['LOWER_QUARTILE']) else 0
                 median = row['MEDIAN'] if pd.notna(row['MEDIAN']) else 0
                 uq = row['UPPER_QUARTILE'] if pd.notna(row['UPPER_QUARTILE']) else 0
-                cols[2].write(f"{lq:.1f} / {median:.1f} / {uq:.1f}")
+                cols[2].write(f"{median:.1f} ({lq:.1f} - {uq:.1f})")
             else:
                 cols[2].write("No numeric data")
 
             # numeric %
-            num_percent = 0.0 if row['TOTAL_COUNT'] == 0 else 100.0
+            num_percent = row['NUMERIC_COUNT']/row['TOTAL_COUNT']
             cols[3].write(f"{num_percent:.1f}%")
 
             # target unit selection
