@@ -141,11 +141,12 @@ x try pre-generating BNF files for speed
 - get rid of feature store
 x move definition.py
 x remove snowutils
-- remove boto3 as requirement
+x remove boto3 as requirement
+x remove phmlondon
 
 (8) tidying
-- move main phenolab to stage in its own schema?
-- reorganise repo?
+x move main phenolab to stage in its own schema?
+x reorganise repo?
 - unit testing for external APIs?
 - make running tests part of bash script for dev?
 
@@ -156,4 +157,6 @@ x remove snowutils
 - fix in dev
 
 (11) tidying up
+- test both deployments
+- add git lfs to readme 
 - read me clean up (x2)
