@@ -1,11 +1,10 @@
 import json
 import os
-from typing import Dict, List
+from typing import List
 
 import streamlit as st
 
 from phmlondon.feature_store_manager import FeatureStoreManager
-from phmlondon.snow_utils import SnowflakeConnection
 
 
 def get_non_measurement_definitions():
@@ -26,31 +25,31 @@ def get_non_measurement_definitions():
     return definitions
 
 
-def get_latest_base_apc_concepts_table(snowsesh, config: Dict):
+def get_latest_base_apc_concepts_table():
     """
     Get the latest version of BASE_APC_CONCEPTS table
     """
     query = f"""
     SELECT TABLE_NAME
-    FROM {config["snowflake"]["database"]}.INFORMATION_SCHEMA.TABLES
-    WHERE TABLE_SCHEMA = '{config["feature_store"]["schema"]}'
+    FROM {st.session_state.config["feature_store"]["database"]}.INFORMATION_SCHEMA.TABLES
+    WHERE TABLE_SCHEMA = '{st.session_state.config["feature_store"]["schema"]}'
       AND TABLE_NAME LIKE 'BASE_APC_CONCEPTS%'
     ORDER BY TABLE_NAME DESC
     LIMIT 1
     """
-    result = snowsesh.execute_query_to_df(query)
+    result = st.session_state.session.sql(query).to_pandas()
     if result.empty:
         return None
     return result.iloc[0]['TABLE_NAME']
 
 
-def create_base_conditions_sql(selected_definitions: List[str], config: Dict, snowsesh):
+def create_base_conditions_sql(selected_definitions: List[str]):
     """
     Generate SQL query for Base Conditions feature table
     Handles both SNOMED codes (from OBSERVATION) and ICD10/OPCS4 codes (from BASE_APC_CONCEPTS)
     """
     # Get latest BASE_APC_CONCEPTS table
-    apc_table = get_latest_base_apc_concepts_table(snowsesh, config)
+    apc_table = get_latest_base_apc_concepts_table()
     if not apc_table:
         st.warning("BASE_APC_CONCEPTS table not found. ICD10/OPCS4 codes will not be included.")
 
@@ -65,8 +64,9 @@ def create_base_conditions_sql(selected_definitions: List[str], config: Dict, sn
             def.DEFINITION_ID,
             def.DEFINITION_NAME,
             'SNOMED' AS SOURCE_VOCABULARY
-        FROM {config["gp_observation_table"]} obs
-        LEFT JOIN {config["definition_library"]["database"]}.{config["definition_library"]["schema"]}.DEFINITIONSTORE def
+        FROM {st.session_state.config["gp_observation_table"]} obs
+        LEFT JOIN {st.session_state.config["definition_library"]["database"]}.
+            {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
             ON obs.CORE_CONCEPT_ID = def.DBID
         WHERE def.DEFINITION_NAME = '{definition_name}'
             AND def.VOCABULARY = 'SNOMED'
@@ -82,8 +82,10 @@ def create_base_conditions_sql(selected_definitions: List[str], config: Dict, sn
                 def.DEFINITION_ID,
                 def.DEFINITION_NAME,
                 apc.VOCABULARY AS SOURCE_VOCABULARY
-            FROM {config["feature_store"]["database"]}.{config["feature_store"]["schema"]}.{apc_table} apc
-            INNER JOIN {config["definition_library"]["database"]}.{config["definition_library"]["schema"]}.DEFINITIONSTORE def
+            FROM {st.session_state.config["feature_store"]["database"]}.
+                {st.session_state.config["feature_store"]["schema"]}.{apc_table} apc
+            INNER JOIN {st.session_state.config["definition_library"]["database"]}.
+                {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
                 ON apc.VOCABULARY = def.VOCABULARY
                 AND apc.CONCEPT_CODE_STD = def.CODE
             WHERE def.DEFINITION_NAME = '{definition_name}'
@@ -97,13 +99,13 @@ def create_base_conditions_sql(selected_definitions: List[str], config: Dict, sn
     return " UNION ALL ".join(union_queries)
 
 
-def create_base_conditions_feature(snowsesh, selected_definitions: List[str], config: Dict):   
+def create_base_conditions_feature(selected_definitions: List[str]):   
     """
     Create or update Base Conditions ('Has Condition') feature table using FeatureStoreManager
     """
     try:
         with st.spinner("Generating SQL query..."):
-            sql_query = create_base_conditions_sql(selected_definitions, config["gp_observation_table"], snowsesh)
+            sql_query = create_base_conditions_sql(selected_definitions)
 
         if not sql_query:
             st.error("Failed to generate SQL query. No definitions selected.")
@@ -111,10 +113,10 @@ def create_base_conditions_feature(snowsesh, selected_definitions: List[str], co
 
         with st.spinner("Initialising Feature Store Manager..."):
             feature_manager = FeatureStoreManager(
-                connection=snowsesh,
-                database=config["feature_store"]["database"],
-                schema=config["feature_store"]["schema"],
-                metadata_schema=config["feature_store"]["metadata_schema"],
+                connection=st.session_state.session,
+                database=st.session_state.config["feature_store"]["database"],
+                schema=st.session_state.config["feature_store"]["schema"],
+                metadata_schema=st.session_state.config["feature_store"]["metadata_schema"],
             )
 
         feature_name = "BASE_CONDITIONS"
@@ -122,12 +124,10 @@ def create_base_conditions_feature(snowsesh, selected_definitions: List[str], co
         feature_format = "tabular"
 
         with st.spinner("Creating or updating Base Conditions feature table..."):
-            session = snowsesh.session
-            with snowsesh.use_context(database=config["feature_store"]["database"], schema=config["feature_store"]["metadata_schema"]):
-                feature_id_result = session.sql(f"""
-                    SELECT feature_id FROM feature_registry
-                    WHERE feature_name = '{feature_name}'
-                """).collect()
+            feature_id_result = st.session_state.session.sql(f"""
+                SELECT feature_id FROM {st.session_state.config["feature_store"]["database"]}.
+                    {st.session_state.config["feature_store"]["metadata_schema"]}.feature_registry
+                WHERE feature_name = '{feature_name}'""").collect()
 
             if feature_id_result:
                 st.info("Feature already exists. Updating with new data...")
@@ -160,11 +160,11 @@ def create_base_conditions_feature(snowsesh, selected_definitions: List[str], co
                 st.write(f"**Table Name:** {table_name}")
 
             try:
-                with snowsesh.use_context(database=config["feature_store"]["database"], 
-                        schema=config["feature_store"]["schema"]):
-                    count_result = snowsesh.execute_query_to_df(f"SELECT COUNT(*) as row_count FROM {table_name}")
-                    row_count = count_result.iloc[0]['ROW_COUNT']
-                    st.write(f"**Rows Created:** {row_count:,}")
+                count_result = st.session_state.session.sql(
+                    f"""SELECT COUNT(*) as row_count FROM {st.session_state.config["feature_store"]["database"]}.
+                        {st.session_state.config["feature_store"]["schema"]}.{table_name}""").to_pandas()
+                row_count = count_result.iloc[0]['ROW_COUNT']
+                st.write(f"**Rows Created:** {row_count:,}")
             except Exception as e:
                 st.warning(f"Could not get row count: {e}")
 

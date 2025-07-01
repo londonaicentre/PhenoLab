@@ -4,10 +4,7 @@ from typing import List, Optional, Tuple
 
 import pandas as pd
 import streamlit as st
-from snowflake.snowpark import Session
 from utils.database_utils import (
-    # connect_to_snowflake,
-    get_snowflake_session,
     get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list,
     return_codes_for_given_definition_id_as_df,
 )
@@ -25,32 +22,69 @@ Provides functions to:
 - manage code selection when creating definitions
 """
 
-@st.cache_data(ttl=300)
+# @st.cache_data(ttl=300)
 def load_definitions_list() -> List[str]:
     """
     Get list of definition files from /data/definitions
     """
-    definitions_list = []
-    try:
-        if os.path.exists("data/definitions"):
-            definitions_list = [f for f in os.listdir("data/definitions") if f.endswith(".json")]
-    except Exception as e:
-        st.error(f"Unable to list definition files: {e}")
+    if st.session_state.config["local_development"]:
+        return load_definitions_list_from_local_files()
+    else:
+        return load_definitions_list_from_icb_table()
 
-    return definitions_list
+def load_definitions_list_from_local_files() -> List[str]:
+    """
+    Get list of definition files from /data/definitions.
+    """
+    if os.path.exists("data/definitions"):
+        return sorted([f for f in os.listdir("data/definitions") if f.endswith(".json")])
 
 
-def load_definition(file_path: str) -> Optional[Definition]:
+def load_definitions_list_from_icb_table() -> List[str]:
+    """
+    Get list of definition versions from the ICB_DEFINITIONS table in Snowflake.
+    """
+    query = f"""
+        SELECT DEFINITION_VERSION
+        FROM {st.session_state.config["definition_library"]["database"]}.
+        {st.session_state.config["definition_library"]["schema"]}.ICB_DEFINITIONS
+        GROUP BY DEFINITION_ID, DEFINITION_NAME, DEFINITION_VERSION, VERSION_DATETIME, UPLOADED_DATETIME, DEFINITION_SOURCE
+        ORDER BY DEFINITION_NAME;
+        """
+    df = st.session_state.session.sql(query).to_pandas()
+    return df["DEFINITION_VERSION"].tolist()
+
+def load_definition(file_path_or_definition_name: str) -> Optional[Definition]:
+    """
+    Switches between loading a definition form a local JSON or from the snowflake table according to the config
+    Args:
+        file_path_or_definition_name(str):
+            If local development, this is the path to the JSON file.
+            If remote, this is the definition version name to load from Snowflake.
+    Returns:
+        Definition object or None if not found
+    """
+    if st.session_state.config["local_development"]:
+        return load_local_definition(file_path_or_definition_name)
+    else:
+        return load_remote_definition(file_path_or_definition_name)
+
+def load_local_definition(file_path: str) -> Optional[Definition]:
     """
     Load definition from json
     """
-    try:
-        definition = Definition.from_json(file_path)
-        return definition
-    except Exception as e:
-        st.error(f"Unable to load definition: {e}")
-        return None
+    return Definition.from_json(file_path)
 
+def load_remote_definition(definition_version_name: str) -> Optional[Definition]:
+    """
+    Load definition from Snowflake
+    """
+    query = f"""SELECT * FROM {st.session_state.config["definition_library"]["database"]}.
+    {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
+    WHERE DEFINITION_VERSION = '{definition_version_name}';"""
+    df = st.session_state.session.sql(query).to_pandas()
+    df.columns = df.columns.str.lower()
+    return Definition.from_dataframe(df)
 
 def create_code_from_row(row: pd.Series) -> Code:
     """
@@ -69,7 +103,6 @@ def code_selected(row: pd.Series) -> bool:
 
     return any(c.code == row["CODE"] and c.code_vocabulary == VocabularyType(row["VOCABULARY"])
             for c in st.session_state.current_definition.codes)
-
 
 def display_code_and_checkbox(row: pd.Series, checkbox_key: str, key_suffix=""):
     """
@@ -270,8 +303,7 @@ def display_unified_code_browser(code_types, config, key_suffix=""):
                 return filtered_codes, search_term
         else:
             # conn = connect_to_snowflake()
-            session = get_snowflake_session()
-            id_list, definitions_list = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list(session)
+            id_list, definitions_list = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list()
             chosen_definition = st.selectbox(
                 label="Choose an existing definition (start typing to search)",
                 options=definitions_list,
@@ -280,7 +312,7 @@ def display_unified_code_browser(code_types, config, key_suffix=""):
 
             if chosen_definition:
                 chosen_definition_id = id_list[definitions_list.index(chosen_definition)]
-                definition_codes_df = return_codes_for_given_definition_id_as_df(session, chosen_definition_id, config)
+                definition_codes_df = return_codes_for_given_definition_id_as_df(chosen_definition_id)
 
                 if search_term:
                     parsed_query = parse_search_query(search_term)
@@ -355,12 +387,24 @@ def display_selected_codes(key_suffix=""):
 
             # component: save button
             if st.button("Save Definition", key=f"save_def_btn_{key_suffix}"):
-                try:
+                definition.update_version()
+                if st.session_state.config["local_development"]:
                     filepath = definition.save_to_json()
                     st.success(f"Definition saved to: {filepath}")
-                except Exception as e:
-                    st.error(f"Error saving definition: {e}")
-                    raise e
+                else: 
+                    definition.uploaded_datetime = datetime.now()
+                    df = definition.to_dataframe()
+                    df.columns = df.columns.str.upper()
+                    st.session_state.session.write_pandas(df, 
+                        database=st.session_state.config["definition_library"]["database"],
+                        schema=st.session_state.config["definition_library"]["schema"],
+                        table_name="ICB_DEFINITIONS", 
+                        overwrite=False,
+                        use_logical_type=True) #  use_logical_type=True is needed to handle datetime columns correctly
+                    # - this isn't properly documented anywhere in snowflake docs
+                    st.success(f"""Definition saved to Snowflake:
+                        {st.session_state.config['definition_library']['database']}.
+                        {st.session_state.config['definition_library']['schema']}.ICB_DEFINITIONS""")
         else:
             st.info("Create a definition first.")
 
@@ -432,7 +476,8 @@ def display_definition_metadata(codes_df):
     """
     if not codes_df.empty:
         st.write("Definition details:")
-        st.dataframe(codes_df.loc[:, ["DEFINITION_ID", "CODELIST_VERSION", "VOCABULARY"]].drop_duplicates())
+        st.dataframe(codes_df.loc[:, ["DEFINITION_ID", "CODELIST_VERSION", "VOCABULARY"]].drop_duplicates(),
+            hide_index=True,)
 
 
 def display_definition_codes_summary(codes_df):
@@ -441,7 +486,7 @@ def display_definition_codes_summary(codes_df):
     """
     if not codes_df.empty:
         st.write("Codes:")
-        st.dataframe(codes_df.loc[:, ["CODE", "CODE_DESCRIPTION", "VOCABULARY"]])
+        st.dataframe(codes_df.loc[:, ["CODE", "CODE_DESCRIPTION", "VOCABULARY"]], hide_index=True)
         st.write(f"Total codes: {len(codes_df)}")
     else:
         st.write("No codes found for the selected definition.")
@@ -474,12 +519,10 @@ def display_definition_from_file(definition_file):
         st.error(f"Error loading definition: {e}")
         return None
 
-
-def process_definitions_for_upload(session):
+def process_definitions_for_upload(definition_files: List[str]) -> Tuple[pd.DataFrame, List[str], dict]:
     """
     Process all definition files and prepare them for upload to Snowflake
     """
-    definition_files = load_definitions_list()
     if not definition_files:
         return None, [], {}
 
@@ -496,7 +539,7 @@ def process_definitions_for_upload(session):
         FROM INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.AIC_DEFINITIONS
         WHERE DEFINITION_ID = '{definition.definition_id}'
         """
-        existing_definition = session.sql(query).to_pandas()
+        existing_definition = st.session_state.session.sql(query).to_pandas()
 
         if not existing_definition.empty:
             max_version_in_db = existing_definition["VERSION_DATETIME"].max()
@@ -518,36 +561,36 @@ def process_definitions_for_upload(session):
 
     return all_rows, definitions_to_add, definitions_to_remove
 
-def update_aic_definitions_table(session: Session, 
-                                database: str = "INTELLIGENCE_DEV", 
+def update_aic_definitions_table(database: str = "INTELLIGENCE_DEV", 
                                 schema: str = "AI_CENTRE_DEFINITION_LIBRARY", 
                                 verbose: bool = True):
     """
     Update the AIC_DEFINITIONS table with new or updated definitions from local files.
     """
 
-    definition_files = load_definitions_list()
+    definition_files = load_definitions_list_from_local_files()
 
     with st.spinner(f"Processing {len(definition_files)} definition files..."):
-        all_rows, definitions_to_add, definitions_to_remove = process_definitions_for_upload(session)
+        all_rows, definitions_to_add, definitions_to_remove = process_definitions_for_upload(definition_files)
 
     # Upload if there's data
     if all_rows is not None and not all_rows.empty:
         with st.spinner(f"Uploading {len(all_rows)} rows to Snowflake..."):
             df = all_rows.copy()
             df.columns = df.columns.str.upper()
-            session.write_pandas(df, 
+            st.session_state.session.write_pandas(df, 
                                 database=database,
                                 schema=schema,
                                 table_name="AIC_DEFINITIONS", 
-                                overwrite=False)
+                                overwrite=False,
+                                use_logical_type=True) # use_logical_type=True is needed to handle datetime cols correctly
             # snowsesh.load_dataframe_to_table(df=df, table_name="AIC_DEFINITIONS", mode="append")
             if verbose:
                 st.success(f"Successfully uploaded new definitions {definitions_to_add} to the AIC definition library")
 
             # Delete old versions
             for id, [name, current_version] in definitions_to_remove.items():
-                session.sql(
+                st.session_state.session.sql(
                     f"""DELETE FROM AIC_DEFINITIONS WHERE DEFINITION_ID = '{id}' AND
                     VERSION_DATETIME != CAST('{current_version}' AS TIMESTAMP)"""
                 ).collect()
@@ -556,34 +599,3 @@ def update_aic_definitions_table(session: Session,
     else:
         if verbose:
             st.warning("No new definitions to upload")
-
-    # # Update DEFINITIONSTORE
-    # with st.spinner("Updating DEFINITIONSTORE..."):
-    #     try:
-    #         run_definition_update_script()
-    #         st.success("Definition store updated successfully")
-    #     except subprocess.CalledProcessError as e:
-    #         st.error(f"Error updating definition store: {e.stderr}")
-    #     except Exception as e:
-    #         st.error(f"Error executing update script: {str(e)}")
-
-def run_definition_update_script():
-    """
-    Run the update.py script to refresh DEFINITIONSTORE
-    """
-    import subprocess
-    import sys
-
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    update_script_path = os.path.normpath(
-        os.path.join(current_dir, "../../pidefinition_library/update.py")
-    )
-
-    if not os.path.exists(update_script_path):
-        raise FileNotFoundError(f"Update script not found at {update_script_path}")
-
-    result = subprocess.run(
-        [sys.executable, update_script_path], capture_output=True, text=True, check=True
-    )
-    return result
-

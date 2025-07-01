@@ -42,13 +42,12 @@ class DefinitionSource(Enum):
     AICENTRE = "AICENTRE"
 
 
-
 """
 This dictionary deals with the problem that different APIs return different strings for their
 vocabularies and we want to standardise things
 """
 vocab_mappings = {
-    "SNOMED  CT codes": VocabularyType.SNOMED,  # HDRUK
+    "SNOMED CT codes": VocabularyType.SNOMED,  # HDRUK
     "ICD10 codes": VocabularyType.ICD10,  # HDRUK
     "Read codes v2": VocabularyType.READV2,  # HDRUK
     "Med codes": VocabularyType.MEDCODE,  # HDRUK
@@ -59,6 +58,14 @@ vocab_mappings = {
     "CTV3 (Read V3)": VocabularyType.READV3,  # Open Codelists
     "ICD-10": VocabularyType.ICD10,  # Open Codelists
     "Dictionary of Medicines and Devices": VocabularyType.DMD,  # Open Codelists
+    "SNOMED": VocabularyType.SNOMED,  # Internal
+    "OPCS4": VocabularyType.OPCS4,  # Internal
+    "ICD10": VocabularyType.ICD10,  # Internal
+    "BNF": VocabularyType.BNF,  # Internal
+    "READ 2": VocabularyType.READV2,  # Internal
+    "READ 3": VocabularyType.READV3,  # Internal
+    "DM+D code scheme": VocabularyType.DMD,  # Internal
+    "MEDCODE": VocabularyType.MEDCODE,  # Internal
 }
 
 
@@ -276,7 +283,7 @@ class Definition:
         uploaded_datetime = datetime.min  # placeholder - datetime added in when uploaded to DB
         content = f"{definition_name}_{uploaded_datetime}"
         definition_id = hashlib.md5(content.encode()).hexdigest()[:8]
-        definition_version = f"{definition_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+        # definition_version = f"{definition_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
         definition_source = DefinitionSource.AICENTRE # this is hard coded currently but could be a passed in input if needed
 
         if codelists is None:
@@ -284,12 +291,14 @@ class Definition:
 
         # don't have an uploaded datetime
 
-        return cls(definition_name=definition_name,
+        instance = cls(definition_name=definition_name,
                 definition_id=definition_id,
-                definition_version=definition_version,
+                definition_version="",
                 definition_source=definition_source,
                 codelists = codelists,
                 uploaded_datetime=uploaded_datetime)
+        instance.update_version()
+        return instance
 
     def add_code(self, code: Code) -> bool:
         """
@@ -341,7 +350,11 @@ class Definition:
 
     def show(self):
         pprint(self.df)
-
+    
+    def update_version(self):
+        self.definition_version = f"{self.definition_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+        self.version_datetime = datetime.now()
+        
     @classmethod
     def from_dict(cls, data: dict) -> Self:
         """
@@ -439,7 +452,8 @@ class Definition:
         """
         os.makedirs(directory, exist_ok=True)
 
-        filename = f"{self.definition_name}_{self.definition_id}.json"
+        # filename = f"{self.definition_name}_{self.definition_id}.json"
+        filename = f"{self.definition_version}.json"
         filepath = os.path.join(directory, filename)
         print(f"Saving json to {filepath} unless files exists and matches current definition")
 

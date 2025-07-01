@@ -1,8 +1,8 @@
 """
 This script created the DEFINITIONSTORE view in Snowflake, which unifies various definition tables and includes 
 datbase ID (DBID) mappings. It only needs to be run once to set up the view, and then only needs to be updated if there
-is a change to the structure of the underlying tables or if new tables are added. As such, it is not called anywhere and 
-should be run manually once when setting up PhenoLab on a new Snowflake instance.
+is a change to the structure of the underlying tables or if new tables are added. As such, it is not called anywhere in
+the streamlit app and should be run manually once when setting up PhenoLab on a new Snowflake instance.
 """
 from snowflake.snowpark import Session
 
@@ -25,7 +25,8 @@ def create_definitionstore_view(session: Session, database: str = "INTELLIGENCE_
         "HDRUK_DEFINITIONS",
         "NEL_SEGMENT_DEFINITIONS",
         "NHS_GP_SNOMED_REFSETS",
-        "OPEN_CODELISTS",]
+        "OPEN_CODELISTS",
+        "ICB_DEFINITIONS",]
 
     view_sql = f"""
     CREATE OR REPLACE VIEW {database}.{schema}.DEFINITIONSTORE AS
@@ -61,7 +62,7 @@ def main():
     create_definitionstore_view(
         session=session,
         database="INTELLIGENCE_DEV",
-        schema="AI_CENTRE_DEFINITION_LIBRARY"
+        schema="PHENOLAB_DEV"
     )
 
 if __name__ == "__main__":
