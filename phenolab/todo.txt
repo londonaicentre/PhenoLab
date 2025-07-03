@@ -129,7 +129,7 @@ x update readme (including making deploy.sh executable)
 x try pre-generating BNF files for speed
 
 (2) ?Setup scripts
-- base features (pipeline/features base)
+x base features (pipeline/features base)
 
 (3) Measurements
 x configs -> to tables
