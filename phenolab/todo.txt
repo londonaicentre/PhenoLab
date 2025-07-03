@@ -146,7 +146,7 @@ x check our existing interface still makes sense
 x take out feature store manager
 
 (4) Definitions -> base features
-- use latest version
+x use latest version
 
 (5) Extra features
 - search definitions

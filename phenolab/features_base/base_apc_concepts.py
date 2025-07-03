@@ -1,10 +1,3 @@
-import os
-from dotenv import load_dotenv
-
-from phmlondon.snow_utils import SnowflakeConnection
-from phmlondon.feature_store_manager import FeatureStoreManager
-
-from phmlondon.config import SNOWFLAKE_DATABASE, FEATURE_STORE, FEATURE_METADATA
 
 # Generates BASE_SUS_APC_CONCEPTS
 # Contains all primary and secondary diagnoses, procedures and investigations
@@ -230,50 +223,3 @@ SELECT
     SOURCE
 FROM cleaned_concepts
 """
-
-def create_base_sus_apc_concepts_feature(snowsesh, fsm):
-    fsm.add_new_feature(
-        feature_name="Base APC Concepts",
-        feature_desc="""
-            Key base feature table for downstream feature generation.
-            Contains all primary and secondary diagnoses (ICD10), procedures and investigations (OPCS4)
-            recorded during inpatient hospital stays (Admitted Patient Care) from 2015 onwards.
-            Includes visit-level details such as provider, admission method, HRG code and cost.
-        """,
-        feature_format="Wide, Mixed",
-        sql_select_query_to_generate_feature=BASE_SUS_APC_CONCEPTS_SQL,
-        existence_ok=True,
-    )
-
-def main():
-    """
-    Main function to create the BASE_SUS_APC_CONCEPTS feature.
-    """
-    load_dotenv()
-
-    try:
-        snowsesh = SnowflakeConnection()
-
-        snowsesh.use_database(SNOWFLAKE_DATABASE)
-        snowsesh.use_schema(FEATURE_STORE)
-
-        fsm = FeatureStoreManager(
-            connection=snowsesh,
-            database=SNOWFLAKE_DATABASE,
-            schema=FEATURE_STORE,
-            metadata_schema=FEATURE_METADATA
-        )
-        print("Feature store manager created")
-
-        create_base_sus_apc_concepts_feature(snowsesh, fsm)
-        print("base SUS APC concept table created")
-
-    except Exception as e:
-        print(f"Error creating feature store: {e}")
-        raise e
-    finally:
-        snowsesh.session.close()
-
-
-if __name__ == "__main__":
-    main()
