@@ -8,7 +8,7 @@ from utils.definition_interaction_utils import load_definition
 from utils.measurement import MeasurementConfig, UnitMapping, load_measurement_config_from_json
 from phmlondon.feature_store_manager import FeatureStoreManager
 
-def load_measurement_definitions_list():
+def load_measurement_definitions_list() -> list[str]:
     """
     Get list of measurement definition files from /data/definitions
     """
@@ -22,7 +22,7 @@ def load_measurement_definitions_list():
     return definitions_list
 
 
-def load_measurement_configs_list():
+def load_measurement_configs_list() -> list[str]:
     """
     Get list of measurement config files from /data/measurements/{st.session_state.config['icb_name']}
     """
@@ -405,6 +405,14 @@ def create_measurement_configs_tables():
     queries = [
     f"""
     CREATE TABLE IF NOT EXISTS {st.session_state.config["measurement_configs"]["database"]}.
+        {st.session_state.config["measurement_configs"]["schema"]}.MEASUREMENT_CONFIGS (
+            DEFINITION_ID VARCHAR,
+            DEFINITION_NAME VARCHAR,
+            CONFIG_ID VARCHAR,
+            CONFIG_VERSION VARCHAR
+        )""",
+    f"""
+    CREATE TABLE IF NOT EXISTS {st.session_state.config["measurement_configs"]["database"]}.
         {st.session_state.config["measurement_configs"]["schema"]}.STANDARD_UNITS (
             DEFINITION_ID VARCHAR,
             DEFINITION_NAME VARCHAR,
@@ -462,6 +470,9 @@ def load_measurement_configs_into_tables():
 
         # Delete all existing entries for this definition
         queries = [f"""DELETE FROM {st.session_state.config["measurement_configs"]["database"]}.
+            {st.session_state.config["measurement_configs"]["schema"]}.MEASUREMENT_CONFIGS
+            WHERE DEFINITION_NAME = '{config.definition_name}'""",
+                f"""DELETE FROM {st.session_state.config["measurement_configs"]["database"]}.
             {st.session_state.config["measurement_configs"]["schema"]}.STANDARD_UNITS
             WHERE DEFINITION_NAME = '{config.definition_name}'""",
                    f"""DELETE FROM {st.session_state.config["measurement_configs"]["database"]}.
@@ -478,6 +489,19 @@ def load_measurement_configs_into_tables():
         # print(config_file)
         # print(standard_units)
         # print(standard_units.dtypes)
+        # 
+        # 
+
+        session.sql(f"""INSERT INTO {st.session_state.config["measurement_configs"]["database"]}.
+            {st.session_state.config["measurement_configs"]["schema"]}.MEASUREMENT_CONFIGS
+            (DEFINITION_ID, DEFINITION_NAME, CONFIG_ID, CONFIG_VERSION)
+            VALUES (
+                '{config.definition_id}',
+                '{config.definition_name}',
+                '{config.standard_measurement_config_id}',
+                '{config.standard_measurement_config_version}'
+            )""").collect()
+        
         if not standard_units.empty:
             session.write_pandas(standard_units,
                 database=st.session_state.config["measurement_configs"]["database"],

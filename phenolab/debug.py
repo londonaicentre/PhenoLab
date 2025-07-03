@@ -1,3 +1,0 @@
-from utils.measurement_interaction_utils import load_measurement_configs_into_tables
-
-load_measurement_configs_into_tables()

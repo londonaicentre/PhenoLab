@@ -3,6 +3,7 @@ import streamlit as st
 
 from utils.database_utils import get_snowflake_session
 from utils.measurement_interaction_utils import (
+    load_measurement_configs_into_tables,
     load_measurement_config,
     load_measurement_configs_list,
     update_all_measurement_configs,
@@ -266,6 +267,40 @@ def display_conversion_group(config, units, existing_conversions, group_type):
             config.save_to_json(directory=f"data/measurements/{st.session_state.config['icb_name']}")
             st.rerun()
 
+def display_configs_in_tables():
+    st.write("The following measurement definitions have associated configurations to standardise their units:")
+    st.divider()
+
+    measurement_configs = st.session_state.session.sql(f"""
+        SELECT DISTINCT DEFINITION_NAME, CONFIG_ID FROM {st.session_state.config["measurement_configs"]["database"]}.
+        {st.session_state.config["measurement_configs"]["schema"]}.MEASUREMENT_CONFIGS
+        ORDER BY DEFINITION_NAME
+        """).to_pandas()
+    for config in measurement_configs['CONFIG_ID']:
+        definition_name = measurement_configs.loc[measurement_configs['CONFIG_ID'] == config, 'DEFINITION_NAME'].values[0]
+        existing_units = st.session_state.session.sql(f"""
+            SELECT DISTINCT CONVERT_FROM_UNIT FROM {st.session_state.config["measurement_configs"]["database"]}.
+            {st.session_state.config["measurement_configs"]["schema"]}.UNIT_CONVERSIONS
+            WHERE CONFIG_ID = '{config}'
+            """).to_pandas()['CONVERT_FROM_UNIT'].tolist()
+        standard_units = st.session_state.session.sql(f"""
+            SELECT DISTINCT UNIT FROM {st.session_state.config["measurement_configs"]["database"]}.
+            {st.session_state.config["measurement_configs"]["schema"]}.STANDARD_UNITS
+            WHERE CONFIG_ID = '{config}'
+            """).to_pandas()['UNIT'].tolist()
+        primary_unit = [r['UNIT'] for r in st.session_state.session.sql(f"""
+            SELECT DISTINCT UNIT FROM {st.session_state.config["measurement_configs"]["database"]}.
+            {st.session_state.config["measurement_configs"]["schema"]}.STANDARD_UNITS
+            WHERE CONFIG_ID = '{config}'
+            AND PRIMARY_UNIT = TRUE
+            """).collect()]
+        
+        st.subheader(f"{definition_name}")
+        st.write(f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; All existing units for this measurement: {existing_units}")
+        st.write(f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Standard units to map to: {standard_units}")
+        st.write(f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Primary unit to convert to: {primary_unit}")
+        st.divider()
+
 def main():
     st.set_page_config(page_title="Standardise Measurements", layout="wide")
     set_font_lato()
@@ -278,92 +313,108 @@ def main():
     if "selected_definition" not in st.session_state:
         st.session_state.selected_definition = None
         st.session_state.selected_config = None
+    
+    # st.session_state.config["local_development"] = False
+    if st.session_state.config["local_development"]:
+        tab1, tab2 = st.tabs(["Create/Update Configs", "View Existing Configs on Snowflake"])
+        with tab1:
+            col1, col2 = st.columns([3, 1])
+            with col1:
+                st.write("""
+                Update Measurement Configs from new definitions and usage statistics:
+                - Creates new configs for any measurement definitions that don't have one
+                - For each measurement config, will load in all source units and statistics
+                - If units already exist in the config, it will load in newly discovered units only
+                """)
+            with col2:
+                if st.button("Update Config Stats", use_container_width=True):
+                    with st.spinner("Updating measurement configurations..."):
+                        created, updated, new_units = update_all_measurement_configs()
 
-    col1, col2 = st.columns([3, 1])
-    with col1:
-        st.write("""
-        Update Measurement Configs from new definitions and usage statistics:
-        - Creates new configs for any measurement definitions that don't have one
-        - For each measurement config, will load in all source units and statistics
-        - If units already exist in the config, it will load in newly discovered units only
-        """)
-    with col2:
-        if st.button("Update All Configs", use_container_width=True):
-            with st.spinner("Updating measurement configurations..."):
-                created, updated, new_units = update_all_measurement_configs()
+                        message_parts = []
+                        if created > 0:
+                            message_parts.append(f"Created {created} new configuration{'s' if created > 1 else ''}")
+                        if updated > 0:
+                            message_parts.append(f"Updated {updated} existing configuration{'s' if updated > 1 else ''}")
+                        if new_units > 0:
+                            message_parts.append(f"Added {new_units} new source unit{'s' if new_units > 1 else ''}")
 
-                message_parts = []
-                if created > 0:
-                    message_parts.append(f"Created {created} new configuration{'s' if created > 1 else ''}")
-                if updated > 0:
-                    message_parts.append(f"Updated {updated} existing configuration{'s' if updated > 1 else ''}")
-                if new_units > 0:
-                    message_parts.append(f"Added {new_units} new source unit{'s' if new_units > 1 else ''}")
+                        if message_parts:
+                            st.success(". ".join(message_parts))
+                        else:
+                            st.info("No changes were necessary")
 
-                if message_parts:
-                    st.success(". ".join(message_parts))
-                else:
-                    st.info("No changes were necessary")
-
-    st.markdown("---")
-
-    st.subheader("Select Measurement Config File")
-
-    # 1. refresh configs
-    measurement_configs = load_measurement_configs_list()
-    if not measurement_configs:
-        st.write(st.session_state.config['icb_name'])
-        st.warning("No measurement configurations found. Please check data/measurements/<icb_name>.")
-        return
-
-    # 2. map definition name to filename
-    config_by_name = {}
-
-    for config_file in measurement_configs:
-        try:
-            config = load_measurement_config(config_file)
-            if config:
-                config_by_name[config.definition_name] = config_file
-        except Exception as e:
-            st.error(f"Error loading {config_file}: {e}")
-            pass
-
-    if not config_by_name:
-        st.warning("Could not load any valid measurement configurations.")
-        return
-
-    # 4. selection + load
-    selected_def_name = st.selectbox(
-        "Select a measurement configuration",
-        options=sorted(config_by_name.keys()),
-        key="measurement_config_select"
-    )
-
-    if selected_def_name:
-        config_filename = config_by_name[selected_def_name]
-        config = load_measurement_config(config_filename)
-
-        if config:
-            st.session_state.selected_definition = selected_def_name
-            st.session_state.selected_config = config
-
-            st.info(f"**Selected Configuration**: {config.definition_name}")
             st.markdown("---")
 
-            # UI: standard units selection panel
-            display_standard_units_panel(config)
-            st.markdown("---")
+            st.subheader("Select Measurement Config File")
 
-            # UI: unit mapping panel
-            if config.standard_units:
-                display_unit_mapping_panel(config)
+            # 1. refresh configs
+            measurement_configs = load_measurement_configs_list()
+            if not measurement_configs:
+                st.write(st.session_state.config['icb_name'])
+                st.warning("No measurement configurations found. Please check data/measurements/<icb_name>.")
+                return
 
-                # UI: unit conversion panel
-                if config.primary_standard_unit:
+            # 2. map definition name to filename
+            config_by_name = {}
+
+            for config_file in measurement_configs:
+                try:
+                    config = load_measurement_config(config_file)
+                    if config:
+                        config_by_name[config.definition_name] = config_file
+                except Exception as e:
+                    st.error(f"Error loading {config_file}: {e}")
+                    pass
+
+            if not config_by_name:
+                st.warning("Could not load any valid measurement configurations.")
+                return
+
+            # 4. selection + load
+            selected_def_name = st.selectbox(
+                "Select a measurement configuration",
+                options=sorted(config_by_name.keys()),
+                key="measurement_config_select"
+            )
+
+            if selected_def_name:
+                config_filename = config_by_name[selected_def_name]
+                config = load_measurement_config(config_filename)
+
+                if config:
+                    st.session_state.selected_definition = selected_def_name
+                    st.session_state.selected_config = config
+
+                    st.info(f"**Selected Configuration**: {config.definition_name}")
                     st.markdown("---")
-                    display_unit_conversion_panel(config)
-            else:
-                st.info("Please add standard units first to enable unit mapping.")
+
+                    # UI: standard units selection panel
+                    display_standard_units_panel(config)
+                    st.markdown("---")
+
+                    # UI: unit mapping panel
+                    if config.standard_units:
+                        display_unit_mapping_panel(config)
+
+                        # UI: unit conversion panel
+                        if config.primary_standard_unit:
+                            st.markdown("---")
+                            display_unit_conversion_panel(config)
+                    else:
+                        st.info("Please add standard units first to enable unit mapping.")
+            st.divider()
+            st.subheader("Update Measurement Configs on Snowflake")
+            if st.button("Send configs to Snowflake"):
+                with st.spinner("Sending configs to Snowflake..."):
+                    load_measurement_configs_into_tables()
+                    st.success("Sent!")
+        with tab2:
+            display_configs_in_tables()
+    else:
+        display_configs_in_tables()
+        
+
 
 if __name__ == "__main__":
     main()

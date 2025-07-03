@@ -136,9 +136,12 @@ x try pre-generating BNF files for speed
 x configs -> to tables
 x test in dev
 x make ICB specific
-- interface for ICBs to view configs in table
-- check our existing interface still makes sense
+x interface for ICBs to view configs in table
+x check our existing interface still makes sense
 - look at Dan's code
+- check have Dan's quartile changes
+- where is the bit re cleaning too high and low values?! (?Dan could implement)
+- graph?
 
 (3b) Base Features
 
@@ -177,3 +180,6 @@ x reorganise repo?
 - read me clean up (x2)
 - mega CSV to parquet
 - consider: https://medium.com/@emily-nguyen/streamlit-in-snowflake-sis-managing-session-context-for-simplified-development-e5f9fa7e3008
+
+
+- need to do the actual measurment mappings
