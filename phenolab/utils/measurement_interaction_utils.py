@@ -328,67 +328,92 @@ def create_base_measurements_feature(eligible_configs):
         if not sql_query:
             st.error("Failed to generate SQL query. No eligible measurements found.")
             return
-
-        with st.spinner("Initialising Feature Store Manager..."):
-            feature_manager = FeatureStoreManager(
-                connection=st.session_state.session,
-                database=st.session_state.config["feature_store"]["database"],
-                schema=st.session_state.config["feature_store"]["schema"],
-                metadata_schema=st.session_state.config["feature_store"]["metadata_schema"]
-            )
-
-        feature_name = "BASE_MEASUREMENTS"
-        feature_desc = f"Standardised measurement data from {len(eligible_configs)} measurement definitions with unit conversions applied"
-        feature_format = "tabular"
-
+        
         with st.spinner("Creating or updating Base Measurements feature table..."):
-            st.session_state.session.use_database(st.session_state.config["feature_store"]["database"])
-            st.session_state.session.use_schema(st.session_state.config["feature_store"]["metadata_schema"])
-            feature_id_result = st.session_state.session.sql(f"""
-                    SELECT feature_id FROM feature_registry
-                    WHERE feature_name = '{feature_name}'
-                """).collect()
-            # session = snowsesh.session
-            # with snowsesh.use_context(database=SNOWFLAKE_DATABASE, schema=FEATURE_METADATA):
-                # feature_id_result = session.sql(f"""
-                #     SELECT feature_id FROM feature_registry
-                #     WHERE feature_name = '{feature_name}'
-                # """).collect()
+            st.session_state.session.sql(
+            f"""CREATE TABLE IF NOT EXISTS {st.session_state.config["feature_store"]["database"]}.
+            {st.session_state.config["feature_store"]["schema"]}.BASE_MEASUREMENTS(
+            CLINICAL_EFFECTIVE_DATE TIMESTAMP_NTZ,
+            DEFINITION_ID VARCHAR,
+            DEFINITION_NAME VARCHAR,
+            PERSON_ID VARCHAR,
+            SOURCE_RESULT_VALUE FLOAT,
+            SOURCE_RESULT_VALUE_UNITS VARCHAR,
+            VALUE_AS_NUMBER FLOAT,
+            VALUE_UNITS VARCHAR
+            )""").collect()
 
-            if feature_id_result:
-                st.info("Feature already exists. Updating with new data...")
-                existing_feature_id = feature_id_result[0]["FEATURE_ID"]
+            st.session_state.session.sql(
+            f"""MERGE INTO {st.session_state.config["feature_store"]["database"]}.
+            {st.session_state.config["feature_store"]["schema"]}.BASE_MEASUREMENTS AS target
+            USING ({sql_query}) AS source
+            ON target.PERSON_ID = source.PERSON_ID
+            AND target.CLINICAL_EFFECTIVE_DATE = source.CLINICAL_EFFECTIVE_DATE
+            AND target.DEFINITION_ID = source.DEFINITION_ID
+            AND target.SOURCE_RESULT_VALUE = source.SOURCE_RESULT_VALUE
+            AND target.SOURCE_RESULT_VALUE_UNITS = source.SOURCE_RESULT_VALUE_UNITS
+            WHEN NOT MATCHED THEN
+                INSERT (CLINICAL_EFFECTIVE_DATE, DEFINITION_ID, DEFINITION_NAME, PERSON_ID, 
+                        SOURCE_RESULT_VALUE, SOURCE_RESULT_VALUE_UNITS, VALUE_AS_NUMBER, VALUE_UNITS)
+                VALUES (source.CLINICAL_EFFECTIVE_DATE, source.DEFINITION_ID, source.DEFINITION_NAME, source.PERSON_ID, 
+                        source.SOURCE_RESULT_VALUE, source.SOURCE_RESULT_VALUE_UNITS, source.VALUE_AS_NUMBER, 
+                        source.VALUE_UNITS)""").collect()
+            st.success("Base Measurements feature table created or updated successfully!")
+      
+        # with st.spinner("Initialising Feature Store Manager..."):
+        #     feature_manager = FeatureStoreManager(
+        #         connection=st.session_state.session,
+        #         database=st.session_state.config["feature_store"]["database"],
+        #         schema=st.session_state.config["feature_store"]["schema"],
+        #         metadata_schema=st.session_state.config["feature_store"]["metadata_schema"]
+        #     )
 
-                feature_version, table_name = feature_manager.update_feature(
-                    feature_id=existing_feature_id,
-                    new_sql_select_query=sql_query,
-                    change_description=f"Updated with {len(eligible_configs)} measurement definitions",
-                    force_new_version=True
-                )
+        # feature_name = "BASE_MEASUREMENTS"
+        # feature_desc = f"Standardised measurement data from {len(eligible_configs)} measurement definitions with unit conversions applied"
+        # feature_format = "tabular"
 
-                st.success(f"Base Measurements feature updated successfully!")
-                st.write(f"**Feature ID:** {existing_feature_id}")
-                st.write(f"**New Version:** {feature_version}")
-                st.write(f"**Table Name:** {table_name}")
-            else:
-                feature_id, feature_version = feature_manager.add_new_feature(
-                    feature_name=feature_name,
-                    feature_desc=feature_desc,
-                    feature_format=feature_format,
-                    sql_select_query_to_generate_feature=sql_query
-                )
+        # with st.spinner("Creating or updating Base Measurements feature table..."):
+        #     st.session_state.session.use_database(st.session_state.config["feature_store"]["database"])
+        #     st.session_state.session.use_schema(st.session_state.config["feature_store"]["metadata_schema"])
+        #     feature_id_result = st.session_state.session.sql(f"""
+        #             SELECT feature_id FROM feature_registry
+        #             WHERE feature_name = '{feature_name}'
+        #         """).collect()
 
-                st.success(f"Base Measurements feature created successfully!")
-                st.write(f"**Feature ID:** {feature_id}")
-                st.write(f"**Feature Version:** {feature_version}")
+        #     if feature_id_result:
+        #         st.info("Feature already exists. Updating with new data...")
+        #         existing_feature_id = feature_id_result[0]["FEATURE_ID"]
 
-                table_name = f"{feature_name}_V{feature_version}"
-                st.write(f"**Table Name:** {table_name}")
+        #         feature_version, table_name = feature_manager.update_feature(
+        #             feature_id=existing_feature_id,
+        #             new_sql_select_query=sql_query,
+        #             change_description=f"Updated with {len(eligible_configs)} measurement definitions",
+        #             force_new_version=True
+        #         )
+
+        #         st.success(f"Base Measurements feature updated successfully!")
+        #         st.write(f"**Feature ID:** {existing_feature_id}")
+        #         st.write(f"**New Version:** {feature_version}")
+        #         st.write(f"**Table Name:** {table_name}")
+        #     else:
+        #         feature_id, feature_version = feature_manager.add_new_feature(
+        #             feature_name=feature_name,
+        #             feature_desc=feature_desc,
+        #             feature_format=feature_format,
+        #             sql_select_query_to_generate_feature=sql_query
+        #         )
+
+        #         st.success(f"Base Measurements feature created successfully!")
+        #         st.write(f"**Feature ID:** {feature_id}")
+        #         st.write(f"**Feature Version:** {feature_version}")
+
+        #         table_name = f"{feature_name}_V{feature_version}"
+        #         st.write(f"**Table Name:** {table_name}")
 
             try:
                 count_result = st.session_state.session.sql(
                     f"""SELECT COUNT(*) as row_count FROM {st.session_state.config["feature_store"]["database"]}.
-                        {st.session_state.config["feature_store"]["metadata_schema"]}.{table_name}""").to_pandas()
+                        {st.session_state.config["feature_store"]["schema"]}.BASE_MEASUREMENTS""").to_pandas()
                 row_count = count_result.iloc[0]['ROW_COUNT']
                 st.write(f"**Rows Created:** {row_count:,}")
             except Exception as e:

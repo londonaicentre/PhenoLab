@@ -56,7 +56,7 @@ x get rid of load_dotenv?
 x see if can use get_account() to select config file
 x config for environmental variables
 x local config
-- environment.yml fix (could it be packaging as snowflake native app?)
+x environment.yml fix (could it be packaging as snowflake native app?)
 x people should be using snowflake config rather than .env - replace examples
 x explain all in readme
 
@@ -78,15 +78,14 @@ x could make one function that did all the page setting up/checking the session_
 (8) measurements
 x fix load definition
 x fix load definition in page 2
-- *measurement config files -> remote version - how to?
-
-- measurement config tables
-- fill on load
-- per ICB
-- deployment versions -> viewer for ICBs
-- version for us -> disentangle counts??
+x *measurement config files -> remote version - how to?
+x measurement config tables
+x fill on load
+x per ICB
+x deployment versions -> viewer for ICBs
+x version for us -> disentangle counts??
 - base feature tables then needs to create from tables not configs
-- need button for us to update configs?
+x need button for us to update configs?
 - why is ai_centre-definitions in dev version empty?
 
 (9) vocab loading
@@ -141,9 +140,10 @@ x check our existing interface still makes sense
 - look at Dan's code
 - check have Dan's quartile changes
 - where is the bit re cleaning too high and low values?! (?Dan could implement)
-- graph?
+- graph? overall distribution with high and low vals in red
 
 (3b) Base Features
+- take out feature store manager
 
 (4) Definitions -> base features
 - use latest version
@@ -165,21 +165,18 @@ x remove phmlondon
 (8) tidying
 x move main phenolab to stage in its own schema?
 x reorganise repo?
-- unit testing for external APIs?
-- make running tests part of bash script for dev?
 
 (9) readme updates
-- internal inc for phenolab deployment and development/external \
+x internal inc for phenolab deployment and development/external
 
 (10) feature store
 - fix in dev
 
 (11) tidying up
 - test both deployments
-- add git lfs to readme 
+- add git lfs to readme/ mega CSV to parquet
 - read me clean up (x2)
-- mega CSV to parquet
 - consider: https://medium.com/@emily-nguyen/streamlit-in-snowflake-sis-managing-session-context-for-simplified-development-e5f9fa7e3008
 
-
+(12) finishing
 - need to do the actual measurment mappings

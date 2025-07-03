@@ -4,8 +4,6 @@ from typing import List
 
 import streamlit as st
 
-from phmlondon.feature_store_manager import FeatureStoreManager
-
 
 def get_non_measurement_definitions():
     """
@@ -101,7 +99,7 @@ def create_base_conditions_sql(selected_definitions: List[str]):
 
 def create_base_conditions_feature(selected_definitions: List[str]):   
     """
-    Create or update Base Conditions ('Has Condition') feature table using FeatureStoreManager
+    Create or update Base Conditions ('Has Condition') feature table
     """
     try:
         with st.spinner("Generating SQL query..."):
@@ -111,58 +109,83 @@ def create_base_conditions_feature(selected_definitions: List[str]):
             st.error("Failed to generate SQL query. No definitions selected.")
             return
 
-        with st.spinner("Initialising Feature Store Manager..."):
-            feature_manager = FeatureStoreManager(
-                connection=st.session_state.session,
-                database=st.session_state.config["feature_store"]["database"],
-                schema=st.session_state.config["feature_store"]["schema"],
-                metadata_schema=st.session_state.config["feature_store"]["metadata_schema"],
-            )
-
-        feature_name = "BASE_CONDITIONS"
-        feature_desc = f"Condition flags from {len(selected_definitions)} non-measurement definitions"
-        feature_format = "tabular"
-
         with st.spinner("Creating or updating Base Conditions feature table..."):
-            feature_id_result = st.session_state.session.sql(f"""
-                SELECT feature_id FROM {st.session_state.config["feature_store"]["database"]}.
-                    {st.session_state.config["feature_store"]["metadata_schema"]}.feature_registry
-                WHERE feature_name = '{feature_name}'""").collect()
+            st.session_state.session.sql(
+                f"""CREATE TABLE IF NOT EXISTS {st.session_state.config["feature_store"]["database"]}.
+                {st.session_state.config["feature_store"]["schema"]}.BASE_CONDITIONS(
+                PERSON_ID VARCHAR,
+                CLINICAL_EFFECTIVE_DATE TIMESTAMP_NTZ,
+                DEFINITION_ID VARCHAR,
+                DEFINITION_NAME VARCHAR,
+                SOURCE_VOCABULARY VARCHAR
+                )""").collect()
+            
+            st.session_state.session.sql(
+                f"""MERGE INTO {st.session_state.config["feature_store"]["database"]}.
+                {st.session_state.config["feature_store"]["schema"]}.BASE_CONDITIONS AS target
+                USING ({sql_query}) AS source
+                ON target.PERSON_ID = source.PERSON_ID
+                AND target.CLINICAL_EFFECTIVE_DATE = source.CLINICAL_EFFECTIVE_DATE
+                AND target.DEFINITION_ID = source.DEFINITION_ID
+                AND source.SOURCE_VOCABULARY = target.SOURCE_VOCABULARY
+                WHEN NOT MATCHED THEN
+                    INSERT (PERSON_ID, CLINICAL_EFFECTIVE_DATE, DEFINITION_ID, DEFINITION_NAME, SOURCE_VOCABULARY)
+                    VALUES (source.PERSON_ID, source.CLINICAL_EFFECTIVE_DATE, source.DEFINITION_ID, source.DEFINITION_NAME, source.SOURCE_VOCABULARY)""").collect()
+            st.success(f"Base Conditions feature created or updated successfully!")
 
-            if feature_id_result:
-                st.info("Feature already exists. Updating with new data...")
-                existing_feature_id = feature_id_result[0]["FEATURE_ID"]
 
-                feature_version, table_name = feature_manager.update_feature(
-                    feature_id=existing_feature_id,
-                    new_sql_select_query=sql_query,
-                    change_description=f"Updated with {len(selected_definitions)} condition definitions",
-                    force_new_version=True
-                )
+        # with st.spinner("Initialising Feature Store Manager..."):
+        #     feature_manager = FeatureStoreManager(
+        #         connection=st.session_state.session,
+        #         database=st.session_state.config["feature_store"]["database"],
+        #         schema=st.session_state.config["feature_store"]["schema"],
+        #         metadata_schema=st.session_state.config["feature_store"]["metadata_schema"],
+        #     )
 
-                st.success(f"Base Conditions feature updated successfully!")
-                st.write(f"**Feature ID:** {existing_feature_id}")
-                st.write(f"**New Version:** {feature_version}")
-                st.write(f"**Table Name:** {table_name}")
-            else:
-                feature_id, feature_version = feature_manager.add_new_feature(
-                    feature_name=feature_name,
-                    feature_desc=feature_desc,
-                    feature_format=feature_format,
-                    sql_select_query_to_generate_feature=sql_query
-                )
+        # feature_name = "BASE_CONDITIONS"
+        # feature_desc = f"Condition flags from {len(selected_definitions)} non-measurement definitions"
+        # feature_format = "tabular"
 
-                st.success(f"Base Conditions feature created successfully!")
-                st.write(f"**Feature ID:** {feature_id}")
-                st.write(f"**Feature Version:** {feature_version}")
+        # with st.spinner("Creating or updating Base Conditions feature table..."):
+        #     feature_id_result = st.session_state.session.sql(f"""
+        #         SELECT feature_id FROM {st.session_state.config["feature_store"]["database"]}.
+        #             {st.session_state.config["feature_store"]["metadata_schema"]}.feature_registry
+        #         WHERE feature_name = '{feature_name}'""").collect()
 
-                table_name = f"{feature_name}_V{feature_version}"
-                st.write(f"**Table Name:** {table_name}")
+        #     if feature_id_result:
+        #         st.info("Feature already exists. Updating with new data...")
+        #         existing_feature_id = feature_id_result[0]["FEATURE_ID"]
+
+        #         feature_version, table_name = feature_manager.update_feature(
+        #             feature_id=existing_feature_id,
+        #             new_sql_select_query=sql_query,
+        #             change_description=f"Updated with {len(selected_definitions)} condition definitions",
+        #             force_new_version=True
+        #         )
+
+        #         st.success(f"Base Conditions feature updated successfully!")
+        #         st.write(f"**Feature ID:** {existing_feature_id}")
+        #         st.write(f"**New Version:** {feature_version}")
+        #         st.write(f"**Table Name:** {table_name}")
+        #     else:
+        #         feature_id, feature_version = feature_manager.add_new_feature(
+        #             feature_name=feature_name,
+        #             feature_desc=feature_desc,
+        #             feature_format=feature_format,
+        #             sql_select_query_to_generate_feature=sql_query
+        #         )
+
+        #         st.success(f"Base Conditions feature created successfully!")
+        #         st.write(f"**Feature ID:** {feature_id}")
+        #         st.write(f"**Feature Version:** {feature_version}")
+
+        #         table_name = f"{feature_name}_V{feature_version}"
+        #         st.write(f"**Table Name:** {table_name}")
 
             try:
                 count_result = st.session_state.session.sql(
                     f"""SELECT COUNT(*) as row_count FROM {st.session_state.config["feature_store"]["database"]}.
-                        {st.session_state.config["feature_store"]["schema"]}.{table_name}""").to_pandas()
+                        {st.session_state.config["feature_store"]["schema"]}.BASE_CONDITIONS""").to_pandas()
                 row_count = count_result.iloc[0]['ROW_COUNT']
                 st.write(f"**Rows Created:** {row_count:,}")
             except Exception as e:
