@@ -42,7 +42,7 @@ def run_setup(config_file: str, connection_name: str):
     # Create the base SUS APC concepts feature
     session.sql(f"""
         CREATE OR REPLACE TABLE {config['feature_store']['database']}.
-        {config['feature_store']['schema']}.BASE_SUS_APC_CONCEPTS AS
+        {config['feature_store']['schema']}.BASE_APC_CONCEPTS AS
         {BASE_SUS_APC_CONCEPTS_SQL}
         """).collect()
     print("Base SUS APC concepts feature created successfully.")
@@ -55,6 +55,6 @@ def run_setup(config_file: str, connection_name: str):
     
 
 if __name__ == "__main__":
-    config_file = 'nel_icb_dev.yml'
+    config_file = 'nel_icb_prod.yml'
     connection_name = 'nel_icb'
     run_setup(config_file, connection_name)
