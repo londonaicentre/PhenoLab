@@ -129,7 +129,7 @@ x update readme (including making deploy.sh executable)
 x try pre-generating BNF files for speed
 
 (2) ?Setup scripts
-- base features
+- base features (pipeline/features base)
 
 (3) Measurements
 x configs -> to tables
@@ -143,7 +143,7 @@ x check our existing interface still makes sense
 - graph? overall distribution with high and low vals in red
 
 (3b) Base Features
-- take out feature store manager
+x take out feature store manager
 
 (4) Definitions -> base features
 - use latest version
@@ -155,8 +155,11 @@ x check our existing interface still makes sense
 (6) phenotypes
 - remove
 
+(6B) 'Browse the Feature store' page
+- What to do with this?
+
 (7) decouple from PHM utils
-- get rid of feature store
+x get rid of feature store
 x move definition.py
 x remove snowutils
 x remove boto3 as requirement
@@ -173,7 +176,7 @@ x internal inc for phenolab deployment and development/external
 - fix in dev
 
 (11) tidying up
-- test both deployments
+- test both deployments and check they work without phmlondon
 - add git lfs to readme/ mega CSV to parquet
 - read me clean up (x2)
 - consider: https://medium.com/@emily-nguyen/streamlit-in-snowflake-sis-managing-session-context-for-simplified-development-e5f9fa7e3008

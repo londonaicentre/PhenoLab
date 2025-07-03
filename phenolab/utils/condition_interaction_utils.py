@@ -61,12 +61,20 @@ def create_base_conditions_sql(selected_definitions: List[str]):
             obs.CLINICAL_EFFECTIVE_DATE AS CLINICAL_EFFECTIVE_DATE,
             def.DEFINITION_ID,
             def.DEFINITION_NAME,
+            def.DEFINITION_VERSION,
+            def.VERSION_DATETIME,
             'SNOMED' AS SOURCE_VOCABULARY
         FROM {st.session_state.config["gp_observation_table"]} obs
         LEFT JOIN {st.session_state.config["definition_library"]["database"]}.
             {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
             ON obs.CORE_CONCEPT_ID = def.DBID
         WHERE def.DEFINITION_NAME = '{definition_name}'
+            AND def.VERSION_DATETIME = (
+                SELECT MAX(VERSION_DATETIME)
+                FROM {st.session_state.config["definition_library"]["database"]}.
+                    {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
+                WHERE DEFINITION_NAME = '{definition_name}'
+            )
             AND def.VOCABULARY = 'SNOMED'
         """
         union_queries.append(snomed_query)
@@ -79,6 +87,8 @@ def create_base_conditions_sql(selected_definitions: List[str]):
                 apc.ACTIVITY_DATE AS CLINICAL_EFFECTIVE_DATE,
                 def.DEFINITION_ID,
                 def.DEFINITION_NAME,
+                def.DEFINITION_VERSION,
+                def.VERSION_DATETIME,
                 apc.VOCABULARY AS SOURCE_VOCABULARY
             FROM {st.session_state.config["feature_store"]["database"]}.
                 {st.session_state.config["feature_store"]["schema"]}.{apc_table} apc
@@ -87,6 +97,12 @@ def create_base_conditions_sql(selected_definitions: List[str]):
                 ON apc.VOCABULARY = def.VOCABULARY
                 AND apc.CONCEPT_CODE_STD = def.CODE
             WHERE def.DEFINITION_NAME = '{definition_name}'
+                AND def.VERSION_DATETIME = (
+                    SELECT MAX(VERSION_DATETIME)
+                    FROM {st.session_state.config["definition_library"]["database"]}.
+                        {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
+                    WHERE DEFINITION_NAME = '{definition_name}'
+                )
                 AND def.VOCABULARY IN ('ICD10', 'OPCS4')
             """
             union_queries.append(icd_opcs_query)
@@ -110,27 +126,35 @@ def create_base_conditions_feature(selected_definitions: List[str]):
             return
 
         with st.spinner("Creating or updating Base Conditions feature table..."):
-            st.session_state.session.sql(
-                f"""CREATE TABLE IF NOT EXISTS {st.session_state.config["feature_store"]["database"]}.
-                {st.session_state.config["feature_store"]["schema"]}.BASE_CONDITIONS(
-                PERSON_ID VARCHAR,
-                CLINICAL_EFFECTIVE_DATE TIMESTAMP_NTZ,
-                DEFINITION_ID VARCHAR,
-                DEFINITION_NAME VARCHAR,
-                SOURCE_VOCABULARY VARCHAR
-                )""").collect()
+            # st.session_state.session.sql(
+            #     f"""CREATE TABLE IF NOT EXISTS {st.session_state.config["feature_store"]["database"]}.
+            #     {st.session_state.config["feature_store"]["schema"]}.BASE_CONDITIONS(
+            #     PERSON_ID VARCHAR,
+            #     CLINICAL_EFFECTIVE_DATE TIMESTAMP_NTZ,
+            #     DEFINITION_ID VARCHAR,
+            #     DEFINITION_NAME VARCHAR,
+            #     DEFINITION_VERSION VARCHAR,
+            #     VERSION_DATETIME TIMESTAMP_NTZ,
+            #     SOURCE_VOCABULARY VARCHAR
+            #     )""").collect()
             
+            # st.session_state.session.sql(
+            #     f"""MERGE INTO {st.session_state.config["feature_store"]["database"]}.
+            #     {st.session_state.config["feature_store"]["schema"]}.BASE_CONDITIONS AS target
+            #     USING ({sql_query}) AS source
+            #     ON target.PERSON_ID = source.PERSON_ID
+            #     AND target.CLINICAL_EFFECTIVE_DATE = source.CLINICAL_EFFECTIVE_DATE
+            #     AND target.DEFINITION_ID = source.DEFINITION_ID
+            #     AND source.SOURCE_VOCABULARY = target.SOURCE_VOCABULARY
+            #     WHEN NOT MATCHED THEN
+            #         INSERT (PERSON_ID, CLINICAL_EFFECTIVE_DATE, DEFINITION_ID, DEFINITION_NAME, SOURCE_VOCABULARY)
+            #         VALUES (source.PERSON_ID, source.CLINICAL_EFFECTIVE_DATE, source.DEFINITION_ID, source.DEFINITION_NAME, source.SOURCE_VOCABULARY)""").collect()
+
             st.session_state.session.sql(
-                f"""MERGE INTO {st.session_state.config["feature_store"]["database"]}.
-                {st.session_state.config["feature_store"]["schema"]}.BASE_CONDITIONS AS target
-                USING ({sql_query}) AS source
-                ON target.PERSON_ID = source.PERSON_ID
-                AND target.CLINICAL_EFFECTIVE_DATE = source.CLINICAL_EFFECTIVE_DATE
-                AND target.DEFINITION_ID = source.DEFINITION_ID
-                AND source.SOURCE_VOCABULARY = target.SOURCE_VOCABULARY
-                WHEN NOT MATCHED THEN
-                    INSERT (PERSON_ID, CLINICAL_EFFECTIVE_DATE, DEFINITION_ID, DEFINITION_NAME, SOURCE_VOCABULARY)
-                    VALUES (source.PERSON_ID, source.CLINICAL_EFFECTIVE_DATE, source.DEFINITION_ID, source.DEFINITION_NAME, source.SOURCE_VOCABULARY)""").collect()
+                f"""CREATE OR REPLACE TABLE {st.session_state.config["feature_store"]["database"]}.
+                {st.session_state.config["feature_store"]["schema"]}.BASE_CONDITIONS AS
+                {sql_query}""").collect()
+
             st.success(f"Base Conditions feature created or updated successfully!")
 
 

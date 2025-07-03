@@ -6,7 +6,6 @@ import streamlit as st
 from utils.database_utils import get_measurement_unit_statistics
 from utils.definition_interaction_utils import load_definition
 from utils.measurement import MeasurementConfig, UnitMapping, load_measurement_config_from_json
-from phmlondon.feature_store_manager import FeatureStoreManager
 
 def load_measurement_definitions_list() -> list[str]:
     """
@@ -291,6 +290,8 @@ def create_base_measurements_sql(eligible_configs):
             obs.CLINICAL_EFFECTIVE_DATE,
             def.DEFINITION_ID,
             def.DEFINITION_NAME,
+            def.DEFINITION_VERSION,
+            def.VERSION_DATETIME,
             obs.RESULT_VALUE AS SOURCE_RESULT_VALUE,
             obs.RESULT_VALUE_UNITS AS SOURCE_RESULT_VALUE_UNITS,
             {conversion_case_sql.replace('mapped_unit', f'({mapping_case_sql})')} AS VALUE_AS_NUMBER,
@@ -305,6 +306,12 @@ def create_base_measurements_sql(eligible_configs):
             AND obs.RESULT_VALUE_UNITS IS NOT NULL
             AND ({mapping_case_sql}) IS NOT NULL
             AND ({conversion_case_sql.replace('mapped_unit', f'({mapping_case_sql})')}) IS NOT NULL
+            AND def.VERSION_DATETIME = (
+                SELECT MAX(VERSION_DATETIME)
+                FROM {st.session_state.config["definition_library"]["database"]}.
+                    {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
+                WHERE DEFINITION_NAME = '{definition_name}'
+            )
         """
 
         union_queries.append(query)
@@ -330,34 +337,42 @@ def create_base_measurements_feature(eligible_configs):
             return
         
         with st.spinner("Creating or updating Base Measurements feature table..."):
-            st.session_state.session.sql(
-            f"""CREATE TABLE IF NOT EXISTS {st.session_state.config["feature_store"]["database"]}.
-            {st.session_state.config["feature_store"]["schema"]}.BASE_MEASUREMENTS(
-            CLINICAL_EFFECTIVE_DATE TIMESTAMP_NTZ,
-            DEFINITION_ID VARCHAR,
-            DEFINITION_NAME VARCHAR,
-            PERSON_ID VARCHAR,
-            SOURCE_RESULT_VALUE FLOAT,
-            SOURCE_RESULT_VALUE_UNITS VARCHAR,
-            VALUE_AS_NUMBER FLOAT,
-            VALUE_UNITS VARCHAR
-            )""").collect()
+            # st.session_state.session.sql(
+            # f"""CREATE TABLE IF NOT EXISTS {st.session_state.config["feature_store"]["database"]}.
+            # {st.session_state.config["feature_store"]["schema"]}.BASE_MEASUREMENTS(
+            # CLINICAL_EFFECTIVE_DATE TIMESTAMP_NTZ,
+            # DEFINITION_ID VARCHAR,
+            # DEFINITION_NAME VARCHAR,
+            # DEFINITION_VERSION VARCHAR,
+            # VERSION_DATETIME TIMESTAMP_NTZ,
+            # PERSON_ID VARCHAR,
+            # SOURCE_RESULT_VALUE FLOAT,
+            # SOURCE_RESULT_VALUE_UNITS VARCHAR,
+            # VALUE_AS_NUMBER FLOAT,
+            # VALUE_UNITS VARCHAR
+            # )""").collect()
 
+            # st.session_state.session.sql(
+            # f"""MERGE INTO {st.session_state.config["feature_store"]["database"]}.
+            # {st.session_state.config["feature_store"]["schema"]}.BASE_MEASUREMENTS AS target
+            # USING ({sql_query}) AS source
+            # ON target.PERSON_ID = source.PERSON_ID
+            # AND target.CLINICAL_EFFECTIVE_DATE = source.CLINICAL_EFFECTIVE_DATE
+            # AND target.DEFINITION_ID = source.DEFINITION_ID
+            # AND target.SOURCE_RESULT_VALUE = source.SOURCE_RESULT_VALUE
+            # AND target.SOURCE_RESULT_VALUE_UNITS = source.SOURCE_RESULT_VALUE_UNITS
+            # WHEN NOT MATCHED THEN
+            #     INSERT (CLINICAL_EFFECTIVE_DATE, DEFINITION_ID, DEFINITION_NAME, PERSON_ID, 
+            #             SOURCE_RESULT_VALUE, SOURCE_RESULT_VALUE_UNITS, VALUE_AS_NUMBER, VALUE_UNITS)
+            #     VALUES (source.CLINICAL_EFFECTIVE_DATE, source.DEFINITION_ID, source.DEFINITION_NAME, source.PERSON_ID, 
+            #             source.SOURCE_RESULT_VALUE, source.SOURCE_RESULT_VALUE_UNITS, source.VALUE_AS_NUMBER, 
+            #             source.VALUE_UNITS)""").collect()
+            
             st.session_state.session.sql(
-            f"""MERGE INTO {st.session_state.config["feature_store"]["database"]}.
-            {st.session_state.config["feature_store"]["schema"]}.BASE_MEASUREMENTS AS target
-            USING ({sql_query}) AS source
-            ON target.PERSON_ID = source.PERSON_ID
-            AND target.CLINICAL_EFFECTIVE_DATE = source.CLINICAL_EFFECTIVE_DATE
-            AND target.DEFINITION_ID = source.DEFINITION_ID
-            AND target.SOURCE_RESULT_VALUE = source.SOURCE_RESULT_VALUE
-            AND target.SOURCE_RESULT_VALUE_UNITS = source.SOURCE_RESULT_VALUE_UNITS
-            WHEN NOT MATCHED THEN
-                INSERT (CLINICAL_EFFECTIVE_DATE, DEFINITION_ID, DEFINITION_NAME, PERSON_ID, 
-                        SOURCE_RESULT_VALUE, SOURCE_RESULT_VALUE_UNITS, VALUE_AS_NUMBER, VALUE_UNITS)
-                VALUES (source.CLINICAL_EFFECTIVE_DATE, source.DEFINITION_ID, source.DEFINITION_NAME, source.PERSON_ID, 
-                        source.SOURCE_RESULT_VALUE, source.SOURCE_RESULT_VALUE_UNITS, source.VALUE_AS_NUMBER, 
-                        source.VALUE_UNITS)""").collect()
+                f"""CREATE OR REPLACE TABLE {st.session_state.config["feature_store"]["database"]}.
+                {st.session_state.config["feature_store"]["schema"]}.BASE_MEASUREMENTS AS
+                {sql_query}""").collect()
+
             st.success("Base Measurements feature table created or updated successfully!")
       
         # with st.spinner("Initialising Feature Store Manager..."):
