@@ -153,7 +153,7 @@ x use latest version
 - delete definitions
 
 (6) phenotypes
-- remove
+x remove
 
 (6B) 'Browse the Feature store' page
 - What to do with this?
