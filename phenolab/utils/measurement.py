@@ -291,7 +291,7 @@ class MeasurementConfig:
 
         return standard_units_df, unit_mappings_df, unit_conversions_df
 
-    def save_to_json(self, directory: str = "data/measurements") -> str:
+    def save_to_json(self, directory: str) -> str:
         """
         Save measurement config to json and update version if modified
         """

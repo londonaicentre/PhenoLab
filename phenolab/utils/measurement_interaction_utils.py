@@ -24,12 +24,12 @@ def load_measurement_definitions_list():
 
 def load_measurement_configs_list():
     """
-    Get list of measurement config files from /data/measurements
+    Get list of measurement config files from /data/measurements/{st.session_state.config['icb_name']}
     """
     config_list = []
     try:
-        if os.path.exists("data/measurements"):
-            config_list = [f for f in os.listdir("data/measurements")
+        if os.path.exists(f"data/measurements/{st.session_state.config['icb_name']}"):
+            config_list = [f for f in os.listdir(f"data/measurements/{st.session_state.config['icb_name']}")
                            if f.endswith(".json") and f.startswith("standard_")]
     except Exception as e:
         st.error(f"Unable to list measurement config files: {e}")
@@ -41,7 +41,7 @@ def load_measurement_config(filename):
     Load measurement config from JSON file
     """
     try:
-        file_path = os.path.join("data/measurements", filename)
+        file_path = os.path.join(f"data/measurements/{st.session_state.config['icb_name']}", filename)
         config = load_measurement_config_from_json(file_path)
         return config
     except Exception as e:
@@ -53,7 +53,7 @@ def create_missing_measurement_configs():
     """
     Create empty measurement configs for definitions that don't have one
     """
-    os.makedirs("data/measurements", exist_ok=True)
+    os.makedirs(f"data/measurements/{st.session_state.config['icb_name']}", exist_ok=True)
 
     measurement_definitions = load_measurement_definitions_list()
     measurement_configs = load_measurement_configs_list()
@@ -80,7 +80,7 @@ def create_missing_measurement_configs():
                     standard_measurement_config_id=None,
                     standard_measurement_config_version=None,
                 )
-                config.save_to_json()
+                config.save_to_json(directory="data/st.session_state.config['icb_name']/measurements")
                 created_count += 1
 
         except Exception as e:
@@ -93,7 +93,7 @@ def update_all_measurement_configs():
     """
     Update all measurement configs with new units from Snowflake usage data
     """
-    os.makedirs("data/measurements", exist_ok=True)
+    os.makedirs(f"data/measurements/{st.session_state.config['icb_name']}", exist_ok=True)
 
     created_count = 0
     updated_count = 0
@@ -138,7 +138,7 @@ def update_all_measurement_configs():
 
         if config_changed:
             config.mark_modified()
-            config.save_to_json()
+            config.save_to_json(directory=f"data/measurements/{st.session_state.config['icb_name']}")
             updated_count += 1
 
         # except Exception as e:
@@ -447,8 +447,8 @@ def create_measurement_configs_tables():
 def load_measurement_configs_into_tables():
 
     """
-    Takes all the existing measurement config files in /data/measurements, deletes any existing entries in the tables 
-    for that definition, and then inserts the new entries.
+    Takes all the existing measurement config files in /data/st.session_state.config['icb_name']/measurements, 
+    deletes any existing entries in the tables for that definition, and then inserts the new entries.
     """
 
     session = st.session_state.session
@@ -459,9 +459,6 @@ def load_measurement_configs_into_tables():
         config = load_measurement_config(config_file)
         # print(config.definition_name)
         standard_units, unit_mappings, unit_conversions = config.to_dataframes()
-        # print(standard_units)
-        # print(unit_mappings)
-        # print(unit_conversions)
 
         # Delete all existing entries for this definition
         queries = [f"""DELETE FROM {st.session_state.config["measurement_configs"]["database"]}.
@@ -478,9 +475,9 @@ def load_measurement_configs_into_tables():
             st.session_state.session.sql(query)
 
         # Insert new entries
-        print(config_file)
-        print(standard_units)
-        print(standard_units.dtypes)
+        # print(config_file)
+        # print(standard_units)
+        # print(standard_units.dtypes)
         if not standard_units.empty:
             session.write_pandas(standard_units,
                 database=st.session_state.config["measurement_configs"]["database"],

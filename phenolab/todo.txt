@@ -134,8 +134,13 @@ x try pre-generating BNF files for speed
 
 (3) Measurements
 x configs -> to tables
-- interfaces
+x test in dev
+x make ICB specific
+- interface for ICBs to view configs in table
+- check our existing interface still makes sense
 - look at Dan's code
+
+(3b) Base Features
 
 (4) Definitions -> base features
 - use latest version

@@ -42,7 +42,7 @@ def display_standard_units_panel(config):
             # if first unit, automatically set as primary
             if len(config.standard_units) == 1:
                 config.set_primary_standard_unit(new_unit)
-            config.save_to_json()
+            config.save_to_json(directory=f"data/measurements/{st.session_state.config['icb_name']}")
             st.success(f"Added {new_unit} to standard units")
             st.rerun()
         else:
@@ -61,12 +61,12 @@ def display_standard_units_panel(config):
                 else:
                     if st.button("Set Primary", key=f"set_primary_{i}"):
                         config.set_primary_standard_unit(unit)
-                        config.save_to_json()
+                        config.save_to_json(directory=f"data/measurements/{st.session_state.config['icb_name']}")
                         st.rerun()
             with col3:
                 if st.button("Remove", key=f"remove_unit_{i}"):
                     config.remove_standard_unit(unit)
-                    config.save_to_json()
+                    config.save_to_json(directory=f"data/measurements/{st.session_state.config['icb_name']}")
                     st.rerun()
     else:
         st.info("No standard units defined.")
@@ -144,7 +144,7 @@ def display_unit_mapping_panel(config):
                         mapping.standard_unit = selected_standard
                         config.mark_modified()
                         break
-                config.save_to_json()
+                config.save_to_json(directory=f"data/measurements/{st.session_state.config['icb_name']}")
                 st.rerun()
 
 def get_all_units_for_conversion(config):
@@ -263,7 +263,7 @@ def display_conversion_group(config, units, existing_conversions, group_type):
                 multiply_by=new_multiply_by,
                 post_offset=new_post_offset
             )
-            config.save_to_json()
+            config.save_to_json(directory=f"data/measurements/{st.session_state.config['icb_name']}")
             st.rerun()
 
 def main():
@@ -312,7 +312,8 @@ def main():
     # 1. refresh configs
     measurement_configs = load_measurement_configs_list()
     if not measurement_configs:
-        st.warning("No measurement configurations found. Please check data/measurements.")
+        st.write(st.session_state.config['icb_name'])
+        st.warning("No measurement configurations found. Please check data/measurements/<icb_name>.")
         return
 
     # 2. map definition name to filename
