@@ -274,9 +274,6 @@ def main():
     if "config" not in st.session_state:
         st.session_state.config = load_config()
     st.title("Standardise Measurements")
-    # load_dotenv()
-
-    # snowsesh = get_snowflake_connection()
 
     if "selected_definition" not in st.session_state:
         st.session_state.selected_definition = None

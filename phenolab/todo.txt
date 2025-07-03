@@ -80,6 +80,15 @@ x fix load definition
 x fix load definition in page 2
 - *measurement config files -> remote version - how to?
 
+- measurement config tables
+- fill on load
+- per ICB
+- deployment versions -> viewer for ICBs
+- version for us -> disentangle counts??
+- base feature tables then needs to create from tables not configs
+- need button for us to update configs?
+- why is ai_centre-definitions in dev version empty?
+
 (9) vocab loading
 x push further down list
 
@@ -124,11 +133,12 @@ x try pre-generating BNF files for speed
 - base features
 
 (3) Measurements
-- configs -> to tables
+x configs -> to tables
 - interfaces
+- look at Dan's code
 
 (4) Definitions -> base features
-- use latest  version
+- use latest version
 
 (5) Extra features
 - search definitions
@@ -160,3 +170,5 @@ x reorganise repo?
 - test both deployments
 - add git lfs to readme 
 - read me clean up (x2)
+- mega CSV to parquet
+- consider: https://medium.com/@emily-nguyen/streamlit-in-snowflake-sis-managing-session-context-for-simplified-development-e5f9fa7e3008

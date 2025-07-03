@@ -4,6 +4,7 @@ import json
 import os
 from dataclasses import dataclass, field
 from typing import List, Optional
+import pandas as pd
 
 """
 # measurement.py
@@ -225,6 +226,70 @@ class MeasurementConfig:
             "standard_measurement_config_id": self.standard_measurement_config_id,
             "standard_measurement_config_version": self.standard_measurement_config_version
         }
+
+    def to_dataframes(self) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+        """
+        Return three flattened dataframes for easy transfer to tables
+        - standard_units_df: contains standard units and their primary status
+        - unit_mappings_df: contains mappings from source units to standard units
+        - unit_conversions_df: contains conversion values
+
+        Returns:
+            standard_units_df (pd.DataFrame): DataFrame of standard units
+            unit_mappings_df (pd.DataFrame): DataFrame of unit mappings
+            unit_conversions_df (pd.DataFrame): DataFrame of unit conversions
+        """
+
+        standard_units_list = []
+        for su in self.standard_units:
+            if su == self.primary_standard_unit:
+                primary_unit = True
+            else:
+                primary_unit = False
+
+            # create standard units dataframe
+            standard_units_list.append({
+                "DEFINITION_ID": self.definition_id,
+                "DEFINITION_NAME": self.definition_name,
+                "CONFIG_ID": self.standard_measurement_config_id,
+                "CONFIG_VERSION": self.standard_measurement_config_version,
+                "UNIT": su,
+                "PRIMARY_UNIT": primary_unit
+            })
+        standard_units_df = pd.DataFrame(standard_units_list)
+
+        unit_mappings_list = []
+        for mapping in self.unit_mappings:
+            unit_mappings_list.append({
+                "DEFINITION_ID": self.definition_id,
+                "DEFINITION_NAME": self.definition_name,
+                "CONFIG_ID": self.standard_measurement_config_id,
+                "CONFIG_VERSION": self.standard_measurement_config_version,
+                "SOURCE_UNIT": mapping.source_unit,
+                "STANDARD_UNIT": mapping.standard_unit,
+                "SOURCE_UNIT_COUNT": mapping.source_unit_count,
+                "SOURCE_UNIT_LQ": mapping.source_unit_lq,
+                "SOURCE_UNIT_MEDIAN": mapping.source_unit_median,
+                "SOURCE_UNIT_UQ": mapping.source_unit_uq
+            })
+        unit_mappings_df = pd.DataFrame(unit_mappings_list)
+
+        unit_conversions_list = []
+        for conversion in self.unit_conversions:
+            unit_conversions_list.append({
+                "DEFINITION_ID": self.definition_id,
+                "DEFINITION_NAME": self.definition_name,
+                "CONFIG_ID": self.standard_measurement_config_id,
+                "CONFIG_VERSION": self.standard_measurement_config_version,
+                "CONVERT_FROM_UNIT": conversion.convert_from_unit,
+                "CONVERT_TO_UNIT": conversion.convert_to_unit,
+                "PRE_OFFSET": conversion.pre_offset,
+                "MULTIPLY_BY": conversion.multiply_by,
+                "POST_OFFSET": conversion.post_offset
+            })
+        unit_conversions_df = pd.DataFrame(unit_conversions_list)
+
+        return standard_units_df, unit_mappings_df, unit_conversions_df
 
     def save_to_json(self, directory: str = "data/measurements") -> str:
         """

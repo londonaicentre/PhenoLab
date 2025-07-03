@@ -4,6 +4,7 @@ from utils.database_utils import get_snowflake_session
 from utils.style_utils import set_font_lato
 from utils.definition_interaction_utils import update_aic_definitions_table
 from utils.config_utils import load_config, preload_vocabulary
+from utils.measurement_interaction_utils import create_measurement_configs_tables, load_measurement_configs_into_tables
 from definition_library.loaders.load_hdruk import retrieve_hdruk_definitions_and_add_to_snowflake
 from definition_library.loaders.load_open_codelists import retrieve_open_codelists_definitions_and_add_to_snowflake
 from definition_library.loaders.load_bnf_to_snomed import retrieve_bnf_definitions_and_add_to_snowflake
@@ -118,6 +119,12 @@ with col2:
                     table_name="ICB_DEFINITIONS"
                 )
                 st.session_state['created_local_definitions_table'] = True
+        
+        # 7. Load measurement configs into tables
+        if 'created_measurement_configs_table' not in st.session_state:
+            with st.spinner('Loading measurement configurations...', show_time=True):
+                create_measurement_configs_tables()
+                load_measurement_configs_into_tables()
 
         required_checks = [
             'uploaded_aic_definitions',
