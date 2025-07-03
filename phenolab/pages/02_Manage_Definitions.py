@@ -247,9 +247,7 @@ def main():
                 if definition_count > 0:
                     if st.button("Upload new / updated definitions to Snowflake"):
                         with maincol:
-                            update_aic_definitions_table( 
-                                database=st.session_state.config["definition_library"]["database"], 
-                                schema=st.session_state.config["definition_library"]["schema"])
+                            update_aic_definitions_table()
                 else:
                     st.warning("No definitions available to upload")
 

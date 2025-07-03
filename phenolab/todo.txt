@@ -20,7 +20,6 @@ x page to browse by source
 (2a) CI approach
 x github actions
 x dev and prod
-- unit testing
 
 (2b) ICB table with 'starterpack' model
 x create ICB table
@@ -73,7 +72,7 @@ x could make one function that did all the page setting up/checking the session_
 - add tab to page 2 to delete definition versions, both jsons and on database
 
 (7) phenotypes
-- how to turn into SQL? (or should we remove from interface)
+x how to turn into SQL? (or should we remove from interface)
 
 (8) measurements
 x fix load definition
@@ -86,20 +85,20 @@ x deployment versions -> viewer for ICBs
 x version for us -> disentangle counts??
 - base feature tables then needs to create from tables not configs
 x need button for us to update configs?
-- why is ai_centre-definitions in dev version empty?
+x why is ai_centre-definitions in dev version empty?
 
 (9) vocab loading
 x push further down list
 
 (10) base features
-- *need to add definition version to base features?
-- *is it one per person or all?
+x *need to add definition version to base features?
+x *is it one per person or all?
 x sort out pipeline/features_base
 x need to sort out config thingy as have made config part of phenolab
 x get rid of pipeline folder
 
 (12) snowflake feature store/get rid of feature store altogether
-- *choose best option
+x *choose best option
 
 (14) remote deployment
 x need to push up again
@@ -156,7 +155,7 @@ x use latest version
 x remove
 
 (6B) 'Browse the Feature store' page
-- What to do with this?
+x What to do with this?
 
 (7) decouple from PHM utils
 x get rid of feature store
@@ -173,7 +172,7 @@ x reorganise repo?
 x internal inc for phenolab deployment and development/external
 
 (10) feature store
-- fix in dev
+x fix in dev
 
 (11) tidying up
 - test both deployments and check they work without phmlondon

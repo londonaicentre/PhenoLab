@@ -72,12 +72,9 @@ with col2:
                     session=st.session_state.session,
                     database=st.session_state.config["definition_library"]["database"], 
                     schema=st.session_state.config["definition_library"]["schema"],
-                    table_name="AI_CENTRE_DEFINITIONS"
+                    table_name="AIC_DEFINITIONS"
                 )
-                update_aic_definitions_table( 
-                    database=st.session_state.config["definition_library"]["database"], 
-                    schema=st.session_state.config["definition_library"]["schema"], 
-                    verbose=False)
+                update_aic_definitions_table(verbose=False)
                 st.session_state['uploaded_aic_definitions'] = True
 
         # 2. HDRUK
