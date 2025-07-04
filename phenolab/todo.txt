@@ -135,9 +135,9 @@ x test in dev
 x make ICB specific
 x interface for ICBs to view configs in table
 x check our existing interface still makes sense
-- look at Dan's code
-- check have Dan's quartile changes
-- clean too high and too low values
+x look at Dan's code
+x check have Dan's quartile changes
+x clean too high and too low values
 - graph? overall distribution with high and low vals in red
 
 (3b) Base Features

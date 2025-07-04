@@ -45,13 +45,16 @@ def view_definitions():
 
         st.text(" ")
         # st.dataframe(df, hide_index=True)
+        
         selected_def = st.dataframe(df, key="data", on_select="rerun", selection_mode="single-row", hide_index=True,)
         if selected_def:
-            selected_id = df['DEFINITION_ID'].iloc[selected_def["selection"]["rows"]].values[0]
-            codes_df = return_codes_for_given_definition_id_as_df(selected_id)
-            st.write("")
-            st.write("")
-            display_codes_in_selected_definition_simply(codes_df)
+            selected_rows = selected_def["selection"]["rows"]
+            if selected_rows:
+                selected_id = df['DEFINITION_ID'].iloc[selected_rows].values[0]
+                codes_df = return_codes_for_given_definition_id_as_df(selected_id)
+                st.write("")
+                st.write("")
+                display_codes_in_selected_definition_simply(codes_df)
 
 def create_definition_panel(column,
                             panel_name,
