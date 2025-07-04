@@ -137,7 +137,7 @@ x interface for ICBs to view configs in table
 x check our existing interface still makes sense
 - look at Dan's code
 - check have Dan's quartile changes
-- where is the bit re cleaning too high and low values?! (?Dan could implement)
+- clean too high and too low values
 - graph? overall distribution with high and low vals in red
 
 (3b) Base Features
@@ -175,9 +175,9 @@ x fix in dev
 
 (11) tidying up
 - test both deployments and check they work without phmlondon
-- add git lfs to readme/ mega CSV to parquet
+x add git lfs to readme/ mega CSV to parquet
 x read me clean up (x2)
-- consider: https://medium.com/@emily-nguyen/streamlit-in-snowflake-sis-managing-session-context-for-simplified-development-e5f9fa7e3008
+x consider: https://medium.com/@emily-nguyen/streamlit-in-snowflake-sis-managing-session-context-for-simplified-development-e5f9fa7e3008
 
 (12) finishing
 - need to do the actual measurment mappings

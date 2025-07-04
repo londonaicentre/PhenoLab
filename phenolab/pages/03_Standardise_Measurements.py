@@ -10,6 +10,7 @@ from utils.measurement_interaction_utils import (
 )
 from utils.style_utils import set_font_lato, container_object_with_height_if_possible
 from utils.config_utils import load_config
+from utils.measurement import MeasurementConfig
 
 # # 04_Measurement_Standardisation.py
 
@@ -301,6 +302,32 @@ def display_configs_in_tables():
         st.write(f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Primary unit to convert to: {primary_unit}")
         st.divider()
 
+def display_measurement_bounds_panel(config: MeasurementConfig):
+    st.divider()
+    st.subheader("Value bounds")
+
+    new_lower_bound = st.number_input(
+        "Lower bound for values in primary unit",
+        value=config.lower_limit if hasattr(config, 'lower_limit') else None,
+        placeholder='e.g. 0.0',
+    )
+    if new_lower_bound:
+        if new_lower_bound != config.lower_limit:
+            config.add_lower_bound(new_lower_bound)
+            config.save_to_json(directory=f"data/measurements/{st.session_state.config['icb_name']}")
+            st.success("Lower bound set successfully.")
+            
+    new_upper_bound = st.number_input(
+        "Upper bound for values in primary unit",
+        value=config.upper_limit if hasattr(config, 'upper_limit') else None,
+        placeholder='e.g. 140.0',
+    )
+    if new_upper_bound:
+        if new_upper_bound != config.upper_limit:
+            config.add_upper_bound(new_upper_bound)
+            config.save_to_json(directory=f"data/measurements/{st.session_state.config['icb_name']}")
+            st.success("Upper bound set successfully.")
+
 def main():
     st.set_page_config(page_title="Standardise Measurements", layout="wide")
     set_font_lato()
@@ -403,6 +430,9 @@ def main():
                             display_unit_conversion_panel(config)
                     else:
                         st.info("Please add standard units first to enable unit mapping.")
+                    
+                    display_measurement_bounds_panel(config)
+            
             st.divider()
             st.subheader("Update Measurement Configs on Snowflake")
             if st.button("Send configs to Snowflake"):

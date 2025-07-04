@@ -284,6 +284,9 @@ def create_base_measurements_sql(eligible_configs):
             END
         """
 
+        upper_limit = config.upper_limit if config.upper_limit is not None else 1e10
+        lower_limit = config.lower_limit if config.lower_limit is not None else 0
+
         query = f"""
         SELECT
             obs.PERSON_ID,
@@ -295,7 +298,11 @@ def create_base_measurements_sql(eligible_configs):
             obs.RESULT_VALUE AS SOURCE_RESULT_VALUE,
             obs.RESULT_VALUE_UNITS AS SOURCE_RESULT_VALUE_UNITS,
             {conversion_case_sql.replace('mapped_unit', f'({mapping_case_sql})')} AS VALUE_AS_NUMBER,
-            '{config.primary_standard_unit}' AS VALUE_UNITS
+            '{config.primary_standard_unit}' AS VALUE_UNITS,
+            CASE WHEN {conversion_case_sql.replace('mapped_unit', f'({mapping_case_sql})')} > {upper_limit} 
+                THEN 1 ELSE 0 END AS ABOVE_RANGE,
+            CASE WHEN {conversion_case_sql.replace('mapped_unit', f'({mapping_case_sql})')} < {lower_limit} 
+                THEN 1 ELSE 0 END AS BELOW_RANGE
         FROM {st.session_state.config["gp_observation_table"]} obs
         LEFT JOIN {st.session_state.config["definition_library"]["database"]}.
             {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
@@ -487,7 +494,17 @@ def create_measurement_configs_tables():
             PRE_OFFSET FLOAT,
             MULTIPLY_BY FLOAT,
             POST_OFFSET FLOAT
-        )"""]
+        )""",
+    f"""
+    CREATE TABLE IF NOT EXISTS {st.session_state.config["measurement_configs"]["database"]}.
+        {st.session_state.config["measurement_configs"]["schema"]}.VALUE_BOUNDS (
+            DEFINITION_ID VARCHAR,
+            DEFINITION_NAME VARCHAR,
+            CONFIG_ID VARCHAR,
+            CONFIG_VERSION VARCHAR,
+            LOWER_LIMIT FLOAT,
+            UPPER_LIMIT FLOAT
+    )"""]
     for query in queries:
         st.session_state.session.sql(query).collect()
     print("Measurement config tables created")
@@ -506,7 +523,7 @@ def load_measurement_configs_into_tables():
     for config_file in config_files:
         config = load_measurement_config(config_file)
         # print(config.definition_name)
-        standard_units, unit_mappings, unit_conversions = config.to_dataframes()
+        standard_units, unit_mappings, unit_conversions, value_bounds = config.to_dataframes()
 
         # Delete all existing entries for this definition
         queries = [f"""DELETE FROM {st.session_state.config["measurement_configs"]["database"]}.
@@ -520,8 +537,11 @@ def load_measurement_configs_into_tables():
             WHERE DEFINITION_NAME = '{config.definition_name}'""",
                    f"""DELETE FROM {st.session_state.config["measurement_configs"]["database"]}.
             {st.session_state.config["measurement_configs"]["schema"]}.UNIT_CONVERSIONS
+            WHERE DEFINITION_NAME = '{config.definition_name}'""",
+                f"""DELETE FROM {st.session_state.config["measurement_configs"]["database"]}.
+            {st.session_state.config["measurement_configs"]["schema"]}.VALUE_BOUNDS
             WHERE DEFINITION_NAME = '{config.definition_name}'"""]
-        
+
         for query in queries:
             st.session_state.session.sql(query)
 
@@ -559,6 +579,12 @@ def load_measurement_configs_into_tables():
                 database=st.session_state.config["measurement_configs"]["database"],
                 schema=st.session_state.config["measurement_configs"]["schema"],
                 table_name="UNIT_CONVERSIONS",
+                use_logical_type=True)
+        if not value_bounds.empty:
+            session.write_pandas(value_bounds,
+                database=st.session_state.config["measurement_configs"]["database"],
+                schema=st.session_state.config["measurement_configs"]["schema"],
+                table_name="VALUE_BOUNDS",
                 use_logical_type=True)
    
         print(f"Loaded {config_file} for {config.definition_id} into measurement config tables")

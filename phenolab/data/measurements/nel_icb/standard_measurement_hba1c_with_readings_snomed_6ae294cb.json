@@ -6,6 +6,8 @@
     "%"
   ],
   "primary_standard_unit": "mmol/mol",
+  "lower_limit": 5.0,
+  "upper_limit": 130.0,
   "unit_mappings": [
     {
       "source_unit": "mmol/mol",
@@ -932,13 +934,13 @@
     {
       "convert_from_unit": "%",
       "convert_to_unit": "mmol/mol",
-      "pre_offset": -2.15,
+      "pre_offset": -2.14,
       "multiply_by": 10.929,
       "post_offset": 0.0
     }
   ],
   "created_datetime": "2025-05-30T23:58:04.184918",
-  "updated_datetime": "2025-06-21T21:39:14.713049",
+  "updated_datetime": "2025-07-04T13:16:59.222342",
   "standard_measurement_config_id": "6ae294cb",
-  "standard_measurement_config_version": "measurement_hba1c_with_readings_snomed_20250621_213914"
+  "standard_measurement_config_version": "measurement_hba1c_with_readings_snomed_20250704_131659"
 }

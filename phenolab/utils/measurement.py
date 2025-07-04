@@ -59,6 +59,8 @@ class MeasurementConfig:
     unit_conversions: List[UnitConversion] = field(default_factory=list)  # list of conversion formulas onto target
     created_datetime: str = field(default_factory=lambda: datetime.datetime.now().isoformat())
     updated_datetime: Optional[str] = None
+    lower_limit: Optional[float] = None
+    upper_limit: Optional[float] = None
     standard_measurement_config_id: Optional[str] = None
     standard_measurement_config_version: Optional[str] = None
     _modified: bool = field(default=True) # track if updates made for version change
@@ -190,6 +192,25 @@ class MeasurementConfig:
         self.unit_conversions.append(conversion)
         self.mark_modified()
         return True
+    
+    def add_value_bounds(self, lower_limit: float, upper_limit: float):
+        """
+        Add or update value bounds for the measurement config
+        """
+        self.lower_limit = lower_limit
+        self.upper_limit = upper_limit
+
+    def add_lower_bound(self, lower_limit: float):
+        """
+        Add or update the lower limit for the measurement config
+        """
+        self.lower_limit = lower_limit
+
+    def add_upper_bound(self, upper_limit: float):
+        """
+        Add or update the upper limit for the measurement config
+        """
+        self.upper_limit = upper_limit
 
     def to_dict(self) -> dict:
         """
@@ -200,6 +221,8 @@ class MeasurementConfig:
             "definition_name": self.definition_name,
             "standard_units": self.standard_units,
             "primary_standard_unit": self.primary_standard_unit,
+            "lower_limit": self.lower_limit if hasattr(self, 'lower_limit') else None,
+            "upper_limit": self.upper_limit if hasattr(self, 'upper_limit') else None,
             "unit_mappings": [
                 {
                     "source_unit": m.source_unit,
@@ -289,7 +312,16 @@ class MeasurementConfig:
             })
         unit_conversions_df = pd.DataFrame(unit_conversions_list)
 
-        return standard_units_df, unit_mappings_df, unit_conversions_df
+        value_bounds_df = pd.DataFrame({
+            "DEFINITION_ID": [self.definition_id],
+            "DEFINITION_NAME": [self.definition_name],
+            "CONFIG_ID": [self.standard_measurement_config_id],
+            "CONFIG_VERSION": [self.standard_measurement_config_version],
+            "LOWER_LIMIT": [getattr(self, 'lower_limit', None)],
+            "UPPER_LIMIT": [getattr(self, 'upper_limit', None)]
+        })
+
+        return standard_units_df, unit_mappings_df, unit_conversions_df, value_bounds_df
 
     def save_to_json(self, directory: str) -> str:
         """
@@ -321,6 +353,8 @@ def measurement_config_from_dict(data: dict) -> MeasurementConfig:
         definition_name=data["definition_name"],
         standard_units=data.get("standard_units", []),
         primary_standard_unit=data.get("primary_standard_unit"),
+        lower_limit=data.get("lower_limit"),
+        upper_limit=data.get("upper_limit"),
         created_datetime=data.get("created_datetime"),
         updated_datetime=data.get("updated_datetime"),
         standard_measurement_config_id=data.get("standard_measurement_config_id"),

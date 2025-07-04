@@ -1042,7 +1042,7 @@
     }
   ],
   "created_datetime": "2025-05-19T23:23:56.058303",
-  "updated_datetime": "2025-05-31T16:44:36.176379",
+  "updated_datetime": "2025-07-04T13:36:06.467281",
   "standard_measurement_config_id": "579fb01a",
-  "standard_measurement_config_version": "measurement_blood_glucose_SNOMED_20250531_164436"
+  "standard_measurement_config_version": "measurement_blood_glucose_SNOMED_20250704_133606"
 }
