@@ -10,6 +10,7 @@ from utils.definition_interaction_utils import (
     display_definition_codes_summary,
     display_definition_metadata,
     get_missing_codes_df,
+    display_codes_in_selected_definition_simply,
 )
 from utils.style_utils import set_font_lato
 from utils.config_utils import load_config
@@ -43,7 +44,14 @@ def view_definitions():
         df = st.session_state.session.sql(query).to_pandas()
 
         st.text(" ")
-        st.dataframe(df, hide_index=True)
+        # st.dataframe(df, hide_index=True)
+        selected_def = st.dataframe(df, key="data", on_select="rerun", selection_mode="single-row", hide_index=True,)
+        if selected_def:
+            selected_id = df['DEFINITION_ID'].iloc[selected_def["selection"]["rows"]].values[0]
+            codes_df = return_codes_for_given_definition_id_as_df(selected_id)
+            st.write("")
+            st.write("")
+            display_codes_in_selected_definition_simply(codes_df)
 
 def create_definition_panel(column,
                             panel_name,
@@ -175,59 +183,17 @@ def main():
 
     # TAB 2: SEARCH DEFINITIONS
     with search_tab:
+        st.write("")
         definition_ids, definition_labels = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list()
         selected_definition = st.selectbox("Search for a definition", options=definition_labels, 
-            label_visibility="hidden",placeholder="Start typing to search for a definition", index=None)
+            label_visibility="visible",placeholder="Start typing to search for a definition", index=None)
         if selected_definition:
             selected_id = definition_ids[definition_labels.index(selected_definition)]
-            codes_query = f"""
-            SELECT DISTINCT
-                CODE,
-                CODE_DESCRIPTION,
-                VOCABULARY,
-                DEFINITION_ID,
-                DEFINITION_NAME,
-                DEFINITION_SOURCE,
-                CODELIST_VERSION
-            FROM INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.DEFINITIONSTORE
-            WHERE DEFINITION_ID = '{selected_id}'
-            ORDER BY VOCABULARY, CODE
-            """
 
-            codes_df = st.session_state.session.sql(codes_query).to_pandas()
-
-            if not codes_df.empty:
-                # st.write("Definition details:")
-                # st.dataframe(codes_df.loc[:, ["DEFINITION_ID", "CODELIST_VERSION", "VOCABULARY"]].drop_duplicates())
-                st.write("")
-                st.write("")
-
-                st.markdown(f"""
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <span style="
-                            background-color: #eee;
-                            color: #333;
-                            padding: 4px 10px;
-                            border-radius: 12px;
-                            font-size: 0.85rem;
-                            font-weight: 600;
-                            display: inline-block;
-                        ">
-                            {codes_df.loc[0, 'DEFINITION_SOURCE']}
-                        </span>
-                        <span style="font-weight: 700; font-size: 1rem;">
-                            {codes_df.loc[0, 'DEFINITION_NAME']}
-                        </span>
-                    </div>
-                    """, unsafe_allow_html=True)
-                st.write("")
-
-                # Display codes
-                st.dataframe(codes_df.loc[:, ["CODE_DESCRIPTION", "VOCABULARY", "CODE"]], hide_index=True)
-                st.write(f"Total codes: {len(codes_df)}")
-            
-            else:
-                st.write("No codes found for the selected definition.")
+            codes_df = return_codes_for_given_definition_id_as_df(selected_id)
+            st.write("")
+            st.write("")
+            display_codes_in_selected_definition_simply(codes_df)
 
 
     # TAB 3: COMPARE BETWEEN DEFS

@@ -1,3 +1,5 @@
+from typing import Optional
+
 import pandas as pd
 import streamlit as st
 
@@ -50,12 +52,12 @@ def get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list() -
     SELECT DISTINCT DEFINITION_SOURCE, DEFINITION_ID, DEFINITION_NAME
     FROM {st.session_state.config["definition_library"]["database"]}.
         {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
-    ORDER BY DEFINITION_NAME
+    ORDER BY LOWER(DEFINITION_NAME)
     """
     comparison_definitions = get_data_from_snowflake_to_dataframe(comparison_query)
 
     return comparison_definitions["DEFINITION_ID"].to_list(), [
-        f"[{row['DEFINITION_SOURCE']}] [{row['DEFINITION_ID']}] {row['DEFINITION_NAME']}"
+        f"{row['DEFINITION_NAME']} [{row['DEFINITION_SOURCE']}]"
         for _, row in comparison_definitions.iterrows()
     ]
 
@@ -68,6 +70,8 @@ def return_codes_for_given_definition_id_as_df(chosen_definition_id: str) -> pd.
             CODE_DESCRIPTION,
             VOCABULARY,
             DEFINITION_ID,
+            DEFINITION_NAME,
+            DEFINITION_SOURCE,
             CODELIST_VERSION
         FROM {st.session_state.config["definition_library"]["database"]}.
             {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE

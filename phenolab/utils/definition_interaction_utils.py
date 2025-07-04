@@ -491,6 +491,36 @@ def display_definition_codes_summary(codes_df):
     else:
         st.write("No codes found for the selected definition.")
 
+def display_codes_in_selected_definition_simply(codes_df: pd.DataFrame):
+    if not codes_df.empty:
+            st.markdown(f"""
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="
+                        background-color: #eee;
+                        color: #333;
+                        padding: 4px 10px;
+                        border-radius: 12px;
+                        font-size: 0.85rem;
+                        font-weight: 600;
+                        display: inline-block;
+                    ">
+                        {codes_df.loc[0, 'DEFINITION_SOURCE']}
+                    </span>
+                    <span style="font-weight: 700; font-size: 1rem;">
+                        {codes_df.loc[0, 'DEFINITION_NAME']}
+                    </span>
+                </div>
+                """, unsafe_allow_html=True)
+            st.write("")
+
+            # Display codes
+            st.dataframe(codes_df.loc[:, ["CODE_DESCRIPTION", "VOCABULARY", "CODE"]], hide_index=True)
+            st.write(f"Total codes: {len(codes_df)}")
+            
+    else:
+        st.write("No codes found for the selected definition.")
+
+
 
 @st.cache_data(show_spinner=False)
 def display_definition_from_file(definition_file):
