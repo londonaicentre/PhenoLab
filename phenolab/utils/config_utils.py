@@ -1,7 +1,7 @@
 import os
 
-from dotenv import load_dotenv
 import yaml
+from dotenv import load_dotenv
 import glob
 import pandas as pd
 import streamlit as st
@@ -33,7 +33,7 @@ def load_config() -> dict:
         phenolab_config = phenolab_config_mapping[account_name] + "_" + deploy_env
     else:
         raise EnvironmentError("No matching configuration found for the current Snowflake account.")
-    
+
     with open(f"configs/{phenolab_config}.yml", "r") as fid:
         config = yaml.safe_load(fid)
 

@@ -20,6 +20,10 @@ x page to browse by source
 (2a) CI approach
 x github actions
 x dev and prod
+<<<<<<< HEAD
+=======
+- unit testing
+>>>>>>> main
 
 (2b) ICB table with 'starterpack' model
 x create ICB table

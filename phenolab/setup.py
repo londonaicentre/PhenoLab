@@ -48,12 +48,6 @@ def run_setup(config_file: str, connection_name: str):
     print("Base SUS APC concepts feature created successfully.")
 
 
-
-
-
-
-    
-
 if __name__ == "__main__":
     config_file = 'nel_icb_prod.yml'
     connection_name = 'nel_icb'
