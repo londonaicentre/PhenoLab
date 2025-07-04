@@ -9,3 +9,4 @@ __pycache__
 .ruff_cache
 phenolab/output
 .github/.workflows/prod-deploy.yml
+secrets.toml

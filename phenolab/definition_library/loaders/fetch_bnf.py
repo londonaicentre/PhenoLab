@@ -1,7 +1,9 @@
 
 from pathlib import Path
 from typing import Iterator
+
 import pandas as pd
+
 
 def process_snomed_mappings(xlsx_files):
     """
@@ -14,12 +16,12 @@ def process_snomed_mappings(xlsx_files):
 def preprocess_bnf_data(file_path: str, mapping_files: Iterator[Path], output_path: str):
 
     with open(file_path) as csv_file:
-            bnf_df = pd.read_csv(csv_file, 
-                usecols=["BNF Chemical Substance", 
-                        "BNF Subparagraph Code", 
-                        "BNF Subparagraph", 
+            bnf_df = pd.read_csv(csv_file,
+                usecols=["BNF Chemical Substance",
+                        "BNF Subparagraph Code",
+                        "BNF Subparagraph",
                         "BNF Chemical Substance Code"])
-        
+
     chemical_substances = bnf_df[
         ["BNF Chemical Substance", "BNF Subparagraph Code", "BNF Subparagraph", "BNF Chemical Substance Code"]
     ].drop_duplicates()
@@ -39,14 +41,13 @@ def preprocess_bnf_data(file_path: str, mapping_files: Iterator[Path], output_pa
         right_on="BNF Chemical Substance Code",
     )
     joined_data = joined_data.dropna(subset=["SNOMED Code"])
-    # joined_data.to_csv(f"{output_path}.csv", index=False)
     joined_data.to_parquet(f"{output_path}.parquet", index=False)
 
 if __name__ == "__main__":
     mapping_files = Path("definition_library/loaders/data/bnf_to_snomed/").glob("*.xlsx")
     output_path = "definition_library/loaders/data/bnf_to_snomed/processed_bnf_data"
 
-    preprocess_bnf_data("definition_library/loaders/data/bsa_bnf/20241101_1730476037387_BNF_Code_Information.csv", 
+    preprocess_bnf_data("definition_library/loaders/data/bsa_bnf/20241101_1730476037387_BNF_Code_Information.csv",
         mapping_files, output_path)
 
     print(f"BNF data preprocessed and saved to {output_path}.parquet")

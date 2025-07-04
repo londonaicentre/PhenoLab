@@ -1,11 +1,11 @@
 from datetime import datetime
 
-import pandas as pd
 import git
+import pandas as pd
 
-from utils.definition import Definition
 # from definition_library.loaders.scrape_open_codelists import return_version_id_from_open_codelist_url
 from scrape_open_codelists import return_version_id_from_open_codelist_url
+from utils.definition import Definition
 
 definitions_to_load = {
     "https://www.opencodelists.org/codelist/opensafely/hypertension-snomed/2020-04-28/":
@@ -123,6 +123,6 @@ def retreive_open_codelists_definitions_from_list(definition_list: list) -> pd.D
 
 if __name__ == "__main__":
     df = retreive_open_codelists_definitions_from_list(definitions_to_load)
-    path = "definition_library/loaders/data/open_codelists_compiled/open_codelists_definitions.csv"
-    df.to_csv(path, index=False)
-    print(f"HDRUK definitions saved to {path}")
+    path = "definition_library/loaders/data/open_codelists_compiled/open_codelists_definitions.parquet"
+    df.to_parquet(path, index=False)
+    print(f"Open Codelists definitions saved to {path}")
