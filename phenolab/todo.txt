@@ -66,7 +66,7 @@ x should probably extract all session fetching and just put it in session_state 
 x could make one function that did all the page setting up/checking the session_state e.g. for the configs
 
 (5d) search definitions page
-- page to search definition titles and then see codes within
+x page to search definition titles and then see codes within
 
 (6) delete definition option
 - add tab to page 2 to delete definition versions, both jsons and on database
@@ -147,8 +147,8 @@ x take out feature store manager
 x use latest version
 
 (5) Extra features
-- search definitions
-- delete definitions
+x search definitions
+- delete definitions (then need to also be removing them from DB on load)
 
 (6) phenotypes
 x remove
@@ -176,7 +176,7 @@ x fix in dev
 (11) tidying up
 - test both deployments and check they work without phmlondon
 - add git lfs to readme/ mega CSV to parquet
-- read me clean up (x2)
+x read me clean up (x2)
 - consider: https://medium.com/@emily-nguyen/streamlit-in-snowflake-sis-managing-session-context-for-simplified-development-e5f9fa7e3008
 
 (12) finishing

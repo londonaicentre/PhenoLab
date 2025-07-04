@@ -39,7 +39,8 @@ def preprocess_bnf_data(file_path: str, mapping_files: Iterator[Path], output_pa
         right_on="BNF Chemical Substance Code",
     )
     joined_data = joined_data.dropna(subset=["SNOMED Code"])
-    joined_data.to_csv(f"{output_path}.csv", index=False)
+    # joined_data.to_csv(f"{output_path}.csv", index=False)
+    joined_data.to_parquet(f"{output_path}.parquet", index=False)
 
 if __name__ == "__main__":
     mapping_files = Path("definition_library/loaders/data/bnf_to_snomed/").glob("*.xlsx")
@@ -48,4 +49,4 @@ if __name__ == "__main__":
     preprocess_bnf_data("definition_library/loaders/data/bsa_bnf/20241101_1730476037387_BNF_Code_Information.csv", 
         mapping_files, output_path)
 
-    print(f"BNF data preprocessed and saved to {output_path}.csv")
+    print(f"BNF data preprocessed and saved to {output_path}.parquet")

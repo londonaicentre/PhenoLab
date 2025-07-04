@@ -14,7 +14,8 @@ def build_definitions(input_path: str) -> pd.DataFrame:
     Build definitions from BNF chemical substances and SNOMED mappings
     """
 
-    joined_data = pd.read_csv(f"{input_path}.csv")
+    # joined_data = pd.read_csv(f"{input_path}.csv")
+    joined_data = pd.read_parquet(f"{input_path}.parquet")
 
     definitions = []
     current_datetime = datetime.now()
