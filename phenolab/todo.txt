@@ -83,7 +83,6 @@ x fill on load
 x per ICB
 x deployment versions -> viewer for ICBs
 x version for us -> disentangle counts??
-- base feature tables then needs to create from tables not configs
 x need button for us to update configs?
 x why is ai_centre-definitions in dev version empty?
 

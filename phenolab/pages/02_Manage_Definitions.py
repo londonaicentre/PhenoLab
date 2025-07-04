@@ -195,7 +195,7 @@ def main():
 
         col1, col2 = st.columns([1, 1])
         with col1:
-            display_unified_code_browser(code_types, st.session_state.config, key_suffix="create")
+            display_unified_code_browser(code_types, key_suffix="create")
         with col2:
             display_selected_codes(key_suffix="create")
 
@@ -210,7 +210,7 @@ def main():
 
         col1, col2 = st.columns([1, 1])
         with col1:
-            display_unified_code_browser(code_types, st.session_state.config, key_suffix="edit")
+            display_unified_code_browser(code_types, key_suffix="edit")
         with col2:
             display_selected_codes(key_suffix="edit")
 

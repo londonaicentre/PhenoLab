@@ -166,14 +166,71 @@ def main():
     st.title("Browse and compare definitions")
 
     # create tabs for each section
-    view_tab, compare_tab = st.tabs(["View Definitions", "Compare Definitions"])
+    view_tab, search_tab, compare_tab = st.tabs(["View Definitions", "Search Definitions", "Compare Definitions"])
 
     # TAB 1: LIST AIC DEFS
     with view_tab:
         # view_aic_definitions()
         view_definitions()
 
-    # TAB 2: COMPARE BETWEEN DEFS
+    # TAB 2: SEARCH DEFINITIONS
+    with search_tab:
+        definition_ids, definition_labels = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list()
+        selected_definition = st.selectbox("Search for a definition", options=definition_labels, 
+            label_visibility="hidden",placeholder="Start typing to search for a definition", index=None)
+        if selected_definition:
+            selected_id = definition_ids[definition_labels.index(selected_definition)]
+            codes_query = f"""
+            SELECT DISTINCT
+                CODE,
+                CODE_DESCRIPTION,
+                VOCABULARY,
+                DEFINITION_ID,
+                DEFINITION_NAME,
+                DEFINITION_SOURCE,
+                CODELIST_VERSION
+            FROM INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.DEFINITIONSTORE
+            WHERE DEFINITION_ID = '{selected_id}'
+            ORDER BY VOCABULARY, CODE
+            """
+
+            codes_df = st.session_state.session.sql(codes_query).to_pandas()
+
+            if not codes_df.empty:
+                # st.write("Definition details:")
+                # st.dataframe(codes_df.loc[:, ["DEFINITION_ID", "CODELIST_VERSION", "VOCABULARY"]].drop_duplicates())
+                st.write("")
+                st.write("")
+
+                st.markdown(f"""
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="
+                            background-color: #eee;
+                            color: #333;
+                            padding: 4px 10px;
+                            border-radius: 12px;
+                            font-size: 0.85rem;
+                            font-weight: 600;
+                            display: inline-block;
+                        ">
+                            {codes_df.loc[0, 'DEFINITION_SOURCE']}
+                        </span>
+                        <span style="font-weight: 700; font-size: 1rem;">
+                            {codes_df.loc[0, 'DEFINITION_NAME']}
+                        </span>
+                    </div>
+                    """, unsafe_allow_html=True)
+                st.write("")
+
+                # Display codes
+                st.dataframe(codes_df.loc[:, ["CODE_DESCRIPTION", "VOCABULARY", "CODE"]], hide_index=True)
+                st.write(f"Total codes: {len(codes_df)}")
+            
+            else:
+                st.write("No codes found for the selected definition.")
+
+
+    # TAB 3: COMPARE BETWEEN DEFS
     with compare_tab:
         compare_definitions()
      

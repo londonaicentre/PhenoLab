@@ -585,8 +585,8 @@ def update_aic_definitions_table(verbose: bool = True):
                                 overwrite=False,
                                 use_logical_type=True) # use_logical_type=True is needed to handle datetime cols correctly
             print(f"Uploaded {len(all_rows)} rows to "
-                f"{st.session_state.config["definition_library"]["database"]}."
-                f"{st.session_state.config["definition_library"]["schema"]}.AIC_DEFINITIONS table")
+                f"{st.session_state.config['definition_library']['database']}."
+                f"{st.session_state.config['definition_library']['schema']}.AIC_DEFINITIONS table")
             if verbose:
                 st.success(f"Successfully uploaded new definitions {definitions_to_add} to the AIC definition library")
 
