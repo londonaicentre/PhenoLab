@@ -1,8 +1,9 @@
 import pandas as pd
-from snowflake.snowpark import Session
 from snowflake.connector.errors import ProgrammingError
+from snowflake.snowpark import Session
 
-def create_definition_table(session: Session, table_name: str, 
+
+def create_definition_table(session: Session, table_name: str,
         database: str = "INTELLIGENCE_DEV", schema: str = "AI_CENTRE_DEFINITION_LIBRARY"):
     """
     Creates a definition table if it doesn't exist.
@@ -36,7 +37,7 @@ def create_definition_table(session: Session, table_name: str,
     print("Target table ensured")
 
 
-def create_temp_definition_table(session: Session, df: pd.DataFrame, table_name: str, 
+def create_temp_definition_table(session: Session, df: pd.DataFrame, table_name: str,
         database: str = "INTELLIGENCE_DEV", schema: str = "AI_CENTRE_DEFINITION_LIBRARY"):
     """
     Creates a temporary table from a pandas DataFrame.
@@ -55,12 +56,12 @@ def create_temp_definition_table(session: Session, df: pd.DataFrame, table_name:
     """
     temp_table = f"TEMP_{table_name}"
     try:
-        session.write_pandas(df, table_name=temp_table, overwrite=True, table_type="temporary", 
+        session.write_pandas(df, table_name=temp_table, overwrite=True, table_type="temporary",
             use_logical_type=True, database=database, schema=schema)
     except ProgrammingError:
         # Snowflake on streamlit does not allow temporary tables, so we use a normal table
         # There's a manual drop of this table after the merge
-        session.write_pandas(df, table_name=temp_table, overwrite=True, 
+        session.write_pandas(df, table_name=temp_table, overwrite=True,
             use_logical_type=True, database=database, schema=schema)
     print("Loaded data to temporary table")
 
@@ -107,7 +108,7 @@ def merge_definition_tables(
     print("Merged data into main table")
 
 
-def load_definitions_to_snowflake(session: Session, df: pd.DataFrame, table_name: str, 
+def load_definitions_to_snowflake(session: Session, df: pd.DataFrame, table_name: str,
         database: str = "INTELLIGENCE_DEV", schema: str = "AI_CENTRE_DEFINITION_LIBRARY"):
     """
     Loads definition data to Snowflake using staging pattern.

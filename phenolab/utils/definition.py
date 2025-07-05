@@ -48,6 +48,7 @@ vocabularies and we want to standardise things
 """
 vocab_mappings = {
     "SNOMED CT codes": VocabularyType.SNOMED,  # HDRUK
+    "SNOMED  CT codes": VocabularyType.SNOMED,  # HDRUK - data quality issue with extra spaces
     "ICD10 codes": VocabularyType.ICD10,  # HDRUK
     "Read codes v2": VocabularyType.READV2,  # HDRUK
     "Med codes": VocabularyType.MEDCODE,  # HDRUK

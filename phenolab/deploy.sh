@@ -34,8 +34,8 @@ cat snowflake.yml
 if [ "$DEPLOY_ENV" == "prod" ]; then
   echo "Deploying to production environment..."
   echo "DEPLOY_ENV=$DEPLOY_ENV" > .env
-  snow streamlit deploy --database "INTELLIGENCE_DEV" --schema "AI_CENTRE_DEV" --replace 
-  # Could just be snow streamlit deploy --replace as the default database and schema are specified in the CLI config, 
+  snow streamlit deploy --database "INTELLIGENCE_DEV" --schema "AI_CENTRE_DEV" --replace
+  # Could just be snow streamlit deploy --replace as the default database and schema are specified in the CLI config,
   # but for clarity
 elif [ "$DEPLOY_ENV" == "dev" ]; then
   echo "Deploying to DEV environment..."
@@ -45,9 +45,22 @@ fi
 
 # Check if the deployment was successful
 if [ $? -eq 0 ]; then
-  echo "Deployment succeeded."
+  echo "Streamlit deployment succeeded."
+
+  # runs setup.py to load all tables and definitions
+  echo "Running setup.py to load definitions and configurations..."
+  python setup.py $DEPLOY_ENV ${ICB}_icb
+
+  if [ $? -eq 0 ]; then
+    echo "Setup completed successfully."
+    echo "Deployment fully completed."
+  else
+    echo "Setup failed."
+    exit 1
+  fi
 else
-  echo "Deployment failed."
+  echo "Streamlit deployment failed."
+  exit 1
 fi
 
 rm snowflake.yml
