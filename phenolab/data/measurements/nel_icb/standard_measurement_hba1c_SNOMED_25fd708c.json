@@ -6,6 +6,8 @@
     "mmol/mol"
   ],
   "primary_standard_unit": "mmol/mol",
+  "lower_limit": null,
+  "upper_limit": null,
   "unit_mappings": [
     {
       "source_unit": "mmol/mol",
@@ -1102,6 +1104,14 @@
       "source_unit_lq": 54.0,
       "source_unit_median": 54.0,
       "source_unit_uq": 54.0
+    },
+    {
+      "source_unit": "mmols/mmol",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 64.0,
+      "source_unit_median": 64.0,
+      "source_unit_uq": 64.0
     }
   ],
   "unit_conversions": [
@@ -1114,7 +1124,7 @@
     }
   ],
   "created_datetime": "2025-05-19T23:23:56.063613",
-  "updated_datetime": "2025-05-31T23:30:11.626734",
+  "updated_datetime": "2025-07-05T16:14:02.000780",
   "standard_measurement_config_id": "25fd708c",
-  "standard_measurement_config_version": "measurement_hba1c_SNOMED_20250531_233011"
+  "standard_measurement_config_version": "measurement_hba1c_SNOMED_20250705_161402"
 }

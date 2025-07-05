@@ -928,6 +928,14 @@
       "source_unit_lq": 10.4,
       "source_unit_median": 10.4,
       "source_unit_uq": 10.4
+    },
+    {
+      "source_unit": "mmols/mmol",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 64.0,
+      "source_unit_median": 64.0,
+      "source_unit_uq": 64.0
     }
   ],
   "unit_conversions": [
@@ -940,7 +948,7 @@
     }
   ],
   "created_datetime": "2025-05-30T23:58:04.184918",
-  "updated_datetime": "2025-07-04T13:16:59.222342",
+  "updated_datetime": "2025-07-05T16:13:52.919978",
   "standard_measurement_config_id": "6ae294cb",
-  "standard_measurement_config_version": "measurement_hba1c_with_readings_snomed_20250704_131659"
+  "standard_measurement_config_version": "measurement_hba1c_with_readings_snomed_20250705_161352"
 }
