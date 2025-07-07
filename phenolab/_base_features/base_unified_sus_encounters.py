@@ -35,6 +35,56 @@ FROM PROD_DWH.ANALYST_FACTS_UNIFIED_SUS.SUS_AND_UNIFIED_SUS_COMPLETE_DATASET s
 INNER JOIN patient_mapping p ON s.SK_PATIENTID = p.SK_PATIENTID
 """
 
+BASE_ENCOUNTER_TYPE_AE_ARRIVAL_SQL = """
+SELECT
+    ENCOUNTER_ID,
+    PERSON_ID,
+    ACTIVITY_DATE,
+    ARRIVAL_MODE
+FROM BASE_UNIFIED_SUS_ENCOUNTERS
+WHERE ENCOUNTER_TYPE = 'AE'
+"""
+
+BASE_ENCOUNTER_TYPE_AE_HRG_SQL = """
+SELECT
+    ENCOUNTER_ID,
+    PERSON_ID,
+    ACTIVITY_DATE,
+    HRG_NAME
+FROM BASE_UNIFIED_SUS_ENCOUNTERS
+WHERE ENCOUNTER_TYPE = 'AE'
+"""
+
+BASE_ENCOUNTER_TYPE_OPD_FUNCTION_SQL = """
+SELECT
+    ENCOUNTER_ID,
+    PERSON_ID,
+    ACTIVITY_DATE,
+    TREATMENT_FUNCTION_DESCRIPTION
+FROM BASE_UNIFIED_SUS_ENCOUNTERS
+WHERE ENCOUNTER_TYPE = 'Outpatient'
+"""
+
+BASE_ENCOUNTER_TYPE_INPT_LOS_SQL = """
+SELECT
+    ENCOUNTER_ID,
+    PERSON_ID,
+    ACTIVITY_DATE,
+    LENGTH_OF_STAY
+FROM BASE_UNIFIED_SUS_ENCOUNTERS
+WHERE ENCOUNTER_TYPE = 'Inpatient'
+"""
+
+BASE_ENCOUNTER_TYPE_INPT_METHOD_SQL = """
+SELECT
+    ENCOUNTER_ID,
+    PERSON_ID,
+    ACTIVITY_DATE,
+    ADMISSION_METHOD
+FROM BASE_UNIFIED_SUS_ENCOUNTERS
+WHERE ENCOUNTER_TYPE = 'Inpatient'
+"""
+
 
 def main():
     """
@@ -59,7 +109,23 @@ def main():
 
             print(f"BASE_UNIFIED_SUS_ENCOUNTERS table created successfully in {schema}.")
 
-        print("All BASE_UNIFIED_SUS_ENCOUNTERS tables created successfully.")
+            # Create views
+            views = [
+                ("BASE_ENCOUNTER_TYPE_AE_ARRIVAL", BASE_ENCOUNTER_TYPE_AE_ARRIVAL_SQL),
+                ("BASE_ENCOUNTER_TYPE_AE_HRG", BASE_ENCOUNTER_TYPE_AE_HRG_SQL),
+                ("BASE_ENCOUNTER_TYPE_OPD_FUNCTION", BASE_ENCOUNTER_TYPE_OPD_FUNCTION_SQL),
+                ("BASE_ENCOUNTER_TYPE_INPT_LOS", BASE_ENCOUNTER_TYPE_INPT_LOS_SQL),
+                ("BASE_ENCOUNTER_TYPE_INPT_METHOD", BASE_ENCOUNTER_TYPE_INPT_METHOD_SQL)
+            ]
+
+            for view_name, view_sql in views:
+                session.sql(f"""
+                    CREATE OR REPLACE VIEW {DATABASE}.{schema}.{view_name} AS
+                    {view_sql}
+                """).collect()
+                print(f"{view_name} view created successfully in {schema}.")
+
+        print("All BASE_UNIFIED_SUS_ENCOUNTERS tables and views created successfully.")
 
     except Exception as e:
         print(f"Error creating BASE_UNIFIED_SUS_ENCOUNTERS table: {e}")
