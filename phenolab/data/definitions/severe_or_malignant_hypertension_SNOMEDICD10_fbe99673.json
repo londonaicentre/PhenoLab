@@ -1,0 +1,651 @@
+{
+  "definition_id": "fbe99673",
+  "definition_name": "severe_or_malignant_hypertension_SNOMEDICD10",
+  "definition_version": "severe_or_malignant_hypertension_SNOMEDICD10_20250707_110100",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-07-07T11:01:00.057813",
+  "codelists": [
+    {
+      "codelist_id": "severe_or_malignant_hypertension_SNOMEDICD10_ICD10_aeb6670e",
+      "codelist_name": "severe_or_malignant_hypertension_SNOMEDICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "severe_or_malignant_hypertension_SNOMEDICD10_ICD10_aeb6670e_20250707_104243",
+      "codes": [
+        {
+          "code": "I12.0",
+          "code_description": "Hypertensive renal disease with renal failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I12.9",
+          "code_description": "Hypertensive renal disease without renal failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I11.0",
+          "code_description": "Hypertensive heart disease with (congestive) heart failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I11.9",
+          "code_description": "Hypertensive heart disease without (congestive) heart failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I13.2",
+          "code_description": "Hypertensive heart and renal disease with both (congestive) heart failure and renal failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I67.4",
+          "code_description": "Hypertensive encephalopathy",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I13.1",
+          "code_description": "Hypertensive heart and renal disease with renal failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I13.9",
+          "code_description": "Hypertensive heart and renal disease, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I13.0",
+          "code_description": "Hypertensive heart and renal disease with (congestive) heart failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "O10.1",
+          "code_description": "Pre-existing hypertensive heart disease complicating pregnancy, childbirth and the puerperium",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "O10.2",
+          "code_description": "Pre-existing hypertensive renal disease complicating pregnancy, childbirth and the puerperium",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "O10.3",
+          "code_description": "Pre-existing hypertensive heart and renal disease complicating pregnancy, childbirth and the puerperium",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I13",
+          "code_description": "Hypertensive heart and renal disease",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I11",
+          "code_description": "Hypertensive heart disease",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I12",
+          "code_description": "Hypertensive renal disease",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    },
+    {
+      "codelist_id": "severe_or_malignant_hypertension_SNOMEDICD10_SNOMED_b96eff29",
+      "codelist_name": "severe_or_malignant_hypertension_SNOMEDICD10_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "severe_or_malignant_hypertension_SNOMEDICD10_SNOMED_b96eff29_20250707_104650",
+      "codes": [
+        {
+          "code": "78975002",
+          "code_description": "Malignant essential hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "70272006",
+          "code_description": "Malignant hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10562009",
+          "code_description": "Malignant hypertension complicating AND/OR reason for care during childbirth (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "465101000000102",
+          "code_description": "Renal vascular disease due to malignant hypertension (no primary renal disease) associated with renal failure - European Dialysis and Transplant Association (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "23786008",
+          "code_description": "Malignant hypertension complicating AND/OR reason for care during puerperium (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "81626002",
+          "code_description": "Malignant hypertension in obstetric context (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "29259002",
+          "code_description": "Malignant hypertension complicating AND/OR reason for care during pregnancy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "155301003",
+          "code_description": "Malignant hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "286951002",
+          "code_description": "Malignant hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "843841000000109",
+          "code_description": "Severe hypertension (National Institute for Health and Clinical Excellence 2011) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "843851000000107",
+          "code_description": "Severe hypertension ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "6962006",
+          "code_description": "Hypertensive retinopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "38481006",
+          "code_description": "Hypertensive renal disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "64715009",
+          "code_description": "Hypertensive heart disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "50490005",
+          "code_description": "Hypertensive encephalopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "706882009",
+          "code_description": "Hypertensive crisis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "443482000",
+          "code_description": "Hypertensive urgency (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194774006",
+          "code_description": "Hypertensive renal disease with renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194780003",
+          "code_description": "Hypertensive heart and renal disease with renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "65443008",
+          "code_description": "Malignant hypertensive renal disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "132721000119104",
+          "code_description": "Hypertensive emergency (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "36221001",
+          "code_description": "Benign hypertensive heart disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194767001",
+          "code_description": "Benign hypertensive heart disease with congestive cardiac failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "193003",
+          "code_description": "Benign hypertensive renal disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "54225002",
+          "code_description": "Malignant hypertensive heart disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "264008",
+          "code_description": "Blind hypertensive eye (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "83105008",
+          "code_description": "Malignant hypertensive heart disease with congestive heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "199006004",
+          "code_description": "Pre-existing hypertensive heart disease complicating pregnancy, childbirth and the puerperium (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "66610008",
+          "code_description": "Malignant hypertensive heart AND renal disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "86234004",
+          "code_description": "Hypertensive heart AND renal disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "66052004",
+          "code_description": "Benign hypertensive heart AND renal disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "36315003",
+          "code_description": "Malignant hypertensive heart disease without congestive heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194779001",
+          "code_description": "Hypertensive heart and renal disease with (congestive) heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194781004",
+          "code_description": "Hypertensive heart and renal disease with both (congestive) heart failure and renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "96731000119100",
+          "code_description": "Hypertensive heart AND chronic kidney disease stage 3 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "77970009",
+          "code_description": "Benign hypertensive heart disease without congestive heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "96711000119105",
+          "code_description": "Hypertensive heart AND chronic kidney disease stage 5 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "96701000119107",
+          "code_description": "Hypertensive heart AND chronic kidney disease on dialysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "286371000119107",
+          "code_description": "Malignant hypertensive end stage renal disease on dialysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194771003",
+          "code_description": "Hypertensive heart disease NOS with congestive cardiac failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "285861000119100",
+          "code_description": "Malignant hypertensive chronic kidney disease stage 2 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "599261000000102",
+          "code_description": "Hypertensive heart disease NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194777004",
+          "code_description": "Malignant hypertensive heart AND renal disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "155408008",
+          "code_description": "Hypertensive encephalopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "5148006",
+          "code_description": "Hypertensive heart disease with congestive heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194778009",
+          "code_description": "Benign hypertensive heart AND renal disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "96751000119106",
+          "code_description": "Hypertensive heart AND chronic kidney disease stage 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194768006",
+          "code_description": "Benign hypertensive heart disease NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "285831000119108",
+          "code_description": "Malignant hypertensive chronic kidney disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "645711000000108",
+          "code_description": "Malignant hypertensive heart disease NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15781000119107",
+          "code_description": "Hypertensive heart AND chronic kidney disease with congestive heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194765009",
+          "code_description": "Benign hypertensive heart disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "698591006",
+          "code_description": "Benign hypertensive renal disease with renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194772005",
+          "code_description": "Hypertensive heart disease NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "57873008",
+          "code_description": "Hypertensive renal disease complicating AND/OR reason for care during puerperium (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "66709007",
+          "code_description": "Hypertensive renal disease complicating AND/OR reason for care during pregnancy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "199007008",
+          "code_description": "Pre-existing hypertensive heart and renal disease complicating pregnancy, childbirth and the puerperium (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "155298002",
+          "code_description": "Hypertensive renal disease (& [nephrosclerosis]) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "662181000000100",
+          "code_description": "Hypertensive renal disease NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194776008",
+          "code_description": "Hypertensive heart AND renal disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "60899001",
+          "code_description": "Hypertensive heart disease without congestive heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "96721000119103",
+          "code_description": "Hypertensive heart AND chronic kidney disease stage 4 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194764008",
+          "code_description": "Malignant hypertensive heart disease NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "193356005",
+          "code_description": "Hypertensive retinopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195225002",
+          "code_description": "Hypertensive: [encephalopathy] or [crisis] (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "155299005",
+          "code_description": "Hypertensive heart and renal disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "428163005",
+          "code_description": "Hypertensive left ventricular hypertrophy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10757441000119102",
+          "code_description": "Pre-existing hypertensive heart disease in mother complicating childbirth (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "49102001",
+          "code_description": "Hypertensive heart AND renal disease in obstetric context (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "20753005",
+          "code_description": "Hypertensive heart disease complicating AND/OR reason for care during pregnancy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "684221000000101",
+          "code_description": "Hypertensive heart disease NOS without congestive cardiac failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "153851000119106",
+          "code_description": "Malignant hypertensive chronic kidney disease stage 5 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194769003",
+          "code_description": "Hypertensive heart disease NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "59733002",
+          "code_description": "Hypertensive heart disease complicating AND/OR reason for care during childbirth (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "285841000119104",
+          "code_description": "Malignant hypertensive end stage renal disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10757481000119107",
+          "code_description": "Pre-existing hypertensive heart and chronic kidney disease in mother complicating pregnancy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "77737007",
+          "code_description": "Benign hypertensive heart disease with congestive heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "73030000",
+          "code_description": "Hypertensive renal disease in obstetric context (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "34273003",
+          "code_description": "Hypertensive heart disease complicating AND/OR reason for care during puerperium (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "46113002",
+          "code_description": "Hypertensive heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "473392002",
+          "code_description": "Hypertensive nephrosclerosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "193358006",
+          "code_description": "Hypertensive retinopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1474004",
+          "code_description": "Hypertensive heart AND renal disease complicating AND/OR reason for care during childbirth (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "698810000",
+          "code_description": "Hypertensive renal disease with end stage renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "599281000000106",
+          "code_description": "Hypertensive heart and renal disease NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194761000",
+          "code_description": "Malignant hypertensive heart disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266229007",
+          "code_description": "Hypertensive heart disease NOS without congestive cardiac failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "49220004",
+          "code_description": "Hypertensive renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "96741000119109",
+          "code_description": "Hypertensive heart AND chronic kidney disease stage 2 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194763002",
+          "code_description": "Malignant hypertensive heart disease with congestive cardiac failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266230002",
+          "code_description": "Hypertensive renal disease NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15614009",
+          "code_description": "Hypertensive ischemic ulcer (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194773000",
+          "code_description": "Hypertensive renal disease (& [nephrosclerosis]) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194762007",
+          "code_description": "Malignant hypertensive heart disease without congestive cardiac failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "22966008",
+          "code_description": "Hypertensive heart AND renal disease complicating AND/OR reason for care during pregnancy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "155108001",
+          "code_description": "Hypertensive retinopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "645721000000102",
+          "code_description": "Benign hypertensive heart disease NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "599271000000109",
+          "code_description": "Hypertensive heart disease NOS with congestive cardiac failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "421731000",
+          "code_description": "Hypertensive optic neuropathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "155297007",
+          "code_description": "Hypertensive heart disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10759031000119106",
+          "code_description": "Pre-existing hypertensive heart disease in mother complicating pregnancy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "285851000119102",
+          "code_description": "Malignant hypertensive chronic kidney disease stage 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1259531005",
+          "code_description": "Dementia due to hypertensive encephalopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10757401000119104",
+          "code_description": "Pre-existing hypertensive heart and chronic kidney disease in mother complicating childbirth (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "8501000119104",
+          "code_description": "Hypertensive heart and chronic kidney disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "49171007",
+          "code_description": "Hypertensive renal disease complicating AND/OR reason for care during childbirth (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194782006",
+          "code_description": "Hypertensive heart and renal disease NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "79355007",
+          "code_description": "Hypertensive heart disease in obstetric context (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "285871000119106",
+          "code_description": "Malignant hypertensive chronic kidney disease stage 3 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "11511004",
+          "code_description": "Hypertensive heart AND renal disease complicating AND/OR reason for care during puerperium (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

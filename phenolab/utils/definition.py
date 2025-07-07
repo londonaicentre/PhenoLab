@@ -453,20 +453,13 @@ class Definition:
         """
         os.makedirs(directory, exist_ok=True)
 
-        # filename = f"{self.definition_name}_{self.definition_id}.json"
-        filename = f"{self.definition_version}.json"
+        filename = f"{self.definition_name}_{self.definition_id}.json"
         filepath = os.path.join(directory, filename)
-        print(f"Saving json to {filepath} unless files exists and matches current definition")
+        print(f"Saving json to {filepath}")
 
-        # check if file exists
-        if os.path.exists(filepath):
-            existing_definition = Definition.from_json(filepath)
-            if self == existing_definition:
-                print("Existing file with same definition found, no need to save")
-                return filepath
-
-        # update version - a version number is only created when the definition is saved to json
+        # update version - always update version_datetime when saving
         self.version_datetime = datetime.now()
+        self.update_version()  # also updates definition_version with timestamp
 
         with open(filepath, "w") as f:
             json.dump(self.to_dict(), f, indent=2)

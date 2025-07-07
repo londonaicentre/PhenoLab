@@ -1,0 +1,88 @@
+{
+  "definition_id": "b67f66a1",
+  "definition_name": "chronic_obstructive_pulmonary_disease_ICD10",
+  "definition_version": "chronic_obstructive_pulmonary_disease_ICD10_20250707_122846",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-07-07T12:28:46.628229",
+  "codelists": [
+    {
+      "codelist_id": "chronic_obstructive_pulmonary_disease_ICD10_ICD10_012b913f",
+      "codelist_name": "chronic_obstructive_pulmonary_disease_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "chronic_obstructive_pulmonary_disease_ICD10_ICD10_012b913f_20250707_122750",
+      "codes": [
+        {
+          "code": "J44.0",
+          "code_description": "Chronic obstructive pulmonary disease with acute lower respiratory infection",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J44.9",
+          "code_description": "Chronic obstructive pulmonary disease, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J44.1",
+          "code_description": "Chronic obstructive pulmonary disease with acute exacerbation, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J44.8",
+          "code_description": "Other specified chronic obstructive pulmonary disease",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J44",
+          "code_description": "Other chronic obstructive pulmonary disease",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J42",
+          "code_description": "Unspecified chronic bronchitis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J41.0",
+          "code_description": "Simple chronic bronchitis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J41.1",
+          "code_description": "Mucopurulent chronic bronchitis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J41",
+          "code_description": "Simple and mucopurulent chronic bronchitis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J41.8",
+          "code_description": "Mixed simple and mucopurulent chronic bronchitis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J43.9",
+          "code_description": "Emphysema, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J43.8",
+          "code_description": "Other emphysema",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J43.1",
+          "code_description": "Panlobular emphysema",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J43",
+          "code_description": "Emphysema",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

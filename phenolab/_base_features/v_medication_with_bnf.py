@@ -7,12 +7,12 @@ SELECT DISTINCT
     m.PERSON_ID,
     m.CLINICAL_EFFECTIVE_DATE,
     m.BNF_REFERENCE,
-    b."BNF Subparagraph Code" AS BNF_SUBPARAGRAPH_CODE,
-    b."BNF Subparagraph" AS BNF_NAME
+    b.BNF_PARAGRAPH_CODE,
+    b.BNF_NAME
 FROM PROD_DWH.ANALYST_PRIMARY_CARE.MEDICATION_STATEMENT m
-LEFT JOIN INTELLIGENCE_DEV.AI_CENTRE_DEV.BSA_BNF_LOOKUP b
-    ON m.BNF_REFERENCE = LEFT(b."BNF Subparagraph Code", 6)
-WHERE m.BNF_REFERENCE IS NOT NULL
+LEFT JOIN INTELLIGENCE_DEV.AI_CENTRE_DEV.BSA_BNF_LOOKUP_STD b
+    ON m.BNF_REFERENCE = b.BNF_REFERENCE
+WHERE m.BNF_REFERENCE IS NOT NULL;
 """
 
 
@@ -30,19 +30,19 @@ def main():
        session = Session.builder.config("connection_name", CONNECTION_NAME).create()
 
        for schema in SCHEMAS:
-           print(f"Creating BASE_BNF_STATEMENT table in {DATABASE}.{schema}...")
+           print(f"Creating V_MEDICATION_WITH_BNF view in {DATABASE}.{schema}...")
 
            session.sql(f"""
-               CREATE OR REPLACE TABLE {DATABASE}.{schema}.BASE_BNF_STATEMENT AS
+               CREATE OR REPLACE VIEW {DATABASE}.{schema}.V_MEDICATION_WITH_BNF AS
                {BASE_BNF_STATEMENT_SQL}
            """).collect()
 
-           print(f"BASE_BNF_STATEMENT table created successfully in {schema}.")
+           print(f"V_MEDICATION_WITH_BNF table created successfully in {schema}.")
 
-       print("All BASE_BNF_STATEMENT tables created successfully.")
+       print("All V_MEDICATION_WITH_BNF views created successfully.")
 
    except Exception as e:
-       print(f"Error creating BASE_BNF_STATEMENT table: {e}")
+       print(f"Error creating V_MEDICATION_WITH_BNF view: {e}")
        raise e
    finally:
        session.close()

@@ -1,0 +1,436 @@
+{
+  "definition_id": "83c3d249",
+  "definition_name": "essential_hypertension_SNOMEDICD10",
+  "definition_version": "essential_hypertension_SNOMEDICD10_20250707_104209",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-07-07T10:42:09.352303",
+  "codelists": [
+    {
+      "codelist_id": "essential_hypertension_SNOMEDICD10_SNOMED_a27debc8",
+      "codelist_name": "essential_hypertension_SNOMEDICD10_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "essential_hypertension_SNOMEDICD10_SNOMED_a27debc8_20250707_102900",
+      "codes": [
+        {
+          "code": "59621000",
+          "code_description": "Essential hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401118009",
+          "code_description": "Hypertension annual review (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "473225006",
+          "code_description": "Hypertension medication review (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "275944005",
+          "code_description": "Hypertension monitoring (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "302192008",
+          "code_description": "On treatment for hypertension (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "908631000000108",
+          "code_description": "Stage 1 hypertension (National Institute for Health and Clinical Excellence 2011) without evidence of end organ damage (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "56218007",
+          "code_description": "Systolic hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "846371000000103",
+          "code_description": "Stage 2 hypertension (National Institute for Health and Clinical Excellence 2011) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "170586008",
+          "code_description": "Treatment for hypertension started (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "78975002",
+          "code_description": "Malignant essential hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401117004",
+          "code_description": "Moderate hypertension control (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "70272006",
+          "code_description": "Malignant hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "48146000",
+          "code_description": "Diastolic hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401047000",
+          "code_description": "Hypertension treatment declined (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "843841000000109",
+          "code_description": "Severe hypertension (National Institute for Health and Clinical Excellence 2011) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "908651000000101",
+          "code_description": "Stage 1 hypertension (National Institute for Health and Clinical Excellence 2011) with evidence of end organ damage (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10562009",
+          "code_description": "Malignant hypertension complicating AND/OR reason for care during childbirth (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10725009",
+          "code_description": "Benign hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10757401000119104",
+          "code_description": "Pre-existing hypertensive heart and chronic kidney disease in mother complicating childbirth (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1078301000112109",
+          "code_description": "Multiple drug intolerant hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "118781000119108",
+          "code_description": "Pre-existing hypertensive chronic kidney disease in mother complicating pregnancy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1201005",
+          "code_description": "Benign essential hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16229371000119106",
+          "code_description": "Labile systemic arterial hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "18416000",
+          "code_description": "Essential hypertension complicating AND/OR reason for care during childbirth (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "19769006",
+          "code_description": "High-renin essential hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "198942000",
+          "code_description": "Benign essential hypertension complicating pregnancy, childbirth and the puerperium (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "198944004",
+          "code_description": "Benign essential hypertension complicating pregnancy, childbirth and the puerperium - delivered (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "198945003",
+          "code_description": "Benign essential hypertension complicating pregnancy, childbirth and the puerperium - delivered with postnatal complication (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "198946002",
+          "code_description": "Benign essential hypertension complicating pregnancy, childbirth and the puerperium - not delivered (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "198947006",
+          "code_description": "Benign essential hypertension complicating pregnancy, childbirth and the puerperium with postnatal complication (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "198997005",
+          "code_description": "Pre-eclampsia or eclampsia with pre-existing hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "198999008",
+          "code_description": "Pre-eclampsia or eclampsia with pre-existing hypertension - delivered (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "199000005",
+          "code_description": "Pre-eclampsia or eclampsia with pre-existing hypertension - delivered with postnatal complication (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "199002002",
+          "code_description": "Pre-eclampsia or eclampsia with pre-existing hypertension - not delivered (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "199003007",
+          "code_description": "Pre-eclampsia or eclampsia with pre-existing hypertension with postnatal complication (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "199005000",
+          "code_description": "Pre-existing hypertension complicating pregnancy, childbirth and puerperium (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "199007008",
+          "code_description": "Pre-existing hypertensive heart and renal disease complicating pregnancy, childbirth and the puerperium (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "23717007",
+          "code_description": "Benign essential hypertension complicating AND/OR reason for care during pregnancy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "24042004",
+          "code_description": "Chronic hypertension complicating AND/OR reason for care during puerperium (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "31407004",
+          "code_description": "Pre-existing hypertension complicating AND/OR reason for care during puerperium (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "371125006",
+          "code_description": "Labile essential hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "38341003",
+          "code_description": "Hypertensive disorder, systemic arterial (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "37618003",
+          "code_description": "Chronic hypertension complicating AND/OR reason for care during pregnancy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "397748008",
+          "code_description": "Hypertension with albuminuria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "40511000119107",
+          "code_description": "Postpartum pre-existing essential hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "429457004",
+          "code_description": "Systolic essential hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "443482000",
+          "code_description": "Hypertensive urgency (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "46481004",
+          "code_description": "Low-renin essential hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "471521000000108",
+          "code_description": "[X]Hypertensive diseases (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "59720008",
+          "code_description": "Sustained diastolic hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "63287004",
+          "code_description": "Benign essential hypertension in obstetric context (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "65402008",
+          "code_description": "Pre-existing hypertension complicating AND/OR reason for care during pregnancy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "65518004",
+          "code_description": "Labile diastolic hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "712832005",
+          "code_description": "Supine hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "72022006",
+          "code_description": "Essential hypertension in obstetric context (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "71874008",
+          "code_description": "Benign essential hypertension complicating AND/OR reason for care during childbirth (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "78808002",
+          "code_description": "Essential hypertension complicating AND/OR reason for care during pregnancy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "8218002",
+          "code_description": "Chronic hypertension complicating AND/OR reason for care during childbirth (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "843821000000102",
+          "code_description": "Stage 1 hypertension (National Institute for Health and Clinical Excellence 2011) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "845891000000103",
+          "code_description": "Hypertension resistant to drug therapy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "863191000000102",
+          "code_description": "Nocturnal hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "86041002",
+          "code_description": "Pre-existing hypertension in obstetric context (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "8762007",
+          "code_description": "Chronic hypertension in obstetric context (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "9901000",
+          "code_description": "Essential hypertension complicating AND/OR reason for care during puerperium (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    },
+    {
+      "codelist_id": "essential_hypertension_SNOMEDICD10_ICD10_05c8af23",
+      "codelist_name": "essential_hypertension_SNOMEDICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "essential_hypertension_SNOMEDICD10_ICD10_05c8af23_20250707_103457",
+      "codes": [
+        {
+          "code": "I10",
+          "code_description": "Essential (primary) hypertension",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "O10.0",
+          "code_description": "Pre-existing essential hypertension complicating pregnancy, childbirth and the puerperium",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I12.0",
+          "code_description": "Hypertensive renal disease with renal failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I12.9",
+          "code_description": "Hypertensive renal disease without renal failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I11.0",
+          "code_description": "Hypertensive heart disease with (congestive) heart failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I11.9",
+          "code_description": "Hypertensive heart disease without (congestive) heart failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I13.2",
+          "code_description": "Hypertensive heart and renal disease with both (congestive) heart failure and renal failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I67.4",
+          "code_description": "Hypertensive encephalopathy",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I13.0",
+          "code_description": "Hypertensive heart and renal disease with (congestive) heart failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I13.1",
+          "code_description": "Hypertensive heart and renal disease with renal failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I13.9",
+          "code_description": "Hypertensive heart and renal disease, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "O10.1",
+          "code_description": "Pre-existing hypertensive heart disease complicating pregnancy, childbirth and the puerperium",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "O10.2",
+          "code_description": "Pre-existing hypertensive renal disease complicating pregnancy, childbirth and the puerperium",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "O10.3",
+          "code_description": "Pre-existing hypertensive heart and renal disease complicating pregnancy, childbirth and the puerperium",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I13",
+          "code_description": "Hypertensive heart and renal disease",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I11",
+          "code_description": "Hypertensive heart disease",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I10-I15",
+          "code_description": "Hypertensive diseases",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I12",
+          "code_description": "Hypertensive renal disease",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}
