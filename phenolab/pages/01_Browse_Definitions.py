@@ -10,6 +10,7 @@ from utils.definition_interaction_utils import (
     display_definition_codes_summary,
     display_definition_metadata,
     get_missing_codes_df,
+    display_codes_in_selected_definition_simply,
 )
 from utils.style_utils import set_font_lato
 from utils.config_utils import load_config
@@ -43,7 +44,17 @@ def view_definitions():
         df = st.session_state.session.sql(query).to_pandas()
 
         st.text(" ")
-        st.dataframe(df, hide_index=True)
+        # st.dataframe(df, hide_index=True)
+        
+        selected_def = st.dataframe(df, key="data", on_select="rerun", selection_mode="single-row", hide_index=True,)
+        if selected_def:
+            selected_rows = selected_def["selection"]["rows"]
+            if selected_rows:
+                selected_id = df['DEFINITION_ID'].iloc[selected_rows].values[0]
+                codes_df = return_codes_for_given_definition_id_as_df(selected_id)
+                st.write("")
+                st.write("")
+                display_codes_in_selected_definition_simply(codes_df)
 
 def create_definition_panel(column,
                             panel_name,
@@ -166,14 +177,29 @@ def main():
     st.title("Browse and compare definitions")
 
     # create tabs for each section
-    view_tab, compare_tab = st.tabs(["View Definitions", "Compare Definitions"])
+    view_tab, search_tab, compare_tab = st.tabs(["View Definitions", "Search Definitions", "Compare Definitions"])
 
     # TAB 1: LIST AIC DEFS
     with view_tab:
         # view_aic_definitions()
         view_definitions()
 
-    # TAB 2: COMPARE BETWEEN DEFS
+    # TAB 2: SEARCH DEFINITIONS
+    with search_tab:
+        st.write("")
+        definition_ids, definition_labels = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list()
+        selected_definition = st.selectbox("Search for a definition", options=definition_labels, 
+            label_visibility="visible",placeholder="Start typing to search for a definition", index=None)
+        if selected_definition:
+            selected_id = definition_ids[definition_labels.index(selected_definition)]
+
+            codes_df = return_codes_for_given_definition_id_as_df(selected_id)
+            st.write("")
+            st.write("")
+            display_codes_in_selected_definition_simply(codes_df)
+
+
+    # TAB 3: COMPARE BETWEEN DEFS
     with compare_tab:
         compare_definitions()
      

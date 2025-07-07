@@ -8,12 +8,13 @@ from snowflake.snowpark import Session
 
 from definition_library.loaders.create_tables import create_definition_table
 from definition_library.create_definitionstore_view import create_definitionstore_view
+from features_base.base_apc_concepts import BASE_SUS_APC_CONCEPTS_SQL
 
-def run_setup(config_file: str):
+def run_setup(config_file: str, connection_name: str):
     with open(f"configs/{config_file}", "r") as fid:
         config = yaml.safe_load(fid)
 
-    session = Session.builder.config("connection_name", "nel_icb").create()
+    session = Session.builder.config("connection_name", connection_name).create()
 
     # Create the definition library tables if they do not exist
     tables_to_create = [
@@ -37,7 +38,17 @@ def run_setup(config_file: str):
         session=session,
         database=config["definition_library"]["database"], 
         schema=config["definition_library"]["schema"])
+    
+    # Create the base SUS APC concepts feature
+    session.sql(f"""
+        CREATE OR REPLACE TABLE {config['feature_store']['database']}.
+        {config['feature_store']['schema']}.BASE_APC_CONCEPTS AS
+        {BASE_SUS_APC_CONCEPTS_SQL}
+        """).collect()
+    print("Base SUS APC concepts feature created successfully.")
+
 
 if __name__ == "__main__":
-    config_file = 'nel_icb_dev.yml'
-    run_setup(config_file)
+    config_file = 'nel_icb_prod.yml'
+    connection_name = 'nel_icb'
+    run_setup(config_file, connection_name)

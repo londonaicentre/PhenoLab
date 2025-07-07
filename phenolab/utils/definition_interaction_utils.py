@@ -9,7 +9,7 @@ from utils.database_utils import (
     return_codes_for_given_definition_id_as_df,
 )
 from utils.style_utils import container_object_with_height_if_possible
-from phmlondon.definition import Code, Definition, VocabularyType
+from utils.definition import Code, Definition, VocabularyType
 
 """
 # definition_display_utils.py
@@ -261,7 +261,7 @@ def filter_codes(df: pd.DataFrame, search_term: str, code_type: str) -> pd.DataF
 
     return filtered_df.sort_values("CODE_COUNT", ascending=False) if "CODE_COUNT" in filtered_df.columns else filtered_df
 
-def display_unified_code_browser(code_types, config, key_suffix=""):
+def display_unified_code_browser(code_types, key_suffix=""):
     """
     Unified code browser that allows selection from global vocabulary or existing definitions
     Args:
@@ -491,6 +491,36 @@ def display_definition_codes_summary(codes_df):
     else:
         st.write("No codes found for the selected definition.")
 
+def display_codes_in_selected_definition_simply(codes_df: pd.DataFrame):
+    if not codes_df.empty:
+            st.markdown(f"""
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="
+                        background-color: #eee;
+                        color: #333;
+                        padding: 4px 10px;
+                        border-radius: 12px;
+                        font-size: 0.85rem;
+                        font-weight: 600;
+                        display: inline-block;
+                    ">
+                        {codes_df.loc[0, 'DEFINITION_SOURCE']}
+                    </span>
+                    <span style="font-weight: 700; font-size: 1rem;">
+                        {codes_df.loc[0, 'DEFINITION_NAME']}
+                    </span>
+                </div>
+                """, unsafe_allow_html=True)
+            st.write("")
+
+            # Display codes
+            st.dataframe(codes_df.loc[:, ["CODE_DESCRIPTION", "VOCABULARY", "CODE"]], hide_index=True)
+            st.write(f"Total codes: {len(codes_df)}")
+            
+    else:
+        st.write("No codes found for the selected definition.")
+
+
 
 @st.cache_data(show_spinner=False)
 def display_definition_from_file(definition_file):
@@ -536,7 +566,9 @@ def process_definitions_for_upload(definition_files: List[str]) -> Tuple[pd.Data
 
         query = f"""
         SELECT DEFINITION_ID, DEFINITION_NAME, VERSION_DATETIME
-        FROM INTELLIGENCE_DEV.AI_CENTRE_DEFINITION_LIBRARY.AIC_DEFINITIONS
+        FROM {st.session_state.config["definition_library"]["database"]}.
+        {st.session_state.config["definition_library"]["schema"]}.
+        AIC_DEFINITIONS
         WHERE DEFINITION_ID = '{definition.definition_id}'
         """
         existing_definition = st.session_state.session.sql(query).to_pandas()
@@ -561,9 +593,7 @@ def process_definitions_for_upload(definition_files: List[str]) -> Tuple[pd.Data
 
     return all_rows, definitions_to_add, definitions_to_remove
 
-def update_aic_definitions_table(database: str = "INTELLIGENCE_DEV", 
-                                schema: str = "AI_CENTRE_DEFINITION_LIBRARY", 
-                                verbose: bool = True):
+def update_aic_definitions_table(verbose: bool = True):
     """
     Update the AIC_DEFINITIONS table with new or updated definitions from local files.
     """
@@ -579,21 +609,26 @@ def update_aic_definitions_table(database: str = "INTELLIGENCE_DEV",
             df = all_rows.copy()
             df.columns = df.columns.str.upper()
             st.session_state.session.write_pandas(df, 
-                                database=database,
-                                schema=schema,
+                                database=st.session_state.config["definition_library"]["database"],
+                                schema=st.session_state.config["definition_library"]["schema"],
                                 table_name="AIC_DEFINITIONS", 
                                 overwrite=False,
                                 use_logical_type=True) # use_logical_type=True is needed to handle datetime cols correctly
-            # snowsesh.load_dataframe_to_table(df=df, table_name="AIC_DEFINITIONS", mode="append")
+            print(f"Uploaded {len(all_rows)} rows to "
+                f"{st.session_state.config['definition_library']['database']}."
+                f"{st.session_state.config['definition_library']['schema']}.AIC_DEFINITIONS table")
             if verbose:
                 st.success(f"Successfully uploaded new definitions {definitions_to_add} to the AIC definition library")
 
             # Delete old versions
             for id, [name, current_version] in definitions_to_remove.items():
                 st.session_state.session.sql(
-                    f"""DELETE FROM AIC_DEFINITIONS WHERE DEFINITION_ID = '{id}' AND
+                    f"""DELETE FROM {st.session_state.config["definition_library"]["database"]}.
+                    {st.session_state.config["definition_library"]["schema"]}.
+                    AIC_DEFINITIONS WHERE DEFINITION_ID = '{id}' AND
                     VERSION_DATETIME != CAST('{current_version}' AS TIMESTAMP)"""
                 ).collect()
+                print(f"Deleted old version of defintion {name} with ID {id} and version {current_version}")
                 if verbose:
                     st.info(f"Deleted old version(s) of {name}")
     else:

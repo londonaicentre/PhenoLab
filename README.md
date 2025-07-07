@@ -1,10 +1,12 @@
 # onelondon_snowflake_datascience
-Data Science repository containing utility functions and interactive tooling for population health analytics and machine learning in OneLondon Snowflake
+Data Science repository containing utility functions and interactive tooling for population health analytics and machine
+learning in OneLondon Snowflake
 
 ## Project Structure
 
-- `src/phmlondon` - Installable utilities for reusable functions for doing pop health data snowflake on Snowflake environments
-- `pipeline/phenolab` - Code for phenolab, an app for creating and import codelists for defining population segments
+- `src/phmlondon` - Installable utilities for reusable functions for doing pop health data snowflake on Snowflake
+  environments
+- `/phenolab` - Code for phenolab, an app for creating and import codelists for defining population segments
 
 ## Set up a snowflake connection
 Create a `.env` file which includes the connection variables:

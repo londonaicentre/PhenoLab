@@ -3,7 +3,7 @@ from datetime import datetime
 import pandas as pd
 import git
 
-from phmlondon.definition import Definition
+from utils.definition import Definition
 # from definition_library.loaders.scrape_open_codelists import return_version_id_from_open_codelist_url
 from scrape_open_codelists import return_version_id_from_open_codelist_url
 

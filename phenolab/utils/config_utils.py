@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 import glob
 import pandas as pd
 import streamlit as st
-
 from snowflake.snowpark import Session
 
 phenolab_config_mapping = {"SE56186": "nel_icb" }

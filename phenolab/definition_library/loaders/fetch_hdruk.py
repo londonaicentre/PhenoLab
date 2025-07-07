@@ -7,7 +7,7 @@ from datetime import datetime
 import pandas as pd
 
 from phmlondon.hdruk_api import HDRUKLibraryClient
-from phmlondon.definition import Definition
+from utils.definition import Definition
 
 """
 Note that HDRUK refers to groupings of codelists as phenotypes

@@ -14,7 +14,7 @@ from utils.definition_interaction_utils import (
 from utils.database_utils import get_snowflake_session
 from utils.style_utils import set_font_lato
 from utils.config_utils import load_config, preload_vocabulary
-from phmlondon.definition import Definition
+from utils.definition import Definition
 
 # # 03_Manage_Definitions.py
 
@@ -195,7 +195,7 @@ def main():
 
         col1, col2 = st.columns([1, 1])
         with col1:
-            display_unified_code_browser(code_types, st.session_state.config, key_suffix="create")
+            display_unified_code_browser(code_types, key_suffix="create")
         with col2:
             display_selected_codes(key_suffix="create")
 
@@ -210,7 +210,7 @@ def main():
 
         col1, col2 = st.columns([1, 1])
         with col1:
-            display_unified_code_browser(code_types, st.session_state.config, key_suffix="edit")
+            display_unified_code_browser(code_types, key_suffix="edit")
         with col2:
             display_selected_codes(key_suffix="edit")
 
@@ -247,9 +247,7 @@ def main():
                 if definition_count > 0:
                     if st.button("Upload new / updated definitions to Snowflake"):
                         with maincol:
-                            update_aic_definitions_table( 
-                                database=st.session_state.config["definition_library"]["database"], 
-                                schema=st.session_state.config["definition_library"]["schema"])
+                            update_aic_definitions_table()
                 else:
                     st.warning("No definitions available to upload")
 

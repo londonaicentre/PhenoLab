@@ -4,6 +4,7 @@ from utils.database_utils import get_snowflake_session
 from utils.style_utils import set_font_lato
 from utils.definition_interaction_utils import update_aic_definitions_table
 from utils.config_utils import load_config, preload_vocabulary
+from utils.measurement_interaction_utils import create_measurement_configs_tables, load_measurement_configs_into_tables
 from definition_library.loaders.load_hdruk import retrieve_hdruk_definitions_and_add_to_snowflake
 from definition_library.loaders.load_open_codelists import retrieve_open_codelists_definitions_and_add_to_snowflake
 from definition_library.loaders.load_bnf_to_snomed import retrieve_bnf_definitions_and_add_to_snowflake
@@ -67,19 +68,18 @@ with col2:
         # 1. AI Centre
         if 'uploaded_aic_definitions' not in st.session_state:
             with st.spinner("Loading AI Centre definitions...", show_time=True):
-<<<<<<< HEAD
-=======
                 create_definition_table( 
                     session=st.session_state.session,
                     database=st.session_state.config["definition_library"]["database"], 
                     schema=st.session_state.config["definition_library"]["schema"],
                     table_name="AI_CENTRE_DEFINITIONS"
                 )
->>>>>>> d5b90aa1302dcc8c4fe1b2a3ba17d3df9b3de408
                 update_aic_definitions_table( 
                     database=st.session_state.config["definition_library"]["database"], 
-                    schema=st.session_state.config["definition_library"]["schema"], 
-                    verbose=False)
+                    schema=st.session_state.config["definition_library"]["schema"],
+                    table_name="AIC_DEFINITIONS"
+                )
+                update_aic_definitions_table(verbose=False)
                 st.session_state['uploaded_aic_definitions'] = True
 
         # 2. HDRUK
@@ -121,6 +121,12 @@ with col2:
                     table_name="ICB_DEFINITIONS"
                 )
                 st.session_state['created_local_definitions_table'] = True
+        
+        # 7. Load measurement configs into tables
+        if 'created_measurement_configs_table' not in st.session_state:
+            with st.spinner('Loading measurement configurations...', show_time=True):
+                create_measurement_configs_tables()
+                load_measurement_configs_into_tables()
 
         required_checks = [
             'uploaded_aic_definitions',

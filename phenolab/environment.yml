@@ -8,4 +8,4 @@ dependencies:
   - pandas
   - polars
   - openpyxl
-  - boto3 # needed for PHM London utils
+  - boto3
