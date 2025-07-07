@@ -6,8 +6,8 @@
     "mmol/mol"
   ],
   "primary_standard_unit": "mmol/mol",
-  "lower_limit": null,
-  "upper_limit": null,
+  "lower_limit": 14.0,
+  "upper_limit": 200.0,
   "unit_mappings": [
     {
       "source_unit": "mmol/mol",
