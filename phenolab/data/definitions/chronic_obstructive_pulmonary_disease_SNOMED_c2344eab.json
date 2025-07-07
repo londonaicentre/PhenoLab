@@ -1,0 +1,293 @@
+{
+  "definition_id": "c2344eab",
+  "definition_name": "chronic_obstructive_pulmonary_disease_SNOMED",
+  "definition_version": "chronic_obstructive_pulmonary_disease_SNOMED_20250707_110743",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-07-07T11:07:43.050756",
+  "codelists": [
+    {
+      "codelist_id": "chronic_obstructive_pulmonary_disease_SNOMED_SNOMED_990ccc93",
+      "codelist_name": "chronic_obstructive_pulmonary_disease_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "chronic_obstructive_pulmonary_disease_SNOMED_SNOMED_990ccc93_20250707_110315",
+      "codes": [
+        {
+          "code": "1010333003",
+          "code_description": "Emphysema of left lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1010334009",
+          "code_description": "Emphysema of right lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "106001000119101",
+          "code_description": "Chronic obstructive lung disease co-occurrent with acute bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10692761000119107",
+          "code_description": "Asthma-chronic obstructive pulmonary disease overlap syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "135836000",
+          "code_description": "End stage chronic obstructive airways disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "13645005",
+          "code_description": "Chronic obstructive lung disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16003001",
+          "code_description": "Giant bullous emphysema (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16846004",
+          "code_description": "Obstructive emphysema (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1751000119100",
+          "code_description": "Acute exacerbation of chronic obstructive airways disease with asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "185086009",
+          "code_description": "Chronic obstructive bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195949008",
+          "code_description": "Chronic asthmatic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195951007",
+          "code_description": "Acute exacerbation of chronic obstructive airways disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195953005",
+          "code_description": "Mixed simple and mucopurulent chronic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195957006",
+          "code_description": "Chronic bullous emphysema (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195958001",
+          "code_description": "Segmental bullous emphysema (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195959009",
+          "code_description": "Zonal bullous emphysema (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195963002",
+          "code_description": "Acute vesicular emphysema (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "196001008",
+          "code_description": "Chronic obstructive pulmonary disease with acute lower respiratory infection (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "196026004",
+          "code_description": "Chronic emphysema caused by chemical fumes (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266355005",
+          "code_description": "Bullous emphysema with collapse (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "285381006",
+          "code_description": "Acute infective exacerbation of chronic obstructive airways disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "293241000119100",
+          "code_description": "Acute exacerbation of chronic obstructive bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "293991000000106",
+          "code_description": "Very severe chronic obstructive pulmonary disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "313296004",
+          "code_description": "Mild chronic obstructive pulmonary disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "313297008",
+          "code_description": "Moderate chronic obstructive pulmonary disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "313299006",
+          "code_description": "Severe chronic obstructive pulmonary disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "31898008",
+          "code_description": "Paraseptal emphysema (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "45145000",
+          "code_description": "Unilateral emphysema (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "425748003",
+          "code_description": "Acute exacerbation of chronic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "360470001",
+          "code_description": "Chronic mucus hypersecretion (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "47895001",
+          "code_description": "Congenital emphysema (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "61937009",
+          "code_description": "Simple chronic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "63480004",
+          "code_description": "Chronic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "49691004",
+          "code_description": "Occupational bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "4981000",
+          "code_description": "Panacinar emphysema (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "52571006",
+          "code_description": "Chronic tracheobronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "60805002",
+          "code_description": "Hemolytic anemia with emphysema AND cutis laxa (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "66110007",
+          "code_description": "Chronic diffuse emphysema caused by inhalation of chemical fumes AND/OR vapors (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "66987001",
+          "code_description": "Congenital lobar emphysema (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "68328006",
+          "code_description": "Centriacinar emphysema (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "708030004",
+          "code_description": "Pulmonary emphysema co-occurrent with fibrosis of lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "74417001",
+          "code_description": "Mucopurulent chronic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "785736001",
+          "code_description": "Chronic bronchitis co-occurrent with wheeze (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "836477007",
+          "code_description": "Chronic emphysema caused by vapor (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "840493007",
+          "code_description": "Congenital lobar emphysema of bilateral lungs (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "84409004",
+          "code_description": "Fetid chronic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "847091000000104",
+          "code_description": "Acute non-infective exacerbation of chronic obstructive pulmonary disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "87433001",
+          "code_description": "Pulmonary emphysema (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "89549007",
+          "code_description": "Catarrhal bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266356006",
+          "code_description": "Atrophic (senile) emphysema (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233675009",
+          "code_description": "Toxic emphysema (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233677001",
+          "code_description": "Scar emphysema (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "23958009",
+          "code_description": "Vanishing lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233674008",
+          "code_description": "Pulmonary emphysema in alpha-1 primary immunodeficiency deficiency (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "70756004",
+          "code_description": "Bronchial atresia with segmental pulmonary emphysema (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

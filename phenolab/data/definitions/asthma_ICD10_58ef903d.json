@@ -1,0 +1,48 @@
+{
+  "definition_id": "58ef903d",
+  "definition_name": "asthma_ICD10",
+  "definition_version": "asthma_ICD10_20250707_123933",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-07-07T12:39:33.275538",
+  "codelists": [
+    {
+      "codelist_id": "asthma_ICD10_ICD10_c602b452",
+      "codelist_name": "asthma_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "asthma_ICD10_ICD10_c602b452_20250707_123911",
+      "codes": [
+        {
+          "code": "J45.9",
+          "code_description": "Asthma, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J45.0",
+          "code_description": "Predominantly allergic asthma",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J46",
+          "code_description": "Status asthmaticus",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J45.1",
+          "code_description": "Nonallergic asthma",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J45.8",
+          "code_description": "Mixed asthma",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J45",
+          "code_description": "Asthma",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

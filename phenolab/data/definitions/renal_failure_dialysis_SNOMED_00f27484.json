@@ -1,0 +1,558 @@
+{
+  "definition_id": "00f27484",
+  "definition_name": "renal_failure_dialysis_SNOMED",
+  "definition_version": "renal_failure_dialysis_SNOMED_20250707_130157",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-07-07T13:01:57.684605",
+  "codelists": [
+    {
+      "codelist_id": "renal_failure_dialysis_SNOMED_SNOMED_baa5c3e1",
+      "codelist_name": "renal_failure_dialysis_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "renal_failure_dialysis_SNOMED_SNOMED_baa5c3e1_20250707_125450",
+      "codes": [
+        {
+          "code": "14669001",
+          "code_description": "Acute renal failure syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "90688005",
+          "code_description": "Chronic renal failure syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "42399005",
+          "code_description": "Renal failure syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "49708008",
+          "code_description": "Anemia of chronic renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "137971000119104",
+          "code_description": "History of acute renal failure (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "236433006",
+          "code_description": "Acute-on-chronic renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "310647000",
+          "code_description": "Anemia secondary to renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194774006",
+          "code_description": "Hypertensive renal disease with renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "236435004",
+          "code_description": "End stage renal failure on dialysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194780003",
+          "code_description": "Hypertensive heart and renal disease with renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "429489008",
+          "code_description": "Acute renal failure due to obstruction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "236429004",
+          "code_description": "Acute drug-induced renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "269301005",
+          "code_description": "Renal failure as a complication of care (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "237904006",
+          "code_description": "Renal failure-associated hyperphosphatemia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "690191000000102",
+          "code_description": "Renal failure unspecified (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "733839001",
+          "code_description": "Postpartum acute renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "429224003",
+          "code_description": "Acute renal failure due to acute cortical necrosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "236436003",
+          "code_description": "End stage renal failure with renal transplant (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "422593004",
+          "code_description": "Acute renal failure caused by angiotensin-converting-enzyme inhibitor (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "841961000000100",
+          "code_description": "Acute renal failure due to non-traumatic rhabdomyolysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "844701000000103",
+          "code_description": "Acute renal failure induced by radiographic contrast media (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197654000",
+          "code_description": "Renal failure: [chronic] or [end stage] (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "847851000000101",
+          "code_description": "Acute renal failure due to traumatic rhabdomyolysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "307309005",
+          "code_description": "Transient acute renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "269257004",
+          "code_description": "Acute renal failure due to crush syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "840471000000106",
+          "code_description": "Acute renal failure induced by non-steroidal anti-inflammatory drug (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "268854008",
+          "code_description": "Congenital renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "236434000",
+          "code_description": "End stage renal failure untreated by renal replacement therapy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "200118004",
+          "code_description": "Post-delivery acute renal failure with postnatal problem (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "840451000000102",
+          "code_description": "Acute renal failure induced by cyclosporin A (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194781004",
+          "code_description": "Hypertensive heart and renal disease with both (congestive) heart failure and renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "840371000000100",
+          "code_description": "Acute renal failure induced by aminoglycoside (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "842551000000102",
+          "code_description": "Acute renal failure induced by heavy metal (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197755007",
+          "code_description": "End stage renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "857561000000103",
+          "code_description": "Nephrotoxic acute renal failure",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "129721000119106",
+          "code_description": "Acute renal failure on dialysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "74930008",
+          "code_description": "Hyperalimentation formula for renal failure (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "840431000000109",
+          "code_description": "Acute renal failure induced by cisplatin (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191270002",
+          "code_description": "Anaemia secondary to chronic renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "425369003",
+          "code_description": "Chronic progressive renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "713696000",
+          "code_description": "Renal failure syndrome co-occurrent with human immunodeficiency virus infection (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "840481000000108",
+          "code_description": "Acute renal failure induced by non-steroidal anti-inflammatory ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "842561000000104",
+          "code_description": "Acute renal failure induced by heavy metal ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "430535006",
+          "code_description": "Acute renal failure with oliguria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266553002",
+          "code_description": "Renal failure unspecified (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "198524000",
+          "code_description": "Renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "438783006",
+          "code_description": "Acute postoperative renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "825971000000108",
+          "code_description": "Acute renal failure due to angiotensin-converting-enzyme inhibitor (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "200117009",
+          "code_description": "Post-delivery acute renal failure - delivered with postnatal problem (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "265764009",
+          "code_description": "Renal dialysis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "302497006",
+          "code_description": "Hemodialysis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "71192002",
+          "code_description": "Peritoneal dialysis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "180272001",
+          "code_description": "Insertion of chronic ambulatory peritoneal dialysis catheter (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "161693006",
+          "code_description": "History of renal dialysis (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "180277007",
+          "code_description": "Insertion of temporary peritoneal dialysis catheter (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "276883000",
+          "code_description": "Peritoneal dialysis-associated peritonitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426340003",
+          "code_description": "Creation of graft fistula for dialysis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "108241001",
+          "code_description": "Dialysis procedure (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "238318009",
+          "code_description": "Continuous ambulatory peritoneal dialysis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "251859005",
+          "code_description": "Dialysis finding (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "180273006",
+          "code_description": "Removal of chronic ambulatory peritoneal dialysis catheter (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "105502003",
+          "code_description": "Dependence on renal dialysis (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "714152005",
+          "code_description": "Chronic kidney disease stage 5 on dialysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "423062001",
+          "code_description": "Stenosis of arteriovenous dialysis fistula (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "398481000000100",
+          "code_description": "[V]Preparatory care for dialysis (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1035471000000100",
+          "code_description": "Dialysis therapy started by renal service (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "438546008",
+          "code_description": "Ligation of arteriovenous dialysis fistula (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "19765000",
+          "code_description": "Complication of dialysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "17778006",
+          "code_description": "Mechanical complication of dialysis catheter (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "846731000000104",
+          "code_description": "Aneurysm of dialysis arteriovenous fistula (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "866061000000103",
+          "code_description": "Occlusion of dialysis arteriovenous fistula (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "449288005",
+          "code_description": "Infection of arteriovenous fistula for hemodialysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "428648006",
+          "code_description": "Automated peritoneal dialysis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "846801000000104",
+          "code_description": "Aneurysm of anastomotic site of dialysis arteriovenous fistula (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "866001000000102",
+          "code_description": "Thrombosis of dialysis arteriovenous fistula (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426351000000102",
+          "code_description": "[V]Other specified aftercare involving intermittent dialysis (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "865781000000101",
+          "code_description": "Infection of dialysis vascular access (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1035491000000101",
+          "code_description": "Dialysis therapy stopped by renal service (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "87235005",
+          "code_description": "Dialysis disequilibrium syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "438548009",
+          "code_description": "Ligation of arteriovenous dialysis graft (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "88351001",
+          "code_description": "Hypercalcemia associated with chronic dialysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "854131000000107",
+          "code_description": "Thrombus in peritoneal dialysis catheter (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "33461007",
+          "code_description": "Complication of peritoneal dialysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "236539007",
+          "code_description": "First use syndrome of dialysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "867011000000102",
+          "code_description": "Haemorrhage of dialysis arteriovenous fistula (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233575001",
+          "code_description": "Intermittent hemodialysis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "238317004",
+          "code_description": "Flushing of chronic ambulatory peritoneal dialysis catheter (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "865981000000103",
+          "code_description": "Thrombosis of dialysis arteriovenous graft (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "271418008",
+          "code_description": "Chronic ambulatory peritoneal dialysis catheter procedure (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "430332005",
+          "code_description": "Infection of arteriovenous graft for hemodialysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "398471000000102",
+          "code_description": "[V]Aftercare involving intermittent dialysis (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "238323009",
+          "code_description": "Night-time intermittent peritoneal dialysis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "872481000000106",
+          "code_description": "Stenosis of venous side of dialysis arteriovenous shunt (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "225281003",
+          "code_description": "Reversing hemodialysis lines (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "238319001",
+          "code_description": "Continuous cycling peritoneal dialysis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "473034005",
+          "code_description": "Complication associated with dialysis catheter (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "427053002",
+          "code_description": "Extracorporeal albumin hemodialysis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "853631000000103",
+          "code_description": "Stenosis of dialysis vascular access (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "429211000000100",
+          "code_description": "[X] Peritoneal dialysis associated peritonitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1853671000000101",
+          "code_description": "Percutaneous transluminal angioplasty of arteriovenous dialysis fistula of left upper limb using fluoroscopic guidance with contrast (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "236556004",
+          "code_description": "Bloodstained peritoneal dialysis effluent (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "865761000000105",
+          "code_description": "Occlusion of dialysis vascular access (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "699235009",
+          "code_description": "Continuous ambulatory peritoneal dialysis associated peritonitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1196993005",
+          "code_description": "Repositioning of peritoneal dialysis catheter using imaging guidance (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "865841000000102",
+          "code_description": "Stenosis of dialysis arteriovenous graft (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "32599008",
+          "code_description": "Hemodialysis-associated amyloidosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "853651000000105",
+          "code_description": "Thrombosis of dialysis vascular access (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426361000000104",
+          "code_description": "[V]Unspecified aftercare involving intermittent dialysis (situation)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

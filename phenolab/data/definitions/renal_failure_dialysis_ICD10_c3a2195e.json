@@ -1,0 +1,216 @@
+{
+  "definition_id": "c3a2195e",
+  "definition_name": "renal_failure_dialysis_ICD10",
+  "definition_version": "renal_failure_dialysis_ICD10_20250707_130409",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-07-07T13:04:09.146864",
+  "codelists": [
+    {
+      "codelist_id": "renal_failure_dialysis_ICD10_OPCS4_d6ddf758",
+      "codelist_name": "renal_failure_dialysis_ICD10_OPCS4",
+      "codelist_vocabulary": "OPCS4",
+      "codelist_version": "renal_failure_dialysis_ICD10_OPCS4_d6ddf758_20250707_130223",
+      "codes": [
+        {
+          "code": "X40.3",
+          "code_description": "Haemodialysis NEC",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X41.1",
+          "code_description": "Insertion of ambulatory peritoneal dialysis catheter",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X40.2",
+          "code_description": "Peritoneal dialysis NEC",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X40.5",
+          "code_description": "Automated peritoneal dialysis",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X41.2",
+          "code_description": "Removal of ambulatory peritoneal dialysis catheter",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X40.1",
+          "code_description": "Renal dialysis",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "L74.6",
+          "code_description": "Creation of graft fistula for dialysis",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X40.6",
+          "code_description": "Continuous ambulatory peritoneal dialysis",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X42.1",
+          "code_description": "Insertion of temporary peritoneal dialysis catheter",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X41.8",
+          "code_description": "Other specified placement of ambulatory apparatus for compensation for renal failure",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X40.8",
+          "code_description": "Other specified compensation for renal failure",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X40.9",
+          "code_description": "Unspecified compensation for renal failure",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X42.8",
+          "code_description": "Other specified placement of other apparatus for compensation for renal failure",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X42.9",
+          "code_description": "Unspecified placement of other apparatus for compensation for renal failure",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X41.9",
+          "code_description": "Unspecified placement of ambulatory apparatus for compensation for renal failure",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X40",
+          "code_description": "Compensation for renal failure",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X41",
+          "code_description": "Placement of ambulatory apparatus for compensation for renal failure",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X42",
+          "code_description": "Placement of other apparatus for compensation for renal failure",
+          "code_vocabulary": "OPCS4"
+        }
+      ]
+    },
+    {
+      "codelist_id": "renal_failure_dialysis_ICD10_ICD10_edf8a299",
+      "codelist_name": "renal_failure_dialysis_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "renal_failure_dialysis_ICD10_ICD10_edf8a299_20250707_130229",
+      "codes": [
+        {
+          "code": "Y84.1",
+          "code_description": "Kidney dialysis as the cause of abnormal reaction of the patient, or of later complication, without mention of misadventure at the time of the procedure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "Z49.0",
+          "code_description": "Preparatory care for dialysis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "Z99.2",
+          "code_description": "Dependence on renal dialysis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "T82.4",
+          "code_description": "Mechanical complication of vascular dialysis catheter",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "Z49.1",
+          "code_description": "Extracorporeal dialysis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "N17.9",
+          "code_description": "Acute renal failure, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I12.0",
+          "code_description": "Hypertensive renal disease with renal failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "N17.0",
+          "code_description": "Acute renal failure with tubular necrosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I12.9",
+          "code_description": "Hypertensive renal disease without renal failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I13.2",
+          "code_description": "Hypertensive heart and renal disease with both (congestive) heart failure and renal failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "N99.0",
+          "code_description": "Postprocedural renal failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "O90.4",
+          "code_description": "Postpartum acute renal failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "N17.8",
+          "code_description": "Other acute renal failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "N17.1",
+          "code_description": "Acute renal failure with acute cortical necrosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "P96.0",
+          "code_description": "Congenital renal failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I13.1",
+          "code_description": "Hypertensive heart and renal disease with renal failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "N17.2",
+          "code_description": "Acute renal failure with medullary necrosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "N17-N19",
+          "code_description": "Renal failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "N17",
+          "code_description": "Acute renal failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "N18.5",
+          "code_description": "Chronic kidney disease, stage 5",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

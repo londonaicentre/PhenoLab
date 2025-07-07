@@ -1,0 +1,388 @@
+{
+  "definition_id": "78a86d18",
+  "definition_name": "psychosis_schizophrenia_bipolar_affective_ICD10",
+  "definition_version": "psychosis_schizophrenia_bipolar_affective_ICD10_20250707_132738",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-07-07T13:27:38.131148",
+  "codelists": [
+    {
+      "codelist_id": "psychosis_schizophrenia_bipolar_affective_ICD10_ICD10_7e864ac2",
+      "codelist_name": "psychosis_schizophrenia_bipolar_affective_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "psychosis_schizophrenia_bipolar_affective_ICD10_ICD10_7e864ac2_20250707_132429",
+      "codes": [
+        {
+          "code": "F29",
+          "code_description": "Unspecified nonorganic psychosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F20.0",
+          "code_description": "Paranoid schizophrenia",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F25.9",
+          "code_description": "Schizoaffective disorder, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F20.9",
+          "code_description": "Schizophrenia, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F32.3",
+          "code_description": "Severe depressive episode with psychotic symptoms",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F31.2",
+          "code_description": "Bipolar affective disorder, current episode manic with psychotic symptoms",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F31.1",
+          "code_description": "Bipolar affective disorder, current episode manic without psychotic symptoms",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F23.9",
+          "code_description": "Acute and transient psychotic disorder, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F25.0",
+          "code_description": "Schizoaffective disorder, manic type",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F32.2",
+          "code_description": "Severe depressive episode without psychotic symptoms",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F33.3",
+          "code_description": "Recurrent depressive disorder, current episode severe with psychotic symptoms",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F12.5",
+          "code_description": "Mental and behavioural disorders due to use of cannabinoids, psychotic disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F30.2",
+          "code_description": "Mania with psychotic symptoms",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F25.1",
+          "code_description": "Schizoaffective disorder, depressive type",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F20.2",
+          "code_description": "Catatonic schizophrenia",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F10.5",
+          "code_description": "Mental and behavioural disorders due to use of alcohol, Psychotic disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F25.2",
+          "code_description": "Schizoaffective disorder, mixed type",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F31.4",
+          "code_description": "Bipolar affective disorder, current episode severe depression without psychotic symptoms",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F31.5",
+          "code_description": "Bipolar affective disorder, current episode severe depression with psychotic symptoms",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F28",
+          "code_description": "Other nonorganic psychotic disorders",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F23.2",
+          "code_description": "Acute schizophrenia-like psychotic disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F23.0",
+          "code_description": "Acute polymorphic psychotic disorder without symptoms of schizophrenia",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F14.5",
+          "code_description": "Mental and behavioural disorders due to use of cocaine, psychotic disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F23.1",
+          "code_description": "Acute polymorphic psychotic disorder with symptoms of schizophrenia",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F30.1",
+          "code_description": "Mania without psychotic symptoms",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F23.8",
+          "code_description": "Other acute and transient psychotic disorders",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F15.5",
+          "code_description": "Mental and behavioural disorders due to use of other stimulants, including caffeine, psychotic disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F10.7",
+          "code_description": "Mental and behavioural disorders due to use of alcohol, Residual and late-onset psychotic disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F20.1",
+          "code_description": "Hebephrenic schizophrenia",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F20.8",
+          "code_description": "Other schizophrenia",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F20.3",
+          "code_description": "Undifferentiated schizophrenia",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F23.3",
+          "code_description": "Other acute predominantly delusional psychotic disorders",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F06.2",
+          "code_description": "Organic delusional [schizophrenia-like] disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F20.5",
+          "code_description": "Residual schizophrenia",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F21",
+          "code_description": "Schizotypal disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F60.1",
+          "code_description": "Schizoid personality disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F20.6",
+          "code_description": "Simple schizophrenia",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F25.8",
+          "code_description": "Other schizoaffective disorders",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F11.5",
+          "code_description": "Mental and behavioural disorders due to use of opioids, psychotic disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F16.5",
+          "code_description": "Mental and behavioural disorders due to use of hallucinogens, psychotic disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F20.4",
+          "code_description": "Post-schizophrenic depression",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F13.5",
+          "code_description": "Mental and behavioural disorders due to use of sedatives or hypnotics, psychotic disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F19.7",
+          "code_description": "Mental and behavioural disorders due to multiple drug use and use of other psychoactive substances, residual and late-onset psychotic disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F11.7",
+          "code_description": "Mental and behavioural disorders due to use of opioids, residual and late-onset psychotic disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F18.5",
+          "code_description": "Mental and behavioural disorders due to use of volatile solvents, psychotic disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F12.7",
+          "code_description": "Mental and behavioural disorders due to use of cannabinoids, residual and late-onset psychotic disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F14.7",
+          "code_description": "Mental and behavioural disorders due to use of cocaine, residual and late-onset psychotic disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F20",
+          "code_description": "Schizophrenia",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F17.7",
+          "code_description": "Mental and behavioural disorders due to use of tobacco, residual and late-onset psychotic disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F17.5",
+          "code_description": "Mental and behavioural disorders due to use of tobacco, psychotic disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F16.7",
+          "code_description": "Mental and behavioural disorders due to use of hallucinogens, residual and late-onset psychotic disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F18.7",
+          "code_description": "Mental and behavioural disorders due to use of volatile solvents, residual and late-onset psychotic disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F20-F29",
+          "code_description": "Schizophrenia, schizotypal and delusional disorders",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F25",
+          "code_description": "Schizoaffective disorders",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F13.7",
+          "code_description": "Mental and behavioural disorders due to use of sedatives or hypnotics, residual and late-onset psychotic disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F15.7",
+          "code_description": "Mental and behavioural disorders due to use of other stimulants, including caffeine, residual and late-onset psychotic disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F23",
+          "code_description": "Acute and transient psychotic disorders",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F31.9",
+          "code_description": "Bipolar affective disorder, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F31.0",
+          "code_description": "Bipolar affective disorder, current episode hypomanic",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F31.3",
+          "code_description": "Bipolar affective disorder, current episode mild or moderate depression",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F31.6",
+          "code_description": "Bipolar affective disorder, current episode mixed",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F30.0",
+          "code_description": "Hypomania",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F31.7",
+          "code_description": "Bipolar affective disorder, currently in remission",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F31.8",
+          "code_description": "Other bipolar affective disorders",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F31",
+          "code_description": "Bipolar affective disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F34.8",
+          "code_description": "Other persistent mood [affective] disorders",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F06.3",
+          "code_description": "Organic mood [affective] disorders",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F38.8",
+          "code_description": "Other specified mood [affective] disorders",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F34.9",
+          "code_description": "Persistent mood [affective] disorder, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F38.0",
+          "code_description": "Other single mood [affective] disorders",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F30-F39",
+          "code_description": "Mood [affective] disorders",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F34",
+          "code_description": "Persistent mood [affective] disorders",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F38",
+          "code_description": "Other mood [affective] disorders",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F38.1",
+          "code_description": "Other recurrent mood [affective] disorders",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}
