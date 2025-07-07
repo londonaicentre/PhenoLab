@@ -1,0 +1,543 @@
+{
+  "definition_id": "337f3221",
+  "definition_name": "depression_SNOMED",
+  "definition_version": "depression_SNOMED_20250707_131613",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-07-07T13:16:13.523642",
+  "codelists": [
+    {
+      "codelist_id": "depression_SNOMED_SNOMED_424e173a",
+      "codelist_name": "depression_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "depression_SNOMED_SNOMED_424e173a_20250707_131429",
+      "codes": [
+        {
+          "code": "104851000119103",
+          "code_description": "Postpartum major depression in remission (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1086471000000103",
+          "code_description": "Recurrent reactive depressive episodes, severe, with psychosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1086661000000108",
+          "code_description": "Reactive depression, prolonged single episode (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1089511000000100",
+          "code_description": "Recurrent depression with current severe episode and psychotic features (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1089631000000109",
+          "code_description": "Recurrent depression with current severe episode without psychotic features (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1089641000000100",
+          "code_description": "Recurrent depression with current moderate episode (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1153570009",
+          "code_description": "Treatment resistant depression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1153575004",
+          "code_description": "Persistent depressive disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "14183003",
+          "code_description": "Chronic major depressive disorder, single episode (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15639000",
+          "code_description": "Moderate major depression, single episode (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16238181000119101",
+          "code_description": "Depressive disorder caused by amphetamine (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16238221000119109",
+          "code_description": "Depressive disorder caused by methamphetamine (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16264621000119109",
+          "code_description": "Recurrent mild major depressive disorder co-occurrent with anxiety (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16264821000119108",
+          "code_description": "Recurrent severe major depressive disorder co-occurrent with anxiety (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16264901000119109",
+          "code_description": "Recurrent moderate major depressive disorder co-occurrent with anxiety (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16265061000119105",
+          "code_description": "Recurrent major depressive disorder co-occurrent with anxiety in full remission (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16265301000119106",
+          "code_description": "Recurrent major depressive disorder in partial remission co-occurrent with anxiety (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16265951000119109",
+          "code_description": "Mild major depressive disorder co-occurrent with anxiety single episode (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16266831000119100",
+          "code_description": "Moderate major depressive disorder co-occurrent with anxiety single episode (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16266991000119108",
+          "code_description": "Severe major depressive disorder co-occurrent with anxiety single episode (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "18818009",
+          "code_description": "Moderate recurrent major depression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191455000",
+          "code_description": "Presenile dementia with depression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191459006",
+          "code_description": "Senile dementia with depression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191601008",
+          "code_description": "Single major depressive episode, mild (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191602001",
+          "code_description": "Single major depressive episode, moderate (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191604000",
+          "code_description": "Single major depressive episode, severe, with psychosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191606003",
+          "code_description": "Single major depressive episode, in full remission (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191610000",
+          "code_description": "Recurrent major depressive episodes, mild (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191611001",
+          "code_description": "Recurrent major depressive episodes, moderate (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191613003",
+          "code_description": "Recurrent major depressive episodes, severe, with psychosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191615005",
+          "code_description": "Recurrent major depressive episodes, in full remission (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191616006",
+          "code_description": "Recurrent depression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191632009",
+          "code_description": "Bipolar affective disorder, currently depressed, severe, with psychosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191634005",
+          "code_description": "Bipolar affective disorder, currently depressed, in full remission (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191659001",
+          "code_description": "Atypical depressive disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191676002",
+          "code_description": "Reactive depressive psychosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "192049004",
+          "code_description": "Prolonged depressive adjustment reaction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "192080009",
+          "code_description": "Chronic depression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "19527009",
+          "code_description": "Single episode of major depression in full remission (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "20250007",
+          "code_description": "Severe major depression, single episode, with psychotic features, mood-incongruent (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "231485007",
+          "code_description": "Post-schizophrenic depression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "231499006",
+          "code_description": "Endogenous depression first episode (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "231500002",
+          "code_description": "Masked depression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "231504006",
+          "code_description": "Mixed anxiety and depressive disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "237349002",
+          "code_description": "Mild postnatal depression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "247803002",
+          "code_description": "Seasonal affective disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "251000119105",
+          "code_description": "Severe major depression, single episode (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "25922000",
+          "code_description": "Major depressive disorder, single episode with postpartum onset (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "268620009",
+          "code_description": "Single major depressive episode (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "268621008",
+          "code_description": "Recurrent major depressive episodes (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "274948002",
+          "code_description": "Endogenous depression - recurrent (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "28475009",
+          "code_description": "Severe recurrent major depression with psychotic features (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "288751000119101",
+          "code_description": "Reactive depressive psychosis, single episode (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "300706003",
+          "code_description": "Endogenous depression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "30605009",
+          "code_description": "Major depression in partial remission (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "310495003",
+          "code_description": "Mild depression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "310496002",
+          "code_description": "Moderate depression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "310497006",
+          "code_description": "Severe depression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "321717001",
+          "code_description": "Involutional depression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "33135002",
+          "code_description": "Recurrent major depression in partial remission (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "35489007",
+          "code_description": "Depressive disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "357705009",
+          "code_description": "Cotard's syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "36474008",
+          "code_description": "Severe recurrent major depression without psychotic features (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "36923009",
+          "code_description": "Major depression, single episode (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "370143000",
+          "code_description": "Major depressive disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "397701000000102",
+          "code_description": "[X]Severe depressive episode without psychotic symptoms (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "397711000000100",
+          "code_description": "[X]Severe depressive episode with psychotic symptoms (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401211000000106",
+          "code_description": "[X] Single episode major depression without psychotic symptoms (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "40379007",
+          "code_description": "Mild recurrent major depression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "40568001",
+          "code_description": "Recurrent brief depressive disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426578000",
+          "code_description": "Premenstrual dysphoric disorder in remission (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "42810003",
+          "code_description": "Major depression in remission (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "42925002",
+          "code_description": "Major depressive disorder, single episode with atypical features (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "430421000000104",
+          "code_description": "[X]Mild depressive episode (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "455731000000100",
+          "code_description": "[X] Single episode agitated depression without psychotic symptoms (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "46244001",
+          "code_description": "Recurrent major depression in full remission (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "465441000000108",
+          "code_description": "[X]Moderate depressive episode (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "467361000000105",
+          "code_description": "[X] Manic-depressive psychosis, depressed type without psychotic symptoms (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "63412003",
+          "code_description": "Major depression in full remission (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "63778009",
+          "code_description": "Major depressive disorder, single episode with melancholic features (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "68019004",
+          "code_description": "Recurrent major depression in remission (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "69392006",
+          "code_description": "Major depressive disorder, single episode with catatonic features (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "698957003",
+          "code_description": "Depressive disorder in remission (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "70747007",
+          "code_description": "Major depression single episode, in partial remission (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "720453001",
+          "code_description": "Moderately severe major depression single episode (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "720454007",
+          "code_description": "Minimal major depression single episode (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "73867007",
+          "code_description": "Severe major depression with psychotic features (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "75084000",
+          "code_description": "Severe major depression without psychotic features (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "755321000000106",
+          "code_description": "Single major depressive episode, severe, with psychosis, psychosis in remission (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "755331000000108",
+          "code_description": "Recurrent major depressive episodes, severe, with psychosis, psychosis in remission (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "76441001",
+          "code_description": "Severe major depression, single episode, without psychotic features (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "764611000000100",
+          "code_description": "Recurrent major depressive episodes, severe (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "764631000000108",
+          "code_description": "Single major depressive episode, severe (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "764691000000109",
+          "code_description": "Recurrent major depressive episodes, in partial remission (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "764711000000106",
+          "code_description": "Single major depressive episode, in remission (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "765176007",
+          "code_description": "Psychosis and severe depression co-occurrent and due to bipolar affective disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "77911002",
+          "code_description": "Severe major depression, single episode, with psychotic features, mood-congruent (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "78667006",
+          "code_description": "Dysthymia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "788120007",
+          "code_description": "Antenatal depression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "79298009",
+          "code_description": "Mild major depression, single episode (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "832007",
+          "code_description": "Moderate major depression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "83458005",
+          "code_description": "Agitated depression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "84760002",
+          "code_description": "Schizoaffective disorder, depressive type (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "87414006",
+          "code_description": "Reactive depression (situational) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "87512008",
+          "code_description": "Mild major depression (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

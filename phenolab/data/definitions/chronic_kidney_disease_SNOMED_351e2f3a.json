@@ -1,0 +1,1048 @@
+{
+  "definition_id": "351e2f3a",
+  "definition_name": "chronic_kidney_disease_SNOMED",
+  "definition_version": "chronic_kidney_disease_SNOMED_20250707_125307",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-07-07T12:53:07.913705",
+  "codelists": [
+    {
+      "codelist_id": "chronic_kidney_disease_SNOMED_SNOMED_d2348342",
+      "codelist_name": "chronic_kidney_disease_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "chronic_kidney_disease_SNOMED_SNOMED_d2348342_20250707_124331",
+      "codes": [
+        {
+          "code": "433144002",
+          "code_description": "Chronic kidney disease stage 3 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "249171000000102",
+          "code_description": "Chronic kidney disease annual review (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "431857002",
+          "code_description": "Chronic kidney disease stage 4 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "709044004",
+          "code_description": "Chronic kidney disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "248721000000108",
+          "code_description": "Chronic kidney disease monitoring (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "431856006",
+          "code_description": "Chronic kidney disease stage 2 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "433146000",
+          "code_description": "Chronic kidney disease stage 5 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324281000000104",
+          "code_description": "Chronic kidney disease stage 3 without proteinuria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "949881000000106",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G3a and albuminuria category A1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700378005",
+          "code_description": "Chronic kidney disease stage 3A (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324341000000100",
+          "code_description": "Chronic kidney disease stage 3A without proteinuria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324211000000106",
+          "code_description": "Chronic kidney disease stage 2 without proteinuria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324251000000105",
+          "code_description": "Chronic kidney disease stage 3 with proteinuria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "431855005",
+          "code_description": "Chronic kidney disease stage 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "949561000000100",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G2 and albuminuria category A2 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324441000000106",
+          "code_description": "Chronic kidney disease stage 4 with proteinuria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "949421000000107",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G1 and albuminuria category A2 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "949901000000109",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G3a and albuminuria category A2 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700379002",
+          "code_description": "Chronic kidney disease stage 3B (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324311000000101",
+          "code_description": "Chronic kidney disease stage 3A with proteinuria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324411000000105",
+          "code_description": "Chronic kidney disease stage 3B without proteinuria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324371000000106",
+          "code_description": "Chronic kidney disease stage 3B with proteinuria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "950061000000103",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G3b and albuminuria category A1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "950081000000107",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G3b and albuminuria category A2 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "949521000000108",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G2 and albuminuria category A1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324181000000105",
+          "code_description": "Chronic kidney disease stage 2 with proteinuria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "949921000000100",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G3a and albuminuria category A3 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "950101000000101",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G3b and albuminuria category A3 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324501000000107",
+          "code_description": "Chronic kidney disease stage 5 with proteinuria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324471000000100",
+          "code_description": "Chronic kidney disease stage 4 without proteinuria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "950231000000104",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G4 and albuminuria category A3 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "949621000000109",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G2 and albuminuria category A3 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "950211000000107",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G4 and albuminuria category A2 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "949481000000108",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G1 and albuminuria category A3 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "949401000000103",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G1 and albuminuria category A1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324151000000104",
+          "code_description": "Chronic kidney disease stage 1 without proteinuria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "950181000000106",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G4 and albuminuria category A1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "309861000000100",
+          "code_description": "Chronic kidney disease stage 3A (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324121000000109",
+          "code_description": "Chronic kidney disease stage 1 with proteinuria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "950311000000102",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G5 and albuminuria category A3 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324541000000105",
+          "code_description": "Chronic kidney disease stage 5 without proteinuria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "309871000000107",
+          "code_description": "Chronic kidney disease stage 3B (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "950291000000103",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G5 and albuminuria category A2 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "950251000000106",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G5 and albuminuria category A1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "714152005",
+          "code_description": "Chronic kidney disease stage 5 on dialysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "129171000119106",
+          "code_description": "Chronic kidney disease stage 3 due to hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "731000119105",
+          "code_description": "Chronic kidney disease stage 3 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "691421000119108",
+          "code_description": "Anemia co-occurrent and due to chronic kidney disease stage 3 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "714153000",
+          "code_description": "Chronic kidney disease stage 5 with transplant (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "721000119107",
+          "code_description": "Chronic kidney disease stage 4 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "711000119100",
+          "code_description": "Chronic kidney disease stage 5 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "129151000119102",
+          "code_description": "Chronic kidney disease stage 4 due to hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "751000119104",
+          "code_description": "Chronic kidney disease stage 1 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "741000119101",
+          "code_description": "Chronic kidney disease stage 2 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "284991000119104",
+          "code_description": "Chronic kidney disease stage 3 due to benign hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "129181000119109",
+          "code_description": "Chronic kidney disease stage 2 due to hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "90741000119107",
+          "code_description": "Chronic kidney disease stage 3 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "129161000119100",
+          "code_description": "Chronic kidney disease stage 5 due to hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "90751000119109",
+          "code_description": "Chronic kidney disease stage 4 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "96731000119100",
+          "code_description": "Hypertensive heart AND chronic kidney disease stage 3 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "140111000119107",
+          "code_description": "Hypertension in chronic kidney disease stage 4 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "771000119108",
+          "code_description": "Chronic kidney disease due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1148896009",
+          "code_description": "Vitamin D deficiency due to chronic kidney disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "96711000119105",
+          "code_description": "Hypertensive heart AND chronic kidney disease stage 5 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324351000000102",
+          "code_description": "Chronic kidney disease stage 3A without proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "96701000119107",
+          "code_description": "Hypertensive heart AND chronic kidney disease on dialysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324551000000108",
+          "code_description": "Chronic kidney disease stage 5 without proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324521000000103",
+          "code_description": "Chronic kidney disease stage 5 with proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "211941000000103",
+          "code_description": "Chronic kidney disease stage 2",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "337051000000106",
+          "code_description": "Chronic kidney disease stage 3B",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "200451000000101",
+          "code_description": "Chronic kidney disease stage 3 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "284971000119100",
+          "code_description": "Chronic kidney disease stage 1 due to benign hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "285861000119100",
+          "code_description": "Malignant hypertensive chronic kidney disease stage 2 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324451000000109",
+          "code_description": "Chronic kidney disease stage 4 with proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324561000000106",
+          "code_description": "Chronic kidney disease stage 5 without proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "721183009",
+          "code_description": "Low alkaline phosphatase due to chronic kidney disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324431000000102",
+          "code_description": "Chronic kidney disease stage 3B without proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "337491000000105",
+          "code_description": "Chronic kidney disease stage 3B",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324171000000108",
+          "code_description": "Chronic kidney disease stage 1 without proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "722150000",
+          "code_description": "Chronic kidney disease due to systemic infection (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "211931000000107",
+          "code_description": "Chronic kidney disease stage 1",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "691381000119104",
+          "code_description": "Anemia due to chronic kidney disease stage 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "211961000000102",
+          "code_description": "Chronic kidney disease stage 3",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "200461000000103",
+          "code_description": "Chronic kidney disease stage 4 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324491000000101",
+          "code_description": "Chronic kidney disease stage 4 without proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "950241000000108",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G4 and albuminuria category A3 ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "950321000000108",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G5 and albuminuria category A3 ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "211981000000106",
+          "code_description": "Chronic kidney disease stage 4",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324381000000108",
+          "code_description": "Chronic kidney disease stage 3B with proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "96751000119106",
+          "code_description": "Hypertensive heart AND chronic kidney disease stage 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "722098007",
+          "code_description": "Chronic kidney disease following donor nephrectomy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "211971000000109",
+          "code_description": "Chronic kidney disease stage 3",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "768681000000100",
+          "code_description": "History of chronic kidney disease (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "713313000",
+          "code_description": "Chronic kidney disease mineral and bone disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "949631000000106",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G2 and albuminuria category A3 ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "285831000119108",
+          "code_description": "Malignant hypertensive chronic kidney disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15781000119107",
+          "code_description": "Hypertensive heart AND chronic kidney disease with congestive heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "368461000119103",
+          "code_description": "Chronic kidney disease stage 5 due to drug induced diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "368421000119108",
+          "code_description": "Chronic kidney disease stage 1 due to drug induced diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "284981000119102",
+          "code_description": "Chronic kidney disease stage 2 due to benign hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "211951000000100",
+          "code_description": "Chronic kidney disease stage 2",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "212011000000108",
+          "code_description": "Chronic kidney disease stage 5",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324201000000109",
+          "code_description": "Chronic kidney disease stage 1 with proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "949431000000109",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G1 and albuminuria category A2 ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "211921000000105",
+          "code_description": "Chronic kidney disease stage 1",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1148920008",
+          "code_description": "Inflammation of retina due to chronic kidney disease stage 5 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "251821000000108",
+          "code_description": "Predicted stage chronic kidney disease",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "949491000000105",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G1 and albuminuria category A3 ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "722467000",
+          "code_description": "Chronic kidney disease due to traumatic loss of kidney (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332436006",
+          "code_description": "Hypertension in chronic kidney disease stage 3B due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324321000000107",
+          "code_description": "Chronic kidney disease stage 3A with proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "834001000000101",
+          "code_description": "Chronic kidney disease stage 1",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "368451000119100",
+          "code_description": "Chronic kidney disease stage 4 due to drug induced diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "337481000000108",
+          "code_description": "Chronic kidney disease stage 3A",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332472004",
+          "code_description": "Chronic kidney disease stage 3A due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "834041000000103",
+          "code_description": "Chronic kidney disease stage 5",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "832101000000106",
+          "code_description": "Chronic kidney disease self-management plan review",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332441003",
+          "code_description": "Hypertension in chronic kidney disease stage 3A due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332469006",
+          "code_description": "Chronic kidney disease stage 3B due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "950221000000101",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G4 and albuminuria category A2 ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "71701000119105",
+          "code_description": "Hypertension in chronic kidney disease due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "90721000119101",
+          "code_description": "Chronic kidney disease stage 1 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "368431000119106",
+          "code_description": "Chronic kidney disease stage 2 due to drug induced diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "96721000119103",
+          "code_description": "Hypertensive heart AND chronic kidney disease stage 4 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324221000000100",
+          "code_description": "Chronic kidney disease stage 2 without proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324391000000105",
+          "code_description": "Chronic kidney disease stage 3B with proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324511000000109",
+          "code_description": "Chronic kidney disease stage 5 with proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324301000000103",
+          "code_description": "Chronic kidney disease stage 3 without proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "722149000",
+          "code_description": "Chronic kidney disease due to and following excision of neoplasm of kidney (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "949931000000103",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G3a and albuminuria category A3 ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "285001000119105",
+          "code_description": "Chronic kidney disease stage 4 due to benign hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "949571000000107",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G2 and albuminuria category A2 ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332466004",
+          "code_description": "Hypertension in chronic kidney disease stage 3A due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324421000000104",
+          "code_description": "Chronic kidney disease stage 3B without proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "212001000000106",
+          "code_description": "Chronic kidney disease stage 5",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "71421000119105",
+          "code_description": "Hypertension in chronic kidney disease due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "950191000000108",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G4 and albuminuria category A1 ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "949891000000108",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G3a and albuminuria category A1 ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1148936005",
+          "code_description": "Hyperphosphatemia due to chronic kidney disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "90761000119106",
+          "code_description": "Chronic kidney disease stage 5 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "104931000119100",
+          "code_description": "Chronic kidney disease due to hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "897308007",
+          "code_description": "Chronic kidney disease with osteoporosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "811951000000108",
+          "code_description": "Chronic kidney disease self-management plan agreed ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332442005",
+          "code_description": "Hypertension in chronic kidney disease stage 3 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "153851000119106",
+          "code_description": "Malignant hypertensive chronic kidney disease stage 5 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "140121000119100",
+          "code_description": "Hypertension in chronic kidney disease stage 3 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "691401000119104",
+          "code_description": "Anemia co-occurrent and due to chronic kidney disease stage 4 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324191000000107",
+          "code_description": "Chronic kidney disease stage 1 with proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332464001",
+          "code_description": "Hypertension in chronic kidney disease stage 2 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "211991000000108",
+          "code_description": "Chronic kidney disease stage 4",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324291000000102",
+          "code_description": "Chronic kidney disease stage 3 without proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "140131000119102",
+          "code_description": "Hypertension in chronic kidney disease stage 2 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "707323002",
+          "code_description": "Anemia co-occurrent and due to chronic kidney disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332470007",
+          "code_description": "Chronic kidney disease stage 3A due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "950261000000109",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G5 and albuminuria category A1 ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332467008",
+          "code_description": "Hypertension in chronic kidney disease stage 5 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "949411000000101",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G1 and albuminuria category A1 ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "96441000119101",
+          "code_description": "Chronic kidney disease due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "950111000000104",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G3b and albuminuria category A3 ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "200431000000108",
+          "code_description": "Chronic kidney disease stage 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "949911000000106",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G3a and albuminuria category A2 ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324141000000102",
+          "code_description": "Chronic kidney disease stage 1 with proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324161000000101",
+          "code_description": "Chronic kidney disease stage 1 without proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "285881000119109",
+          "code_description": "Malignant hypertensive chronic kidney disease stage 4 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "200441000000104",
+          "code_description": "Chronic kidney disease stage 2 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1295482007",
+          "code_description": "Osteoporosis due to chronic kidney disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332468003",
+          "code_description": "Hypertension in chronic kidney disease stage 4 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324131000000106",
+          "code_description": "Chronic kidney disease stage 1 with proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10757481000119107",
+          "code_description": "Pre-existing hypertensive heart and chronic kidney disease in mother complicating pregnancy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "284961000119106",
+          "code_description": "Chronic kidney disease due to benign hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332465000",
+          "code_description": "Hypertension in chronic kidney disease stage 3B due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324231000000103",
+          "code_description": "Chronic kidney disease stage 2 without proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "140101000119109",
+          "code_description": "Hypertension in chronic kidney disease stage 5 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "285011000119108",
+          "code_description": "Chronic kidney disease stage 5 due to benign hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "337041000000108",
+          "code_description": "Chronic kidney disease stage 3A",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324271000000101",
+          "code_description": "Chronic kidney disease stage 3 with proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1148926002",
+          "code_description": "Hypophosphatemia due to chronic kidney disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1148928001",
+          "code_description": "Hypocalcemia due to chronic kidney disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "950071000000105",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G3b and albuminuria category A1 ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "950091000000109",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G3b and albuminuria category A2 ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324361000000104",
+          "code_description": "Chronic kidney disease stage 3A without proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324261000000108",
+          "code_description": "Chronic kidney disease stage 3 with proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1148934008",
+          "code_description": "Hypercalcemia due to chronic kidney disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "368441000119102",
+          "code_description": "Chronic kidney disease stage 3 due to drug induced diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "96741000119109",
+          "code_description": "Hypertensive heart AND chronic kidney disease stage 2 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "250601000000106",
+          "code_description": "Chronic kidney disease annual review ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324481000000103",
+          "code_description": "Chronic kidney disease stage 4 without proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "949531000000105",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G2 and albuminuria category A1 ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "200471000000105",
+          "code_description": "Chronic kidney disease stage 5 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "253231000000107",
+          "code_description": "Chronic kidney disease annual review ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "118781000119108",
+          "code_description": "Pre-existing hypertensive chronic kidney disease in mother complicating pregnancy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324461000000107",
+          "code_description": "Chronic kidney disease stage 4 with proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "285851000119102",
+          "code_description": "Malignant hypertensive chronic kidney disease stage 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "834011000000104",
+          "code_description": "Chronic kidney disease stage 2",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "251771000000102",
+          "code_description": "Chronic kidney disease monitoring first letter ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "444271000",
+          "code_description": "Erythropoietin resistance in anemia of chronic kidney disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "950301000000104",
+          "code_description": "Chronic kidney disease with glomerular filtration rate category G5 and albuminuria category A2 ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "90731000119103",
+          "code_description": "Chronic kidney disease stage 2 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10757401000119104",
+          "code_description": "Pre-existing hypertensive heart and chronic kidney disease in mother complicating childbirth (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "834021000000105",
+          "code_description": "Chronic kidney disease stage 3",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "8501000119104",
+          "code_description": "Hypertensive heart and chronic kidney disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332471006",
+          "code_description": "Chronic kidney disease stage 3B due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324331000000109",
+          "code_description": "Chronic kidney disease stage 3A with proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "834031000000107",
+          "code_description": "Chronic kidney disease stage 4",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "285871000119106",
+          "code_description": "Malignant hypertensive chronic kidney disease stage 3 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "691411000119101",
+          "code_description": "Anemia co-occurrent and due to chronic kidney disease stage 5 (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

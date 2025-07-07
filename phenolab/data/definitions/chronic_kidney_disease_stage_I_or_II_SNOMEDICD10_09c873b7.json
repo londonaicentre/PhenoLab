@@ -1,0 +1,231 @@
+{
+  "definition_id": "09c873b7",
+  "definition_name": "chronic_kidney_disease_stage_I_or_II_SNOMEDICD10",
+  "definition_version": "chronic_kidney_disease_stage_I_or_II_SNOMEDICD10_20250707_130655",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-07-07T13:06:55.800214",
+  "codelists": [
+    {
+      "codelist_id": "chronic_kidney_disease_stage_I_or_II_SNOMEDICD10_ICD10_4a9eea24",
+      "codelist_name": "chronic_kidney_disease_stage_I_or_II_SNOMEDICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "chronic_kidney_disease_stage_I_or_II_SNOMEDICD10_ICD10_4a9eea24_20250707_130527",
+      "codes": [
+        {
+          "code": "N18.1",
+          "code_description": "Chronic kidney disease, stage 1",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "N18.2",
+          "code_description": "Chronic kidney disease, stage 2",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    },
+    {
+      "codelist_id": "chronic_kidney_disease_stage_I_or_II_SNOMEDICD10_SNOMED_c83ed978",
+      "codelist_name": "chronic_kidney_disease_stage_I_or_II_SNOMEDICD10_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "chronic_kidney_disease_stage_I_or_II_SNOMEDICD10_SNOMED_c83ed978_20250707_130545",
+      "codes": [
+        {
+          "code": "431855005",
+          "code_description": "Chronic kidney disease stage 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324151000000104",
+          "code_description": "Chronic kidney disease stage 1 without proteinuria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324121000000109",
+          "code_description": "Chronic kidney disease stage 1 with proteinuria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "751000119104",
+          "code_description": "Chronic kidney disease stage 1 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "117681000119102",
+          "code_description": "Chronic kidney disease stage 1 due to hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "691381000119104",
+          "code_description": "Anemia due to chronic kidney disease stage 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "211921000000105",
+          "code_description": "Chronic kidney disease stage 1",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324201000000109",
+          "code_description": "Chronic kidney disease stage 1 with proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "90721000119101",
+          "code_description": "Chronic kidney disease stage 1 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "284971000119100",
+          "code_description": "Chronic kidney disease stage 1 due to benign hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324171000000108",
+          "code_description": "Chronic kidney disease stage 1 without proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "211931000000107",
+          "code_description": "Chronic kidney disease stage 1",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "285851000119102",
+          "code_description": "Malignant hypertensive chronic kidney disease stage 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "96751000119106",
+          "code_description": "Hypertensive heart AND chronic kidney disease stage 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "834001000000101",
+          "code_description": "Chronic kidney disease stage 1",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324191000000107",
+          "code_description": "Chronic kidney disease stage 1 with proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324131000000106",
+          "code_description": "Chronic kidney disease stage 1 with proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324161000000101",
+          "code_description": "Chronic kidney disease stage 1 without proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324141000000102",
+          "code_description": "Chronic kidney disease stage 1 with proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "200431000000108",
+          "code_description": "Chronic kidney disease stage 1 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "368421000119108",
+          "code_description": "Chronic kidney disease stage 1 due to drug induced diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "431856006",
+          "code_description": "Chronic kidney disease stage 2 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324211000000106",
+          "code_description": "Chronic kidney disease stage 2 without proteinuria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324181000000105",
+          "code_description": "Chronic kidney disease stage 2 with proteinuria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "741000119101",
+          "code_description": "Chronic kidney disease stage 2 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "129181000119109",
+          "code_description": "Chronic kidney disease stage 2 due to hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "96741000119109",
+          "code_description": "Hypertensive heart AND chronic kidney disease stage 2 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "284981000119102",
+          "code_description": "Chronic kidney disease stage 2 due to benign hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324221000000100",
+          "code_description": "Chronic kidney disease stage 2 without proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "368431000119106",
+          "code_description": "Chronic kidney disease stage 2 due to drug induced diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "285861000119100",
+          "code_description": "Malignant hypertensive chronic kidney disease stage 2 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "211941000000103",
+          "code_description": "Chronic kidney disease stage 2",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "834011000000104",
+          "code_description": "Chronic kidney disease stage 2",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "90731000119103",
+          "code_description": "Chronic kidney disease stage 2 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "324231000000103",
+          "code_description": "Chronic kidney disease stage 2 without proteinuria ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332464001",
+          "code_description": "Hypertension in chronic kidney disease stage 2 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "140131000119102",
+          "code_description": "Hypertension in chronic kidney disease stage 2 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "200441000000104",
+          "code_description": "Chronic kidney disease stage 2 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "211951000000100",
+          "code_description": "Chronic kidney disease stage 2",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

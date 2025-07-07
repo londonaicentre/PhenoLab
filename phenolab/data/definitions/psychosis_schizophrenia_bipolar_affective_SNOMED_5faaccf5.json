@@ -1,0 +1,1153 @@
+{
+  "definition_id": "5faaccf5",
+  "definition_name": "psychosis_schizophrenia_bipolar_affective_SNOMED",
+  "definition_version": "psychosis_schizophrenia_bipolar_affective_SNOMED_20250707_132404",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-07-07T13:24:04.215459",
+  "codelists": [
+    {
+      "codelist_id": "psychosis_schizophrenia_bipolar_affective_SNOMED_SNOMED_4b6b5761",
+      "codelist_name": "psychosis_schizophrenia_bipolar_affective_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "psychosis_schizophrenia_bipolar_affective_SNOMED_SNOMED_4b6b5761_20250707_131811",
+      "codes": [
+        {
+          "code": "1086471000000103",
+          "code_description": "Recurrent reactive depressive episodes, severe, with psychosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1089481000000106",
+          "code_description": "Cataleptic schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1089511000000100",
+          "code_description": "Recurrent depression with current severe episode and psychotic features",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1089661000000104",
+          "code_description": "Mania with mood-congruent psychotic features",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1089671000000106",
+          "code_description": "Mania with mood-incongruent psychotic features",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1089681000000108",
+          "code_description": "Mania with psychotic features",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1089691000000105",
+          "code_description": "Acute predominantly delusional psychotic disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "111482003",
+          "code_description": "Subchronic schizophrenia with acute exacerbations",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "111483008",
+          "code_description": "Catatonic schizophrenia in remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "111484002",
+          "code_description": "Undifferentiated schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "111485001",
+          "code_description": "Mixed bipolar I disorder in full remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1127191000000108",
+          "code_description": "FEP - first episode psychosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1204417003",
+          "code_description": "Early onset schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1231333004",
+          "code_description": "Psychostimulant dependence episodic",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1231336007",
+          "code_description": "Psychostimulant dependence continuous",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1231503005",
+          "code_description": "Psychotic disorder with insight present",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12939007",
+          "code_description": "Chronic disorganised schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "13313007",
+          "code_description": "Mild bipolar disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "13746004",
+          "code_description": "Bipolar disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "14291003",
+          "code_description": "Subchronic disorganised schizophrenia with acute exacerbations",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1499003",
+          "code_description": "Bipolar I disorder, single manic episode with postpartum onset",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "162004",
+          "code_description": "Severe manic bipolar I disorder without psychotic features",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "162313000",
+          "code_description": "Morbid jealousy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16238741000119105",
+          "code_description": "Bipolar disorder caused by drug",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16506000",
+          "code_description": "Mixed bipolar I disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "17782008",
+          "code_description": "Bipolar I disorder, most recent episode manic with catatonic features",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16990005",
+          "code_description": "Subchronic schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191525009",
+          "code_description": "Non-organic psychosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191526005",
+          "code_description": "Schizophrenic disorders",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191527001",
+          "code_description": "Simple schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191530008",
+          "code_description": "Acute exacerbation of subchronic schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191531007",
+          "code_description": "Acute exacerbation of chronic schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191538001",
+          "code_description": "Acute exacerbation of subchronic disorganised schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191539009",
+          "code_description": "Acute exacerbation of chronic disorganised schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191542003",
+          "code_description": "Catatonic schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191547009",
+          "code_description": "Acute exacerbation of subchronic catatonic schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191548004",
+          "code_description": "Acute exacerbation of chronic catatonic schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191554003",
+          "code_description": "Acute exacerbation of subchronic paranoid schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191555002",
+          "code_description": "Acute exacerbation of chronic paranoid schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191559008",
+          "code_description": "Latent schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191561004",
+          "code_description": "Subchronic latent schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191562006",
+          "code_description": "Chronic latent schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191563001",
+          "code_description": "Acute exacerbation of subchronic latent schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191564007",
+          "code_description": "Acute exacerbation of chronic latent schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191565008",
+          "code_description": "Latent schizophrenia in remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191567000",
+          "code_description": "Schizoaffective schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191569002",
+          "code_description": "Subchronic schizoaffective schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191570001",
+          "code_description": "Chronic schizoaffective schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191571002",
+          "code_description": "Acute exacerbation of subchronic schizoaffective schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191572009",
+          "code_description": "Acute exacerbation of chronic schizoaffective schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191574005",
+          "code_description": "Schizoaffective schizophrenia in remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191577003",
+          "code_description": "Coenesthopathic schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191583000",
+          "code_description": "Single manic episode, mild",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191584006",
+          "code_description": "Single manic episode, moderate",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191586008",
+          "code_description": "Single manic episode, severe, with psychosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191588009",
+          "code_description": "Single manic episode in full remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191590005",
+          "code_description": "Recurrent manic episodes",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191592002",
+          "code_description": "Recurrent manic episodes, mild",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191593007",
+          "code_description": "Recurrent manic episodes, moderate",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191595000",
+          "code_description": "Recurrent manic episodes, severe, with psychosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191597008",
+          "code_description": "Recurrent manic episodes, in full remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191604000",
+          "code_description": "Single major depressive episode, severe, with psychosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191613003",
+          "code_description": "Recurrent major depressive episodes, severe, with psychosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191618007",
+          "code_description": "Bipolar affective disorder, current episode manic",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191620005",
+          "code_description": "Bipolar affective disorder, currently manic, mild",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191621009",
+          "code_description": "Bipolar affective disorder, currently manic, moderate",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191623007",
+          "code_description": "Bipolar affective disorder, currently manic, severe, with psychosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191625000",
+          "code_description": "Bipolar affective disorder, currently manic, in full remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191627008",
+          "code_description": "Bipolar affective disorder, current episode depression",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191629006",
+          "code_description": "Bipolar affective disorder, currently depressed, mild",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191630001",
+          "code_description": "Bipolar affective disorder, currently depressed, moderate",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191632009",
+          "code_description": "Bipolar affective disorder, currently depressed, severe, with psychosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191634005",
+          "code_description": "Bipolar affective disorder, currently depressed, in full remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191636007",
+          "code_description": "Mixed bipolar affective disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191638008",
+          "code_description": "Mixed bipolar affective disorder, mild",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191639000",
+          "code_description": "Mixed bipolar affective disorder, moderate",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191641004",
+          "code_description": "Mixed bipolar affective disorder, severe, with psychosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191643001",
+          "code_description": "Mixed bipolar affective disorder, in full remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191658009",
+          "code_description": "Atypical manic disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191667009",
+          "code_description": "Paranoid disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191668004",
+          "code_description": "Simple paranoid state",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191670008",
+          "code_description": "Shared paranoid disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191672000",
+          "code_description": "Paranoia querulans",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191676002",
+          "code_description": "Reactive depressive psychosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191677006",
+          "code_description": "Acute hysterical psychosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191680007",
+          "code_description": "Psychogenic paranoid psychosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191683009",
+          "code_description": "Psychogenic stupor",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "192362008",
+          "code_description": "Bipolar affective disorder, current episode mixed",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "231437006",
+          "code_description": "Reactive psychoses",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "231449007",
+          "code_description": "Epileptic psychosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "231485007",
+          "code_description": "Post-schizophrenic depression",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "231487004",
+          "code_description": "Persistent delusional disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "231489001",
+          "code_description": "Acute transient psychotic disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "231494001",
+          "code_description": "Mania",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "231495000",
+          "code_description": "Manic stupor",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "231496004",
+          "code_description": "Hypomania",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "238972008",
+          "code_description": "Cutaneous monosymptomatic delusional psychosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "238973003",
+          "code_description": "Delusions of parasitosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "238974009",
+          "code_description": "Delusions of infestation",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "238977002",
+          "code_description": "Delusional hyperhidrosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "247804008",
+          "code_description": "Schizophrenic prodrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "26025008",
+          "code_description": "Residual schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "26472000",
+          "code_description": "Paraphrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "268617001",
+          "code_description": "Acute schizophrenic episode",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "268619003",
+          "code_description": "Manic disorder, single episode",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "268622001",
+          "code_description": "Chronic paranoid psychosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "268624000",
+          "code_description": "Acute paranoid reaction",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "270901009",
+          "code_description": "Schizoaffective disorder, mixed type",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "271428004",
+          "code_description": "Schizoaffective disorder, manic type",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "27387000",
+          "code_description": "Subchronic disorganised schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "274952002",
+          "code_description": "Borderline schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "274953007",
+          "code_description": "Acute polymorphic psychotic disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "278506006",
+          "code_description": "Involutional paranoid state",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "278508007",
+          "code_description": "Delusional dysmorphophobia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "278853003",
+          "code_description": "Acute schizophrenia-like psychotic disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "280949006",
+          "code_description": "Erotomania",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "28475009",
+          "code_description": "Severe recurrent major depression with psychotic features",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "28663008",
+          "code_description": "Severe manic bipolar I disorder with psychotic features",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "29599000",
+          "code_description": "Chronic undifferentiated schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "30336007",
+          "code_description": "Chronic residual schizophrenia with acute exacerbations",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "307417003",
+          "code_description": "Cycloid psychosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "307504004",
+          "code_description": "Oneirophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "31027006",
+          "code_description": "Schizotypal personality disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "31373002",
+          "code_description": "Disorganised schizophrenia in remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "31446002",
+          "code_description": "Bipolar I disorder, most recent episode hypomanic",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "31658008",
+          "code_description": "Chronic paranoid schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "33323008",
+          "code_description": "Somatic delusion disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "35218008",
+          "code_description": "Chronic disorganised schizophrenia with acute exacerbation",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "35252006",
+          "code_description": "Disorganised schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "371596008",
+          "code_description": "Bipolar I disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "38295006",
+          "code_description": "Involutional paraphrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "38368003",
+          "code_description": "Schizoaffective disorder, bipolar type",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "39610001",
+          "code_description": "Undifferentiated schizophrenia in remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "397711000000100",
+          "code_description": "[X]Severe depressive episode with psychotic symptoms",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "416340002",
+          "code_description": "Late onset schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "417601000000102",
+          "code_description": "[X]Schizophrenia, schizotypal and delusional disorders",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "41836007",
+          "code_description": "Bipolar disorder in full remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "41932008",
+          "code_description": "Amok",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "42868002",
+          "code_description": "Subchronic catatonic schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "441704009",
+          "code_description": "Affective psychosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "4441000",
+          "code_description": "Severe bipolar disorder with psychotic features",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "48500005",
+          "code_description": "Delusional disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "4926007",
+          "code_description": "Schizophrenia in remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "51133006",
+          "code_description": "Residual schizophrenia in remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "53049002",
+          "code_description": "Severe bipolar disorder without psychotic features",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "53607008",
+          "code_description": "Depressed bipolar I disorder in remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "5464005",
+          "code_description": "Brief reactive psychosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "55516002",
+          "code_description": "Bipolar I disorder, most recent episode manic with postpartum onset",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "58214004",
+          "code_description": "Schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "60401000119104",
+          "code_description": "Postpartum psychosis in remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "61403008",
+          "code_description": "Severe depressed bipolar I disorder without psychotic features",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "61831009",
+          "code_description": "Induced psychotic disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "63181006",
+          "code_description": "Paranoid schizophrenia in remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "63204009",
+          "code_description": "Bouff\u00e9e d\u00e9lirante",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "63249007",
+          "code_description": "Manic bipolar I disorder in partial remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "63395003",
+          "code_description": "Folie \u00e0 trois",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "64905009",
+          "code_description": "Paranoid schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "65971000052100",
+          "code_description": "Acute psychosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "68890003",
+          "code_description": "Schizoaffective disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "68995007",
+          "code_description": "Chronic catatonic schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "69322001",
+          "code_description": "Psychotic disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "7025000",
+          "code_description": "Subchronic undifferentiated schizophrenia with acute exacerbations",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "70814008",
+          "code_description": "Subchronic residual schizophrenia with acute exacerbations",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "71103003",
+          "code_description": "Chronic residual schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "712824002",
+          "code_description": "Acute polymorphic psychotic disorder without symptoms of schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "712850003",
+          "code_description": "Acute polymorphic psychotic disorder co-occurrent with symptoms of schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "73867007",
+          "code_description": "Severe major depression with psychotic features",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "755301000000102",
+          "code_description": "Paranoid state in remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "755311000000100",
+          "code_description": "Non-organic psychosis in remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "755321000000106",
+          "code_description": "Single major depressive episode, severe, with psychosis, psychosis in remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "755331000000108",
+          "code_description": "Recurrent major depressive episodes, severe, with psychosis, psychosis in remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "760721000000109",
+          "code_description": "Mixed bipolar affective disorder, in partial remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "764591000000108",
+          "code_description": "Mixed bipolar affective disorder, severe",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "764621000000106",
+          "code_description": "Recurrent manic episodes, severe",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "764641000000104",
+          "code_description": "Single manic episode, severe",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "764671000000105",
+          "code_description": "Recurrent manic episodes, in partial remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "764681000000107",
+          "code_description": "Recurrent manic episodes, in remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "764731000000103",
+          "code_description": "Single manic episode in partial remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "764741000000107",
+          "code_description": "Single manic episode in remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "765176007",
+          "code_description": "Psychosis and severe depression co-occurrent and due to bipolar affective disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "76566000",
+          "code_description": "Subchronic residual schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "767631007",
+          "code_description": "Bipolar disorder, most recent episode depression",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "767632000",
+          "code_description": "Bipolar disorder, most recent episode manic",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "767633005",
+          "code_description": "Bipolar affective disorder, most recent episode mixed",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "767635003",
+          "code_description": "Bipolar I disorder, most recent episode manic",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "767636002",
+          "code_description": "Bipolar I disorder, most recent episode depression",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "77475008",
+          "code_description": "Jealous delusion disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "789061003",
+          "code_description": "Rapid cycling bipolar II disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "79204003",
+          "code_description": "Chronic undifferentiated schizophrenia with acute exacerbations",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "79584002",
+          "code_description": "Moderate bipolar disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "79866005",
+          "code_description": "Subchronic paranoid schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "83225003",
+          "code_description": "Bipolar II disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "83746006",
+          "code_description": "Chronic schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "84760002",
+          "code_description": "Schizoaffective disorder, depressive type",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "85248005",
+          "code_description": "Bipolar disorder in remission",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "85861002",
+          "code_description": "Subchronic undifferentiated schizophrenia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "87950005",
+          "code_description": "Bipolar I disorder, single manic episode with catatonic features",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "88975006",
+          "code_description": "Schizophreniform disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "42344001",
+          "code_description": "Psychosis caused by ingestible alcohol (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "69482004",
+          "code_description": "Korsakoff's psychosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "18260003",
+          "code_description": "Postpartum psychosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "943081000000102",
+          "code_description": "Cannabis-induced psychosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "943101000000108",
+          "code_description": "Cocaine-induced psychosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "718026005",
+          "code_description": "Cognitive behavioral therapy for psychosis (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "17262008",
+          "code_description": "Non-alcoholic Korsakoff's psychosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "551591000000100",
+          "code_description": "Unspecified puerperal psychosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "480111000000107",
+          "code_description": "[X] (Other nonorganic psychotic disorders) or (chronic hallucinatory psychosis)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "943071000000104",
+          "code_description": "Opioid-induced psychosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "92191000000105",
+          "code_description": "Early intervention in psychosis team (qualifier value)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "199191000000109",
+          "code_description": "Referral to psychosis early intervention service (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191687005",
+          "code_description": "Psychosis with origin in childhood (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "390815004",
+          "code_description": "Early intervention in psychosis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1231846001",
+          "code_description": "Psychosis caused by ethanol (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191471000",
+          "code_description": "Korsakov's alcoholic psychosis with peripheral neuritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "467361000000105",
+          "code_description": "[X] Manic-depressive psychosis, depressed type without psychotic symptoms (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "371026009",
+          "code_description": "Senile dementia with psychosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "943131000000102",
+          "code_description": "Hallucinogen-induced psychosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "237352005",
+          "code_description": "Severe postnatal psychosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1097161000000100",
+          "code_description": "Referral for cognitive behavioural therapy for psychosis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "288751000119101",
+          "code_description": "Reactive depressive psychosis, single episode (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "943091000000100",
+          "code_description": "Sedative-induced psychosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "268745002",
+          "code_description": "(Alcoholic psychosis: [Korsakov's] or [other]) or (withdrawal syndrome - alcohol) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "52954000",
+          "code_description": "Schizoid personality disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "17435002",
+          "code_description": "Chronic paranoid schizophrenia with acute exacerbations (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "192486009",
+          "code_description": "Schizoid personality disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "633401000000100",
+          "code_description": "Unspecified paranoid schizophrenia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191580002",
+          "code_description": "Affective psychoses (& [bipolar] or [depressive] or [manic]) (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

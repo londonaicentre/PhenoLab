@@ -1,0 +1,713 @@
+{
+  "definition_id": "5ea0e7ab",
+  "definition_name": "asthma_SNOMED",
+  "definition_version": "asthma_SNOMED_20250707_123851",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-07-07T12:38:51.181392",
+  "codelists": [
+    {
+      "codelist_id": "asthma_SNOMED_SNOMED_0fab661d",
+      "codelist_name": "asthma_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "asthma_SNOMED_SNOMED_0fab661d_20250707_123457",
+      "codes": [
+        {
+          "code": "1064811000000103",
+          "code_description": "Moderate acute exacerbation of asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1064821000000109",
+          "code_description": "Life threatening acute exacerbation of asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10674711000119105",
+          "code_description": "Acute severe exacerbation of asthma co-occurrent with allergic rhinitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10674991000119104",
+          "code_description": "Intermittent allergic asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10675391000119101",
+          "code_description": "Severe controlled persistent asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10675431000119106",
+          "code_description": "Severe persistent allergic asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10675471000119109",
+          "code_description": "Acute severe exacerbation of severe persistent allergic asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10675551000119104",
+          "code_description": "Acute severe exacerbation of severe persistent asthma co-occurrent with allergic rhinitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10675591000119109",
+          "code_description": "Severe persistent allergic asthma controlled (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10675631000119109",
+          "code_description": "Severe persistent asthma controlled co-occurrent with allergic rhinitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10675671000119107",
+          "code_description": "Severe persistent allergic asthma uncontrolled (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10675711000119106",
+          "code_description": "Severe persistent asthma uncontrolled co-occurrent with allergic rhinitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10675751000119107",
+          "code_description": "Severe uncontrolled persistent asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10675871000119106",
+          "code_description": "Mild persistent allergic asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10675911000119109",
+          "code_description": "Acute severe exacerbation of mild persistent allergic asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10675991000119100",
+          "code_description": "Acute severe exacerbation of mild persistent allergic asthma co-occurrent with allergic rhinitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10676031000119106",
+          "code_description": "Mild persistent allergic asthma controlled (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10676071000119109",
+          "code_description": "Mild persistent asthma controlled (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10676111000119102",
+          "code_description": "Mild persistent asthma controlled co-occurrent with allergic rhinitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10676151000119101",
+          "code_description": "Mild persistent allergic asthma uncontrolled (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10676191000119106",
+          "code_description": "Mild persistent asthma uncontrolled (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10676231000119102",
+          "code_description": "Mild persistent asthma uncontrolled co-occurrent with allergic rhinitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10676351000119103",
+          "code_description": "Moderate persistent asthma controlled (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10676391000119108",
+          "code_description": "Moderate persistent allergic asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10676431000119103",
+          "code_description": "Acute severe exacerbation of moderate persistent allergic asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10676511000119109",
+          "code_description": "Acute severe exacerbation of moderate persistent asthma co-occurrent with allergic rhinitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10676551000119105",
+          "code_description": "Moderate persistent allergic asthma controlled (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10676591000119100",
+          "code_description": "Moderate persistent controlled asthma co-occurrent with allergic rhinitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10676631000119100",
+          "code_description": "Moderate persistent allergic asthma uncontrolled (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10676671000119102",
+          "code_description": "Moderate persistent asthma uncontrolled co-occurrent with allergic rhinitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10676711000119103",
+          "code_description": "Moderate persistent asthma uncontrolled (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10692721000119102",
+          "code_description": "Chronic obstructive asthma co-occurrent with acute exacerbation of asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10692761000119107",
+          "code_description": "Asthma-chronic obstructive pulmonary disease overlap syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10742121000119104",
+          "code_description": "Asthma in mother complicating childbirth (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1086701000000102",
+          "code_description": "Life threatening acute exacerbation of allergic asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1086711000000100",
+          "code_description": "Life threatening acute exacerbation of intrinsic asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1103911000000103",
+          "code_description": "Severe asthma with fungal sensitisation (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "11641008",
+          "code_description": "Millers' asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "11944003",
+          "code_description": "Feather-pickers' disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12428000",
+          "code_description": "Intrinsic asthma without status asthmaticus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "124991000119109",
+          "code_description": "Severe persistent asthma co-occurrent with allergic rhinitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "125001000119103",
+          "code_description": "Moderate persistent asthma co-occurrent with allergic rhinitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "125011000119100",
+          "code_description": "Mild persistent asthma co-occurrent with allergic rhinitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "125021000119107",
+          "code_description": "Intermittent asthma co-occurrent with allergic rhinitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "13151001",
+          "code_description": "Flax-dressers' disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "135171000119106",
+          "code_description": "Acute exacerbation of moderate persistent asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "135181000119109",
+          "code_description": "Acute exacerbation of mild persistent asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16584951000119101",
+          "code_description": "Oral steroid-dependent asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1741000119102",
+          "code_description": "Intermittent asthma uncontrolled (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1751000119100",
+          "code_description": "Acute exacerbation of chronic obstructive airways disease with asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "18041002",
+          "code_description": "Printers' asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195949008",
+          "code_description": "Chronic asthmatic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195967001",
+          "code_description": "Asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195977004",
+          "code_description": "Mixed asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "19849005",
+          "code_description": "Meat-wrappers' asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "225057002",
+          "code_description": "Brittle asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233672007",
+          "code_description": "Byssinosis grade 3 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233678006",
+          "code_description": "Childhood asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233679003",
+          "code_description": "Late onset asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233683003",
+          "code_description": "Hay fever with asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233687002",
+          "code_description": "Colophony asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233688007",
+          "code_description": "Sulfite-induced asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233691007",
+          "code_description": "Asthmatic pulmonary eosinophilia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "2360001000004109",
+          "code_description": "Steroid dependent asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266361008",
+          "code_description": "Non-allergic asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "281239006",
+          "code_description": "Exacerbation of asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "30352005",
+          "code_description": "Allergic-infective asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "304527002",
+          "code_description": "Acute asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "312453004",
+          "code_description": "Asthma - currently active (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "31387002",
+          "code_description": "Exercise-induced asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "34015007",
+          "code_description": "Bakers' asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "370218001",
+          "code_description": "Mild asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "370219009",
+          "code_description": "Moderate asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "370220003",
+          "code_description": "Occasional asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "370221004",
+          "code_description": "Severe asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "389145006",
+          "code_description": "Allergic asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401000119107",
+          "code_description": "Asthma with irreversible airway obstruction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401193004",
+          "code_description": "Asthma confirmed (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "404804003",
+          "code_description": "Platinum asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "404806001",
+          "code_description": "Cheese-makers' asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "404808000",
+          "code_description": "Isocyanate induced asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "405944004",
+          "code_description": "Asthmatic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "407674008",
+          "code_description": "Aspirin-induced asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "409663006",
+          "code_description": "Cough variant asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "41553006",
+          "code_description": "Detergent asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "418395004",
+          "code_description": "Tea-makers' asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "423889005",
+          "code_description": "Non-immunoglobulin E mediated allergic asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "424199006",
+          "code_description": "Substance induced asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "424643009",
+          "code_description": "Immunoglobulin E-mediated allergic asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "425969006",
+          "code_description": "Exacerbation of intermittent asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426656000",
+          "code_description": "Severe persistent asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426979002",
+          "code_description": "Mild persistent asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "427295004",
+          "code_description": "Moderate persistent asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "427603009",
+          "code_description": "Intermittent asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "427679007",
+          "code_description": "Mild intermittent asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "442025000",
+          "code_description": "Acute exacerbation of chronic asthmatic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "445427006",
+          "code_description": "Seasonal asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "55570000",
+          "code_description": "Asthma without status asthmaticus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "56968009",
+          "code_description": "Wood asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "57607007",
+          "code_description": "Occupational asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "59786004",
+          "code_description": "Weavers' cough (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "63088003",
+          "code_description": "Extrinsic asthma without status asthmaticus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "641000119106",
+          "code_description": "Intermittent asthma well controlled (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "703953004",
+          "code_description": "Allergic asthma caused by Dermatophagoides pteronyssinus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "703954005",
+          "code_description": "Allergic asthma caused by Dermatophagoides farinae (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "707444001",
+          "code_description": "Uncomplicated asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "707445000",
+          "code_description": "Exacerbation of mild persistent asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "707446004",
+          "code_description": "Exacerbation of moderate persistent asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "707447008",
+          "code_description": "Exacerbation of severe persistent asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "707511009",
+          "code_description": "Uncomplicated mild persistent asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "707512002",
+          "code_description": "Uncomplicated moderate persistent asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "707513007",
+          "code_description": "Uncomplicated severe persistent asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "707979007",
+          "code_description": "Acute severe exacerbation of severe persistent asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "707980005",
+          "code_description": "Acute severe exacerbation of moderate persistent asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "707981009",
+          "code_description": "Acute severe exacerbation of mild persistent asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "708038006",
+          "code_description": "Acute exacerbation of asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "708090002",
+          "code_description": "Acute severe exacerbation of asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "708093000",
+          "code_description": "Acute exacerbation of immunoglobulin E-mediated allergic asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "708094006",
+          "code_description": "Acute exacerbation of intrinsic asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "708095007",
+          "code_description": "Acute severe exacerbation of immunoglobin E-mediated allergic asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "708096008",
+          "code_description": "Acute severe exacerbation of intrinsic asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "72301000119103",
+          "code_description": "Asthma in pregnancy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "733858005",
+          "code_description": "Acute severe refractory exacerbation of asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "734904007",
+          "code_description": "Life threatening acute exacerbation of asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "734905008",
+          "code_description": "Moderate acute exacerbation of asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "735587000",
+          "code_description": "Acute severe exacerbation of asthma co-occurrent and due to allergic asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "735588005",
+          "code_description": "Uncomplicated allergic asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "735589002",
+          "code_description": "Uncomplicated non-allergic asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762521001",
+          "code_description": "Exacerbation of allergic asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "782513000",
+          "code_description": "Acute severe exacerbation of allergic asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "782520007",
+          "code_description": "Exacerbation of allergic asthma due to infection (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "786836003",
+          "code_description": "Near fatal asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "829976001",
+          "code_description": "Thunderstorm asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "85761009",
+          "code_description": "Byssinosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "866881000000101",
+          "code_description": "Chronic asthma with fixed airflow obstruction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "89099002",
+          "code_description": "Chronic allergic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "92807009",
+          "code_description": "Chemical-induced asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "93432008",
+          "code_description": "Drug-induced asthma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "99031000119107",
+          "code_description": "Acute exacerbation of asthma co-occurrent with allergic rhinitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}
