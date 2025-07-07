@@ -46,7 +46,8 @@ Either use [this page](https://docs.snowflake.com/en/developer-guide/snowpark/py
 connections.toml file (an example is given in the /Phenolab directory), or set up a default connnection on the Snowflake
 CLI - 
 [this internal tutorial](https://github.com/londonaicentre/sde_aic_internal_docs/blob/main/infra/snowflake_cli_setup.md)
-may help.
+may help. If deploying phenolab to NEL, it is useful to name the connection `nel_icb` and set this connection to default, 
+as it may otherwise throw an error asking for a default connection to be set.
 
 ## Deploy streamlit using bash script
 
