@@ -12,7 +12,7 @@ phenolab_config_mapping = {"SE56186": "nel_icb" }
 def load_config() -> dict:
 
     load_dotenv(override=True)
-    if os.getenv("GSETTINGS_SCHEMA_DIR") is not None:  
+    if os.environ['HOME'] == "/home/udf":
         # This is a hideous hack, but this env variable exists on streamlit in snowflake
         local_development = False
     else:
