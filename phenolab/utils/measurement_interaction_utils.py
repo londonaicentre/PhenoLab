@@ -291,6 +291,7 @@ def create_base_measurements_sql(eligible_configs):
         SELECT
             obs.PERSON_ID,
             obs.CLINICAL_EFFECTIVE_DATE,
+            obs.AGE_AT_EVENT,
             def.DEFINITION_ID,
             def.DEFINITION_NAME,
             def.DEFINITION_VERSION,
