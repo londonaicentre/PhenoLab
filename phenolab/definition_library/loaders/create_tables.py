@@ -57,7 +57,6 @@ def create_temp_definition_table(session: Session, df: pd.DataFrame, table_name:
     try:
         session.write_pandas(df, table_name=temp_table, overwrite=True, table_type="temporary", 
             use_logical_type=True, database=database, schema=schema)
-        print(f"Loaded data to temporary table {database}.{schema}.{temp_table} (temporary)")
     except ProgrammingError:
         # Snowflake on streamlit does not allow temporary tables, so we use a normal table
         # There's a manual drop of this table after the merge
