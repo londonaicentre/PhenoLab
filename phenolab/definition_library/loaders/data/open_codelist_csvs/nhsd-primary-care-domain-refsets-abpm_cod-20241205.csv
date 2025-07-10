@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:44bf116e60211ca800d6d144d4d74317a9e373763cb4197cadd433dbbb4eba0d
-size 1535
+code,term
+141947003,Ambulatory blood pressure recording
+147845001,24 hr blood pressure monitoring
+164783007,Ambulatory blood pressure recording
+170599006,24 hr blood pressure monitoring
+198081000000101,Ambulatory systolic blood pressure
+198091000000104,Ambulatory diastolic blood pressure
+213031000000105,Ambulatory systolic blood pressure
+213041000000101,Ambulatory systolic blood pressure
+213051000000103,Ambulatory diastolic blood pressure
+213061000000100,Ambulatory diastolic blood pressure
+314438006,Minimum systolic blood pressure
+314440001,Average systolic blood pressure
+314441002,Minimum day interval systolic blood pressure
+314442009,Minimum night interval systolic blood pressure
+314445006,Average night interval systolic blood pressure
+314446007,Average day interval systolic blood pressure
+314447003,Minimum 24 hour systolic blood pressure
+314449000,Average 24 hour systolic blood pressure
+314451001,Minimum diastolic blood pressure
+314453003,Average diastolic blood pressure
+314454009,Minimum day interval diastolic blood pressure
+314455005,Minimum night interval diastolic blood pressure
+314456006,Minimum 24 hour diastolic blood pressure
+314460009,Average night interval diastolic blood pressure
+314461008,Average day interval diastolic blood pressure
+314462001,Average 24 hour diastolic blood pressure
+314463006,24 hour blood pressure
+314464000,24 hour systolic blood pressure
+314465004,24 hour diastolic blood pressure
+723232008,Average blood pressure
+723236006,Minimum blood pressure
