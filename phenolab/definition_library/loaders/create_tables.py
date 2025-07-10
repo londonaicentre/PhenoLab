@@ -62,7 +62,7 @@ def create_temp_definition_table(session: Session, df: pd.DataFrame, table_name:
         # There's a manual drop of this table after the merge
         session.write_pandas(df, table_name=temp_table, overwrite=True, 
             use_logical_type=True, database=database, schema=schema)
-    print("Loaded data to temporary table")
+    print(f"Loaded data to temporary table {database}.{schema}.{temp_table}")
 
 
 def merge_definition_tables(
