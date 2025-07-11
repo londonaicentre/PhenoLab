@@ -28,7 +28,7 @@ from utils.style_utils import container_object_with_height_if_possible, set_font
 
 
 
-def display_measurement_analysis(config, tab1 = True):
+def display_measurement_analysis(config, tab1 = True, upper_limit = None, lower_limit = None):
 
     with st.spinner("Loading measurement values..."):
         df_values = get_measurement_values(config.definition_name)
@@ -84,6 +84,12 @@ def display_measurement_analysis(config, tab1 = True):
                         nbins = round((xmax - xmin)*nbinsx),
                         marginal= 'violin'
                         )
+                if upper_limit and lower_limit:
+                    unit_distr_plot.add_vrect(x0=lower_limit, x1=upper_limit, line_width=0, fillcolor="green", opacity=0.2)
+                elif upper_limit:
+                    unit_distr_plot.add_hline(y = upper_limit, col = 'red')
+                elif lower_limit:
+                    unit_distr_plot.add_hline(y = lower_limit, col = 'red')
 
                 st.plotly_chart(unit_distr_plot, use_container_width=True)
 
@@ -430,12 +436,26 @@ def display_configs_in_tables():
             AND STANDARD_UNIT != ''
         """).to_pandas()['MAPPED_COUNT'].to_list()[0]
 
+    value_bounds = st.session_state.session.sql(f"""
+        SELECT
+            LOWER_LIMIT,
+            UPPER_LIMIT
+        FROM {st.session_state.config["measurement_configs"]["database"]}.
+        {st.session_state.config["measurement_configs"]["schema"]}.VALUE_BOUNDS
+            WHERE CONFIG_ID = '{config}'
+        """).to_pandas()
+
+    upper_limit = value_bounds.UPPER_LIMIT.to_list()[0]
+    lower_limit = value_bounds.LOWER_LIMIT.to_list()[0]
+
     if not mapped_measurements:
         mapped_measurements = 0
 
     st.write(f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; All existing units for this measurement: {existing_units}")
     st.write(f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Standard units to map to: {standard_units}")
     st.write(f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Primary unit to convert to: {primary_unit}")
+    st.write(f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lower limit of possible: {lower_limit if not np.isnan(lower_limit) else 'not set'}")
+    st.write(f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Upper limit of possible: {upper_limit if not np.isnan(upper_limit) else 'not set'}")
 
     metric1, metric2, metric3 =  st.columns(3)
     with metric1:
@@ -447,7 +467,12 @@ def display_configs_in_tables():
         st.metric('Proportion Measurments Mapped', f'{proportion_mapped}%')
     st.divider()
 
-    return definition_name
+    if np.isnan(upper_limit):
+        upper_limit = None
+    if np.isnan(lower_limit):
+        lower_limit = None
+
+    return definition_name, upper_limit, lower_limit
 
 def display_measurement_bounds_panel(config: MeasurementConfig):
     st.divider()
@@ -463,7 +488,7 @@ def display_measurement_bounds_panel(config: MeasurementConfig):
             config.add_lower_bound(new_lower_bound)
             config.save_to_json(directory=f"data/measurements/{st.session_state.config['icb_name']}")
             st.success("Lower bound set successfully.")
-            
+
     new_upper_bound = st.number_input(
         "Upper bound for values in primary unit",
         value=config.upper_limit if hasattr(config, 'upper_limit') else None,
@@ -609,13 +634,13 @@ def main():  # noqa: C901
                     load_measurement_configs_into_tables()
                     st.success("Sent!")
         with tab2:
-            selected_measurement = display_configs_in_tables()
+            selected_measurement, ulim, llim  = display_configs_in_tables()
             measurement_config = get_selected_config(selected_measurement)
-            display_measurement_analysis(measurement_config, tab1=False)
+            display_measurement_analysis(measurement_config, False, ulim, llim)
     else:
-        selected_measurement = display_configs_in_tables()
+        selected_measurement, ulim, llim = display_configs_in_tables()
         measurement_config = get_selected_config(selected_measurement)
-        display_measurement_analysis(measurement_config, tab1=False)
+        display_measurement_analysis(measurement_config, False, ulim, llim)
 
 
 
