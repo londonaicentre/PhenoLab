@@ -1,16 +1,21 @@
+import numpy as np
 import pandas as pd
+import plotly.express as px
 import streamlit as st
-
+from utils.config_utils import load_config
 from utils.database_utils import get_snowflake_session
+from utils.measurement import MeasurementConfig
 from utils.measurement_interaction_utils import (
-    load_measurement_configs_into_tables,
+    apply_conversions,
+    apply_unit_mapping,
+    get_available_measurement_configs,
+    get_measurement_values,
     load_measurement_config,
+    load_measurement_configs_into_tables,
     load_measurement_configs_list,
     update_all_measurement_configs,
 )
-from utils.style_utils import set_font_lato, container_object_with_height_if_possible
-from utils.config_utils import load_config
-from utils.measurement import MeasurementConfig
+from utils.style_utils import container_object_with_height_if_possible, set_font_lato
 
 # # 04_Measurement_Standardisation.py
 
@@ -21,6 +26,92 @@ from utils.measurement import MeasurementConfig
 # TO DO
 # - Not yet feature complete!
 
+
+
+def display_measurement_analysis(config, tab1 = True):
+
+    with st.spinner("Loading measurement values..."):
+        df_values = get_measurement_values(config.definition_name)
+
+    if df_values.empty:
+        st.warning(f"No measurement values found for {config.definition_name}")
+        return
+
+    df_mapped = apply_unit_mapping(df_values, config)
+    unmapped_count = df_mapped['mapped_unit'].isna().sum()
+
+    st.info(f"Loaded {len(df_values):,} measurement values (Unmapped = {unmapped_count:,})")
+
+    df_all = apply_conversions(df_mapped, config)
+
+    #set form name so they're not the same
+    form_name = 'unit_distribution_plot_' + config.definition_name
+
+    if tab1:
+        with st.form(form_name):
+            #st.markdown('### Plot the distributions of the units')
+            col1, col2, col3, col4 = st.columns(4)
+            local_max_centile = df_all.value.quantile(0.9999)
+            local_min_centile = df_all.value.quantile(0.0001)
+
+            with col1:
+                xmin = st.number_input('XMin',
+                                    value = local_min_centile)
+
+            with col2:
+                xmax = st.number_input('XMax',
+                                    value = local_max_centile)
+
+            with col3:
+                nbinsx = st.number_input('Bins/unit',
+                                        value = 1.0,
+                                        step = 0.01)
+
+            with col4:
+                plot_submit = st.form_submit_button()
+
+            if plot_submit:
+                # apply 99.5 percentile cutoff - otherwise extreme outliers will hide true distribution
+                #Limit this by the values as this is slowing things down
+                above_min = np.where(df_all.converted_value >= xmin)
+                below_max = np.where(df_all.converted_value <= xmax)
+
+                unit_distr_plot = px.histogram(
+                    df_all.loc[np.intersect1d(above_min, below_max), :],
+                        x='converted_value',
+                        color = 'mapped_unit',
+                        range_x=[xmin, xmax],
+                        nbins = round((xmax - xmin)*nbinsx),
+                        marginal= 'violin'
+                        )
+
+                st.plotly_chart(unit_distr_plot, use_container_width=True)
+
+    else:
+        with st.form(form_name + 'tab2'):
+            plot_submit = st.form_submit_button('Plot distributions')
+
+            if plot_submit:
+                xmax = df_all.converted_value.quantile(0.995)
+                xmin = df_all.converted_value.quantile(0.005)
+
+                above_min = np.where(df_all.converted_value >= xmin)
+                below_max = np.where(df_all.converted_value <= xmax)
+                unit_distr_plot = px.histogram(
+                            df_all.loc[np.intersect1d(above_min, below_max), :],
+                            x='converted_value',
+                            color = 'mapped_unit',
+                            range_x=[xmin, xmax],
+                            labels= {
+                                'converted_value': config.primary_standard_unit,
+                                'mapped_unit': 'original unit'
+                            },
+                            nbins = 100,
+                            marginal= 'violin',
+                            title= f'Distribution of values of {config.definition_name}, converted to units: {config.primary_standard_unit}' #noqa
+                            )
+
+                st.plotly_chart(unit_distr_plot, use_container_width=True)
 
 
 def display_standard_units_panel(config):
@@ -279,34 +370,84 @@ def display_configs_in_tables():
     st.divider()
 
     measurement_configs = st.session_state.session.sql(f"""
-        SELECT DISTINCT DEFINITION_NAME, CONFIG_ID FROM {st.session_state.config["measurement_configs"]["database"]}.
+        SELECT DISTINCT
+            DEFINITION_NAME,
+            CONFIG_ID
+        FROM {st.session_state.config["measurement_configs"]["database"]}.
         {st.session_state.config["measurement_configs"]["schema"]}.MEASUREMENT_CONFIGS
         ORDER BY DEFINITION_NAME
         """).to_pandas()
-    for config in measurement_configs['CONFIG_ID']:
-        definition_name = measurement_configs.loc[measurement_configs['CONFIG_ID'] == config, 'DEFINITION_NAME'].values[0]
-        existing_units = st.session_state.session.sql(f"""
-            SELECT DISTINCT CONVERT_FROM_UNIT FROM {st.session_state.config["measurement_configs"]["database"]}.
-            {st.session_state.config["measurement_configs"]["schema"]}.UNIT_CONVERSIONS
-            WHERE CONFIG_ID = '{config}'
-            """).to_pandas()['CONVERT_FROM_UNIT'].tolist()
-        standard_units = st.session_state.session.sql(f"""
-            SELECT DISTINCT UNIT FROM {st.session_state.config["measurement_configs"]["database"]}.
-            {st.session_state.config["measurement_configs"]["schema"]}.STANDARD_UNITS
-            WHERE CONFIG_ID = '{config}'
-            """).to_pandas()['UNIT'].tolist()
-        primary_unit = [r['UNIT'] for r in st.session_state.session.sql(f"""
-            SELECT DISTINCT UNIT FROM {st.session_state.config["measurement_configs"]["database"]}.
-            {st.session_state.config["measurement_configs"]["schema"]}.STANDARD_UNITS
+
+    definition_name = st.selectbox(
+        "Select a measurement configuration",
+        options=sorted(measurement_configs['DEFINITION_NAME']),
+        key="measurement_config_choose"
+        )
+
+    config = measurement_configs.loc[measurement_configs['DEFINITION_NAME'] == definition_name, 'CONFIG_ID'].values[0]
+    existing_units = st.session_state.session.sql(f"""
+        SELECT DISTINCT
+            SOURCE_UNIT
+        FROM {st.session_state.config["measurement_configs"]["database"]}.
+        {st.session_state.config["measurement_configs"]["schema"]}.UNIT_MAPPINGS
+        WHERE CONFIG_ID = '{config}'
+        AND STANDARD_UNIT IS NOT NULL
+        AND STANDARD_UNIT != ''
+        """).to_pandas()['SOURCE_UNIT'].tolist()
+
+    standard_units = st.session_state.session.sql(f"""
+        SELECT DISTINCT
+            UNIT
+        FROM {st.session_state.config["measurement_configs"]["database"]}.
+        {st.session_state.config["measurement_configs"]["schema"]}.STANDARD_UNITS
+        WHERE CONFIG_ID = '{config}'
+        """).to_pandas()['UNIT'].tolist()
+
+    primary_unit = [r['UNIT'] for r in st.session_state.session.sql(f"""
+        SELECT DISTINCT
+            UNIT
+        FROM {st.session_state.config["measurement_configs"]["database"]}.
+        {st.session_state.config["measurement_configs"]["schema"]}.STANDARD_UNITS
             WHERE CONFIG_ID = '{config}'
             AND PRIMARY_UNIT = TRUE
-            """).collect()]
-        
-        st.subheader(f"{definition_name}")
-        st.write(f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; All existing units for this measurement: {existing_units}")
-        st.write(f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Standard units to map to: {standard_units}")
-        st.write(f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Primary unit to convert to: {primary_unit}")
-        st.divider()
+        """).collect()]
+
+    total_measurements = st.session_state.session.sql(f"""
+        SELECT
+            SUM(SOURCE_UNIT_COUNT) 
+        FROM {st.session_state.config["measurement_configs"]["database"]}.
+        {st.session_state.config["measurement_configs"]["schema"]}.UNIT_MAPPINGS
+            WHERE CONFIG_ID = '{config}'
+        """).to_pandas()['SUM(SOURCE_UNIT_COUNT)'].to_list()[0]
+
+    mapped_measurements = st.session_state.session.sql(f"""
+        SELECT
+            SUM(SOURCE_UNIT_COUNT) AS MAPPED_COUNT
+        FROM {st.session_state.config["measurement_configs"]["database"]}.
+        {st.session_state.config["measurement_configs"]["schema"]}.UNIT_MAPPINGS
+            WHERE CONFIG_ID = '{config}'
+            AND STANDARD_UNIT IS NOT NULL
+            AND STANDARD_UNIT != ''
+        """).to_pandas()['MAPPED_COUNT'].to_list()[0]
+
+    if not mapped_measurements:
+        mapped_measurements = 0
+
+    st.write(f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; All existing units for this measurement: {existing_units}")
+    st.write(f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Standard units to map to: {standard_units}")
+    st.write(f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Primary unit to convert to: {primary_unit}")
+
+    metric1, metric2, metric3 =  st.columns(3)
+    with metric1:
+        st.metric('Total Measurments', total_measurements)
+    with metric2:
+        st.metric('Total Measurements Mapped to Standard Unit', mapped_measurements)
+    with metric3:
+        proportion_mapped = round(mapped_measurements/total_measurements*100)
+        st.metric('Proportion Measurments Mapped', f'{proportion_mapped}%')
+    st.divider()
+
+    return definition_name
 
 def display_measurement_bounds_panel(config: MeasurementConfig):
     st.divider()
@@ -334,7 +475,27 @@ def display_measurement_bounds_panel(config: MeasurementConfig):
             config.save_to_json(directory=f"data/measurements/{st.session_state.config['icb_name']}")
             st.success("Upper bound set successfully.")
 
-def main():
+def get_selected_config(selected_measurement: str):
+    config_options = get_available_measurement_configs()
+
+    if not config_options:
+        st.warning("No measurement configurations with standard units defined. " \
+        "Please define standard units in the Measurement Standardisation page first.")
+        return
+
+    if selected_measurement:
+        config = config_options[selected_measurement]
+
+        if not config.primary_standard_unit:
+            st.warning(f"No primary unit set for {selected_measurement}." \
+                       "Please set a primary unit in the Measurement Standardisation page.")
+            return
+
+        else:
+            return config
+
+
+def main():  # noqa: C901
     st.set_page_config(page_title="Standardise Measurements", layout="wide")
     set_font_lato()
     if "session" not in st.session_state:
@@ -346,7 +507,7 @@ def main():
     if "selected_definition" not in st.session_state:
         st.session_state.selected_definition = None
         st.session_state.selected_config = None
-    
+
     # st.session_state.config["local_development"] = False
     if st.session_state.config["local_development"]:
         tab1, tab2 = st.tabs(["Create/Update Configs", "View Existing Configs on Snowflake"])
@@ -436,9 +597,11 @@ def main():
                             display_unit_conversion_panel(config)
                     else:
                         st.info("Please add standard units first to enable unit mapping.")
-                    
+
+                    display_measurement_analysis(config)
+
                     display_measurement_bounds_panel(config)
-            
+
             st.divider()
             st.subheader("Update Measurement Configs on Snowflake")
             if st.button("Send configs to Snowflake"):
@@ -446,10 +609,16 @@ def main():
                     load_measurement_configs_into_tables()
                     st.success("Sent!")
         with tab2:
-            display_configs_in_tables()
+            selected_measurement = display_configs_in_tables()
+            measurement_config = get_selected_config(selected_measurement)
+            display_measurement_analysis(measurement_config, tab1=False)
     else:
-        display_configs_in_tables()
-        
+        selected_measurement = display_configs_in_tables()
+        measurement_config = get_selected_config(selected_measurement)
+        display_measurement_analysis(measurement_config, tab1=False)
+
+
+
 
 
 if __name__ == "__main__":
