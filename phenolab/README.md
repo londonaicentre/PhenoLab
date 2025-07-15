@@ -50,7 +50,7 @@ Access the deployed Streamlit app in Snowflake or run locally:
 ```bash
 streamlit run PhenoLab.py
 ```
-
+set `DEPLOY_ENV=dev streamlit run PhenoLab.py` for running local and in dev
 ## Connections
 
 ### Snowflake CLI Configuration
