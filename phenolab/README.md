@@ -30,7 +30,8 @@ Deploy Streamlit app and load all data to Snowflake.
 
 ```bash
 ./deploy.sh <ICB> <environment>
-# Example: ./deploy.sh nel prod
+# Example prod: ./deploy.sh nel prod
+# Example dev: ./deploy.sh nel dev
 ```
 
 This script:
