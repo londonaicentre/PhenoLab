@@ -14,3 +14,6 @@ Creates the `BASE_UNIFIED_EMERGENCY_CARE` table containing all diagnoses from em
 
 ### `base_unified_sus_encounters.py`
 Creates the `BASE_UNIFIED_SUS_ENCOUNTERS` table containing administrative information about all hospital encounters.
+
+### `v_medication_with_bnf.py`
+Creates the `V_MEDICATION_WITH_BNF` view that allows browsing and querying by named BNF class.
