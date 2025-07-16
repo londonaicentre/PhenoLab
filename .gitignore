@@ -8,5 +8,4 @@ __pycache__
 .vscode
 .ruff_cache
 phenolab/output
-.github/.workflows/prod-deploy.yml
 secrets.toml
