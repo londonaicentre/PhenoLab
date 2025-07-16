@@ -5,9 +5,9 @@
     "g/dL",
     "g/L"
   ],
-  "primary_standard_unit": "g/dL",
-  "lower_limit": null,
-  "upper_limit": null,
+  "primary_standard_unit": "g/L",
+  "lower_limit": 25.0,
+  "upper_limit": 260.0,
   "unit_mappings": [
     {
       "source_unit": "g/L",
@@ -139,7 +139,7 @@
     },
     {
       "source_unit": "GDL",
-      "standard_unit": "",
+      "standard_unit": "g/dL",
       "source_unit_count": 18,
       "source_unit_lq": 12.1,
       "source_unit_median": 12.3,
@@ -179,7 +179,7 @@
     },
     {
       "source_unit": "g/DL",
-      "standard_unit": "",
+      "standard_unit": "g/dL",
       "source_unit_count": 6,
       "source_unit_lq": 13.850000000000001,
       "source_unit_median": 14.0,
@@ -203,7 +203,7 @@
     },
     {
       "source_unit": "g/d",
-      "standard_unit": "",
+      "standard_unit": "g/dL",
       "source_unit_count": 4,
       "source_unit_lq": 12.725,
       "source_unit_median": 13.95,
@@ -211,7 +211,7 @@
     },
     {
       "source_unit": "g/100ml",
-      "standard_unit": "",
+      "standard_unit": "g/dL",
       "source_unit_count": 4,
       "source_unit_lq": 13.7,
       "source_unit_median": 13.7,
@@ -291,7 +291,7 @@
     },
     {
       "source_unit": "g/dL.",
-      "standard_unit": "",
+      "standard_unit": "g/dL",
       "source_unit_count": 2,
       "source_unit_lq": 10.7,
       "source_unit_median": 10.7,
@@ -323,7 +323,7 @@
     },
     {
       "source_unit": "gms/Litre",
-      "standard_unit": "",
+      "standard_unit": "g/L",
       "source_unit_count": 2,
       "source_unit_lq": 10.85,
       "source_unit_median": 11.1,
@@ -331,7 +331,7 @@
     },
     {
       "source_unit": "gr/dl",
-      "standard_unit": "",
+      "standard_unit": "g/dL",
       "source_unit_count": 1,
       "source_unit_lq": 11.8,
       "source_unit_median": 11.8,
@@ -339,7 +339,7 @@
     },
     {
       "source_unit": "g/dl:",
-      "standard_unit": "",
+      "standard_unit": "g/dL",
       "source_unit_count": 1,
       "source_unit_lq": 12.8,
       "source_unit_median": 12.8,
@@ -363,7 +363,7 @@
     },
     {
       "source_unit": "gm/l",
-      "standard_unit": "",
+      "standard_unit": "g/L",
       "source_unit_count": 1,
       "source_unit_lq": 90.0,
       "source_unit_median": 90.0,
@@ -379,7 +379,7 @@
     },
     {
       "source_unit": "gl/dl",
-      "standard_unit": "",
+      "standard_unit": "g/dL",
       "source_unit_count": 1,
       "source_unit_lq": 10.6,
       "source_unit_median": 10.6,
@@ -411,7 +411,7 @@
     },
     {
       "source_unit": "gd/L",
-      "standard_unit": "",
+      "standard_unit": "g/dL",
       "source_unit_count": 1,
       "source_unit_lq": 13.0,
       "source_unit_median": 13.0,
@@ -419,7 +419,7 @@
     },
     {
       "source_unit": "gdl",
-      "standard_unit": "",
+      "standard_unit": "g/dL",
       "source_unit_count": 1,
       "source_unit_lq": 12.2,
       "source_unit_median": 12.2,
@@ -451,7 +451,7 @@
     },
     {
       "source_unit": "gm/dL",
-      "standard_unit": "",
+      "standard_unit": "g/dL",
       "source_unit_count": 1,
       "source_unit_lq": 12.3,
       "source_unit_median": 12.3,
@@ -499,7 +499,7 @@
     },
     {
       "source_unit": "g/L [L]",
-      "standard_unit": "",
+      "standard_unit": "g/L",
       "source_unit_count": 1,
       "source_unit_lq": 110.0,
       "source_unit_median": 110.0,
@@ -513,10 +513,17 @@
       "pre_offset": 0.0,
       "multiply_by": 0.1,
       "post_offset": 0.0
+    },
+    {
+      "convert_from_unit": "g/dL",
+      "convert_to_unit": "g/L",
+      "pre_offset": 0.0,
+      "multiply_by": 10.0,
+      "post_offset": 0.0
     }
   ],
   "created_datetime": "2025-05-19T23:23:56.061713",
-  "updated_datetime": "2025-07-05T16:19:43.799012",
+  "updated_datetime": "2025-07-15T10:38:04.352330",
   "standard_measurement_config_id": "eb89543e",
-  "standard_measurement_config_version": "measurement_haemoglobin_SNOMED_20250705_161943"
+  "standard_measurement_config_version": "measurement_haemoglobin_SNOMED_20250715_103804"
 }

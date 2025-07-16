@@ -5,6 +5,8 @@
     "mmHg"
   ],
   "primary_standard_unit": "mmHg",
+  "lower_limit": 15.0,
+  "upper_limit": 360.0,
   "unit_mappings": [
     {
       "source_unit": "mmHg",
