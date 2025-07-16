@@ -8,6 +8,7 @@ from utils.measurement import MeasurementConfig
 from utils.measurement_interaction_utils import (
     apply_conversions,
     apply_unit_mapping,
+    count_sigfig,
     get_available_measurement_configs,
     get_measurement_values,
     load_measurement_config,
@@ -49,8 +50,9 @@ def display_measurement_analysis(config, tab1 = True, upper_limit = None, lower_
 
     if tab1:
         with st.form(form_name):
-            #st.markdown('### Plot the distributions of the units')
-            col1, col2, col3, col4 = st.columns(4)
+            st.markdown('### Plot the distributions of the units')
+            st.write('WARNING: increasing the number of rows to pull can be very expensive and slow down the running of this section')
+            col1, col2, col3, col4, col5 = st.columns(5)
             local_max_centile = df_all.value.quantile(0.9999)
             local_min_centile = df_all.value.quantile(0.0001)
 
@@ -68,9 +70,18 @@ def display_measurement_analysis(config, tab1 = True, upper_limit = None, lower_
                                         step = 0.01)
 
             with col4:
+                row_limit = st.number_input("Number of Rows (CAUTION)",
+                                            value = 100000)
+
+            with col5:
                 plot_submit = st.form_submit_button()
 
             if plot_submit:
+                if row_limit > 100000:
+                    df_values = get_measurement_values(config.definition_name, row_limit)
+                    df_mapped = apply_unit_mapping(df_values, config)
+                    df_all = apply_conversions(df_mapped, config)
+
                 # apply 99.5 percentile cutoff - otherwise extreme outliers will hide true distribution
                 #Limit this by the values as this is slowing things down
                 above_min = np.where(df_all.converted_value >= xmin)
@@ -324,28 +335,36 @@ def display_conversion_group(config, units, existing_conversions, group_type):
 
         # Conversion value entry fields
         key_suffix = f"{group_type}_{unit}"
+        pre_sigfig = count_sigfig(pre_offset)
         new_pre_offset = cols[1].number_input(
             "Pre-offset",
             value=float(pre_offset),
             key=f"pre_{key_suffix}",
             disabled=is_identity,
-            label_visibility="collapsed"
+            label_visibility="collapsed",
+            step = 0.00001,
+            format = f"%0.{pre_sigfig}g" if pre_sigfig < 8 else "%0.7g"
         )
 
+        mult_sigfig = count_sigfig(multiply_by)
         new_multiply_by = cols[2].number_input(
             "Multiply by",
             value=float(multiply_by),
             key=f"mult_{key_suffix}",
             disabled=is_identity,
-            label_visibility="collapsed"
+            label_visibility="collapsed",
+            step = 0.00001,
+            format = f"%0.{mult_sigfig}g" if mult_sigfig < 8 else "%0.7g"
         )
-
+        post_sigfig = count_sigfig(post_offset)
         new_post_offset = cols[3].number_input(
             "Post-offset",
             value=float(post_offset),
             key=f"post_{key_suffix}",
             disabled=is_identity,
-            label_visibility="collapsed"
+            label_visibility="collapsed",
+            step = 0.00001,
+            format = f"%0.{post_sigfig}g" if post_sigfig < 8 else "%0.7g"
         )
 
         if is_identity:

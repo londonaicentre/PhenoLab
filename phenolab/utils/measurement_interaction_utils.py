@@ -1,11 +1,12 @@
 import os
+from decimal import Decimal
 
 import pandas as pd
 import streamlit as st
-
 from utils.database_utils import get_measurement_unit_statistics
 from utils.definition_interaction_utils import load_definition
 from utils.measurement import MeasurementConfig, UnitMapping, load_measurement_config_from_json
+
 
 def load_measurement_definitions_list() -> list[str]:
     """
@@ -168,7 +169,7 @@ def get_available_measurement_configs():
 
 
 @st.cache_data(ttl=600, show_spinner="Loading measurement values...")
-def get_measurement_values(definition_name):
+def get_measurement_values(definition_name, limit = 100000):
     """
     Get actual measurement values for a definition from Snowflake
     """
@@ -183,7 +184,7 @@ def get_measurement_values(definition_name):
     WHERE def.DEFINITION_NAME = '{definition_name}'
         AND RESULT_VALUE IS NOT NULL
         AND TRY_CAST(RESULT_VALUE AS FLOAT) IS NOT NULL
-    LIMIT 100000
+    LIMIT {limit}
     """
     df = st.session_state.session.sql(query).to_pandas()
     df.columns = df.columns.str.lower()
@@ -592,4 +593,31 @@ def load_measurement_configs_into_tables():
                 use_logical_type=True)
 
         print(f"Loaded {config_file} for {config.definition_id} into measurement config tables")
+
+def count_sigfig(number: float,
+                zeros: int = 4,
+                nines: int = 5,
+                max_sigfig: int = 8,
+                ) -> int:
+    """Function to count number of significant figures
+    number: any real number
+    zeros: number of zeros in a row that after which it will stop counting
+    nines: number of consecu
+    """
+    num_tuple = Decimal(number).normalize().as_tuple().digits
+    nzeros = nnines = sigfig = 0
+    if not number == 0:
+        while nzeros < zeros and nnines < nines and sigfig < max_sigfig and sigfig < len(num_tuple):
+            if num_tuple[sigfig] == 0:
+                nzeros += 1
+                nnines = 0
+            elif num_tuple[sigfig] == 9:
+                nnines += 1
+                nzeros = 0
+            else:
+                nnines = nzeros = 0
+            sigfig += 1
+        return sigfig - max(nzeros, nnines)
+    else:
+        return 1
 
