@@ -57,47 +57,6 @@ def process_definitions_for_upload(definition_files: List[str], session, config)
 
     return all_rows, definitions_to_add, definitions_to_remove
 
-
-def update_aic_definitions_local(session, config):
-    """
-    Update the AIC_DEFINITIONS table with new or updated definitions from local files (local version)
-    """
-    definition_files = load_definitions_list_from_local_files()
-
-    if not definition_files:
-        print("No AIC definition files found")
-        return
-
-    print(f"Processing {len(definition_files)} definition files...")
-    all_rows, definitions_to_add, definitions_to_remove = process_definitions_for_upload(definition_files, session, config)
-
-    # Upload if there's data
-    if not all_rows.empty:
-        print(f"Uploading {len(all_rows)} rows to Snowflake...")
-        df = all_rows.copy()
-        df.columns = df.columns.str.upper()
-        session.write_pandas(df,
-                            database=config["definition_library"]["database"],
-                            schema=config["definition_library"]["schema"],
-                            table_name="AIC_DEFINITIONS",
-                            overwrite=False,
-                            use_logical_type=True)
-        print(f"Uploaded {len(all_rows)} rows to AIC_DEFINITIONS table")
-
-        # Delete old versions
-        for definition_id, [name, current_version] in definitions_to_remove.items():
-            session.sql(
-                f"""DELETE FROM {config["definition_library"]["database"]}.
-                {config["definition_library"]["schema"]}.
-                AIC_DEFINITIONS WHERE DEFINITION_ID = '{definition_id}' AND
-                VERSION_DATETIME != CAST('{current_version}' AS TIMESTAMP)"""
-            ).collect()
-            print(f"Deleted old version of definition {name}")
-
-        print(f"Successfully uploaded definitions: {definitions_to_add}")
-    else:
-        print("No new AIC definitions to upload")
-
 ### EXTERNAL DEFINITIONS
 
 EXTERNAL_DEFINITION_SOURCES = {
@@ -148,71 +107,71 @@ class ExternalDefinitionLoader:
                 print(f"Skipping {table_name} as parquet file not found: {parquet_path}")
 
 
-### MEASUREMENT CONFIGURATION
+# ### MEASUREMENT CONFIGURATION
 
-def create_measurement_configs_tables_local(session, config):
-    """
-    Create tables for measurement configurations in Snowflake (local version)
-    """
-    queries = [
-        f"""
-        CREATE TABLE IF NOT EXISTS {config["measurement_configs"]["database"]}.
-            {config["measurement_configs"]["schema"]}.MEASUREMENT_CONFIGS (
-                DEFINITION_ID VARCHAR,
-                DEFINITION_NAME VARCHAR,
-                CONFIG_ID VARCHAR,
-                CONFIG_VERSION VARCHAR
-            )""",
-        f"""
-        CREATE TABLE IF NOT EXISTS {config["measurement_configs"]["database"]}.
-            {config["measurement_configs"]["schema"]}.STANDARD_UNITS (
-                DEFINITION_ID VARCHAR,
-                DEFINITION_NAME VARCHAR,
-                CONFIG_ID VARCHAR,
-                CONFIG_VERSION VARCHAR,
-                UNIT VARCHAR,
-                PRIMARY_UNIT BOOLEAN
-            )""",
-        f"""
-        CREATE TABLE IF NOT EXISTS {config["measurement_configs"]["database"]}.
-            {config["measurement_configs"]["schema"]}.UNIT_MAPPINGS (
-                DEFINITION_ID VARCHAR,
-                DEFINITION_NAME VARCHAR,
-                CONFIG_ID VARCHAR,
-                CONFIG_VERSION VARCHAR,
-                SOURCE_UNIT VARCHAR,
-                STANDARD_UNIT VARCHAR,
-                SOURCE_UNIT_COUNT INTEGER,
-                SOURCE_UNIT_LQ FLOAT,
-                SOURCE_UNIT_MEDIAN FLOAT,
-                SOURCE_UNIT_UQ FLOAT
-            )""",
-        f"""
-        CREATE TABLE IF NOT EXISTS {config["measurement_configs"]["database"]}.
-            {config["measurement_configs"]["schema"]}.UNIT_CONVERSIONS (
-                DEFINITION_ID VARCHAR,
-                DEFINITION_NAME VARCHAR,
-                CONFIG_ID VARCHAR,
-                CONFIG_VERSION VARCHAR,
-                CONVERT_FROM_UNIT VARCHAR,
-                CONVERT_TO_UNIT VARCHAR,
-                PRE_OFFSET FLOAT,
-                MULTIPLY_BY FLOAT,
-                POST_OFFSET FLOAT
-            )""",
-        f"""
-        CREATE TABLE IF NOT EXISTS {config["measurement_configs"]["database"]}.
-            {config["measurement_configs"]["schema"]}.VALUE_BOUNDS (
-                DEFINITION_ID VARCHAR,
-                DEFINITION_NAME VARCHAR,
-                CONFIG_ID VARCHAR,
-                CONFIG_VERSION VARCHAR,
-                LOWER_LIMIT FLOAT,
-                UPPER_LIMIT FLOAT
-        )"""]
-    for query in queries:
-        session.sql(query).collect()
-    print("Measurement config tables created")
+# def create_measurement_configs_tables_local(session, config):
+#     """
+#     Create tables for measurement configurations in Snowflake (local version)
+#     """
+#     queries = [
+#         f"""
+#         CREATE TABLE IF NOT EXISTS {config["measurement_configs"]["database"]}.
+#             {config["measurement_configs"]["schema"]}.MEASUREMENT_CONFIGS (
+#                 DEFINITION_ID VARCHAR,
+#                 DEFINITION_NAME VARCHAR,
+#                 CONFIG_ID VARCHAR,
+#                 CONFIG_VERSION VARCHAR
+#             )""",
+#         f"""
+#         CREATE TABLE IF NOT EXISTS {config["measurement_configs"]["database"]}.
+#             {config["measurement_configs"]["schema"]}.STANDARD_UNITS (
+#                 DEFINITION_ID VARCHAR,
+#                 DEFINITION_NAME VARCHAR,
+#                 CONFIG_ID VARCHAR,
+#                 CONFIG_VERSION VARCHAR,
+#                 UNIT VARCHAR,
+#                 PRIMARY_UNIT BOOLEAN
+#             )""",
+#         f"""
+#         CREATE TABLE IF NOT EXISTS {config["measurement_configs"]["database"]}.
+#             {config["measurement_configs"]["schema"]}.UNIT_MAPPINGS (
+#                 DEFINITION_ID VARCHAR,
+#                 DEFINITION_NAME VARCHAR,
+#                 CONFIG_ID VARCHAR,
+#                 CONFIG_VERSION VARCHAR,
+#                 SOURCE_UNIT VARCHAR,
+#                 STANDARD_UNIT VARCHAR,
+#                 SOURCE_UNIT_COUNT INTEGER,
+#                 SOURCE_UNIT_LQ FLOAT,
+#                 SOURCE_UNIT_MEDIAN FLOAT,
+#                 SOURCE_UNIT_UQ FLOAT
+#             )""",
+#         f"""
+#         CREATE TABLE IF NOT EXISTS {config["measurement_configs"]["database"]}.
+#             {config["measurement_configs"]["schema"]}.UNIT_CONVERSIONS (
+#                 DEFINITION_ID VARCHAR,
+#                 DEFINITION_NAME VARCHAR,
+#                 CONFIG_ID VARCHAR,
+#                 CONFIG_VERSION VARCHAR,
+#                 CONVERT_FROM_UNIT VARCHAR,
+#                 CONVERT_TO_UNIT VARCHAR,
+#                 PRE_OFFSET FLOAT,
+#                 MULTIPLY_BY FLOAT,
+#                 POST_OFFSET FLOAT
+#             )""",
+#         f"""
+#         CREATE TABLE IF NOT EXISTS {config["measurement_configs"]["database"]}.
+#             {config["measurement_configs"]["schema"]}.VALUE_BOUNDS (
+#                 DEFINITION_ID VARCHAR,
+#                 DEFINITION_NAME VARCHAR,
+#                 CONFIG_ID VARCHAR,
+#                 CONFIG_VERSION VARCHAR,
+#                 LOWER_LIMIT FLOAT,
+#                 UPPER_LIMIT FLOAT
+#         )"""]
+#     for query in queries:
+#         session.sql(query).collect()
+#     print("Measurement config tables created")
 
 
 def load_measurement_configs_into_tables_local(session, config):
@@ -304,41 +263,3 @@ def load_measurement_configs_into_tables_local(session, config):
 
 ### UNIONED VIEW
 
-def create_definitionstore_view(session, database, schema, external_tables):
-    """
-    Creates unified view of all definition tables with DBID mappings
-    """
-    # Always include core tables
-    CORE_TABLES = ["AIC_DEFINITIONS", "ICB_DEFINITIONS"]
-
-    # Add external tables from config
-    ALL_TABLES = CORE_TABLES + list(external_tables.keys())
-
-    view_sql = f"""
-    CREATE OR REPLACE VIEW {database}.{schema}.DEFINITIONSTORE AS
-    WITH definition_union AS (
-        {
-        " UNION ALL ".join(
-            f"SELECT *, '{table}' AS SOURCE_TABLE FROM {database}.{schema}.{table} WHERE CODE IS NOT NULL"
-            for table in ALL_TABLES
-        )
-    }
-    )
-    SELECT
-        p.*,
-        c.DBID,
-        CASE c.MAPPING_TYPE
-            WHEN 'Core SNOMED' THEN c.DBID
-            WHEN 'Non Core Mapped to SNOMED' THEN cm.CORE
-            ELSE NULL
-        END as CORE_CONCEPT_ID
-    FROM definition_union p
-    LEFT JOIN PROD_DWH.ANALYST_PRIMARY_CARE.CONCEPT c
-        ON p.CODE = c.CODE
-        AND p.VOCABULARY = c.SCHEME_NAME
-    LEFT JOIN PROD_DWH.ANALYST_PRIMARY_CARE.CONCEPT_MAP cm
-        ON c.DBID = cm.LEGACY
-        AND c.MAPPING_TYPE = 'Non Core Mapped to SNOMED'
-    """
-    session.sql(view_sql).collect()
-    print("Created DEFINITIONSTORE view with DBID mappings")
