@@ -2,9 +2,11 @@
 This script is triggered by deploy.sh to create tables and load definitions
 
 It can also be run independently to push data to either a dev or prod ICB environment
-Usage: python setup.py <environment> <connection_name>
-Example: python setup.py prod nel_icb
+Usage: python setup.py <connection_name> <environment>
+Example: python setup.py nel_icb prod
 """
+import sys
+
 from snowflake.snowpark import Session
 import pandas as pd
 
@@ -58,14 +60,18 @@ def create_definitionstore_view(session: Session, database: str, schema: str, ex
     session.sql(view_sql).collect()
     print("Created DEFINITIONSTORE view with DBID mappings")
 
-def setup_definition_tables():
+def setup_definition_tables(environment: str, connection_name: str):
     """
     Set up definition tables and load initial definitions into Snowflake.
+
+    Args:
+        environment (str): Environment to use (e.g., 'dev', 'prod')
+        connection_name (str): Name of the Snowflake connection to use.
     """
 
     # Load config
-    config = load_config()
-    session = Session.builder.config("connection_name", config["icb_name"]).create()
+    session = Session.builder.config("connection_name", connection_name).create()
+    config = load_config(session=session, deploy_env=environment)
 
     # 1. AIC
     create_definition_table( 
@@ -76,26 +82,21 @@ def setup_definition_tables():
         )
     update_aic_definitions_table(session=session, config=config)
 
-    # 2. HDRUK
-    df = pd.read_parquet('_external_definitions/data/hdruk/hdruk_definitions.parquet')
-    print(f"Loaded HDRUK definitions from file - {len(df)} rows")
-    load_definitions_to_snowflake(session=session, df=df, table_name="HDRUK_DEFINITIONS",
+    # 2. HDRUK, 3. Open Codelists, 4. BNF
+    external_definition_sources = {
+        "HDRUK_DEFINITIONS": "hdruk/hdruk_definitions.parquet",
+        "OPEN_CODELISTS": "open_codelists_compiled/open_codelists_definitions.parquet",
+        "BSA_BNF_SNOMED_MAPPINGS": "bnf_to_snomed/processed_bnf_data.parquet"
+    }
+    for table_name, file_name in external_definition_sources.items():
+        df = pd.read_parquet(f'_external_definitions/data/{file_name}')
+        print(f"Loaded {file_name} definitions from file - {len(df)} rows")
+        load_definitions_to_snowflake(session=session, df=df, table_name=table_name,
             database=config["definition_library"]["database"], schema=config["definition_library"]["schema"])
+        print(f"Loaded definitions into Snowflake table {table_name}")
 
-    # 3. NHS GP refsets
+    # 5. NHS GP refsets
     #TODO
-
-    # 4. Open Codelists
-    df = pd.read_parquet("_external_definitions/data/open_codelists_compiled/open_codelists_definitions.parquet")
-    print(f"Loaded Open Codelists definitions from file - {len(df)} rows")
-    load_definitions_to_snowflake(session=session, df=df, table_name="OPEN_CODELISTS",
-            database=config["definition_library"]["database"], schema=config["definition_library"]["schema"])
-
-    # 5. BNF definitions
-    df = pd.read_parquet("_external_definitions/data/bnf_to_snomed/processed_bnf_data.parquet")
-    print(f"Loaded BSA BNF definitions from file - {len(df)} rows")
-    load_definitions_to_snowflake(session=session, df=df, table_name="BSA_BNF_SNOMED_MAPPINGS",
-            database=config["definition_library"]["database"], schema=config["definition_library"]["schema"])
 
     # 6. Create ICB_DEFINITIONS table if it doesn't exist (preserve user data)
     print("Creating ICB_DEFINITIONS table if it doesn't exist...")
@@ -116,11 +117,29 @@ def setup_definition_tables():
         session=session,
         database=config["definition_library"]["database"],
         schema=config["definition_library"]["schema"],
-        external_tables=EXTERNAL_DEFINITION_SOURCES)
+        external_tables=list(external_definition_sources.keys())
+    )
 
     # 9. Create measurement config tables
     create_measurement_configs_tables(session=session, config=config)
     load_measurement_configs_into_tables(session=session, config=config)
 
 if __name__ == "__main__":
-    setup_definition_tables()
+    if len(sys.argv) == 1:
+        # keeping for now for backwards compatibility
+        print("No arguments provided, using default: prod nel_icb")
+        environment = 'prod'
+        connection_name = 'nel_icb'
+    elif len(sys.argv) == 3:
+        connection_name = sys.argv[1]
+        environment = sys.argv[2]
+
+        if environment not in ['dev', 'prod']:
+            print("Error: Environment must be 'dev' or 'prod'")
+            sys.exit(1)
+    else:
+        print("Use directly with python setup.py <connection_name> <environment>")
+        print("E.g. python setup.py nel_icb prod")
+        sys.exit(1)
+
+    setup_definition_tables(environment=environment, connection_name=connection_name)

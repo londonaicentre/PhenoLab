@@ -50,7 +50,8 @@ Access the deployed Streamlit app in Snowflake or run locally:
 ```bash
 streamlit run PhenoLab.py
 ```
-set `DEPLOY_ENV=dev streamlit run PhenoLab.py` for running local and in dev
+set `DEPLOY_ENV=dev streamlit run PhenoLab.py` for running local and in dev (uses dev tables on snowflake)
+
 ## Connections
 
 ### Snowflake CLI Configuration
@@ -61,20 +62,6 @@ Configure connections in `~/.snowflake/connections.toml`:
 account = "your-account"
 user = "your-username"
 authenticator = "externalbrowser"
-```
-
-### Streamlit Secrets (Local Development)
-Configure `.streamlit/secrets.toml` for local Streamlit:
-
-```toml
-[connections.snowflake]
-account = "your-account"
-user = "your-username"
-authenticator = "externalbrowser"
-role = "your-role"
-warehouse = "your-warehouse"
-database = "your-database"
-schema = "your-schema"
 ```
 
 ### Environment Configuration
