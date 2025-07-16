@@ -2,8 +2,6 @@
 
 This stage fetches external definition data and saves it to parquet files ready for upload.
 
-**UPSTREAM PARQUET FILE GENERATION IS CURRENTLY BROKEN FOR BNF/BSA AND OPENCODELISTS**
-
 ## Scripts
 
 - `fetch_hdruk.py`: Retrieves definitions from HDR UK Phenotype Library API
