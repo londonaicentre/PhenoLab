@@ -2,16 +2,12 @@
 Run this script to fetch definitions from the HDRUK API and save them to a parquet file in the data folder.
 """
 
-import sys
 from datetime import datetime
-from pathlib import Path
 
 import pandas as pd
 
-# Add the parent directory to path to access utils.definition
-sys.path.append(str(Path(__file__).parent.parent))
 from hdruk_api import HDRUKLibraryClient
-from utils.definition import Definition
+from phenolab.utils.definition import Definition
 
 """
 Note that HDRUK refers to groupings of codelists as phenotypes
@@ -128,6 +124,6 @@ def retrieve_hdruk_definitions_from_list(definition_list: list) -> pd.DataFrame:
 
 if __name__ == "__main__":
     df = retrieve_hdruk_definitions_from_list(definition_list)
-    path = "data/hdruk/hdruk_definitions.parquet"
+    path = "_external_definitions/data/hdruk/hdruk_definitions.parquet"
     df.to_parquet(path, index=False)
     print(f"HDRUK definitions saved to {path}")
