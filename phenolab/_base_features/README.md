@@ -1,12 +1,16 @@
 # Base Features
 
-This directory contains scripts for creating base feature tables. These scripts should be executed **before** running the main PhenoLab deployment (`deploy.sh`) to ensure the base feature tables are available for use in phenotype definitions and feature engineering.
+This directory contains scripts for creating base feature tables. These scripts should be executed **before** running
+the main PhenoLab deployment (`deploy.sh`) to ensure the base feature tables are available for use in phenotype
+definitions and feature engineering.
 
 ### `base_apc_concepts.py`
-Creates the `BASE_APC_CONCEPTS` table containing all primary and secondary diagnoses, procedures, and investigations from inpatient hospital activity (Admitted Patient Care).
+Creates the `BASE_APC_CONCEPTS` table containing all primary and secondary diagnoses, procedures, and investigations
+from inpatient hospital activity (Admitted Patient Care).
 
 ### `base_person_nel_index.py`
-Creates the `BASE_PERSON_NEL_INDEX` table containing sociodemographic and spatioeconomic data for each unique person registered in North East London.
+Creates the `BASE_PERSON_NEL_INDEX` table containing sociodemographic and spatioeconomic data for each unique person
+registered in North East London.
 - Requires `IMD2019LONDON` table in `INTELLIGENCE_DEV.AI_CENTRE_EXTERNAL` schema
 
 ### `base_unified_emergency_care.py`
