@@ -1,11 +1,14 @@
 from datetime import datetime
 
-import pandas as pd
 import git
+import pandas as pd
+import sys
+from pathlib import Path
 
-from utils.definition import Definition
-# from definition_library.loaders.scrape_open_codelists import return_version_id_from_open_codelist_url
+# Add the parent directory to path to access utils.definition
+sys.path.append(str(Path(__file__).parent.parent))
 from scrape_open_codelists import return_version_id_from_open_codelist_url
+from utils.definition import Definition
 
 definitions_to_load = {
     "https://www.opencodelists.org/codelist/opensafely/hypertension-snomed/2020-04-28/":
@@ -70,7 +73,7 @@ def open_codelists_url_and_csv_to_definition(url: str, csv_path: str) -> pd.Data
     # print(vocabulary)
     # print(version_id)
 
-    df_from_file = pd.read_csv('definition_library/loaders/' + csv_path)
+    df_from_file = pd.read_csv(csv_path)
     # print(df_from_file)
 
     df_to_create_definition = df_from_file.iloc[:, [0, 1]].set_axis(["code", "code_description"], axis=1)
@@ -111,7 +114,7 @@ def retreive_open_codelists_definitions_from_list(definition_list: list) -> pd.D
     all_definitions = []
     for url, csv_path in definition_list.items():
         print(url)
-        definition = open_codelists_url_and_csv_to_definition(url, csv_path)
+        definition = open_codelists_url_and_csv_to_definition(url, "_external_definitions/" + csv_path)
         all_definitions.extend(definition)
 
     print('OpenCodelists definitions retrieved successfully')
@@ -123,6 +126,6 @@ def retreive_open_codelists_definitions_from_list(definition_list: list) -> pd.D
 
 if __name__ == "__main__":
     df = retreive_open_codelists_definitions_from_list(definitions_to_load)
-    path = "definition_library/loaders/data/open_codelists_compiled/open_codelists_definitions.csv"
-    df.to_csv(path, index=False)
-    print(f"HDRUK definitions saved to {path}")
+    path = "_external_definitions/data/open_codelists_compiled/open_codelists_definitions.parquet"
+    df.to_parquet(path, index=False)
+    print(f"Open Codelists definitions saved to {path}")

@@ -2,13 +2,7 @@ import streamlit as st
 
 from utils.database_utils import get_snowflake_session
 from utils.style_utils import set_font_lato
-from utils.definition_interaction_utils import update_aic_definitions_table
 from utils.config_utils import load_config, preload_vocabulary
-from utils.measurement_interaction_utils import create_measurement_configs_tables, load_measurement_configs_into_tables
-from definition_library.loaders.load_hdruk import retrieve_hdruk_definitions_and_add_to_snowflake
-from definition_library.loaders.load_open_codelists import retrieve_open_codelists_definitions_and_add_to_snowflake
-from definition_library.loaders.load_bnf_to_snomed import retrieve_bnf_definitions_and_add_to_snowflake
-from definition_library.loaders.create_tables import create_definition_table
 
 # # PhenoLab.py
 
@@ -61,84 +55,7 @@ with col2:
         addendum_str = ""
     st.markdown(f"Configuration: `{st.session_state.config['icb_name']}`" + addendum_str)
 
-    if "debug_mode" not in st.session_state.config: #internal thing to make debugging faster 
-        # - add "debug_mode" to config file and don't have to load db tables each time
-
-        # Populate the definition tables - once per session only
-        # 1. AI Centre
-        if 'uploaded_aic_definitions' not in st.session_state:
-            with st.spinner("Loading AI Centre definitions...", show_time=True):
-                create_definition_table( 
-                    session=st.session_state.session,
-                    database=st.session_state.config["definition_library"]["database"], 
-                    schema=st.session_state.config["definition_library"]["schema"],
-                    table_name="AI_CENTRE_DEFINITIONS"
-                )
-                update_aic_definitions_table(verbose=False)
-                st.session_state['uploaded_aic_definitions'] = True
-
-        # 2. HDRUK
-        if 'uploaded_hdruk_defs' not in st.session_state:
-            with st.spinner("Retrieving HDRUK definitions...", show_time=True): 
-                retrieve_hdruk_definitions_and_add_to_snowflake(
-                    database=st.session_state.config["definition_library"]["database"], 
-                    schema=st.session_state.config["definition_library"]["schema"])
-                st.session_state['uploaded_hdruk_defs'] = True
-            
-        # 3. NHS GP refsets
-        if 'uploaded_nhs_gp_defs' not in st.session_state:
-            pass # need to sort this out once I have access or else we download as static file
-            st.session_state['uploaded_nhs_gp_defs'] = True
-
-        # 4. Open Codelists
-        if 'uploaded_open_codelists_defs' not in st.session_state:
-            with st.spinner("Retrieving Open Codelists definitions...", show_time=True): 
-                retrieve_open_codelists_definitions_and_add_to_snowflake( 
-                    database=st.session_state.config["definition_library"]["database"], 
-                    schema=st.session_state.config["definition_library"]["schema"])
-                st.session_state['uploaded_open_codelists_defs'] = True
-            
-        # 5. BNF definitions
-        if 'uploaded_bnf_defs' not in st.session_state:
-            with st.spinner("Retrieving BNF definitions...", show_time=True): 
-                retrieve_bnf_definitions_and_add_to_snowflake(
-                    database=st.session_state.config["definition_library"]["database"], 
-                    schema=st.session_state.config["definition_library"]["schema"])
-                st.session_state['uploaded_bnf_defs'] = True
-
-        # 6. Table for local definitions
-        if 'created_local_definitions_table' not in st.session_state:
-            with st.spinner("Creating local definitions table...", show_time=True):
-                create_definition_table( 
-                    session=st.session_state.session,
-                    database=st.session_state.config["definition_library"]["database"], 
-                    schema=st.session_state.config["definition_library"]["schema"],
-                    table_name="ICB_DEFINITIONS"
-                )
-                st.session_state['created_local_definitions_table'] = True
-        
-        # 7. Load measurement configs into tables
-        if 'created_measurement_configs_table' not in st.session_state:
-            with st.spinner('Loading measurement configurations...', show_time=True):
-                create_measurement_configs_tables()
-                load_measurement_configs_into_tables()
-
-        required_checks = [
-            'uploaded_aic_definitions',
-            'uploaded_hdruk_defs',
-            'uploaded_nhs_gp_defs',
-            'uploaded_open_codelists_defs',
-            'uploaded_bnf_defs',
-            'created_local_definitions_table'
-        ]
-
-        if all(st.session_state.get(key) for key in required_checks): #checks all true
-            st.markdown('Database status: `Database checked`')
-        else:
-            st.markdown('Database status:')
-            st.warning('Missing database checks')
-    else:
-        st.markdown("Debug mode: `ON` - skipping database checks")
+    st.markdown('Database status: `Definitions loaded during deployment`')
 
 st.markdown("---")
 

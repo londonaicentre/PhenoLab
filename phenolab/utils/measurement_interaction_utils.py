@@ -1,7 +1,9 @@
 import os
+from typing import Optional
 
 import pandas as pd
 import streamlit as st
+from snowflake.snowpark import Session
 
 from utils.database_utils import get_measurement_unit_statistics
 from utils.definition_interaction_utils import load_definition
@@ -21,31 +23,34 @@ def load_measurement_definitions_list() -> list[str]:
     return definitions_list
 
 
-def load_measurement_configs_list() -> list[str]:
+def load_measurement_configs_list(config: Optional[dict] = None) -> list[str]:
     """
     Get list of measurement config files from /data/measurements/{st.session_state.config['icb_name']}
+
+    Args:
+        config (Optional[dict]): Configuration dictionary. If not provided, will use session state.
     """
-    config_list = []
-    try:
-        if os.path.exists(f"data/measurements/{st.session_state.config['icb_name']}"):
-            config_list = [f for f in os.listdir(f"data/measurements/{st.session_state.config['icb_name']}")
-                           if f.endswith(".json") and f.startswith("standard_")]
-    except Exception as e:
-        st.error(f"Unable to list measurement config files: {e}")
-    return config_list
+    measurement_config_list = []
+    config = config or st.session_state.config
+    print(f"Loading measurement configs for ICB: {config['icb_name']}")
+    if os.path.exists(f"data/measurements/{config['icb_name']}"):
+        measurement_config_list = [f for f in os.listdir(f"data/measurements/{config['icb_name']}")
+                        if f.endswith(".json") and f.startswith("standard_")]
+    return measurement_config_list
 
 
-def load_measurement_config(filename):
+def load_measurement_config(filename: str, config: Optional[dict] = None) -> Optional[MeasurementConfig]:
     """
     Load measurement config from JSON file
+
+    Args:
+        filename (str): Name of the measurement config file
+        config (Optional[dict]): Configuration dictionary. If not provided, will use session state. 
     """
-    try:
-        file_path = os.path.join(f"data/measurements/{st.session_state.config['icb_name']}", filename)
-        config = load_measurement_config_from_json(file_path)
-        return config
-    except Exception as e:
-        st.error(f"Unable to load measurement config: {e}")
-        return None
+    config = config or st.session_state.config
+    file_path = os.path.join(f"data/measurements/{config['icb_name']}", filename)
+    measurement_config = load_measurement_config_from_json(file_path)
+    return measurement_config
 
 
 def create_missing_measurement_configs():
@@ -79,7 +84,7 @@ def create_missing_measurement_configs():
                     standard_measurement_config_id=None,
                     standard_measurement_config_version=None,
                 )
-                config.save_to_json(directory="data/st.session_state.config['icb_name']/measurements")
+                config.save_to_json(directory=f"data/measurements/{st.session_state.config['icb_name']}")
                 created_count += 1
 
         except Exception as e:
@@ -158,8 +163,7 @@ def get_available_measurement_configs():
             config = load_measurement_config(config_file)
             if (config and
                 config.standard_units and
-                config.primary_standard_unit and
-                config.unit_mappings):
+                config.primary_standard_unit):
                 available_configs[config.definition_name] = config
         except Exception as e:
             st.warning(f"Error loading config {config_file}: {e}")
@@ -264,25 +268,30 @@ def create_base_measurements_sql(eligible_configs):
         for source_unit, standard_unit in unit_mappings.items():
             mapping_cases.append(f"WHEN source_result_value_units = '{source_unit}' THEN '{standard_unit}'")
 
+        # Handle unitless measurements (like indices) that don't need mappings
         if not mapping_cases:
-            continue
+            # For unitless measurements, use the primary standard unit directly
+            mapping_case_sql = f"'{config.primary_standard_unit}'"
+        else:
+            mapping_case_sql = f"""
+                CASE
+                    {' '.join(mapping_cases)}
+                    ELSE NULL
+                END
+            """
 
-        mapping_case_sql = f"""
-            CASE
-                {' '.join(mapping_cases)}
-                ELSE NULL
-            END
-        """
-
+        # Handle unitless measurements that don't need conversions
         if not conversion_cases:
-            continue
+            # For unitless measurements, use the result value directly (no conversion needed)
+            conversion_case_sql = "obs.RESULT_VALUE"
+        else:
+            conversion_case_sql = f"""
+                CASE
+                    {' '.join(conversion_cases)}
+                    ELSE NULL
+                END
+            """
 
-        conversion_case_sql = f"""
-            CASE
-                {' '.join(conversion_cases)}
-                ELSE NULL
-            END
-        """
 
         upper_limit = config.upper_limit if config.upper_limit is not None else 1e10
         lower_limit = config.lower_limit if config.lower_limit is not None else 0
@@ -300,9 +309,9 @@ def create_base_measurements_sql(eligible_configs):
             obs.RESULT_VALUE_UNITS AS SOURCE_RESULT_VALUE_UNITS,
             {conversion_case_sql.replace('mapped_unit', f'({mapping_case_sql})')} AS VALUE_AS_NUMBER,
             '{config.primary_standard_unit}' AS VALUE_UNITS,
-            CASE WHEN {conversion_case_sql.replace('mapped_unit', f'({mapping_case_sql})')} > {upper_limit} 
+            CASE WHEN {conversion_case_sql.replace('mapped_unit', f'({mapping_case_sql})')} > {upper_limit}
                 THEN 1 ELSE 0 END AS ABOVE_RANGE,
-            CASE WHEN {conversion_case_sql.replace('mapped_unit', f'({mapping_case_sql})')} < {lower_limit} 
+            CASE WHEN {conversion_case_sql.replace('mapped_unit', f'({mapping_case_sql})')} < {lower_limit}
                 THEN 1 ELSE 0 END AS BELOW_RANGE
         FROM {st.session_state.config["gp_observation_table"]} obs
         LEFT JOIN {st.session_state.config["definition_library"]["database"]}.
@@ -311,7 +320,7 @@ def create_base_measurements_sql(eligible_configs):
         WHERE def.DEFINITION_NAME = '{definition_name}'
             AND obs.RESULT_VALUE IS NOT NULL
             AND TRY_CAST(obs.RESULT_VALUE AS FLOAT) IS NOT NULL
-            AND obs.RESULT_VALUE_UNITS IS NOT NULL
+            AND (obs.RESULT_VALUE_UNITS IS NOT NULL OR '{config.primary_standard_unit}' IS NOT NULL)
             AND ({mapping_case_sql}) IS NOT NULL
             AND ({conversion_case_sql.replace('mapped_unit', f'({mapping_case_sql})')}) IS NOT NULL
             AND def.VERSION_DATETIME = (
@@ -343,7 +352,7 @@ def create_base_measurements_feature(eligible_configs):
         if not sql_query:
             st.error("Failed to generate SQL query. No eligible measurements found.")
             return
-        
+
         with st.spinner("Creating or updating Base Measurements feature table..."):
             # st.session_state.session.sql(
             # f"""CREATE TABLE IF NOT EXISTS {st.session_state.config["feature_store"]["database"]}.
@@ -370,19 +379,19 @@ def create_base_measurements_feature(eligible_configs):
             # AND target.SOURCE_RESULT_VALUE = source.SOURCE_RESULT_VALUE
             # AND target.SOURCE_RESULT_VALUE_UNITS = source.SOURCE_RESULT_VALUE_UNITS
             # WHEN NOT MATCHED THEN
-            #     INSERT (CLINICAL_EFFECTIVE_DATE, DEFINITION_ID, DEFINITION_NAME, PERSON_ID, 
+            #     INSERT (CLINICAL_EFFECTIVE_DATE, DEFINITION_ID, DEFINITION_NAME, PERSON_ID,
             #             SOURCE_RESULT_VALUE, SOURCE_RESULT_VALUE_UNITS, VALUE_AS_NUMBER, VALUE_UNITS)
-            #     VALUES (source.CLINICAL_EFFECTIVE_DATE, source.DEFINITION_ID, source.DEFINITION_NAME, source.PERSON_ID, 
-            #             source.SOURCE_RESULT_VALUE, source.SOURCE_RESULT_VALUE_UNITS, source.VALUE_AS_NUMBER, 
+            #     VALUES (source.CLINICAL_EFFECTIVE_DATE, source.DEFINITION_ID, source.DEFINITION_NAME, source.PERSON_ID,
+            #             source.SOURCE_RESULT_VALUE, source.SOURCE_RESULT_VALUE_UNITS, source.VALUE_AS_NUMBER,
             #             source.VALUE_UNITS)""").collect()
-            
+
             st.session_state.session.sql(
                 f"""CREATE OR REPLACE TABLE {st.session_state.config["feature_store"]["database"]}.
                 {st.session_state.config["feature_store"]["schema"]}.BASE_MEASUREMENTS AS
                 {sql_query}""").collect()
 
             st.success("Base Measurements feature table created or updated successfully!")
-      
+
         # with st.spinner("Initialising Feature Store Manager..."):
         #     feature_manager = FeatureStoreManager(
         #         connection=st.session_state.session,
@@ -446,22 +455,31 @@ def create_base_measurements_feature(eligible_configs):
         st.error(f"Error creating Base Measurements feature: {e}")
         st.exception(e)
 
-def create_measurement_configs_tables(): 
+def create_measurement_configs_tables(config: Optional[dict] = None, session: Optional[Session] = None):
     """
     Create tables for measurement configurations in Snowflake, if they don't already exist.
+
+    Args:
+        config (Optional[dict]): Configuration dictionary containing database and schema information. If not provided,
+            will use the session state from Streamlit. Leave as None if calling from within Streamlit app.
+        session (Optional[Session]): Snowflake session object. If not provided, will use the session state from Streamlit.
+            Leave as None if calling from within Streamlit app.
     """
+    config = config or st.session_state.config
+    session = session or st.session_state.session
+
     queries = [
     f"""
-    CREATE TABLE IF NOT EXISTS {st.session_state.config["measurement_configs"]["database"]}.
-        {st.session_state.config["measurement_configs"]["schema"]}.MEASUREMENT_CONFIGS (
+    CREATE TABLE IF NOT EXISTS {config["measurement_configs"]["database"]}.
+        {config["measurement_configs"]["schema"]}.MEASUREMENT_CONFIGS (
             DEFINITION_ID VARCHAR,
             DEFINITION_NAME VARCHAR,
             CONFIG_ID VARCHAR,
             CONFIG_VERSION VARCHAR
         )""",
     f"""
-    CREATE TABLE IF NOT EXISTS {st.session_state.config["measurement_configs"]["database"]}.
-        {st.session_state.config["measurement_configs"]["schema"]}.STANDARD_UNITS (
+    CREATE TABLE IF NOT EXISTS {config["measurement_configs"]["database"]}.
+        {config["measurement_configs"]["schema"]}.STANDARD_UNITS (
             DEFINITION_ID VARCHAR,
             DEFINITION_NAME VARCHAR,
             CONFIG_ID VARCHAR,
@@ -470,8 +488,8 @@ def create_measurement_configs_tables():
             PRIMARY_UNIT BOOLEAN
         )""",
     f"""
-    CREATE TABLE IF NOT EXISTS {st.session_state.config["measurement_configs"]["database"]}.
-        {st.session_state.config["measurement_configs"]["schema"]}.UNIT_MAPPINGS (
+    CREATE TABLE IF NOT EXISTS {config["measurement_configs"]["database"]}.
+        {config["measurement_configs"]["schema"]}.UNIT_MAPPINGS (
             DEFINITION_ID VARCHAR,
             DEFINITION_NAME VARCHAR,
             CONFIG_ID VARCHAR,
@@ -484,8 +502,8 @@ def create_measurement_configs_tables():
             SOURCE_UNIT_UQ FLOAT
         )""",
     f"""
-    CREATE TABLE IF NOT EXISTS {st.session_state.config["measurement_configs"]["database"]}.
-        {st.session_state.config["measurement_configs"]["schema"]}.UNIT_CONVERSIONS (
+    CREATE TABLE IF NOT EXISTS {config["measurement_configs"]["database"]}.
+        {config["measurement_configs"]["schema"]}.UNIT_CONVERSIONS (
             DEFINITION_ID VARCHAR,
             DEFINITION_NAME VARCHAR,
             CONFIG_ID VARCHAR,
@@ -497,8 +515,8 @@ def create_measurement_configs_tables():
             POST_OFFSET FLOAT
         )""",
     f"""
-    CREATE TABLE IF NOT EXISTS {st.session_state.config["measurement_configs"]["database"]}.
-        {st.session_state.config["measurement_configs"]["schema"]}.VALUE_BOUNDS (
+    CREATE TABLE IF NOT EXISTS {config["measurement_configs"]["database"]}.
+        {config["measurement_configs"]["schema"]}.VALUE_BOUNDS (
             DEFINITION_ID VARCHAR,
             DEFINITION_NAME VARCHAR,
             CONFIG_ID VARCHAR,
@@ -507,86 +525,86 @@ def create_measurement_configs_tables():
             UPPER_LIMIT FLOAT
     )"""]
     for query in queries:
-        st.session_state.session.sql(query).collect()
+        session.sql(query).collect()
     print("Measurement config tables created")
 
-def load_measurement_configs_into_tables():
+def load_measurement_configs_into_tables(config: Optional[dict] = None, session: Optional[Session] = None):
 
     """
-    Takes all the existing measurement config files in /data/st.session_state.config['icb_name']/measurements, 
+    Takes all the existing measurement config files in /data/measurements/{icb_name}/,
     deletes any existing entries in the tables for that definition, and then inserts the new entries.
+
+    Args:
+        config (Optional[dict]): Configuration dictionary containing database and schema information. If not provided,
+            will use the session state from Streamlit. Leave as None if calling from within Streamlit app.
+        session (Optional[Session]): Snowflake session object. If not provided, will use the session state from Streamlit.
+            Leave as None if calling from within Streamlit app.
     """
+    config = config or st.session_state.config
+    session = session or st.session_state.session
 
-    session = st.session_state.session
-
-    config_files = load_measurement_configs_list()
+    config_files = load_measurement_configs_list(config=config)
+    print(f"Config files found: {config_files}")
 
     for config_file in config_files:
-        config = load_measurement_config(config_file)
+        measurement_config = load_measurement_config(filename=config_file, config=config)
         # print(config.definition_name)
-        standard_units, unit_mappings, unit_conversions, value_bounds = config.to_dataframes()
+        standard_units, unit_mappings, unit_conversions, value_bounds = measurement_config.to_dataframes()
 
         # Delete all existing entries for this definition
-        queries = [f"""DELETE FROM {st.session_state.config["measurement_configs"]["database"]}.
-            {st.session_state.config["measurement_configs"]["schema"]}.MEASUREMENT_CONFIGS
-            WHERE DEFINITION_NAME = '{config.definition_name}'""",
-                f"""DELETE FROM {st.session_state.config["measurement_configs"]["database"]}.
-            {st.session_state.config["measurement_configs"]["schema"]}.STANDARD_UNITS
-            WHERE DEFINITION_NAME = '{config.definition_name}'""",
-                   f"""DELETE FROM {st.session_state.config["measurement_configs"]["database"]}.
-            {st.session_state.config["measurement_configs"]["schema"]}.UNIT_MAPPINGS
-            WHERE DEFINITION_NAME = '{config.definition_name}'""",
-                   f"""DELETE FROM {st.session_state.config["measurement_configs"]["database"]}.
-            {st.session_state.config["measurement_configs"]["schema"]}.UNIT_CONVERSIONS
-            WHERE DEFINITION_NAME = '{config.definition_name}'""",
-                f"""DELETE FROM {st.session_state.config["measurement_configs"]["database"]}.
-            {st.session_state.config["measurement_configs"]["schema"]}.VALUE_BOUNDS
-            WHERE DEFINITION_NAME = '{config.definition_name}'"""]
+        queries = [f"""DELETE FROM {config["measurement_configs"]["database"]}.
+            {config["measurement_configs"]["schema"]}.MEASUREMENT_CONFIGS
+            WHERE DEFINITION_NAME = '{measurement_config.definition_name}'""",
+                f"""DELETE FROM {config["measurement_configs"]["database"]}.
+            {config["measurement_configs"]["schema"]}.STANDARD_UNITS
+            WHERE DEFINITION_NAME = '{measurement_config.definition_name}'""",
+                   f"""DELETE FROM {config["measurement_configs"]["database"]}.
+            {config["measurement_configs"]["schema"]}.UNIT_MAPPINGS
+            WHERE DEFINITION_NAME = '{measurement_config.definition_name}'""",
+                   f"""DELETE FROM {config["measurement_configs"]["database"]}.
+            {config["measurement_configs"]["schema"]}.UNIT_CONVERSIONS
+            WHERE DEFINITION_NAME = '{measurement_config.definition_name}'""",
+                f"""DELETE FROM {config["measurement_configs"]["database"]}.
+            {config["measurement_configs"]["schema"]}.VALUE_BOUNDS
+            WHERE DEFINITION_NAME = '{measurement_config.definition_name}'"""]
 
         for query in queries:
-            st.session_state.session.sql(query)
+            session.sql(query)
 
-        # Insert new entries
-        # print(config_file)
-        # print(standard_units)
-        # print(standard_units.dtypes)
-        # 
-        # 
-
-        session.sql(f"""INSERT INTO {st.session_state.config["measurement_configs"]["database"]}.
-            {st.session_state.config["measurement_configs"]["schema"]}.MEASUREMENT_CONFIGS
+        session.sql(f"""INSERT INTO {config["measurement_configs"]["database"]}.
+            {config["measurement_configs"]["schema"]}.MEASUREMENT_CONFIGS
             (DEFINITION_ID, DEFINITION_NAME, CONFIG_ID, CONFIG_VERSION)
             VALUES (
-                '{config.definition_id}',
-                '{config.definition_name}',
-                '{config.standard_measurement_config_id}',
-                '{config.standard_measurement_config_version}'
+                '{measurement_config.definition_id}',
+                '{measurement_config.definition_name}',
+                '{measurement_config.standard_measurement_config_id}',
+                '{measurement_config.standard_measurement_config_version}'
             )""").collect()
-        
+
         if not standard_units.empty:
             session.write_pandas(standard_units,
-                database=st.session_state.config["measurement_configs"]["database"],
-                schema=st.session_state.config["measurement_configs"]["schema"],
+                database=config["measurement_configs"]["database"],
+                schema=config["measurement_configs"]["schema"],
                 table_name="STANDARD_UNITS",
                 use_logical_type=True)
         if not unit_mappings.empty:
             session.write_pandas(unit_mappings,
-                database=st.session_state.config["measurement_configs"]["database"],
-                schema=st.session_state.config["measurement_configs"]["schema"],
+                database=config["measurement_configs"]["database"],
+                schema=config["measurement_configs"]["schema"],
                 table_name="UNIT_MAPPINGS",
                 use_logical_type=True)
         if not unit_conversions.empty:
             session.write_pandas(unit_conversions,
-                database=st.session_state.config["measurement_configs"]["database"],
-                schema=st.session_state.config["measurement_configs"]["schema"],
+                database=config["measurement_configs"]["database"],
+                schema=config["measurement_configs"]["schema"],
                 table_name="UNIT_CONVERSIONS",
                 use_logical_type=True)
         if not value_bounds.empty:
             session.write_pandas(value_bounds,
-                database=st.session_state.config["measurement_configs"]["database"],
-                schema=st.session_state.config["measurement_configs"]["schema"],
+                database=config["measurement_configs"]["database"],
+                schema=config["measurement_configs"]["schema"],
                 table_name="VALUE_BOUNDS",
                 use_logical_type=True)
-   
-        print(f"Loaded {config_file} for {config.definition_id} into measurement config tables")
-    
+
+        print(f"Loaded {config_file} for {measurement_config.definition_id} into measurement config tables")
+

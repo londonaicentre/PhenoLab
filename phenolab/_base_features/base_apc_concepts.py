@@ -223,3 +223,39 @@ SELECT
     SOURCE
 FROM cleaned_concepts
 """
+
+
+def main():
+    """
+    Creates the BASE_APC_CONCEPTS table for NEL ICB warehouse in both prod and dev schemas.
+    """
+    from snowflake.snowpark import Session
+
+    DATABASE = "INTELLIGENCE_DEV"
+    SCHEMAS = ["AI_CENTRE_FEATURE_STORE", "PHENOLAB_DEV"]  # prod and dev
+    CONNECTION_NAME = "nel_icb"
+
+    try:
+        session = Session.builder.config("connection_name", CONNECTION_NAME).create()
+
+        for schema in SCHEMAS:
+            print(f"Creating BASE_APC_CONCEPTS table in {DATABASE}.{schema}...")
+
+            session.sql(f"""
+                CREATE OR REPLACE TABLE {DATABASE}.{schema}.BASE_APC_CONCEPTS AS
+                {BASE_SUS_APC_CONCEPTS_SQL}
+            """).collect()
+
+            print(f"BASE_APC_CONCEPTS table created successfully in {schema}.")
+
+        print("All BASE_APC_CONCEPTS tables created successfully.")
+
+    except Exception as e:
+        print(f"Error creating BASE_APC_CONCEPTS table: {e}")
+        raise e
+    finally:
+        session.close()
+
+
+if __name__ == "__main__":
+    main()

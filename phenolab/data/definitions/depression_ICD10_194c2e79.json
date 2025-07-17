@@ -1,0 +1,128 @@
+{
+  "definition_id": "194c2e79",
+  "definition_name": "depression_ICD10",
+  "definition_version": "depression_ICD10_20250707_131713",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-07-07T13:17:13.775952",
+  "codelists": [
+    {
+      "codelist_id": "depression_ICD10_ICD10_25d48001",
+      "codelist_name": "depression_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "depression_ICD10_ICD10_25d48001_20250707_131633",
+      "codes": [
+        {
+          "code": "F33",
+          "code_description": "Recurrent depressive disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F32",
+          "code_description": "Depressive episode",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F32.9",
+          "code_description": "Depressive episode, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F41.2",
+          "code_description": "Mixed anxiety and depressive disorder",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F32.3",
+          "code_description": "Severe depressive episode with psychotic symptoms",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F32.1",
+          "code_description": "Moderate depressive episode",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F32.2",
+          "code_description": "Severe depressive episode without psychotic symptoms",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F33.9",
+          "code_description": "Recurrent depressive disorder, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F33.3",
+          "code_description": "Recurrent depressive disorder, current episode severe with psychotic symptoms",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F33.2",
+          "code_description": "Recurrent depressive disorder, current episode severe without psychotic symptoms",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F33.1",
+          "code_description": "Recurrent depressive disorder, current episode moderate",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F31.3",
+          "code_description": "Bipolar affective disorder, current episode mild or moderate depression",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F32.0",
+          "code_description": "Mild depressive episode",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F25.1",
+          "code_description": "Schizoaffective disorder, depressive type",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F31.4",
+          "code_description": "Bipolar affective disorder, current episode severe depression without psychotic symptoms",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F31.5",
+          "code_description": "Bipolar affective disorder, current episode severe depression with psychotic symptoms",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F32.8",
+          "code_description": "Other depressive episodes",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F33.0",
+          "code_description": "Recurrent depressive disorder, current episode mild",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F33.8",
+          "code_description": "Other recurrent depressive disorders",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F33.4",
+          "code_description": "Recurrent depressive disorder, currently in remission",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F20.4",
+          "code_description": "Post-schizophrenic depression",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "F92.0",
+          "code_description": "Depressive conduct disorder",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "definition_id": "bb1e2786",
+  "definition_name": "sickle_cell_disease_ICD10",
+  "definition_version": "sickle_cell_disease_ICD10_20250707_133202",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-07-07T13:32:02.099334",
+  "codelists": [
+    {
+      "codelist_id": "sickle_cell_disease_ICD10_ICD10_6df3e9c0",
+      "codelist_name": "sickle_cell_disease_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "sickle_cell_disease_ICD10_ICD10_6df3e9c0_20250707_133148",
+      "codes": [
+        {
+          "code": "D57.1",
+          "code_description": "Sickle-cell anaemia without crisis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "D57.0",
+          "code_description": "Sickle-cell anaemia with crisis",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

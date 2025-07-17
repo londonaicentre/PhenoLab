@@ -9,16 +9,27 @@ from snowflake.snowpark import Session
 
 phenolab_config_mapping = {"SE56186": "nel_icb" }
 
-def load_config() -> dict:
+def load_config(session: Session = None, deploy_env: str = None) -> dict:
+    """
+    Load the configuration file based on the current Snowflake account and environment.
+    
+    Args:
+        session (Session): Optional Snowflake session to determine the account name. If not provided, it will use the 
+        session from Streamlit's state. If calling from within Streamlit, leave as None to use the session state.
+
+        deploy_env (str): Optional environment to use (e.g., 'dev', 'prod'). If not provided, the function will look
+        for it in the environment variables. If still not found, it defaults to 'prod' for local development and 'dev 
+        for remote
+    """
 
     load_dotenv(override=True)
-    if os.getenv("GSETTINGS_SCHEMA_DIR") is not None:  
+    if os.environ['HOME'] == "/home/udf":
         # This is a hideous hack, but this env variable exists on streamlit in snowflake
         local_development = False
     else:
         local_development = True
 
-    deploy_env = os.getenv("DEPLOY_ENV")
+    deploy_env = deploy_env or os.getenv("DEPLOY_ENV")
     if deploy_env is None:
         if local_development: # default is prod for local development and dev for remote
             deploy_env = "prod"
@@ -28,7 +39,8 @@ def load_config() -> dict:
     print(f"Running in environment: {deploy_env}")
 
     # Find out which snowflake account we're on
-    account_name = st.session_state.session.sql("SELECT CURRENT_ACCOUNT();").collect()[0]["CURRENT_ACCOUNT()"]
+    session = session or st.session_state.session
+    account_name = session.sql("SELECT CURRENT_ACCOUNT();").collect()[0]["CURRENT_ACCOUNT()"]
     if account_name in phenolab_config_mapping:
         phenolab_config = phenolab_config_mapping[account_name] + "_" + deploy_env
     else:

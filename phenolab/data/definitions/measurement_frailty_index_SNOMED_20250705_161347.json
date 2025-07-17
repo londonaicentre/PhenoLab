@@ -1,0 +1,33 @@
+{
+  "definition_id": "b6209789",
+  "definition_name": "measurement_frailty_index_SNOMED",
+  "definition_version": "measurement_frailty_index_SNOMED_20250705_161347",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-07-05T16:13:47.159074",
+  "codelists": [
+    {
+      "codelist_id": "measurement_frailty_index_SNOMED_SNOMED_68c9a82b",
+      "codelist_name": "measurement_frailty_index_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_frailty_index_SNOMED_SNOMED_68c9a82b_20250705_161331",
+      "codes": [
+        {
+          "code": "713636003",
+          "code_description": "Frailty Index score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1084961000000105",
+          "code_description": "Electronic Frailty Index score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1084951000000107",
+          "code_description": "Electronic Frailty Index (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

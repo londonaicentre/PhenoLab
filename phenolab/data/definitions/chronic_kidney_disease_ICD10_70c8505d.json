@@ -1,0 +1,53 @@
+{
+  "definition_id": "70c8505d",
+  "definition_name": "chronic_kidney_disease_ICD10",
+  "definition_version": "chronic_kidney_disease_ICD10_20250707_130451",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-07-07T13:04:51.161067",
+  "codelists": [
+    {
+      "codelist_id": "chronic_kidney_disease_ICD10_ICD10_08bb2a96",
+      "codelist_name": "chronic_kidney_disease_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "chronic_kidney_disease_ICD10_ICD10_08bb2a96_20250707_130440",
+      "codes": [
+        {
+          "code": "N18.5",
+          "code_description": "Chronic kidney disease, stage 5",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "N18.3",
+          "code_description": "Chronic kidney disease, stage 3",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "N18.9",
+          "code_description": "Chronic kidney disease, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "N18.4",
+          "code_description": "Chronic kidney disease, stage 4",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "N18.2",
+          "code_description": "Chronic kidney disease, stage 2",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "N18.1",
+          "code_description": "Chronic kidney disease, stage 1",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "N18",
+          "code_description": "Chronic kidney disease",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

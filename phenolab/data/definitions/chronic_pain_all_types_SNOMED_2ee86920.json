@@ -1,0 +1,778 @@
+{
+  "definition_id": "2ee86920",
+  "definition_name": "chronic_pain_all_types_SNOMED",
+  "definition_version": "chronic_pain_all_types_SNOMED_20250707_131209",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-07-07T13:12:09.301581",
+  "codelists": [
+    {
+      "codelist_id": "chronic_pain_all_types_SNOMED_SNOMED_42c15e5d",
+      "codelist_name": "chronic_pain_all_types_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "chronic_pain_all_types_SNOMED_SNOMED_42c15e5d_20250707_130846",
+      "codes": [
+        {
+          "code": "102481003",
+          "code_description": "Generalized chronic body pains (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "109771000119103",
+          "code_description": "Chronic postoperative pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "111985007",
+          "code_description": "Chronic abdominal pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1121000119107",
+          "code_description": "Chronic neck pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "113611000119100",
+          "code_description": "Myofascial pain syndrome of lumbar spine (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "11892641000119101",
+          "code_description": "Chronic female pelvic pain syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1197734000",
+          "code_description": "Chronic proctalgia (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "121021000119105",
+          "code_description": "New daily persistent headache (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12236951000119108",
+          "code_description": "Intermittent claudication of bilateral lower limbs co-occurrent and due to atherosclerosis (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12237071000119100",
+          "code_description": "Intermittent claudication of left lower limb co-occurrent and due to atherosclerosis (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12237191000119103",
+          "code_description": "Intermittent claudication of right lower limb co-occurrent and due to atherosclerosis (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "102557007",
+          "code_description": "Arm claudication (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1162829009",
+          "code_description": "Chronic pain of cardiac implantable electronic device pocket following implantation of cardiac implantable electronic device (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12400141000119103",
+          "code_description": "Chronic pain following bilateral total hip arthroplasty (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12400181000119108",
+          "code_description": "Chronic pain following bilateral total knee arthroplasty (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12400221000119100",
+          "code_description": "Chronic pain following left total hip arthroplasty (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12400261000119105",
+          "code_description": "Chronic pain following left total knee arthroplasty (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12400301000119102",
+          "code_description": "Chronic pain following right total hip arthroplasty (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12400341000119100",
+          "code_description": "Chronic pain following right total knee arthroplasty (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "124171000119105",
+          "code_description": "Chronic intractable migraine without aura (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "128200000",
+          "code_description": "Complex regional pain syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "129501000119107",
+          "code_description": "Chronic sacral pain for greater than three months (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "129511000119105",
+          "code_description": "Chronic pain in coccyx for more than three months (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "133731000119108",
+          "code_description": "Chronic pain in male pelvis (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "134407002",
+          "code_description": "Chronic back pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1362941000000102",
+          "code_description": "Chronic pain of shoulder (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "136791000119103",
+          "code_description": "Chronic thoracic back pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "14150005",
+          "code_description": "Alteration in comfort: chronic pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "144951000000106",
+          "code_description": "Chronic mechanical low back pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15743521000119108",
+          "code_description": "Chronic pain of right upper limb (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15743561000119103",
+          "code_description": "Chronic pain of left upper limb (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15749801000119104",
+          "code_description": "Chronic pain of bilateral feet (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16002671000119106",
+          "code_description": "Chronic pain of bilateral upper limbs (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16002871000119105",
+          "code_description": "Chronic pain of right foot (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16002911000119108",
+          "code_description": "Chronic pain of left foot (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16013431000119104",
+          "code_description": "Intermittent claudication of bilateral lower limbs due to atherosclerosis of nonbiological bypass graft (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16580691000119107",
+          "code_description": "Chronic urinary bladder pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16754391000119100",
+          "code_description": "Stable angina due to coronary arteriosclerosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "193184006",
+          "code_description": "Chronic painful diabetic neuropathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "203082005",
+          "code_description": "Fibromyalgia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230470007",
+          "code_description": "Episodic tension-type headache (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230471006",
+          "code_description": "Chronic tension-type headache (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230473009",
+          "code_description": "Chronic cluster headache (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230474003",
+          "code_description": "Chronic cluster headache unremitting from onset (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230475002",
+          "code_description": "Chronic cluster headache evolved from episodic cluster headache (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230477005",
+          "code_description": "Chronic post-traumatic headache (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230575000",
+          "code_description": "Chronic painful polyneuropathy co-occurrent and due to diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230648001",
+          "code_description": "Abdominal cutaneous nerve entrapment syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "235841007",
+          "code_description": "Chronic nonspecific abdominal pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "237067000",
+          "code_description": "Chronic pain in female pelvis (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239166000",
+          "code_description": "Persistent wound pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "240271006",
+          "code_description": "Persistent prosthetic joint pain (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "274665008",
+          "code_description": "Chronic intractable pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "277286006",
+          "code_description": "Central post-stroke pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "278860009",
+          "code_description": "Chronic low back pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "279030006",
+          "code_description": "Cervical trigger point syndrome (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "279032003",
+          "code_description": "Chronic pelvic pain without obvious pathology (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "279036000",
+          "code_description": "Thoracic trigger point syndrome (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "279041008",
+          "code_description": "Lumbar trigger point syndrome (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "279047007",
+          "code_description": "Persistent pain following procedure (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "279048002",
+          "code_description": "Internal mammary artery syndrome (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "290531000119102",
+          "code_description": "Intractable chronic tension headache (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "291761000119107",
+          "code_description": "Complex regional pain syndrome type II of left upper limb (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "291771000119101",
+          "code_description": "Complex regional pain syndrome type II of right upper limb (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "291781000119103",
+          "code_description": "Complex regional pain syndrome type II of left lower limb (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "291791000119100",
+          "code_description": "Complex regional pain syndrome type II of right lower limb (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "293921000119104",
+          "code_description": "Complex regional pain syndrome type I of bilateral upper limbs (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "293931000119101",
+          "code_description": "Complex regional pain syndrome type I of left lower limb (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "293941000119105",
+          "code_description": "Complex regional pain syndrome type I of left upper limb (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "293951000119107",
+          "code_description": "Complex regional pain syndrome type I of bilateral lower limbs (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "293961000119109",
+          "code_description": "Complex regional pain syndrome type I of right lower limb (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "293971000119103",
+          "code_description": "Complex regional pain syndrome type I of right upper limb (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "294031000119103",
+          "code_description": "Episodic paroxysmal hemicrania (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "29930001000004103",
+          "code_description": "Intractable low back pain (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "303081002",
+          "code_description": "Neurogenic claudication (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "3061000119102",
+          "code_description": "Chronic nonmalignant pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "307177001",
+          "code_description": "Chronic sciatica (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314642004",
+          "code_description": "Intermittent pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "35074008",
+          "code_description": "Chronic idiopathic anal pain (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "373621006",
+          "code_description": "Chronic pain syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "39402007",
+          "code_description": "Pelvic congestion syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "408749000",
+          "code_description": "Complex regional pain syndrome, type II, lower limb (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "408750000",
+          "code_description": "Complex regional pain syndrome, type II, upper limb (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "408751001",
+          "code_description": "Complex regional pain syndrome, type II (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "41321000119101",
+          "code_description": "Myofascial pain syndrome of thoracic spine (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426135001",
+          "code_description": "Chronic prostatitis - chronic pelvic pain syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426628005",
+          "code_description": "Chronic vaginal pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "427419006",
+          "code_description": "Transformed migraine (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "431237007",
+          "code_description": "Chronic headache disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "431481001",
+          "code_description": "Chronic pain due to injury (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "432615008",
+          "code_description": "Chronic pain in face (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43922008",
+          "code_description": "Jaw claudication (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "441711008",
+          "code_description": "Chronic psychogenic pain (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "443095000",
+          "code_description": "Hemicrania continua (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "444746004",
+          "code_description": "Acute exacerbation of chronic abdominal pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "51881000119109",
+          "code_description": "Chronic ankle pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "571000119103",
+          "code_description": "Daily headache (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "631000119102",
+          "code_description": "Chronic back pain greater than three months duration (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "63491006",
+          "code_description": "Intermittent claudication (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "674051000119103",
+          "code_description": "Chronic neck pain for greater than 3 months (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "69186005",
+          "code_description": "Broad ligament laceration syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "699694000",
+          "code_description": "Chronic post-concussion headache (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "712537009",
+          "code_description": "Complex regional pain syndrome of upper limb (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "712826000",
+          "code_description": "Intermittent headache (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "714252004",
+          "code_description": "Post-mastectomy chronic pain syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "722981005",
+          "code_description": "Infrequent episodic tension-type headache (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "722982003",
+          "code_description": "Frequent episodic tension-type headache (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "726531007",
+          "code_description": "Myofascial pain syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "734947007",
+          "code_description": "Complex regional pain syndrome type I (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "734986006",
+          "code_description": "Complex regional pain syndrome of lower limb (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "734987002",
+          "code_description": "Complex regional pain syndrome of foot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "734988007",
+          "code_description": "Complex regional pain syndrome of knee (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "734989004",
+          "code_description": "Complex regional pain syndrome of hand (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "735644008",
+          "code_description": "Chronic nociceptive pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "735935009",
+          "code_description": "Chronic pain due to malignant neoplastic disease (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "735936005",
+          "code_description": "Chronic neuropathic pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "736428003",
+          "code_description": "Chronic arthralgia of temporomandibular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "736464002",
+          "code_description": "Chronic idiopathic pain syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "737305006",
+          "code_description": "Primary chronic pain (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "737306007",
+          "code_description": "Chronic visceral pain (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762354003",
+          "code_description": "Persistent headache due to and following injury of head (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762451005",
+          "code_description": "Chronic pain following trauma (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762452003",
+          "code_description": "Chronic musculoskeletal pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762454002",
+          "code_description": "Chronic orofacial pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762589002",
+          "code_description": "Chronic primary visceral pain (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762590006",
+          "code_description": "Chronic primary generalized pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762591005",
+          "code_description": "Chronic primary musculoskeletal pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762592003",
+          "code_description": "Chronic primary headache (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762593008",
+          "code_description": "Chronic primary orofacial pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762594002",
+          "code_description": "Chronic pain following surgical procedure for cancer (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762595001",
+          "code_description": "Chronic painful polyneuropathy following chemotherapy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762596000",
+          "code_description": "Chronic pain following radiotherapy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762597009",
+          "code_description": "Chronic musculoskeletal pain due to persistent inflammation (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762598004",
+          "code_description": "Chronic musculoskeletal pain due to disease of nervous system (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762599007",
+          "code_description": "Chronic mechanical visceral pain (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762600005",
+          "code_description": "Chronic visceral pain due to vascular disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762601009",
+          "code_description": "Chronic visceral pain due to persistent inflammation (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762602002",
+          "code_description": "Chronic central neuropathic pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762603007",
+          "code_description": "Chronic peripheral neuropathic pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762604001",
+          "code_description": "Chronic secondary facial pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762605000",
+          "code_description": "Chronic secondary oral pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "782661001",
+          "code_description": "Chronic sacroiliac joint pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "785723001",
+          "code_description": "Persistent idiopathic facial pain (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "788891004",
+          "code_description": "Chronic pain after cancer treatment (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "789494008",
+          "code_description": "Central sensitization (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "792845002",
+          "code_description": "Intermittent claudication due to atherosclerosis of artery of limb (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82423001",
+          "code_description": "Chronic pain (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "95417003",
+          "code_description": "Primary fibromyalgia syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "95443002",
+          "code_description": "Venous intermittent claudication (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "95654002",
+          "code_description": "Chronic paroxysmal hemicrania (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "95657009",
+          "code_description": "Chronic mixed headache syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "98611000119104",
+          "code_description": "Chronic post-thoracotomy pain syndrome (finding)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

@@ -1,13 +1,13 @@
 """
-Run this script to fetch definitions from the HDRUK API and save them to a CSV file in the data folder.
+Run this script to fetch definitions from the HDRUK API and save them to a parquet file in the data folder.
 """
 
 from datetime import datetime
 
 import pandas as pd
 
-from phmlondon.hdruk_api import HDRUKLibraryClient
-from utils.definition import Definition
+from hdruk_api import HDRUKLibraryClient
+from phenolab.utils.definition import Definition
 
 """
 Note that HDRUK refers to groupings of codelists as phenotypes
@@ -106,7 +106,7 @@ def retrieve_hdruk_definitions_from_list(definition_list: list) -> pd.DataFrame:
     Returns:
         DataFrame containing all data
     """
-    
+
     all_definitions = []
     for phenotype_id, version_id in definition_list:
         new_def = retrieve_hdruk_definition(phenotype_id, version_id)
@@ -124,6 +124,6 @@ def retrieve_hdruk_definitions_from_list(definition_list: list) -> pd.DataFrame:
 
 if __name__ == "__main__":
     df = retrieve_hdruk_definitions_from_list(definition_list)
-    path = "definition_library/loaders/data/hdruk/hdruk_definitions.csv"
-    df.to_csv(path, index=False)
+    path = "_external_definitions/data/hdruk/hdruk_definitions.parquet"
+    df.to_parquet(path, index=False)
     print(f"HDRUK definitions saved to {path}")

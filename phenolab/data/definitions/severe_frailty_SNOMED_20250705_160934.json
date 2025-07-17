@@ -1,0 +1,23 @@
+{
+  "definition_id": "a4393191",
+  "definition_name": "severe_frailty_SNOMED",
+  "definition_version": "severe_frailty_SNOMED_20250705_160934",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-07-05T16:09:34.197416",
+  "codelists": [
+    {
+      "codelist_id": "severe_frailty_SNOMED_SNOMED_a1f56fbd",
+      "codelist_name": "severe_frailty_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "severe_frailty_SNOMED_SNOMED_a1f56fbd_20250705_160929",
+      "codes": [
+        {
+          "code": "925861000000102",
+          "code_description": "Severe frailty (finding)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

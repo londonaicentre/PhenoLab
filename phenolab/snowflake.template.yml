@@ -12,6 +12,5 @@ entities:
       - pages
       - configs
       - data
-      - definition_library
       - environment.yml
       - .env
