@@ -180,7 +180,7 @@ def get_measurement_values(definition_name, limit = 100000):
     """
     query = f"""
     SELECT
-        RESULT_VALUE_UNITS AS unit,
+        COALESCE(RESULT_VALUE_UNITS, 'No Unit') AS unit,
         TRY_CAST(RESULT_VALUE AS FLOAT) AS value
     FROM {st.session_state.config["gp_observation_table"]} obs
     LEFT JOIN {st.session_state.config["definition_library"]["database"]}.
