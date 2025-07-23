@@ -6,8 +6,7 @@ from typing import Iterator
 
 import pandas as pd
 
-sys.path.append(str(Path(__file__).parent.parent))
-from utils.definition import Code, Codelist, Definition, DefinitionSource, VocabularyType
+from phenolab.utils.definition import Code, Codelist, Definition, DefinitionSource, VocabularyType
 
 
 def process_snomed_mappings(xlsx_files):
@@ -106,10 +105,10 @@ def preprocess_bnf_data(file_path: str, mapping_files: Iterator[Path], output_pa
     definitions_df.to_parquet(f"{output_path}.parquet", index=False)
 
 if __name__ == "__main__":
-    mapping_files = Path("data/bnf_to_snomed/").glob("*.xlsx")
-    output_path = "data/bnf_to_snomed/processed_bnf_data"
+    mapping_files = Path("_external_definitions/data/bnf_to_snomed/").glob("*.xlsx")
+    output_path = "_external_definitions/data/bnf_to_snomed/processed_bnf_data"
 
-    preprocess_bnf_data("data/bsa_bnf/20241101_1730476037387_BNF_Code_Information.csv",
+    preprocess_bnf_data("_external_definitions/data/bsa_bnf/20241101_1730476037387_BNF_Code_Information.csv",
         mapping_files, output_path)
 
     print(f"BNF data preprocessed and saved:")

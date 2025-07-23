@@ -114,7 +114,7 @@ def retreive_open_codelists_definitions_from_list(definition_list: list) -> pd.D
     all_definitions = []
     for url, csv_path in definition_list.items():
         print(url)
-        definition = open_codelists_url_and_csv_to_definition(url, csv_path)
+        definition = open_codelists_url_and_csv_to_definition(url, "_external_definitions/" + csv_path)
         all_definitions.extend(definition)
 
     print('OpenCodelists definitions retrieved successfully')
@@ -126,6 +126,6 @@ def retreive_open_codelists_definitions_from_list(definition_list: list) -> pd.D
 
 if __name__ == "__main__":
     df = retreive_open_codelists_definitions_from_list(definitions_to_load)
-    path = "data/open_codelists_compiled/open_codelists_definitions.parquet"
+    path = "_external_definitions/data/open_codelists_compiled/open_codelists_definitions.parquet"
     df.to_parquet(path, index=False)
     print(f"Open Codelists definitions saved to {path}")

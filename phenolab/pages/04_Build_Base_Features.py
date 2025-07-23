@@ -165,6 +165,7 @@ def display_feature_creation():
     **Table Schema:**
     - `PERSON_ID`: Patient identifier
     - `CLINICAL_EFFECTIVE_DATE`: Date of measurement
+    - `AGE_AT_EVENT`: Age of patient at time of measurement
     - `DEFINITION_ID`: Measurement definition ID
     - `DEFINITION_NAME`: Measurement definition name
     - `SOURCE_RESULT_VALUE`: Original measurement value

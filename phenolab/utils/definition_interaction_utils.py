@@ -1,9 +1,12 @@
 import os
 from datetime import datetime
 from typing import List, Optional, Tuple
+from contextlib import nullcontext
 
 import pandas as pd
 import streamlit as st
+from snowflake.snowpark import Session
+
 from utils.database_utils import (
     get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list,
     return_codes_for_given_definition_id_as_df,
@@ -549,10 +552,26 @@ def display_definition_from_file(definition_file):
         st.error(f"Error loading definition: {e}")
         return None
 
-def process_definitions_for_upload(definition_files: List[str]) -> Tuple[pd.DataFrame, List[str], dict]:
+def process_definitions_for_upload(
+        definition_files: List[str], 
+        config: Optional[dict] = None, 
+        session: Optional[Session] = None) -> Tuple[pd.DataFrame, List[str], dict]:
     """
     Process all definition files and prepare them for upload to Snowflake
+
+    Args:
+        definition_files (List[str]):
+            List of definition file names to process
+        config (Optional[dict]):
+            Configuration dictionary containing database and schema information. If not provided,
+            will use the session state from Streamlit. Leave as None if calling from within Streamlit app.
+        session (Optional[Session]):
+            Snowflake session to use for database operations. If not provided, will use the session state from Streamlit.
+            Leave as None if calling from within Streamlit app.
     """
+    config = config or st.session_state.config
+    session = session or st.session_state.session
+
     if not definition_files:
         return None, [], {}
 
@@ -566,12 +585,12 @@ def process_definitions_for_upload(definition_files: List[str]) -> Tuple[pd.Data
 
         query = f"""
         SELECT DEFINITION_ID, DEFINITION_NAME, VERSION_DATETIME
-        FROM {st.session_state.config["definition_library"]["database"]}.
-        {st.session_state.config["definition_library"]["schema"]}.
+        FROM {config["definition_library"]["database"]}.
+        {config["definition_library"]["schema"]}.
         AIC_DEFINITIONS
         WHERE DEFINITION_ID = '{definition.definition_id}'
         """
-        existing_definition = st.session_state.session.sql(query).to_pandas()
+        existing_definition = session.sql(query).to_pandas()
 
         if not existing_definition.empty:
             max_version_in_db = existing_definition["VERSION_DATETIME"].max()
@@ -593,44 +612,61 @@ def process_definitions_for_upload(definition_files: List[str]) -> Tuple[pd.Data
 
     return all_rows, definitions_to_add, definitions_to_remove
 
-def update_aic_definitions_table(verbose: bool = True):
+def update_aic_definitions_table(config: Optional[dict] = None, session: Optional[Session] = None):
     """
     Update the AIC_DEFINITIONS table with new or updated definitions from local files.
-    """
 
+    Args:
+        config (Optional[dict]):
+            Configuration dictionary containing database and schema information. If not provided,
+            will use the session state from Streamlit. Leave as None if calling from within Streamlit app.
+        session (Optional[Session]):
+            Snowflake session to use for database operations. If not provided, will use the session state from Streamlit.
+            Leave as None if calling from within Streamlit app.
+    """
+    config = config or st.session_state.config
+    session = session or st.session_state.session
+
+    # Get definition files
     definition_files = load_definitions_list_from_local_files()
 
-    with st.spinner(f"Processing {len(definition_files)} definition files..."):
-        all_rows, definitions_to_add, definitions_to_remove = process_definitions_for_upload(definition_files)
+    # Process definition files for upload
+    spinner_context = st.spinner(
+        f"Processing {len(definition_files)} definition files...") if not config else nullcontext()
+    with spinner_context:
+        all_rows, definitions_to_add, definitions_to_remove = process_definitions_for_upload(definition_files, 
+                config=config, session=session)
 
     # Upload if there's data
     if all_rows is not None and not all_rows.empty:
-        with st.spinner(f"Uploading {len(all_rows)} rows to Snowflake..."):
+        spinner_context = st.spinner(
+            f"Uploading {len(all_rows)} rows to Snowflake...") if not config else nullcontext()
+        with spinner_context:
             df = all_rows.copy()
             df.columns = df.columns.str.upper()
-            st.session_state.session.write_pandas(df, 
-                                database=st.session_state.config["definition_library"]["database"],
-                                schema=st.session_state.config["definition_library"]["schema"],
-                                table_name="AIC_DEFINITIONS", 
-                                overwrite=False,
-                                use_logical_type=True) # use_logical_type=True is needed to handle datetime cols correctly
+            session.write_pandas(df, 
+                    database=config["definition_library"]["database"],
+                    schema=config["definition_library"]["schema"],
+                    table_name="AIC_DEFINITIONS", 
+                    overwrite=False,
+                    use_logical_type=True) # use_logical_type=True is needed to handle datetime cols correctly
             print(f"Uploaded {len(all_rows)} rows to "
-                f"{st.session_state.config['definition_library']['database']}."
-                f"{st.session_state.config['definition_library']['schema']}.AIC_DEFINITIONS table")
-            if verbose:
+                f"{config['definition_library']['database']}."
+                f"{config['definition_library']['schema']}.AIC_DEFINITIONS table")
+            if not config:
                 st.success(f"Successfully uploaded new definitions {definitions_to_add} to the AIC definition library")
 
             # Delete old versions
             for id, [name, current_version] in definitions_to_remove.items():
-                st.session_state.session.sql(
-                    f"""DELETE FROM {st.session_state.config["definition_library"]["database"]}.
-                    {st.session_state.config["definition_library"]["schema"]}.
+                session.sql(
+                    f"""DELETE FROM {config["definition_library"]["database"]}.
+                    {config["definition_library"]["schema"]}.
                     AIC_DEFINITIONS WHERE DEFINITION_ID = '{id}' AND
                     VERSION_DATETIME != CAST('{current_version}' AS TIMESTAMP)"""
                 ).collect()
                 print(f"Deleted old version of defintion {name} with ID {id} and version {current_version}")
-                if verbose:
+                if not config:
                     st.info(f"Deleted old version(s) of {name}")
     else:
-        if verbose:
+        if not config:
             st.warning("No new definitions to upload")

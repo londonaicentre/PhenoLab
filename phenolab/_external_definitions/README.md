@@ -2,8 +2,6 @@
 
 This stage fetches external definition data and saves it to parquet files ready for upload.
 
-**UPSTREAM PARQUET FILE GENERATION IS CURRENTLY BROKEN FOR BNF/BSA AND OPENCODELISTS**
-
 ## Scripts
 
 - `fetch_hdruk.py`: Retrieves definitions from HDR UK Phenotype Library API
@@ -14,13 +12,13 @@ This stage fetches external definition data and saves it to parquet files ready 
 
 ## Usage
 
-Run scripts from within the external_definitions directory:
+Run scripts from within the phenolab directory:
 
 ```bash
-cd external_definitions
-python fetch_hdruk.py
-python fetch_open_codelists.py
-python fetch_bnf.py
+cd phenolab
+python _external_definitions/fetch_hdruk.py
+python _external_definitions/fetch_open_codelists.py
+python _external_definitions/fetch_bnf.py
 ```
 
 ## Output
