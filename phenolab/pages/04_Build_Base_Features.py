@@ -201,11 +201,21 @@ def create_condition_distribution_plot(df_yearly, definition_name):
 def display_condition_analysis():
     """
     Display condition analysis with patient counts by year
+    Returns the selected definition source for use in other components
     """
-    definitions = get_non_measurement_definitions()
+    # dropdown to select definition source
+    definition_source = st.selectbox(
+        "Select definition source",
+        options=["AIC", "ICB"],
+        format_func=lambda x: "AIC Definitions (AI Centre)" if x == "AIC" else "ICB Definitions (User Created)",
+        key="definition_source_select"
+    )
+
+    definitions = get_non_measurement_definitions(source=definition_source)
 
     if not definitions:
-        st.warning("No non-measurement definitions found. Please ensure definitions exist in the data/definitions folder.")
+        source_description = "AI Centre definitions in data/definitions folder" if definition_source == "AIC" else "ICB definitions in Snowflake"
+        st.warning(f"No non-measurement definitions found. Please ensure {source_description} exist.")
         return
 
     selected_condition = st.selectbox(
@@ -230,24 +240,36 @@ def display_condition_analysis():
         fig = create_condition_distribution_plot(df_yearly, selected_condition)
         st.plotly_chart(fig, use_container_width=True)
 
+    return definition_source
 
-def display_condition_feature_creation():
+
+def display_condition_feature_creation(definition_source):
     """
     Display UI for creating Base Conditions feature table
+
+    Args:
+        definition_source:
+            "AIC" or "ICB" to determine which definitions to use
     """
-    definitions = get_non_measurement_definitions()
+    definitions = get_non_measurement_definitions(source=definition_source)
 
     if not definitions:
-        st.warning("No non-measurement definitions found. Please add definitions first.")
+        source_description = "AI Centre definitions" if definition_source == "AIC" else "ICB definitions"
+        st.warning(f"No non-measurement {source_description} found. Please add definitions first.")
         return
 
-    st.write(f"""This will create or update the **Base Conditions** feature table
-             containing condition flags for ALL {len(definitions)} non-measurement definitions.
+    # Update table name and description based on source
+    table_name = "Base ICB Conditions" if definition_source == "ICB" else "Base Conditions"
+    table_suffix = "(ICB)" if definition_source == "ICB" else "(AIC)"
+
+    st.write(f"""This will create or update the **{table_name}** feature table
+             containing condition flags for ALL {len(definitions)} non-measurement definitions {table_suffix}.
              """)
 
-    if st.button("Create / Update Base Conditions Table", type="primary", use_container_width=True):
+    button_text = f"Create / Update {table_name} Table"
+    if st.button(button_text, type="primary", use_container_width=True):
         all_definitions = list(definitions.keys())
-        create_base_conditions_feature(all_definitions)
+        create_base_conditions_feature(all_definitions, source=definition_source)
 
     st.write("""
     **Table Schema:**
@@ -280,7 +302,9 @@ def main():
             display_condition_analysis()
 
         with right_col:
-            display_condition_feature_creation()
+            # Get the definition source from session state (set by the dropdown in left column)
+            definition_source = st.session_state.get("definition_source_select", "AIC")
+            display_condition_feature_creation(definition_source)
 
     with tab2:
         left_col, right_col = st.columns([2, 1])
