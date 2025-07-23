@@ -24,10 +24,6 @@ from utils.style_utils import container_object_with_height_if_possible, set_font
 # of measurements for relevant definitions. Allows users to define standard units, /
 # map source units, and specify conversion formulas.
 
-# TO DO
-# - Not yet feature complete!
-
-
 
 def display_measurement_analysis(config, tab1 = True, upper_limit = None, lower_limit = None):
 
@@ -39,9 +35,6 @@ def display_measurement_analysis(config, tab1 = True, upper_limit = None, lower_
         return
 
     df_mapped = apply_unit_mapping(df_values, config)
-    unmapped_count = df_mapped['mapped_unit'].isna().sum()
-
-    st.info(f"Loaded {len(df_values):,} measurement values (Unmapped = {unmapped_count:,})")
 
     df_all = apply_conversions(df_mapped, config)
 
@@ -50,18 +43,17 @@ def display_measurement_analysis(config, tab1 = True, upper_limit = None, lower_
 
     if tab1:
         with st.form(form_name):
-            st.markdown('### Plot the distributions of the units')
             st.write('WARNING: increasing the number of rows to pull can be very expensive and slow down the running of this section')
             col1, col2, col3, col4, col5 = st.columns(5)
             local_max_centile = df_all.value.quantile(0.9999)
             local_min_centile = df_all.value.quantile(0.0001)
 
             with col1:
-                xmin = st.number_input('XMin',
+                xmin = st.number_input(f'XMin ({config.primary_standard_unit})',
                                     value = local_min_centile)
 
             with col2:
-                xmax = st.number_input('XMax',
+                xmax = st.number_input(f'XMax ({config.primary_standard_unit})',
                                     value = local_max_centile)
 
             with col3:
@@ -138,7 +130,7 @@ def display_standard_units_panel(config):
     One of these is chosen as the 'primary' unit for all conversions.
     Rather than maintaining a session state, the config json is updated with every change
     """
-    st.subheader("Configure Standard Units")
+    st.subheader("2. Configure Standard Units & Set Primary")
 
     col1, col2 = st.columns([3, 1])
     with col1:
@@ -185,7 +177,7 @@ def display_unit_mapping_panel(config):
     """
     Display panel for mapping source units to standard units
     """
-    st.subheader("Map Source Units to Standard Units")
+    st.subheader("3. Map Source Units to Standard Units")
 
     if not config.standard_units:
         st.warning("Please add at least one standard unit first.")
@@ -275,7 +267,7 @@ def display_unit_conversion_panel(config):
     """
     Display panel for defining conversions from all units to the primary unit
     """
-    st.subheader("Define Unit Conversions to Primary Unit")
+    st.subheader("5. Define Unit Conversions to Primary Unit")
 
     if not config.primary_standard_unit:
         st.warning("Please set a primary standard unit first.")
@@ -296,12 +288,12 @@ def display_unit_conversion_panel(config):
         if conv.convert_to_unit == config.primary_standard_unit:
             existing_conversions[conv.convert_from_unit] = conv
 
-    st.markdown("### Standard Units to Primary Unit")
+    st.markdown("#### Standard Units to Primary Unit")
     standard_units = [u for u in all_units if u != config.primary_standard_unit]
     if standard_units:
         display_conversion_group(config, standard_units, existing_conversions, "standard")
 
-    st.markdown("### Primary (identity conversion)")
+    st.markdown("#### Primary (source to primary identity conversion)")
     if config.primary_standard_unit:
         display_conversion_group(config, [config.primary_standard_unit], existing_conversions, "identity")
 
@@ -391,9 +383,6 @@ def display_conversion_group(config, units, existing_conversions, group_type):
             st.rerun()
 
 def display_configs_in_tables():
-    st.write("The following measurement definitions have associated configurations to standardise their units:")
-    st.divider()
-
     measurement_configs = st.session_state.session.sql(f"""
         SELECT DISTINCT
             DEFINITION_NAME,
@@ -410,51 +399,31 @@ def display_configs_in_tables():
         )
 
     config = measurement_configs.loc[measurement_configs['DEFINITION_NAME'] == definition_name, 'CONFIG_ID'].values[0]
-    existing_units = st.session_state.session.sql(f"""
+
+    # Get unit mappings
+    unit_mappings = st.session_state.session.sql(f"""
         SELECT DISTINCT
-            SOURCE_UNIT
+            SOURCE_UNIT,
+            STANDARD_UNIT
         FROM {st.session_state.config["measurement_configs"]["database"]}.
         {st.session_state.config["measurement_configs"]["schema"]}.UNIT_MAPPINGS
         WHERE CONFIG_ID = '{config}'
-        AND STANDARD_UNIT IS NOT NULL
-        AND STANDARD_UNIT != ''
-        """).to_pandas()['SOURCE_UNIT'].tolist()
+        ORDER BY SOURCE_UNIT
+        """).to_pandas()
 
-    standard_units = st.session_state.session.sql(f"""
-        SELECT DISTINCT
-            UNIT
-        FROM {st.session_state.config["measurement_configs"]["database"]}.
-        {st.session_state.config["measurement_configs"]["schema"]}.STANDARD_UNITS
-        WHERE CONFIG_ID = '{config}'
-        """).to_pandas()['UNIT'].tolist()
-
-    primary_unit = [r['UNIT'] for r in st.session_state.session.sql(f"""
+    # Get primary unit
+    primary_unit_df = st.session_state.session.sql(f"""
         SELECT DISTINCT
             UNIT
         FROM {st.session_state.config["measurement_configs"]["database"]}.
         {st.session_state.config["measurement_configs"]["schema"]}.STANDARD_UNITS
             WHERE CONFIG_ID = '{config}'
             AND PRIMARY_UNIT = TRUE
-        """).collect()]
+        """).to_pandas()
 
-    total_measurements = st.session_state.session.sql(f"""
-        SELECT
-            SUM(SOURCE_UNIT_COUNT) 
-        FROM {st.session_state.config["measurement_configs"]["database"]}.
-        {st.session_state.config["measurement_configs"]["schema"]}.UNIT_MAPPINGS
-            WHERE CONFIG_ID = '{config}'
-        """).to_pandas()['SUM(SOURCE_UNIT_COUNT)'].to_list()[0]
+    primary_unit = primary_unit_df['UNIT'].iloc[0] if not primary_unit_df.empty else 'Not set'
 
-    mapped_measurements = st.session_state.session.sql(f"""
-        SELECT
-            SUM(SOURCE_UNIT_COUNT) AS MAPPED_COUNT
-        FROM {st.session_state.config["measurement_configs"]["database"]}.
-        {st.session_state.config["measurement_configs"]["schema"]}.UNIT_MAPPINGS
-            WHERE CONFIG_ID = '{config}'
-            AND STANDARD_UNIT IS NOT NULL
-            AND STANDARD_UNIT != ''
-        """).to_pandas()['MAPPED_COUNT'].to_list()[0]
-
+    # Get value bounds
     value_bounds = st.session_state.session.sql(f"""
         SELECT
             LOWER_LIMIT,
@@ -464,27 +433,71 @@ def display_configs_in_tables():
             WHERE CONFIG_ID = '{config}'
         """).to_pandas()
 
-    upper_limit = value_bounds.UPPER_LIMIT.to_list()[0]
-    lower_limit = value_bounds.LOWER_LIMIT.to_list()[0]
+    if not value_bounds.empty:
+        upper_limit = value_bounds.UPPER_LIMIT.iloc[0]
+        lower_limit = value_bounds.LOWER_LIMIT.iloc[0]
+    else:
+        upper_limit = np.nan
+        lower_limit = np.nan
+
+    # Get measurement statistics
+    total_measurements = st.session_state.session.sql(f"""
+        SELECT
+            SUM(SOURCE_UNIT_COUNT)
+        FROM {st.session_state.config["measurement_configs"]["database"]}.
+        {st.session_state.config["measurement_configs"]["schema"]}.UNIT_MAPPINGS
+            WHERE CONFIG_ID = '{config}'
+        """).to_pandas()['SUM(SOURCE_UNIT_COUNT)'].iloc[0]
+
+    mapped_measurements = st.session_state.session.sql(f"""
+        SELECT
+            SUM(SOURCE_UNIT_COUNT) AS MAPPED_COUNT
+        FROM {st.session_state.config["measurement_configs"]["database"]}.
+        {st.session_state.config["measurement_configs"]["schema"]}.UNIT_MAPPINGS
+            WHERE CONFIG_ID = '{config}'
+            AND STANDARD_UNIT IS NOT NULL
+            AND STANDARD_UNIT != ''
+        """).to_pandas()['MAPPED_COUNT'].iloc[0]
 
     if not mapped_measurements:
         mapped_measurements = 0
 
-    st.write(f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; All existing units for this measurement: {existing_units}")
-    st.write(f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Standard units to map to: {standard_units}")
-    st.write(f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Primary unit to convert to: {primary_unit}")
-    st.write(f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lower limit of possible: {lower_limit if not np.isnan(lower_limit) else 'not set'}")
-    st.write(f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Upper limit of possible: {upper_limit if not np.isnan(upper_limit) else 'not set'}")
+    # Display all statistics together
+    # First row - configuration settings
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.metric("Primary Unit", primary_unit)
+    with col2:
+        st.metric("Lower Limit", f"{lower_limit:.2f}" if not np.isnan(lower_limit) else "Not set")
+    with col3:
+        st.metric("Upper Limit", f"{upper_limit:.2f}" if not np.isnan(upper_limit) else "Not set")
 
-    metric1, metric2, metric3 =  st.columns(3)
+    # Second row - mapping statistics
+    metric1, metric2, metric3 = st.columns(3)
     with metric1:
-        st.metric('Total Measurments', total_measurements)
+        st.metric('Total Measurements', f"{total_measurements:,}")
     with metric2:
-        st.metric('Total Measurements Mapped to Standard Unit', mapped_measurements)
+        st.metric('Mapped Measurements', f"{mapped_measurements:,}")
     with metric3:
-        proportion_mapped = round(mapped_measurements/total_measurements*100)
-        st.metric('Proportion Measurments Mapped', f'{proportion_mapped}%')
-    st.divider()
+        proportion_mapped = round(mapped_measurements/total_measurements*100) if total_measurements > 0 else 0
+        st.metric('Proportion Mapped', f'{proportion_mapped}%')
+
+    # unit mappings table
+    if not unit_mappings.empty:
+        mapped_units = unit_mappings[unit_mappings['STANDARD_UNIT'].notna() & (unit_mappings['STANDARD_UNIT'] != '')]
+        if not mapped_units.empty:
+            st.dataframe(
+                mapped_units[['SOURCE_UNIT', 'STANDARD_UNIT']].rename(columns={
+                    'SOURCE_UNIT': 'Source Unit',
+                    'STANDARD_UNIT': 'Standard Unit'
+                }),
+                use_container_width=True,
+                hide_index=True
+            )
+        else:
+            st.info("No unit mappings configured yet.")
+    else:
+        st.info("No units found for this measurement.")
 
     if np.isnan(upper_limit):
         upper_limit = None
@@ -494,11 +507,13 @@ def display_configs_in_tables():
     return definition_name, upper_limit, lower_limit
 
 def display_measurement_bounds_panel(config: MeasurementConfig):
-    st.divider()
-    st.subheader("Value bounds")
+    st.subheader("6. Define Value Bounds")
+
+    st.write(f"""Define reasonable bounds for {config.definition_name} values in {config.primary_standard_unit}.
+    Values outside these bounds will be flagged but not deleted, allowing you to identify potential data quality issues.""")
 
     new_lower_bound = st.number_input(
-        "Lower bound for values in primary unit",
+        f"Lower bound for values in {config.primary_standard_unit}",
         value=config.lower_limit if hasattr(config, 'lower_limit') else None,
         placeholder='e.g. 0.0',
     )
@@ -509,7 +524,7 @@ def display_measurement_bounds_panel(config: MeasurementConfig):
             st.success("Lower bound set successfully.")
 
     new_upper_bound = st.number_input(
-        "Upper bound for values in primary unit",
+        f"Upper bound for values in {config.primary_standard_unit}",
         value=config.upper_limit if hasattr(config, 'upper_limit') else None,
         placeholder='e.g. 140.0',
     )
@@ -552,18 +567,39 @@ def main():  # noqa: C901
         st.session_state.selected_definition = None
         st.session_state.selected_config = None
 
-    # st.session_state.config["local_development"] = False
     if st.session_state.config["local_development"]:
         tab1, tab2 = st.tabs(["Create/Update Configs", "View Existing Configs on Snowflake"])
         with tab1:
             col1, col2 = st.columns([3, 1])
             with col1:
                 st.write("""
-                Update Measurement Configs from new definitions and usage statistics:
+                This page allows superusers to standardise and clean measurement values - individual to each ICB.
+                """)
+
+                st.write("""
+                Run 'Update Config Stats' to include new measurement definitions. Definitions must be in Snowflake:
                 - Creates new configs for any measurement definitions that don't have one
                 - For each measurement config, will load in all source units and statistics
                 - If units already exist in the config, it will load in newly discovered units only
                 """)
+
+                with st.expander("What happens when you click 'Update Config Stats'?"):
+                    st.markdown("""
+                    1. **Scans for new measurement definitions** in **Snowflake** that don't yet have a configuration file
+                       - Queries the DEFINITIONSTORE for measurement definitions
+                       - Creates new JSON config files in `data/measurements/{icb_name}/` for each
+
+                    2. **Updates all configurations** with usage statistics from live data:
+                       - Queries measurement values from observation tables to find all unique source units
+                       - Calculates statistics for each unit (count, median, quartiles)
+                       - Adds any newly discovered units to existing configs
+
+                    3. **Updates are local only** until you click "Send configs to Snowflake"
+                       - All changes are saved to local JSON files
+                       - Changes should be reviewed before pushing to Snowflake tables
+
+                    **Note**: This process can take a few minutes if there are many measurements to analyse.
+                    """)
             with col2:
                 if st.button("Update Config Stats", use_container_width=True):
                     with st.spinner("Updating measurement configurations..."):
@@ -584,7 +620,7 @@ def main():  # noqa: C901
 
             st.markdown("---")
 
-            st.subheader("Select Measurement Config File")
+            st.subheader("1. Select Measurement Config File")
 
             # 1. refresh configs
             measurement_configs = load_measurement_configs_list()
@@ -635,31 +671,45 @@ def main():  # noqa: C901
                     if config.standard_units:
                         display_unit_mapping_panel(config)
 
+                        # UI: view unit distributions
+                        if config.standard_units:
+                            st.markdown("---")
+                            st.subheader("4. View Unit Distributions")
+                            display_measurement_analysis(config)
+
                         # UI: unit conversion panel
                         if config.primary_standard_unit:
                             st.markdown("---")
                             display_unit_conversion_panel(config)
+
+                        # UI: value bounds panel
+                        if config.primary_standard_unit:
+                            st.markdown("---")
+                            display_measurement_bounds_panel(config)
                     else:
                         st.info("Please add standard units first to enable unit mapping.")
 
-                    display_measurement_analysis(config)
-
-                    display_measurement_bounds_panel(config)
-
-            st.divider()
-            st.subheader("Update Measurement Configs on Snowflake")
+            st.markdown("---")
+            st.subheader("7. Update Measurement Configs on Snowflake")
             if st.button("Send configs to Snowflake"):
                 with st.spinner("Sending configs to Snowflake..."):
-                    load_measurement_configs_into_tables()
-                    st.success("Sent!")
+                    # show target tables (dev vs prod)
+                    db = st.session_state.config["measurement_configs"]["database"]
+                    schema = st.session_state.config["measurement_configs"]["schema"]
+                    st.info(f"**Target tables:** {db}.{schema}.[MEASUREMENT_CONFIGS, STANDARD_UNITS, UNIT_MAPPINGS, UNIT_CONVERSIONS, VALUE_BOUNDS]")
+
+                    total_configs = load_measurement_configs_into_tables()
+                    st.success(f"Successfully uploaded {total_configs} measurement configs to Snowflake!")
         with tab2:
             selected_measurement, ulim, llim  = display_configs_in_tables()
             measurement_config = get_selected_config(selected_measurement)
-            display_measurement_analysis(measurement_config, False, ulim, llim)
+            if measurement_config:
+                display_measurement_analysis(measurement_config, False, ulim, llim)
     else:
         selected_measurement, ulim, llim = display_configs_in_tables()
         measurement_config = get_selected_config(selected_measurement)
-        display_measurement_analysis(measurement_config, False, ulim, llim)
+        if measurement_config:
+            display_measurement_analysis(measurement_config, False, ulim, llim)
 
 
 

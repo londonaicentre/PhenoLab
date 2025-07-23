@@ -524,6 +524,7 @@ def load_measurement_configs_into_tables():
     session = st.session_state.session
 
     config_files = load_measurement_configs_list()
+    total_configs = len(config_files)
 
     for config_file in config_files:
         config = load_measurement_config(config_file)
@@ -548,14 +549,7 @@ def load_measurement_configs_into_tables():
             WHERE DEFINITION_NAME = '{config.definition_name}'"""]
 
         for query in queries:
-            st.session_state.session.sql(query)
-
-        # Insert new entries
-        # print(config_file)
-        # print(standard_units)
-        # print(standard_units.dtypes)
-        #
-        #
+            st.session_state.session.sql(query).collect()
 
         session.sql(f"""INSERT INTO {st.session_state.config["measurement_configs"]["database"]}.
             {st.session_state.config["measurement_configs"]["schema"]}.MEASUREMENT_CONFIGS
@@ -593,6 +587,8 @@ def load_measurement_configs_into_tables():
                 use_logical_type=True)
 
         print(f"Loaded {config_file} for {config.definition_id} into measurement config tables")
+
+    return total_configs
 
 def count_sigfig(number: float,
                 zeros: int = 4,
