@@ -5,21 +5,56 @@ from typing import List
 import streamlit as st
 
 
-def get_non_measurement_definitions():
+def get_non_measurement_definitions(source="AIC"):
     """
-    Get all non-measurement definitions from the definitions folder
+    Get all non-measurement definitions from AI Centre (AIC) or Snowflake (ICB)
+
+    Args:
+        source (str):
+            "AIC" for AI Centre definitions
+            "ICB" for ICB definitions
+
+    Returns:
+        dict:
+            Dictionary of definition_name -> definition data
     """
     definitions = {}
-    if os.path.exists("data/definitions"):
-        for filename in os.listdir("data/definitions"):
-            if filename.endswith(".json") and not filename.startswith("measurement_"):
-                filepath = os.path.join("data/definitions", filename)
-                try:
-                    with open(filepath, 'r') as f:
-                        definition = json.load(f)
-                        definitions[definition['definition_name']] = definition
-                except Exception as e:
-                    st.warning(f"Could not load {filename}: {e}")
+
+    if source == "AIC":
+        # Load from local files (existing behavior)
+        if os.path.exists("data/definitions"):
+            for filename in os.listdir("data/definitions"):
+                if filename.endswith(".json") and not filename.startswith("measurement_"):
+                    filepath = os.path.join("data/definitions", filename)
+                    try:
+                        with open(filepath, 'r') as f:
+                            definition = json.load(f)
+                            definitions[definition['definition_name']] = definition
+                    except Exception as e:
+                        st.warning(f"Could not load {filename}: {e}")
+
+    elif source == "ICB":
+        # Load from Snowflake DEFINITIONSTORE
+        try:
+            query = f"""
+            SELECT DISTINCT DEFINITION_NAME
+            FROM {st.session_state.config["definition_library"]["database"]}.
+                {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
+            WHERE SOURCE_TABLE = 'ICB_DEFINITIONS'
+                AND DEFINITION_NAME NOT LIKE 'measurement_%'
+            ORDER BY DEFINITION_NAME
+            """
+            result = st.session_state.session.sql(query).to_pandas()
+
+            # Create simplified definition dict with just the name (sufficient for base feature creation)
+            for _, row in result.iterrows():
+                definitions[row['DEFINITION_NAME']] = {
+                    'definition_name': row['DEFINITION_NAME'],
+                    'source': 'ICB'
+                }
+        except Exception as e:
+            st.warning(f"Could not load ICB definitions from Snowflake: {e}")
+
     return definitions
 
 
@@ -41,10 +76,14 @@ def get_latest_base_apc_concepts_table():
     return result.iloc[0]['TABLE_NAME']
 
 
-def create_base_conditions_sql(selected_definitions: List[str]):
+def create_base_conditions_sql(selected_definitions: List[str], source="AIC"):
     """
     Generate SQL query for Base Conditions feature table
     Handles both SNOMED codes (from OBSERVATION) and ICD10/OPCS4 codes (from BASE_APC_CONCEPTS)
+
+    Args:
+        selected_definitions: List of definition names to include
+        source: "AIC" for AI Centre definitions, "ICB" for ICB definitions
     """
     # Get latest BASE_APC_CONCEPTS table
     apc_table = get_latest_base_apc_concepts_table()
@@ -76,6 +115,7 @@ def create_base_conditions_sql(selected_definitions: List[str]):
                 WHERE DEFINITION_NAME = '{definition_name}'
             )
             AND def.VOCABULARY = 'SNOMED'
+            AND def.SOURCE_TABLE = '{"AIC_DEFINITIONS" if source == "AIC" else "ICB_DEFINITIONS"}'
         """
         union_queries.append(snomed_query)
 
@@ -104,6 +144,7 @@ def create_base_conditions_sql(selected_definitions: List[str]):
                     WHERE DEFINITION_NAME = '{definition_name}'
                 )
                 AND def.VOCABULARY IN ('ICD10', 'OPCS4')
+                AND def.SOURCE_TABLE = '{"AIC_DEFINITIONS" if source == "AIC" else "ICB_DEFINITIONS"}'
             """
             union_queries.append(icd_opcs_query)
 
@@ -113,49 +154,36 @@ def create_base_conditions_sql(selected_definitions: List[str]):
     return " UNION ALL ".join(union_queries)
 
 
-def create_base_conditions_feature(selected_definitions: List[str]):   
+def create_base_conditions_feature(selected_definitions: List[str], source="AIC"):
     """
     Create or update Base Conditions ('Has Condition') feature table
+
+    Args:
+        selected_definitions:
+            List of definition names to include
+        source:
+            "AIC" for AI Centre definitions (creates BASE_CONDITIONS),
+            "ICB" for ICB definitions (creates BASE_ICB_CONDITIONS)
     """
     try:
         with st.spinner("Generating SQL query..."):
-            sql_query = create_base_conditions_sql(selected_definitions)
+            sql_query = create_base_conditions_sql(selected_definitions, source=source)
 
         if not sql_query:
             st.error("Failed to generate SQL query. No definitions selected.")
             return
 
-        with st.spinner("Creating or updating Base Conditions feature table..."):
-            # st.session_state.session.sql(
-            #     f"""CREATE TABLE IF NOT EXISTS {st.session_state.config["feature_store"]["database"]}.
-            #     {st.session_state.config["feature_store"]["schema"]}.BASE_CONDITIONS(
-            #     PERSON_ID VARCHAR,
-            #     CLINICAL_EFFECTIVE_DATE TIMESTAMP_NTZ,
-            #     DEFINITION_ID VARCHAR,
-            #     DEFINITION_NAME VARCHAR,
-            #     DEFINITION_VERSION VARCHAR,
-            #     VERSION_DATETIME TIMESTAMP_NTZ,
-            #     SOURCE_VOCABULARY VARCHAR
-            #     )""").collect()
-            
-            # st.session_state.session.sql(
-            #     f"""MERGE INTO {st.session_state.config["feature_store"]["database"]}.
-            #     {st.session_state.config["feature_store"]["schema"]}.BASE_CONDITIONS AS target
-            #     USING ({sql_query}) AS source
-            #     ON target.PERSON_ID = source.PERSON_ID
-            #     AND target.CLINICAL_EFFECTIVE_DATE = source.CLINICAL_EFFECTIVE_DATE
-            #     AND target.DEFINITION_ID = source.DEFINITION_ID
-            #     AND source.SOURCE_VOCABULARY = target.SOURCE_VOCABULARY
-            #     WHEN NOT MATCHED THEN
-            #         INSERT (PERSON_ID, CLINICAL_EFFECTIVE_DATE, DEFINITION_ID, DEFINITION_NAME, SOURCE_VOCABULARY)
-            #         VALUES (source.PERSON_ID, source.CLINICAL_EFFECTIVE_DATE, source.DEFINITION_ID, source.DEFINITION_NAME, source.SOURCE_VOCABULARY)""").collect()
+        # Determine table name based on source
+        table_name = "BASE_ICB_CONDITIONS" if source == "ICB" else "BASE_CONDITIONS"
+        table_display_name = "Base ICB Conditions" if source == "ICB" else "Base Conditions"
 
+        with st.spinner(f"Creating or updating {table_display_name} feature table..."):
             st.session_state.session.sql(
                 f"""CREATE OR REPLACE TABLE {st.session_state.config["feature_store"]["database"]}.
-                {st.session_state.config["feature_store"]["schema"]}.BASE_CONDITIONS AS
+                {st.session_state.config["feature_store"]["schema"]}.{table_name} AS
                 {sql_query}""").collect()
 
-            st.success(f"Base Conditions feature created or updated successfully!")
+            st.success(f"{table_display_name} feature created or updated successfully!")
 
 
         # with st.spinner("Initialising Feature Store Manager..."):
@@ -209,7 +237,7 @@ def create_base_conditions_feature(selected_definitions: List[str]):
             try:
                 count_result = st.session_state.session.sql(
                     f"""SELECT COUNT(*) as row_count FROM {st.session_state.config["feature_store"]["database"]}.
-                        {st.session_state.config["feature_store"]["schema"]}.BASE_CONDITIONS""").to_pandas()
+                        {st.session_state.config["feature_store"]["schema"]}.{table_name}""").to_pandas()
                 row_count = count_result.iloc[0]['ROW_COUNT']
                 st.write(f"**Rows Created:** {row_count:,}")
             except Exception as e:
