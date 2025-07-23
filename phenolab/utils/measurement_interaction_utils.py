@@ -1,10 +1,10 @@
 import os
-
 from decimal import Decimal
+from typing import Optional, List
 
 import pandas as pd
 import streamlit as st
-
+from snowflake.snowpark import Session
 from utils.database_utils import get_measurement_unit_statistics
 from utils.definition_interaction_utils import load_definition
 from utils.measurement import MeasurementConfig, UnitMapping, load_measurement_config_from_json
@@ -24,7 +24,7 @@ def load_measurement_definitions_list() -> list[str]:
     return definitions_list
 
 
-def load_measurement_configs_list(config: Optional[dict] = None) -> list[str]:
+def load_measurement_configs_list(config: Optional[dict] = None) -> List[str]:
     """
     Get list of measurement config files from /data/measurements/{st.session_state.config['icb_name']}
 
@@ -46,7 +46,7 @@ def load_measurement_config(filename: str, config: Optional[dict] = None) -> Opt
 
     Args:
         filename (str): Name of the measurement config file
-        config (Optional[dict]): Configuration dictionary. If not provided, will use session state. 
+        config (Optional[dict]): Configuration dictionary. If not provided, will use session state.
     """
     config = config or st.session_state.config
     file_path = os.path.join(f"data/measurements/{config['icb_name']}", filename)
@@ -544,7 +544,7 @@ def load_measurement_configs_into_tables(config: Optional[dict] = None, session:
     config = config or st.session_state.config
     session = session or st.session_state.session
 
-    config_files = load_measurement_configs_list()
+    config_files = load_measurement_configs_list(config=config)
     total_configs = len(config_files)
 
 
@@ -571,8 +571,8 @@ def load_measurement_configs_into_tables(config: Optional[dict] = None, session:
             WHERE DEFINITION_NAME = '{measurement_config.definition_name}'"""]
 
         for query in queries:
-          
-            st.session_state.session.sql(query).collect()
+
+            session.sql(query).collect()
 
         session.sql(f"""INSERT INTO {config["measurement_configs"]["database"]}.
             {config["measurement_configs"]["schema"]}.MEASUREMENT_CONFIGS
