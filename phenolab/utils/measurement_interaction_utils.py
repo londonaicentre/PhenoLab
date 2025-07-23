@@ -268,9 +268,9 @@ def create_base_measurements_sql(eligible_configs):
         mapping_cases = []
         for source_unit, standard_unit in unit_mappings.items():
             if source_unit == 'No Unit':
-                mapping_cases.append(f"WHEN source_result_value_units IS NULL THEN '{standard_unit}'")
+                mapping_cases.append(f"WHEN obs.RESULT_VALUE_UNITS IS NULL THEN '{standard_unit}'")
             else:
-                mapping_cases.append(f"WHEN source_result_value_units = '{source_unit}' THEN '{standard_unit}'")
+                mapping_cases.append(f"WHEN obs.RESULT_VALUE_UNITS = '{source_unit}' THEN '{standard_unit}'")
 
         # Handle unitless measurements (like indices) that don't need mappings
         if not mapping_cases:
