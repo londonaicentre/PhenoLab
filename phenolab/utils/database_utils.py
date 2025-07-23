@@ -104,7 +104,7 @@ def get_measurement_unit_statistics(definition_name: str) -> pd.DataFrame:
     """
     query = f"""
     SELECT DISTINCT
-        RESULT_VALUE_UNITS AS unit,
+        COALESCE(RESULT_VALUE_UNITS, 'No Unit') AS unit,
         COUNT(*) AS total_count,
         COUNT_IF(TRY_CAST(RESULT_VALUE AS FLOAT) IS NOT NULL) AS numeric_count,
         APPROX_PERCENTILE(TRY_CAST(RESULT_VALUE AS FLOAT), 0.25) AS lower_quartile,
@@ -116,8 +116,7 @@ def get_measurement_unit_statistics(definition_name: str) -> pd.DataFrame:
     LEFT JOIN {st.session_state.config["definition_library"]["database"]}.
         {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
         ON obs.CORE_CONCEPT_ID = def.DBID
-    WHERE RESULT_VALUE_UNITS IS NOT NULL
-    AND def.DEFINITION_NAME = '{definition_name}'
+    WHERE def.DEFINITION_NAME = '{definition_name}'
     GROUP BY RESULT_VALUE_UNITS
     ORDER BY total_count DESC
     """

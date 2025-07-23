@@ -1112,6 +1112,22 @@
       "source_unit_lq": 64.0,
       "source_unit_median": 64.0,
       "source_unit_uq": 64.0
+    },
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "",
+      "source_unit_count": 6261693,
+      "source_unit_lq": 6.399999999999999,
+      "source_unit_median": 7.804613388687078,
+      "source_unit_uq": 33.016776677667764
+    },
+    {
+      "source_unit": "L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 98.0,
+      "source_unit_median": 98.0,
+      "source_unit_uq": 98.0
     }
   ],
   "unit_conversions": [
@@ -1124,7 +1140,7 @@
     }
   ],
   "created_datetime": "2025-05-19T23:23:56.063613",
-  "updated_datetime": "2025-07-05T16:14:02.000780",
+  "updated_datetime": "2025-07-23T13:28:20.554623",
   "standard_measurement_config_id": "25fd708c",
-  "standard_measurement_config_version": "measurement_hba1c_SNOMED_20250705_161402"
+  "standard_measurement_config_version": "measurement_hba1c_SNOMED_20250723_132820"
 }

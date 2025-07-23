@@ -872,6 +872,14 @@
       "source_unit_lq": 110.0,
       "source_unit_median": 110.0,
       "source_unit_uq": 110.0
+    },
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "",
+      "source_unit_count": 448511,
+      "source_unit_lq": 78.0,
+      "source_unit_median": 89.1216820283161,
+      "source_unit_uq": 102.99999999999999
     }
   ],
   "unit_conversions": [
@@ -884,7 +892,7 @@
     }
   ],
   "created_datetime": "2025-07-15T13:53:17.513807",
-  "updated_datetime": "2025-07-16T09:41:01.495514",
+  "updated_datetime": "2025-07-23T13:28:19.701178",
   "standard_measurement_config_id": "8e6b35d9",
-  "standard_measurement_config_version": "measurement_serum_creatinine_SNOMED_20250716_094101"
+  "standard_measurement_config_version": "measurement_serum_creatinine_SNOMED_20250723_132819"
 }

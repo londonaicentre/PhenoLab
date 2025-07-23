@@ -403,7 +403,7 @@ def display_configs_in_tables():
     # Get unit mappings
     unit_mappings = st.session_state.session.sql(f"""
         SELECT DISTINCT
-            SOURCE_UNIT,
+            COALESCE(SOURCE_UNIT, 'No Unit') AS SOURCE_UNIT,
             STANDARD_UNIT
         FROM {st.session_state.config["measurement_configs"]["database"]}.
         {st.session_state.config["measurement_configs"]["schema"]}.UNIT_MAPPINGS
