@@ -1,0 +1,25 @@
+{
+  "definition_id": "b6209789",
+  "definition_name": "measurement_frailty_index_SNOMED",
+  "standard_units": [
+    "frailty index value"
+  ],
+  "primary_standard_unit": "frailty index value",
+  "lower_limit": null,
+  "upper_limit": 1.0,
+  "unit_mappings": [
+    {
+      "source_unit": "Unk UoM",
+      "standard_unit": "",
+      "source_unit_count": 2519,
+      "source_unit_lq": 0.028,
+      "source_unit_median": 0.139,
+      "source_unit_uq": 0.25
+    }
+  ],
+  "unit_conversions": [],
+  "created_datetime": "2025-07-05T16:35:18.265758",
+  "updated_datetime": "2025-07-15T13:53:31.168573",
+  "standard_measurement_config_id": "b53e4ff1",
+  "standard_measurement_config_version": "measurement_frailty_index_SNOMED_20250715_135331"
+}

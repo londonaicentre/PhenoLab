@@ -192,25 +192,28 @@ class MeasurementConfig:
         self.unit_conversions.append(conversion)
         self.mark_modified()
         return True
-    
+
     def add_value_bounds(self, lower_limit: float, upper_limit: float):
         """
         Add or update value bounds for the measurement config
         """
         self.lower_limit = lower_limit
         self.upper_limit = upper_limit
+        self.mark_modified()
 
     def add_lower_bound(self, lower_limit: float):
         """
         Add or update the lower limit for the measurement config
         """
         self.lower_limit = lower_limit
+        self.mark_modified()
 
     def add_upper_bound(self, upper_limit: float):
         """
         Add or update the upper limit for the measurement config
         """
         self.upper_limit = upper_limit
+        self.mark_modified()
 
     def to_dict(self) -> dict:
         """

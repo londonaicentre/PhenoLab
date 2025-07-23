@@ -10,6 +10,8 @@
     "per_3months"
   ],
   "primary_standard_unit": "per_month",
+  "lower_limit": null,
+  "upper_limit": 300.0,
   "unit_mappings": [
     {
       "source_unit": "/year",
@@ -174,20 +176,6 @@
   ],
   "unit_conversions": [
     {
-      "convert_from_unit": "per_3months",
-      "convert_to_unit": "per_month",
-      "pre_offset": 0.0,
-      "multiply_by": 0.33,
-      "post_offset": 0.0
-    },
-    {
-      "convert_from_unit": "per_6months",
-      "convert_to_unit": "per_month",
-      "pre_offset": 0.0,
-      "multiply_by": 0.17,
-      "post_offset": 0.0
-    },
-    {
       "convert_from_unit": "per_day",
       "convert_to_unit": "per_month",
       "pre_offset": 0.0,
@@ -207,10 +195,24 @@
       "pre_offset": 0.0,
       "multiply_by": 0.08,
       "post_offset": 0.0
+    },
+    {
+      "convert_from_unit": "per_3months",
+      "convert_to_unit": "per_month",
+      "pre_offset": 0.0,
+      "multiply_by": 0.33333,
+      "post_offset": 0.0
+    },
+    {
+      "convert_from_unit": "per_6months",
+      "convert_to_unit": "per_month",
+      "pre_offset": 0.0,
+      "multiply_by": 0.16667,
+      "post_offset": 0.0
     }
   ],
   "created_datetime": "2025-05-19T23:23:56.061230",
-  "updated_datetime": "2025-05-31T16:56:01.927265",
+  "updated_datetime": "2025-07-14T18:50:42.047031",
   "standard_measurement_config_id": "268998f8",
-  "standard_measurement_config_version": "measurement_falls_number_SNOMED_20250531_165601"
+  "standard_measurement_config_version": "measurement_falls_number_SNOMED_20250714_185042"
 }

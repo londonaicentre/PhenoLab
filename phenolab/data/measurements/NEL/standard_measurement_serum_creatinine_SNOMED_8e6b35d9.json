@@ -1,0 +1,890 @@
+{
+  "definition_id": "f73ac993",
+  "definition_name": "measurement_serum_creatinine_SNOMED",
+  "standard_units": [
+    "umol/L",
+    "mg/dL"
+  ],
+  "primary_standard_unit": "umol/L",
+  "lower_limit": 7.0,
+  "upper_limit": 3000.0,
+  "unit_mappings": [
+    {
+      "source_unit": "umol/L",
+      "standard_unit": "umol/L",
+      "source_unit_count": 17053858,
+      "source_unit_lq": 67.99999999999989,
+      "source_unit_median": 80.00000000000003,
+      "source_unit_uq": 95.00000000000003
+    },
+    {
+      "source_unit": "umol/l",
+      "standard_unit": "umol/L",
+      "source_unit_count": 311292,
+      "source_unit_lq": 76.99760449584792,
+      "source_unit_median": 88.99999999999997,
+      "source_unit_uq": 103.25063607463136
+    },
+    {
+      "source_unit": "micmol/l",
+      "standard_unit": "umol/L",
+      "source_unit_count": 71236,
+      "source_unit_lq": 78.99999999999999,
+      "source_unit_median": 90.99999999999999,
+      "source_unit_uq": 105.99999999999997
+    },
+    {
+      "source_unit": "aemol/l",
+      "standard_unit": "umol/L",
+      "source_unit_count": 38044,
+      "source_unit_lq": 78.0,
+      "source_unit_median": 87.00000000000003,
+      "source_unit_uq": 98.0
+    },
+    {
+      "source_unit": "mol/l",
+      "standard_unit": "",
+      "source_unit_count": 37513,
+      "source_unit_lq": 80.0,
+      "source_unit_median": 88.99999999999999,
+      "source_unit_uq": 100.0
+    },
+    {
+      "source_unit": "mol/L",
+      "standard_unit": "",
+      "source_unit_count": 8375,
+      "source_unit_lq": 64.0,
+      "source_unit_median": 77.0,
+      "source_unit_uq": 92.00000000000001
+    },
+    {
+      "source_unit": "mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 4759,
+      "source_unit_lq": 81.0,
+      "source_unit_median": 92.0,
+      "source_unit_uq": 104.0
+    },
+    {
+      "source_unit": "mmol/l",
+      "standard_unit": "",
+      "source_unit_count": 4534,
+      "source_unit_lq": 75.0,
+      "source_unit_median": 88.00000000000001,
+      "source_unit_uq": 102.0
+    },
+    {
+      "source_unit": "umol",
+      "standard_unit": "umol/L",
+      "source_unit_count": 1737,
+      "source_unit_lq": 70.625,
+      "source_unit_median": 85.0,
+      "source_unit_uq": 103.9375
+    },
+    {
+      "source_unit": "UMOL/L",
+      "standard_unit": "umol/L",
+      "source_unit_count": 1620,
+      "source_unit_lq": 79.5,
+      "source_unit_median": 90.25,
+      "source_unit_uq": 103.0
+    },
+    {
+      "source_unit": "micromol/L",
+      "standard_unit": "umol/L",
+      "source_unit_count": 1217,
+      "source_unit_lq": 71.0,
+      "source_unit_median": 83.0,
+      "source_unit_uq": 93.0
+    },
+    {
+      "source_unit": "uMol/L",
+      "standard_unit": "umol/L",
+      "source_unit_count": 929,
+      "source_unit_lq": 63.0,
+      "source_unit_median": 73.0,
+      "source_unit_uq": 84.0
+    },
+    {
+      "source_unit": "umo1/1",
+      "standard_unit": "umol/L",
+      "source_unit_count": 530,
+      "source_unit_lq": 82.0,
+      "source_unit_median": 91.0,
+      "source_unit_uq": 100.0
+    },
+    {
+      "source_unit": "uMOL/L",
+      "standard_unit": "umol/L",
+      "source_unit_count": 462,
+      "source_unit_lq": 80.0,
+      "source_unit_median": 89.0,
+      "source_unit_uq": 97.0
+    },
+    {
+      "source_unit": "umoI/I",
+      "standard_unit": "umol/L",
+      "source_unit_count": 331,
+      "source_unit_lq": 81.0,
+      "source_unit_median": 89.0,
+      "source_unit_uq": 96.0
+    },
+    {
+      "source_unit": "Serum creatinine normal",
+      "standard_unit": "",
+      "source_unit_count": 197,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "micmol/L",
+      "standard_unit": "umol/L",
+      "source_unit_count": 164,
+      "source_unit_lq": 80.0,
+      "source_unit_median": 155.0,
+      "source_unit_uq": 729.5
+    },
+    {
+      "source_unit": "mg/dL",
+      "standard_unit": "",
+      "source_unit_count": 111,
+      "source_unit_lq": 0.8300000000000001,
+      "source_unit_median": 1.28,
+      "source_unit_uq": 89.0
+    },
+    {
+      "source_unit": "ml/min",
+      "standard_unit": "",
+      "source_unit_count": 105,
+      "source_unit_lq": 73.0,
+      "source_unit_median": 93.0,
+      "source_unit_uq": 108.0
+    },
+    {
+      "source_unit": "fmol/l",
+      "standard_unit": "",
+      "source_unit_count": 93,
+      "source_unit_lq": 80.0,
+      "source_unit_median": 91.0,
+      "source_unit_uq": 101.0
+    },
+    {
+      "source_unit": "MMOL/l",
+      "standard_unit": "",
+      "source_unit_count": 50,
+      "source_unit_lq": 81.25,
+      "source_unit_median": 89.0,
+      "source_unit_uq": 166.0
+    },
+    {
+      "source_unit": "MOL/L",
+      "standard_unit": "",
+      "source_unit_count": 48,
+      "source_unit_lq": 76.5,
+      "source_unit_median": 85.5,
+      "source_unit_uq": 100.25
+    },
+    {
+      "source_unit": "mg/dl",
+      "standard_unit": "",
+      "source_unit_count": 48,
+      "source_unit_lq": 0.6799999999999999,
+      "source_unit_median": 0.825,
+      "source_unit_uq": 1.0625
+    },
+    {
+      "source_unit": "mcmol/l",
+      "standard_unit": "umol/L",
+      "source_unit_count": 40,
+      "source_unit_lq": 71.0,
+      "source_unit_median": 78.5,
+      "source_unit_uq": 96.0
+    },
+    {
+      "source_unit": "micromol/l",
+      "standard_unit": "umol/L",
+      "source_unit_count": 35,
+      "source_unit_lq": 62.0,
+      "source_unit_median": 77.0,
+      "source_unit_uq": 90.5
+    },
+    {
+      "source_unit": "MMOL/L",
+      "standard_unit": "",
+      "source_unit_count": 29,
+      "source_unit_lq": 62.0,
+      "source_unit_median": 83.0,
+      "source_unit_uq": 99.0
+    },
+    {
+      "source_unit": "mmol/litre",
+      "standard_unit": "",
+      "source_unit_count": 28,
+      "source_unit_lq": 72.5,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 110.0
+    },
+    {
+      "source_unit": "MICROMOL/L",
+      "standard_unit": "umol/L",
+      "source_unit_count": 27,
+      "source_unit_lq": 79.0,
+      "source_unit_median": 94.0,
+      "source_unit_uq": 99.0
+    },
+    {
+      "source_unit": "mcmol/L",
+      "standard_unit": "",
+      "source_unit_count": 23,
+      "source_unit_lq": 77.0,
+      "source_unit_median": 88.0,
+      "source_unit_uq": 159.0
+    },
+    {
+      "source_unit": "mL/min",
+      "standard_unit": "",
+      "source_unit_count": 21,
+      "source_unit_lq": 63.0,
+      "source_unit_median": 92.0,
+      "source_unit_uq": 125.0
+    },
+    {
+      "source_unit": "UMOLL",
+      "standard_unit": "umol/L",
+      "source_unit_count": 16,
+      "source_unit_lq": 56.25,
+      "source_unit_median": 68.0,
+      "source_unit_uq": 72.75
+    },
+    {
+      "source_unit": "IU/L",
+      "standard_unit": "",
+      "source_unit_count": 14,
+      "source_unit_lq": 59.75,
+      "source_unit_median": 84.5,
+      "source_unit_uq": 154.5
+    },
+    {
+      "source_unit": "umols/l",
+      "standard_unit": "umol/L",
+      "source_unit_count": 13,
+      "source_unit_lq": 86.0,
+      "source_unit_median": 99.0,
+      "source_unit_uq": 143.0
+    },
+    {
+      "source_unit": "mmol",
+      "standard_unit": "",
+      "source_unit_count": 12,
+      "source_unit_lq": 70.0,
+      "source_unit_median": 79.5,
+      "source_unit_uq": 89.5
+    },
+    {
+      "source_unit": "?mol/l",
+      "standard_unit": "",
+      "source_unit_count": 12,
+      "source_unit_lq": 92.5,
+      "source_unit_median": 105.5,
+      "source_unit_uq": 132.75
+    },
+    {
+      "source_unit": "mg/L",
+      "standard_unit": "",
+      "source_unit_count": 11,
+      "source_unit_lq": 1.085,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 56.0
+    },
+    {
+      "source_unit": "MicroU/L",
+      "standard_unit": "",
+      "source_unit_count": 9,
+      "source_unit_lq": 56.0,
+      "source_unit_median": 68.0,
+      "source_unit_uq": 92.0
+    },
+    {
+      "source_unit": "1",
+      "standard_unit": "",
+      "source_unit_count": 8,
+      "source_unit_lq": 96.0,
+      "source_unit_median": 102.5,
+      "source_unit_uq": 104.0
+    },
+    {
+      "source_unit": "ummols/l",
+      "standard_unit": "umol/L",
+      "source_unit_count": 8,
+      "source_unit_lq": 131.0,
+      "source_unit_median": 143.0,
+      "source_unit_uq": 215.25
+    },
+    {
+      "source_unit": "uU/L",
+      "standard_unit": "",
+      "source_unit_count": 7,
+      "source_unit_lq": 65.5,
+      "source_unit_median": 72.0,
+      "source_unit_uq": 87.0
+    },
+    {
+      "source_unit": "mmmol/l",
+      "standard_unit": "",
+      "source_unit_count": 7,
+      "source_unit_lq": 73.5,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 106.0
+    },
+    {
+      "source_unit": "umol//l",
+      "standard_unit": "umol/L",
+      "source_unit_count": 7,
+      "source_unit_lq": 56.5,
+      "source_unit_median": 62.0,
+      "source_unit_uq": 65.0
+    },
+    {
+      "source_unit": "U/L",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 117.0,
+      "source_unit_median": 130.0,
+      "source_unit_uq": 137.0
+    },
+    {
+      "source_unit": "MG/DL",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 0.7,
+      "source_unit_median": 0.92,
+      "source_unit_uq": 1.69
+    },
+    {
+      "source_unit": "umols/L",
+      "standard_unit": "umol/L",
+      "source_unit_count": 4,
+      "source_unit_lq": 69.0,
+      "source_unit_median": 69.0,
+      "source_unit_uq": 75.75
+    },
+    {
+      "source_unit": "g/L",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 5.8625,
+      "source_unit_median": 8.649999999999999,
+      "source_unit_uq": 9.934999999999999
+    },
+    {
+      "source_unit": ".",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 59.0,
+      "source_unit_median": 60.5,
+      "source_unit_uq": 73.75
+    },
+    {
+      "source_unit": "umol/mmol",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 101.0,
+      "source_unit_median": 104.0,
+      "source_unit_uq": 110.5
+    },
+    {
+      "source_unit": "nmol/L",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 1.8,
+      "source_unit_median": 32.4,
+      "source_unit_uq": 77.75
+    },
+    {
+      "source_unit": "pmol/L",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 55.5,
+      "source_unit_median": 64.0,
+      "source_unit_uq": 87.0
+    },
+    {
+      "source_unit": "mg/l",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 3.5,
+      "source_unit_median": 3.5,
+      "source_unit_uq": 3.5
+    },
+    {
+      "source_unit": "mg/mmol",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 4.15,
+      "source_unit_median": 6.5,
+      "source_unit_uq": 140.0
+    },
+    {
+      "source_unit": "1(tot)",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 117.5,
+      "source_unit_median": 121.0,
+      "source_unit_uq": 6197.5
+    },
+    {
+      "source_unit": "umol/h/g(Hb)",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 90.0,
+      "source_unit_median": 94.0,
+      "source_unit_uq": 96.5
+    },
+    {
+      "source_unit": "u/L",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 135.0,
+      "source_unit_median": 135.0,
+      "source_unit_uq": 211.5
+    },
+    {
+      "source_unit": "%",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 6.545,
+      "source_unit_median": 8.0,
+      "source_unit_uq": 89.0
+    },
+    {
+      "source_unit": "mmol/mmol(creat)",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 92.25,
+      "source_unit_median": 93.5,
+      "source_unit_uq": 94.75
+    },
+    {
+      "source_unit": "h",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 120.75,
+      "source_unit_median": 121.5,
+      "source_unit_uq": 122.25
+    },
+    {
+      "source_unit": "mols/l",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 89.0,
+      "source_unit_median": 89.0,
+      "source_unit_uq": 89.0
+    },
+    {
+      "source_unit": "mu/L",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 118.25,
+      "source_unit_median": 123.5,
+      "source_unit_uq": 128.75
+    },
+    {
+      "source_unit": "L",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 56.75,
+      "source_unit_median": 68.5,
+      "source_unit_uq": 80.25
+    },
+    {
+      "source_unit": "umol\\\\l",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 82.0,
+      "source_unit_median": 82.0,
+      "source_unit_uq": 82.0
+    },
+    {
+      "source_unit": "ml/min.",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 60.0,
+      "source_unit_median": 60.0,
+      "source_unit_uq": 60.0
+    },
+    {
+      "source_unit": "umol/g(creat)",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 90.5,
+      "source_unit_median": 97.0,
+      "source_unit_uq": 103.5
+    },
+    {
+      "source_unit": "mls/min",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 51.75,
+      "source_unit_median": 57.5,
+      "source_unit_uq": 63.25
+    },
+    {
+      "source_unit": "/uL",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 64.0,
+      "source_unit_median": 64.0,
+      "source_unit_uq": 64.0
+    },
+    {
+      "source_unit": "m.mols/lit",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 73.0,
+      "source_unit_median": 73.0,
+      "source_unit_uq": 73.0
+    },
+    {
+      "source_unit": "AAumol/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 103.0,
+      "source_unit_median": 103.0,
+      "source_unit_uq": 103.0
+    },
+    {
+      "source_unit": "ml/min/1.73m",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 61.9,
+      "source_unit_median": 61.9,
+      "source_unit_uq": 61.9
+    },
+    {
+      "source_unit": "uu/mL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 85.0,
+      "source_unit_median": 85.0,
+      "source_unit_uq": 85.0
+    },
+    {
+      "source_unit": "Mcmol/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "mmol/mol",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 90.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "mL/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 87.0,
+      "source_unit_median": 87.0,
+      "source_unit_uq": 87.0
+    },
+    {
+      "source_unit": "mcmo/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 67.0,
+      "source_unit_median": 67.0,
+      "source_unit_uq": 67.0
+    },
+    {
+      "source_unit": "m",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 179.0,
+      "source_unit_median": 179.0,
+      "source_unit_uq": 179.0
+    },
+    {
+      "source_unit": "82",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 82.0,
+      "source_unit_median": 82.0,
+      "source_unit_uq": 82.0
+    },
+    {
+      "source_unit": "No unit",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 130.0,
+      "source_unit_median": 130.0,
+      "source_unit_uq": 130.0
+    },
+    {
+      "source_unit": "umol/L [L]",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 45.0,
+      "source_unit_median": 45.0,
+      "source_unit_uq": 45.0
+    },
+    {
+      "source_unit": "128",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 128.0,
+      "source_unit_median": 128.0,
+      "source_unit_uq": 128.0
+    },
+    {
+      "source_unit": "mm/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 61.0,
+      "source_unit_median": 61.0,
+      "source_unit_uq": 61.0
+    },
+    {
+      "source_unit": "umol//L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 105.0,
+      "source_unit_median": 105.0,
+      "source_unit_uq": 105.0
+    },
+    {
+      "source_unit": "mcmoll/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 69.0,
+      "source_unit_median": 69.0,
+      "source_unit_uq": 69.0
+    },
+    {
+      "source_unit": "nmol/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 178.0,
+      "source_unit_median": 178.0,
+      "source_unit_uq": 178.0
+    },
+    {
+      "source_unit": "mi cmol/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 73.0,
+      "source_unit_median": 73.0,
+      "source_unit_uq": 73.0
+    },
+    {
+      "source_unit": "pmol",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 85.0,
+      "source_unit_median": 85.0,
+      "source_unit_uq": 85.0
+    },
+    {
+      "source_unit": "H",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 126.0,
+      "source_unit_median": 126.0,
+      "source_unit_uq": 126.0
+    },
+    {
+      "source_unit": "micromole/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 52.0,
+      "source_unit_median": 52.0,
+      "source_unit_uq": 52.0
+    },
+    {
+      "source_unit": "md/dL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.08,
+      "source_unit_median": 1.08,
+      "source_unit_uq": 1.08
+    },
+    {
+      "source_unit": "10^9/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.08,
+      "source_unit_median": 0.08,
+      "source_unit_uq": 0.08
+    },
+    {
+      "source_unit": "g/dL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 13.0,
+      "source_unit_median": 13.0,
+      "source_unit_uq": 13.0
+    },
+    {
+      "source_unit": "ummol",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 80.0,
+      "source_unit_median": 80.0,
+      "source_unit_uq": 80.0
+    },
+    {
+      "source_unit": "U/mol",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1001.0,
+      "source_unit_median": 1001.0,
+      "source_unit_uq": 1001.0
+    },
+    {
+      "source_unit": "200",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 200.0,
+      "source_unit_median": 200.0,
+      "source_unit_uq": 200.0
+    },
+    {
+      "source_unit": "/mL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 95.0,
+      "source_unit_median": 95.0,
+      "source_unit_uq": 95.0
+    },
+    {
+      "source_unit": "(Unknown)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 65.0,
+      "source_unit_median": 65.0,
+      "source_unit_uq": 65.0
+    },
+    {
+      "source_unit": "ratio",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.1,
+      "source_unit_median": 0.1,
+      "source_unit_uq": 0.1
+    },
+    {
+      "source_unit": "g/dl",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.6,
+      "source_unit_median": 4.6,
+      "source_unit_uq": 4.6
+    },
+    {
+      "source_unit": "98umol/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 98.0,
+      "source_unit_median": 98.0,
+      "source_unit_uq": 98.0
+    },
+    {
+      "source_unit": "umol/le",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 63.0,
+      "source_unit_median": 63.0,
+      "source_unit_uq": 63.0
+    },
+    {
+      "source_unit": "mmols",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 86.0,
+      "source_unit_median": 86.0,
+      "source_unit_uq": 86.0
+    },
+    {
+      "source_unit": "117",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 117.0,
+      "source_unit_median": 117.0,
+      "source_unit_uq": 117.0
+    },
+    {
+      "source_unit": "umol/s",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 90.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "micromols/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 56.0,
+      "source_unit_median": 56.0,
+      "source_unit_uq": 56.0
+    },
+    {
+      "source_unit": "mmol/d",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 78.0,
+      "source_unit_median": 78.0,
+      "source_unit_uq": 78.0
+    },
+    {
+      "source_unit": "mg/d",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.66,
+      "source_unit_median": 0.66,
+      "source_unit_uq": 0.66
+    },
+    {
+      "source_unit": "nmol/mmol",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.4,
+      "source_unit_median": 0.4,
+      "source_unit_uq": 0.4
+    },
+    {
+      "source_unit": "umol/L 60 - 100",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 60.0,
+      "source_unit_median": 60.0,
+      "source_unit_uq": 60.0
+    },
+    {
+      "source_unit": "mcmil/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 110.0,
+      "source_unit_median": 110.0,
+      "source_unit_uq": 110.0
+    }
+  ],
+  "unit_conversions": [
+    {
+      "convert_from_unit": "mg/dL",
+      "convert_to_unit": "umol/L",
+      "pre_offset": 0.0,
+      "multiply_by": 0.01130966,
+      "post_offset": 0.0
+    }
+  ],
+  "created_datetime": "2025-07-15T13:53:17.513807",
+  "updated_datetime": "2025-07-16T09:41:01.495514",
+  "standard_measurement_config_id": "8e6b35d9",
+  "standard_measurement_config_version": "measurement_serum_creatinine_SNOMED_20250716_094101"
+}

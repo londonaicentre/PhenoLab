@@ -1,0 +1,78 @@
+{
+  "definition_id": "f73ac993",
+  "definition_name": "measurement_serum_creatinine_SNOMED",
+  "definition_version": "measurement_serum_creatinine_SNOMED_20250715_135729",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-07-15T13:57:29.456918",
+  "codelists": [
+    {
+      "codelist_id": "measurement_serum_creatinine_SNOMED_SNOMED_424d903c",
+      "codelist_name": "measurement_serum_creatinine_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_serum_creatinine_SNOMED_SNOMED_424d903c_20250715_132213",
+      "codes": [
+        {
+          "code": "1000731000000107",
+          "code_description": "Serum creatinine level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "113075003",
+          "code_description": "Creatinine measurement, serum (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166717003",
+          "code_description": "Serum creatinine above reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166716007",
+          "code_description": "Serum creatinine within reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1032061000000108",
+          "code_description": "Creatinine level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1001011000000107",
+          "code_description": "Plasma creatinine level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166714005",
+          "code_description": "Serum creatinine outside reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "313936008",
+          "code_description": "Plasma creatinine measurement (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "365756002",
+          "code_description": "Finding of creatinine level (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1000991000000106",
+          "code_description": "Corrected serum creatinine level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166715006",
+          "code_description": "Serum creatinine below reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1000981000000109",
+          "code_description": "Corrected plasma creatinine level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}
