@@ -504,6 +504,14 @@
       "source_unit_lq": 110.0,
       "source_unit_median": 110.0,
       "source_unit_uq": 110.0
+    },
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "",
+      "source_unit_count": 360049,
+      "source_unit_lq": 12.595379999999997,
+      "source_unit_median": 13.799999999999997,
+      "source_unit_uq": 15.399999999999997
     }
   ],
   "unit_conversions": [
@@ -523,7 +531,7 @@
     }
   ],
   "created_datetime": "2025-05-19T23:23:56.061713",
-  "updated_datetime": "2025-07-15T10:38:04.352330",
+  "updated_datetime": "2025-07-23T13:28:12.755040",
   "standard_measurement_config_id": "eb89543e",
-  "standard_measurement_config_version": "measurement_haemoglobin_SNOMED_20250715_103804"
+  "standard_measurement_config_version": "measurement_haemoglobin_SNOMED_20250723_132812"
 }

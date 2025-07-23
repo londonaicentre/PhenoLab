@@ -180,7 +180,7 @@ def get_measurement_values(definition_name, limit = 100000):
     """
     query = f"""
     SELECT
-        RESULT_VALUE_UNITS AS unit,
+        COALESCE(RESULT_VALUE_UNITS, 'No Unit') AS unit,
         TRY_CAST(RESULT_VALUE AS FLOAT) AS value
     FROM {st.session_state.config["gp_observation_table"]} obs
     LEFT JOIN {st.session_state.config["definition_library"]["database"]}.
@@ -267,7 +267,10 @@ def create_base_measurements_sql(eligible_configs):
 
         mapping_cases = []
         for source_unit, standard_unit in unit_mappings.items():
-            mapping_cases.append(f"WHEN source_result_value_units = '{source_unit}' THEN '{standard_unit}'")
+            if source_unit == 'No Unit':
+                mapping_cases.append(f"WHEN obs.RESULT_VALUE_UNITS IS NULL THEN '{standard_unit}'")
+            else:
+                mapping_cases.append(f"WHEN obs.RESULT_VALUE_UNITS = '{source_unit}' THEN '{standard_unit}'")
 
         # Handle unitless measurements (like indices) that don't need mappings
         if not mapping_cases:
@@ -307,7 +310,7 @@ def create_base_measurements_sql(eligible_configs):
             def.DEFINITION_VERSION,
             def.VERSION_DATETIME,
             obs.RESULT_VALUE AS SOURCE_RESULT_VALUE,
-            obs.RESULT_VALUE_UNITS AS SOURCE_RESULT_VALUE_UNITS,
+            COALESCE(obs.RESULT_VALUE_UNITS, 'No Unit') AS SOURCE_RESULT_VALUE_UNITS,
             {conversion_case_sql.replace('mapped_unit', f'({mapping_case_sql})')} AS VALUE_AS_NUMBER,
             '{config.primary_standard_unit}' AS VALUE_UNITS,
             CASE WHEN {conversion_case_sql.replace('mapped_unit', f'({mapping_case_sql})')} > {upper_limit}
@@ -321,7 +324,6 @@ def create_base_measurements_sql(eligible_configs):
         WHERE def.DEFINITION_NAME = '{definition_name}'
             AND obs.RESULT_VALUE IS NOT NULL
             AND TRY_CAST(obs.RESULT_VALUE AS FLOAT) IS NOT NULL
-            AND (obs.RESULT_VALUE_UNITS IS NOT NULL OR '{config.primary_standard_unit}' IS NOT NULL)
             AND ({mapping_case_sql}) IS NOT NULL
             AND ({conversion_case_sql.replace('mapped_unit', f'({mapping_case_sql})')}) IS NOT NULL
             AND def.VERSION_DATETIME = (
