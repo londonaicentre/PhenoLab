@@ -1,0 +1,231 @@
+{
+  "definition_id": "4e80fb29",
+  "definition_name": "measurement_serum_low_density_lipoprotein_LDL_SNOMED",
+  "standard_units": [],
+  "primary_standard_unit": null,
+  "lower_limit": null,
+  "upper_limit": null,
+  "unit_mappings": [
+    {
+      "source_unit": "mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 8867644,
+      "source_unit_lq": 2.099999999999995,
+      "source_unit_median": 2.6999999999999975,
+      "source_unit_uq": 3.4000000000000004
+    },
+    {
+      "source_unit": "mmol/l",
+      "standard_unit": "",
+      "source_unit_count": 184348,
+      "source_unit_lq": 2.299999999999999,
+      "source_unit_median": 2.9606269904914657,
+      "source_unit_uq": 3.6999999999999997
+    },
+    {
+      "source_unit": "(Calculated)",
+      "standard_unit": "",
+      "source_unit_count": 684,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.6,
+      "source_unit_uq": 3.225
+    },
+    {
+      "source_unit": "mMol/L",
+      "standard_unit": "",
+      "source_unit_count": 552,
+      "source_unit_lq": 2.1,
+      "source_unit_median": 2.7,
+      "source_unit_uq": 3.4
+    },
+    {
+      "source_unit": "MMOL/L",
+      "standard_unit": "",
+      "source_unit_count": 223,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.6,
+      "source_unit_uq": 3.6
+    },
+    {
+      "source_unit": "1",
+      "standard_unit": "",
+      "source_unit_count": 146,
+      "source_unit_lq": 2.2,
+      "source_unit_median": 2.7,
+      "source_unit_uq": 3.3
+    },
+    {
+      "source_unit": "mg/dL",
+      "standard_unit": "",
+      "source_unit_count": 38,
+      "source_unit_lq": 72.3,
+      "source_unit_median": 111.0,
+      "source_unit_uq": 134.5
+    },
+    {
+      "source_unit": "mg/dl",
+      "standard_unit": "",
+      "source_unit_count": 13,
+      "source_unit_lq": 104.0,
+      "source_unit_median": 120.0,
+      "source_unit_uq": 142.0
+    },
+    {
+      "source_unit": "MMOLL",
+      "standard_unit": "",
+      "source_unit_count": 9,
+      "source_unit_lq": 2.61,
+      "source_unit_median": 2.88,
+      "source_unit_uq": 3.06
+    },
+    {
+      "source_unit": "mmol/1",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 3.8375,
+      "source_unit_median": 4.025,
+      "source_unit_uq": 4.2725
+    },
+    {
+      "source_unit": "IU/L",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 209.325,
+      "source_unit_median": 289.0,
+      "source_unit_uq": 300.0
+    },
+    {
+      "source_unit": "MG/DL",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 237.0,
+      "source_unit_median": 237.0,
+      "source_unit_uq": 263.0
+    },
+    {
+      "source_unit": "mmol/s",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 4.295,
+      "source_unit_median": 4.59,
+      "source_unit_uq": 4.59
+    },
+    {
+      "source_unit": "Serum LDL cholesterol level",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "3.2",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 3.2,
+      "source_unit_median": 3.2,
+      "source_unit_uq": 3.2
+    },
+    {
+      "source_unit": "ratio",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.1475,
+      "source_unit_median": 4.795,
+      "source_unit_uq": 5.4425
+    },
+    {
+      "source_unit": "mMol/l",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 3.6,
+      "source_unit_median": 3.6,
+      "source_unit_uq": 3.6
+    },
+    {
+      "source_unit": "%",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.3,
+      "source_unit_median": 4.3,
+      "source_unit_uq": 4.3
+    },
+    {
+      "source_unit": "<4.5",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.92,
+      "source_unit_median": 1.92,
+      "source_unit_uq": 1.92
+    },
+    {
+      "source_unit": "R",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.8,
+      "source_unit_median": 2.8,
+      "source_unit_uq": 2.8
+    },
+    {
+      "source_unit": "L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.28,
+      "source_unit_median": 2.28,
+      "source_unit_uq": 2.28
+    },
+    {
+      "source_unit": "m.mol/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.1,
+      "source_unit_median": 2.1,
+      "source_unit_uq": 2.1
+    },
+    {
+      "source_unit": "MMOL/L (CALC)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.92,
+      "source_unit_median": 2.92,
+      "source_unit_uq": 2.92
+    },
+    {
+      "source_unit": "mmol/mmol",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.6,
+      "source_unit_median": 3.6,
+      "source_unit_uq": 3.6
+    },
+    {
+      "source_unit": "g/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.02,
+      "source_unit_median": 1.02,
+      "source_unit_uq": 1.02
+    },
+    {
+      "source_unit": "mmol",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.09,
+      "source_unit_median": 4.09,
+      "source_unit_uq": 4.09
+    },
+    {
+      "source_unit": "mmol/d",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.38,
+      "source_unit_median": 1.38,
+      "source_unit_uq": 1.38
+    }
+  ],
+  "unit_conversions": [],
+  "created_datetime": "2025-07-16T11:41:09.975346",
+  "updated_datetime": "2025-07-16T12:02:01.054753",
+  "standard_measurement_config_id": "70a41e1d",
+  "standard_measurement_config_version": "measurement_serum_low_density_lipoprotein_LDL_SNOMED_20250716_120201"
+}
