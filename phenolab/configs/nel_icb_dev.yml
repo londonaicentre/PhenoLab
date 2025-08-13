@@ -10,7 +10,6 @@ definition_library:
 feature_store:
   database: INTELLIGENCE_DEV
   schema: PHENOLAB_DEV
-  metadata_schema: PHENOLAB_DEV
 measurement_configs:
   database: INTELLIGENCE_DEV
   schema: PHENOLAB_DEV

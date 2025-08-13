@@ -10,7 +10,6 @@ definition_library:
 feature_store:
   database: DATA_LAB_AI_CENTRE
   schema: PHENOLAB_DEV
-  metadata_schema: PHENOLAB_DEV
 measurement_configs:
   database: DATA_LAB_AI_CENTRE
   schema: PHENOLAB_DEV

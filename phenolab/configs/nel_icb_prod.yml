@@ -10,7 +10,6 @@ definition_library:
 feature_store:
   database: INTELLIGENCE_DEV
   schema: AI_CENTRE_FEATURE_STORE
-  metadata_schema: AI_CENTRE_FEATURE_STORE_METADATA
 measurement_configs:
   database: INTELLIGENCE_DEV
   schema: AI_CENTRE_MEASUREMENT_CONFIGS
