@@ -78,7 +78,7 @@ def setup_definition_tables(environment: str, connection_name: str):
             session=session,
             database=config["definition_library"]["database"], 
             schema=config["definition_library"]["schema"],
-            table_name="AI_CENTRE_DEFINITIONS"
+            table_name="AIC_DEFINITIONS"
         )
     update_aic_definitions_table(session=session, config=config)
 

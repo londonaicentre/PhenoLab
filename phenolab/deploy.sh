@@ -19,7 +19,9 @@ echo "Generating snowflake.yml with title: $APP_TITLE"
 if [ "$ICB" = "nel" ]; then
   WAREHOUSE="INTELLIGENCE_XS"
 elif [ "$ICB" = "sel" ]; then
-  WAREHOUSE="INTELLIGENCE_XS"
+  echo "Edit bash file to set SEL warehouse"
+elif [ "$ICB" = "ncl" ]; then
+  WAREHOUSE="NCL_ANALYTICS_XS"
 else
   echo "Unknown ICB: $ICB"
   exit 1
@@ -31,16 +33,25 @@ echo "Generated snowflake.yml:"
 cat snowflake.yml
 
 # Generate .env file and deploy to snowflake
-if [ "$DEPLOY_ENV" == "prod" ]; then
-  echo "Deploying to production environment..."
+if [ "$ICB" = "nel" ] && [ "$DEPLOY_ENV" == "prod" ]; then
+  echo "Deploying to NEL production environment..."
   echo "DEPLOY_ENV=$DEPLOY_ENV" > .env
-  snow streamlit deploy --database "INTELLIGENCE_DEV" --schema "AI_CENTRE_DEV" --replace
+  snow streamlit deploy --database "INTELLIGENCE_DEV" --schema "AI_CENTRE_DEV" --replace --connection "nel_icb"
   # Could just be snow streamlit deploy --replace as the default database and schema are specified in the CLI config,
   # but for clarity
-elif [ "$DEPLOY_ENV" == "dev" ]; then
-  echo "Deploying to DEV environment..."
+elif [ "$ICB" = "nel" ] && [ "$DEPLOY_ENV" == "dev" ]; then
+  echo "Deploying to NEL DEV environment..."
   echo "DEPLOY_ENV=$DEPLOY_ENV" > .env
-  snow streamlit deploy --database "INTELLIGENCE_DEV" --schema "PHENOLAB_DEV" --replace
+  snow streamlit deploy --database "INTELLIGENCE_DEV" --schema "PHENOLAB_DEV" --replace --connection "nel_icb"
+elif [ "$ICB" = "ncl" ] && [ "$DEPLOY_ENV" == "prod" ]; then
+  echo "Deploying to NCL production environment..."
+elif [ "$ICB" = "ncl" ] && [ "$DEPLOY_ENV" == "dev" ]; then
+  echo "Deploying to NCL DEV environment..."
+  echo "DEPLOY_ENV=$DEPLOY_ENV" > .env
+  snow streamlit deploy --database "DATA_LAB_OLIDS_UAT" --schema "PHENOLAB_DEV" --replace --connection "ncl_icb"
+else
+  echo "Invalid ICB or environment specified."
+  exit 1
 fi
 
 # Check if the deployment was successful

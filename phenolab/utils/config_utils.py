@@ -7,7 +7,7 @@ import pandas as pd
 import streamlit as st
 from snowflake.snowpark import Session
 
-phenolab_config_mapping = {"SE56186": "nel_icb" }
+phenolab_config_mapping = {"SE56186": "nel_icb", "SK29378": "ncl_icb"}
 
 def load_config(session: Session = None, deploy_env: str = None) -> dict:
     """

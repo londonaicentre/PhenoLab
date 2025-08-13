@@ -1,0 +1,12 @@
+icb_name: NCL
+definition_library:
+  database: DATA_LAB_OLIDS_UAT
+  schema: PHENOLAB_DEV
+feature_store:
+  database: DATA_LAB_OLIDS_UAT
+  schema: PHENOLAB_DEV
+  metadata_schema: PHENOLAB_DEV
+measurement_configs:
+  database: DATA_LAB_OLIDS_UAT
+  schema: PHENOLAB_DEV
+gp_observation_table: '"Data_Store_OLIDS_UAT"."OLIDS_MASKED"."OBSERVATION"'
