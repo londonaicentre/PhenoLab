@@ -7,18 +7,24 @@ import pandas as pd
 import streamlit as st
 from snowflake.snowpark import Session
 
-phenolab_config_mapping = {"SE56186": "nel_icb" }
+def load_phenolab_config_mapping():
+    """
+    Load mappings configured in yml file
+    """
+    with open("configs/account_mapping.yml", "r") as fid:
+        mapping_config = yaml.safe_load(fid)
+    return mapping_config["account_mappings"]
 
 def load_config(session: Session = None, deploy_env: str = None) -> dict:
     """
     Load the configuration file based on the current Snowflake account and environment.
-    
+
     Args:
-        session (Session): Optional Snowflake session to determine the account name. If not provided, it will use the 
+        session (Session): Optional Snowflake session to determine the account name. If not provided, it will use the
         session from Streamlit's state. If calling from within Streamlit, leave as None to use the session state.
 
         deploy_env (str): Optional environment to use (e.g., 'dev', 'prod'). If not provided, the function will look
-        for it in the environment variables. If still not found, it defaults to 'prod' for local development and 'dev 
+        for it in the environment variables. If still not found, it defaults to 'prod' for local development and 'dev
         for remote
     """
 
@@ -41,6 +47,7 @@ def load_config(session: Session = None, deploy_env: str = None) -> dict:
     # Find out which snowflake account we're on
     session = session or st.session_state.session
     account_name = session.sql("SELECT CURRENT_ACCOUNT();").collect()[0]["CURRENT_ACCOUNT()"]
+    phenolab_config_mapping = load_phenolab_config_mapping()
     if account_name in phenolab_config_mapping:
         phenolab_config = phenolab_config_mapping[account_name] + "_" + deploy_env
     else:

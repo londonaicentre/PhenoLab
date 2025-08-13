@@ -144,7 +144,7 @@ def display_standard_units_panel(config):
             # if first unit, automatically set as primary
             if len(config.standard_units) == 1:
                 config.set_primary_standard_unit(new_unit)
-            config.save_to_json(directory=f"data/measurements/{st.session_state.config['icb_name']}")
+            config.save_to_json(directory=f"data/measurements/{st.session_state.config['measurement_config_folder']}")
             st.success(f"Added {new_unit} to standard units")
             st.rerun()
         else:
@@ -163,12 +163,12 @@ def display_standard_units_panel(config):
                 else:
                     if st.button("Set Primary", key=f"set_primary_{i}"):
                         config.set_primary_standard_unit(unit)
-                        config.save_to_json(directory=f"data/measurements/{st.session_state.config['icb_name']}")
+                        config.save_to_json(directory=f"data/measurements/{st.session_state.config['measurement_config_folder']}")
                         st.rerun()
             with col3:
                 if st.button("Remove", key=f"remove_unit_{i}"):
                     config.remove_standard_unit(unit)
-                    config.save_to_json(directory=f"data/measurements/{st.session_state.config['icb_name']}")
+                    config.save_to_json(directory=f"data/measurements/{st.session_state.config['measurement_config_folder']}")
                     st.rerun()
     else:
         st.info("No standard units defined.")
@@ -252,7 +252,7 @@ def display_unit_mapping_panel(config):
                         mapping.standard_unit = selected_standard
                         config.mark_modified()
                         break
-                config.save_to_json(directory=f"data/measurements/{st.session_state.config['icb_name']}")
+                config.save_to_json(directory=f"data/measurements/{st.session_state.config['measurement_config_folder']}")
                 st.rerun()
 
 def get_all_units_for_conversion(config):
@@ -379,7 +379,7 @@ def display_conversion_group(config, units, existing_conversions, group_type):
                 multiply_by=new_multiply_by,
                 post_offset=new_post_offset
             )
-            config.save_to_json(directory=f"data/measurements/{st.session_state.config['icb_name']}")
+            config.save_to_json(directory=f"data/measurements/{st.session_state.config['measurement_config_folder']}")
             st.rerun()
 
 def display_configs_in_tables():
@@ -520,7 +520,7 @@ def display_measurement_bounds_panel(config: MeasurementConfig):
     if new_lower_bound:
         if new_lower_bound != config.lower_limit:
             config.add_lower_bound(new_lower_bound)
-            config.save_to_json(directory=f"data/measurements/{st.session_state.config['icb_name']}")
+            config.save_to_json(directory=f"data/measurements/{st.session_state.config['measurement_config_folder']}")
             st.success("Lower bound set successfully.")
 
     new_upper_bound = st.number_input(
@@ -531,7 +531,7 @@ def display_measurement_bounds_panel(config: MeasurementConfig):
     if new_upper_bound:
         if new_upper_bound != config.upper_limit:
             config.add_upper_bound(new_upper_bound)
-            config.save_to_json(directory=f"data/measurements/{st.session_state.config['icb_name']}")
+            config.save_to_json(directory=f"data/measurements/{st.session_state.config['measurement_config_folder']}")
             st.success("Upper bound set successfully.")
 
 def get_selected_config(selected_measurement: str):

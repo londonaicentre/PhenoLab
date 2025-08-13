@@ -1,4 +1,9 @@
 icb_name: NEL
+deployment:
+  warehouse: INTELLIGENCE_XS
+  database: INTELLIGENCE_DEV
+  schema: PHENOLAB_DEV
+  app_title: PhenoLab_dev
 definition_library:
   database: INTELLIGENCE_DEV
   schema: PHENOLAB_DEV
@@ -9,4 +14,7 @@ feature_store:
 measurement_configs:
   database: INTELLIGENCE_DEV
   schema: PHENOLAB_DEV
+measurement_config_folder: nel_icb
 gp_observation_table: PROD_DWH.ANALYST_PRIMARY_CARE.OBSERVATION
+gp_concept_table: PROD_DWH.ANALYST_PRIMARY_CARE.CONCEPT
+gp_concept_map_table: PROD_DWH.ANALYST_PRIMARY_CARE.CONCEPT_MAP

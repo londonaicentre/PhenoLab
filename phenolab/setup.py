@@ -15,7 +15,7 @@ from utils.config_utils import load_config
 from utils.definition_interaction_utils import update_aic_definitions_table
 from utils.measurement_interaction_utils import create_measurement_configs_tables, load_measurement_configs_into_tables
 
-def create_definitionstore_view(session: Session, database: str, schema: str, external_tables: list):
+def create_definitionstore_view(session: Session, database: str, schema: str, external_tables: list, config: dict):
     """
     Creates unioned view of all definition tables with DBID mappings
 
@@ -23,7 +23,8 @@ def create_definitionstore_view(session: Session, database: str, schema: str, ex
         session (Session): Snowflake session
         database (str): Database name
         schema (str): Schema name
-        external_tables (dict): Dictionary of external tables with keys as table names and values as their 
+        external_tables (dict): Dictionary of external tables with keys as table names and values as their
+        config (dict): Configuration dictionary containing concept table references
     """
     # Always include core tables
     CORE_TABLES = ["AIC_DEFINITIONS", "ICB_DEFINITIONS"]
@@ -43,19 +44,15 @@ def create_definitionstore_view(session: Session, database: str, schema: str, ex
     )
     SELECT
         p.*,
-        c.DBID,
-        CASE c.MAPPING_TYPE
-            WHEN 'Core SNOMED' THEN c.DBID
-            WHEN 'Non Core Mapped to SNOMED' THEN cm.CORE
-            ELSE NULL
-        END as CORE_CONCEPT_ID
+        c.DB_CONCEPT_ID as DBID,
+        COALESCE(cm.TARGET_DB_CONCEPT_ID, c.DB_CONCEPT_ID) as CORE_CONCEPT_ID
     FROM definition_union p
-    LEFT JOIN PROD_DWH.ANALYST_PRIMARY_CARE.CONCEPT c
-        ON p.CODE = c.CODE
-        AND p.VOCABULARY = c.SCHEME_NAME
-    LEFT JOIN PROD_DWH.ANALYST_PRIMARY_CARE.CONCEPT_MAP cm
-        ON c.DBID = cm.LEGACY
-        AND c.MAPPING_TYPE = 'Non Core Mapped to SNOMED'
+    LEFT JOIN {config["gp_concept_table"]} c
+        ON p.CODE = c.CONCEPT_CODE
+        AND p.VOCABULARY = c.CONCEPT_VOCABULARY
+    LEFT JOIN {config["gp_concept_map_table"]} cm
+        ON c.DB_CONCEPT_ID = cm.SOURCE_DB_CONCEPT_ID
+        AND c.DB_CONCEPT_ID_TYPE = cm.SOURCE_DB_CONCEPT_ID_TYPE
     """
     session.sql(view_sql).collect()
     print("Created DEFINITIONSTORE view with DBID mappings")
@@ -74,11 +71,11 @@ def setup_definition_tables(environment: str, connection_name: str):
     config = load_config(session=session, deploy_env=environment)
 
     # 1. AIC
-    create_definition_table( 
+    create_definition_table(
             session=session,
-            database=config["definition_library"]["database"], 
+            database=config["definition_library"]["database"],
             schema=config["definition_library"]["schema"],
-            table_name="AI_CENTRE_DEFINITIONS"
+            table_name="AIC_DEFINITIONS"
         )
     update_aic_definitions_table(session=session, config=config)
 
@@ -117,7 +114,8 @@ def setup_definition_tables(environment: str, connection_name: str):
         session=session,
         database=config["definition_library"]["database"],
         schema=config["definition_library"]["schema"],
-        external_tables=list(external_definition_sources.keys())
+        external_tables=list(external_definition_sources.keys()),
+        config=config
     )
 
     # 9. Create measurement config tables

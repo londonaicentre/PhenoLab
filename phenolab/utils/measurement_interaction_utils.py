@@ -33,9 +33,9 @@ def load_measurement_configs_list(config: Optional[dict] = None) -> List[str]:
     """
     measurement_config_list = []
     config = config or st.session_state.config
-    print(f"Loading measurement configs for ICB: {config['icb_name']}")
-    if os.path.exists(f"data/measurements/{config['icb_name']}"):
-        measurement_config_list = [f for f in os.listdir(f"data/measurements/{config['icb_name']}")
+    print(f"Loading measurement configs for ICB: {config['icb_name']} from folder: {config['measurement_config_folder']}")
+    if os.path.exists(f"data/measurements/{config['measurement_config_folder']}"):
+        measurement_config_list = [f for f in os.listdir(f"data/measurements/{config['measurement_config_folder']}")
                         if f.endswith(".json") and f.startswith("standard_")]
     return measurement_config_list
 
@@ -49,7 +49,7 @@ def load_measurement_config(filename: str, config: Optional[dict] = None) -> Opt
         config (Optional[dict]): Configuration dictionary. If not provided, will use session state.
     """
     config = config or st.session_state.config
-    file_path = os.path.join(f"data/measurements/{config['icb_name']}", filename)
+    file_path = os.path.join(f"data/measurements/{config['measurement_config_folder']}", filename)
     measurement_config = load_measurement_config_from_json(file_path)
     return measurement_config
 
@@ -58,7 +58,7 @@ def create_missing_measurement_configs():
     """
     Create empty measurement configs for definitions that don't have one
     """
-    os.makedirs(f"data/measurements/{st.session_state.config['icb_name']}", exist_ok=True)
+    os.makedirs(f"data/measurements/{st.session_state.config['measurement_config_folder']}", exist_ok=True)
 
     measurement_definitions = load_measurement_definitions_list()
     measurement_configs = load_measurement_configs_list()
@@ -85,7 +85,7 @@ def create_missing_measurement_configs():
                     standard_measurement_config_id=None,
                     standard_measurement_config_version=None,
                 )
-                config.save_to_json(directory=f"data/measurements/{st.session_state.config['icb_name']}")
+                config.save_to_json(directory=f"data/measurements/{st.session_state.config['measurement_config_folder']}")
                 created_count += 1
 
         except Exception as e:
@@ -98,7 +98,7 @@ def update_all_measurement_configs():
     """
     Update all measurement configs with new units from Snowflake usage data
     """
-    os.makedirs(f"data/measurements/{st.session_state.config['icb_name']}", exist_ok=True)
+    os.makedirs(f"data/measurements/{st.session_state.config['measurement_config_folder']}", exist_ok=True)
 
     created_count = 0
     updated_count = 0
@@ -143,7 +143,7 @@ def update_all_measurement_configs():
 
         if config_changed:
             config.mark_modified()
-            config.save_to_json(directory=f"data/measurements/{st.session_state.config['icb_name']}")
+            config.save_to_json(directory=f"data/measurements/{st.session_state.config['measurement_config_folder']}")
             updated_count += 1
 
         # except Exception as e:

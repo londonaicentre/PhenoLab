@@ -1,0 +1,6 @@
+# Maps Snowflake account IDs to ICB configuration prefixes
+# This mapping is used to automatically determine which config file to load
+# based on the current Snowflake account
+account_mappings:
+  SE56186: nel_icb  # NEL ICB account
+  ED64551: sel_icb  # SEL ICB account
