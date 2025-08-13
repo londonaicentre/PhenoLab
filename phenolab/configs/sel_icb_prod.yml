@@ -6,13 +6,13 @@ deployment:
   app_title: PhenoLab
 definition_library:
   database: DATA_LAB_AI_CENTRE
-  schema: DEFINITION_LIBRARY
+  schema: PHENOLAB_PROD
 feature_store:
   database: DATA_LAB_AI_CENTRE
   schema: PHENOLAB_PROD
 measurement_configs:
   database: DATA_LAB_AI_CENTRE
-  schema: MEASUREMENT_CONFIGS
+  schema: PHENOLAB_PROD
 measurement_config_folder: nel_icb
 gp_observation_table: DATA_LAB_AI_CENTRE.JZ_DEV.STG_GP__OBSERVATION
 gp_concept_table: DATA_LAB_AI_CENTRE.JZ_DEV.STG_GP__CONCEPT
