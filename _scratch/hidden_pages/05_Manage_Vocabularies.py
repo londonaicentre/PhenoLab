@@ -10,6 +10,8 @@ from utils.config_utils import load_config
 
 # # 01_Manage_Vocabularies.py
 
+## THIS IS CURRENTLY DEPRECATED
+
 # This page allows users to load an existing vocabulary or generate a new one from /
 # Snowflake data sources. It extracts clinical codes (SNOMED, ICD10, OPCS4) with /
 # usage statistics from clinical tables. /

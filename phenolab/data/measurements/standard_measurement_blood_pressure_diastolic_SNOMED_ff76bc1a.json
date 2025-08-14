@@ -1719,11 +1719,299 @@
       "source_unit_lq": 70.0,
       "source_unit_median": 78.00000000000001,
       "source_unit_uq": 84.00000000000004
+    },
+    {
+      "source_unit": "l",
+      "standard_unit": "",
+      "source_unit_count": 7,
+      "source_unit_lq": 70.5,
+      "source_unit_median": 71.0,
+      "source_unit_uq": 77.5
+    },
+    {
+      "source_unit": "74",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 74.0,
+      "source_unit_median": 74.0,
+      "source_unit_uq": 74.0
+    },
+    {
+      "source_unit": "mm/h",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 68.75,
+      "source_unit_median": 71.5,
+      "source_unit_uq": 74.0
+    },
+    {
+      "source_unit": "68",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 68.0,
+      "source_unit_median": 68.0,
+      "source_unit_uq": 68.0
+    },
+    {
+      "source_unit": "79",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 79.0,
+      "source_unit_median": 79.0,
+      "source_unit_uq": 79.0
+    },
+    {
+      "source_unit": "/min",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 68.5,
+      "source_unit_median": 72.0,
+      "source_unit_uq": 85.5
+    },
+    {
+      "source_unit": "70",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 70.0,
+      "source_unit_median": 70.0,
+      "source_unit_uq": 70.0
+    },
+    {
+      "source_unit": "mmHG",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 61.25,
+      "source_unit_median": 62.5,
+      "source_unit_uq": 63.75
+    },
+    {
+      "source_unit": "58",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 58.0,
+      "source_unit_median": 58.0,
+      "source_unit_uq": 58.0
+    },
+    {
+      "source_unit": "85",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 85.0,
+      "source_unit_median": 85.0,
+      "source_unit_uq": 85.0
+    },
+    {
+      "source_unit": "73",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 73.0,
+      "source_unit_median": 73.0,
+      "source_unit_uq": 73.0
+    },
+    {
+      "source_unit": "Unk UoM",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 67.25,
+      "source_unit_median": 70.5,
+      "source_unit_uq": 73.75
+    },
+    {
+      "source_unit": "63",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 63.0,
+      "source_unit_median": 63.0,
+      "source_unit_uq": 63.0
+    },
+    {
+      "source_unit": "bpm",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 62.0,
+      "source_unit_median": 62.0,
+      "source_unit_uq": 62.0
+    },
+    {
+      "source_unit": "91",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 91.0,
+      "source_unit_median": 91.0,
+      "source_unit_uq": 91.0
+    },
+    {
+      "source_unit": "65",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 65.0,
+      "source_unit_median": 65.0,
+      "source_unit_uq": 65.0
+    },
+    {
+      "source_unit": "76",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 76.0,
+      "source_unit_median": 76.0,
+      "source_unit_uq": 76.0
+    },
+    {
+      "source_unit": "beats/min",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 87.0,
+      "source_unit_median": 87.0,
+      "source_unit_uq": 87.0
+    },
+    {
+      "source_unit": "78",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 78.0,
+      "source_unit_median": 78.0,
+      "source_unit_uq": 78.0
+    },
+    {
+      "source_unit": "mm",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 109.0,
+      "source_unit_median": 109.0,
+      "source_unit_uq": 109.0
+    },
+    {
+      "source_unit": "101",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 101.0,
+      "source_unit_median": 101.0,
+      "source_unit_uq": 101.0
+    },
+    {
+      "source_unit": "98",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 98.0,
+      "source_unit_median": 98.0,
+      "source_unit_uq": 98.0
+    },
+    {
+      "source_unit": "59",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 59.0,
+      "source_unit_median": 59.0,
+      "source_unit_uq": 59.0
+    },
+    {
+      "source_unit": "77",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 77.0,
+      "source_unit_median": 77.0,
+      "source_unit_uq": 77.0
+    },
+    {
+      "source_unit": "137S91",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 91.0,
+      "source_unit_median": 91.0,
+      "source_unit_uq": 91.0
+    },
+    {
+      "source_unit": "mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 87.0,
+      "source_unit_median": 87.0,
+      "source_unit_uq": 87.0
+    },
+    {
+      "source_unit": "94",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 94.0,
+      "source_unit_median": 94.0,
+      "source_unit_uq": 94.0
+    },
+    {
+      "source_unit": "155",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 155.0,
+      "source_unit_median": 155.0,
+      "source_unit_uq": 155.0
+    },
+    {
+      "source_unit": "56",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 56.0,
+      "source_unit_median": 56.0,
+      "source_unit_uq": 56.0
+    },
+    {
+      "source_unit": "64",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 64.0,
+      "source_unit_median": 64.0,
+      "source_unit_uq": 64.0
+    },
+    {
+      "source_unit": "61",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 61.0,
+      "source_unit_median": 61.0,
+      "source_unit_uq": 61.0
+    },
+    {
+      "source_unit": "137S94",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 94.0,
+      "source_unit_median": 94.0,
+      "source_unit_uq": 94.0
+    },
+    {
+      "source_unit": "75",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 75.0,
+      "source_unit_median": 75.0,
+      "source_unit_uq": 75.0
+    },
+    {
+      "source_unit": "67",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 67.0,
+      "source_unit_median": 67.0,
+      "source_unit_uq": 67.0
+    },
+    {
+      "source_unit": "mm.Hg.",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 88.0,
+      "source_unit_median": 88.0,
+      "source_unit_uq": 88.0
+    },
+    {
+      "source_unit": "87",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 87.0,
+      "source_unit_median": 87.0,
+      "source_unit_uq": 87.0
     }
   ],
   "unit_conversions": [],
   "created_datetime": "2025-05-19T23:23:56.062237",
-  "updated_datetime": "2025-07-23T13:28:53.291857",
+  "updated_datetime": "2025-08-14T16:45:06.843329",
   "standard_measurement_config_id": "ff76bc1a",
-  "standard_measurement_config_version": "measurement_blood_pressure_diastolic_SNOMED_20250723_132853"
+  "standard_measurement_config_version": "measurement_blood_pressure_diastolic_SNOMED_20250814_164506"
 }

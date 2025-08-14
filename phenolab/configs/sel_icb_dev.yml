@@ -13,7 +13,8 @@ feature_store:
 measurement_configs:
   database: DATA_LAB_AI_CENTRE
   schema: PHENOLAB_DEV
-measurement_config_folder: nel_icb
 gp_observation_table: DATA_LAB_AI_CENTRE.JZ_DEV.STG_GP__OBSERVATION
 gp_concept_table: DATA_LAB_AI_CENTRE.JZ_DEV.STG_GP__CONCEPT
 gp_concept_map_table: DATA_LAB_AI_CENTRE.JZ_DEV.STG_GP__CONCEPT_MAP
+sus_icd10_table: DATA_LAB_AI_CENTRE.JZ_DEV.STG_SUS__APC_DIAGNOSIS_ICD10
+sus_opcs4_table: DATA_LAB_AI_CENTRE.JZ_DEV.STG_SUS__APC_PROCEDURE_OPCS4

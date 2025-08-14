@@ -26,30 +26,30 @@ def load_measurement_definitions_list() -> list[str]:
 
 def load_measurement_configs_list(config: Optional[dict] = None) -> List[str]:
     """
-    Get list of measurement config files from /data/measurements/{st.session_state.config['icb_name']}
+    Get list of measurement config files from /data/measurements (shared across all ICBs)
 
     Args:
         config (Optional[dict]): Configuration dictionary. If not provided, will use session state.
     """
     measurement_config_list = []
     config = config or st.session_state.config
-    print(f"Loading measurement configs for ICB: {config['icb_name']} from folder: {config['measurement_config_folder']}")
-    if os.path.exists(f"data/measurements/{config['measurement_config_folder']}"):
-        measurement_config_list = [f for f in os.listdir(f"data/measurements/{config['measurement_config_folder']}")
+    print(f"Loading shared measurement configs for ICB: {config['icb_name']}")
+    if os.path.exists("data/measurements"):
+        measurement_config_list = [f for f in os.listdir("data/measurements")
                         if f.endswith(".json") and f.startswith("standard_")]
     return measurement_config_list
 
 
 def load_measurement_config(filename: str, config: Optional[dict] = None) -> Optional[MeasurementConfig]:
     """
-    Load measurement config from JSON file
+    Load measurement config from JSON file (shared across all ICBs)
 
     Args:
         filename (str): Name of the measurement config file
         config (Optional[dict]): Configuration dictionary. If not provided, will use session state.
     """
     config = config or st.session_state.config
-    file_path = os.path.join(f"data/measurements/{config['measurement_config_folder']}", filename)
+    file_path = os.path.join("data/measurements", filename)
     measurement_config = load_measurement_config_from_json(file_path)
     return measurement_config
 
@@ -58,7 +58,7 @@ def create_missing_measurement_configs():
     """
     Create empty measurement configs for definitions that don't have one
     """
-    os.makedirs(f"data/measurements/{st.session_state.config['measurement_config_folder']}", exist_ok=True)
+    os.makedirs("data/measurements", exist_ok=True)
 
     measurement_definitions = load_measurement_definitions_list()
     measurement_configs = load_measurement_configs_list()
@@ -85,7 +85,7 @@ def create_missing_measurement_configs():
                     standard_measurement_config_id=None,
                     standard_measurement_config_version=None,
                 )
-                config.save_to_json(directory=f"data/measurements/{st.session_state.config['measurement_config_folder']}")
+                config.save_to_json(directory="data/measurements")
                 created_count += 1
 
         except Exception as e:
@@ -98,7 +98,7 @@ def update_all_measurement_configs():
     """
     Update all measurement configs with new units from Snowflake usage data
     """
-    os.makedirs(f"data/measurements/{st.session_state.config['measurement_config_folder']}", exist_ok=True)
+    os.makedirs("data/measurements", exist_ok=True)
 
     created_count = 0
     updated_count = 0
@@ -143,7 +143,7 @@ def update_all_measurement_configs():
 
         if config_changed:
             config.mark_modified()
-            config.save_to_json(directory=f"data/measurements/{st.session_state.config['measurement_config_folder']}")
+            config.save_to_json(directory="data/measurements")
             updated_count += 1
 
         # except Exception as e:
@@ -180,12 +180,13 @@ def get_measurement_values(definition_name, limit = 100000):
     """
     query = f"""
     SELECT
-        COALESCE(RESULT_VALUE_UNITS, 'No Unit') AS unit,
+        COALESCE(RESULT_VALUE_UNIT, 'No Unit') AS unit,
         TRY_CAST(RESULT_VALUE AS FLOAT) AS value
     FROM {st.session_state.config["gp_observation_table"]} obs
-    LEFT JOIN {st.session_state.config["definition_library"]["database"]}.
+    INNER JOIN {st.session_state.config["definition_library"]["database"]}.
         {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
-        ON obs.CORE_CONCEPT_ID = def.DBID
+        ON obs.OBSERVATION_CONCEPT_CODE = def.CODE
+        AND obs.OBSERVATION_CONCEPT_VOCABULARY = def.VOCABULARY
     WHERE def.DEFINITION_NAME = '{definition_name}'
         AND RESULT_VALUE IS NOT NULL
         AND TRY_CAST(RESULT_VALUE AS FLOAT) IS NOT NULL
@@ -254,7 +255,7 @@ def create_base_measurements_sql(eligible_configs):
             if conv.convert_to_unit == config.primary_standard_unit:
                 conversion_cases.append(f"""
                     WHEN mapped_unit = '{conv.convert_from_unit}' THEN
-                        (({conv.pre_offset} + TRY_CAST(source_result_value AS FLOAT)) * {conv.multiply_by}) + {conv.post_offset}
+                        (({conv.pre_offset} + TRY_CAST(obs.RESULT_VALUE AS FLOAT)) * {conv.multiply_by}) + {conv.post_offset}
                 """)
                 explicit_conversions.add(conv.convert_from_unit)
 
@@ -262,15 +263,15 @@ def create_base_measurements_sql(eligible_configs):
             if standard_unit not in explicit_conversions:
                 conversion_cases.append(f"""
                     WHEN mapped_unit = '{standard_unit}' THEN
-                        TRY_CAST(source_result_value AS FLOAT)
+                        TRY_CAST(obs.RESULT_VALUE AS FLOAT)
                 """)
 
         mapping_cases = []
         for source_unit, standard_unit in unit_mappings.items():
             if source_unit == 'No Unit':
-                mapping_cases.append(f"WHEN obs.RESULT_VALUE_UNITS IS NULL THEN '{standard_unit}'")
+                mapping_cases.append(f"WHEN obs.RESULT_VALUE_UNIT IS NULL THEN '{standard_unit}'")
             else:
-                mapping_cases.append(f"WHEN obs.RESULT_VALUE_UNITS = '{source_unit}' THEN '{standard_unit}'")
+                mapping_cases.append(f"WHEN obs.RESULT_VALUE_UNIT = '{source_unit}' THEN '{standard_unit}'")
 
         # Handle unitless measurements (like indices) that don't need mappings
         if not mapping_cases:
@@ -310,7 +311,10 @@ def create_base_measurements_sql(eligible_configs):
             def.DEFINITION_VERSION,
             def.VERSION_DATETIME,
             obs.RESULT_VALUE AS SOURCE_RESULT_VALUE,
-            COALESCE(obs.RESULT_VALUE_UNITS, 'No Unit') AS SOURCE_RESULT_VALUE_UNITS,
+            COALESCE(obs.RESULT_VALUE_UNIT, 'No Unit') AS SOURCE_RESULT_VALUE_UNITS,
+            obs.OBSERVATION_CONCEPT_CODE AS SOURCE_CONCEPT_CODE,
+            obs.OBSERVATION_CONCEPT_NAME AS SOURCE_CONCEPT_NAME,
+            obs.OBSERVATION_CONCEPT_VOCABULARY AS SOURCE_CONCEPT_VOCABULARY,
             {conversion_case_sql.replace('mapped_unit', f'({mapping_case_sql})')} AS VALUE_AS_NUMBER,
             '{config.primary_standard_unit}' AS VALUE_UNITS,
             CASE WHEN {conversion_case_sql.replace('mapped_unit', f'({mapping_case_sql})')} > {upper_limit}
@@ -318,9 +322,10 @@ def create_base_measurements_sql(eligible_configs):
             CASE WHEN {conversion_case_sql.replace('mapped_unit', f'({mapping_case_sql})')} < {lower_limit}
                 THEN 1 ELSE 0 END AS BELOW_RANGE
         FROM {st.session_state.config["gp_observation_table"]} obs
-        LEFT JOIN {st.session_state.config["definition_library"]["database"]}.
+        INNER JOIN {st.session_state.config["definition_library"]["database"]}.
             {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
-            ON obs.CORE_CONCEPT_ID = def.DBID
+            ON obs.OBSERVATION_CONCEPT_CODE = def.CODE
+            AND obs.OBSERVATION_CONCEPT_VOCABULARY = def.VOCABULARY
         WHERE def.DEFINITION_NAME = '{definition_name}'
             AND obs.RESULT_VALUE IS NOT NULL
             AND TRY_CAST(obs.RESULT_VALUE AS FLOAT) IS NOT NULL
@@ -332,6 +337,7 @@ def create_base_measurements_sql(eligible_configs):
                     {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
                 WHERE DEFINITION_NAME = '{definition_name}'
             )
+            AND YEAR(obs.CLINICAL_EFFECTIVE_DATE) BETWEEN 2000 AND YEAR(CURRENT_DATE())
         """
 
         union_queries.append(query)
@@ -344,56 +350,142 @@ def create_base_measurements_sql(eligible_configs):
     return final_query
 
 
-def create_base_measurements_feature(eligible_configs):
+def _initialize_base_measurements_table():
     """
-    Create or update Base Measurements feature table using FeatureStoreManager
+    Initialize the base measurements table structure
+    """
+    st.session_state.session.sql(f"""
+        CREATE OR REPLACE TABLE {st.session_state.config["feature_store"]["database"]}.
+        {st.session_state.config["feature_store"]["schema"]}.DEV_MEASUREMENTS (
+            PERSON_ID VARCHAR,
+            CLINICAL_EFFECTIVE_DATE TIMESTAMP_NTZ,
+            AGE_AT_EVENT INTEGER,
+            DEFINITION_ID VARCHAR,
+            DEFINITION_NAME VARCHAR,
+            DEFINITION_VERSION VARCHAR,
+            VERSION_DATETIME TIMESTAMP_NTZ,
+            SOURCE_RESULT_VALUE FLOAT,
+            SOURCE_RESULT_VALUE_UNITS VARCHAR,
+            SOURCE_CONCEPT_CODE VARCHAR,
+            SOURCE_CONCEPT_NAME VARCHAR,
+            SOURCE_CONCEPT_VOCABULARY VARCHAR,
+            VALUE_AS_NUMBER FLOAT,
+            VALUE_UNITS VARCHAR,
+            ABOVE_RANGE BOOLEAN,
+            BELOW_RANGE BOOLEAN
+        )
+    """).collect()
+
+
+def create_base_measurements_feature_incremental(eligible_configs):
+    """
+    Create or update Base Measurements feature table incrementally
+    This prevents timeouts from massive single query
     """
     try:
-        with st.spinner("Generating SQL query..."):
-            sql_query = create_base_measurements_sql(eligible_configs)
+        with st.spinner("Initializing Base Measurements table structure..."):
+            _initialize_base_measurements_table()
 
-        if not sql_query:
-            st.error("Failed to generate SQL query. No eligible measurements found.")
-            return
+        # process each measurement definition individually
+        progress_bar = st.progress(0, f"Processing 0 of {len(eligible_configs)} measurements")
+        status_text = st.empty()
 
-        with st.spinner("Creating or updating Base Measurements feature table..."):
-            # st.session_state.session.sql(
-            # f"""CREATE TABLE IF NOT EXISTS {st.session_state.config["feature_store"]["database"]}.
-            # {st.session_state.config["feature_store"]["schema"]}.BASE_MEASUREMENTS(
-            # CLINICAL_EFFECTIVE_DATE TIMESTAMP_NTZ,
-            # DEFINITION_ID VARCHAR,
-            # DEFINITION_NAME VARCHAR,
-            # DEFINITION_VERSION VARCHAR,
-            # VERSION_DATETIME TIMESTAMP_NTZ,
-            # PERSON_ID VARCHAR,
-            # SOURCE_RESULT_VALUE FLOAT,
-            # SOURCE_RESULT_VALUE_UNITS VARCHAR,
-            # VALUE_AS_NUMBER FLOAT,
-            # VALUE_UNITS VARCHAR
-            # )""").collect()
+        successful_measurements = []
+        failed_measurements = []
 
-            # st.session_state.session.sql(
-            # f"""MERGE INTO {st.session_state.config["feature_store"]["database"]}.
-            # {st.session_state.config["feature_store"]["schema"]}.BASE_MEASUREMENTS AS target
-            # USING ({sql_query}) AS source
-            # ON target.PERSON_ID = source.PERSON_ID
-            # AND target.CLINICAL_EFFECTIVE_DATE = source.CLINICAL_EFFECTIVE_DATE
-            # AND target.DEFINITION_ID = source.DEFINITION_ID
-            # AND target.SOURCE_RESULT_VALUE = source.SOURCE_RESULT_VALUE
-            # AND target.SOURCE_RESULT_VALUE_UNITS = source.SOURCE_RESULT_VALUE_UNITS
-            # WHEN NOT MATCHED THEN
-            #     INSERT (CLINICAL_EFFECTIVE_DATE, DEFINITION_ID, DEFINITION_NAME, PERSON_ID,
-            #             SOURCE_RESULT_VALUE, SOURCE_RESULT_VALUE_UNITS, VALUE_AS_NUMBER, VALUE_UNITS)
-            #     VALUES (source.CLINICAL_EFFECTIVE_DATE, source.DEFINITION_ID, source.DEFINITION_NAME, source.PERSON_ID,
-            #             source.SOURCE_RESULT_VALUE, source.SOURCE_RESULT_VALUE_UNITS, source.VALUE_AS_NUMBER,
-            #             source.VALUE_UNITS)""").collect()
+        for i, (definition_name, config) in enumerate(eligible_configs.items()):
+            try:
+                status_text.info(f"Processing measurement: **{definition_name}**")
 
-            st.session_state.session.sql(
-                f"""CREATE OR REPLACE TABLE {st.session_state.config["feature_store"]["database"]}.
-                {st.session_state.config["feature_store"]["schema"]}.BASE_MEASUREMENTS AS
-                {sql_query}""").collect()
+                single_config = {definition_name: config}
+                sql_query = create_base_measurements_sql(single_config)
 
-            st.success("Base Measurements feature table created or updated successfully!")
+                if sql_query:
+                    st.session_state.session.sql(
+                        f"""INSERT INTO {st.session_state.config["feature_store"]["database"]}.
+                        {st.session_state.config["feature_store"]["schema"]}.DEV_MEASUREMENTS
+                        {sql_query}""").collect()
+
+                    successful_measurements.append(definition_name)
+                else:
+                    failed_measurements.append((definition_name, "No SQL generated"))
+
+            except Exception as e:
+                failed_measurements.append((definition_name, e))
+                st.warning(f"Failed to process {definition_name}: {e}")
+
+            # update progress bar
+            progress = (i + 1) / len(eligible_configs)
+            progress_bar.progress(progress, f"Processed {i + 1} of {len(eligible_configs)} measurements")
+
+        # clear statis
+        progress_bar.empty()
+        status_text.empty()
+
+        if successful_measurements:
+            st.success(f"Base Measurements feature table updated! "
+                      f"Successfully processed {len(successful_measurements)} measurements.")
+
+        if failed_measurements:
+            st.warning(f"{len(failed_measurements)} measurements failed to process:")
+            for def_name, error in failed_measurements:
+                st.write(f"• {def_name}: {error}")
+
+    except Exception as e:
+        st.error(f"Error creating Base Measurements feature table: {e}")
+
+
+# def create_base_measurements_feature(eligible_configs):
+#     """
+#     Create or update Base Measurements feature table using FeatureStoreManager
+#     DEPRECATED: Use create_base_measurements_feature_incremental instead to avoid timeouts
+#     """
+#     try:
+#         with st.spinner("Generating SQL query..."):
+#             sql_query = create_base_measurements_sql(eligible_configs)
+
+#         if not sql_query:
+#             st.error("Failed to generate SQL query. No eligible measurements found.")
+#             return
+
+#         with st.spinner("Creating or updating Base Measurements feature table..."):
+#             # st.session_state.session.sql(
+#             # f"""CREATE TABLE IF NOT EXISTS {st.session_state.config["feature_store"]["database"]}.
+#             # {st.session_state.config["feature_store"]["schema"]}.BASE_MEASUREMENTS(
+#             # CLINICAL_EFFECTIVE_DATE TIMESTAMP_NTZ,
+#             # DEFINITION_ID VARCHAR,
+#             # DEFINITION_NAME VARCHAR,
+#             # DEFINITION_VERSION VARCHAR,
+#             # VERSION_DATETIME TIMESTAMP_NTZ,
+#             # PERSON_ID VARCHAR,
+#             # SOURCE_RESULT_VALUE FLOAT,
+#             # SOURCE_RESULT_VALUE_UNITS VARCHAR,
+#             # VALUE_AS_NUMBER FLOAT,
+#             # VALUE_UNITS VARCHAR
+#             # )""").collect()
+
+#             # st.session_state.session.sql(
+#             # f"""MERGE INTO {st.session_state.config["feature_store"]["database"]}.
+#             # {st.session_state.config["feature_store"]["schema"]}.BASE_MEASUREMENTS AS target
+#             # USING ({sql_query}) AS source
+#             # ON target.PERSON_ID = source.PERSON_ID
+#             # AND target.CLINICAL_EFFECTIVE_DATE = source.CLINICAL_EFFECTIVE_DATE
+#             # AND target.DEFINITION_ID = source.DEFINITION_ID
+#             # AND target.SOURCE_RESULT_VALUE = source.SOURCE_RESULT_VALUE
+#             # AND target.SOURCE_RESULT_VALUE_UNITS = source.SOURCE_RESULT_VALUE_UNITS
+#             # WHEN NOT MATCHED THEN
+#             #     INSERT (CLINICAL_EFFECTIVE_DATE, DEFINITION_ID, DEFINITION_NAME, PERSON_ID,
+#             #             SOURCE_RESULT_VALUE, SOURCE_RESULT_VALUE_UNITS, VALUE_AS_NUMBER, VALUE_UNITS)
+#             #     VALUES (source.CLINICAL_EFFECTIVE_DATE, source.DEFINITION_ID, source.DEFINITION_NAME, source.PERSON_ID,
+#             #             source.SOURCE_RESULT_VALUE, source.SOURCE_RESULT_VALUE_UNITS, source.VALUE_AS_NUMBER,
+#             #             source.VALUE_UNITS)""").collect()
+
+#             st.session_state.session.sql(
+#                 f"""CREATE OR REPLACE TABLE {st.session_state.config["feature_store"]["database"]}.
+#                 {st.session_state.config["feature_store"]["schema"]}.DEV_MEASUREMENTS AS
+#                 {sql_query}""").collect()
+
+#             st.success("Base Measurements feature table created or updated successfully!")
 
         # with st.spinner("Initialising Feature Store Manager..."):
         #     feature_manager = FeatureStoreManager(
@@ -445,18 +537,18 @@ def create_base_measurements_feature(eligible_configs):
         #         table_name = f"{feature_name}_V{feature_version}"
         #         st.write(f"**Table Name:** {table_name}")
 
-            try:
-                count_result = st.session_state.session.sql(
-                    f"""SELECT COUNT(*) as row_count FROM {st.session_state.config["feature_store"]["database"]}.
-                        {st.session_state.config["feature_store"]["schema"]}.BASE_MEASUREMENTS""").to_pandas()
-                row_count = count_result.iloc[0]['ROW_COUNT']
-                st.write(f"**Rows Created:** {row_count:,}")
-            except Exception as e:
-                st.warning(f"Could not get row count: {e}")
+        #     try:
+        #         count_result = st.session_state.session.sql(
+        #             f"""SELECT COUNT(*) as row_count FROM {st.session_state.config["feature_store"]["database"]}.
+        #                 {st.session_state.config["feature_store"]["schema"]}.DEV_MEASUREMENTS""").to_pandas()
+        #         row_count = count_result.iloc[0]['ROW_COUNT']
+        #         st.write(f"**Rows Created:** {row_count:,}")
+        #     except Exception as e:
+        #         st.warning(f"Could not get row count: {e}")
 
-    except Exception as e:
-        st.error(f"Error creating Base Measurements feature: {e}")
-        st.exception(e)
+    # except Exception as e:
+    #     st.error(f"Error creating Base Measurements feature: {e}")
+    #     st.exception(e)
 
 def create_measurement_configs_tables(config: Optional[dict] = None, session: Optional[Session] = None):
     """

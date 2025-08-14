@@ -144,7 +144,7 @@ def display_standard_units_panel(config):
             # if first unit, automatically set as primary
             if len(config.standard_units) == 1:
                 config.set_primary_standard_unit(new_unit)
-            config.save_to_json(directory=f"data/measurements/{st.session_state.config['measurement_config_folder']}")
+            config.save_to_json(directory="data/measurements")
             st.success(f"Added {new_unit} to standard units")
             st.rerun()
         else:
@@ -163,12 +163,12 @@ def display_standard_units_panel(config):
                 else:
                     if st.button("Set Primary", key=f"set_primary_{i}"):
                         config.set_primary_standard_unit(unit)
-                        config.save_to_json(directory=f"data/measurements/{st.session_state.config['measurement_config_folder']}")
+                        config.save_to_json(directory="data/measurements")
                         st.rerun()
             with col3:
                 if st.button("Remove", key=f"remove_unit_{i}"):
                     config.remove_standard_unit(unit)
-                    config.save_to_json(directory=f"data/measurements/{st.session_state.config['measurement_config_folder']}")
+                    config.save_to_json(directory="data/measurements")
                     st.rerun()
     else:
         st.info("No standard units defined.")
@@ -252,7 +252,7 @@ def display_unit_mapping_panel(config):
                         mapping.standard_unit = selected_standard
                         config.mark_modified()
                         break
-                config.save_to_json(directory=f"data/measurements/{st.session_state.config['measurement_config_folder']}")
+                config.save_to_json(directory="data/measurements")
                 st.rerun()
 
 def get_all_units_for_conversion(config):
@@ -379,7 +379,7 @@ def display_conversion_group(config, units, existing_conversions, group_type):
                 multiply_by=new_multiply_by,
                 post_offset=new_post_offset
             )
-            config.save_to_json(directory=f"data/measurements/{st.session_state.config['measurement_config_folder']}")
+            config.save_to_json(directory="data/measurements")
             st.rerun()
 
 def display_configs_in_tables():
@@ -520,7 +520,7 @@ def display_measurement_bounds_panel(config: MeasurementConfig):
     if new_lower_bound:
         if new_lower_bound != config.lower_limit:
             config.add_lower_bound(new_lower_bound)
-            config.save_to_json(directory=f"data/measurements/{st.session_state.config['measurement_config_folder']}")
+            config.save_to_json(directory="data/measurements")
             st.success("Lower bound set successfully.")
 
     new_upper_bound = st.number_input(
@@ -531,7 +531,7 @@ def display_measurement_bounds_panel(config: MeasurementConfig):
     if new_upper_bound:
         if new_upper_bound != config.upper_limit:
             config.add_upper_bound(new_upper_bound)
-            config.save_to_json(directory=f"data/measurements/{st.session_state.config['measurement_config_folder']}")
+            config.save_to_json(directory="data/measurements")
             st.success("Upper bound set successfully.")
 
 def get_selected_config(selected_measurement: str):
@@ -573,7 +573,7 @@ def main():  # noqa: C901
             col1, col2 = st.columns([3, 1])
             with col1:
                 st.write("""
-                This page allows superusers to standardise and clean measurement values - individual to each ICB.
+                This page allows superusers to standardise and clean measurement values.
                 """)
 
                 st.write("""
@@ -587,7 +587,7 @@ def main():  # noqa: C901
                     st.markdown("""
                     1. **Scans for new measurement definitions** in **Snowflake** that don't yet have a configuration file
                        - Queries the DEFINITIONSTORE for measurement definitions
-                       - Creates new JSON config files in `data/measurements/{icb_name}/` for each
+                       - Creates new JSON config files in `data/measurements/` for each
 
                     2. **Updates all configurations** with usage statistics from live data:
                        - Queries measurement values from observation tables to find all unique source units
@@ -597,6 +597,7 @@ def main():  # noqa: C901
                     3. **Updates are local only** until you click "Send configs to Snowflake"
                        - All changes are saved to local JSON files
                        - Changes should be reviewed before pushing to Snowflake tables
+                       - Tables are recreated from scratch
 
                     **Note**: This process can take a few minutes if there are many measurements to analyse.
                     """)

@@ -37,10 +37,7 @@ def load_config(session: Session = None, deploy_env: str = None) -> dict:
 
     deploy_env = deploy_env or os.getenv("DEPLOY_ENV")
     if deploy_env is None:
-        if local_development: # default is prod for local development and dev for remote
-            deploy_env = "prod"
-        else:
-            deploy_env = "dev"
+        deploy_env = "dev"  # always use dev as default
 
     print(f"Running in environment: {deploy_env}")
 

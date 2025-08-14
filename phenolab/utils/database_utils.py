@@ -19,12 +19,21 @@ Uses parameters in config.py to adapt to different source database naming.
 
 def get_snowflake_session() -> Session:
     try:
-        return get_active_session() # this function works for Snowflake on Streamlit 
+        return get_active_session() # this function works for Snowflake on Streamlit
     except SnowparkSessionException:
-        return st.connection("snowflake").session() # this functions works for a local connection for running on 
-        # localhost
-        # need to have a snowflake connection file and a default connection set up
-        # (NB snowflake documentation says it should work on snowflake on Streamlit too, but it doesn't)
+        # LOCAL DEVELOPMENT: load environment variables and use specified connection
+        from dotenv import load_dotenv
+        import os
+        load_dotenv()
+
+        connection_name = os.getenv("PHENOLAB_CONNECTION", "snowflake")
+
+        # Default reads from connections.toml
+        try:
+            return Session.builder.config("connection_name", connection_name).create()
+        except:
+            # for backwards compatibility
+            return st.connection(connection_name).session()
 
 
 ### DATABASE READS
@@ -103,36 +112,44 @@ def get_measurement_unit_statistics(definition_name: str) -> pd.DataFrame:
     Get statistics for all units associated with a measurement definition
     """
     query = f"""
-    SELECT DISTINCT
-        COALESCE(RESULT_VALUE_UNITS, 'No Unit') AS unit,
-        COUNT(*) AS total_count,
-        COUNT_IF(TRY_CAST(RESULT_VALUE AS FLOAT) IS NOT NULL) AS numeric_count,
-        APPROX_PERCENTILE(TRY_CAST(RESULT_VALUE AS FLOAT), 0.25) AS lower_quartile,
-        APPROX_PERCENTILE(TRY_CAST(RESULT_VALUE AS FLOAT), 0.5) AS median,
-        APPROX_PERCENTILE(TRY_CAST(RESULT_VALUE AS FLOAT), 0.75) AS upper_quartile,
-        MIN(TRY_CAST(RESULT_VALUE AS FLOAT)) AS min_value,
-        MAX(TRY_CAST(RESULT_VALUE AS FLOAT)) AS max_value
-    FROM {st.session_state.config["gp_observation_table"]} obs
-    LEFT JOIN {st.session_state.config["definition_library"]["database"]}.
-        {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
-        ON obs.CORE_CONCEPT_ID = def.DBID
-    WHERE def.DEFINITION_NAME = '{definition_name}'
-    GROUP BY RESULT_VALUE_UNITS
-    ORDER BY total_count DESC
+    WITH measurement_values AS (
+        SELECT
+            obs.RESULT_VALUE_UNIT,
+            TRY_CAST(obs.RESULT_VALUE AS FLOAT) AS VALUE
+        FROM {st.session_state.config["gp_observation_table"]} obs
+        INNER JOIN {st.session_state.config["definition_library"]["database"]}.
+            {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
+            ON obs.OBSERVATION_CONCEPT_CODE = def.CODE
+            AND obs.OBSERVATION_CONCEPT_VOCABULARY = def.VOCABULARY
+        WHERE def.DEFINITION_NAME = '{definition_name}'
+            AND obs.RESULT_VALUE IS NOT NULL
+    )
+    SELECT
+        COALESCE(RESULT_VALUE_UNIT, 'No Unit') AS UNIT,
+        COUNT(*) AS TOTAL_COUNT,
+        COUNT(VALUE) AS NUMERIC_COUNT,
+        APPROX_PERCENTILE(VALUE, 0.25) AS LOWER_QUARTILE,
+        APPROX_PERCENTILE(VALUE, 0.5) AS MEDIAN,
+        APPROX_PERCENTILE(VALUE, 0.75) AS UPPER_QUARTILE,
+        MIN(VALUE) AS MIN_VALUE,
+        MAX(VALUE) AS MAX_VALUE
+    FROM measurement_values
+    GROUP BY RESULT_VALUE_UNIT
+    ORDER BY TOTAL_COUNT DESC
     """
     print(query)
     return get_data_from_snowflake_to_dataframe(query)
 
 
-def get_available_measurements() -> pd.DataFrame: 
+def get_available_measurements() -> pd.DataFrame:
     """
-    Get available measurement definitions from BASE_MEASUREMENTS tables in feature store
+    Get available measurement definitions from DEV_MEASUREMENTS tables in feature store
     """
     tables_query = f"""
     SELECT TABLE_NAME
     FROM INFORMATION_SCHEMA.TABLES
     WHERE TABLE_SCHEMA = '{st.session_state.config["feature_store"]["schema"]}'
-        AND TABLE_NAME LIKE 'BASE_MEASUREMENTS%'
+        AND TABLE_NAME LIKE 'DEV_MEASUREMENTS%'
     ORDER BY TABLE_NAME DESC
     """
     measurement_tables = get_data_from_snowflake_to_dataframe(tables_query)
@@ -171,18 +188,6 @@ def get_condition_patient_counts_by_year(definition_name: str) -> pd.DataFrame:
     Returns:
         DataFrame with columns: YEAR, PATIENT_COUNT
     """
-    # Get latest BASE_APC_CONCEPTS table
-    apc_table_query = f"""
-    SELECT TABLE_NAME
-    FROM {st.session_state.config["feature_store"]["database"]}.INFORMATION_SCHEMA.TABLES
-    WHERE TABLE_SCHEMA = '{st.session_state.config["feature_store"]["schema"]}'
-      AND TABLE_NAME LIKE 'BASE_APC_CONCEPTS%'
-    ORDER BY TABLE_NAME DESC
-    LIMIT 1
-    """
-    apc_result = get_data_from_snowflake_to_dataframe(apc_table_query)
-    apc_table = apc_result.iloc[0]['TABLE_NAME'] if not apc_result.empty else None
-
     query_parts = []
 
     # SNOMED from OBSERVATION
@@ -191,30 +196,45 @@ def get_condition_patient_counts_by_year(definition_name: str) -> pd.DataFrame:
         YEAR(obs.CLINICAL_EFFECTIVE_DATE) AS YEAR,
         obs.PERSON_ID
     FROM {st.session_state.config["gp_observation_table"]} obs
-    LEFT JOIN {st.session_state.config["definition_library"]["database"]}.
+    INNER JOIN {st.session_state.config["definition_library"]["database"]}.
             {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
-        ON obs.CORE_CONCEPT_ID = def.DBID
+        ON obs.OBSERVATION_CONCEPT_CODE = def.CODE
+        AND obs.OBSERVATION_CONCEPT_VOCABULARY = def.VOCABULARY
     WHERE def.DEFINITION_NAME = '{definition_name}'
         AND def.VOCABULARY = 'SNOMED'
         AND obs.CLINICAL_EFFECTIVE_DATE IS NOT NULL
+        AND YEAR(obs.CLINICAL_EFFECTIVE_DATE) BETWEEN 2000 AND YEAR(CURRENT_DATE())
     """)
 
-    # ICD10/OPCS4 from BASE_APC_CONCEPTS
-    if apc_table:
-        query_parts.append(f"""
-        SELECT
-            YEAR(apc.ACTIVITY_DATE) AS YEAR,
-            apc.PERSON_ID
-        FROM {st.session_state.config["feature_store"]["database"]}.
-            {st.session_state.config["feature_store"]["schema"]}.{apc_table} apc
-        INNER JOIN {st.session_state.config["definition_library"]["database"]}.
-            {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
-            ON apc.VOCABULARY = def.VOCABULARY
-            AND apc.CONCEPT_CODE_STD = def.CODE
-        WHERE def.DEFINITION_NAME = '{definition_name}'
-            AND def.VOCABULARY IN ('ICD10', 'OPCS4')
-            AND apc.ACTIVITY_DATE IS NOT NULL
-        """)
+    # ICD10 from STG_SUS__APC_DIAGNOSIS_ICD10
+    query_parts.append(f"""
+    SELECT
+        YEAR(icd.ACTIVITY_DATE) AS YEAR,
+        icd.PERSON_ID
+    FROM {st.session_state.config["sus_icd10_table"]} icd
+    INNER JOIN {st.session_state.config["definition_library"]["database"]}.
+        {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
+        ON icd.CONCEPT_CODE = def.CODE
+        AND def.VOCABULARY = 'ICD10'
+    WHERE def.DEFINITION_NAME = '{definition_name}'
+        AND icd.ACTIVITY_DATE IS NOT NULL
+        AND YEAR(icd.ACTIVITY_DATE) BETWEEN 2000 AND YEAR(CURRENT_DATE())
+    """)
+
+    # OPCS4 from STG_SUS__APC_PROCEDURE_OPCS4
+    query_parts.append(f"""
+    SELECT
+        YEAR(opcs.ACTIVITY_DATE) AS YEAR,
+        opcs.PERSON_ID
+    FROM {st.session_state.config["sus_opcs4_table"]} opcs
+    INNER JOIN {st.session_state.config["definition_library"]["database"]}.
+        {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
+        ON opcs.CONCEPT_CODE = def.CODE
+        AND def.VOCABULARY = 'OPCS4'
+    WHERE def.DEFINITION_NAME = '{definition_name}'
+        AND opcs.ACTIVITY_DATE IS NOT NULL
+        AND YEAR(opcs.ACTIVITY_DATE) BETWEEN 2000 AND YEAR(CURRENT_DATE())
+    """)
 
     # count patients per year
     combined_query = f"""
@@ -236,7 +256,8 @@ def get_condition_patient_counts_by_year(definition_name: str) -> pd.DataFrame:
 def get_unique_patients_for_condition(definition_name: str) -> int:
     """
     Get total unique patient count for a condition definition
-    Includes both SNOMED codes from OBSERVATION and ICD10/OPCS4 codes from BASE_APC_CONCEPTS
+    Includes SNOMED codes from OBSERVATION, ICD10 codes from STG_SUS__APC_DIAGNOSIS_ICD10,
+    and OPCS4 codes from STG_SUS__APC_PROCEDURE_OPCS4
 
     Args:
         definition_name: Name of the condition definition
@@ -245,45 +266,45 @@ def get_unique_patients_for_condition(definition_name: str) -> int:
     Returns:
         Number of unique patients
     """
-    # Get latest BASE_APC_CONCEPTS table
-    apc_table_query = f"""
-    SELECT TABLE_NAME
-    FROM {st.session_state.config["feature_store"]["database"]}.INFORMATION_SCHEMA.TABLES
-    WHERE TABLE_SCHEMA = '{st.session_state.config["feature_store"]["schema"]}'
-      AND TABLE_NAME LIKE 'BASE_APC_CONCEPTS%'
-    ORDER BY TABLE_NAME DESC
-    LIMIT 1
-    """
-    apc_result = get_data_from_snowflake_to_dataframe(apc_table_query)
-    apc_table = apc_result.iloc[0]['TABLE_NAME'] if not apc_result.empty else None
-
-    # Build query with UNION for both sources
+    # Build query with UNION for all sources
     query_parts = []
 
     # SNOMED from OBSERVATION
     query_parts.append(f"""
     SELECT DISTINCT obs.PERSON_ID
     FROM {st.session_state.config["gp_observation_table"]} obs
-    LEFT JOIN {st.session_state.config["definition_library"]["database"]}.
+    INNER JOIN {st.session_state.config["definition_library"]["database"]}.
         {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
-        ON obs.CORE_CONCEPT_ID = def.DBID
+        ON obs.OBSERVATION_CONCEPT_CODE = def.CODE
+        AND obs.OBSERVATION_CONCEPT_VOCABULARY = def.VOCABULARY
     WHERE def.DEFINITION_NAME = '{definition_name}'
         AND def.VOCABULARY = 'SNOMED'
+        AND YEAR(obs.CLINICAL_EFFECTIVE_DATE) BETWEEN 2000 AND YEAR(CURRENT_DATE())
     """)
 
-    # ICD10/OPCS4 from BASE_APC_CONCEPTS
-    if apc_table:
-        query_parts.append(f"""
-        SELECT DISTINCT apc.PERSON_ID
-        FROM {st.session_state.config["feature_store"]["database"]}.
-            {st.session_state.config["feature_store"]["schema"]}.{apc_table} apc
-        INNER JOIN {st.session_state.config["definition_library"]["database"]}.
-            {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
-            ON apc.VOCABULARY = def.VOCABULARY
-            AND apc.CONCEPT_CODE_STD = def.CODE
-        WHERE def.DEFINITION_NAME = '{definition_name}'
-            AND def.VOCABULARY IN ('ICD10', 'OPCS4')
-        """)
+    # ICD10 from STG_SUS__APC_DIAGNOSIS_ICD10
+    query_parts.append(f"""
+    SELECT DISTINCT icd.PERSON_ID
+    FROM {st.session_state.config["sus_icd10_table"]} icd
+    INNER JOIN {st.session_state.config["definition_library"]["database"]}.
+        {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
+        ON icd.CONCEPT_CODE = def.CODE
+        AND def.VOCABULARY = 'ICD10'
+    WHERE def.DEFINITION_NAME = '{definition_name}'
+        AND YEAR(icd.ACTIVITY_DATE) BETWEEN 2000 AND YEAR(CURRENT_DATE())
+    """)
+
+    # OPCS4 from STG_SUS__APC_PROCEDURE_OPCS4
+    query_parts.append(f"""
+    SELECT DISTINCT opcs.PERSON_ID
+    FROM {st.session_state.config["sus_opcs4_table"]} opcs
+    INNER JOIN {st.session_state.config["definition_library"]["database"]}.
+        {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
+        ON opcs.CONCEPT_CODE = def.CODE
+        AND def.VOCABULARY = 'OPCS4'
+    WHERE def.DEFINITION_NAME = '{definition_name}'
+        AND YEAR(opcs.ACTIVITY_DATE) BETWEEN 2000 AND YEAR(CURRENT_DATE())
+    """)
 
     # count unique patients
     combined_query = f"""

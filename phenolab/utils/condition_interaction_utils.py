@@ -58,38 +58,16 @@ def get_non_measurement_definitions(source="AIC"):
     return definitions
 
 
-def get_latest_base_apc_concepts_table():
-    """
-    Get the latest version of BASE_APC_CONCEPTS table
-    """
-    query = f"""
-    SELECT TABLE_NAME
-    FROM {st.session_state.config["feature_store"]["database"]}.INFORMATION_SCHEMA.TABLES
-    WHERE TABLE_SCHEMA = '{st.session_state.config["feature_store"]["schema"]}'
-      AND TABLE_NAME LIKE 'BASE_APC_CONCEPTS%'
-    ORDER BY TABLE_NAME DESC
-    LIMIT 1
-    """
-    result = st.session_state.session.sql(query).to_pandas()
-    if result.empty:
-        return None
-    return result.iloc[0]['TABLE_NAME']
-
-
 def create_base_conditions_sql(selected_definitions: List[str], source="AIC"):
     """
     Generate SQL query for Base Conditions feature table
-    Handles both SNOMED codes (from OBSERVATION) and ICD10/OPCS4 codes (from BASE_APC_CONCEPTS)
+    Handles SNOMED codes (from OBSERVATION), ICD10 codes (from STG_SUS__APC_DIAGNOSIS_ICD10),
+    and OPCS4 codes (from STG_SUS__APC_PROCEDURE_OPCS4)
 
     Args:
         selected_definitions: List of definition names to include
         source: "AIC" for AI Centre definitions, "ICB" for ICB definitions
     """
-    # Get latest BASE_APC_CONCEPTS table
-    apc_table = get_latest_base_apc_concepts_table()
-    if not apc_table:
-        st.warning("BASE_APC_CONCEPTS table not found. ICD10/OPCS4 codes will not be included.")
-
     union_queries = []
 
     for definition_name in selected_definitions:
@@ -102,11 +80,14 @@ def create_base_conditions_sql(selected_definitions: List[str], source="AIC"):
             def.DEFINITION_NAME,
             def.DEFINITION_VERSION,
             def.VERSION_DATETIME,
-            'SNOMED' AS SOURCE_VOCABULARY
+            obs.OBSERVATION_CONCEPT_CODE AS SOURCE_CONCEPT_CODE,
+            obs.OBSERVATION_CONCEPT_NAME AS SOURCE_CONCEPT_NAME,
+            obs.OBSERVATION_CONCEPT_VOCABULARY AS SOURCE_CONCEPT_VOCABULARY
         FROM {st.session_state.config["gp_observation_table"]} obs
-        LEFT JOIN {st.session_state.config["definition_library"]["database"]}.
+        INNER JOIN {st.session_state.config["definition_library"]["database"]}.
             {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
-            ON obs.CORE_CONCEPT_ID = def.DBID
+            ON obs.OBSERVATION_CONCEPT_CODE = def.CODE
+            AND obs.OBSERVATION_CONCEPT_VOCABULARY = def.VOCABULARY
         WHERE def.DEFINITION_NAME = '{definition_name}'
             AND def.VERSION_DATETIME = (
                 SELECT MAX(VERSION_DATETIME)
@@ -116,37 +97,67 @@ def create_base_conditions_sql(selected_definitions: List[str], source="AIC"):
             )
             AND def.VOCABULARY = 'SNOMED'
             AND def.SOURCE_TABLE = '{"AIC_DEFINITIONS" if source == "AIC" else "ICB_DEFINITIONS"}'
+            AND YEAR(obs.CLINICAL_EFFECTIVE_DATE) BETWEEN 2000 AND YEAR(CURRENT_DATE())
         """
         union_queries.append(snomed_query)
 
-        # ICD10/OPCS4 codes from BASE_APC_CONCEPTS table
-        if apc_table:
-            icd_opcs_query = f"""
-            SELECT DISTINCT
-                apc.PERSON_ID,
-                apc.ACTIVITY_DATE AS CLINICAL_EFFECTIVE_DATE,
-                def.DEFINITION_ID,
-                def.DEFINITION_NAME,
-                def.DEFINITION_VERSION,
-                def.VERSION_DATETIME,
-                apc.VOCABULARY AS SOURCE_VOCABULARY
-            FROM {st.session_state.config["feature_store"]["database"]}.
-                {st.session_state.config["feature_store"]["schema"]}.{apc_table} apc
-            INNER JOIN {st.session_state.config["definition_library"]["database"]}.
-                {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
-                ON apc.VOCABULARY = def.VOCABULARY
-                AND apc.CONCEPT_CODE_STD = def.CODE
-            WHERE def.DEFINITION_NAME = '{definition_name}'
-                AND def.VERSION_DATETIME = (
-                    SELECT MAX(VERSION_DATETIME)
-                    FROM {st.session_state.config["definition_library"]["database"]}.
-                        {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
-                    WHERE DEFINITION_NAME = '{definition_name}'
-                )
-                AND def.VOCABULARY IN ('ICD10', 'OPCS4')
-                AND def.SOURCE_TABLE = '{"AIC_DEFINITIONS" if source == "AIC" else "ICB_DEFINITIONS"}'
-            """
-            union_queries.append(icd_opcs_query)
+        # ICD10 codes from STG_SUS__APC_DIAGNOSIS_ICD10 table
+        icd10_query = f"""
+        SELECT DISTINCT
+            icd.PERSON_ID,
+            icd.ACTIVITY_DATE AS CLINICAL_EFFECTIVE_DATE,
+            def.DEFINITION_ID,
+            def.DEFINITION_NAME,
+            def.DEFINITION_VERSION,
+            def.VERSION_DATETIME,
+            icd.CONCEPT_CODE AS SOURCE_CONCEPT_CODE,
+            icd.CONCEPT_NAME AS SOURCE_CONCEPT_NAME,
+            'ICD10' AS SOURCE_CONCEPT_VOCABULARY
+        FROM {st.session_state.config["sus_icd10_table"]} icd
+        INNER JOIN {st.session_state.config["definition_library"]["database"]}.
+            {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
+            ON icd.CONCEPT_CODE = def.CODE
+            AND def.VOCABULARY = 'ICD10'
+        WHERE def.DEFINITION_NAME = '{definition_name}'
+            AND def.VERSION_DATETIME = (
+                SELECT MAX(VERSION_DATETIME)
+                FROM {st.session_state.config["definition_library"]["database"]}.
+                    {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
+                WHERE DEFINITION_NAME = '{definition_name}'
+            )
+            AND def.SOURCE_TABLE = '{"AIC_DEFINITIONS" if source == "AIC" else "ICB_DEFINITIONS"}'
+            AND YEAR(icd.ACTIVITY_DATE) BETWEEN 2000 AND YEAR(CURRENT_DATE())
+        """
+        union_queries.append(icd10_query)
+
+        # OPCS4 codes from STG_SUS__APC_PROCEDURE_OPCS4 table
+        opcs4_query = f"""
+        SELECT DISTINCT
+            opcs.PERSON_ID,
+            opcs.ACTIVITY_DATE AS CLINICAL_EFFECTIVE_DATE,
+            def.DEFINITION_ID,
+            def.DEFINITION_NAME,
+            def.DEFINITION_VERSION,
+            def.VERSION_DATETIME,
+            opcs.CONCEPT_CODE AS SOURCE_CONCEPT_CODE,
+            opcs.CONCEPT_NAME AS SOURCE_CONCEPT_NAME,
+            'OPCS4' AS SOURCE_CONCEPT_VOCABULARY
+        FROM {st.session_state.config["sus_opcs4_table"]} opcs
+        INNER JOIN {st.session_state.config["definition_library"]["database"]}.
+            {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
+            ON opcs.CONCEPT_CODE = def.CODE
+            AND def.VOCABULARY = 'OPCS4'
+        WHERE def.DEFINITION_NAME = '{definition_name}'
+            AND def.VERSION_DATETIME = (
+                SELECT MAX(VERSION_DATETIME)
+                FROM {st.session_state.config["definition_library"]["database"]}.
+                    {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
+                WHERE DEFINITION_NAME = '{definition_name}'
+            )
+            AND def.SOURCE_TABLE = '{"AIC_DEFINITIONS" if source == "AIC" else "ICB_DEFINITIONS"}'
+            AND YEAR(opcs.ACTIVITY_DATE) BETWEEN 2000 AND YEAR(CURRENT_DATE())
+        """
+        union_queries.append(opcs4_query)
 
     if not union_queries:
         return None
@@ -154,36 +165,120 @@ def create_base_conditions_sql(selected_definitions: List[str], source="AIC"):
     return " UNION ALL ".join(union_queries)
 
 
-def create_base_conditions_feature(selected_definitions: List[str], source="AIC"):
+def _initialize_base_conditions_table(table_name: str):
     """
-    Create or update Base Conditions ('Has Condition') feature table
+    Initialize the base conditions table structure
 
     Args:
-        selected_definitions:
-            List of definition names to include
-        source:
-            "AIC" for AI Centre definitions (creates BASE_CONDITIONS),
-            "ICB" for ICB definitions (creates BASE_ICB_CONDITIONS)
+        table_name: Name of the table to create
+    """
+    st.session_state.session.sql(f"""
+        CREATE OR REPLACE TABLE {st.session_state.config["feature_store"]["database"]}.
+        {st.session_state.config["feature_store"]["schema"]}.{table_name} (
+            PERSON_ID VARCHAR,
+            CLINICAL_EFFECTIVE_DATE TIMESTAMP_NTZ,
+            DEFINITION_ID VARCHAR,
+            DEFINITION_NAME VARCHAR,
+            DEFINITION_VERSION VARCHAR,
+            VERSION_DATETIME TIMESTAMP_NTZ,
+            SOURCE_CONCEPT_CODE VARCHAR,
+            SOURCE_CONCEPT_NAME VARCHAR,
+            SOURCE_CONCEPT_VOCABULARY VARCHAR
+        )
+    """).collect()
+
+
+def create_base_conditions_feature_incremental(selected_definitions: List[str], source="AIC"):
+    """
+    Create or update Base Conditions ('Has Condition') feature table incrementally
+    This prevents timeouts from massive single query
     """
     try:
-        with st.spinner("Generating SQL query..."):
-            sql_query = create_base_conditions_sql(selected_definitions, source=source)
+        # AIC or ICB
+        table_name = "DEV_ICB_CONDITIONS" if source == "ICB" else "DEV_AIC_CONDITIONS"
+        table_display_name = "Dev ICB Conditions" if source == "ICB" else "Dev AIC Conditions"
 
-        if not sql_query:
-            st.error("Failed to generate SQL query. No definitions selected.")
-            return
+        with st.spinner(f"Initializing {table_display_name} table structure..."):
+            _initialize_base_conditions_table(table_name)
 
-        # Determine table name based on source
-        table_name = "BASE_ICB_CONDITIONS" if source == "ICB" else "BASE_CONDITIONS"
-        table_display_name = "Base ICB Conditions" if source == "ICB" else "Base Conditions"
+        # process each individually
+        progress_bar = st.progress(0, f"Processing 0 of {len(selected_definitions)} definitions")
+        status_text = st.empty()
 
-        with st.spinner(f"Creating or updating {table_display_name} feature table..."):
-            st.session_state.session.sql(
-                f"""CREATE OR REPLACE TABLE {st.session_state.config["feature_store"]["database"]}.
-                {st.session_state.config["feature_store"]["schema"]}.{table_name} AS
-                {sql_query}""").collect()
+        successful_definitions = []
+        failed_definitions = []
 
-            st.success(f"{table_display_name} feature created or updated successfully!")
+        for i, definition_name in enumerate(selected_definitions):
+            try:
+                status_text.info(f"Processing definition: **{definition_name}**")
+
+                sql_query = create_base_conditions_sql([definition_name], source=source)
+
+                if sql_query:
+                    st.session_state.session.sql(
+                        f"""INSERT INTO {st.session_state.config["feature_store"]["database"]}.
+                        {st.session_state.config["feature_store"]["schema"]}.{table_name}
+                        {sql_query}""").collect()
+
+                    successful_definitions.append(definition_name)
+                else:
+                    failed_definitions.append((definition_name, "No SQL generated"))
+
+            except Exception as e:
+                failed_definitions.append((definition_name, e))
+                st.warning(f"Failed to process {definition_name}: {e}")
+
+            # update progress
+            progress = (i + 1) / len(selected_definitions)
+            progress_bar.progress(progress, f"Processed {i + 1} of {len(selected_definitions)} definitions")
+
+        progress_bar.empty()
+        status_text.empty()
+
+        if successful_definitions:
+            st.success(f"{table_display_name} feature table updated! "
+                      f"Successfully processed {len(successful_definitions)} definitions.")
+
+        if failed_definitions:
+            st.warning(f"{len(failed_definitions)} definitions failed to process:")
+            for def_name, error in failed_definitions:
+                st.write(f"• {def_name}: {error}")
+
+    except Exception as e:
+        st.error(f"Error creating {table_display_name} feature table: {e}")
+
+
+# def create_base_conditions_feature(selected_definitions: List[str], source="AIC"):
+#     """
+#     Create or update Base Conditions ('Has Condition') feature table
+#     DEPRECATED: Use create_base_conditions_feature_incremental instead to avoid timeouts
+
+#     Args:
+#         selected_definitions:
+#             List of definition names to include
+#         source:
+#             "AIC" for AI Centre definitions (creates BASE_CONDITIONS),
+#             "ICB" for ICB definitions (creates BASE_ICB_CONDITIONS)
+#     """
+#     try:
+#         with st.spinner("Generating SQL query..."):
+#             sql_query = create_base_conditions_sql(selected_definitions, source=source)
+
+#         if not sql_query:
+#             st.error("Failed to generate SQL query. No definitions selected.")
+#             return
+
+#         # Determine table name based on source
+#         table_name = "DEV_ICB_CONDITIONS" if source == "ICB" else "DEV_AIC_CONDITIONS"
+#         table_display_name = "Dev ICB Conditions" if source == "ICB" else "Dev AIC Conditions"
+
+#         with st.spinner(f"Creating or updating {table_display_name} feature table..."):
+#             st.session_state.session.sql(
+#                 f"""CREATE OR REPLACE TABLE {st.session_state.config["feature_store"]["database"]}.
+#                 {st.session_state.config["feature_store"]["schema"]}.{table_name} AS
+#                 {sql_query}""").collect()
+
+#             st.success(f"{table_display_name} feature created or updated successfully!")
 
 
         # with st.spinner("Initialising Feature Store Manager..."):
@@ -234,15 +329,15 @@ def create_base_conditions_feature(selected_definitions: List[str], source="AIC"
         #         table_name = f"{feature_name}_V{feature_version}"
         #         st.write(f"**Table Name:** {table_name}")
 
-            try:
-                count_result = st.session_state.session.sql(
-                    f"""SELECT COUNT(*) as row_count FROM {st.session_state.config["feature_store"]["database"]}.
-                        {st.session_state.config["feature_store"]["schema"]}.{table_name}""").to_pandas()
-                row_count = count_result.iloc[0]['ROW_COUNT']
-                st.write(f"**Rows Created:** {row_count:,}")
-            except Exception as e:
-                st.warning(f"Could not get row count: {e}")
+        #     try:
+        #         count_result = st.session_state.session.sql(
+        #             f"""SELECT COUNT(*) as row_count FROM {st.session_state.config["feature_store"]["database"]}.
+        #                 {st.session_state.config["feature_store"]["schema"]}.{table_name}""").to_pandas()
+        #         row_count = count_result.iloc[0]['ROW_COUNT']
+        #         st.write(f"**Rows Created:** {row_count:,}")
+        #     except Exception as e:
+        #         st.warning(f"Could not get row count: {e}")
 
-    except Exception as e:
-        st.error(f"Error creating Base Conditions feature: {e}")
-        st.exception(e)
+    # except Exception as e:
+    #     st.error(f"Error creating Base Conditions feature: {e}")
+    #     st.exception(e)

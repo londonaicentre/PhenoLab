@@ -13,7 +13,9 @@ feature_store:
 measurement_configs:
   database: INTELLIGENCE_DEV
   schema: PHENOLAB_DEV
-measurement_config_folder: nel_icb
 gp_observation_table: PROD_DWH.ANALYST_PRIMARY_CARE.OBSERVATION
 gp_concept_table: PROD_DWH.ANALYST_PRIMARY_CARE.CONCEPT
 gp_concept_map_table: PROD_DWH.ANALYST_PRIMARY_CARE.CONCEPT_MAP
+# placeholders
+sus_icd10_table: PLACEHOLDER_NOT_USED
+sus_opcs4_table: PLACEHOLDER_NOT_USED

@@ -3,7 +3,7 @@ import streamlit as st
 from plotly.subplots import make_subplots
 
 from utils.condition_interaction_utils import (
-    create_base_conditions_feature,
+    create_base_conditions_feature_incremental,
     get_non_measurement_definitions,
 )
 from utils.database_utils import (
@@ -14,7 +14,7 @@ from utils.database_utils import (
 from utils.measurement_interaction_utils import (
     apply_conversions,
     apply_unit_mapping,
-    create_base_measurements_feature,
+    create_base_measurements_feature_incremental,
     get_available_measurement_configs,
     get_measurement_values,
 )
@@ -154,12 +154,12 @@ def display_feature_creation():
         "primary standard unit is set, and unit mappings are defined.")
         return
 
-    st.write("""This will create or update the **Base Measurements** feature table \
+    st.write("""This will create or update the **Dev Measurements** feature table \
              containing converted values from the standardised measurements shown on this page.\
              """)
 
-    if st.button("Create / Update Base Measurements Table", type="primary", use_container_width=True):
-        create_base_measurements_feature(eligible_configs)
+    if st.button("Create / Update Dev Measurements Table", type="primary", use_container_width=True):
+        create_base_measurements_feature_incremental(eligible_configs)
 
     st.write("""
     **Table Schema:**
@@ -170,8 +170,13 @@ def display_feature_creation():
     - `DEFINITION_NAME`: Measurement definition name
     - `SOURCE_RESULT_VALUE`: Original measurement value
     - `SOURCE_RESULT_VALUE_UNITS`: Original measurement unit
+    - `SOURCE_CONCEPT_CODE`: Original concept code from source system
+    - `SOURCE_CONCEPT_NAME`: Original concept name from source system
+    - `SOURCE_CONCEPT_VOCABULARY`: Source vocabulary (SNOMED, etc.)
     - `VALUE_AS_NUMBER`: Converted value in primary standard unit
     - `VALUE_UNITS`: Primary standard unit (standardized)
+    - `ABOVE_RANGE`: Flag for values above defined upper limit
+    - `BELOW_RANGE`: Flag for values below defined lower limit
     """)
 
 def create_condition_distribution_plot(df_yearly, definition_name):
@@ -259,7 +264,7 @@ def display_condition_feature_creation(definition_source):
         return
 
     # Update table name and description based on source
-    table_name = "Base ICB Conditions" if definition_source == "ICB" else "Base Conditions"
+    table_name = "Dev ICB Conditions" if definition_source == "ICB" else "Dev AIC Conditions"
     table_suffix = "(ICB)" if definition_source == "ICB" else "(AIC)"
 
     st.write(f"""This will create or update the **{table_name}** feature table
@@ -269,7 +274,7 @@ def display_condition_feature_creation(definition_source):
     button_text = f"Create / Update {table_name} Table"
     if st.button(button_text, type="primary", use_container_width=True):
         all_definitions = list(definitions.keys())
-        create_base_conditions_feature(all_definitions, source=definition_source)
+        create_base_conditions_feature_incremental(all_definitions, source=definition_source)
 
     st.write("""
     **Table Schema:**
@@ -277,7 +282,11 @@ def display_condition_feature_creation(definition_source):
     - `CLINICAL_EFFECTIVE_DATE`: Date of condition observation (or ACTIVITY_DATE for ICD10/OPCS4)
     - `DEFINITION_ID`: Condition definition ID
     - `DEFINITION_NAME`: Condition definition name
-    - `SOURCE_VOCABULARY`: Source vocabulary (SNOMED, ICD10, or OPCS4)
+    - `DEFINITION_VERSION`: Version of the definition used
+    - `VERSION_DATETIME`: Timestamp of the definition version
+    - `SOURCE_CONCEPT_CODE`: Original concept code from source system
+    - `SOURCE_CONCEPT_NAME`: Original concept name from source system
+    - `SOURCE_CONCEPT_VOCABULARY`: Source vocabulary (SNOMED, ICD10, OPCS4)
     """)
 
 

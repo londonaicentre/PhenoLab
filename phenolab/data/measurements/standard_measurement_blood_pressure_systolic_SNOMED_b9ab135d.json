@@ -975,11 +975,323 @@
       "source_unit_lq": 119.0,
       "source_unit_median": 132.0,
       "source_unit_uq": 143.0
+    },
+    {
+      "source_unit": "mg",
+      "standard_unit": "",
+      "source_unit_count": 18,
+      "source_unit_lq": 110.0,
+      "source_unit_median": 110.0,
+      "source_unit_uq": 120.0
+    },
+    {
+      "source_unit": "l",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 132.0,
+      "source_unit_median": 134.0,
+      "source_unit_uq": 138.25
+    },
+    {
+      "source_unit": "mm/h",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 107.0,
+      "source_unit_median": 109.0,
+      "source_unit_uq": 110.0
+    },
+    {
+      "source_unit": "137",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 137.0,
+      "source_unit_median": 137.0,
+      "source_unit_uq": 137.0
+    },
+    {
+      "source_unit": "133",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 133.0,
+      "source_unit_median": 133.0,
+      "source_unit_uq": 133.0
+    },
+    {
+      "source_unit": "144",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 144.0,
+      "source_unit_median": 144.0,
+      "source_unit_uq": 144.0
+    },
+    {
+      "source_unit": "154",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 154.0,
+      "source_unit_median": 154.0,
+      "source_unit_uq": 154.0
+    },
+    {
+      "source_unit": "149",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 149.0,
+      "source_unit_median": 149.0,
+      "source_unit_uq": 149.0
+    },
+    {
+      "source_unit": "134",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 134.0,
+      "source_unit_median": 134.0,
+      "source_unit_uq": 134.0
+    },
+    {
+      "source_unit": "167",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 167.0,
+      "source_unit_median": 167.0,
+      "source_unit_uq": 167.0
+    },
+    {
+      "source_unit": "138",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 138.0,
+      "source_unit_median": 138.0,
+      "source_unit_uq": 138.0
+    },
+    {
+      "source_unit": "mmHG",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 106.25,
+      "source_unit_median": 107.5,
+      "source_unit_uq": 108.75
+    },
+    {
+      "source_unit": "121",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 121.0,
+      "source_unit_median": 121.0,
+      "source_unit_uq": 121.0
+    },
+    {
+      "source_unit": "mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 128.75,
+      "source_unit_median": 133.5,
+      "source_unit_uq": 138.25
+    },
+    {
+      "source_unit": "Unk UoM",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 124.25,
+      "source_unit_median": 125.5,
+      "source_unit_uq": 126.75
+    },
+    {
+      "source_unit": "168",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 168.0,
+      "source_unit_median": 168.0,
+      "source_unit_uq": 168.0
+    },
+    {
+      "source_unit": "136",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 136.0,
+      "source_unit_median": 136.0,
+      "source_unit_uq": 136.0
+    },
+    {
+      "source_unit": "beats/min",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 111.0,
+      "source_unit_median": 111.0,
+      "source_unit_uq": 111.0
+    },
+    {
+      "source_unit": "130",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 130.0,
+      "source_unit_median": 130.0,
+      "source_unit_uq": 130.0
+    },
+    {
+      "source_unit": "137S91",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 154.0,
+      "source_unit_median": 154.0,
+      "source_unit_uq": 154.0
+    },
+    {
+      "source_unit": "146",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 146.0,
+      "source_unit_median": 146.0,
+      "source_unit_uq": 146.0
+    },
+    {
+      "source_unit": "mm.Hg.",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 129.0,
+      "source_unit_median": 129.0,
+      "source_unit_uq": 129.0
+    },
+    {
+      "source_unit": "177",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 177.0,
+      "source_unit_median": 177.0,
+      "source_unit_uq": 177.0
+    },
+    {
+      "source_unit": "mm",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 185.0,
+      "source_unit_median": 185.0,
+      "source_unit_uq": 185.0
+    },
+    {
+      "source_unit": "137S94",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 141.0,
+      "source_unit_median": 141.0,
+      "source_unit_uq": 141.0
+    },
+    {
+      "source_unit": "g/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 119.0,
+      "source_unit_median": 119.0,
+      "source_unit_uq": 119.0
+    },
+    {
+      "source_unit": "132",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 132.0,
+      "source_unit_median": 132.0,
+      "source_unit_uq": 132.0
+    },
+    {
+      "source_unit": "160",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 160.0,
+      "source_unit_median": 160.0,
+      "source_unit_uq": 160.0
+    },
+    {
+      "source_unit": "109",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 109.0,
+      "source_unit_median": 109.0,
+      "source_unit_uq": 109.0
+    },
+    {
+      "source_unit": "141",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 141.0,
+      "source_unit_median": 141.0,
+      "source_unit_uq": 141.0
+    },
+    {
+      "source_unit": "157",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 157.0,
+      "source_unit_median": 157.0,
+      "source_unit_uq": 157.0
+    },
+    {
+      "source_unit": "150",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 150.0,
+      "source_unit_median": 150.0,
+      "source_unit_uq": 150.0
+    },
+    {
+      "source_unit": "117",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 117.0,
+      "source_unit_median": 117.0,
+      "source_unit_uq": 117.0
+    },
+    {
+      "source_unit": "131",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 131.0,
+      "source_unit_median": 131.0,
+      "source_unit_uq": 131.0
+    },
+    {
+      "source_unit": "179",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 179.0,
+      "source_unit_median": 179.0,
+      "source_unit_uq": 179.0
+    },
+    {
+      "source_unit": "bpm",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 157.0,
+      "source_unit_median": 157.0,
+      "source_unit_uq": 157.0
+    },
+    {
+      "source_unit": "170",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 170.0,
+      "source_unit_median": 170.0,
+      "source_unit_uq": 170.0
+    },
+    {
+      "source_unit": "124",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 124.0,
+      "source_unit_median": 124.0,
+      "source_unit_uq": 124.0
+    },
+    {
+      "source_unit": "173",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 173.0,
+      "source_unit_median": 173.0,
+      "source_unit_uq": 173.0
     }
   ],
   "unit_conversions": [],
   "created_datetime": "2025-05-19T23:23:56.059375",
-  "updated_datetime": "2025-07-23T13:29:08.276938",
+  "updated_datetime": "2025-08-14T16:45:20.869439",
   "standard_measurement_config_id": "b9ab135d",
-  "standard_measurement_config_version": "measurement_blood_pressure_systolic_SNOMED_20250723_132908"
+  "standard_measurement_config_version": "measurement_blood_pressure_systolic_SNOMED_20250814_164520"
 }
