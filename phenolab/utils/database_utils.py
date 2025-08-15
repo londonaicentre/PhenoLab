@@ -109,14 +109,14 @@ def return_codes_for_given_definition_id_as_df(chosen_definition_id: str) -> pd.
 @standard_query_cache
 def get_measurement_unit_statistics(definition_name: str) -> pd.DataFrame:
     """
-    Get statistics for all units associated with a measurement definition
+    Get statistics for all units associated with a measurement definition using INT_OBSERVATION table
     """
     query = f"""
     WITH measurement_values AS (
         SELECT
             obs.RESULT_VALUE_UNIT,
             TRY_CAST(obs.RESULT_VALUE AS FLOAT) AS VALUE
-        FROM {st.session_state.config["gp_observation_table"]} obs
+        FROM {st.session_state.config["int_observation_table"]} obs
         INNER JOIN {st.session_state.config["definition_library"]["database"]}.
             {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
             ON obs.OBSERVATION_CONCEPT_CODE = def.CODE
@@ -178,142 +178,56 @@ def get_available_measurements() -> pd.DataFrame:
 @standard_query_cache
 def get_condition_patient_counts_by_year(definition_name: str) -> pd.DataFrame:
     """
-    Get unique patient counts by year for a given condition definition
-    Includes both SNOMED codes from OBSERVATION and ICD10/OPCS4 codes from BASE_APC_CONCEPTS
+    Get unique patient counts by year for a given condition definition using INT_OBSERVATION table.
 
     Args:
         definition_name: Name of the condition definition
-        _session: Snowflake connection
 
     Returns:
         DataFrame with columns: YEAR, PATIENT_COUNT
     """
-    query_parts = []
-
-    # SNOMED from OBSERVATION
-    query_parts.append(f"""
+    query = f"""
     SELECT
         YEAR(obs.CLINICAL_EFFECTIVE_DATE) AS YEAR,
-        obs.PERSON_ID
-    FROM {st.session_state.config["gp_observation_table"]} obs
+        COUNT(DISTINCT obs.PERSON_ID) AS PATIENT_COUNT
+    FROM {st.session_state.config["int_observation_table"]} obs
     INNER JOIN {st.session_state.config["definition_library"]["database"]}.
-            {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
+        {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
         ON obs.OBSERVATION_CONCEPT_CODE = def.CODE
         AND obs.OBSERVATION_CONCEPT_VOCABULARY = def.VOCABULARY
     WHERE def.DEFINITION_NAME = '{definition_name}'
-        AND def.VOCABULARY = 'SNOMED'
+        AND obs.CLINICAL_EFFECTIVE_DATE >= '2000-01-01'
+        AND obs.CLINICAL_EFFECTIVE_DATE <= CURRENT_DATE()
         AND obs.CLINICAL_EFFECTIVE_DATE IS NOT NULL
-        AND YEAR(obs.CLINICAL_EFFECTIVE_DATE) BETWEEN 2000 AND YEAR(CURRENT_DATE())
-    """)
-
-    # ICD10 from STG_SUS__APC_DIAGNOSIS_ICD10
-    query_parts.append(f"""
-    SELECT
-        YEAR(icd.ACTIVITY_DATE) AS YEAR,
-        icd.PERSON_ID
-    FROM {st.session_state.config["sus_icd10_table"]} icd
-    INNER JOIN {st.session_state.config["definition_library"]["database"]}.
-        {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
-        ON icd.CONCEPT_CODE = def.CODE
-        AND def.VOCABULARY = 'ICD10'
-    WHERE def.DEFINITION_NAME = '{definition_name}'
-        AND icd.ACTIVITY_DATE IS NOT NULL
-        AND YEAR(icd.ACTIVITY_DATE) BETWEEN 2000 AND YEAR(CURRENT_DATE())
-    """)
-
-    # OPCS4 from STG_SUS__APC_PROCEDURE_OPCS4
-    query_parts.append(f"""
-    SELECT
-        YEAR(opcs.ACTIVITY_DATE) AS YEAR,
-        opcs.PERSON_ID
-    FROM {st.session_state.config["sus_opcs4_table"]} opcs
-    INNER JOIN {st.session_state.config["definition_library"]["database"]}.
-        {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
-        ON opcs.CONCEPT_CODE = def.CODE
-        AND def.VOCABULARY = 'OPCS4'
-    WHERE def.DEFINITION_NAME = '{definition_name}'
-        AND opcs.ACTIVITY_DATE IS NOT NULL
-        AND YEAR(opcs.ACTIVITY_DATE) BETWEEN 2000 AND YEAR(CURRENT_DATE())
-    """)
-
-    # count patients per year
-    combined_query = f"""
-    WITH all_patients AS (
-        {' UNION '.join(query_parts)}
-    )
-    SELECT
-        YEAR,
-        COUNT(DISTINCT PERSON_ID) AS PATIENT_COUNT
-    FROM all_patients
-    GROUP BY YEAR
+    GROUP BY YEAR(obs.CLINICAL_EFFECTIVE_DATE)
     ORDER BY YEAR
     """
 
-    return get_data_from_snowflake_to_dataframe(combined_query)
+    return get_data_from_snowflake_to_dataframe(query)
 
 
 @standard_query_cache
 def get_unique_patients_for_condition(definition_name: str) -> int:
     """
-    Get total unique patient count for a condition definition
-    Includes SNOMED codes from OBSERVATION, ICD10 codes from STG_SUS__APC_DIAGNOSIS_ICD10,
-    and OPCS4 codes from STG_SUS__APC_PROCEDURE_OPCS4
+    Get total unique patient count for a condition definition using INT_OBSERVATION table.
+    This replaces the previous three-way UNION approach with a single optimized query.
 
     Args:
         definition_name: Name of the condition definition
-        _session: Snowflake connection
 
     Returns:
         Number of unique patients
     """
-    # Build query with UNION for all sources
-    query_parts = []
-
-    # SNOMED from OBSERVATION
-    query_parts.append(f"""
-    SELECT DISTINCT obs.PERSON_ID
-    FROM {st.session_state.config["gp_observation_table"]} obs
+    query = f"""
+    SELECT COUNT(DISTINCT obs.PERSON_ID) AS UNIQUE_PATIENTS
+    FROM {st.session_state.config["int_observation_table"]} obs
     INNER JOIN {st.session_state.config["definition_library"]["database"]}.
         {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
         ON obs.OBSERVATION_CONCEPT_CODE = def.CODE
         AND obs.OBSERVATION_CONCEPT_VOCABULARY = def.VOCABULARY
     WHERE def.DEFINITION_NAME = '{definition_name}'
-        AND def.VOCABULARY = 'SNOMED'
         AND YEAR(obs.CLINICAL_EFFECTIVE_DATE) BETWEEN 2000 AND YEAR(CURRENT_DATE())
-    """)
-
-    # ICD10 from STG_SUS__APC_DIAGNOSIS_ICD10
-    query_parts.append(f"""
-    SELECT DISTINCT icd.PERSON_ID
-    FROM {st.session_state.config["sus_icd10_table"]} icd
-    INNER JOIN {st.session_state.config["definition_library"]["database"]}.
-        {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
-        ON icd.CONCEPT_CODE = def.CODE
-        AND def.VOCABULARY = 'ICD10'
-    WHERE def.DEFINITION_NAME = '{definition_name}'
-        AND YEAR(icd.ACTIVITY_DATE) BETWEEN 2000 AND YEAR(CURRENT_DATE())
-    """)
-
-    # OPCS4 from STG_SUS__APC_PROCEDURE_OPCS4
-    query_parts.append(f"""
-    SELECT DISTINCT opcs.PERSON_ID
-    FROM {st.session_state.config["sus_opcs4_table"]} opcs
-    INNER JOIN {st.session_state.config["definition_library"]["database"]}.
-        {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
-        ON opcs.CONCEPT_CODE = def.CODE
-        AND def.VOCABULARY = 'OPCS4'
-    WHERE def.DEFINITION_NAME = '{definition_name}'
-        AND YEAR(opcs.ACTIVITY_DATE) BETWEEN 2000 AND YEAR(CURRENT_DATE())
-    """)
-
-    # count unique patients
-    combined_query = f"""
-    WITH all_patients AS (
-        {' UNION '.join(query_parts)}
-    )
-    SELECT COUNT(DISTINCT PERSON_ID) AS UNIQUE_PATIENTS
-    FROM all_patients
     """
 
-    result = get_data_from_snowflake_to_dataframe(combined_query)
+    result = get_data_from_snowflake_to_dataframe(query)
     return result.iloc[0]['UNIQUE_PATIENTS'] if not result.empty else 0

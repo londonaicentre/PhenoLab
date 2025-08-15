@@ -176,13 +176,13 @@ def get_available_measurement_configs():
 @st.cache_data(ttl=600, show_spinner="Loading measurement values...")
 def get_measurement_values(definition_name, limit = 100000):
     """
-    Get actual measurement values for a definition from Snowflake
+    Get actual measurement values for a definition from Snowflake using INT_OBSERVATION table
     """
     query = f"""
     SELECT
         COALESCE(RESULT_VALUE_UNIT, 'No Unit') AS unit,
         TRY_CAST(RESULT_VALUE AS FLOAT) AS value
-    FROM {st.session_state.config["gp_observation_table"]} obs
+    FROM {st.session_state.config["int_observation_table"]} obs
     INNER JOIN {st.session_state.config["definition_library"]["database"]}.
         {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
         ON obs.OBSERVATION_CONCEPT_CODE = def.CODE
@@ -321,7 +321,7 @@ def create_base_measurements_sql(eligible_configs):
                 THEN 1 ELSE 0 END AS ABOVE_RANGE,
             CASE WHEN {conversion_case_sql.replace('mapped_unit', f'({mapping_case_sql})')} < {lower_limit}
                 THEN 1 ELSE 0 END AS BELOW_RANGE
-        FROM {st.session_state.config["gp_observation_table"]} obs
+        FROM {st.session_state.config["int_observation_table"]} obs
         INNER JOIN {st.session_state.config["definition_library"]["database"]}.
             {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
             ON obs.OBSERVATION_CONCEPT_CODE = def.CODE

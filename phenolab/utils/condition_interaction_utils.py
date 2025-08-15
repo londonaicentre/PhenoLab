@@ -60,109 +60,46 @@ def get_non_measurement_definitions(source="AIC"):
 
 def create_base_conditions_sql(selected_definitions: List[str], source="AIC"):
     """
-    Generate SQL query for Base Conditions feature table
-    Handles SNOMED codes (from OBSERVATION), ICD10 codes (from STG_SUS__APC_DIAGNOSIS_ICD10),
-    and OPCS4 codes (from STG_SUS__APC_PROCEDURE_OPCS4)
+    Generate SQL query for Base Conditions feature table using the unified INT_OBSERVATION table.
+    This single query replaces the previous three-way UNION approach.
 
     Args:
         selected_definitions: List of definition names to include
         source: "AIC" for AI Centre definitions, "ICB" for ICB definitions
     """
-    union_queries = []
-
-    for definition_name in selected_definitions:
-        # SNOMED codes from OBSERVATION table
-        snomed_query = f"""
-        SELECT DISTINCT
-            obs.PERSON_ID,
-            obs.CLINICAL_EFFECTIVE_DATE AS CLINICAL_EFFECTIVE_DATE,
-            def.DEFINITION_ID,
-            def.DEFINITION_NAME,
-            def.DEFINITION_VERSION,
-            def.VERSION_DATETIME,
-            obs.OBSERVATION_CONCEPT_CODE AS SOURCE_CONCEPT_CODE,
-            obs.OBSERVATION_CONCEPT_NAME AS SOURCE_CONCEPT_NAME,
-            obs.OBSERVATION_CONCEPT_VOCABULARY AS SOURCE_CONCEPT_VOCABULARY
-        FROM {st.session_state.config["gp_observation_table"]} obs
-        INNER JOIN {st.session_state.config["definition_library"]["database"]}.
-            {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
-            ON obs.OBSERVATION_CONCEPT_CODE = def.CODE
-            AND obs.OBSERVATION_CONCEPT_VOCABULARY = def.VOCABULARY
-        WHERE def.DEFINITION_NAME = '{definition_name}'
-            AND def.VERSION_DATETIME = (
-                SELECT MAX(VERSION_DATETIME)
-                FROM {st.session_state.config["definition_library"]["database"]}.
-                    {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
-                WHERE DEFINITION_NAME = '{definition_name}'
-            )
-            AND def.VOCABULARY = 'SNOMED'
-            AND def.SOURCE_TABLE = '{"AIC_DEFINITIONS" if source == "AIC" else "ICB_DEFINITIONS"}'
-            AND YEAR(obs.CLINICAL_EFFECTIVE_DATE) BETWEEN 2000 AND YEAR(CURRENT_DATE())
-        """
-        union_queries.append(snomed_query)
-
-        # ICD10 codes from STG_SUS__APC_DIAGNOSIS_ICD10 table
-        icd10_query = f"""
-        SELECT DISTINCT
-            icd.PERSON_ID,
-            icd.ACTIVITY_DATE AS CLINICAL_EFFECTIVE_DATE,
-            def.DEFINITION_ID,
-            def.DEFINITION_NAME,
-            def.DEFINITION_VERSION,
-            def.VERSION_DATETIME,
-            icd.CONCEPT_CODE AS SOURCE_CONCEPT_CODE,
-            icd.CONCEPT_NAME AS SOURCE_CONCEPT_NAME,
-            'ICD10' AS SOURCE_CONCEPT_VOCABULARY
-        FROM {st.session_state.config["sus_icd10_table"]} icd
-        INNER JOIN {st.session_state.config["definition_library"]["database"]}.
-            {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
-            ON icd.CONCEPT_CODE = def.CODE
-            AND def.VOCABULARY = 'ICD10'
-        WHERE def.DEFINITION_NAME = '{definition_name}'
-            AND def.VERSION_DATETIME = (
-                SELECT MAX(VERSION_DATETIME)
-                FROM {st.session_state.config["definition_library"]["database"]}.
-                    {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
-                WHERE DEFINITION_NAME = '{definition_name}'
-            )
-            AND def.SOURCE_TABLE = '{"AIC_DEFINITIONS" if source == "AIC" else "ICB_DEFINITIONS"}'
-            AND YEAR(icd.ACTIVITY_DATE) BETWEEN 2000 AND YEAR(CURRENT_DATE())
-        """
-        union_queries.append(icd10_query)
-
-        # OPCS4 codes from STG_SUS__APC_PROCEDURE_OPCS4 table
-        opcs4_query = f"""
-        SELECT DISTINCT
-            opcs.PERSON_ID,
-            opcs.ACTIVITY_DATE AS CLINICAL_EFFECTIVE_DATE,
-            def.DEFINITION_ID,
-            def.DEFINITION_NAME,
-            def.DEFINITION_VERSION,
-            def.VERSION_DATETIME,
-            opcs.CONCEPT_CODE AS SOURCE_CONCEPT_CODE,
-            opcs.CONCEPT_NAME AS SOURCE_CONCEPT_NAME,
-            'OPCS4' AS SOURCE_CONCEPT_VOCABULARY
-        FROM {st.session_state.config["sus_opcs4_table"]} opcs
-        INNER JOIN {st.session_state.config["definition_library"]["database"]}.
-            {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
-            ON opcs.CONCEPT_CODE = def.CODE
-            AND def.VOCABULARY = 'OPCS4'
-        WHERE def.DEFINITION_NAME = '{definition_name}'
-            AND def.VERSION_DATETIME = (
-                SELECT MAX(VERSION_DATETIME)
-                FROM {st.session_state.config["definition_library"]["database"]}.
-                    {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE
-                WHERE DEFINITION_NAME = '{definition_name}'
-            )
-            AND def.SOURCE_TABLE = '{"AIC_DEFINITIONS" if source == "AIC" else "ICB_DEFINITIONS"}'
-            AND YEAR(opcs.ACTIVITY_DATE) BETWEEN 2000 AND YEAR(CURRENT_DATE())
-        """
-        union_queries.append(opcs4_query)
-
-    if not union_queries:
+    if not selected_definitions:
         return None
 
-    return " UNION ALL ".join(union_queries)
+    definition_list = "', '".join(selected_definitions)
+
+    query = f"""
+    SELECT DISTINCT
+        obs.PERSON_ID,
+        obs.CLINICAL_EFFECTIVE_DATE,
+        def.DEFINITION_ID,
+        def.DEFINITION_NAME,
+        def.DEFINITION_VERSION,
+        def.VERSION_DATETIME,
+        obs.OBSERVATION_CONCEPT_CODE AS SOURCE_CONCEPT_CODE,
+        obs.OBSERVATION_CONCEPT_NAME AS SOURCE_CONCEPT_NAME,
+        obs.OBSERVATION_CONCEPT_VOCABULARY AS SOURCE_CONCEPT_VOCABULARY
+    FROM {st.session_state.config["int_observation_table"]} obs
+    INNER JOIN {st.session_state.config["definition_library"]["database"]}.
+        {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE def
+        ON obs.OBSERVATION_CONCEPT_CODE = def.CODE
+        AND obs.OBSERVATION_CONCEPT_VOCABULARY = def.VOCABULARY
+    WHERE def.DEFINITION_NAME IN ('{definition_list}')
+        AND def.VERSION_DATETIME = (
+            SELECT MAX(d2.VERSION_DATETIME)
+            FROM {st.session_state.config["definition_library"]["database"]}.
+                {st.session_state.config["definition_library"]["schema"]}.DEFINITIONSTORE d2
+            WHERE d2.DEFINITION_NAME = def.DEFINITION_NAME
+        )
+        AND def.SOURCE_TABLE = '{"AIC_DEFINITIONS" if source == "AIC" else "ICB_DEFINITIONS"}'
+        AND YEAR(obs.CLINICAL_EFFECTIVE_DATE) BETWEEN 2000 AND YEAR(CURRENT_DATE())
+    """
+
+    return query
 
 
 def _initialize_base_conditions_table(table_name: str):

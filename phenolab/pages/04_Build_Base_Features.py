@@ -291,13 +291,13 @@ def display_condition_feature_creation(definition_source):
 
 
 def main():
-    st.set_page_config(page_title="Base Feature Creation", layout="wide")
+    st.set_page_config(page_title="Development Feature Creation", layout="wide")
     set_font_lato()
     if "session" not in st.session_state:
         st.session_state.session = get_snowflake_session()
     if "config" not in st.session_state:
         st.session_state.config = load_config()
-    st.title("Distributions & Base Feature Creation")
+    st.title("Distributions & Dev Feature Creation")
     # load_dotenv()
 
     # snowsesh = get_snowflake_connection()
