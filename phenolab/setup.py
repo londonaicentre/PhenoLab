@@ -7,13 +7,13 @@ Example: python setup.py nel_icb prod
 """
 import sys
 
-from snowflake.snowpark import Session
 import pandas as pd
-
-from create_tables import load_definitions_to_snowflake, create_definition_table
+from create_tables import create_definition_table, load_definitions_to_snowflake
+from snowflake.snowpark import Session
 from utils.config_utils import load_config
 from utils.definition_interaction_utils import update_aic_definitions_table
 from utils.measurement_interaction_utils import create_measurement_configs_tables, load_measurement_configs_into_tables
+
 
 def create_definitionstore_view(session: Session, database: str, schema: str, external_tables: list, config: dict):
     """
@@ -79,23 +79,20 @@ def setup_definition_tables(environment: str, connection_name: str):
         )
     update_aic_definitions_table(session=session, config=config)
 
-    # 2. HDRUK, 3. Open Codelists, 4. BNF
+    # 2. External definitions (HDRUK, OpenCodelists, Ontoserver SNOMED)
     external_definition_sources = {
-        "HDRUK_DEFINITIONS": "hdruk/hdruk_definitions.parquet",
-        "OPENCODELISTS": "open_codelists_compiled/open_codelists_definitions.parquet",
-        "BSA_BNF_SNOMED_MAPPINGS": "bnf_to_snomed/processed_bnf_data.parquet"
+        "HDRUK_DEFINITIONS": "../extdefinitions/hdruk/hdruk_definitions.parquet",
+        "OPENCODELISTS": "../extdefinitions/opencodelists/opencodelists_definitions.parquet",
+        "NHS_SNOMED_REFSETS": "../extdefinitions/ontoserver/nhs_snomed_refset_definitions.parquet"
     }
     for table_name, file_name in external_definition_sources.items():
-        df = pd.read_parquet(f'_external_definitions/data/{file_name}')
+        df = pd.read_parquet(file_name)
         print(f"Loaded {file_name} definitions from file - {len(df)} rows")
         load_definitions_to_snowflake(session=session, df=df, table_name=table_name,
             database=config["definition_library"]["database"], schema=config["definition_library"]["schema"])
         print(f"Loaded definitions into Snowflake table {table_name}")
 
-    # 5. NHS GP refsets
-    #TODO
-
-    # 6. Create ICB_DEFINITIONS table if it doesn't exist (preserve user data)
+    # 3. Create ICB_DEFINITIONS table if it doesn't exist (preserve user data)
     print("Creating ICB_DEFINITIONS table if it doesn't exist...")
     create_definition_table(
         session=session,
@@ -104,10 +101,7 @@ def setup_definition_tables(environment: str, connection_name: str):
         table_name="ICB_DEFINITIONS"
     )
 
-    # 7. ICB specific - need to do NEL segments
-    # TODO
-
-    # 8. Create DEFINITIONSTORE view - this doesn't strictly need to be run every time as it's a VIEW and not a table,
+    # 4. Create DEFINITIONSTORE view - this doesn't strictly need to be run every time as it's a VIEW and not a table,
     # but I have left it in for clarity and to ensure it is always up to date with the latest external tables.
     print("Creating DEFINITIONSTORE view...")
     create_definitionstore_view(
@@ -118,16 +112,16 @@ def setup_definition_tables(environment: str, connection_name: str):
         config=config
     )
 
-    # 9. Create measurement config tables
+    # 5. Create measurement config tables
     create_measurement_configs_tables(session=session, config=config)
     load_measurement_configs_into_tables(session=session, config=config)
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
         # keeping for now for backwards compatibility
-        print("No arguments provided, using default: prod nel_icb")
-        environment = 'prod'
-        connection_name = 'nel_icb'
+        print("No arguments provided, using default: sel_icb dev")
+        connection_name = 'sel_icb'
+        environment = 'dev'
     elif len(sys.argv) == 3:
         connection_name = sys.argv[1]
         environment = sys.argv[2]
@@ -137,7 +131,7 @@ if __name__ == "__main__":
             sys.exit(1)
     else:
         print("Use directly with python setup.py <connection_name> <environment>")
-        print("E.g. python setup.py nel_icb prod")
+        print("E.g. python setup.py sel_icb dev")
         sys.exit(1)
 
     setup_definition_tables(environment=environment, connection_name=connection_name)

@@ -1,5 +1,5 @@
 [project]
-name = "phmlondon"
+name = "phenolab"
 version = "0.1.0"
 description = "Helper functions for population health data science on OneLondon Snowflake"
 authors = [
