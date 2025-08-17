@@ -1,4 +1,5 @@
 import streamlit as st
+import yaml
 
 from utils.database_utils import (
     get_snowflake_session,
@@ -30,7 +31,13 @@ def view_definitions():
         f"""SHOW TABLES IN SCHEMA {st.session_state.config["definition_library"]["database"]}.
             {st.session_state.config["definition_library"]["schema"]}""").collect()]
 
-    chosen_tables = st.multiselect("Select definition source", options=all_tables, default='AIC_DEFINITIONS',
+    with open("external_definitions.yml", "r") as f:
+        external_definition_sources = yaml.safe_load(f)
+
+    definition_tables = ["AIC_DEFINITIONS", "ICB_DEFINITIONS"] + list(external_definition_sources.keys())
+    available_tables = [table for table in definition_tables if table in all_tables]
+
+    chosen_tables = st.multiselect("Select definition source", options=available_tables, default='AIC_DEFINITIONS',
                     placeholder="Select a definition source", label_visibility="collapsed",)
     if chosen_tables:
         table_list_str = ', '.join([f"'{t}'" for t in chosen_tables])
@@ -44,8 +51,8 @@ def view_definitions():
         df = st.session_state.session.sql(query).to_pandas()
 
         st.text(" ")
-        # st.dataframe(df, hide_index=True)
-        
+        st.text("View included codes using checkbox (first column)")
+
         selected_def = st.dataframe(df, key="data", on_select="rerun", selection_mode="single-row", hide_index=True,)
         if selected_def:
             selected_rows = selected_def["selection"]["rows"]
@@ -188,7 +195,7 @@ def main():
     with search_tab:
         st.write("")
         definition_ids, definition_labels = get_definitions_from_snowflake_and_return_as_annotated_list_with_id_list()
-        selected_definition = st.selectbox("Search for a definition", options=definition_labels, 
+        selected_definition = st.selectbox("Search for a definition", options=definition_labels,
             label_visibility="visible",placeholder="Start typing to search for a definition", index=None)
         if selected_definition:
             selected_id = definition_ids[definition_labels.index(selected_definition)]
@@ -202,7 +209,7 @@ def main():
     # TAB 3: COMPARE BETWEEN DEFS
     with compare_tab:
         compare_definitions()
-     
+
 
 if __name__ == "__main__":
     main()

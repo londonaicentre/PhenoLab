@@ -1,0 +1,8 @@
+HDRUK_DEFINITIONS:
+  file: "../extdefinitions/hdruk/hdruk_definitions.parquet"
+
+OPENCODELISTS:
+  file: "../extdefinitions/opencodelists/opencodelists_definitions.parquet"
+
+NHS_SNOMED_REFSETS:
+  file: "../extdefinitions/ontoserver/nhs_snomed_refset_definitions.parquet"

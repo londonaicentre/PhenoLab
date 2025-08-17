@@ -80,12 +80,11 @@ def setup_definition_tables(environment: str, connection_name: str):
     update_aic_definitions_table(session=session, config=config)
 
     # 2. External definitions (HDRUK, OpenCodelists, Ontoserver SNOMED)
-    external_definition_sources = {
-        "HDRUK_DEFINITIONS": "../extdefinitions/hdruk/hdruk_definitions.parquet",
-        "OPENCODELISTS": "../extdefinitions/opencodelists/opencodelists_definitions.parquet",
-        "NHS_SNOMED_REFSETS": "../extdefinitions/ontoserver/nhs_snomed_refset_definitions.parquet"
-    }
-    for table_name, file_name in external_definition_sources.items():
+    with open("external_definitions.yml", "r") as f:
+        external_definition_sources = yaml.safe_load(f)
+    
+    for table_name, config in external_definition_sources.items():
+        file_name = config["file"]
         df = pd.read_parquet(file_name)
         print(f"Loaded {file_name} definitions from file - {len(df)} rows")
         load_definitions_to_snowflake(session=session, df=df, table_name=table_name,
