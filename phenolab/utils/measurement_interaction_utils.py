@@ -1,6 +1,6 @@
 import os
 from decimal import Decimal
-from typing import Optional, List
+from typing import List, Optional
 
 import pandas as pd
 import streamlit as st
@@ -552,7 +552,7 @@ def create_base_measurements_feature_incremental(eligible_configs):
 
 def create_measurement_configs_tables(config: Optional[dict] = None, session: Optional[Session] = None):
     """
-    Create tables for measurement configurations in Snowflake, if they don't already exist.
+    Create or overwrite tables for measurement configurations in Snowflake
 
     Args:
         config (Optional[dict]): Configuration dictionary containing database and schema information. If not provided,
@@ -565,7 +565,7 @@ def create_measurement_configs_tables(config: Optional[dict] = None, session: Op
 
     queries = [
     f"""
-    CREATE TABLE IF NOT EXISTS {config["measurement_configs"]["database"]}.
+    CREATE OR REPLACE TABLE {config["measurement_configs"]["database"]}.
         {config["measurement_configs"]["schema"]}.MEASUREMENT_CONFIGS (
             DEFINITION_ID VARCHAR,
             DEFINITION_NAME VARCHAR,
@@ -573,7 +573,7 @@ def create_measurement_configs_tables(config: Optional[dict] = None, session: Op
             CONFIG_VERSION VARCHAR
         )""",
     f"""
-    CREATE TABLE IF NOT EXISTS {config["measurement_configs"]["database"]}.
+    CREATE OR REPLACE TABLE {config["measurement_configs"]["database"]}.
         {config["measurement_configs"]["schema"]}.STANDARD_UNITS (
             DEFINITION_ID VARCHAR,
             DEFINITION_NAME VARCHAR,
@@ -583,7 +583,7 @@ def create_measurement_configs_tables(config: Optional[dict] = None, session: Op
             PRIMARY_UNIT BOOLEAN
         )""",
     f"""
-    CREATE TABLE IF NOT EXISTS {config["measurement_configs"]["database"]}.
+    CREATE OR REPLACE TABLE {config["measurement_configs"]["database"]}.
         {config["measurement_configs"]["schema"]}.UNIT_MAPPINGS (
             DEFINITION_ID VARCHAR,
             DEFINITION_NAME VARCHAR,
@@ -597,7 +597,7 @@ def create_measurement_configs_tables(config: Optional[dict] = None, session: Op
             SOURCE_UNIT_UQ FLOAT
         )""",
     f"""
-    CREATE TABLE IF NOT EXISTS {config["measurement_configs"]["database"]}.
+    CREATE OR REPLACE TABLE {config["measurement_configs"]["database"]}.
         {config["measurement_configs"]["schema"]}.UNIT_CONVERSIONS (
             DEFINITION_ID VARCHAR,
             DEFINITION_NAME VARCHAR,
@@ -610,7 +610,7 @@ def create_measurement_configs_tables(config: Optional[dict] = None, session: Op
             POST_OFFSET FLOAT
         )""",
     f"""
-    CREATE TABLE IF NOT EXISTS {config["measurement_configs"]["database"]}.
+    CREATE OR REPLACE TABLE {config["measurement_configs"]["database"]}.
         {config["measurement_configs"]["schema"]}.VALUE_BOUNDS (
             DEFINITION_ID VARCHAR,
             DEFINITION_NAME VARCHAR,
@@ -621,13 +621,11 @@ def create_measurement_configs_tables(config: Optional[dict] = None, session: Op
     )"""]
     for query in queries:
         session.sql(query).collect()
-    print("Measurement config tables created")
+    print("Measurement config tables created (replaced existing)")
 
 def load_measurement_configs_into_tables(config: Optional[dict] = None, session: Optional[Session] = None):
-
     """
-    Takes all the existing measurement config files in /data/measurements/{icb_name}/,
-    deletes any existing entries in the tables for that definition, and then inserts the new entries.
+    Bulk loads all measurement config files from /data/measurements/ into Snowflake tables
 
     Args:
         config (Optional[dict]): Configuration dictionary containing database and schema information. If not provided,
@@ -641,70 +639,78 @@ def load_measurement_configs_into_tables(config: Optional[dict] = None, session:
     config_files = load_measurement_configs_list(config=config)
     total_configs = len(config_files)
 
+    # create dataframes first
+    all_measurement_configs = []
+    all_standard_units = []
+    all_unit_mappings = []
+    all_unit_conversions = []
+    all_value_bounds = []
 
     for config_file in config_files:
         measurement_config = load_measurement_config(filename=config_file, config=config)
-        # print(config.definition_name)
+
+        # main config metadata
+        config_data = {
+            'DEFINITION_ID': measurement_config.definition_id,
+            'DEFINITION_NAME': measurement_config.definition_name,
+            'CONFIG_ID': measurement_config.standard_measurement_config_id,
+            'CONFIG_VERSION': measurement_config.standard_measurement_config_version
+        }
+        all_measurement_configs.append(config_data)
+
         standard_units, unit_mappings, unit_conversions, value_bounds = measurement_config.to_dataframes()
 
-        # Delete all existing entries for this definition
-        queries = [f"""DELETE FROM {config["measurement_configs"]["database"]}.
-            {config["measurement_configs"]["schema"]}.MEASUREMENT_CONFIGS
-            WHERE DEFINITION_NAME = '{measurement_config.definition_name}'""",
-                f"""DELETE FROM {config["measurement_configs"]["database"]}.
-            {config["measurement_configs"]["schema"]}.STANDARD_UNITS
-            WHERE DEFINITION_NAME = '{measurement_config.definition_name}'""",
-                   f"""DELETE FROM {config["measurement_configs"]["database"]}.
-            {config["measurement_configs"]["schema"]}.UNIT_MAPPINGS
-            WHERE DEFINITION_NAME = '{measurement_config.definition_name}'""",
-                   f"""DELETE FROM {config["measurement_configs"]["database"]}.
-            {config["measurement_configs"]["schema"]}.UNIT_CONVERSIONS
-            WHERE DEFINITION_NAME = '{measurement_config.definition_name}'""",
-                f"""DELETE FROM {config["measurement_configs"]["database"]}.
-            {config["measurement_configs"]["schema"]}.VALUE_BOUNDS
-            WHERE DEFINITION_NAME = '{measurement_config.definition_name}'"""]
-
-        for query in queries:
-
-            session.sql(query).collect()
-
-        session.sql(f"""INSERT INTO {config["measurement_configs"]["database"]}.
-            {config["measurement_configs"]["schema"]}.MEASUREMENT_CONFIGS
-            (DEFINITION_ID, DEFINITION_NAME, CONFIG_ID, CONFIG_VERSION)
-            VALUES (
-                '{measurement_config.definition_id}',
-                '{measurement_config.definition_name}',
-                '{measurement_config.standard_measurement_config_id}',
-                '{measurement_config.standard_measurement_config_version}'
-            )""").collect()
-
         if not standard_units.empty:
-            session.write_pandas(standard_units,
-                database=config["measurement_configs"]["database"],
-                schema=config["measurement_configs"]["schema"],
-                table_name="STANDARD_UNITS",
-                use_logical_type=True)
+            all_standard_units.append(standard_units)
         if not unit_mappings.empty:
-            session.write_pandas(unit_mappings,
-                database=config["measurement_configs"]["database"],
-                schema=config["measurement_configs"]["schema"],
-                table_name="UNIT_MAPPINGS",
-                use_logical_type=True)
+            all_unit_mappings.append(unit_mappings)
         if not unit_conversions.empty:
-            session.write_pandas(unit_conversions,
-                database=config["measurement_configs"]["database"],
-                schema=config["measurement_configs"]["schema"],
-                table_name="UNIT_CONVERSIONS",
-                use_logical_type=True)
+            all_unit_conversions.append(unit_conversions)
         if not value_bounds.empty:
-            session.write_pandas(value_bounds,
-                database=config["measurement_configs"]["database"],
-                schema=config["measurement_configs"]["schema"],
-                table_name="VALUE_BOUNDS",
-                use_logical_type=True)
+            all_value_bounds.append(value_bounds)
 
-        print(f"Loaded {config_file} for {measurement_config.definition_id} into measurement config tables")
+    # bulk load into tables
+    if all_measurement_configs:
+        measurement_configs_df = pd.DataFrame(all_measurement_configs)
+        session.write_pandas(measurement_configs_df,
+            database=config["measurement_configs"]["database"],
+            schema=config["measurement_configs"]["schema"],
+            table_name="MEASUREMENT_CONFIGS",
+            use_logical_type=True)
 
+    if all_standard_units:
+        combined_standard_units = pd.concat(all_standard_units, ignore_index=True)
+        session.write_pandas(combined_standard_units,
+            database=config["measurement_configs"]["database"],
+            schema=config["measurement_configs"]["schema"],
+            table_name="STANDARD_UNITS",
+            use_logical_type=True)
+
+    if all_unit_mappings:
+        combined_unit_mappings = pd.concat(all_unit_mappings, ignore_index=True)
+        session.write_pandas(combined_unit_mappings,
+            database=config["measurement_configs"]["database"],
+            schema=config["measurement_configs"]["schema"],
+            table_name="UNIT_MAPPINGS",
+            use_logical_type=True)
+
+    if all_unit_conversions:
+        combined_unit_conversions = pd.concat(all_unit_conversions, ignore_index=True)
+        session.write_pandas(combined_unit_conversions,
+            database=config["measurement_configs"]["database"],
+            schema=config["measurement_configs"]["schema"],
+            table_name="UNIT_CONVERSIONS",
+            use_logical_type=True)
+
+    if all_value_bounds:
+        combined_value_bounds = pd.concat(all_value_bounds, ignore_index=True)
+        session.write_pandas(combined_value_bounds,
+            database=config["measurement_configs"]["database"],
+            schema=config["measurement_configs"]["schema"],
+            table_name="VALUE_BOUNDS",
+            use_logical_type=True)
+
+    print(f"Loaded {total_configs} measurement configs into Snowflake tables")
     return total_configs
 
 def count_sigfig(number: float,
