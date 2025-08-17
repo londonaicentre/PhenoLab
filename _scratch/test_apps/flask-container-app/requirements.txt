@@ -1,3 +1,0 @@
-flask
-snowflake-snowpark-python
-dotenv

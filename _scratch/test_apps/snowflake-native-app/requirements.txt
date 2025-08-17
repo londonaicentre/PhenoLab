@@ -1,3 +1,0 @@
-streamlit
-snowflake-snowpark-python
-dotenv

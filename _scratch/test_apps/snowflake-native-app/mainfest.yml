@@ -1,7 +1,0 @@
-name: snowflake_native_app
-version: 0.1.0
-services:
-  - name: web
-    image: <your-docker-image-tag>
-    port: 5000
-    cmd: ["python", "app.py"]

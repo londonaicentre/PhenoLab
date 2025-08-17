@@ -1,1 +1,0 @@
-Code to test out containerising/packaging phenolab and also building an API for dynamo DB interface
