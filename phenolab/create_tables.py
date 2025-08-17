@@ -111,7 +111,7 @@ def merge_definition_tables(
 def load_definitions_to_snowflake(session: Session, df: pd.DataFrame, table_name: str,
         database: str = "INTELLIGENCE_DEV", schema: str = "AI_CENTRE_DEFINITION_LIBRARY"):
     """
-    Loads definition data to Snowflake using staging pattern.
+    Loads definition data to Snowflake by overwriting the table.
     Args:
         session:
             Snowflake session
@@ -121,14 +121,15 @@ def load_definitions_to_snowflake(session: Session, df: pd.DataFrame, table_name
             Name of target table
     """
 
-    # Create permanent target table if not exists
+    # Create table if not exists
     create_definition_table(session, table_name, database, schema)
 
-    # Load to temp table
-    create_temp_definition_table(session, df, table_name, database, schema)
-
-    # Merge temp into permanent table
-    merge_definition_tables(session, table_name, database, schema)
-
-    session.sql(f"DROP TABLE IF EXISTS {database}.{schema}.TEMP_{table_name}").collect()
-    print("Temporary table dropped")
+    df.columns = df.columns.str.upper()
+    session.write_pandas(df, 
+        database=database,
+        schema=schema,
+        table_name=table_name,
+        overwrite=True,
+        use_logical_type=True)
+    
+    print(f"Table {table_name} written with {len(df)} rows")
