@@ -82,7 +82,7 @@ def setup_definition_tables(environment: str, connection_name: str):
     # 2. HDRUK, 3. Open Codelists, 4. BNF
     external_definition_sources = {
         "HDRUK_DEFINITIONS": "hdruk/hdruk_definitions.parquet",
-        "OPEN_CODELISTS": "open_codelists_compiled/open_codelists_definitions.parquet",
+        "OPENCODELISTS": "open_codelists_compiled/open_codelists_definitions.parquet",
         "BSA_BNF_SNOMED_MAPPINGS": "bnf_to_snomed/processed_bnf_data.parquet"
     }
     for table_name, file_name in external_definition_sources.items():

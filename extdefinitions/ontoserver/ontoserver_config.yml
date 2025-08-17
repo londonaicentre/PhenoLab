@@ -1,0 +1,9 @@
+megalith:
+  url: "http://snomed.info/xsct/83821000000107/version/20250115?fhir_vs=refset"
+  name: "NHS Primary Care SNOMED Refsets"
+  description: "All NHS Primary Care reference sets from OneLondon terminology server"
+  endpoint_type: "authoring"
+  refset_name_filters:
+    - "Quality and Outcomes Framework"
+    - "National Cancer Registration and Analysis"
+    - "NHS primary care data extraction"

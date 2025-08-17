@@ -29,7 +29,7 @@ build-backend = "hatchling.build"
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/phmlondon", "phenolab"]
+packages = ["phenolab"]
 
 [tool.ruff]
  line-length = 120

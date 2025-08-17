@@ -1,0 +1,132 @@
+allowed_vocabularies:
+  - "SNOMED CT codes"
+  - "SNOMED  CT codes"
+  - "ICD10 codes"
+
+definitions:
+  - phenotype_id: "PH152"
+    version_id: 304
+    description: "Diabetes, any (ICD10, READV2)"
+  - phenotype_id: "PH189"
+    version_id: 378
+    description: "Hypertension (ICD10, READV2)"
+  - phenotype_id: "PH717"
+    version_id: 1434
+    description: "Diabetes, T1 (READV2)"
+  - phenotype_id: "PH753"
+    version_id: 1506
+    description: "Diabetes, T2 (READV2)"
+  - phenotype_id: "PH88"
+    version_id: 176
+    description: "Transient ischaemic attack (ICD10, READV2)"
+  - phenotype_id: "PH56"
+    version_id: 112
+    description: "Ischaemic stroke (ICD10, READV2)"
+  - phenotype_id: "PH182"
+    version_id: 364
+    description: "Heart failure (ICD10, READV2)"
+  - phenotype_id: "PH576"
+    version_id: 1152
+    description: "Ischaemic heart disease (ICD10, READV2)"
+  - phenotype_id: "PH215"
+    version_id: 430
+    description: "Myocardial infarction (ICD10, READV2)"
+  - phenotype_id: "PH315"
+    version_id: 630
+    description: "Stable angina (ICD10, READV2)"
+  - phenotype_id: "PH329"
+    version_id: 658
+    description: "Unstable angina (ICD10, READV2)"
+  - phenotype_id: "PH221"
+    version_id: 442
+    description: "Obesity (ICD10, READV2)"
+  - phenotype_id: "PH149"
+    version_id: 298
+    description: "Depression (ICD10, READV2)"
+  - phenotype_id: "PH104"
+    version_id: 208
+    description: "Anxiety Disorders (ICD10, READV2)"
+  - phenotype_id: "PH285"
+    version_id: 570
+    description: "Schizophrenia, schizotypal, delusional (ICD10, READV2)"
+  - phenotype_id: "PH94"
+    version_id: 188
+    description: "Alcohol problems (ICD10, READV2)"
+  - phenotype_id: "PH43"
+    version_id: 86
+    description: "Chronic Obstructive Pulmonary Disease (ICD10, READV2)"
+  - phenotype_id: "PH109"
+    version_id: 218
+    description: "Asthma (ICD10, READV2)"
+  - phenotype_id: "PH211"
+    version_id: 422
+    description: "Migraine (ICD10, READV2)"
+  - phenotype_id: "PH990"
+    version_id: 2168
+    description: "BHF Chronic kidney disease (ICD10, SNOMED)"
+  - phenotype_id: "PH1018"
+    version_id: 2196
+    description: "BHF Stroke (ICD10, SNOMED)"
+  - phenotype_id: "PH947"
+    version_id: 2125
+    description: "BHF Obesity (SNOMED)"
+  - phenotype_id: "PH970"
+    version_id: 2148
+    description: "BHF Hypertension (SNOMED)"
+  - phenotype_id: "PH956"
+    version_id: 2134
+    description: "BHF Angina (ICD10, SNOMED, READV2)"
+  - phenotype_id: "PH986"
+    version_id: 2164
+    description: "BHF Unstable angina (ICD10, SNOMED, READV2)"
+  - phenotype_id: "PH978"
+    version_id: 2156
+    description: "BHF Pulmonary embolism (ICD10, SNOMED, READV2)"
+  - phenotype_id: "PH1016"
+    version_id: 2194
+    description: "BHF Peripheral arterial disease (SNOMED)"
+  - phenotype_id: "PH1017"
+    version_id: 2195
+    description: "BHF Smoking status (SNOMED)"
+  - phenotype_id: "PH942"
+    version_id: 2120
+    description: "BHF Acute myocardial infarction (ICD10, SNOMED)"
+  - phenotype_id: "PH1005"
+    version_id: 2183
+    description: "BHF Depression (ICD10, SNOMED)"
+  - phenotype_id: "PH981"
+    version_id: 2159
+    description: "BHF Pregnancy and birth (SNOMED)"
+  - phenotype_id: "PH1004"
+    version_id: 2182
+    description: "BHF Dementia (ICD10, SNOMED)"
+  - phenotype_id: "PH1006"
+    version_id: 2184
+    description: "BHF Diabetes (SNOMED)"
+  - phenotype_id: "PH993"
+    version_id: 2171
+    description: "BHF Heart failure (ICD10, SNOMED)"
+  - phenotype_id: "PH945"
+    version_id: 2123
+    description: "BHF Diabetes (ICD10, SNOMED)"
+  - phenotype_id: "PH989"
+    version_id: 2167
+    description: "BHF Obesity (SNOMED)"
+  - phenotype_id: "PH1010"
+    version_id: 2188
+    description: "BHF Hypertension (SNOMED)"
+  - phenotype_id: "PH987"
+    version_id: 2165
+    description: "BHF Atrial fibrillation (ICD10, SNOMED)"
+  - phenotype_id: "PH991"
+    version_id: 2169
+    description: "BHF Chronic obstructive pulmonary disease (ICD10, SNOMED)"
+  - phenotype_id: "PH960"
+    version_id: 2138
+    description: "BHF Cancer (ICD10, SNOMED, READV2)"
+  - phenotype_id: "PH1009"
+    version_id: 2187
+    description: "BHF Hypercholesterolaemia (SNOMED)"
+  - phenotype_id: "PH1001"
+    version_id: 2179
+    description: "BHF Cancer (ICD10, SNOMED)"

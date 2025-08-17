@@ -1,16 +1,17 @@
+import hashlib
+import json
+import os
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
 from pprint import pprint
 from typing import Optional, Self
-import boto3
-from boto3.dynamodb.conditions import Key
-from dotenv import load_dotenv
-import hashlib
-import json
-import os
 
+# import boto3
 import pandas as pd
+
+# from boto3.dynamodb.conditions import Key
+# from dotenv import load_dotenv
 
 
 class VocabularyType(Enum):
@@ -36,9 +37,10 @@ class DefinitionSource(Enum):
 
     HDRUK = "HDRUK"  # HDR UK Library
     LONDON = "LONDON"  # One London terminology server
+    ONTOSERVER = "ONTOSERVER"  # OntoServer FHIR terminology server
     ICB_NEL = "ICB_NEL"  # North East London ICB Local Definition
     NHSBSA = "NHSBSA"  # NHS Business Services Authority
-    OPEN_CODELISTS = "OPEN_CODELISTS"  # OpenCodelists.org
+    OPENCODELISTS = "OPENCODELISTS"  # OpenCodelists.org
     AICENTRE = "AICENTRE"
 
 
@@ -174,7 +176,7 @@ class Definition:
     @property
     def codes(self) -> list[Code]:
         return [code for codelist in self.codelists for code in codelist.codes]
-    
+
     @property
     def aslist(self) -> list[dict]:
         return self.to_list()
@@ -351,11 +353,11 @@ class Definition:
 
     def show(self):
         pprint(self.df)
-    
+
     def update_version(self):
         self.definition_version = f"{self.definition_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
         self.version_datetime = datetime.now()
-        
+
     @classmethod
     def from_dict(cls, data: dict) -> Self:
         """
@@ -467,34 +469,34 @@ class Definition:
 
         return filepath
 
-    def save_to_dynamoDB(self):
+    # def save_to_dynamoDB(self):
 
-        load_dotenv() # to get AWS access keys from .env file; need to replace with better authentication method
+    #     load_dotenv() # to get AWS access keys from .env file; need to replace with better authentication method
 
-        dynamodb = boto3.resource("dynamodb", region_name='eu-west-2')
-        table = dynamodb.Table("definitions")
+    #     dynamodb = boto3.resource("dynamodb", region_name='eu-west-2')
+    #     table = dynamodb.Table("definitions")
 
-        self.version_datetime = datetime.now()
-        table.put_item(Item=self.to_dict())
+    #     self.version_datetime = datetime.now()
+    #     table.put_item(Item=self.to_dict())
 
-        print(f"Item saved to DynamoDB table 'definitions' with ID {self.definition_id} and version {self.version_datetime}")
+    #     print(f"Item saved to DynamoDB table 'definitions' with ID {self.definition_id} and version {self.version_datetime}")
 
-    @classmethod
-    def load_from_dynamoDB(cls, definition_id: str) -> Self:
+    # @classmethod
+    # def load_from_dynamoDB(cls, definition_id: str) -> Self:
 
-        load_dotenv() # to get AWS access keys from .env file; need to replace with better authentication method
+    #     load_dotenv() # to get AWS access keys from .env file; need to replace with better authentication method
 
-        dynamodb = boto3.resource("dynamodb", region_name='eu-west-2')
-        table = dynamodb.Table("definitions")
+    #     dynamodb = boto3.resource("dynamodb", region_name='eu-west-2')
+    #     table = dynamodb.Table("definitions")
 
-        response = table.query(KeyConditionExpression=Key('definition_id').eq(definition_id), 
-                            ScanIndexForward=False, Limit=1)
-        
-        items = response.get("Items", [])
+    #     response = table.query(KeyConditionExpression=Key('definition_id').eq(definition_id),
+    #                         ScanIndexForward=False, Limit=1)
 
-        if items:
-            latest_item = items[0]
-            print(f"Latest item found in DynamoDB with ID {latest_item['definition_id']} and version {latest_item['version_datetime']}")
-            return cls.from_dict(latest_item)
-        else:
-            print(f"No items found in DynamoDB with ID {definition_id}")
+    #     items = response.get("Items", [])
+
+    #     if items:
+    #         latest_item = items[0]
+    #         print(f"Latest item found in DynamoDB with ID {latest_item['definition_id']} and version {latest_item['version_datetime']}")
+    #         return cls.from_dict(latest_item)
+    #     else:
+    #         print(f"No items found in DynamoDB with ID {definition_id}")

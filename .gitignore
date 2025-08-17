@@ -10,3 +10,4 @@ __pycache__
 phenolab/output
 secrets.toml
 phenolab/todo.md
+_scratch/
