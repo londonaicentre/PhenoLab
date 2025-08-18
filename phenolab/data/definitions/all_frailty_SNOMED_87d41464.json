@@ -1,0 +1,63 @@
+{
+  "definition_id": "87d41464",
+  "definition_name": "all_frailty_SNOMED",
+  "definition_version": "all_frailty_SNOMED_20250818_143741",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-18T14:37:41.747025",
+  "codelists": [
+    {
+      "codelist_id": "all_frailty_SNOMED_SNOMED_b604fb14",
+      "codelist_name": "all_frailty_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "all_frailty_SNOMED_SNOMED_b604fb14_20250705_161242",
+      "codes": [
+        {
+          "code": "925831000000107",
+          "code_description": "Moderate frailty (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "925791000000100",
+          "code_description": "Mild frailty (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "925861000000102",
+          "code_description": "Severe frailty (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "248279007",
+          "code_description": "Frailty (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1129361000000106",
+          "code_description": "Rockwood Clinical Frailty Scale level 4 - vulnerable",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1129371000000104",
+          "code_description": "Rockwood Clinical Frailty Scale level 5 - mildly frail",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1129391000000100",
+          "code_description": "Rockwood Clinical Frailty Scale level 7 - severely frail",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1129401000000102",
+          "code_description": "Rockwood Clinical Frailty Scale level 8 - very severely frail",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1129381000000102",
+          "code_description": "Rockwood Clinical Frailty Scale level 6 - moderately frail",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

@@ -327,6 +327,24 @@ def display_unified_code_browser(code_types, key_suffix=""):
                 st.info("Please select a definition")
                 return None, search_term
 
+    # Add all button
+    if 'filtered_codes' in locals() and not filtered_codes.empty and st.session_state.current_definition:
+        col_button, col_feedback = st.columns([1, 3])
+        with col_button:
+            if st.button(f"Add all {len(filtered_codes):,} codes", key=f"add_all_{key_suffix}"):
+                codes_to_add = []
+                for _, row in filtered_codes.iterrows():
+                    codes_to_add.append(create_code_from_row(row))
+
+                added, duplicates = st.session_state.current_definition.add_codes_batch(codes_to_add)
+
+                with col_feedback:
+                    if added > 0:
+                        st.success(f"Added {added} new codes ({duplicates} duplicates skipped)")
+                    else:
+                        st.info(f"All {duplicates} codes already in definition")
+                    st.rerun()
+
     # results of filter
     with container_object_with_height_if_possible(500):
         if 'filtered_codes' in locals() and not filtered_codes.empty:

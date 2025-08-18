@@ -351,6 +351,27 @@ class Definition:
 
         return False
 
+    def add_codes_batch(self, codes: list[Code]) -> tuple[int, int]:
+        """
+        Add multiple codes at once, handling duplicates
+        Args:
+            codes(list[Code]):
+                List of Code objects to add
+        Returns:
+            tuple[int, int]:
+                (added_count, duplicate_count)
+        """
+        added_count = 0
+        duplicate_count = 0
+
+        for code in codes:
+            if self.add_code(code):
+                added_count += 1
+            else:
+                duplicate_count += 1
+
+        return added_count, duplicate_count
+
     def show(self):
         pprint(self.df)
 
