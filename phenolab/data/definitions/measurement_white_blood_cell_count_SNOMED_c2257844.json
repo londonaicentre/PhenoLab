@@ -1,0 +1,48 @@
+{
+  "definition_id": "c2257844",
+  "definition_name": "measurement_white_blood_cell_count_SNOMED",
+  "definition_version": "measurement_white_blood_cell_count_SNOMED_20250818_120228",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-18T12:02:28.484093",
+  "codelists": [
+    {
+      "codelist_id": "measurement_white_blood_cell_count_SNOMED_SNOMED_f42934ff",
+      "codelist_name": "measurement_white_blood_cell_count_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_white_blood_cell_count_SNOMED_SNOMED_f42934ff_20250818_120022",
+      "codes": [
+        {
+          "code": "391558003",
+          "code_description": "Total white blood cell count (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "767002",
+          "code_description": "White blood cell count (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "165509000",
+          "code_description": "White blood cell count outside reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "165507003",
+          "code_description": "White blood cell count within reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1022541000000102",
+          "code_description": "Total white cell count (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1110441000000100",
+          "code_description": "White blood cell count in blood (observable entity)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

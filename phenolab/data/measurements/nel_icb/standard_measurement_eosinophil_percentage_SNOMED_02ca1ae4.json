@@ -1,0 +1,145 @@
+{
+  "definition_id": "0eeb6b7b",
+  "definition_name": "measurement_eosinophil_percentage_SNOMED",
+  "standard_units": [
+    "%"
+  ],
+  "primary_standard_unit": "%",
+  "lower_limit": null,
+  "upper_limit": 100.0,
+  "unit_mappings": [
+    {
+      "source_unit": "%",
+      "standard_unit": "%",
+      "source_unit_count": 1873897,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 3.8769113276210803
+    },
+    {
+      "source_unit": "% WBC",
+      "standard_unit": "%",
+      "source_unit_count": 6332,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "%",
+      "source_unit_count": 3572,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "per cent",
+      "standard_unit": "%",
+      "source_unit_count": 276,
+      "source_unit_lq": 1.6,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 4.625
+    },
+    {
+      "source_unit": "10*9/L",
+      "standard_unit": "",
+      "source_unit_count": 71,
+      "source_unit_lq": 0.1,
+      "source_unit_median": 0.2,
+      "source_unit_uq": 0.28500000000000003
+    },
+    {
+      "source_unit": "10^9/L",
+      "standard_unit": "",
+      "source_unit_count": 23,
+      "source_unit_lq": 0.08499999999999999,
+      "source_unit_median": 0.1,
+      "source_unit_uq": 0.2
+    },
+    {
+      "source_unit": "x 10*9/L",
+      "standard_unit": "",
+      "source_unit_count": 10,
+      "source_unit_lq": 0.1,
+      "source_unit_median": 0.1,
+      "source_unit_uq": 0.17500000000000002
+    },
+    {
+      "source_unit": "UNKNOWN UNITS",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 3.4,
+      "source_unit_median": 3.4,
+      "source_unit_uq": 3.4
+    },
+    {
+      "source_unit": "pH",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.40249999999999997,
+      "source_unit_median": 0.515,
+      "source_unit_uq": 0.6275
+    },
+    {
+      "source_unit": "10/9 l(6.12%)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.4,
+      "source_unit_median": 0.4,
+      "source_unit_uq": 0.4
+    },
+    {
+      "source_unit": "10/9 l(2.53%)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.2,
+      "source_unit_median": 0.2,
+      "source_unit_uq": 0.2
+    },
+    {
+      "source_unit": "x10^9/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.01,
+      "source_unit_median": 0.01,
+      "source_unit_uq": 0.01
+    },
+    {
+      "source_unit": "10/9 l(5.39%)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.4,
+      "source_unit_median": 0.4,
+      "source_unit_uq": 0.4
+    },
+    {
+      "source_unit": "10/9 l(1.44%)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.1,
+      "source_unit_median": 0.1,
+      "source_unit_uq": 0.1
+    },
+    {
+      "source_unit": "nmol/mmol",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20000.0,
+      "source_unit_median": 20000.0,
+      "source_unit_uq": 20000.0
+    },
+    {
+      "source_unit": "*10^9/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.2,
+      "source_unit_median": 0.2,
+      "source_unit_uq": 0.2
+    }
+  ],
+  "unit_conversions": [],
+  "created_datetime": "2025-08-18T09:59:09.736642",
+  "updated_datetime": "2025-08-18T11:14:31.615863",
+  "standard_measurement_config_id": "02ca1ae4",
+  "standard_measurement_config_version": "measurement_eosinophil_percentage_SNOMED_20250818_111431"
+}

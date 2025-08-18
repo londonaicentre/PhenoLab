@@ -1,0 +1,73 @@
+{
+  "definition_id": "84e9268b",
+  "definition_name": "measurement_c_reactive_protein_CRP_SNOMED",
+  "definition_version": "measurement_c_reactive_protein_CRP_SNOMED_20250818_120342",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-18T12:03:42.851406",
+  "codelists": [
+    {
+      "codelist_id": "measurement_c_reactive_protein_CRP_SNOMED_SNOMED_841856fb",
+      "codelist_name": "measurement_c_reactive_protein_CRP_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_c_reactive_protein_CRP_SNOMED_SNOMED_841856fb_20250818_120307",
+      "codes": [
+        {
+          "code": "1001371000000100",
+          "code_description": "Serum C reactive protein level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "999651000000107",
+          "code_description": "Plasma C reactive protein (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "135842001",
+          "code_description": "Serum C reactive protein level (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166583007",
+          "code_description": "C-reactive protein within reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "270980008",
+          "code_description": "Plasma C-reactive protein measurement (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166584001",
+          "code_description": "C-reactive protein outside reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "61425002",
+          "code_description": "C reactive protein (substance)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "55235003",
+          "code_description": "C-reactive protein measurement (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "53661000237108",
+          "code_description": "Mass concentration of C reactive protein in serum by high sensitivity assay (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "53801000237108",
+          "code_description": "Mass concentration of C reactive protein in plasma by high sensitivity assay (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1091721000000101",
+          "code_description": "Point-of-care C reactive protein level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

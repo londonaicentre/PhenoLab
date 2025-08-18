@@ -1,0 +1,23 @@
+{
+  "definition_id": "470e3225",
+  "definition_name": "measurement_forced_expiratory_volume_1s_fev1_after_bronchodilation_SNOMED",
+  "definition_version": "measurement_forced_expiratory_volume_1s_fev1_after_bronchodilation_SNOMED_20250812_165449",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-12T16:54:49.468614",
+  "codelists": [
+    {
+      "codelist_id": "measurement_forced_expiratory_volume_1s_fev1_after_bronchodilation_SNOMED_SNOMED_1ebc774a",
+      "codelist_name": "measurement_forced_expiratory_volume_1s_fev1_after_bronchodilation_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_forced_expiratory_volume_1s_fev1_after_bronchodilation_SNOMED_SNOMED_1ebc774a_20250812_165438",
+      "codes": [
+        {
+          "code": "401013003",
+          "code_description": "Forced expired volume in 1 second after bronchodilation (observable entity)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

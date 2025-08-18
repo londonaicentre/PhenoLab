@@ -1,0 +1,313 @@
+{
+  "definition_id": "e8369630",
+  "definition_name": "lung_cancer_SNOMED",
+  "definition_version": "lung_cancer_SNOMED_20250812_120704",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-12T12:07:04.279132",
+  "codelists": [
+    {
+      "codelist_id": "lung_cancer_SNOMED_SNOMED_c38d0dfd",
+      "codelist_name": "lung_cancer_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "lung_cancer_SNOMED_SNOMED_c38d0dfd_20250812_115657",
+      "codes": [
+        {
+          "code": "254637007",
+          "code_description": "Non-small cell lung cancer (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "723301009",
+          "code_description": "Squamous non-small cell lung cancer (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1259727001",
+          "code_description": "Primary non-small cell lung cancer (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1259754003",
+          "code_description": "Primary squamous non-small cell lung cancer (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "703230006",
+          "code_description": "Non-small cell lung cancer without mutation in epidermal growth factor receptor (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1259822003",
+          "code_description": "Primary anaplastic lymphoma kinase fusion oncogene negative non-small cell lung cancer (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1259761004",
+          "code_description": "Primary non-small cell lung cancer without mutation in epidermal growth factor receptor (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "703228009",
+          "code_description": "Non-small cell lung cancer with mutation in epidermal growth factor receptor (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1259758000",
+          "code_description": "Primary reactive oxygen species 1 positive non-small cell lung cancer (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "187875007",
+          "code_description": "Malignant neoplasm lung: [of bronchus or lung NOS] or [lung cancer] (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426964009",
+          "code_description": "Non-small cell lung cancer, positive for epidermal growth factor receptor expression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1259768005",
+          "code_description": "Primary non-small cell lung cancer negative for epidermal growth factor receptor expression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "830055006",
+          "code_description": "Anaplastic lymphoma kinase fusion oncogene negative non-small cell lung cancer (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "722425009",
+          "code_description": "Reactive oxygen species 1 positive non-small cell lung cancer (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1259760003",
+          "code_description": "Primary non-small cell lung cancer with mutation in epidermal growth factor receptor (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "830151004",
+          "code_description": "Anaplastic lymphoma kinase fusion oncogene positive non-small cell lung cancer (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "427038005",
+          "code_description": "Non-small cell lung cancer, negative for epidermal growth factor receptor expression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1259821005",
+          "code_description": "Primary anaplastic lymphoma kinase fusion oncogene positive non-small cell lung cancer (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1259776007",
+          "code_description": "Primary non-small cell lung cancer, positive for epidermal growth factor receptor expression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1098961000119105",
+          "code_description": "History of cancer metastatic to lung (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1259820006",
+          "code_description": "Primary reactive oxygen species 1 negative non-small cell lung cancer (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "384754004",
+          "code_description": "pT2: Tumor of lung as per American Joint Committee on Cancer 6th Edition definition (lung) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "830060005",
+          "code_description": "Reactive oxygen species 1 negative non-small cell lung cancer (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "384756002",
+          "code_description": "pT4: Tumor of lung as per American Joint Committee on Cancer 6th Edition definition (lung) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "363358000",
+          "code_description": "Malignant tumor of lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "254627002",
+          "code_description": "Carcinoid tumor of lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314954002",
+          "code_description": "Local recurrence of malignant tumor of lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "793197981000119106",
+          "code_description": "Malignant carcinoid tumor of right lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "254625005",
+          "code_description": "Malignant tumor of lung parenchyma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "145298771000119104",
+          "code_description": "Malignant carcinoid tumor of left lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "254624009",
+          "code_description": "Tumor of lung parenchyma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "384749008",
+          "code_description": "pN1: Metastasis in ipsilateral peribronchial and/or ipsilateral hilar lymph nodes, including intrapulmonary nodes involved by direct extension of the primary tumor (lung) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "543826841000119109",
+          "code_description": "Metastatic well-differentiated neuroendocrine tumor to right lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1343682000",
+          "code_description": "Metastatic well-differentiated neuroendocrine tumor to lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "369885009",
+          "code_description": "T4: Lung tumor of any size that invades any of the following: mediastinum; heart; great vessels; trachea; esophagus; vertebral body; carina (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "369884008",
+          "code_description": "T3: Lung tumor of any size that directly invades any of the following: chest wall (including superior sulcus tumors); diaphragm; mediastinal pleura; parietal pericardium (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "384753005",
+          "code_description": "pT1: Tumor 3 cm or less in greatest dimension, surrounded by lung or visceral pleura, without bronchoscopic evidence of invasion more proximal than the lobar bronchus (i.e., not in the main bronchus) (lung) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "258321000",
+          "code_description": "Lung stage L3 (tumor staging)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "369882007",
+          "code_description": "T3: Lung tumor of any size associated atelectasis or obstructive pneumonitis of the entire lung (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "137644811000119102",
+          "code_description": "Well-differentiated neuroendocrine tumor grade 1 of right lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "384755003",
+          "code_description": "pT3:Tumor directly invades any of following:chest wall,diaphragm,mediastinal pleura,parietal pericardium;or tumor in main bronchus<2 cm distal to carina(not involving it);or assoc atelectasis or obstructive pneumonitis of whole lung (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1287173009",
+          "code_description": "Well-differentiated neuroendocrine tumor grade 1 of lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "278247005",
+          "code_description": "Lung stage L1 (tumor staging)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "370063005",
+          "code_description": "Tumor invasion into lung parenchyma (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "369880004",
+          "code_description": "T1: Lung tumor 3 cm or less in greatest dimension, surrounded by lung or visceral pleura, without bronchoscopic evidence of invasion more proximal than the lobar bronchus (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "258320004",
+          "code_description": "Lung stage L2 (tumor staging)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "369883002",
+          "code_description": "T3: Lung tumor of any size in the main bronchus < 2 cm distal to the carina but without involvement of the carina (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "369964005",
+          "code_description": "T2: Pleural tumor invades any of the following: ipsilateral lung, endothoracic fascia, diaphragm, or pericardium (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "936472381000119102",
+          "code_description": "Well-differentiated neuroendocrine tumor grade 1 of left lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1648002",
+          "code_description": "Lymphocytic pseudotumor of lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "397389009",
+          "code_description": "pT2: Tumor involves any of the ipsilateral pleural surfaces with at least one of the following: confluent visceral pleural tumor (including fissure), invasion of diaphragmatic muscle, invasion of lung parenchyma (thoracic mesothelioma) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "384757006",
+          "code_description": "pTX: Primary tumor cannot be assessed, or tumor proven by the presence of malignant cells in sputum or bronchial washings but not visualized by imaging or bronchoscopy (lung) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "369966007",
+          "code_description": "T4: Pleural tumor directly extends to any of the following: contralateral pleura, contralateral lung, peritoneum, intra-abdominal organs, cervical tissues (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "369881000",
+          "code_description": "T2:Lung tumor with any of these features:>3cm in greatest dimension, involves main bronchus >2cm distal to carina;invades visceral pleura;assoc with atelectasis/obstructive pneumonitis extends to hilar region, does not involve entire lung (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1290021005",
+          "code_description": "Primary well-differentiated neuroendocrine tumor of lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "557174041000119102",
+          "code_description": "Well-differentiated neuroendocrine tumor grade 2 of left lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "369661004",
+          "code_description": "Lung, attached tissue surgical margin, involved by tumor (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "369886005",
+          "code_description": "T4: Lung tumor of any size with a malignant pleural effusion (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "369887001",
+          "code_description": "T4: Lung tumor of any size with separate tumor nodule(s) in same lobe (finding)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

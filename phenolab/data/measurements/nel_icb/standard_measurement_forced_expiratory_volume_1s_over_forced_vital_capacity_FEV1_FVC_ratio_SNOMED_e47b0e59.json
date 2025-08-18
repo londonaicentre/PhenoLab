@@ -1,0 +1,265 @@
+{
+  "definition_id": "f7a2a68b",
+  "definition_name": "measurement_forced_expiratory_volume_1s_over_forced_vital_capacity_FEV1_FVC_ratio_SNOMED",
+  "standard_units": [
+    "%"
+  ],
+  "primary_standard_unit": "%",
+  "lower_limit": 8.0,
+  "upper_limit": 100.0,
+  "unit_mappings": [
+    {
+      "source_unit": "%",
+      "standard_unit": "%",
+      "source_unit_count": 413649,
+      "source_unit_lq": 59.00000000000001,
+      "source_unit_median": 71.99999999999999,
+      "source_unit_uq": 82.00000000000001
+    },
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "%",
+      "source_unit_count": 42309,
+      "source_unit_lq": 0.8397771836007129,
+      "source_unit_median": 59.99999999999999,
+      "source_unit_uq": 78.01049455586079
+    },
+    {
+      "source_unit": "Unk UoM",
+      "standard_unit": "%",
+      "source_unit_count": 1936,
+      "source_unit_lq": 0.99,
+      "source_unit_median": 71.9925,
+      "source_unit_uq": 84.0
+    },
+    {
+      "source_unit": "ratio",
+      "standard_unit": "%",
+      "source_unit_count": 1602,
+      "source_unit_lq": 56.0,
+      "source_unit_median": 70.0,
+      "source_unit_uq": 79.0
+    },
+    {
+      "source_unit": "percent",
+      "standard_unit": "%",
+      "source_unit_count": 709,
+      "source_unit_lq": 57.0,
+      "source_unit_median": 70.0,
+      "source_unit_uq": 79.0
+    },
+    {
+      "source_unit": "per cent",
+      "standard_unit": "%",
+      "source_unit_count": 501,
+      "source_unit_lq": 56.8,
+      "source_unit_median": 70.0,
+      "source_unit_uq": 81.3
+    },
+    {
+      "source_unit": "L",
+      "standard_unit": "",
+      "source_unit_count": 246,
+      "source_unit_lq": 0.65,
+      "source_unit_median": 1.12,
+      "source_unit_uq": 67.725
+    },
+    {
+      "source_unit": "/L",
+      "standard_unit": "",
+      "source_unit_count": 67,
+      "source_unit_lq": 1.06,
+      "source_unit_median": 2.75,
+      "source_unit_uq": 50.4
+    },
+    {
+      "source_unit": "(bdsk u)",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 56.7,
+      "source_unit_median": 60.0,
+      "source_unit_uq": 75.15
+    },
+    {
+      "source_unit": "L/min",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 127.0,
+      "source_unit_median": 127.0,
+      "source_unit_uq": 240.0
+    },
+    {
+      "source_unit": "1",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 71.7,
+      "source_unit_median": 71.7,
+      "source_unit_uq": 91.6
+    },
+    {
+      "source_unit": "rad",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 68.0,
+      "source_unit_median": 74.0,
+      "source_unit_uq": 81.0
+    },
+    {
+      "source_unit": "rem",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 70.0,
+      "source_unit_median": 70.0,
+      "source_unit_uq": 70.0
+    },
+    {
+      "source_unit": "Pa",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 79.7,
+      "source_unit_median": 80.4,
+      "source_unit_uq": 80.4
+    },
+    {
+      "source_unit": "SD",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 65.0,
+      "source_unit_median": 65.0,
+      "source_unit_uq": 65.0
+    },
+    {
+      "source_unit": "l",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.39,
+      "source_unit_median": 0.39,
+      "source_unit_uq": 0.39
+    },
+    {
+      "source_unit": "(cfU)",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1064.1125000000002,
+      "source_unit_median": 2126.0750000000003,
+      "source_unit_uq": 3188.0375000000004
+    },
+    {
+      "source_unit": "%Hb",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 87.0,
+      "source_unit_median": 87.0,
+      "source_unit_uq": 87.0
+    },
+    {
+      "source_unit": "1(tot)",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 110.0,
+      "source_unit_median": 110.0,
+      "source_unit_uq": 110.0
+    },
+    {
+      "source_unit": "#T ( )/L",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 79.25,
+      "source_unit_median": 82.5,
+      "source_unit_uq": 85.75
+    },
+    {
+      "source_unit": "40",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 40.0,
+      "source_unit_median": 40.0,
+      "source_unit_uq": 40.0
+    },
+    {
+      "source_unit": "%predicted",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 114.0,
+      "source_unit_median": 114.0,
+      "source_unit_uq": 114.0
+    },
+    {
+      "source_unit": "/mL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 36.0,
+      "source_unit_median": 36.0,
+      "source_unit_uq": 36.0
+    },
+    {
+      "source_unit": "s",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 56.0,
+      "source_unit_median": 56.0,
+      "source_unit_uq": 56.0
+    },
+    {
+      "source_unit": "(bsa)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 68.0,
+      "source_unit_median": 68.0,
+      "source_unit_uq": 68.0
+    },
+    {
+      "source_unit": "litres",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.57,
+      "source_unit_median": 0.57,
+      "source_unit_uq": 0.57
+    },
+    {
+      "source_unit": "litre",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.64,
+      "source_unit_median": 0.64,
+      "source_unit_uq": 0.64
+    },
+    {
+      "source_unit": "lit",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.73,
+      "source_unit_median": 0.73,
+      "source_unit_uq": 0.73
+    },
+    {
+      "source_unit": "/min",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.97,
+      "source_unit_median": 0.97,
+      "source_unit_uq": 0.97
+    },
+    {
+      "source_unit": "% predicted",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 96.0,
+      "source_unit_median": 96.0,
+      "source_unit_uq": 96.0
+    },
+    {
+      "source_unit": "96",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 96.0,
+      "source_unit_median": 96.0,
+      "source_unit_uq": 96.0
+    }
+  ],
+  "unit_conversions": [],
+  "created_datetime": "2025-08-18T09:59:09.735059",
+  "updated_datetime": "2025-08-18T11:24:13.765168",
+  "standard_measurement_config_id": "e47b0e59",
+  "standard_measurement_config_version": "measurement_forced_expiratory_volume_1s_over_forced_vital_capacity_FEV1_FVC_ratio_SNOMED_20250818_112413"
+}

@@ -1,0 +1,23 @@
+{
+  "definition_id": "d6e05bfa",
+  "definition_name": "medical_research_council_MRC_dyspnoea_scale_grade_3_SNOMED",
+  "definition_version": "medical_research_council_MRC_dyspnoea_scale_grade_3_SNOMED_20250818_131002",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-18T13:10:02.728404",
+  "codelists": [
+    {
+      "codelist_id": "medical_research_council_MRC_dyspnoea_scale_grade_3_SNOMED_SNOMED_72179b21",
+      "codelist_name": "medical_research_council_MRC_dyspnoea_scale_grade_3_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "medical_research_council_MRC_dyspnoea_scale_grade_3_SNOMED_SNOMED_72179b21_20250818_130947",
+      "codes": [
+        {
+          "code": "391124000",
+          "code_description": "Medical Research Council Dyspnoea scale grade 3 (finding)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

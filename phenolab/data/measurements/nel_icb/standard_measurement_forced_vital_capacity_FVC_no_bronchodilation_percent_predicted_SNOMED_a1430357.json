@@ -1,0 +1,71 @@
+{
+  "definition_id": "c0e94311",
+  "definition_name": "measurement_forced_vital_capacity_FVC_no_bronchodilation_percent_predicted_SNOMED",
+  "standard_units": [],
+  "primary_standard_unit": null,
+  "lower_limit": null,
+  "upper_limit": null,
+  "unit_mappings": [
+    {
+      "source_unit": "%",
+      "standard_unit": "",
+      "source_unit_count": 223147,
+      "source_unit_lq": 71.99235373268209,
+      "source_unit_median": 86.00000000000001,
+      "source_unit_uq": 100.99999999999997
+    },
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "",
+      "source_unit_count": 1660,
+      "source_unit_lq": 68.0,
+      "source_unit_median": 82.0,
+      "source_unit_uq": 98.0
+    },
+    {
+      "source_unit": "L",
+      "standard_unit": "",
+      "source_unit_count": 402,
+      "source_unit_lq": 53.0,
+      "source_unit_median": 77.5,
+      "source_unit_uq": 92.0
+    },
+    {
+      "source_unit": "per cent",
+      "standard_unit": "",
+      "source_unit_count": 15,
+      "source_unit_lq": 83.5,
+      "source_unit_median": 96.0,
+      "source_unit_uq": 100.2
+    },
+    {
+      "source_unit": "Unk UoM",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 91.5,
+      "source_unit_median": 106.0,
+      "source_unit_uq": 106.0
+    },
+    {
+      "source_unit": "Percent",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 82.0,
+      "source_unit_median": 82.0,
+      "source_unit_uq": 82.0
+    },
+    {
+      "source_unit": "Pa",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 96.0,
+      "source_unit_median": 96.0,
+      "source_unit_uq": 96.0
+    }
+  ],
+  "unit_conversions": [],
+  "created_datetime": "2025-08-18T13:40:12.424383",
+  "updated_datetime": "2025-08-18T13:40:40.610354",
+  "standard_measurement_config_id": "a1430357",
+  "standard_measurement_config_version": "measurement_forced_vital_capacity_FVC_no_bronchodilation_percent_predicted_SNOMED_20250818_134040"
+}

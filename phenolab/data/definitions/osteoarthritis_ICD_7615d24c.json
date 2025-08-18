@@ -1,0 +1,486 @@
+{
+  "definition_id": "7615d24c",
+  "definition_name": "osteoarthritis_ICD",
+  "definition_version": "osteoarthritis_ICD_20250812_154050",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-12T15:40:50.201597",
+  "codelists": [
+    {
+      "codelist_id": "osteoarthritis_ICD_ICD10_0f762991",
+      "codelist_name": "osteoarthritis_ICD_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "osteoarthritis_ICD_ICD10_0f762991_20250812_153549",
+      "codes": [
+        {
+          "code": "M19.9",
+          "code_description": "Arthrosis, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.91",
+          "code_description": "Arthrosis, unspecified, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.97",
+          "code_description": "Arthrosis, unspecified, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M18.9",
+          "code_description": "Arthrosis of first carpometacarpal joint, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.94",
+          "code_description": "Arthrosis, unspecified, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.93",
+          "code_description": "Arthrosis, unspecified, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.99",
+          "code_description": "Arthrosis, unspecified, site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.17",
+          "code_description": "Post-traumatic arthrosis of other joints, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.90",
+          "code_description": "Arthrosis, unspecified, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.95",
+          "code_description": "Arthrosis, unspecified, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.92",
+          "code_description": "Arthrosis, unspecified, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.98",
+          "code_description": "Arthrosis, unspecified, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M15.0",
+          "code_description": "Primary generalized (osteo)arthrosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M17.9",
+          "code_description": "Gonarthrosis, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M16.9",
+          "code_description": "Coxarthrosis, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M15.9",
+          "code_description": "Polyarthrosis, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M17.1",
+          "code_description": "Other primary gonarthrosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M16.1",
+          "code_description": "Other primary coxarthrosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M17.0",
+          "code_description": "Primary gonarthrosis, bilateral",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M16.7",
+          "code_description": "Other secondary coxarthrosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M15.4",
+          "code_description": "Erosive (osteo)arthrosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M15.1",
+          "code_description": "Heberden nodes (with arthropathy)",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M15.3",
+          "code_description": "Secondary multiple arthrosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M15.2",
+          "code_description": "Bouchard nodes (with arthropathy)",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M15.8",
+          "code_description": "Other polyarthrosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M15-M19",
+          "code_description": "Arthrosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M15",
+          "code_description": "Polyarthrosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M16.3",
+          "code_description": "Other dysplastic coxarthrosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M16.0",
+          "code_description": "Primary coxarthrosis, bilateral",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M16.5",
+          "code_description": "Other post-traumatic coxarthrosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M16.2",
+          "code_description": "Coxarthrosis resulting from dysplasia, bilateral",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M16.6",
+          "code_description": "Other secondary coxarthrosis, bilateral",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M16.4",
+          "code_description": "Post-traumatic coxarthrosis, bilateral",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M16",
+          "code_description": "Coxarthrosis [arthrosis of hip]",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M17.3",
+          "code_description": "Other post-traumatic gonarthrosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M17.5",
+          "code_description": "Other secondary gonarthrosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M17.4",
+          "code_description": "Other secondary gonarthrosis, bilateral",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M17.2",
+          "code_description": "Post-traumatic gonarthrosis, bilateral",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M17",
+          "code_description": "Gonarthrosis [arthrosis of knee]",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M18.1",
+          "code_description": "Other primary arthrosis of first carpometacarpal joint",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M18.3",
+          "code_description": "Other post-traumatic arthrosis of first carpometacarpal joint",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M18.5",
+          "code_description": "Other secondary arthrosis of first carpometacarpal joint",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M18.2",
+          "code_description": "Post-traumatic arthrosis of first carpometacarpal joints, bilateral",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M18.4",
+          "code_description": "Other secondary arthrosis of first carpometacarpal joints, bilateral",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M18",
+          "code_description": "Arthrosis of first carpometacarpal joint",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.07",
+          "code_description": "Primary arthrosis of other joints, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.01",
+          "code_description": "Primary arthrosis of other joints, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.27",
+          "code_description": "Other secondary arthrosis, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.11",
+          "code_description": "Post-traumatic arthrosis of other joints, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.21",
+          "code_description": "Other secondary arthrosis, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.04",
+          "code_description": "Primary arthrosis of other joints, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.12",
+          "code_description": "Post-traumatic arthrosis of other joints, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.2",
+          "code_description": "Other secondary arthrosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.24",
+          "code_description": "Other secondary arthrosis, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.13",
+          "code_description": "Post-traumatic arthrosis of other joints, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.14",
+          "code_description": "Post-traumatic arthrosis of other joints, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.87",
+          "code_description": "Other specified arthrosis, ankle and foot",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.20",
+          "code_description": "Other secondary arthrosis, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.81",
+          "code_description": "Other specified arthrosis, shoulder region",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.23",
+          "code_description": "Other secondary arthrosis, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.84",
+          "code_description": "Other specified arthrosis, hand",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.00",
+          "code_description": "Primary arthrosis of other joints, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.03",
+          "code_description": "Primary arthrosis of other joints, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.22",
+          "code_description": "Other secondary arthrosis, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.0",
+          "code_description": "Primary arthrosis of other joints",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.08",
+          "code_description": "Primary arthrosis of other joints, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.86",
+          "code_description": "Other specified arthrosis, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.15",
+          "code_description": "Post-traumatic arthrosis of other joints, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.83",
+          "code_description": "Other specified arthrosis, forearm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.1",
+          "code_description": "Post-traumatic arthrosis of other joints",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.80",
+          "code_description": "Other specified arthrosis, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.8",
+          "code_description": "Other specified arthrosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.10",
+          "code_description": "Post-traumatic arthrosis of other joints, multiple sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.96",
+          "code_description": "Arthrosis, unspecified, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.02",
+          "code_description": "Primary arthrosis of other joints, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.88",
+          "code_description": "Other specified arthrosis, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.89",
+          "code_description": "Other specified arthrosis, site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.05",
+          "code_description": "Primary arthrosis of other joints, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.25",
+          "code_description": "Other secondary arthrosis, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.85",
+          "code_description": "Other specified arthrosis, pelvic region and thigh",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.16",
+          "code_description": "Post-traumatic arthrosis of other joints, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.18",
+          "code_description": "Post-traumatic arthrosis of other joints, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.26",
+          "code_description": "Other secondary arthrosis, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.29",
+          "code_description": "Other secondary arthrosis, site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.09",
+          "code_description": "Primary arthrosis of other joints, site unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19",
+          "code_description": "Other arthrosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.06",
+          "code_description": "Primary arthrosis of other joints, lower leg",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.82",
+          "code_description": "Other specified arthrosis, upper arm",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.28",
+          "code_description": "Other secondary arthrosis, other",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "M19.19",
+          "code_description": "Post-traumatic arthrosis of other joints, site unspecified",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    },
+    {
+      "codelist_id": "osteoarthritis_ICD_OPCS4_21fbbd0c",
+      "codelist_name": "osteoarthritis_ICD_OPCS4",
+      "codelist_vocabulary": "OPCS4",
+      "codelist_version": "osteoarthritis_ICD_OPCS4_21fbbd0c_20250812_153833",
+      "codes": [
+        {
+          "code": "M15.8",
+          "code_description": "Other specified operations on kidney along nephrostomy tube track",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "M15.9",
+          "code_description": "Unspecified operations on kidney along nephrostomy tube track",
+          "code_vocabulary": "OPCS4"
+        }
+      ]
+    }
+  ]
+}

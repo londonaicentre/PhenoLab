@@ -1,0 +1,73 @@
+{
+  "definition_id": "c432f207",
+  "definition_name": "measurement_partial_pressure_carbon_dioxide_blood_type_not_specified_SNOMED",
+  "standard_units": [
+    "mmHg"
+  ],
+  "primary_standard_unit": "mmHg",
+  "lower_limit": null,
+  "upper_limit": null,
+  "unit_mappings": [
+    {
+      "source_unit": "mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 629,
+      "source_unit_lq": 7.1,
+      "source_unit_median": 22.0,
+      "source_unit_uq": 25.0
+    },
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "",
+      "source_unit_count": 164,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 23.0,
+      "source_unit_uq": 25.0
+    },
+    {
+      "source_unit": "mmol/l",
+      "standard_unit": "",
+      "source_unit_count": 74,
+      "source_unit_lq": 22.0,
+      "source_unit_median": 23.5,
+      "source_unit_uq": 26.0
+    },
+    {
+      "source_unit": "units",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 24.0,
+      "source_unit_uq": 25.75
+    },
+    {
+      "source_unit": "kPa",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 6.06,
+      "source_unit_median": 6.1,
+      "source_unit_uq": 6.805
+    },
+    {
+      "source_unit": "COppm",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "pg/mL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    }
+  ],
+  "unit_conversions": [],
+  "created_datetime": "2025-08-18T15:28:55.722110",
+  "updated_datetime": "2025-08-18T15:43:53.731101",
+  "standard_measurement_config_id": "44dff42b",
+  "standard_measurement_config_version": "measurement_partial_pressure_carbon_dioxide_blood_type_not_specified_SNOMED_20250818_154353"
+}

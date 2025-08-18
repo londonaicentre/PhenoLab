@@ -1,0 +1,170 @@
+{
+  "definition_id": "db7aa9ba",
+  "definition_name": "measurement_forced_vital_capacity_FVC_after_bronchodilation_SNOMED",
+  "standard_units": [
+    "L",
+    "ml"
+  ],
+  "primary_standard_unit": "L",
+  "lower_limit": 0.1,
+  "upper_limit": 10.0,
+  "unit_mappings": [
+    {
+      "source_unit": "ml",
+      "standard_unit": "ml",
+      "source_unit_count": 17476,
+      "source_unit_lq": 2234.345,
+      "source_unit_median": 2850.3108108108104,
+      "source_unit_uq": 3610.2815249266864
+    },
+    {
+      "source_unit": "L",
+      "standard_unit": "L",
+      "source_unit_count": 6418,
+      "source_unit_lq": 2.389350649350649,
+      "source_unit_median": 3.08,
+      "source_unit_uq": 3.864285714285714
+    },
+    {
+      "source_unit": "l",
+      "standard_unit": "L",
+      "source_unit_count": 6024,
+      "source_unit_lq": 2.4411224489795917,
+      "source_unit_median": 3.122285714285714,
+      "source_unit_uq": 3.8979220779220776
+    },
+    {
+      "source_unit": "litre",
+      "standard_unit": "L",
+      "source_unit_count": 5993,
+      "source_unit_lq": 2.37,
+      "source_unit_median": 3.047959183673469,
+      "source_unit_uq": 3.885277777777777
+    },
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "",
+      "source_unit_count": 1650,
+      "source_unit_lq": 2.35,
+      "source_unit_median": 3.2649999999999997,
+      "source_unit_uq": 1344.0
+    },
+    {
+      "source_unit": "Litres",
+      "standard_unit": "L",
+      "source_unit_count": 350,
+      "source_unit_lq": 2.08,
+      "source_unit_median": 2.785,
+      "source_unit_uq": 3.455
+    },
+    {
+      "source_unit": "l/minute",
+      "standard_unit": "",
+      "source_unit_count": 138,
+      "source_unit_lq": 2.175,
+      "source_unit_median": 2.775,
+      "source_unit_uq": 3.61
+    },
+    {
+      "source_unit": "%",
+      "standard_unit": "",
+      "source_unit_count": 49,
+      "source_unit_lq": 69.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 111.0
+    },
+    {
+      "source_unit": "litres",
+      "standard_unit": "L",
+      "source_unit_count": 32,
+      "source_unit_lq": 1.8275000000000001,
+      "source_unit_median": 2.16,
+      "source_unit_uq": 2.9675
+    },
+    {
+      "source_unit": "litres/minute",
+      "standard_unit": "",
+      "source_unit_count": 25,
+      "source_unit_lq": 2.27,
+      "source_unit_median": 2.68,
+      "source_unit_uq": 3.08
+    },
+    {
+      "source_unit": "l/min",
+      "standard_unit": "",
+      "source_unit_count": 25,
+      "source_unit_lq": 314.0,
+      "source_unit_median": 385.0,
+      "source_unit_uq": 432.0
+    },
+    {
+      "source_unit": "mL",
+      "standard_unit": "ml",
+      "source_unit_count": 19,
+      "source_unit_lq": 2955.5,
+      "source_unit_median": 4144.0,
+      "source_unit_uq": 5295.0
+    },
+    {
+      "source_unit": "/L",
+      "standard_unit": "ml",
+      "source_unit_count": 3,
+      "source_unit_lq": 3.745,
+      "source_unit_median": 4.2,
+      "source_unit_uq": 4.25
+    },
+    {
+      "source_unit": "lit",
+      "standard_unit": "L",
+      "source_unit_count": 3,
+      "source_unit_lq": 3.07,
+      "source_unit_median": 3.07,
+      "source_unit_uq": 3.375
+    },
+    {
+      "source_unit": "Litre",
+      "standard_unit": "L",
+      "source_unit_count": 2,
+      "source_unit_lq": 3.2175000000000002,
+      "source_unit_median": 3.485,
+      "source_unit_uq": 3.7524999999999995
+    },
+    {
+      "source_unit": "litres/sec",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.84,
+      "source_unit_median": 2.84,
+      "source_unit_uq": 2.84
+    },
+    {
+      "source_unit": "L/min",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.72,
+      "source_unit_median": 2.72,
+      "source_unit_uq": 2.72
+    },
+    {
+      "source_unit": "lts",
+      "standard_unit": "L",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.86,
+      "source_unit_median": 3.86,
+      "source_unit_uq": 3.86
+    }
+  ],
+  "unit_conversions": [
+    {
+      "convert_from_unit": "ml",
+      "convert_to_unit": "L",
+      "pre_offset": 0.0,
+      "multiply_by": 0.001,
+      "post_offset": 0.0
+    }
+  ],
+  "created_datetime": "2025-08-18T09:59:09.731106",
+  "updated_datetime": "2025-08-18T11:35:58.405958",
+  "standard_measurement_config_id": "142a6056",
+  "standard_measurement_config_version": "measurement_forced_vital_capacity_FVC_after_bronchodilation_SNOMED_20250818_113558"
+}

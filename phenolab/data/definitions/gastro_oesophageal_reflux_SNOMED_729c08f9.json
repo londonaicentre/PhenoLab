@@ -1,0 +1,118 @@
+{
+  "definition_id": "729c08f9",
+  "definition_name": "gastro_oesophageal_reflux_SNOMED",
+  "definition_version": "gastro_oesophageal_reflux_SNOMED_20250812_104523",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-12T10:45:23.515259",
+  "codelists": [
+    {
+      "codelist_id": "gastro_oesophageal_reflux_SNOMED_SNOMED_f5108d38",
+      "codelist_name": "gastro_oesophageal_reflux_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "gastro_oesophageal_reflux_SNOMED_SNOMED_f5108d38_20250812_103457",
+      "codes": [
+        {
+          "code": "235595009",
+          "code_description": "Gastroesophageal reflux disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "698065002",
+          "code_description": "Acid reflux (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266433003",
+          "code_description": "Gastroesophageal reflux disease with esophagitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "225587003",
+          "code_description": "Gastric reflux (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266435005",
+          "code_description": "Gastroesophageal reflux disease without esophagitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "249496004",
+          "code_description": "Esophageal reflux finding (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "245754007",
+          "code_description": "Gastroesophageal reflux disease with ulceration (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266498005",
+          "code_description": "Oesophagitis (& [reflux]) or oesophageal reflux (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "300291001",
+          "code_description": "Moderate gastric reflux (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "300290000",
+          "code_description": "Excessive gastric reflux (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "139302007",
+          "code_description": "Gastric reflux (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "70861000119106",
+          "code_description": "History of gastroesophageal reflux disease (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "371101003",
+          "code_description": "Gastroesophageal reflux disease with apnea (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "54856001",
+          "code_description": "Gastroesophageal reflux disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15643101000119103",
+          "code_description": "Gastroesophageal reflux disease in pregnancy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "196606004",
+          "code_description": "Gastro-oesophageal reflux disease with ulceration (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "102620007",
+          "code_description": "Gastroesophageal reflux (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "717847008",
+          "code_description": "Erosive gastro-esophageal reflux disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "162034001",
+          "code_description": "Gastric reflux (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "57433008",
+          "code_description": "Reflux gastritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

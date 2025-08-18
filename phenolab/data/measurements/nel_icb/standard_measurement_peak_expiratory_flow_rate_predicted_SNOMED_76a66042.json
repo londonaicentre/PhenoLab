@@ -1,0 +1,145 @@
+{
+  "definition_id": "9dae6c9b",
+  "definition_name": "measurement_peak_expiratory_flow_rate_predicted_SNOMED",
+  "standard_units": [
+    "L/min"
+  ],
+  "primary_standard_unit": "L/min",
+  "lower_limit": null,
+  "upper_limit": null,
+  "unit_mappings": [
+    {
+      "source_unit": "L/min",
+      "standard_unit": "L/min",
+      "source_unit_count": 1348142,
+      "source_unit_lq": 388.4150246119274,
+      "source_unit_median": 439.3756549954145,
+      "source_unit_uq": 559.9483145967106
+    },
+    {
+      "source_unit": "l/min",
+      "standard_unit": "L/min",
+      "source_unit_count": 108925,
+      "source_unit_lq": 402.6184701470325,
+      "source_unit_median": 438.0,
+      "source_unit_uq": 586.5240303923126
+    },
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "L/min",
+      "source_unit_count": 2746,
+      "source_unit_lq": 350.0,
+      "source_unit_median": 421.375,
+      "source_unit_uq": 499.0
+    },
+    {
+      "source_unit": "1/min",
+      "standard_unit": "L/min",
+      "source_unit_count": 56,
+      "source_unit_lq": 358.5,
+      "source_unit_median": 464.0,
+      "source_unit_uq": 588.0
+    },
+    {
+      "source_unit": "l/minute",
+      "standard_unit": "L/min",
+      "source_unit_count": 34,
+      "source_unit_lq": 280.0,
+      "source_unit_median": 310.0,
+      "source_unit_uq": 370.0
+    },
+    {
+      "source_unit": "%",
+      "standard_unit": "",
+      "source_unit_count": 19,
+      "source_unit_lq": 91.15,
+      "source_unit_median": 109.97,
+      "source_unit_uq": 500.5
+    },
+    {
+      "source_unit": "Undefined",
+      "standard_unit": "",
+      "source_unit_count": 7,
+      "source_unit_lq": 350.5,
+      "source_unit_median": 407.0,
+      "source_unit_uq": 421.5
+    },
+    {
+      "source_unit": "L/MIN",
+      "standard_unit": "L/min",
+      "source_unit_count": 6,
+      "source_unit_lq": 340.75,
+      "source_unit_median": 415.0,
+      "source_unit_uq": 427.0
+    },
+    {
+      "source_unit": "L/Min",
+      "standard_unit": "L/min",
+      "source_unit_count": 6,
+      "source_unit_lq": 259.0,
+      "source_unit_median": 292.5,
+      "source_unit_uq": 543.5
+    },
+    {
+      "source_unit": "litres/minute",
+      "standard_unit": "L/min",
+      "source_unit_count": 3,
+      "source_unit_lq": 251.0,
+      "source_unit_median": 251.0,
+      "source_unit_uq": 415.5
+    },
+    {
+      "source_unit": "l/min (Eu)",
+      "standard_unit": "L/min",
+      "source_unit_count": 3,
+      "source_unit_lq": 415.0,
+      "source_unit_median": 415.0,
+      "source_unit_uq": 417.5
+    },
+    {
+      "source_unit": "litres/min",
+      "standard_unit": "L/min",
+      "source_unit_count": 1,
+      "source_unit_lq": 440.0,
+      "source_unit_median": 440.0,
+      "source_unit_uq": 440.0
+    },
+    {
+      "source_unit": "litres",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 450.0,
+      "source_unit_median": 450.0,
+      "source_unit_uq": 450.0
+    },
+    {
+      "source_unit": "umol/min",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "410",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 410.0,
+      "source_unit_median": 410.0,
+      "source_unit_uq": 410.0
+    },
+    {
+      "source_unit": "l/MIN",
+      "standard_unit": "L/min",
+      "source_unit_count": 1,
+      "source_unit_lq": 530.0,
+      "source_unit_median": 530.0,
+      "source_unit_uq": 530.0
+    }
+  ],
+  "unit_conversions": [],
+  "created_datetime": "2025-08-18T15:28:55.546971",
+  "updated_datetime": "2025-08-18T15:51:41.499868",
+  "standard_measurement_config_id": "76a66042",
+  "standard_measurement_config_version": "measurement_peak_expiratory_flow_rate_predicted_SNOMED_20250818_155141"
+}

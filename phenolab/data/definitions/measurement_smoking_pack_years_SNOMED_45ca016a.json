@@ -1,0 +1,58 @@
+{
+  "definition_id": "45ca016a",
+  "definition_name": "measurement_smoking_pack_years_SNOMED",
+  "definition_version": "measurement_smoking_pack_years_SNOMED_20250818_150717",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-18T15:07:17.598340",
+  "codelists": [
+    {
+      "codelist_id": "measurement_smoking_pack_years_SNOMED_SNOMED_3fafd9c5",
+      "codelist_name": "measurement_smoking_pack_years_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_smoking_pack_years_SNOMED_SNOMED_3fafd9c5_20250818_150653",
+      "codes": [
+        {
+          "code": "401201003",
+          "code_description": "Cigarette pack-years (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "315609007",
+          "code_description": "Pack years (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "782516008",
+          "code_description": "Number of calculated pack years for cumulative lifetime tobacco exposure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "46491000000109",
+          "code_description": "Cigarette pack-years",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1092481000000104",
+          "code_description": "Number of calculated smoking pack years (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "165214002",
+          "code_description": "Pack years (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "41311000000104",
+          "code_description": "Cigarette pack-years",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "142614008",
+          "code_description": "Pack years (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

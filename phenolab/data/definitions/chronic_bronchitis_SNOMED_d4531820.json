@@ -1,0 +1,178 @@
+{
+  "definition_id": "d4531820",
+  "definition_name": "chronic_bronchitis_SNOMED",
+  "definition_version": "chronic_bronchitis_SNOMED_20250812_115630",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-12T11:56:30.929585",
+  "codelists": [
+    {
+      "codelist_id": "chronic_bronchitis_SNOMED_SNOMED_4acc1691",
+      "codelist_name": "chronic_bronchitis_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "chronic_bronchitis_SNOMED_SNOMED_4acc1691_20250812_104854",
+      "codes": [
+        {
+          "code": "63480004",
+          "code_description": "Chronic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195949008",
+          "code_description": "Chronic asthmatic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "185086009",
+          "code_description": "Chronic obstructive bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "61937009",
+          "code_description": "Simple chronic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "74417001",
+          "code_description": "Mucopurulent chronic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "84409004",
+          "code_description": "Fetid chronic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "89099002",
+          "code_description": "Chronic allergic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "785736001",
+          "code_description": "Chronic bronchitis co-occurrent with wheeze (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "52571006",
+          "code_description": "Chronic tracheobronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195953005",
+          "code_description": "Mixed simple and mucopurulent chronic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "649141000000105",
+          "code_description": "Mucopurulent chronic bronchitis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195945002",
+          "code_description": "Purulent chronic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "649131000000101",
+          "code_description": "Simple chronic bronchitis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "155566007",
+          "code_description": "Chronic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "155568008",
+          "code_description": "Mucopurulent chronic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266395007",
+          "code_description": "Chronic: [bronchitis NOS] or [tracheobronchitis] (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "601591000000103",
+          "code_description": "Other chronic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195947005",
+          "code_description": "Mucopurulent chronic bronchitis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195946001",
+          "code_description": "Purulent chronic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "601581000000100",
+          "code_description": "Obstructive chronic bronchitis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "155567003",
+          "code_description": "(Simple chronic bronchitis) or (smoker's cough) or (senile tracheobronchitis) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195942004",
+          "code_description": "Simple chronic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195955003",
+          "code_description": "Other chronic bronchitis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195943009",
+          "code_description": "Simple chronic bronchitis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "71435009",
+          "code_description": "Chronic obstructive bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "621061000000108",
+          "code_description": "Other chronic bronchitis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195954004",
+          "code_description": "Other chronic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195944003",
+          "code_description": "Mucopurulent chronic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195956002",
+          "code_description": "Chronic bronchitis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "8141004",
+          "code_description": "Purulent chronic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "621071000000101",
+          "code_description": "Chronic bronchitis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195941006",
+          "code_description": "Simple chronic bronchitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

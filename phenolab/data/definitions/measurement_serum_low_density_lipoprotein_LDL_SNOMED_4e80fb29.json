@@ -1,0 +1,63 @@
+{
+  "definition_id": "4e80fb29",
+  "definition_name": "measurement_serum_low_density_lipoprotein_LDL_SNOMED",
+  "definition_version": "measurement_serum_low_density_lipoprotein_LDL_SNOMED_20250716_114051",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-07-16T11:40:51.513982",
+  "codelists": [
+    {
+      "codelist_id": "measurement_serum_low_density_lipoprotein_LDL_SNOMED_SNOMED_bc6e2fcd",
+      "codelist_name": "measurement_serum_low_density_lipoprotein_LDL_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_serum_low_density_lipoprotein_LDL_SNOMED_SNOMED_bc6e2fcd_20250716_113852",
+      "codes": [
+        {
+          "code": "1022191000000100",
+          "code_description": "Serum low density lipoprotein cholesterol level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166833005",
+          "code_description": "Serum low density lipoprotein cholesterol measurement (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1014501000000104",
+          "code_description": "Calculated low density lipoprotein cholesterol level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1026471000000106",
+          "code_description": "Serum fasting low density lipoprotein cholesterol level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1010591000000104",
+          "code_description": "Plasma low density lipoprotein cholesterol level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1026481000000108",
+          "code_description": "Serum random low density lipoprotein cholesterol level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "395065005",
+          "code_description": "Calculated low density lipoprotein cholesterol level (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314036004",
+          "code_description": "Plasma low density lipoprotein cholesterol measurement (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "113079009",
+          "code_description": "Low density lipoprotein cholesterol measurement (procedure)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

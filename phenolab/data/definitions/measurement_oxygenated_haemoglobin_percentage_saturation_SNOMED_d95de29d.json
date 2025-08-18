@@ -1,0 +1,73 @@
+{
+  "definition_id": "d95de29d",
+  "definition_name": "measurement_oxygenated_haemoglobin_percentage_saturation_SNOMED",
+  "definition_version": "measurement_oxygenated_haemoglobin_percentage_saturation_SNOMED_20250818_151705",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-18T15:17:05.581174",
+  "codelists": [
+    {
+      "codelist_id": "measurement_oxygenated_haemoglobin_percentage_saturation_SNOMED_SNOMED_68c6d207",
+      "codelist_name": "measurement_oxygenated_haemoglobin_percentage_saturation_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_oxygenated_haemoglobin_percentage_saturation_SNOMED_SNOMED_68c6d207_20250818_151505",
+      "codes": [
+        {
+          "code": "103228002",
+          "code_description": "Hemoglobin saturation with oxygen (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "431314004",
+          "code_description": "Peripheral oxygen saturation (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1017311000000104",
+          "code_description": "Blood oxygen saturation (calculated) (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "927981000000106",
+          "code_description": "Baseline oxygen saturation at periphery (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "866661000000106",
+          "code_description": "Peripheral blood oxygen saturation on room air at rest (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "250554003",
+          "code_description": "Measurement of oxygen saturation at periphery (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "442476006",
+          "code_description": "Arterial oxygen saturation (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "26801000237104",
+          "code_description": "Percent saturation of oxygen in capillary blood by pulse oximetry (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "391395002",
+          "code_description": "Blood oxygen saturation (calculated) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "104847001",
+          "code_description": "Oxygen saturation measurement (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "27681000237109",
+          "code_description": "Percent saturation of oxygen in arterial blood by pulse oximetry (observable entity)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}
