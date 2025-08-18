@@ -106,6 +106,27 @@ def code_selected(row: pd.Series) -> bool:
     return any(c.code == row["CODE"] and c.code_vocabulary == VocabularyType(row["VOCABULARY"])
             for c in st.session_state.current_definition.codes)
 
+def get_icd10_children(parent_code: str, vocabulary_df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Find all child codes for a 3-character ICD10 parent code
+    Args:
+        parent_code:
+            3-character ICD10 code (e.g., 'K20')
+        vocabulary_df:
+            df containing all available codes
+    Returns:
+        df of child codes that exist in vocabulary
+    """
+    if len(parent_code) != 3:
+        return pd.DataFrame()
+
+    child_pattern = f"^{parent_code}\\."
+    children = vocabulary_df[
+        (vocabulary_df["CODE"].str.match(child_pattern, na=False)) &
+        (vocabulary_df["VOCABULARY"] == "ICD10")
+    ]
+    return children
+
 def display_code_and_checkbox(row: pd.Series, checkbox_key: str, key_suffix=""):
     """
     Display a code with a checkbox for selection/deselection
@@ -130,6 +151,19 @@ def display_code_and_checkbox(row: pd.Series, checkbox_key: str, key_suffix=""):
         if checkbox_ticked:
             if st.session_state.current_definition:
                 st.session_state.current_definition.add_code(code)
+
+                # check for ICD10 inclusion based on hierarchy
+                if row["VOCABULARY"] == "ICD10" and len(row["CODE"]) == 3:
+                    children = get_icd10_children(row["CODE"], st.session_state.codes)
+                    if not children.empty:
+                        codes_to_add = []
+                        for _, child_row in children.iterrows():
+                            codes_to_add.append(create_code_from_row(child_row))
+
+                        added, duplicates = st.session_state.current_definition.add_codes_batch(codes_to_add)
+                        if added > 0:
+                            st.toast(f"Added {added} child codes for {row['CODE']} ({duplicates} duplicates skipped)")
+
     elif is_selected and not checkbox_ticked:
             if st.session_state.current_definition:
                 st.session_state.current_definition.remove_code(code)
@@ -297,6 +331,9 @@ def display_unified_code_browser(code_types, key_suffix=""):
                                      options=code_types,
                                      label_visibility="collapsed",
                                      key=f"code_type_{key_suffix}")
+
+            st.caption("Selecting 3-character ICD10 codes (e.g. J20) will automatically include all subcodes")
+
             filtered_codes = filter_codes(st.session_state.codes, search_term, code_type)
             if not filtered_codes.empty:
                 st.write(f"Found {len(filtered_codes):,} codes")
@@ -338,12 +375,13 @@ def display_unified_code_browser(code_types, key_suffix=""):
 
                 added, duplicates = st.session_state.current_definition.add_codes_batch(codes_to_add)
 
-                with col_feedback:
-                    if added > 0:
-                        st.success(f"Added {added} new codes ({duplicates} duplicates skipped)")
-                    else:
-                        st.info(f"All {duplicates} codes already in definition")
-                    st.rerun()
+                if added > 0:
+                    st.toast(f"Added {added} new codes ({duplicates} duplicates skipped)")
+                else:
+                    st.toast(f"All {duplicates} codes already in definition")
+                import time
+                time.sleep(0.5) # This is necessary to allow time for toast to render
+                st.rerun()
 
     # results of filter
     with container_object_with_height_if_possible(500):

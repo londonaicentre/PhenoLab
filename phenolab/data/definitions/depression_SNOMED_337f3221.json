@@ -1,10 +1,10 @@
 {
   "definition_id": "337f3221",
   "definition_name": "depression_SNOMED",
-  "definition_version": "depression_SNOMED_20250707_131613",
+  "definition_version": "depression_SNOMED_20250818_160607",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "0001-01-01T00:00:00",
-  "version_datetime": "2025-07-07T13:16:13.523642",
+  "version_datetime": "2025-08-18T16:06:07.140313",
   "codelists": [
     {
       "codelist_id": "depression_SNOMED_SNOMED_424e173a",
@@ -535,6 +535,11 @@
         {
           "code": "87512008",
           "code_description": "Mild major depression (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1260298008",
+          "code_description": "Postmenopausal depression",
           "code_vocabulary": "SNOMED"
         }
       ]

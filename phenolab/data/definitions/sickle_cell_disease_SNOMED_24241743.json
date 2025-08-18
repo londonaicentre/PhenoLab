@@ -1,10 +1,10 @@
 {
   "definition_id": "24241743",
   "definition_name": "sickle_cell_disease_SNOMED",
-  "definition_version": "sickle_cell_disease_SNOMED_20250707_133128",
+  "definition_version": "sickle_cell_disease_SNOMED_20250818_160952",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "0001-01-01T00:00:00",
-  "version_datetime": "2025-07-07T13:31:28.491329",
+  "version_datetime": "2025-08-18T16:09:52.905839",
   "codelists": [
     {
       "codelist_id": "sickle_cell_disease_SNOMED_SNOMED_f83cca12",
@@ -175,6 +175,81 @@
         {
           "code": "783254003",
           "code_description": "Hereditary persistence of fetal hemoglobin with sickle cell disease syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1148911004",
+          "code_description": "Gouty arthropathy due to double heterozygous sickling disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1285514002",
+          "code_description": "Nonproliferative sickle cell retinopathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "154798006",
+          "code_description": "Sickle cell anaemia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191194009",
+          "code_description": "Sickle cell anaemia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191195005",
+          "code_description": "Sickle cell anaemia of unspecified type",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191196006",
+          "code_description": "Sickle cell anaemia with no crisis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191197002",
+          "code_description": "Sickle cell anaemia with crisis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "191199004",
+          "code_description": "Sickle cell anaemia NOS",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "276267006",
+          "code_description": "Sickle cell syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "371104006",
+          "code_description": "Hand-foot syndrome in sickle cell anaemia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "441482006",
+          "code_description": "History of sickle cell anaemia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "511881000000105",
+          "code_description": "History of sickle cell anaemia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "571281000000101",
+          "code_description": "Sickle cell anaemia of unspecified type",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "660631000000106",
+          "code_description": "Sickle cell anaemia NOS",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "706371000000108",
+          "code_description": "History of sickle cell anaemia",
           "code_vocabulary": "SNOMED"
         }
       ]

@@ -1,0 +1,33 @@
+{
+  "definition_id": "6533776d",
+  "definition_name": "pulmonary_embolism_ICD10",
+  "definition_version": "pulmonary_embolism_ICD10_20250818_160114",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-18T16:01:14.453700",
+  "codelists": [
+    {
+      "codelist_id": "pulmonary_embolism_ICD10_ICD10_312f2fa4",
+      "codelist_name": "pulmonary_embolism_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "pulmonary_embolism_ICD10_ICD10_312f2fa4_20250818_160035",
+      "codes": [
+        {
+          "code": "I26",
+          "code_description": "Pulmonary embolism",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I26.0",
+          "code_description": "Pulmonary embolism with mention of acute cor pulmonale",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I26.9",
+          "code_description": "Pulmonary embolism without mention of acute cor pulmonale",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}
