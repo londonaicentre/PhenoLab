@@ -1,0 +1,43 @@
+{
+  "definition_id": "a70244d5",
+  "definition_name": "measurement_eosinophil_count_SNOMED",
+  "definition_version": "measurement_eosinophil_count_SNOMED_20250812_164944",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-12T16:49:44.103525",
+  "codelists": [
+    {
+      "codelist_id": "measurement_eosinophil_count_SNOMED_SNOMED_aff42109",
+      "codelist_name": "measurement_eosinophil_count_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_eosinophil_count_SNOMED_SNOMED_aff42109_20250812_164834",
+      "codes": [
+        {
+          "code": "1022561000000101",
+          "code_description": "Eosinophil count (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "71960002",
+          "code_description": "Eosinophil count (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "386789004",
+          "code_description": "Eosinophil count above reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "165522008",
+          "code_description": "Eosinophil count within reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43355006",
+          "code_description": "Eosinopenia (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "definition_id": "b9a01239",
+  "definition_name": "home_or_long_term_oxygen_SNOMED",
+  "definition_version": "home_or_long_term_oxygen_SNOMED_20250812_164236",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-12T16:42:36.613213",
+  "codelists": [
+    {
+      "codelist_id": "home_or_long_term_oxygen_SNOMED_SNOMED_21f99de1",
+      "codelist_name": "home_or_long_term_oxygen_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "home_or_long_term_oxygen_SNOMED_SNOMED_21f99de1_20250812_163952",
+      "codes": [
+        {
+          "code": "243137006",
+          "code_description": "Long-term oxygen therapy (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201661000000106",
+          "code_description": "Ambulatory oxygen therapy (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426990007",
+          "code_description": "Home oxygen therapy (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "219831000000104",
+          "code_description": "Ambulatory oxygen therapy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "219841000000108",
+          "code_description": "Ambulatory oxygen therapy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "219791000000106",
+          "code_description": "Long-term oxygen therapy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "219801000000105",
+          "code_description": "Long-term oxygen therapy",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

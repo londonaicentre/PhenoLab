@@ -1,0 +1,23 @@
+{
+  "definition_id": "b8629257",
+  "definition_name": "measurement_forced_expiratory_volume_1s_over_forced_vital_capacity_FEV1_FVC_ratio_after_bronchodilation_SNOMED",
+  "definition_version": "measurement_forced_expiratory_volume_1s_over_forced_vital_capacity_FEV1_FVC_ratio_after_bronchodilation_SNOMED_20250818_100232",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-18T10:02:32.155000",
+  "codelists": [
+    {
+      "codelist_id": "measurement_forced_expiratory_volume_1s_over_forced_vital_capacity_FEV1_FVC_ratio_after_bronchodilation_SNOMED_SNOMED_0ac3e3a4",
+      "codelist_name": "measurement_forced_expiratory_volume_1s_over_forced_vital_capacity_FEV1_FVC_ratio_after_bronchodilation_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_forced_expiratory_volume_1s_over_forced_vital_capacity_FEV1_FVC_ratio_after_bronchodilation_SNOMED_SNOMED_0ac3e3a4_20250818_100120",
+      "codes": [
+        {
+          "code": "407603001",
+          "code_description": "Forced expiratory volume in one second/forced vital capacity ratio after bronchodilator (observable entity)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

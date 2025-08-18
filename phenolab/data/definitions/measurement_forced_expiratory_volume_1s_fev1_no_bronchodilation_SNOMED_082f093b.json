@@ -1,0 +1,38 @@
+{
+  "definition_id": "082f093b",
+  "definition_name": "measurement_forced_expiratory_volume_1s_fev1_no_bronchodilation_SNOMED",
+  "definition_version": "measurement_forced_expiratory_volume_1s_fev1_no_bronchodilation_SNOMED_20250812_165411",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-12T16:54:11.594254",
+  "codelists": [
+    {
+      "codelist_id": "measurement_forced_expiratory_volume_1s_fev1_no_bronchodilation_SNOMED_SNOMED_e78f8c10",
+      "codelist_name": "measurement_forced_expiratory_volume_1s_fev1_no_bronchodilation_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_forced_expiratory_volume_1s_fev1_no_bronchodilation_SNOMED_SNOMED_e78f8c10_20250812_165254",
+      "codes": [
+        {
+          "code": "59328004",
+          "code_description": "Forced expired volume in 1 second (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401012008",
+          "code_description": "Forced expired volume in 1 second before bronchodilation (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401115007",
+          "code_description": "Forced expired volume in 1 second pre steroids (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401016006",
+          "code_description": "Forced expired volume in 1 second post steroids (observable entity)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

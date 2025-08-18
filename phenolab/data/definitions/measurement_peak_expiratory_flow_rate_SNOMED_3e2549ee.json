@@ -1,0 +1,38 @@
+{
+  "definition_id": "3e2549ee",
+  "definition_name": "measurement_peak_expiratory_flow_rate_SNOMED",
+  "definition_version": "measurement_peak_expiratory_flow_rate_SNOMED_20250818_152520",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-18T15:25:20.100635",
+  "codelists": [
+    {
+      "codelist_id": "measurement_peak_expiratory_flow_rate_SNOMED_SNOMED_7a708424",
+      "codelist_name": "measurement_peak_expiratory_flow_rate_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_peak_expiratory_flow_rate_SNOMED_SNOMED_7a708424_20250818_152357",
+      "codes": [
+        {
+          "code": "18491006",
+          "code_description": "Peak expiratory flow rate (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "165871000000103",
+          "code_description": "Peak expiratory flow rate measured using EN 13826 device (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401004000",
+          "code_description": "Peak expiratory flow rate monitoring (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401014009",
+          "code_description": "Peak expiratory flow rate pre steroids (observable entity)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

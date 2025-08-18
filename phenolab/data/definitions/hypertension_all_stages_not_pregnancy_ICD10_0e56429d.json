@@ -1,0 +1,123 @@
+{
+  "definition_id": "0e56429d",
+  "definition_name": "hypertension_all_stages_not_pregnancy_ICD10",
+  "definition_version": "hypertension_all_stages_not_pregnancy_ICD10_20250812_163509",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-12T16:35:09.821892",
+  "codelists": [
+    {
+      "codelist_id": "hypertension_all_stages_not_pregnancy_ICD10_ICD10_5303a076",
+      "codelist_name": "hypertension_all_stages_not_pregnancy_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "hypertension_all_stages_not_pregnancy_ICD10_ICD10_5303a076_20250812_162935",
+      "codes": [
+        {
+          "code": "I10",
+          "code_description": "Essential (primary) hypertension",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I15.9",
+          "code_description": "Secondary hypertension, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "O10.9",
+          "code_description": "Unspecified pre-existing hypertension complicating pregnancy, childbirth and the puerperium",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I15.2",
+          "code_description": "Hypertension secondary to endocrine disorders",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I15.8",
+          "code_description": "Other secondary hypertension",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I15.0",
+          "code_description": "Renovascular hypertension",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I15.1",
+          "code_description": "Hypertension secondary to other renal disorders",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "O10",
+          "code_description": "Pre-existing hypertension complicating pregnancy, childbirth and the puerperium",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I15",
+          "code_description": "Secondary hypertension",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I10-I15",
+          "code_description": "Hypertensive diseases",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I11.0",
+          "code_description": "Hypertensive heart disease with (congestive) heart failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I11.9",
+          "code_description": "Hypertensive heart disease without (congestive) heart failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I11",
+          "code_description": "Hypertensive heart disease",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I12.0",
+          "code_description": "Hypertensive renal disease with renal failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I12.9",
+          "code_description": "Hypertensive renal disease without renal failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I12",
+          "code_description": "Hypertensive renal disease",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I13.2",
+          "code_description": "Hypertensive heart and renal disease with both (congestive) heart failure and renal failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I13.0",
+          "code_description": "Hypertensive heart and renal disease with (congestive) heart failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I13.1",
+          "code_description": "Hypertensive heart and renal disease with renal failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I13.9",
+          "code_description": "Hypertensive heart and renal disease, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I13",
+          "code_description": "Hypertensive heart and renal disease",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

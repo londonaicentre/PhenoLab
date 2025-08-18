@@ -1,0 +1,53 @@
+{
+  "definition_id": "c6055536",
+  "definition_name": "lung_cancer_ICD",
+  "definition_version": "lung_cancer_ICD_20250812_120912",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-12T12:09:12.466332",
+  "codelists": [
+    {
+      "codelist_id": "lung_cancer_ICD_ICD10_1e3bf5c9",
+      "codelist_name": "lung_cancer_ICD_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "lung_cancer_ICD_ICD10_1e3bf5c9_20250812_120825",
+      "codes": [
+        {
+          "code": "C34.1",
+          "code_description": "Malignant neoplasm: Upper lobe, bronchus or lung",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "C34.9",
+          "code_description": "Malignant neoplasm: Bronchus or lung, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "C34.3",
+          "code_description": "Malignant neoplasm: Lower lobe, bronchus or lung",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "C34.2",
+          "code_description": "Malignant neoplasm: Middle lobe, bronchus or lung",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "C34.8",
+          "code_description": "Malignant neoplasm: Overlapping lesion of bronchus and lung",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "C34",
+          "code_description": "Malignant neoplasm of bronchus and lung",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "C34.0",
+          "code_description": "Malignant neoplasm: Main bronchus",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

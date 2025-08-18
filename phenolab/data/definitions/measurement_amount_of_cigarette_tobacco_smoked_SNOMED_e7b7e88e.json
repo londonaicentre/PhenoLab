@@ -1,0 +1,73 @@
+{
+  "definition_id": "e7b7e88e",
+  "definition_name": "measurement_amount_of_cigarette_tobacco_smoked_SNOMED",
+  "definition_version": "measurement_amount_of_cigarette_tobacco_smoked_SNOMED_20250818_144256",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-18T14:42:56.728209",
+  "codelists": [
+    {
+      "codelist_id": "measurement_amount_of_cigarette_tobacco_smoked_SNOMED_SNOMED_cefe233d",
+      "codelist_name": "measurement_amount_of_cigarette_tobacco_smoked_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_amount_of_cigarette_tobacco_smoked_SNOMED_SNOMED_cefe233d_20250818_120824",
+      "codes": [
+        {
+          "code": "160603005",
+          "code_description": "Light cigarette smoker (1-9 cigs/day) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230056004",
+          "code_description": "Cigarette consumption (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "160604004",
+          "code_description": "Moderate cigarette smoker (10-19 cigs/day) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "160605003",
+          "code_description": "Heavy cigarette smoker (20-39 cigs/day) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266920004",
+          "code_description": "Trivial cigarette smoker (less than one cigarette/day) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "160619003",
+          "code_description": "Rolls own cigarettes (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "160606002",
+          "code_description": "Very heavy cigarette smoker (40+ cigs/day) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "65568007",
+          "code_description": "Cigarette smoker (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266918002",
+          "code_description": "Tobacco smoking consumption (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "428041000124106",
+          "code_description": "Occasional tobacco smoker (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230057008",
+          "code_description": "Cigar consumption (observable entity)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

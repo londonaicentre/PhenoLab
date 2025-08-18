@@ -1,0 +1,503 @@
+{
+  "definition_id": "a8233133",
+  "definition_name": "interstitial_lung_disease_SNOMED",
+  "definition_version": "interstitial_lung_disease_SNOMED_20250818_132514",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-18T13:25:14.978651",
+  "codelists": [
+    {
+      "codelist_id": "interstitial_lung_disease_SNOMED_SNOMED_05138217",
+      "codelist_name": "interstitial_lung_disease_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "interstitial_lung_disease_SNOMED_SNOMED_05138217_20250818_131555",
+      "codes": [
+        {
+          "code": "51615001",
+          "code_description": "Fibrosis of lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "196125002",
+          "code_description": "Diffuse interstitial pulmonary fibrosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700250006",
+          "code_description": "Idiopathic pulmonary fibrosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "162974009",
+          "code_description": "On examination - fibrosis of lung present (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "90117007",
+          "code_description": "Tuberculous fibrosis of lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "71193007",
+          "code_description": "Fibrosis of lung caused by radiation (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "708030004",
+          "code_description": "Pulmonary emphysema co-occurrent with fibrosis of lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "14700006",
+          "code_description": "Bauxite fibrosis of lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "17385007",
+          "code_description": "Graphite fibrosis of lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "50196008",
+          "code_description": "Perialveolar fibrosis of lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1163147006",
+          "code_description": "Chronic fibrosis of lung caused by Aspergillus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "3514002",
+          "code_description": "Peribronchial fibrosis of lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1177007001",
+          "code_description": "Fibrosis of lung due to pulmonary paracoccidioidomycosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "721977007",
+          "code_description": "Lung fibrosis, immunodeficiency, 46,XX gonadal dysgenesis syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "40640008",
+          "code_description": "Massive fibrosis of lung co-occurrent and due to silicosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "13274008",
+          "code_description": "Atrophic fibrosis of lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "140190005",
+          "code_description": "O/E - fibrosis of lung present (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "36599006",
+          "code_description": "Chronic fibrosis of lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "30042003",
+          "code_description": "Confluent fibrosis of lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "56841008",
+          "code_description": "Massive fibrosis of lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "196121006",
+          "code_description": "Lung: [cirrhosis of] or [postinflammatory pulmonary fibrosis] (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266368002",
+          "code_description": "Post-inflammatory pulmonary fibrosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "90610005",
+          "code_description": "Interstitial pulmonary fibrosis of prematurity (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "196028003",
+          "code_description": "Chronic pulmonary fibrosis caused by chemical fumes (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233726000",
+          "code_description": "Localized pulmonary fibrosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426437004",
+          "code_description": "Familial idiopathic pulmonary fibrosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "723829000",
+          "code_description": "Pulmonary fibrosis, hepatic hyperplasia, bone marrow hypoplasia syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "713244007",
+          "code_description": "Drug induced pulmonary fibrosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "206313009",
+          "code_description": "Prematurity with interstitial pulmonary fibrosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "155613001",
+          "code_description": "Pulmonary fibrosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "57124002",
+          "code_description": "Postinflammatory pulmonary fibrosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700251005",
+          "code_description": "Chronic idiopathic pulmonary fibrosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "405570007",
+          "code_description": "Pulmonary fibrosis due to and following radiotherapy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "708537005",
+          "code_description": "Acute idiopathic pulmonary fibrosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "57488007",
+          "code_description": "Chronic pulmonary fibrosis due to inhalation of chemical fumes AND/OR vapors (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "789574002",
+          "code_description": "Acute exacerbation of idiopathic pulmonary fibrosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "155600007",
+          "code_description": "Radiation-induced diffuse interstitial pulmonary fibrosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "397991000000107",
+          "code_description": "[X]Other interstitial pulmonary diseases with fibrosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "196246002",
+          "code_description": "[X]Other interstitial pulmonary diseases with fibrosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700252003",
+          "code_description": "Subacute idiopathic pulmonary fibrosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1344640009",
+          "code_description": "Chronic pulmonary fibrosis caused by vapor (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "846637007",
+          "code_description": "Chronic pulmonary fibrosis caused by chemical vapors (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1017196003",
+          "code_description": "Interstitial pulmonary fibrosis due to inhalation of substance (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "807851000000108",
+          "code_description": "Pulmonary fibrosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1017197007",
+          "code_description": "Interstitial pulmonary fibrosis due to inhalation of drug (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233725001",
+          "code_description": "Drug-induced diffuse interstitial pulmonary fibrosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233724002",
+          "code_description": "Toxic diffuse interstitial pulmonary fibrosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "697912009",
+          "code_description": "Pulmonary hypertension due to interstitial lung disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "196247006",
+          "code_description": "[X]Other specified interstitial pulmonary diseases (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233703007",
+          "code_description": "Interstitial lung disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10713006",
+          "code_description": "Diffuse interstitial rheumatoid disease of lung (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "711379004",
+          "code_description": "Interstitial lung disease due to connective tissue disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "129451001",
+          "code_description": "Respiratory bronchiolitis associated interstitial lung disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "196051003",
+          "code_description": "Drug-induced interstitial lung disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "196053000",
+          "code_description": "Chronic drug-induced interstitial lung disorders (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "196052005",
+          "code_description": "Acute drug-induced interstitial lung disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "427123006",
+          "code_description": "Interstitial lung disease due to collagen vascular disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "866103007",
+          "code_description": "Interstitial lung disease due to juvenile polymyositis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "737181009",
+          "code_description": "Interstitial lung disease due to systemic disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "781651000000101",
+          "code_description": "Respiratory bronchiolitis associated interstitial lung disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1284850005",
+          "code_description": "Interstitial lung disease due to and following radiotherapy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "781661000000103",
+          "code_description": "Interstitial lung disease due to collagen vascular disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "328661000119108",
+          "code_description": "Interstitial lung disease of childhood (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "196161007",
+          "code_description": "Interstitial lung disease NEC (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "807891000000100",
+          "code_description": "Interstitial lung disease due to connective tissue disease",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "737184001",
+          "code_description": "Interstitial lung disease co-occurrent and due to systemic vasculitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "737183007",
+          "code_description": "Interstitial lung disease due to metabolic disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "535011000000101",
+          "code_description": "Interstitial lung disease NEC (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201609008",
+          "code_description": "Entire interstitial tissue of lung (body structure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1222677008",
+          "code_description": "Interstitial lung disease due to surfactant protein C deficiency (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "556179491000119104",
+          "code_description": "Interstitial lung disease due to vaping (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "737182002",
+          "code_description": "Interstitial lung disease due to granulomatous disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "807871000000104",
+          "code_description": "Interstitial lung disease due to collagen vascular disease",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "807861000000106",
+          "code_description": "Respiratory bronchiolitis associated interstitial lung disease",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1222679006",
+          "code_description": "Autoimmune interstitial lung disease, arthritis syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "733453005",
+          "code_description": "Congenital nephrotic syndrome, interstitial lung disease, epidermolysis bullosa syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "470101491000119107",
+          "code_description": "Interstitial lung disease due to dabbing (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1222678003",
+          "code_description": "Interstitial lung disease due to ATP-binding cassette subfamily A member 3 deficiency (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "62161000000102",
+          "code_description": "Interstitial lung disease annual review (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "781711000000106",
+          "code_description": "Interstitial lung disease due to connective tissue disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "187233002",
+          "code_description": "Sarcoidosis of lung with sarcoidosis of lymph nodes (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "24369008",
+          "code_description": "Pulmonary sarcoidosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233767005",
+          "code_description": "Stage 1 pulmonary sarcoidosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233768000",
+          "code_description": "Stage 2 pulmonary sarcoidosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233769008",
+          "code_description": "Stage 3 pulmonary sarcoidosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233770009",
+          "code_description": "Stage 4 pulmonary sarcoidosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "187230004",
+          "code_description": "Pulmonary sarcoidosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "45157009",
+          "code_description": "Idiopathic fibrosing alveolitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "196126001",
+          "code_description": "Idiopathic fibrosing alveolitis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "28168000",
+          "code_description": "Idiopathic fibrosing alveolitis, chronic form (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "196123009",
+          "code_description": "Fibrosing alveolitis: [idiopathic] or [cryptogenic]) or (Hamman - Rich syndrome) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "649171000000104",
+          "code_description": "Idiopathic fibrosing alveolitis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "68759006",
+          "code_description": "Idiopathic fibrosing alveolitis, subacute form (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "54867000",
+          "code_description": "Rheumatoid arthritis with fibrosing alveolitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266410004",
+          "code_description": "Idiopath. fibrosing alveolitis (& Hamman-Rich syndrome) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239794002",
+          "code_description": "Fibrosing alveolitis associated with rheumatoid arthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "111292008",
+          "code_description": "Necrotizing sarcoid granulomatosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

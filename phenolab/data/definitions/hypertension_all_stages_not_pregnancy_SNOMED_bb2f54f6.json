@@ -1,0 +1,598 @@
+{
+  "definition_id": "bb2f54f6",
+  "definition_name": "hypertension_all_stages_not_pregnancy_SNOMED",
+  "definition_version": "hypertension_all_stages_not_pregnancy_SNOMED_20250812_162811",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-12T16:28:11.172153",
+  "codelists": [
+    {
+      "codelist_id": "hypertension_all_stages_not_pregnancy_SNOMED_SNOMED_9814e8b2",
+      "codelist_name": "hypertension_all_stages_not_pregnancy_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "hypertension_all_stages_not_pregnancy_SNOMED_SNOMED_9814e8b2_20250812_154445",
+      "codes": [
+        {
+          "code": "59621000",
+          "code_description": "Essential hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "843821000000102",
+          "code_description": "Stage 1 hypertension (National Institute for Health and Clinical Excellence 2011) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "845891000000103",
+          "code_description": "Hypertension resistant to drug therapy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1201005",
+          "code_description": "Benign essential hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "31992008",
+          "code_description": "Secondary hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "908631000000108",
+          "code_description": "Stage 1 hypertension (National Institute for Health and Clinical Excellence 2011) without evidence of end organ damage (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "56218007",
+          "code_description": "Systolic hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "846371000000103",
+          "code_description": "Stage 2 hypertension (National Institute for Health and Clinical Excellence 2011) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "78975002",
+          "code_description": "Malignant essential hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "88223008",
+          "code_description": "Secondary pulmonary hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "70272006",
+          "code_description": "Malignant hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "48146000",
+          "code_description": "Diastolic hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "843841000000109",
+          "code_description": "Severe hypertension (National Institute for Health and Clinical Excellence 2011) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "86041002",
+          "code_description": "Pre-existing hypertension in obstetric context (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "908651000000101",
+          "code_description": "Stage 1 hypertension (National Institute for Health and Clinical Excellence 2011) with evidence of end organ damage (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "89242004",
+          "code_description": "Malignant secondary hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "123799005",
+          "code_description": "Renovascular hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10725009",
+          "code_description": "Benign hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194788005",
+          "code_description": "Hypertension secondary to endocrine disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "863191000000102",
+          "code_description": "Nocturnal hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194785008",
+          "code_description": "Secondary benign hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "169465000",
+          "code_description": "Hypertension caused by oral contraceptive pill (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "199005000",
+          "code_description": "Pre-existing hypertension complicating pregnancy, childbirth and puerperium (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "73410007",
+          "code_description": "Benign secondary renovascular hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "57684003",
+          "code_description": "Parenchymal renal hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "697929007",
+          "code_description": "Intermittent hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "28119000",
+          "code_description": "Renal hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "371125006",
+          "code_description": "Labile essential hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "199008003",
+          "code_description": "Pre-existing secondary hypertension complicating pregnancy, childbirth and puerperium (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "397748008",
+          "code_description": "Hypertension with albuminuria (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194783001",
+          "code_description": "Secondary malignant renovascular hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194791005",
+          "code_description": "Hypertension caused by drug (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "712832005",
+          "code_description": "Supine hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "129151000119102",
+          "code_description": "Chronic kidney disease stage 4 due to hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16229371000119106",
+          "code_description": "Labile systemic arterial hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "429457004",
+          "code_description": "Systolic essential hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1078301000112109",
+          "code_description": "Multiple drug intolerant hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "762463000",
+          "code_description": "Diastolic hypertension co-occurrent with systolic hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194775007",
+          "code_description": "(Renal hypertension) or (hypertensive renal disease NOS) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "46481004",
+          "code_description": "Low-renin essential hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "129181000119109",
+          "code_description": "Chronic kidney disease stage 2 due to hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "284991000119104",
+          "code_description": "Chronic kidney disease stage 3 due to benign hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10752641000119102",
+          "code_description": "Eclampsia with pre-existing hypertension in childbirth (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "39018007",
+          "code_description": "Renal arterial hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "65518004",
+          "code_description": "Labile diastolic hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "766937004",
+          "code_description": "Hypertension due to gain-of-function mutation in mineralocorticoid receptor (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "14973001",
+          "code_description": "Renal sclerosis with hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "117681000119102",
+          "code_description": "Chronic kidney disease stage 1 due to hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "367821000119106",
+          "code_description": "Hypertension due to compression of renal parenchyma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "140111000119107",
+          "code_description": "Hypertension in chronic kidney disease stage 4 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "129161000119100",
+          "code_description": "Chronic kidney disease stage 5 due to hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194792003",
+          "code_description": "Secondary hypertension NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "286951002",
+          "code_description": "Malignant hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194759009",
+          "code_description": "Systolic hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "276789009",
+          "code_description": "Labile hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1218009",
+          "code_description": "Accelerated essential hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "127991000119101",
+          "code_description": "Hypertension concurrent and due to end stage renal disease on dialysis due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "284971000119100",
+          "code_description": "Chronic kidney disease stage 1 due to benign hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "44111003",
+          "code_description": "Benign secondary hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266287006",
+          "code_description": "(Hypertensive disease) or (hypertension) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194789002",
+          "code_description": "Secondary hypertension NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "427889009",
+          "code_description": "Hypertension associated with transplantation (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "128001000119105",
+          "code_description": "Hypertension concurrent and due to end stage renal disease on dialysis due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "419571000000103",
+          "code_description": "[X]Hypertension secondary to other renal disorders (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194786009",
+          "code_description": "Secondary benign renovascular hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "414391000000105",
+          "code_description": "[X]Other secondary hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "155301003",
+          "code_description": "Malignant hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "284981000119102",
+          "code_description": "Chronic kidney disease stage 2 due to benign hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "199004001",
+          "code_description": "Pre-eclampsia or eclampsia with pre-existing hypertension NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "111411000119103",
+          "code_description": "End stage renal disease due to hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1208845005",
+          "code_description": "Secondary hypertension due to congenital heart disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "155300002",
+          "code_description": "Secondary hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "599301000000107",
+          "code_description": "Secondary hypertension NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332436006",
+          "code_description": "Hypertension in chronic kidney disease stage 3B due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "22857008",
+          "code_description": "Malignant secondary renovascular hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332441003",
+          "code_description": "Hypertension in chronic kidney disease stage 3A due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "155296003",
+          "code_description": "Essential hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "697921005",
+          "code_description": "Pulmonary hypertension in sarcoidosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "52698002",
+          "code_description": "Transient hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "285001000119105",
+          "code_description": "Chronic kidney disease stage 4 due to benign hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266228004",
+          "code_description": "Essential hypertension NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332442005",
+          "code_description": "Hypertension in chronic kidney disease stage 3 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "104931000119100",
+          "code_description": "Chronic kidney disease due to hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332464001",
+          "code_description": "Hypertension in chronic kidney disease stage 2 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "684211000000107",
+          "code_description": "Essential hypertension NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "599291000000108",
+          "code_description": "Secondary malignant hypertension NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "140121000119100",
+          "code_description": "Hypertension in chronic kidney disease stage 3 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195538006",
+          "code_description": "[X]Other secondary hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332467008",
+          "code_description": "Hypertension in chronic kidney disease stage 5 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332465000",
+          "code_description": "Hypertension in chronic kidney disease stage 3B due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195539003",
+          "code_description": "[X]Hypertension secondary to other renal disorders (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "465101000000102",
+          "code_description": "Renal vascular disease due to malignant hypertension (no primary renal disease) associated with renal failure - European Dialysis and Transplant Association (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "140131000119102",
+          "code_description": "Hypertension in chronic kidney disease stage 2 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "198954000",
+          "code_description": "Renal hypertension complicating pregnancy, childbirth and the puerperium with postnatal complication (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "599311000000109",
+          "code_description": "Secondary renovascular hypertension NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "284961000119106",
+          "code_description": "Chronic kidney disease due to benign hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1332468003",
+          "code_description": "Hypertension in chronic kidney disease stage 4 due to type 1 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194760004",
+          "code_description": "Hypertension NOS (& [essential]) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "84094009",
+          "code_description": "Rebound hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "5501000119106",
+          "code_description": "Postoperative hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194757006",
+          "code_description": "High blood pressure (& [essential hypertension]) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "871642009",
+          "code_description": "Hypertension due to aortic arch obstruction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "49863005",
+          "code_description": "Accelerated secondary hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194790006",
+          "code_description": "Secondary renovascular hypertension NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194758001",
+          "code_description": "Benign essential hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "712487000",
+          "code_description": "End stage renal disease due to benign hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "19769006",
+          "code_description": "High-renin essential hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "74451002",
+          "code_description": "Secondary diastolic hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "108701000119102",
+          "code_description": "Cardiomyopathy due to hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194784007",
+          "code_description": "Secondary malignant hypertension NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "140101000119109",
+          "code_description": "Hypertension in chronic kidney disease stage 5 due to type 2 diabetes mellitus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "194787000",
+          "code_description": "Secondary benign hypertension NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "391214004",
+          "code_description": "White coat hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "275516004",
+          "code_description": "Cardiomegaly due to hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "129171000119106",
+          "code_description": "Chronic kidney disease stage 3 due to hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1204139007",
+          "code_description": "Hypertension due to congenital adrenal hyperplasia (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

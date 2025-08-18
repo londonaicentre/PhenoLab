@@ -1,0 +1,83 @@
+{
+  "definition_id": "f242e6fd",
+  "definition_name": "measurement_serum_bicarbonate_level_SNOMED",
+  "standard_units": [
+    "mmol/L",
+    "mEq/L",
+    "No Unit"
+  ],
+  "primary_standard_unit": "mmol/L",
+  "lower_limit": null,
+  "upper_limit": null,
+  "unit_mappings": [
+    {
+      "source_unit": "mmol/l",
+      "standard_unit": "mmol/L",
+      "source_unit_count": 81367,
+      "source_unit_lq": 24.999999999999993,
+      "source_unit_median": 26.999999999999993,
+      "source_unit_uq": 28.999999999999982
+    },
+    {
+      "source_unit": "mmol/L",
+      "standard_unit": "mmol/L",
+      "source_unit_count": 78604,
+      "source_unit_lq": 22.92448021649869,
+      "source_unit_median": 24.999999999999996,
+      "source_unit_uq": 27.0
+    },
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "No Unit",
+      "source_unit_count": 14214,
+      "source_unit_lq": 24.0,
+      "source_unit_median": 26.0,
+      "source_unit_uq": 28.0
+    },
+    {
+      "source_unit": "mEq/L",
+      "standard_unit": "mEq/L",
+      "source_unit_count": 55,
+      "source_unit_lq": 24.0,
+      "source_unit_median": 26.0,
+      "source_unit_uq": 27.0
+    },
+    {
+      "source_unit": "MMOL/L",
+      "standard_unit": "mmol/L",
+      "source_unit_count": 23,
+      "source_unit_lq": 24.5,
+      "source_unit_median": 25.0,
+      "source_unit_uq": 26.0
+    },
+    {
+      "source_unit": "mmolL",
+      "standard_unit": "mmol/L",
+      "source_unit_count": 19,
+      "source_unit_lq": 26.5,
+      "source_unit_median": 28.0,
+      "source_unit_uq": 28.0
+    },
+    {
+      "source_unit": "mmol/m",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 26.0,
+      "source_unit_median": 26.0,
+      "source_unit_uq": 26.0
+    },
+    {
+      "source_unit": "meq/L",
+      "standard_unit": "mEq/L",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    }
+  ],
+  "unit_conversions": [],
+  "created_datetime": "2025-08-18T15:28:55.723196",
+  "updated_datetime": "2025-08-18T15:54:13.410562",
+  "standard_measurement_config_id": "77ba7806",
+  "standard_measurement_config_version": "measurement_serum_bicarbonate_level_SNOMED_20250818_155413"
+}

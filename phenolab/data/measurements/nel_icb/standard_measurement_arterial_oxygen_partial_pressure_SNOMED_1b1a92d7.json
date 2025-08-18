@@ -1,0 +1,114 @@
+{
+  "definition_id": "69064128",
+  "definition_name": "measurement_arterial_oxygen_partial_pressure_SNOMED",
+  "standard_units": [
+    "mmHg",
+    "kPa"
+  ],
+  "primary_standard_unit": "kPa",
+  "lower_limit": null,
+  "upper_limit": 50.0,
+  "unit_mappings": [
+    {
+      "source_unit": "SI",
+      "standard_unit": "kPa",
+      "source_unit_count": 20409,
+      "source_unit_lq": 7.627288,
+      "source_unit_median": 8.560142687277052,
+      "source_unit_uq": 9.638596
+    },
+    {
+      "source_unit": "kPa",
+      "standard_unit": "kPa",
+      "source_unit_count": 2446,
+      "source_unit_lq": 8.338750000000001,
+      "source_unit_median": 87.0,
+      "source_unit_uq": 97.0
+    },
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "kPa",
+      "source_unit_count": 1273,
+      "source_unit_lq": 7.55,
+      "source_unit_median": 8.98,
+      "source_unit_uq": 10.2
+    },
+    {
+      "source_unit": "%",
+      "standard_unit": "",
+      "source_unit_count": 107,
+      "source_unit_lq": 94.0,
+      "source_unit_median": 96.0,
+      "source_unit_uq": 97.0
+    },
+    {
+      "source_unit": "UNKNOWN UNITS",
+      "standard_unit": "kPa",
+      "source_unit_count": 37,
+      "source_unit_lq": 7.66,
+      "source_unit_median": 8.33,
+      "source_unit_uq": 9.09
+    },
+    {
+      "source_unit": "mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 34,
+      "source_unit_lq": 9.7175,
+      "source_unit_median": 20.17,
+      "source_unit_uq": 97.0
+    },
+    {
+      "source_unit": "KPa",
+      "standard_unit": "kPa",
+      "source_unit_count": 29,
+      "source_unit_lq": 9.29,
+      "source_unit_median": 84.0,
+      "source_unit_uq": 95.0
+    },
+    {
+      "source_unit": "mmHg",
+      "standard_unit": "mmHg",
+      "source_unit_count": 20,
+      "source_unit_lq": 11.8,
+      "source_unit_median": 94.5,
+      "source_unit_uq": 98.0
+    },
+    {
+      "source_unit": "kpal",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 68.875,
+      "source_unit_median": 94.0,
+      "source_unit_uq": 98.0
+    },
+    {
+      "source_unit": "97",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 97.0,
+      "source_unit_median": 97.0,
+      "source_unit_uq": 97.0
+    },
+    {
+      "source_unit": "pO2",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.5,
+      "source_unit_median": 4.5,
+      "source_unit_uq": 4.5
+    }
+  ],
+  "unit_conversions": [
+    {
+      "convert_from_unit": "mmHg",
+      "convert_to_unit": "kPa",
+      "pre_offset": 0.0,
+      "multiply_by": 0.133322,
+      "post_offset": 0.0
+    }
+  ],
+  "created_datetime": "2025-08-18T15:28:55.724986",
+  "updated_datetime": "2025-08-18T15:37:22.372985",
+  "standard_measurement_config_id": "1b1a92d7",
+  "standard_measurement_config_version": "measurement_arterial_oxygen_partial_pressure_SNOMED_20250818_153722"
+}

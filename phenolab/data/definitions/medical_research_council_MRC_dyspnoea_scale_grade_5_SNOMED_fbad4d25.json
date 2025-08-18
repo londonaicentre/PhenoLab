@@ -1,0 +1,23 @@
+{
+  "definition_id": "fbad4d25",
+  "definition_name": "medical_research_council_MRC_dyspnoea_scale_grade_5_SNOMED",
+  "definition_version": "medical_research_council_MRC_dyspnoea_scale_grade_5_SNOMED_20250818_131109",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-18T13:11:09.156101",
+  "codelists": [
+    {
+      "codelist_id": "medical_research_council_MRC_dyspnoea_scale_grade_5_SNOMED_SNOMED_28e214ee",
+      "codelist_name": "medical_research_council_MRC_dyspnoea_scale_grade_5_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "medical_research_council_MRC_dyspnoea_scale_grade_5_SNOMED_SNOMED_28e214ee_20250818_131106",
+      "codes": [
+        {
+          "code": "391126003",
+          "code_description": "Medical Research Council Dyspnoea scale grade 5 (finding)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "definition_id": "1940349c",
+  "definition_name": "measurement_partial_pressure_carbon_dioxide_venous_blood_SNOMED",
+  "standard_units": [
+    "kPa"
+  ],
+  "primary_standard_unit": "kPa",
+  "lower_limit": null,
+  "upper_limit": null,
+  "unit_mappings": [
+    {
+      "source_unit": "mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 22,
+      "source_unit_lq": 5.3,
+      "source_unit_median": 5.615,
+      "source_unit_uq": 6.515
+    },
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "",
+      "source_unit_count": 9,
+      "source_unit_lq": 6.15,
+      "source_unit_median": 6.3,
+      "source_unit_uq": 6.449999999999999
+    }
+  ],
+  "unit_conversions": [],
+  "created_datetime": "2025-08-18T15:28:55.725354",
+  "updated_datetime": "2025-08-18T15:44:21.119037",
+  "standard_measurement_config_id": "cc54f054",
+  "standard_measurement_config_version": "measurement_partial_pressure_carbon_dioxide_venous_blood_SNOMED_20250818_154421"
+}

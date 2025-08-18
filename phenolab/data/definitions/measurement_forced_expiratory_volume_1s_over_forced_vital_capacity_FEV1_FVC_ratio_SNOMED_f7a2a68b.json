@@ -1,0 +1,53 @@
+{
+  "definition_id": "f7a2a68b",
+  "definition_name": "measurement_forced_expiratory_volume_1s_over_forced_vital_capacity_FEV1_FVC_ratio_SNOMED",
+  "definition_version": "measurement_forced_expiratory_volume_1s_over_forced_vital_capacity_FEV1_FVC_ratio_SNOMED_20250818_095303",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-18T09:53:03.714232",
+  "codelists": [
+    {
+      "codelist_id": "measurement_forced_expiratory_volume_1s_over_forced_vital_capacity_FEV1_FVC_ratio_SNOMED_SNOMED_4ae3c837",
+      "codelist_name": "measurement_forced_expiratory_volume_1s_over_forced_vital_capacity_FEV1_FVC_ratio_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_forced_expiratory_volume_1s_over_forced_vital_capacity_FEV1_FVC_ratio_SNOMED_SNOMED_4ae3c837_20250818_095048",
+      "codes": [
+        {
+          "code": "313222007",
+          "code_description": "Forced expiratory volume in one second/Forced vital capacity percent (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "251944000",
+          "code_description": "Forced expired volume in one second/forced vital capacity ratio (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "407602006",
+          "code_description": "Forced expiratory volume in one second/Forced vital capacity ratio before bronchodilator (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314473008",
+          "code_description": "Forced expiratory volume in one second/Forced vital capacity greater than 70 percent of predicted (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314472003",
+          "code_description": "Forced expiratory volume in one second/Forced vital capacity less than 70 percent of predicted (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "407601004",
+          "code_description": "Forced expiratory volume in one second/Forced vital capacity ratio post steroids (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "407599001",
+          "code_description": "Forced expiratory volume in one second/Forced vital capacity ratio pre steroids (observable entity)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

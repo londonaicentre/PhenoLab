@@ -1,14 +1,17 @@
 {
   "definition_id": "4e80fb29",
   "definition_name": "measurement_serum_low_density_lipoprotein_LDL_SNOMED",
-  "standard_units": [],
-  "primary_standard_unit": null,
+  "standard_units": [
+    "mmol/L",
+    "mg/dL"
+  ],
+  "primary_standard_unit": "mmol/L",
   "lower_limit": null,
-  "upper_limit": null,
+  "upper_limit": 25.0,
   "unit_mappings": [
     {
       "source_unit": "mmol/L",
-      "standard_unit": "",
+      "standard_unit": "mmol/L",
       "source_unit_count": 8867644,
       "source_unit_lq": 2.099999999999995,
       "source_unit_median": 2.6999999999999975,
@@ -16,7 +19,7 @@
     },
     {
       "source_unit": "mmol/l",
-      "standard_unit": "",
+      "standard_unit": "mmol/L",
       "source_unit_count": 184348,
       "source_unit_lq": 2.299999999999999,
       "source_unit_median": 2.9606269904914657,
@@ -32,7 +35,7 @@
     },
     {
       "source_unit": "mMol/L",
-      "standard_unit": "",
+      "standard_unit": "mmol/L",
       "source_unit_count": 552,
       "source_unit_lq": 2.1,
       "source_unit_median": 2.7,
@@ -40,7 +43,7 @@
     },
     {
       "source_unit": "MMOL/L",
-      "standard_unit": "",
+      "standard_unit": "mmol/L",
       "source_unit_count": 223,
       "source_unit_lq": 2.0,
       "source_unit_median": 2.6,
@@ -56,7 +59,7 @@
     },
     {
       "source_unit": "mg/dL",
-      "standard_unit": "",
+      "standard_unit": "mg/dL",
       "source_unit_count": 38,
       "source_unit_lq": 72.3,
       "source_unit_median": 111.0,
@@ -64,7 +67,7 @@
     },
     {
       "source_unit": "mg/dl",
-      "standard_unit": "",
+      "standard_unit": "mg/dL",
       "source_unit_count": 13,
       "source_unit_lq": 104.0,
       "source_unit_median": 120.0,
@@ -72,7 +75,7 @@
     },
     {
       "source_unit": "MMOLL",
-      "standard_unit": "",
+      "standard_unit": "mmol/L",
       "source_unit_count": 9,
       "source_unit_lq": 2.61,
       "source_unit_median": 2.88,
@@ -80,7 +83,7 @@
     },
     {
       "source_unit": "mmol/1",
-      "standard_unit": "",
+      "standard_unit": "mmol/L",
       "source_unit_count": 4,
       "source_unit_lq": 3.8375,
       "source_unit_median": 4.025,
@@ -96,7 +99,7 @@
     },
     {
       "source_unit": "MG/DL",
-      "standard_unit": "",
+      "standard_unit": "mg/dL",
       "source_unit_count": 3,
       "source_unit_lq": 237.0,
       "source_unit_median": 237.0,
@@ -136,7 +139,7 @@
     },
     {
       "source_unit": "mMol/l",
-      "standard_unit": "",
+      "standard_unit": "mmol/L",
       "source_unit_count": 2,
       "source_unit_lq": 3.6,
       "source_unit_median": 3.6,
@@ -176,7 +179,7 @@
     },
     {
       "source_unit": "m.mol/l",
-      "standard_unit": "",
+      "standard_unit": "mmol/L",
       "source_unit_count": 1,
       "source_unit_lq": 2.1,
       "source_unit_median": 2.1,
@@ -184,7 +187,7 @@
     },
     {
       "source_unit": "MMOL/L (CALC)",
-      "standard_unit": "",
+      "standard_unit": "mmol/L",
       "source_unit_count": 1,
       "source_unit_lq": 2.92,
       "source_unit_median": 2.92,
@@ -221,11 +224,27 @@
       "source_unit_lq": 1.38,
       "source_unit_median": 1.38,
       "source_unit_uq": 1.38
+    },
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "mmol/L",
+      "source_unit_count": 383571,
+      "source_unit_lq": 2.3,
+      "source_unit_median": 2.9454895735964457,
+      "source_unit_uq": 3.664827678531586
     }
   ],
-  "unit_conversions": [],
+  "unit_conversions": [
+    {
+      "convert_from_unit": "mg/dL",
+      "convert_to_unit": "mmol/L",
+      "pre_offset": 0.0,
+      "multiply_by": 0.02586,
+      "post_offset": 0.0
+    }
+  ],
   "created_datetime": "2025-07-16T11:41:09.975346",
-  "updated_datetime": "2025-07-16T12:02:01.054753",
+  "updated_datetime": "2025-08-18T11:49:38.297637",
   "standard_measurement_config_id": "70a41e1d",
-  "standard_measurement_config_version": "measurement_serum_low_density_lipoprotein_LDL_SNOMED_20250716_120201"
+  "standard_measurement_config_version": "measurement_serum_low_density_lipoprotein_LDL_SNOMED_20250818_114938"
 }

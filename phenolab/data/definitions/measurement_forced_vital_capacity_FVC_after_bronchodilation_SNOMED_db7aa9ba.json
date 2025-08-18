@@ -1,0 +1,23 @@
+{
+  "definition_id": "db7aa9ba",
+  "definition_name": "measurement_forced_vital_capacity_FVC_after_bronchodilation_SNOMED",
+  "definition_version": "measurement_forced_vital_capacity_FVC_after_bronchodilation_SNOMED_20250818_095022",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-18T09:50:22.657825",
+  "codelists": [
+    {
+      "codelist_id": "measurement_forced_vital_capacity_FVC_after_bronchodilation_SNOMED_SNOMED_cde4c0a2",
+      "codelist_name": "measurement_forced_vital_capacity_FVC_after_bronchodilation_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_forced_vital_capacity_FVC_after_bronchodilation_SNOMED_SNOMED_cde4c0a2_20250818_094722",
+      "codes": [
+        {
+          "code": "407561008",
+          "code_description": "Forced vital capacity after bronchodilation (observable entity)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

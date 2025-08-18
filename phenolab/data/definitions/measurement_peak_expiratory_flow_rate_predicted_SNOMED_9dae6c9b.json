@@ -1,0 +1,28 @@
+{
+  "definition_id": "9dae6c9b",
+  "definition_name": "measurement_peak_expiratory_flow_rate_predicted_SNOMED",
+  "definition_version": "measurement_peak_expiratory_flow_rate_predicted_SNOMED_20250818_152623",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-18T15:26:23.721421",
+  "codelists": [
+    {
+      "codelist_id": "measurement_peak_expiratory_flow_rate_predicted_SNOMED_SNOMED_c9a6c208",
+      "codelist_name": "measurement_peak_expiratory_flow_rate_predicted_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_peak_expiratory_flow_rate_predicted_SNOMED_SNOMED_c9a6c208_20250818_152547",
+      "codes": [
+        {
+          "code": "178271000000100",
+          "code_description": "Predicted peak expiratory flow rate using EN 13826 standard (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "313192007",
+          "code_description": "Expected peak expiratory flow rate (observable entity)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}
