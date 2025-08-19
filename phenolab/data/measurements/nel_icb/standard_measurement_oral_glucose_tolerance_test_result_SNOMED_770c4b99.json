@@ -1,0 +1,79 @@
+{
+  "definition_id": "00942f38",
+  "definition_name": "measurement_oral_glucose_tolerance_test_result_SNOMED",
+  "standard_units": [],
+  "primary_standard_unit": null,
+  "lower_limit": null,
+  "upper_limit": null,
+  "unit_mappings": [
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "",
+      "source_unit_count": 445430,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "mmol/l",
+      "standard_unit": "",
+      "source_unit_count": 194,
+      "source_unit_lq": 5.9,
+      "source_unit_median": 6.5,
+      "source_unit_uq": 7.975
+    },
+    {
+      "source_unit": "g/L",
+      "standard_unit": "",
+      "source_unit_count": 133,
+      "source_unit_lq": 4.3,
+      "source_unit_median": 5.3,
+      "source_unit_uq": 7.1
+    },
+    {
+      "source_unit": "mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 19,
+      "source_unit_lq": 4.949999999999999,
+      "source_unit_median": 5.6,
+      "source_unit_uq": 7.595
+    },
+    {
+      "source_unit": "Glucose tolerance test",
+      "standard_unit": "",
+      "source_unit_count": 10,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "mmol",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 6.2,
+      "source_unit_median": 6.3,
+      "source_unit_uq": 6.8
+    },
+    {
+      "source_unit": "Glucose tol. test impaired",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "Glucose tolerance test normal",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    }
+  ],
+  "unit_conversions": [],
+  "created_datetime": "2025-08-19T15:26:50.086162",
+  "updated_datetime": "2025-08-19T15:27:41.607738",
+  "standard_measurement_config_id": "770c4b99",
+  "standard_measurement_config_version": "measurement_oral_glucose_tolerance_test_result_SNOMED_20250819_152741"
+}

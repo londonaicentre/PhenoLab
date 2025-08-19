@@ -1,0 +1,139 @@
+{
+  "definition_id": "5653de19",
+  "definition_name": "measurement_waist_circumference_SNOMED",
+  "standard_units": [
+    "cm",
+    "no unit",
+    "inches"
+  ],
+  "primary_standard_unit": "cm",
+  "lower_limit": null,
+  "upper_limit": 300.0,
+  "unit_mappings": [
+    {
+      "source_unit": "cm",
+      "standard_unit": "cm",
+      "source_unit_count": 1486022,
+      "source_unit_lq": 82.99999999999997,
+      "source_unit_median": 92.99551814217874,
+      "source_unit_uq": 102.99999999999993
+    },
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "",
+      "source_unit_count": 17548,
+      "source_unit_lq": 51.66666666666666,
+      "source_unit_median": 85.1875,
+      "source_unit_uq": 99.0
+    },
+    {
+      "source_unit": "cms",
+      "standard_unit": "cm",
+      "source_unit_count": 648,
+      "source_unit_lq": 81.0,
+      "source_unit_median": 92.0,
+      "source_unit_uq": 103.0
+    },
+    {
+      "source_unit": "inches",
+      "standard_unit": "inches",
+      "source_unit_count": 146,
+      "source_unit_lq": 29.125,
+      "source_unit_median": 34.0,
+      "source_unit_uq": 40.0
+    },
+    {
+      "source_unit": "CM",
+      "standard_unit": "cm",
+      "source_unit_count": 57,
+      "source_unit_lq": 76.2,
+      "source_unit_median": 81.28,
+      "source_unit_uq": 91.44
+    },
+    {
+      "source_unit": "CMS",
+      "standard_unit": "cm",
+      "source_unit_count": 34,
+      "source_unit_lq": 68.0,
+      "source_unit_median": 78.5,
+      "source_unit_uq": 82.0
+    },
+    {
+      "source_unit": "INCHES",
+      "standard_unit": "inches",
+      "source_unit_count": 17,
+      "source_unit_lq": 32.0,
+      "source_unit_median": 34.0,
+      "source_unit_uq": 34.0
+    },
+    {
+      "source_unit": "centimetres",
+      "standard_unit": "cm",
+      "source_unit_count": 11,
+      "source_unit_lq": 64.0,
+      "source_unit_median": 72.0,
+      "source_unit_uq": 94.5
+    },
+    {
+      "source_unit": "ins",
+      "standard_unit": "inches",
+      "source_unit_count": 10,
+      "source_unit_lq": 39.0,
+      "source_unit_median": 39.0,
+      "source_unit_uq": 40.0
+    },
+    {
+      "source_unit": "''",
+      "standard_unit": "inches",
+      "source_unit_count": 4,
+      "source_unit_lq": 25.0,
+      "source_unit_median": 29.5,
+      "source_unit_uq": 35.5
+    },
+    {
+      "source_unit": "cm.",
+      "standard_unit": "cm",
+      "source_unit_count": 3,
+      "source_unit_lq": 72.0,
+      "source_unit_median": 72.0,
+      "source_unit_uq": 74.0
+    },
+    {
+      "source_unit": "inc+",
+      "standard_unit": "inches",
+      "source_unit_count": 2,
+      "source_unit_lq": 25.125,
+      "source_unit_median": 29.75,
+      "source_unit_uq": 34.375
+    },
+    {
+      "source_unit": "Inches",
+      "standard_unit": "inches",
+      "source_unit_count": 2,
+      "source_unit_lq": 27.5,
+      "source_unit_median": 29.0,
+      "source_unit_uq": 30.5
+    },
+    {
+      "source_unit": "g/24hr",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 24.5,
+      "source_unit_median": 24.5,
+      "source_unit_uq": 24.5
+    }
+  ],
+  "unit_conversions": [
+    {
+      "convert_from_unit": "inches",
+      "convert_to_unit": "cm",
+      "pre_offset": 0.0,
+      "multiply_by": 2.54,
+      "post_offset": 0.0
+    }
+  ],
+  "created_datetime": "2025-08-19T15:26:50.087669",
+  "updated_datetime": "2025-08-19T15:32:14.175011",
+  "standard_measurement_config_id": "809fdae8",
+  "standard_measurement_config_version": "measurement_waist_circumference_SNOMED_20250819_153214"
+}

@@ -1,0 +1,53 @@
+{
+  "definition_id": "00942f38",
+  "definition_name": "measurement_oral_glucose_tolerance_test_result_SNOMED",
+  "definition_version": "measurement_oral_glucose_tolerance_test_result_SNOMED_20250819_152152",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-19T15:21:52.480562",
+  "codelists": [
+    {
+      "codelist_id": "measurement_oral_glucose_tolerance_test_result_SNOMED_SNOMED_9d589e00",
+      "codelist_name": "measurement_oral_glucose_tolerance_test_result_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_oral_glucose_tolerance_test_result_SNOMED_SNOMED_9d589e00_20250819_151959",
+      "codes": [
+        {
+          "code": "1005711000000106",
+          "code_description": "Glucose tolerance test (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "113076002",
+          "code_description": "Glucose tolerance test (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166927002",
+          "code_description": "Impaired glucose tolerance test (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "274858002",
+          "code_description": "Glucose tolerance test outside reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166926006",
+          "code_description": "Glucose tolerance test within reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166928007",
+          "code_description": "Glucose tolerance test indicates diabetes mellitus (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "372046001",
+          "code_description": "Glucose tolerance test during pregnancy, childbirth and puerperium outside reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

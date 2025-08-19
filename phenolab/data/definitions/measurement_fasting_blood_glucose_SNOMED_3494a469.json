@@ -1,0 +1,58 @@
+{
+  "definition_id": "3494a469",
+  "definition_name": "measurement_fasting_blood_glucose_SNOMED",
+  "definition_version": "measurement_fasting_blood_glucose_SNOMED_20250819_152226",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-19T15:22:26.080923",
+  "codelists": [
+    {
+      "codelist_id": "measurement_fasting_blood_glucose_SNOMED_SNOMED_21f45073",
+      "codelist_name": "measurement_fasting_blood_glucose_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_fasting_blood_glucose_SNOMED_SNOMED_21f45073_20250819_152159",
+      "codes": [
+        {
+          "code": "1003131000000101",
+          "code_description": "Serum fasting glucose level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1003141000000105",
+          "code_description": "Plasma fasting glucose level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "997681000000108",
+          "code_description": "Fasting blood glucose level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "167096006",
+          "code_description": "Plasma fasting glucose measurement (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "167087006",
+          "code_description": "Serum fasting glucose measurement (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "271062006",
+          "code_description": "Fasting blood glucose measurement (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "58111000237107",
+          "code_description": "Fasting substance concentration of glucose in plasma (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166893007",
+          "code_description": "Fasting blood glucose (& level) (procedure)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

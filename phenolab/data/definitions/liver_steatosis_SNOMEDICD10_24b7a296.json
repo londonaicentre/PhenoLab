@@ -1,0 +1,36 @@
+{
+  "definition_id": "24b7a296",
+  "definition_name": "liver_steatosis_SNOMEDICD10",
+  "definition_version": "liver_steatosis_SNOMEDICD10_20250819_162710",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-19T16:27:10.491079",
+  "codelists": [
+    {
+      "codelist_id": "liver_steatosis_SNOMEDICD10_ICD10_c6874042",
+      "codelist_name": "liver_steatosis_SNOMEDICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "liver_steatosis_SNOMEDICD10_ICD10_c6874042_20250819_162547",
+      "codes": [
+        {
+          "code": "K76.0",
+          "code_description": "Fatty (change of) liver, not elsewhere classified",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    },
+    {
+      "codelist_id": "liver_steatosis_SNOMEDICD10_SNOMED_ef50cbbc",
+      "codelist_name": "liver_steatosis_SNOMEDICD10_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "liver_steatosis_SNOMEDICD10_SNOMED_ef50cbbc_20250819_162636",
+      "codes": [
+        {
+          "code": "197321007",
+          "code_description": "Steatosis of liver (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}
