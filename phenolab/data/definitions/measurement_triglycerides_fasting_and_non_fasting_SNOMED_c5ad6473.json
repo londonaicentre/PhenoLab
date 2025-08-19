@@ -1,0 +1,88 @@
+{
+  "definition_id": "c5ad6473",
+  "definition_name": "measurement_triglycerides_fasting_and_non_fasting_SNOMED",
+  "definition_version": "measurement_triglycerides_fasting_and_non_fasting_SNOMED_20250819_151800",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-19T15:18:00.124911",
+  "codelists": [
+    {
+      "codelist_id": "measurement_triglycerides_fasting_and_non_fasting_SNOMED_SNOMED_98acd6dc",
+      "codelist_name": "measurement_triglycerides_fasting_and_non_fasting_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_triglycerides_fasting_and_non_fasting_SNOMED_SNOMED_98acd6dc_20250819_151703",
+      "codes": [
+        {
+          "code": "1005691000000109",
+          "code_description": "Serum triglycerides level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "271245006",
+          "code_description": "Measurement of serum triglyceride level (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166848004",
+          "code_description": "Serum triglycerides above reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166846000",
+          "code_description": "Serum triglycerides within reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1026491000000105",
+          "code_description": "Serum fasting triglyceride level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1010601000000105",
+          "code_description": "Plasma triglyceride level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "850991000000104",
+          "code_description": "Triglyceride level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166847009",
+          "code_description": "Serum triglycerides borderline (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "365796000",
+          "code_description": "Finding of serum triglyceride levels (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "365795001",
+          "code_description": "Finding of triglyceride level (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1031321000000109",
+          "code_description": "Plasma fasting triglyceride level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "167082000",
+          "code_description": "Plasma triglyceride measurement (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1026501000000104",
+          "code_description": "Serum random triglyceride level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "14740000",
+          "code_description": "Triglycerides measurement (procedure)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

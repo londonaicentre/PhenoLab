@@ -1,0 +1,28 @@
+{
+  "definition_id": "5653de19",
+  "definition_name": "measurement_waist_circumference_SNOMED",
+  "definition_version": "measurement_waist_circumference_SNOMED_20250819_152320",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-19T15:23:20.867032",
+  "codelists": [
+    {
+      "codelist_id": "measurement_waist_circumference_SNOMED_SNOMED_6b938443",
+      "codelist_name": "measurement_waist_circumference_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_waist_circumference_SNOMED_SNOMED_6b938443_20250819_152303",
+      "codes": [
+        {
+          "code": "276361009",
+          "code_description": "Waist circumference (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "846891000000106",
+          "code_description": "Baseline waist circumference (observable entity)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

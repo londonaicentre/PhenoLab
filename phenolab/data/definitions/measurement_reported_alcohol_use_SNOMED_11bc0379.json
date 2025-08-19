@@ -1,0 +1,33 @@
+{
+  "definition_id": "11bc0379",
+  "definition_name": "measurement_reported_alcohol_use_SNOMED",
+  "definition_version": "measurement_reported_alcohol_use_SNOMED_20250819_152413",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-19T15:24:13.926898",
+  "codelists": [
+    {
+      "codelist_id": "measurement_reported_alcohol_use_SNOMED_SNOMED_0441e2bb",
+      "codelist_name": "measurement_reported_alcohol_use_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_reported_alcohol_use_SNOMED_SNOMED_0441e2bb_20250819_151040",
+      "codes": [
+        {
+          "code": "160573003",
+          "code_description": "Alcohol intake (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "897148007",
+          "code_description": "Alcoholic beverage intake (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "228958009",
+          "code_description": "alcohol units/week (qualifier value)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}
