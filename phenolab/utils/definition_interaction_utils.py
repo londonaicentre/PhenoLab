@@ -272,23 +272,23 @@ def apply_search_filters(df, parsed_query, search_columns=["CODE_DESCRIPTION", "
     return df
 
 @st.cache_data(ttl=1800, max_entries=10)  # cache for 30mins
-def filter_codes(df: pd.DataFrame, search_term: str, code_type: str) -> pd.DataFrame:
+def filter_codes(df: pd.DataFrame, search_term: str, vocabulary: str) -> pd.DataFrame:
     """
-    Filter codes dataframe based on search term and code type
+    Filter codes dataframe based on search term and vocabulary
 
     Args:
         df(pd.DataFrame):
             code dataframe held in state from the code list selector
         search_term(str):
             Term in search term box (supports logical operators AND, OR, NOT)
-        code_type(str):
-            Type selected from drop down (e.g. OBSERVATION)
+        vocabulary(str):
+            Vocabulary selected from drop down (e.g. SNOMED, ICD10)
     """
     filtered_df = df.copy()
 
-    # apply type filter first
-    if code_type and code_type != "All":
-        filtered_df = filtered_df[filtered_df["CODE_TYPE"] == code_type]
+    # apply vocabulary filter first
+    if vocabulary and vocabulary != "All":
+        filtered_df = filtered_df[filtered_df["VOCABULARY"] == vocabulary]
 
     # apply search term logic
     if search_term:
@@ -297,12 +297,12 @@ def filter_codes(df: pd.DataFrame, search_term: str, code_type: str) -> pd.DataF
 
     return filtered_df.sort_values("CODE_COUNT", ascending=False) if "CODE_COUNT" in filtered_df.columns else filtered_df
 
-def display_unified_code_browser(code_types, key_suffix=""):
+def display_unified_code_browser(vocabularies, key_suffix=""):
     """
     Unified code browser that allows selection from global vocabulary or existing definitions
     Args:
-        code_types(list):
-            List of code types ofr filtering
+        vocabularies(list):
+            List of vocabularies for filtering
         key_suffix(str):
             Suffix appended to streamlit widget keys if they are re-used in same page
     """
@@ -327,14 +327,14 @@ def display_unified_code_browser(code_types, key_suffix=""):
 
         # filter from different sources
         if source_type == "Global Vocabulary":
-            code_type = st.selectbox("Code type",
-                                     options=code_types,
+            vocabulary = st.selectbox("Filter by vocabulary",
+                                     options=vocabularies,
                                      label_visibility="collapsed",
-                                     key=f"code_type_{key_suffix}")
+                                     key=f"vocabulary_{key_suffix}")
 
             st.caption("Selecting 3-character ICD10 codes (e.g. J20) will automatically include all subcodes")
 
-            filtered_codes = filter_codes(st.session_state.codes, search_term, code_type)
+            filtered_codes = filter_codes(st.session_state.codes, search_term, vocabulary)
             if not filtered_codes.empty:
                 st.write(f"Found {len(filtered_codes):,} codes")
             else:
@@ -400,8 +400,8 @@ def display_unified_code_browser(code_types, key_suffix=""):
                         if "CODE_COUNT" in row and pd.notna(row["CODE_COUNT"]):
                             basic_info.append(f"Count: {row['CODE_COUNT']:,}")
 
-                        if "MEDIAN_AGE" in row and pd.notna(row["MEDIAN_AGE"]):
-                            basic_info.append(f"MedianAge: {row['MEDIAN_AGE']:.1f}")
+                        if "UNIQUE_PATIENT_COUNT" in row and pd.notna(row["UNIQUE_PATIENT_COUNT"]):
+                            basic_info.append(f"PtCount: {int(row['UNIQUE_PATIENT_COUNT']):,}")
 
                         if "MEDIAN_VALUE" in row and pd.notna(row["MEDIAN_VALUE"]):
                             basic_info.append(f"MedianValue: {row['MEDIAN_VALUE']:.1f}")

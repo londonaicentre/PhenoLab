@@ -61,25 +61,38 @@ def load_config(session: Session = None, deploy_env: str = None) -> dict:
 
 def preload_vocabulary():
     """
-    Preload the most recent vocabulary file if available.
+    Load vocabulary from Snowflake table.
     """
-    vocab_dir = "data/vocab"
-    if not os.path.exists(vocab_dir):
-        return False, "Vocabulary directory not found"
+    if "session" not in st.session_state or "config" not in st.session_state:
+        return False, "Session or config not initialized"
 
-    vocab_files = glob.glob(os.path.join(vocab_dir, "vocab_*.parquet"))
+    session = st.session_state.session
+    config = st.session_state.config
 
-    if not vocab_files:
-        return False, "No vocabulary files found. Please generate a new vocabulary."
+    if "vocabulary_table" not in config:
+        return False, "Vocabulary table not configured"
 
-    # sort by filename (yyyy-mm-dd)
-    most_recent_file = sorted(vocab_files)[-1]
+    query = f"""
+    SELECT
+        CONCEPT_NAME as CODE_DESCRIPTION,
+        CONCEPT_CODE as CODE,
+        CONCEPT_VOCABULARY as VOCABULARY,
+        CONCEPT_CODE_COUNT as CODE_COUNT,
+        UNIQUE_PATIENT_COUNT,
+        LQ_VALUE,
+        MEDIAN_VALUE,
+        UQ_VALUE,
+        PERCENT_HAS_RESULT_VALUE
+    FROM {config['vocabulary_table']}
+    WHERE CONCEPT_CODE IS NOT NULL
+    """
 
-    vocab_df = pd.read_parquet(most_recent_file)
-
-    st.session_state.codes = vocab_df
-
-    return True, "Vocabulary loaded"
+    try:
+        vocab_df = session.sql(query).to_pandas()
+        st.session_state.codes = vocab_df
+        return True, f"Vocabulary loaded ({len(vocab_df):,} codes)"
+    except Exception as e:
+        return False, f"Failed to load vocabulary: {e}"
 
 if __name__ == "__main__":
     # Example usage/for debugging

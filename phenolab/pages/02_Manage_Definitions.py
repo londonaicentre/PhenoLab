@@ -171,7 +171,7 @@ def main():
 
     # confirm vocab is loaded
     if st.session_state.codes is None:
-        st.warning("Please load a vocabulary from the Load Vocabulary page first.")
+        st.warning("Please restart application to reload vocabulary.")
         return
 
     # create tabs for each section
@@ -181,8 +181,8 @@ def main():
     else:
         create_tab, edit_tab = st.tabs(["Create New", "Edit Existing"])
 
-    # get unique code types for filtering (used in create and edit tabs)
-    code_types = ["All"] + list(st.session_state.codes["CODE_TYPE"].unique())
+    # get unique vocabularies for filtering (used in create and edit tabs)
+    vocabularies = ["All"] + sorted(st.session_state.codes["VOCABULARY"].unique())
 
     ## TAB 1: CREATE DEFINITION
     with create_tab:
@@ -195,7 +195,7 @@ def main():
 
         col1, col2 = st.columns([1, 1])
         with col1:
-            display_unified_code_browser(code_types, key_suffix="create")
+            display_unified_code_browser(vocabularies, key_suffix="create")
         with col2:
             display_selected_codes(key_suffix="create")
 
@@ -210,7 +210,7 @@ def main():
 
         col1, col2 = st.columns([1, 1])
         with col1:
-            display_unified_code_browser(code_types, key_suffix="edit")
+            display_unified_code_browser(vocabularies, key_suffix="edit")
         with col2:
             display_selected_codes(key_suffix="edit")
 

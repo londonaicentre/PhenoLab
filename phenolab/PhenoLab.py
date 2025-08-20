@@ -13,14 +13,6 @@ from utils.config_utils import load_config, preload_vocabulary
 st.set_page_config(page_title="PhenoLab", layout="wide", initial_sidebar_state="expanded")
 set_font_lato()
 
-# vocabulary session state
-if "codes" not in st.session_state:
-    st.session_state.codes = None
-    vocab_loaded, vocab_message = preload_vocabulary()
-else:
-    vocab_loaded = st.session_state.codes is not None
-    vocab_message = "Vocabulary loaded in session"
-
 # initialise snowflake connection
 st.session_state.session = get_snowflake_session()
 try:
@@ -31,6 +23,14 @@ except Exception as e:
 
 # Load configuration file
 st.session_state.config = load_config()
+
+# vocabulary session state - now loads from Snowflake after config is available
+if "codes" not in st.session_state:
+    st.session_state.codes = None
+    vocab_loaded, vocab_message = preload_vocabulary()
+else:
+    vocab_loaded = st.session_state.codes is not None
+    vocab_message = "Vocabulary loaded in session"
 print(st.session_state.config)
 
 ## PAGE DISPLAY
