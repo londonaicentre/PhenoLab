@@ -9,6 +9,7 @@ from utils.measurement_interaction_utils import (
     apply_conversions,
     apply_unit_mapping,
     count_sigfig,
+    display_measurement_config_from_file,
     get_available_measurement_configs,
     get_measurement_values,
     load_measurement_config,
@@ -568,7 +569,7 @@ def main():  # noqa: C901
         st.session_state.selected_config = None
 
     if st.session_state.config["local_development"]:
-        tab1, tab2 = st.tabs(["Create/Update Configs", "View Existing Configs on Snowflake"])
+        tab1, tab2, tab3 = st.tabs(["Create/Update Configs", "View Existing Configs on Snowflake", "View & Upload"])
         with tab1:
             col1, col2 = st.columns([3, 1])
             with col1:
@@ -706,6 +707,43 @@ def main():  # noqa: C901
             measurement_config = get_selected_config(selected_measurement)
             if measurement_config:
                 display_measurement_analysis(measurement_config, False, ulim, llim)
+
+        with tab3:
+            col1, col2 = st.columns([1, 1.5])
+
+            with col1:
+                st.subheader("Available Measurement Configs")
+                config_files = load_measurement_configs_list()
+
+                if not config_files:
+                    st.info("No measurement config files found. Create some configs first.")
+                else:
+                    selected_config_file = st.selectbox("Select a config to view", options=config_files)
+
+            with col2:
+                if "selected_config_file" in locals() and selected_config_file:
+                    display_measurement_config_from_file(selected_config_file)
+                else:
+                    st.info("Select a measurement config from the list to view its contents")
+
+            st.markdown("---")
+
+            st.markdown(f"This will upload all measurement configurations to `{st.session_state.config['measurement_configs']['database']}.{st.session_state.config['measurement_configs']['schema']}` tables." \
+            " All existing measurement config tables will be recreated.")
+            _, b, _ = st.columns(3)
+            [maincol] = st.columns(1)
+
+            config_count = len(load_measurement_configs_list())
+            with b:
+                st.text(" ")
+                if config_count > 0:
+                    if st.button("Upload measurement configs to Snowflake"):
+                        with maincol:
+                            with st.spinner("Uploading measurement configs to Snowflake..."):
+                                total_configs = load_measurement_configs_into_tables()
+                            st.success(f"Successfully uploaded {total_configs} measurement configs to Snowflake tables")
+                else:
+                    st.warning("No measurement configs available to upload")
     else:
         selected_measurement, ulim, llim = display_configs_in_tables()
         measurement_config = get_selected_config(selected_measurement)

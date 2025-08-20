@@ -1,8 +1,0 @@
-[connections.nel_icb]
-account = "ATKJNCU-NEL_ICB"
-user = "I.WEINBERG@NHS.NET"
-database = "INTELLIGENCE_DEV"
-authenticator = "externalbrowser"
-schema = "AI_CENTRE_DEV"
-warehouse = "INTELLIGENCE_XS"
-role = "UG_INTELLIGENCE_DEVELOP"

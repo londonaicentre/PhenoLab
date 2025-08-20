@@ -1,80 +1,54 @@
 # PhenoLab
 
-Clinical definition management and phenotyping application deployed on Snowflake.
+Clinical definition management and phenotyping application deployed on Snowflake. Provides a Streamlit interface for managing medical code definitions, standardising measurements, and building features from healthcare data.
 
-## Deployment Stages
+This app is written to be integrated with the AI Centre/OneLondon Snowflake dbt data pipeline. However, it can be deployed in isolation given correct Snowflake configuration.
 
-### 1. External Definitions Fetching
-Run these separately to fetch external definition data and save to parquet files.
+Deployment instructions (and dependencies) for superusers are found in DEPLOYMENT.md.
 
-```bash
-cd phenolab
-python _external_definitions/fetch_hdruk.py
-python _external_definitions/fetch_open_codelists.py
-python _external_definitions/fetch_bnf.py
-```
+## Application Pages
 
-### 2. Base Feature Tables
-These are essential tables on which subsequent features are built. Currently for NEL ICB only.
+### 1. Browse Definitions
+Browse and compare clinical definitions across multiple sources including:
+- **AIC_DEFINITIONS**: AI Centre custom definitions
+- **ICB_DEFINITIONS**: ICB-specific definitions
+- **External sources**: HDR UK, OpenCodelists, NHS SNOMED refsets
+- Side-by-side comparison tools for validation and refinement
 
-```bash
-cd _base_features
-python base_apc_concepts.py
-python base_person_nel_index.py
-python base_unified_emergency_care.py
-python base_unified_sus_encounters.py
-```
+### 2. Manage Definitions
+Create, edit, and manage clinical code definitions:
+- Build new definitions with vocabulary code browser (SNOMED, ICD10, OPCS4, etc.)
+- Modify existing definitions from local JSON files
+- Push definitions to Snowflake (local development only)
+- Automatic measurement prefix handling and validation
 
-### 3. Deployment Process
-Deploy Streamlit app and load all data to Snowflake. Navigate to the phenolab folder and set up the deploy.sh script as
-executable (`chmod +x deploy.sh`). Then run the deployment script, with an ICB name and either dev or prod. Prod is the
-live app. Dev is a second version of the app is called PHENOLAB_DEV and has its own schema with dummy tables. Use for
-testing ICB deployment:
+### 3. Standardise Measurements
+Configure measurement standardisation and unit conversions:
+- Define standard units and mapping from source units
+- Specify conversion formulas and acceptable value ranges
+- Visual analysis of measurement distributions and outliers
+- Set cut-offs which will flag inappropriately high and low values
+- Export configurations for measurement processing
 
-```bash
-./deploy.sh <ICB> <environment>
-# Example prod: ./deploy.sh nel prod
-# Example dev: ./deploy.sh nel dev
-```
+## Local vs Server Runtime
 
-The deployment script:
-- Deploys Streamlit app to Snowflake
-- Runs setup.py which performs these steps:
-  1. Creates ICB_DEFINITIONS table (if not exists)
-  2. Loads AIC definitions from JSON files (overwrites where new version)
-  3. Loads external definitions from parquet files (merges into existing tables)
-  4. Ensures DEFINITIONSTORE unified view
-  5. Loads measurement configurations (overwrites)
+### Local Development
+When running `streamlit run PhenoLab.py` locally:
+- **Default environment**: `dev` (uses dev tables on Snowflake)
+- **Production environment (NOT RECOMMENDED)**: Set `DEPLOY_ENV=prod streamlit run PhenoLab.py`
+- Optimised for super user creation of new definitions and measurement cleaning
+- Connects to Snowflake backend using `~/.snowflake/connections.toml` credentials
+- AI Centre definition creation, editing and upload capability
+- Full measurement configuration and upload capability
+- Update dev feature tables for conditions and measurements based on latest data and definitions
 
-### 4. Running Application
-Access the deployed Streamlit app in Snowflake or, to run locally with backend connection to the Snowflake prod tables.
-This defaults to the production environment i.e. uses the live tables. Use for internal AI centre use for generating new
-definitions and adding to our json store:
+### Server Deployment
+When deployed to Snowflake via `deploy.sh`:
+- Runs within Snowflake's managed environment
+- Optimised for end-user browsing and analysis
+- Uses server-side configuration and credentials
+- No AI Centre definition or measurement config upload functionality (these are loaded during deployment)
+- ICBs can create custom definitions, and these will be reflected in the definition store
+- Update dev feature tables for conditions and measurements based on latest data and definitions
 
-```bash
-streamlit run PhenoLab.py
-```
 
-To use the app on localhost but use the dev tables (use for testing out new Phenolab code), set a temporary
-environmental variable when running streamlit:
-
-```bash 
- `DEPLOY_ENV=dev streamlit run PhenoLab.py` for running local and in dev (uses dev tables on snowflake)
- ```
-
-## Connections
-
-### Snowflake CLI Configuration
-Configure connections in `~/.snowflake/connections.toml`:
-
-```toml
-[nel_icb]
-account = "your-account"
-user = "your-username"
-authenticator = "externalbrowser"
-```
-
-### Environment Configuration
-ICB-specific configurations in `configs/`:
-- `nel_icb_prod.yml`
-- `nel_icb_dev.yml`

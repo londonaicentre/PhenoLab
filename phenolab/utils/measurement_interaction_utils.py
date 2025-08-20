@@ -713,6 +713,50 @@ def load_measurement_configs_into_tables(config: Optional[dict] = None, session:
     print(f"Loaded {total_configs} measurement configs into Snowflake tables")
     return total_configs
 
+@st.cache_data(show_spinner=False)
+def display_measurement_config_from_file(config_file):
+    """
+    Display content from a measurement configuration json file
+    """
+    try:
+        config = load_measurement_config(config_file)
+
+        st.caption(f"Configuration: {config.definition_name}")
+
+        # basic info
+        col1, col2 = st.columns(2)
+        with col1:
+            st.write(f"**Definition ID:** {config.definition_id}")
+            st.write(f"**Config Version:** {config.standard_measurement_config_version}")
+
+        with col2:
+            st.write(f"**Primary Standard Unit:** {config.primary_standard_unit}")
+            if config.lower_limit is not None or config.upper_limit is not None:
+                st.write(f"**Value Bounds:** {config.lower_limit} - {config.upper_limit}")
+
+        # standard units
+        if config.standard_units:
+            with st.expander(f"Standard Units ({len(config.standard_units)})"):
+                for unit in config.standard_units:
+                    if unit == config.primary_standard_unit:
+                        st.text(f"• {unit} (PRIMARY)")
+                    else:
+                        st.text(f"• {unit}")
+
+
+        # unit conversions
+        if config.unit_conversions:
+            with st.expander(f"Unit Conversions ({len(config.unit_conversions)})"):
+                for conv in config.unit_conversions:
+                    st.text(f"• {conv.convert_from_unit} → {conv.convert_to_unit}: ×{conv.multiply_by}")
+
+        st.info(f"Total: {len(config.standard_units)} standard units, {len(config.unit_mappings)} mappings, {len(config.unit_conversions)} conversions")
+
+        return config
+    except Exception as e:
+        st.error(f"Error loading measurement config: {e}")
+        return None
+
 def count_sigfig(number: float,
                 zeros: int = 4,
                 nines: int = 5,

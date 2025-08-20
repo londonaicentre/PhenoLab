@@ -2,19 +2,18 @@ import os
 import re
 
 import streamlit as st
-
+from utils.config_utils import load_config, preload_vocabulary
+from utils.database_utils import get_snowflake_session
+from utils.definition import Definition
 from utils.definition_interaction_utils import (
     display_definition_from_file,
     display_selected_codes,
     display_unified_code_browser,
     load_definition,
     load_definitions_list,
-    update_aic_definitions_table
+    update_aic_definitions_table,
 )
-from utils.database_utils import get_snowflake_session
 from utils.style_utils import set_font_lato
-from utils.config_utils import load_config, preload_vocabulary
-from utils.definition import Definition
 
 # # 03_Manage_Definitions.py
 
@@ -247,7 +246,9 @@ def main():
                 if definition_count > 0:
                     if st.button("Upload new / updated definitions to Snowflake"):
                         with maincol:
-                            update_aic_definitions_table()
+                            with st.spinner("Uploading definitions to Snowflake..."):
+                                update_aic_definitions_table()
+                            st.success(f"Successfully uploaded {definition_count} definitions to AIC_DEFINITIONS table")
                 else:
                     st.warning("No definitions available to upload")
 
