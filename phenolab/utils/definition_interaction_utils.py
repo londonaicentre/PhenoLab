@@ -706,3 +706,95 @@ def update_aic_definitions_table(config: Optional[dict] = None, session: Optiona
         print(f"Uploaded AIC_DEFINITIONS table with {len(all_rows)} rows")
     else:
         print("No definitions found to load")
+
+
+def create_conditions_feature_table(config: Optional[dict] = None, session: Optional[Session] = None):
+    """
+    Create DEV_CONDITIONS feature table from DEFINITIONSTORE and clinical data.
+    Filters to events from 2020 onwards for performance.
+    """
+    config = config or st.session_state.config
+    session = session or st.session_state.session
+
+    sql = f"""
+    CREATE OR REPLACE TABLE {config["feature_store"]["database"]}.{config["feature_store"]["schema"]}.DEV_CONDITIONS AS
+    WITH
+        definitionstore_filtered AS (
+            SELECT DEFINITION_ID, DEFINITION_NAME, CODE, VOCABULARY, SOURCE_TABLE
+            FROM {config["definition_library"]["database"]}.{config["definition_library"]["schema"]}.DEFINITIONSTORE
+            WHERE NOT LOWER(DEFINITION_NAME) LIKE 'measurement_%'
+        ),
+
+        gp_observations AS (
+            SELECT
+                gp.PERSON_ID,
+                gp.ENCOUNTER_ID::VARCHAR AS VISIT_OCCURRENCE_ID,
+                'GP_ENCOUNTER' AS VISIT_OCCURRENCE_TYPE,
+                NULL AS AGE_AT_EVENT,
+                gp.CLINICAL_EFFECTIVE_DATE,
+                gp.CLINICAL_END_DATE,
+                ds.DEFINITION_ID,
+                ds.DEFINITION_NAME AS CONDITION_DEFINITION_NAME,
+                ds.SOURCE_TABLE AS DEFINITION_SOURCE
+            FROM {config["gp_observation_table"]} gp
+            INNER JOIN definitionstore_filtered ds
+                ON gp.OBSERVATION_CONCEPT_CODE = ds.CODE
+                AND gp.OBSERVATION_CONCEPT_VOCABULARY = ds.VOCABULARY
+            WHERE gp.CLINICAL_EFFECTIVE_DATE >= '2020-01-01'
+        ),
+
+        apc_diagnosis AS (
+            SELECT
+                apc.PERSON_ID,
+                apc.ACTIVITY_DATE AS VISIT_OCCURRENCE_ID,
+                'APC_DIAGNOSIS' AS VISIT_OCCURRENCE_TYPE,
+                NULL AS AGE_AT_EVENT,
+                apc.ACTIVITY_DATE AS CLINICAL_EFFECTIVE_DATE,
+                NULL AS CLINICAL_END_DATE,
+                ds.DEFINITION_ID,
+                ds.DEFINITION_NAME AS CONDITION_DEFINITION_NAME,
+                ds.SOURCE_TABLE AS DEFINITION_SOURCE
+            FROM {config["sus_icd10_table"]} apc
+            INNER JOIN definitionstore_filtered ds
+                ON apc.CONCEPT_CODE = ds.CODE
+                AND apc.CONCEPT_VOCABULARY = ds.VOCABULARY
+            WHERE apc.ACTIVITY_DATE >= '2020-01-01'
+        ),
+
+        apc_procedure AS (
+            SELECT
+                apc.PERSON_ID,
+                apc.ACTIVITY_DATE AS VISIT_OCCURRENCE_ID,
+                'APC_PROCEDURE' AS VISIT_OCCURRENCE_TYPE,
+                NULL AS AGE_AT_EVENT,
+                apc.ACTIVITY_DATE AS CLINICAL_EFFECTIVE_DATE,
+                NULL AS CLINICAL_END_DATE,
+                ds.DEFINITION_ID,
+                ds.DEFINITION_NAME AS CONDITION_DEFINITION_NAME,
+                ds.SOURCE_TABLE AS DEFINITION_SOURCE
+            FROM {config["sus_opcs4_table"]} apc
+            INNER JOIN definitionstore_filtered ds
+                ON apc.CONCEPT_CODE = ds.CODE
+                AND apc.CONCEPT_VOCABULARY = ds.VOCABULARY
+            WHERE apc.ACTIVITY_DATE >= '2020-01-01'
+        )
+
+    SELECT
+        PERSON_ID,
+        VISIT_OCCURRENCE_ID,
+        VISIT_OCCURRENCE_TYPE,
+        AGE_AT_EVENT,
+        CLINICAL_EFFECTIVE_DATE,
+        CLINICAL_END_DATE,
+        DEFINITION_ID,
+        CONDITION_DEFINITION_NAME,
+        DEFINITION_SOURCE
+    FROM gp_observations
+    UNION ALL
+    SELECT * FROM apc_diagnosis
+    UNION ALL
+    SELECT * FROM apc_procedure
+    """
+
+    session.sql(sql).collect()
+    print("Created DEV_CONDITIONS feature table")

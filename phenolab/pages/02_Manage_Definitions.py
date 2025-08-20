@@ -6,6 +6,7 @@ from utils.config_utils import load_config, preload_vocabulary
 from utils.database_utils import get_snowflake_session
 from utils.definition import Definition
 from utils.definition_interaction_utils import (
+    create_conditions_feature_table,
     display_definition_from_file,
     display_selected_codes,
     display_unified_code_browser,
@@ -176,7 +177,7 @@ def main():
     # create tabs for each section
     if st.session_state.config["local_development"]:
     # upload tab is for pushing jsons to Snowflake - for local development only
-        create_tab, edit_tab, view_upload_tab = st.tabs(["Create New", "Edit Existing", "View & Upload"])
+        create_tab, edit_tab, upload_create_features_tab = st.tabs(["Create New", "Edit Existing", "Upload & Create Features"])
     else:
         create_tab, edit_tab = st.tabs(["Create New", "Edit Existing"])
 
@@ -213,9 +214,9 @@ def main():
         with col2:
             display_selected_codes(key_suffix="edit")
 
-    # TAB 3: VIEW AND UPLOAD DEFINITION
+    # TAB 3: UPLOAD AND CREATE FEATURES
     if st.session_state.config["local_development"]:
-        with view_upload_tab:
+        with upload_create_features_tab:
             col1, col2 = st.columns([1, 1.5])
 
             with col1:
@@ -234,7 +235,7 @@ def main():
                     st.info("Select a definition from the list to view its contents")
 
             st.markdown("---")
-
+            st.subheader("Upload Definitions to Snowflake")
             st.markdown(f"This will upload all definitions to `{st.session_state.config['definition_library']['database']}.{st.session_state.config['definition_library']['schema']}.AIC_DEFINITIONS` and refresh `DEFINITIONSTORE`." \
             "Updated definitions will overwrite previous versions.")
             _, b, _ = st.columns(3)
@@ -251,6 +252,26 @@ def main():
                             st.success(f"Successfully uploaded {definition_count} definitions to AIC_DEFINITIONS table")
                 else:
                     st.warning("No definitions available to upload")
+
+            st.markdown("---")
+            st.subheader("Create Conditions Feature Table")
+            st.markdown(f"""
+            This will create/replace the `DEV_CONDITIONS` table in `{st.session_state.config['feature_store']['database']}.{st.session_state.config['feature_store']['schema']}`
+            using the current DEFINITIONSTORE and clinical data.
+
+            Only events after 2020-1-1 will be processed. This operation may be expensive and time-consuming!
+            """)
+
+            _, b, _ = st.columns(3)
+            [maincol] = st.columns(1)
+
+            with b:
+                st.text(" ")
+                if st.button("Create DEV_CONDITIONS Feature Table"):
+                    with maincol:
+                        with st.spinner("Creating DEV_CONDITIONS feature table..."):
+                            create_conditions_feature_table()
+                        st.success("Successfully created DEV_CONDITIONS feature table!")
 
 if __name__ == "__main__":
     main()

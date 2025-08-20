@@ -9,6 +9,7 @@ from utils.measurement_interaction_utils import (
     apply_conversions,
     apply_unit_mapping,
     count_sigfig,
+    create_measurements_feature_table,
     display_measurement_config_from_file,
     get_available_measurement_configs,
     get_measurement_values,
@@ -569,7 +570,7 @@ def main():  # noqa: C901
         st.session_state.selected_config = None
 
     if st.session_state.config["local_development"]:
-        tab1, tab2, tab3 = st.tabs(["Create/Update Configs", "View Existing Configs on Snowflake", "View & Upload"])
+        tab1, tab2, tab3 = st.tabs(["Create/Update Configs", "View Existing Configs", "Upload & Create Features"])
         with tab1:
             col1, col2 = st.columns([3, 1])
             with col1:
@@ -727,7 +728,7 @@ def main():  # noqa: C901
                     st.info("Select a measurement config from the list to view its contents")
 
             st.markdown("---")
-
+            st.subheader("Upload Configs to Snowflake")
             st.markdown(f"This will upload all measurement configurations to `{st.session_state.config['measurement_configs']['database']}.{st.session_state.config['measurement_configs']['schema']}` tables." \
             " All existing measurement config tables will be recreated.")
             _, b, _ = st.columns(3)
@@ -744,6 +745,26 @@ def main():  # noqa: C901
                             st.success(f"Successfully uploaded {total_configs} measurement configs to Snowflake tables")
                 else:
                     st.warning("No measurement configs available to upload")
+
+            st.markdown("---")
+            st.subheader("Create Measurements Feature Table")
+            st.markdown(f"""
+            This will create/replace the `DEV_MEASUREMENTS` table in `{st.session_state.config['feature_store']['database']}.{st.session_state.config['feature_store']['schema']}`
+            using uploaded measurement configurations and clinical data.
+
+            Only events after 2020-1-1 will be processed. This operation may be expensive and time-consuming!
+            """)
+
+            _, b, _ = st.columns(3)
+            [maincol] = st.columns(1)
+
+            with b:
+                st.text(" ")
+                if st.button("Create DEV_MEASUREMENTS Feature Table"):
+                    with maincol:
+                        with st.spinner("Creating DEV_MEASUREMENTS feature table..."):
+                            create_measurements_feature_table()
+                        st.success("Successfully created DEV_MEASUREMENTS feature table!")
     else:
         selected_measurement, ulim, llim = display_configs_in_tables()
         measurement_config = get_selected_config(selected_measurement)

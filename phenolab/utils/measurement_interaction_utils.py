@@ -784,3 +784,137 @@ def count_sigfig(number: float,
     else:
         return 1
 
+
+def create_measurements_feature_table(config: Optional[dict] = None, session: Optional[Session] = None):
+    """
+    Create DEV_MEASUREMENTS feature table from DEFINITIONSTORE, measurement configs, and clinical data.
+    Filters to events from 2020 onwards for performance.
+    """
+    config = config or st.session_state.config
+    session = session or st.session_state.session
+
+    sql = f"""
+    CREATE OR REPLACE TABLE {config["feature_store"]["database"]}.{config["feature_store"]["schema"]}.DEV_MEASUREMENTS AS
+    WITH
+        definitionstore_filtered AS (
+            SELECT ds.DEFINITION_ID, ds.DEFINITION_NAME, ds.CODE, ds.VOCABULARY, ds.SOURCE_TABLE
+            FROM {config["definition_library"]["database"]}.{config["definition_library"]["schema"]}.DEFINITIONSTORE ds
+            INNER JOIN {config["measurement_configs"]["database"]}.{config["measurement_configs"]["schema"]}.MEASUREMENT_CONFIGS mc
+                ON ds.DEFINITION_ID = mc.DEFINITION_ID
+        ),
+
+        gp_measurements AS (
+            SELECT
+                gp.PERSON_ID,
+                gp.ENCOUNTER_ID::VARCHAR AS VISIT_OCCURRENCE_ID,
+                'GP_ENCOUNTER' AS VISIT_OCCURRENCE_TYPE,
+                NULL AS AGE_AT_EVENT,
+                gp.CLINICAL_EFFECTIVE_DATE,
+                gp.RESULT_VALUE,
+                COALESCE(gp.RESULT_VALUE_UNIT, 'No Unit') AS SOURCE_UNIT,
+                ds.DEFINITION_ID,
+                ds.DEFINITION_NAME,
+                ds.SOURCE_TABLE AS DEFINITION_SOURCE
+            FROM {config["gp_observation_table"]} gp
+            INNER JOIN definitionstore_filtered ds
+                ON gp.OBSERVATION_CONCEPT_CODE = ds.CODE
+                AND gp.OBSERVATION_CONCEPT_VOCABULARY = ds.VOCABULARY
+            WHERE gp.RESULT_VALUE IS NOT NULL
+                AND gp.CLINICAL_EFFECTIVE_DATE >= '2020-01-01'
+        ),
+
+        with_unit_mappings AS (
+            SELECT
+                gm.*,
+                um.STANDARD_UNIT,
+                CASE WHEN um.STANDARD_UNIT IS NULL THEN TRUE ELSE FALSE END AS NO_UNIT_MAPPING
+            FROM gp_measurements gm
+            LEFT JOIN {config["measurement_configs"]["database"]}.{config["measurement_configs"]["schema"]}.UNIT_MAPPINGS um
+                ON gm.DEFINITION_ID = um.DEFINITION_ID
+                AND gm.SOURCE_UNIT = um.SOURCE_UNIT
+        ),
+
+        with_conversions AS (
+            SELECT
+                wum.*,
+                uc.PRE_OFFSET,
+                uc.MULTIPLY_BY,
+                uc.POST_OFFSET,
+                CASE
+                    WHEN wum.NO_UNIT_MAPPING
+                    THEN wum.RESULT_VALUE
+                    WHEN uc.DEFINITION_ID IS NOT NULL
+                    THEN
+                        (wum.RESULT_VALUE + COALESCE(uc.PRE_OFFSET, 0)) * COALESCE(uc.MULTIPLY_BY, 1)
+                        + COALESCE(uc.POST_OFFSET, 0)
+                    ELSE wum.RESULT_VALUE
+                END AS CONVERTED_VALUE,
+                CASE
+                    WHEN wum.NO_UNIT_MAPPING
+                    THEN wum.SOURCE_UNIT
+                    WHEN uc.CONVERT_TO_UNIT IS NOT NULL
+                    THEN uc.CONVERT_TO_UNIT
+                    ELSE wum.STANDARD_UNIT
+                END AS FINAL_RESULT_UNIT
+            FROM with_unit_mappings wum
+            LEFT JOIN {config["measurement_configs"]["database"]}.{config["measurement_configs"]["schema"]}.UNIT_CONVERSIONS uc
+                ON wum.DEFINITION_ID = uc.DEFINITION_ID
+                AND wum.STANDARD_UNIT = uc.CONVERT_FROM_UNIT
+        ),
+
+        with_bounds_checks AS (
+            SELECT
+                wc.PERSON_ID,
+                wc.VISIT_OCCURRENCE_ID,
+                wc.VISIT_OCCURRENCE_TYPE,
+                wc.AGE_AT_EVENT,
+                wc.CLINICAL_EFFECTIVE_DATE,
+                wc.DEFINITION_ID,
+                wc.DEFINITION_NAME,
+                wc.DEFINITION_SOURCE,
+                wc.CONVERTED_VALUE,
+                wc.FINAL_RESULT_UNIT,
+                wc.RESULT_VALUE,
+                wc.SOURCE_UNIT,
+                wc.NO_UNIT_MAPPING,
+                vb.LOWER_LIMIT,
+                vb.UPPER_LIMIT,
+                CASE
+                    WHEN vb.LOWER_LIMIT IS NOT NULL AND wc.CONVERTED_VALUE < vb.LOWER_LIMIT
+                    THEN TRUE
+                    ELSE FALSE
+                END AS BELOW_BOUND,
+                CASE
+                    WHEN vb.UPPER_LIMIT IS NOT NULL AND wc.CONVERTED_VALUE > vb.UPPER_LIMIT
+                    THEN TRUE
+                    ELSE FALSE
+                END AS ABOVE_BOUND
+            FROM with_conversions wc
+            LEFT JOIN {config["measurement_configs"]["database"]}.{config["measurement_configs"]["schema"]}.VALUE_BOUNDS vb
+                ON wc.DEFINITION_ID = vb.DEFINITION_ID
+        )
+
+    SELECT
+        PERSON_ID,
+        VISIT_OCCURRENCE_ID,
+        VISIT_OCCURRENCE_TYPE,
+        AGE_AT_EVENT,
+        CLINICAL_EFFECTIVE_DATE,
+        DEFINITION_ID,
+        DEFINITION_NAME AS MEASUREMENT_DEFINITION_NAME,
+        DEFINITION_SOURCE,
+        CONVERTED_VALUE AS MEASUREMENT_VALUE_AS_NUMBER,
+        FINAL_RESULT_UNIT AS MEASUREMENT_UNIT,
+        RESULT_VALUE AS MEASUREMENT_SOURCE_VALUE,
+        SOURCE_UNIT AS MEASUREMENT_SOURCE_UNIT,
+        LOWER_LIMIT,
+        UPPER_LIMIT,
+        NO_UNIT_MAPPING,
+        BELOW_BOUND,
+        ABOVE_BOUND
+    FROM with_bounds_checks
+    """
+
+    session.sql(sql).collect()
+    print("Created DEV_MEASUREMENTS feature table")
+
