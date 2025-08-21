@@ -57,12 +57,27 @@ def main():
 
         # 2. Filter metadata based on name filters
         name_filters = megalith_config.get("refset_name_filters", [])
-        if name_filters and metadata_df is not None:
-            filtered_metadata = metadata_df[
-                metadata_df['refset_name'].str.lower().str.contains('|'.join(name_filters), case=False, na=False)
-            ]
+        name_exclusions = megalith_config.get("refset_name_exclusions", [])
+        
+        if (name_filters or name_exclusions) and metadata_df is not None:
+            filtered_metadata = metadata_df.copy()
+            
+            # Apply inclusion filters
+            if name_filters:
+                filtered_metadata = filtered_metadata[
+                    filtered_metadata['refset_name'].str.lower().str.contains('|'.join(name_filters), case=False, na=False)
+                ]
+                print(f"After inclusion filters: {len(filtered_metadata)} refsets matching {name_filters}")
+            
+            # Apply exclusion filters
+            if name_exclusions:
+                filtered_metadata = filtered_metadata[
+                    ~filtered_metadata['refset_name'].str.lower().str.contains('|'.join(name_exclusions), case=False, na=False)
+                ]
+                print(f"After exclusion filters: {len(filtered_metadata)} refsets (excluded terms: {name_exclusions})")
+            
             filtered_refset_codes = filtered_metadata['refset_code'].tolist()
-            print(f"Filtered to {len(filtered_refset_codes)} refsets matching filters: {name_filters}")
+            print(f"Final: {len(filtered_refset_codes)} refsets after all filters")
         else:
             filtered_refset_codes = None
             print("No filters applied - downloading all refsets")

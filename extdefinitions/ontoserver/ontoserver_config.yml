@@ -4,6 +4,20 @@ megalith:
   description: "All NHS Primary Care reference sets from OneLondon terminology server"
   endpoint_type: "authoring"
   refset_name_filters:
-    - "Quality and Outcomes Framework"
-    - "National Cancer Registration and Analysis"
-    - "NHS primary care data extraction"
+    - "diagnosis"
+    - "diagnoses"
+    - "disorder"
+    - "disease"
+    - "condition"
+    - "monitoring invitations"
+  refset_name_exclusions:
+    - "Cardiovascular Disease Prevent"
+    - "Emergency care diagnosis max"
+    - "medication"
+    - "International Classification of Diseases"
+    - "prescri"
+    - "Network Contract Directed Enhanced Service"
+
+    # - "Quality and Outcomes Framework"
+    # - "National Cancer Registration and Analysis"
+    # - "NHS primary care data extraction"

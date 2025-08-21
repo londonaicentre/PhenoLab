@@ -8,6 +8,7 @@ Example: python setup.py nel_icb prod
 import sys
 
 import pandas as pd
+import yaml
 from create_tables import create_definition_table, load_definitions_to_snowflake
 from snowflake.snowpark import Session
 from utils.config_utils import load_config
@@ -82,9 +83,9 @@ def setup_definition_tables(environment: str, connection_name: str):
     # 2. External definitions (HDRUK, OpenCodelists, Ontoserver SNOMED)
     with open("external_definitions.yml", "r") as f:
         external_definition_sources = yaml.safe_load(f)
-    
-    for table_name, config in external_definition_sources.items():
-        file_name = config["file"]
+
+    for table_name, ext_config in external_definition_sources.items():
+        file_name = ext_config["file"]
         df = pd.read_parquet(file_name)
         print(f"Loaded {file_name} definitions from file - {len(df)} rows")
         load_definitions_to_snowflake(session=session, df=df, table_name=table_name,

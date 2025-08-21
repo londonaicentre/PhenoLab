@@ -49,7 +49,7 @@ snow sql --connection "${ICB}_icb" --query "CREATE SCHEMA IF NOT EXISTS $DATABAS
 # Generate .env file and deploy to snowflake
 echo "Deploying to $DEPLOY_ENV environment..."
 echo "DEPLOY_ENV=$DEPLOY_ENV" > .env
-snow streamlit deploy --connection "${ICB}_icb" --database "$DATABASE" --schema "$SCHEMA" --replace
+snow streamlit deploy --connection "${ICB}_icb" --database "$DATABASE" --schema "$SCHEMA" --replace --prune
 
 # Check if the deployment was successful
 if [ $? -eq 0 ]; then
