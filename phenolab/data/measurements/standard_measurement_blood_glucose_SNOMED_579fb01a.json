@@ -99,7 +99,7 @@
     },
     {
       "source_unit": "mg/dL",
-      "standard_unit": "",
+      "standard_unit": "mg/dL",
       "source_unit_count": 158,
       "source_unit_lq": 6.8,
       "source_unit_median": 10.25,
@@ -1392,6 +1392,38 @@
       "source_unit_lq": 5.9,
       "source_unit_median": 5.9,
       "source_unit_uq": 5.9
+    },
+    {
+      "source_unit": "umol",
+      "standard_unit": "",
+      "source_unit_count": 15,
+      "source_unit_lq": 7.1,
+      "source_unit_median": 7.1,
+      "source_unit_uq": 7.1
+    },
+    {
+      "source_unit": "Glucometer blood sugar",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "iu/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "mm/h",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 16.1,
+      "source_unit_median": 16.1,
+      "source_unit_uq": 16.1
     }
   ],
   "unit_conversions": [
@@ -1404,7 +1436,7 @@
     }
   ],
   "created_datetime": "2025-05-19T23:23:56.058303",
-  "updated_datetime": "2025-08-14T16:46:24.263933",
+  "updated_datetime": "2025-08-23T09:22:24.762031",
   "standard_measurement_config_id": "579fb01a",
-  "standard_measurement_config_version": "measurement_blood_glucose_SNOMED_20250814_164624"
+  "standard_measurement_config_version": "measurement_blood_glucose_SNOMED_20250823_092224"
 }

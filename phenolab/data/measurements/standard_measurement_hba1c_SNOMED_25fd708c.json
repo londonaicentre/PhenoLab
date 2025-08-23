@@ -1800,6 +1800,62 @@
       "source_unit_lq": 35.0,
       "source_unit_median": 35.0,
       "source_unit_uq": 35.0
+    },
+    {
+      "source_unit": "111",
+      "standard_unit": "",
+      "source_unit_count": 15,
+      "source_unit_lq": 111.0,
+      "source_unit_median": 111.0,
+      "source_unit_uq": 111.0
+    },
+    {
+      "source_unit": "umol/mol{Hb}",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 0.555,
+      "source_unit_median": 0.56,
+      "source_unit_uq": 0.565
+    },
+    {
+      "source_unit": "mmol/mil",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 43.0,
+      "source_unit_median": 43.0,
+      "source_unit_uq": 43.0
+    },
+    {
+      "source_unit": "37",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 37.0,
+      "source_unit_median": 37.0,
+      "source_unit_uq": 37.0
+    },
+    {
+      "source_unit": "Haemoglobin A1c level",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "mml/mol",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 38.0,
+      "source_unit_median": 38.0,
+      "source_unit_uq": 38.0
+    },
+    {
+      "source_unit": "38",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.3,
+      "source_unit_median": 6.3,
+      "source_unit_uq": 6.3
     }
   ],
   "unit_conversions": [
@@ -1812,7 +1868,7 @@
     }
   ],
   "created_datetime": "2025-05-19T23:23:56.063613",
-  "updated_datetime": "2025-08-14T16:45:59.282412",
+  "updated_datetime": "2025-08-23T09:20:08.296932",
   "standard_measurement_config_id": "25fd708c",
-  "standard_measurement_config_version": "measurement_hba1c_SNOMED_20250814_164559"
+  "standard_measurement_config_version": "measurement_hba1c_SNOMED_20250823_092008"
 }

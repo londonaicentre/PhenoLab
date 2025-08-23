@@ -840,6 +840,14 @@
       "source_unit_lq": 14.0,
       "source_unit_median": 14.0,
       "source_unit_uq": 14.0
+    },
+    {
+      "source_unit": "ng/ml/hr",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 14.6,
+      "source_unit_median": 14.6,
+      "source_unit_uq": 14.6
     }
   ],
   "unit_conversions": [
@@ -859,7 +867,7 @@
     }
   ],
   "created_datetime": "2025-05-19T23:23:56.061713",
-  "updated_datetime": "2025-08-14T16:44:53.601855",
+  "updated_datetime": "2025-08-23T09:19:30.300543",
   "standard_measurement_config_id": "eb89543e",
-  "standard_measurement_config_version": "measurement_haemoglobin_SNOMED_20250814_164453"
+  "standard_measurement_config_version": "measurement_haemoglobin_SNOMED_20250823_091930"
 }

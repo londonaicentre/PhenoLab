@@ -1352,6 +1352,46 @@
       "source_unit_lq": 204.0,
       "source_unit_median": 204.0,
       "source_unit_uq": 204.0
+    },
+    {
+      "source_unit": "\u00e6mol/l",
+      "standard_unit": "",
+      "source_unit_count": 51,
+      "source_unit_lq": 81.0,
+      "source_unit_median": 89.0,
+      "source_unit_uq": 94.5
+    },
+    {
+      "source_unit": "MCMOL/L",
+      "standard_unit": "",
+      "source_unit_count": 18,
+      "source_unit_lq": 65.0,
+      "source_unit_median": 83.0,
+      "source_unit_uq": 147.25
+    },
+    {
+      "source_unit": "\u00b5mol/L",
+      "standard_unit": "",
+      "source_unit_count": 13,
+      "source_unit_lq": 56.0,
+      "source_unit_median": 101.0,
+      "source_unit_uq": 106.0
+    },
+    {
+      "source_unit": "U/l",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 60.95,
+      "source_unit_median": 85.0,
+      "source_unit_uq": 98.75
+    },
+    {
+      "source_unit": "iu/L",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 355.25,
+      "source_unit_median": 1213.0,
+      "source_unit_uq": 2224.5
     }
   ],
   "unit_conversions": [
@@ -1364,7 +1404,7 @@
     }
   ],
   "created_datetime": "2025-07-15T13:53:17.513807",
-  "updated_datetime": "2025-08-14T16:45:46.781471",
+  "updated_datetime": "2025-08-23T09:20:00.963204",
   "standard_measurement_config_id": "8e6b35d9",
-  "standard_measurement_config_version": "measurement_serum_creatinine_SNOMED_20250814_164546"
+  "standard_measurement_config_version": "measurement_serum_creatinine_SNOMED_20250823_092000"
 }

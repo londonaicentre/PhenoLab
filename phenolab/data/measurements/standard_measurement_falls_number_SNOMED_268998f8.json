@@ -348,6 +348,22 @@
       "source_unit_lq": 12.0,
       "source_unit_median": 12.0,
       "source_unit_uq": 12.0
+    },
+    {
+      "source_unit": "in 2020",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "/3 months",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
     }
   ],
   "unit_conversions": [
@@ -388,7 +404,7 @@
     }
   ],
   "created_datetime": "2025-05-19T23:23:56.061230",
-  "updated_datetime": "2025-08-14T16:46:49.497067",
+  "updated_datetime": "2025-08-23T09:20:34.137584",
   "standard_measurement_config_id": "268998f8",
-  "standard_measurement_config_version": "measurement_falls_number_SNOMED_20250814_164649"
+  "standard_measurement_config_version": "measurement_falls_number_SNOMED_20250823_092034"
 }
