@@ -746,7 +746,7 @@ def create_conditions_feature_table(config: Optional[dict] = None, session: Opti
         apc_diagnosis AS (
             SELECT
                 apc.PERSON_ID,
-                apc.VISIT_OCCURRENCE_ID,
+                apc.VISIT_OCCURRENCE_ID::VARCHAR AS VISIT_OCCURRENCE_ID,
                 'APC_DIAGNOSIS' AS VISIT_OCCURRENCE_TYPE,
                 NULL AS AGE_AT_EVENT,
                 apc.ACTIVITY_DATE AS CLINICAL_EFFECTIVE_DATE,
@@ -764,7 +764,7 @@ def create_conditions_feature_table(config: Optional[dict] = None, session: Opti
         apc_procedure AS (
             SELECT
                 apc.PERSON_ID,
-                apc.VISIT_OCCURRENCE_ID,
+                apc.VISIT_OCCURRENCE_ID::VARCHAR AS VISIT_OCCURRENCE_ID,
                 'APC_PROCEDURE' AS VISIT_OCCURRENCE_TYPE,
                 NULL AS AGE_AT_EVENT,
                 apc.ACTIVITY_DATE AS CLINICAL_EFFECTIVE_DATE,
