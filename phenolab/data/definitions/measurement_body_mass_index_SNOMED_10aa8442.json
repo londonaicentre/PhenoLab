@@ -1,0 +1,73 @@
+{
+  "definition_id": "10aa8442",
+  "definition_name": "measurement_body_mass_index_SNOMED",
+  "definition_version": "measurement_body_mass_index_SNOMED_20250818_160746",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-18T16:07:46.955264",
+  "codelists": [
+    {
+      "codelist_id": "measurement_body_mass_index_SNOMED_SNOMED_810ef211",
+      "codelist_name": "measurement_body_mass_index_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_body_mass_index_SNOMED_SNOMED_810ef211_20250818_160617",
+      "codes": [
+        {
+          "code": "60621009",
+          "code_description": "Body mass index (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "162864005",
+          "code_description": "Body mass index 30+ - obesity (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "162863004",
+          "code_description": "Body mass index 25-29 - overweight (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "35425004",
+          "code_description": "Normal body mass index (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "408512008",
+          "code_description": "Body mass index 40+ - severely obese (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "412768003",
+          "code_description": "Body mass index 20-24 - normal (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "48499001",
+          "code_description": "Increased body mass index (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "310252000",
+          "code_description": "Body mass index less than 20 (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "301331008",
+          "code_description": "Finding of body mass index (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "6497000",
+          "code_description": "Decreased body mass index (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "846931000000101",
+          "code_description": "Baseline body mass index (observable entity)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

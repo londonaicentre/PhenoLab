@@ -1,0 +1,43 @@
+{
+  "definition_id": "346635d6",
+  "definition_name": "measurement_neutrophil_count_SNOMED",
+  "definition_version": "measurement_neutrophil_count_SNOMED_20250818_115900",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-18T11:59:00.581453",
+  "codelists": [
+    {
+      "codelist_id": "measurement_neutrophil_count_SNOMED_SNOMED_e921b8fe",
+      "codelist_name": "measurement_neutrophil_count_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_neutrophil_count_SNOMED_SNOMED_e921b8fe_20250818_115806",
+      "codes": [
+        {
+          "code": "1022551000000104",
+          "code_description": "Neutrophil count (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "30630007",
+          "code_description": "Neutrophil count (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "165518003",
+          "code_description": "Neutrophilia (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "165516004",
+          "code_description": "Neutrophil count within reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "165519006",
+          "code_description": "Neutrophil count outside reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

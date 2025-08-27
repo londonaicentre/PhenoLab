@@ -1,0 +1,33 @@
+{
+  "definition_id": "84cb974e",
+  "definition_name": "gastro_oesophageal_reflux_ICD10",
+  "definition_version": "gastro_oesophageal_reflux_ICD10_20250812_104740",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-12T10:47:40.189754",
+  "codelists": [
+    {
+      "codelist_id": "gastro_oesophageal_reflux_ICD10_ICD10_dd30da47",
+      "codelist_name": "gastro_oesophageal_reflux_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "gastro_oesophageal_reflux_ICD10_ICD10_dd30da47_20250812_104557",
+      "codes": [
+        {
+          "code": "K21.9",
+          "code_description": "Gastro-oesophageal reflux disease without oesophagitis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K21.0",
+          "code_description": "Gastro-oesophageal reflux disease with oesophagitis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K21",
+          "code_description": "Gastro-oesophageal reflux disease",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

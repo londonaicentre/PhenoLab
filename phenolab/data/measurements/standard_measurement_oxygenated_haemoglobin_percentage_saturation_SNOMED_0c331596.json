@@ -1,0 +1,321 @@
+{
+  "definition_id": "d95de29d",
+  "definition_name": "measurement_oxygenated_haemoglobin_percentage_saturation_SNOMED",
+  "standard_units": [
+    "%"
+  ],
+  "primary_standard_unit": "%",
+  "lower_limit": 50.0,
+  "upper_limit": 100.0,
+  "unit_mappings": [
+    {
+      "source_unit": "%",
+      "standard_unit": "%",
+      "source_unit_count": 2576721,
+      "source_unit_lq": 97.00000000000001,
+      "source_unit_median": 98.0,
+      "source_unit_uq": 98.99999999999991
+    },
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "%",
+      "source_unit_count": 45592,
+      "source_unit_lq": 96.99999999999999,
+      "source_unit_median": 98.0,
+      "source_unit_uq": 99.0
+    },
+    {
+      "source_unit": "SI",
+      "standard_unit": "%",
+      "source_unit_count": 27524,
+      "source_unit_lq": 93.0,
+      "source_unit_median": 95.0,
+      "source_unit_uq": 96.99999999999999
+    },
+    {
+      "source_unit": "per cent",
+      "standard_unit": "%",
+      "source_unit_count": 391,
+      "source_unit_lq": 97.0,
+      "source_unit_median": 98.0,
+      "source_unit_uq": 99.0
+    },
+    {
+      "source_unit": "UNKNOWN UNITS",
+      "standard_unit": "%",
+      "source_unit_count": 51,
+      "source_unit_lq": 92.0,
+      "source_unit_median": 95.0,
+      "source_unit_uq": 97.0
+    },
+    {
+      "source_unit": "Completed",
+      "standard_unit": "%",
+      "source_unit_count": 43,
+      "source_unit_lq": 95.5,
+      "source_unit_median": 98.0,
+      "source_unit_uq": 98.0
+    },
+    {
+      "source_unit": "%O2 sat",
+      "standard_unit": "%",
+      "source_unit_count": 16,
+      "source_unit_lq": 91.0,
+      "source_unit_median": 93.5,
+      "source_unit_uq": 97.25
+    },
+    {
+      "source_unit": "percent",
+      "standard_unit": "%",
+      "source_unit_count": 8,
+      "source_unit_lq": 98.0,
+      "source_unit_median": 98.0,
+      "source_unit_uq": 98.25
+    },
+    {
+      "source_unit": "on air",
+      "standard_unit": "%",
+      "source_unit_count": 7,
+      "source_unit_lq": 97.0,
+      "source_unit_median": 98.0,
+      "source_unit_uq": 98.0
+    },
+    {
+      "source_unit": "%sat",
+      "standard_unit": "%",
+      "source_unit_count": 3,
+      "source_unit_lq": 98.0,
+      "source_unit_median": 98.0,
+      "source_unit_uq": 98.5
+    },
+    {
+      "source_unit": "0%-100%",
+      "standard_unit": "%",
+      "source_unit_count": 3,
+      "source_unit_lq": 99.0,
+      "source_unit_median": 99.0,
+      "source_unit_uq": 99.0
+    },
+    {
+      "source_unit": "%SpO2",
+      "standard_unit": "%",
+      "source_unit_count": 3,
+      "source_unit_lq": 99.0,
+      "source_unit_median": 99.0,
+      "source_unit_uq": 99.0
+    },
+    {
+      "source_unit": "% in air",
+      "standard_unit": "%",
+      "source_unit_count": 2,
+      "source_unit_lq": 97.5,
+      "source_unit_median": 98.0,
+      "source_unit_uq": 98.5
+    },
+    {
+      "source_unit": "mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 29.174999999999997,
+      "source_unit_median": 50.449999999999996,
+      "source_unit_uq": 71.725
+    },
+    {
+      "source_unit": "rad",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 96.0,
+      "source_unit_median": 96.0,
+      "source_unit_uq": 96.0
+    },
+    {
+      "source_unit": "per%",
+      "standard_unit": "%",
+      "source_unit_count": 2,
+      "source_unit_lq": 98.25,
+      "source_unit_median": 98.5,
+      "source_unit_uq": 98.75
+    },
+    {
+      "source_unit": "kPa",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 3.76,
+      "source_unit_median": 3.94,
+      "source_unit_uq": 4.12
+    },
+    {
+      "source_unit": "96",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 96.0,
+      "source_unit_median": 96.0,
+      "source_unit_uq": 96.0
+    },
+    {
+      "source_unit": "L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "98",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 99.0,
+      "source_unit_median": 99.0,
+      "source_unit_uq": 99.0
+    },
+    {
+      "source_unit": "0.5 l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 92.0,
+      "source_unit_median": 92.0,
+      "source_unit_uq": 92.0
+    },
+    {
+      "source_unit": "(pa)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 8.0,
+      "source_unit_median": 8.0,
+      "source_unit_uq": 8.0
+    },
+    {
+      "source_unit": "percentage",
+      "standard_unit": "%",
+      "source_unit_count": 1,
+      "source_unit_lq": 99.0,
+      "source_unit_median": 99.0,
+      "source_unit_uq": 99.0
+    },
+    {
+      "source_unit": "(knk u)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 7.0,
+      "source_unit_median": 7.0,
+      "source_unit_uq": 7.0
+    },
+    {
+      "source_unit": "92",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 92.0,
+      "source_unit_median": 92.0,
+      "source_unit_uq": 92.0
+    },
+    {
+      "source_unit": "% on air",
+      "standard_unit": "%",
+      "source_unit_count": 1,
+      "source_unit_lq": 95.0,
+      "source_unit_median": 95.0,
+      "source_unit_uq": 95.0
+    },
+    {
+      "source_unit": "bpm",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 48.0,
+      "source_unit_median": 48.0,
+      "source_unit_uq": 48.0
+    },
+    {
+      "source_unit": "on Air",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 98.0,
+      "source_unit_median": 98.0,
+      "source_unit_uq": 98.0
+    },
+    {
+      "source_unit": "93",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 93.0,
+      "source_unit_median": 93.0,
+      "source_unit_uq": 93.0
+    },
+    {
+      "source_unit": "< x sec",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "> x %",
+      "standard_unit": "%",
+      "source_unit_count": 1,
+      "source_unit_lq": 90.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "2L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 88.0,
+      "source_unit_median": 88.0,
+      "source_unit_uq": 88.0
+    },
+    {
+      "source_unit": "% oa",
+      "standard_unit": "%",
+      "source_unit_count": 1,
+      "source_unit_lq": 98.0,
+      "source_unit_median": 98.0,
+      "source_unit_uq": 98.0
+    },
+    {
+      "source_unit": "97%",
+      "standard_unit": "%",
+      "source_unit_count": 1,
+      "source_unit_lq": 97.0,
+      "source_unit_median": 97.0,
+      "source_unit_uq": 97.0
+    },
+    {
+      "source_unit": "p",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.14,
+      "source_unit_median": 5.14,
+      "source_unit_uq": 5.14
+    },
+    {
+      "source_unit": "94",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 94.0,
+      "source_unit_median": 94.0,
+      "source_unit_uq": 94.0
+    },
+    {
+      "source_unit": ">x %",
+      "standard_unit": "%",
+      "source_unit_count": 1,
+      "source_unit_lq": 99.0,
+      "source_unit_median": 99.0,
+      "source_unit_uq": 99.0
+    },
+    {
+      "source_unit": "97",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 97.0,
+      "source_unit_median": 97.0,
+      "source_unit_uq": 97.0
+    }
+  ],
+  "unit_conversions": [],
+  "created_datetime": "2025-08-18T15:28:55.426852",
+  "updated_datetime": "2025-08-18T15:42:32.951445",
+  "standard_measurement_config_id": "0c331596",
+  "standard_measurement_config_version": "measurement_oxygenated_haemoglobin_percentage_saturation_SNOMED_20250818_154232"
+}

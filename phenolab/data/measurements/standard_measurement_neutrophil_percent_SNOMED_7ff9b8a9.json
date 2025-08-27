@@ -1,0 +1,151 @@
+{
+  "definition_id": "91e95446",
+  "definition_name": "measurement_neutrophil_percent_SNOMED",
+  "standard_units": [],
+  "primary_standard_unit": null,
+  "lower_limit": null,
+  "upper_limit": null,
+  "unit_mappings": [
+    {
+      "source_unit": "%",
+      "standard_unit": "",
+      "source_unit_count": 1893434,
+      "source_unit_lq": 48.0,
+      "source_unit_median": 55.999999999999986,
+      "source_unit_uq": 64.0
+    },
+    {
+      "source_unit": "10*9/l",
+      "standard_unit": "",
+      "source_unit_count": 17790,
+      "source_unit_lq": 2.9000000000000004,
+      "source_unit_median": 4.1,
+      "source_unit_uq": 5.8187766714082505
+    },
+    {
+      "source_unit": "% WBC",
+      "standard_unit": "",
+      "source_unit_count": 12941,
+      "source_unit_lq": 25.726327838827835,
+      "source_unit_median": 53.97592592592592,
+      "source_unit_uq": 64.0
+    },
+    {
+      "source_unit": "10^9/l",
+      "standard_unit": "",
+      "source_unit_count": 5634,
+      "source_unit_lq": 2.8999999999999995,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 5.6
+    },
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "",
+      "source_unit_count": 4092,
+      "source_unit_lq": 44.0,
+      "source_unit_median": 55.449999999999996,
+      "source_unit_uq": 64.0
+    },
+    {
+      "source_unit": "10*9/L",
+      "standard_unit": "",
+      "source_unit_count": 1864,
+      "source_unit_lq": 3.1,
+      "source_unit_median": 4.025,
+      "source_unit_uq": 5.5
+    },
+    {
+      "source_unit": "per cent",
+      "standard_unit": "",
+      "source_unit_count": 292,
+      "source_unit_lq": 46.875,
+      "source_unit_median": 53.9,
+      "source_unit_uq": 60.05
+    },
+    {
+      "source_unit": "10^9/L",
+      "standard_unit": "",
+      "source_unit_count": 23,
+      "source_unit_lq": 2.3600000000000003,
+      "source_unit_median": 4.05,
+      "source_unit_uq": 4.945
+    },
+    {
+      "source_unit": "UNKNOWN UNITS",
+      "standard_unit": "",
+      "source_unit_count": 12,
+      "source_unit_lq": 5.175000000000001,
+      "source_unit_median": 36.55,
+      "source_unit_uq": 44.8
+    },
+    {
+      "source_unit": "X10 9/l",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "pH",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 3.3024999999999998,
+      "source_unit_median": 3.625,
+      "source_unit_uq": 3.9475
+    },
+    {
+      "source_unit": "10/9 l(41.3%)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.7,
+      "source_unit_median": 2.7,
+      "source_unit_uq": 2.7
+    },
+    {
+      "source_unit": "nmol/mmol",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 620000.0,
+      "source_unit_median": 620000.0,
+      "source_unit_uq": 620000.0
+    },
+    {
+      "source_unit": "frac. of total",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 78.3,
+      "source_unit_median": 78.3,
+      "source_unit_uq": 78.3
+    },
+    {
+      "source_unit": "10/9 l(64%)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.7,
+      "source_unit_median": 3.7,
+      "source_unit_uq": 3.7
+    },
+    {
+      "source_unit": "10/9 l(45.1%)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.9,
+      "source_unit_median": 3.9,
+      "source_unit_uq": 3.9
+    },
+    {
+      "source_unit": "10/9 l(61.1%)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.8,
+      "source_unit_median": 3.8,
+      "source_unit_uq": 3.8
+    }
+  ],
+  "unit_conversions": [],
+  "created_datetime": "2025-08-18T13:40:12.438771",
+  "updated_datetime": "2025-08-18T13:40:35.389498",
+  "standard_measurement_config_id": "7ff9b8a9",
+  "standard_measurement_config_version": "measurement_neutrophil_percent_SNOMED_20250818_134035"
+}

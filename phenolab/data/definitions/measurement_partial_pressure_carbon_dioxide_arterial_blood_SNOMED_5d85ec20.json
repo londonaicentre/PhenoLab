@@ -1,0 +1,58 @@
+{
+  "definition_id": "5d85ec20",
+  "definition_name": "measurement_partial_pressure_carbon_dioxide_arterial_blood_SNOMED",
+  "definition_version": "measurement_partial_pressure_carbon_dioxide_arterial_blood_SNOMED_20250818_151018",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-18T15:10:18.573316",
+  "codelists": [
+    {
+      "codelist_id": "measurement_partial_pressure_carbon_dioxide_arterial_blood_SNOMED_SNOMED_60a775df",
+      "codelist_name": "measurement_partial_pressure_carbon_dioxide_arterial_blood_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_partial_pressure_carbon_dioxide_arterial_blood_SNOMED_SNOMED_60a775df_20250818_150939",
+      "codes": [
+        {
+          "code": "1007101000000101",
+          "code_description": "Arterial carbon dioxide (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "32271000237105",
+          "code_description": "Partial pressure of carbon dioxide in arterial blood (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "167030002",
+          "code_description": "Arterial carbon dioxide outside reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "167028004",
+          "code_description": "Measurement of arterial partial pressure of carbon dioxide (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1304152003",
+          "code_description": "Partial pressure of carbon dioxide in arterial blood (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "167029007",
+          "code_description": "Arterial carbon dioxide within reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "373677008",
+          "code_description": "Finding of arterial partial pressure of carbon dioxide (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1187184001",
+          "code_description": "Arterial partial pressure of carbon dioxide below reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

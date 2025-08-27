@@ -1,0 +1,73 @@
+{
+  "definition_id": "3fd74fae",
+  "definition_name": "interstitial_lung_disease_ICD10",
+  "definition_version": "interstitial_lung_disease_ICD10_20250818_133038",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-18T13:30:38.790046",
+  "codelists": [
+    {
+      "codelist_id": "interstitial_lung_disease_ICD10_ICD10_fdcabe29",
+      "codelist_name": "interstitial_lung_disease_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "interstitial_lung_disease_ICD10_ICD10_fdcabe29_20250818_132606",
+      "codes": [
+        {
+          "code": "J84.1",
+          "code_description": "Other interstitial pulmonary diseases with fibrosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J84.9",
+          "code_description": "Interstitial pulmonary disease, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J84.8",
+          "code_description": "Other specified interstitial pulmonary diseases",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J84",
+          "code_description": "Other interstitial pulmonary diseases",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J80-J84",
+          "code_description": "Other respiratory diseases principally affecting the interstitium",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J84.0",
+          "code_description": "Alveolar and parietoalveolar conditions",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J70.2",
+          "code_description": "Acute drug-induced interstitial lung disorders",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J70.3",
+          "code_description": "Chronic drug-induced interstitial lung disorders",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J70.4",
+          "code_description": "Drug-induced interstitial lung disorders, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "D86.0",
+          "code_description": "Sarcoidosis of lung",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "D86.2",
+          "code_description": "Sarcoidosis of lung with sarcoidosis of lymph nodes",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

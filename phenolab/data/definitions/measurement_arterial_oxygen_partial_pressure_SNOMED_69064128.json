@@ -1,0 +1,33 @@
+{
+  "definition_id": "69064128",
+  "definition_name": "measurement_arterial_oxygen_partial_pressure_SNOMED",
+  "definition_version": "measurement_arterial_oxygen_partial_pressure_SNOMED_20250818_152343",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-18T15:23:43.321554",
+  "codelists": [
+    {
+      "codelist_id": "measurement_arterial_oxygen_partial_pressure_SNOMED_SNOMED_108dd6c8",
+      "codelist_name": "measurement_arterial_oxygen_partial_pressure_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_arterial_oxygen_partial_pressure_SNOMED_SNOMED_108dd6c8_20250818_151920",
+      "codes": [
+        {
+          "code": "1007081000000107",
+          "code_description": "Arterial oxygen level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "25231000237103",
+          "code_description": "Partial pressure of oxygen in arterial blood (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "25579001",
+          "code_description": "Oxygen measurement, partial pressure, arterial (procedure)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

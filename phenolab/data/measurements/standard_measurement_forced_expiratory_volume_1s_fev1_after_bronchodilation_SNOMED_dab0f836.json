@@ -1,0 +1,258 @@
+{
+  "definition_id": "470e3225",
+  "definition_name": "measurement_forced_expiratory_volume_1s_fev1_after_bronchodilation_SNOMED",
+  "standard_units": [
+    "L",
+    "ml"
+  ],
+  "primary_standard_unit": "L",
+  "lower_limit": 0.15,
+  "upper_limit": 7.0,
+  "unit_mappings": [
+    {
+      "source_unit": "litre",
+      "standard_unit": "L",
+      "source_unit_count": 55400,
+      "source_unit_lq": 1.4397939407440408,
+      "source_unit_median": 2.02,
+      "source_unit_uq": 2.8015478164731906
+    },
+    {
+      "source_unit": "ml",
+      "standard_unit": "ml",
+      "source_unit_count": 31870,
+      "source_unit_lq": 913.4328254847644,
+      "source_unit_median": 1681.2494834710742,
+      "source_unit_uq": 2401.137811634349
+    },
+    {
+      "source_unit": "L",
+      "standard_unit": "L",
+      "source_unit_count": 10967,
+      "source_unit_lq": 1.5087152777777777,
+      "source_unit_median": 2.1461989795918366,
+      "source_unit_uq": 2.891718750000001
+    },
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "L",
+      "source_unit_count": 7139,
+      "source_unit_lq": 1.46,
+      "source_unit_median": 2.0999999999999996,
+      "source_unit_uq": 3.161969696969697
+    },
+    {
+      "source_unit": "l",
+      "standard_unit": "L",
+      "source_unit_count": 5958,
+      "source_unit_lq": 1.8802777777777777,
+      "source_unit_median": 2.480625,
+      "source_unit_uq": 3.1815277777777777
+    },
+    {
+      "source_unit": "litres",
+      "standard_unit": "L",
+      "source_unit_count": 2777,
+      "source_unit_lq": 1.4008333333333334,
+      "source_unit_median": 1.9737500000000001,
+      "source_unit_uq": 2.7175000000000002
+    },
+    {
+      "source_unit": "%",
+      "standard_unit": "",
+      "source_unit_count": 941,
+      "source_unit_lq": 65.0,
+      "source_unit_median": 81.0,
+      "source_unit_uq": 97.0
+    },
+    {
+      "source_unit": "Litres",
+      "standard_unit": "L",
+      "source_unit_count": 309,
+      "source_unit_lq": 1.37,
+      "source_unit_median": 1.82,
+      "source_unit_uq": 2.63
+    },
+    {
+      "source_unit": "litres/minute",
+      "standard_unit": "",
+      "source_unit_count": 124,
+      "source_unit_lq": 1.5475,
+      "source_unit_median": 2.1950000000000003,
+      "source_unit_uq": 2.65
+    },
+    {
+      "source_unit": "mL",
+      "standard_unit": "ml",
+      "source_unit_count": 70,
+      "source_unit_lq": 33.3525,
+      "source_unit_median": 2095.0,
+      "source_unit_uq": 3207.5
+    },
+    {
+      "source_unit": "L/MIN",
+      "standard_unit": "",
+      "source_unit_count": 60,
+      "source_unit_lq": 1.6,
+      "source_unit_median": 1.95,
+      "source_unit_uq": 2.6149999999999998
+    },
+    {
+      "source_unit": "/L",
+      "standard_unit": "L",
+      "source_unit_count": 60,
+      "source_unit_lq": 1.3675000000000002,
+      "source_unit_median": 1.88,
+      "source_unit_uq": 2.625
+    },
+    {
+      "source_unit": "L/min",
+      "standard_unit": "",
+      "source_unit_count": 9,
+      "source_unit_lq": 1.87,
+      "source_unit_median": 2.76,
+      "source_unit_uq": 2.86
+    },
+    {
+      "source_unit": "LITRE",
+      "standard_unit": "L",
+      "source_unit_count": 7,
+      "source_unit_lq": 1.125,
+      "source_unit_median": 1.79,
+      "source_unit_uq": 1.79
+    },
+    {
+      "source_unit": "lt/sec",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 1.46,
+      "source_unit_median": 1.46,
+      "source_unit_uq": 3.0124999999999997
+    },
+    {
+      "source_unit": "l/min",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 2.2375000000000003,
+      "source_unit_median": 2.635,
+      "source_unit_uq": 3.0025
+    },
+    {
+      "source_unit": "mls",
+      "standard_unit": "ml",
+      "source_unit_count": 4,
+      "source_unit_lq": 2027.5,
+      "source_unit_median": 3155.0,
+      "source_unit_uq": 3880.0
+    },
+    {
+      "source_unit": "litres/sec",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 3.27,
+      "source_unit_median": 3.54,
+      "source_unit_uq": 3.755
+    },
+    {
+      "source_unit": "L/s",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "1",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.355,
+      "source_unit_median": 1.51,
+      "source_unit_uq": 1.665
+    },
+    {
+      "source_unit": "L/24h",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.35,
+      "source_unit_median": 2.35,
+      "source_unit_uq": 2.35
+    },
+    {
+      "source_unit": "ltrs",
+      "standard_unit": "L",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.84,
+      "source_unit_median": 3.84,
+      "source_unit_uq": 3.84
+    },
+    {
+      "source_unit": "(cfU)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.42,
+      "source_unit_median": 1.42,
+      "source_unit_uq": 1.42
+    },
+    {
+      "source_unit": "lts",
+      "standard_unit": "L",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.31,
+      "source_unit_median": 3.31,
+      "source_unit_uq": 3.31
+    },
+    {
+      "source_unit": "%Hb",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 80.0,
+      "source_unit_median": 80.0,
+      "source_unit_uq": 80.0
+    },
+    {
+      "source_unit": "millilitre",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 90.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "l/sec",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.17,
+      "source_unit_median": 2.17,
+      "source_unit_uq": 2.17
+    },
+    {
+      "source_unit": "#k ( )/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.01,
+      "source_unit_median": 2.01,
+      "source_unit_uq": 2.01
+    },
+    {
+      "source_unit": "0.93",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.94,
+      "source_unit_median": 0.94,
+      "source_unit_uq": 0.94
+    }
+  ],
+  "unit_conversions": [
+    {
+      "convert_from_unit": "ml",
+      "convert_to_unit": "L",
+      "pre_offset": 0.0,
+      "multiply_by": 0.001,
+      "post_offset": 0.0
+    }
+  ],
+  "created_datetime": "2025-08-18T09:59:09.727890",
+  "updated_datetime": "2025-08-18T11:12:06.581080",
+  "standard_measurement_config_id": "dab0f836",
+  "standard_measurement_config_version": "measurement_forced_expiratory_volume_1s_fev1_after_bronchodilation_SNOMED_20250818_111206"
+}

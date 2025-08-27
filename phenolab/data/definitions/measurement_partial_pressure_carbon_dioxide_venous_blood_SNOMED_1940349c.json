@@ -1,0 +1,23 @@
+{
+  "definition_id": "1940349c",
+  "definition_name": "measurement_partial_pressure_carbon_dioxide_venous_blood_SNOMED",
+  "definition_version": "measurement_partial_pressure_carbon_dioxide_venous_blood_SNOMED_20250818_150926",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-18T15:09:26.198482",
+  "codelists": [
+    {
+      "codelist_id": "measurement_partial_pressure_carbon_dioxide_venous_blood_SNOMED_SNOMED_24a6317c",
+      "codelist_name": "measurement_partial_pressure_carbon_dioxide_venous_blood_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_partial_pressure_carbon_dioxide_venous_blood_SNOMED_SNOMED_24a6317c_20250818_150901",
+      "codes": [
+        {
+          "code": "1014541000000101",
+          "code_description": "Mixed venous carbon dioxide level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1983 @@
+{
+  "definition_id": "19684f63",
+  "definition_name": "osteoarthritis_SNOMED",
+  "definition_version": "osteoarthritis_SNOMED_20250812_153312",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-12T15:33:12.713160",
+  "codelists": [
+    {
+      "codelist_id": "osteoarthritis_SNOMED_SNOMED_46896452",
+      "codelist_name": "osteoarthritis_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "osteoarthritis_SNOMED_SNOMED_46896452_20250812_121016",
+      "codes": [
+        {
+          "code": "239873007",
+          "code_description": "Osteoarthritis of knee (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "396275006",
+          "code_description": "Osteoarthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239872002",
+          "code_description": "Osteoarthritis of hip (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201819000",
+          "code_description": "Generalized osteoarthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "637091000000105",
+          "code_description": "Osteoarthritis NOS, of the lower leg (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239874001",
+          "code_description": "Osteoarthritis of ankle (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "161568003",
+          "code_description": "History of osteoarthritis (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "450521003",
+          "code_description": "Osteoarthritis of patellofemoral joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201837004",
+          "code_description": "Localized, primary osteoarthritis of the ankle and/or foot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239865003",
+          "code_description": "Osteoarthritis of acromioclavicular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "309246000",
+          "code_description": "Osteoarthritis of foot joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239867006",
+          "code_description": "Osteoarthritis of wrist (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239877008",
+          "code_description": "Osteoarthritis of first metatarsophalangeal joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239878003",
+          "code_description": "Osteoarthritis of toe joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "267889007",
+          "code_description": "Generalized osteoarthritis of the hand (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239868001",
+          "code_description": "Osteoarthritis of finger joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "275324008",
+          "code_description": "Osteoarthritis of metacarpophalangeal joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "160414002",
+          "code_description": "Family history: Osteoarthritis (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239866002",
+          "code_description": "Osteoarthritis of elbow (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239869009",
+          "code_description": "Osteoarthritis of distal interphalangeal joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "268054009",
+          "code_description": "Osteoarthritis of multiple joints (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201829007",
+          "code_description": "Localized, primary osteoarthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239863005",
+          "code_description": "Osteoarthritis of spinal facet joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "267891004",
+          "code_description": "Localized osteoarthritis, unspecified, of the pelvic region and thigh (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201834006",
+          "code_description": "Localized, primary osteoarthritis of the hand (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "666441000000103",
+          "code_description": "Osteoarthritis NOS, of shoulder region (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239870005",
+          "code_description": "Osteoarthritis of proximal interphalangeal joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700324005",
+          "code_description": "Osteoarthritis of talonavicular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201831003",
+          "code_description": "Localized, primary osteoarthritis of the shoulder region (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "268074002",
+          "code_description": "(Spondyloses: [cervical] or [lumbar] or [sacral]) or (arthritis - spine) or (osteoarthritis - spine) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239862000",
+          "code_description": "Idiopathic osteoarthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201835007",
+          "code_description": "Localized, primary osteoarthritis of the pelvic region and thigh (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "666451000000100",
+          "code_description": "Osteoarthritis NOS, other specified site (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239876004",
+          "code_description": "Osteoarthritis of subtalar joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201847001",
+          "code_description": "Localized, secondary osteoarthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201893003",
+          "code_description": "Osteoarthritis NOS: [lower leg] or [knee] (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "313258000",
+          "code_description": "Localized, primary osteoarthritis of toe (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "202656009",
+          "code_description": "Cervical spondylosis (& [without myelopathy]) or (osteoarthritis cervical spine) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "313257005",
+          "code_description": "Localized, primary osteoarthritis of the wrist (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "394991004",
+          "code_description": "Exacerbation of osteoarthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201892008",
+          "code_description": "Osteoarthritis NOS: [pelvic region and/or thigh] or [hip] (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201891001",
+          "code_description": "Osteoarthritis NOS: [hand] or [finger] or [thumb] (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "313259008",
+          "code_description": "Localized, primary osteoarthritis of elbow (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201855008",
+          "code_description": "Localized, secondary osteoarthritis of the ankle and/or foot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "267890003",
+          "code_description": "Localized, secondary osteoarthritis of the pelvic region and thigh (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201852006",
+          "code_description": "Localized, secondary osteoarthritis of the hand (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201849003",
+          "code_description": "Localized, secondary osteoarthritis of the shoulder region (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "443524000",
+          "code_description": "Secondary osteoarthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "202655008",
+          "code_description": "(Spondylosis and allied disorders) or (arthritis of spine) or (osteoarthritis of spine)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201821005",
+          "code_description": "(Heberdens' nodes) or (Bouchards' nodes) or (generalised osteoarthritis of the hand) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201894009",
+          "code_description": "Osteoarthritis NOS: [ankle &/or foot] or [toe] (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239871009",
+          "code_description": "Osteoarthritis of metacarpophalangeal joint of finger (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230771000000108",
+          "code_description": "Delivery of rehabilitation for osteoarthritis (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "323291000119108",
+          "code_description": "Osteoarthritis of left hip joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "323321000119100",
+          "code_description": "Osteoarthritis of right knee joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "850791000000102",
+          "code_description": "Osteoarthritis of sternoclavicular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1162304008",
+          "code_description": "Oligoarticular osteoarthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "112981000119107",
+          "code_description": "Osteoarthritis of bilateral knee joints (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "323301000119109",
+          "code_description": "Osteoarthritis of left knee joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "850811000000101",
+          "code_description": "Osteoarthritis of talonavicular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "323311000119107",
+          "code_description": "Osteoarthritis of right hip joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12367361000119109",
+          "code_description": "Osteoarthritis of right patellofemoral joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201889009",
+          "code_description": "Osteoarthritis NOS: [of the upper arm] or [elbow] (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1074331000119102",
+          "code_description": "Secondary osteoarthritis of right hip joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "113011000119109",
+          "code_description": "Osteoarthritis of joint of bilateral hands (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1074361000119105",
+          "code_description": "Secondary osteoarthritis of joint of right knee (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43829003",
+          "code_description": "Chronic osteoarthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "396159001",
+          "code_description": "Referral to rheumatology service for osteoarthritis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1074351000119108",
+          "code_description": "Secondary osteoarthritis of joint of left knee (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201890000",
+          "code_description": "Osteoarthritis NOS: [of the forearm] or [wrist] (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700331009",
+          "code_description": "Osteoarthritis of talonavicular joint secondary to inflammatory arthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201861006",
+          "code_description": "Localized, secondary osteoarthritis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "587211000000108",
+          "code_description": "Osteoarthritis NOS, of distal interphalangeal joint of finger (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700305007",
+          "code_description": "Osteoarthritis of calcaneocuboid joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "320351000119101",
+          "code_description": "Secondary osteoarthritis of left glenohumeral joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700317009",
+          "code_description": "Osteoarthritis of calcaneocuboid joint secondary to inflammatory arthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201832005",
+          "code_description": "Localized, primary osteoarthritis of the upper arm (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "113021000119102",
+          "code_description": "Osteoarthritis of bilateral wrists (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201902001",
+          "code_description": "Osteoarthritis NOS, of metacarpophalangeal joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "587181000000107",
+          "code_description": "Osteoarthritis NOS, of distal radioulnar joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201869008",
+          "code_description": "Osteoarthritis: [localised of the lower leg, unspecified] or [patellofemoral] (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "156493004",
+          "code_description": "Osteoarthritis of knee (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "647101000000103",
+          "code_description": "Localized osteoarthritis, unspecified, of the lower leg (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "267888004",
+          "code_description": "Osteoarthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201822003",
+          "code_description": "Generalized osteoarthritis of multiple sites (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1074531000119107",
+          "code_description": "Osteoarthritis of left foot due to trauma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201883005",
+          "code_description": "Oligoarticular osteoarthritis, unspecified, of other specified sites (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "664241000000106",
+          "code_description": "Osteoarthritis NOS, of ankle (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201830002",
+          "code_description": "Localized, primary osteoarthritis of unspecified site (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "318651000119104",
+          "code_description": "Osteoarthritis of joint of left elbow (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879191000000109",
+          "code_description": "Secondary osteoarthritis of ankle (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700313008",
+          "code_description": "Primary osteoarthritis of subtalar joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879241000000109",
+          "code_description": "Osteoarthritis of talonavicular joint secondary to inflammatory arthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "594461000000102",
+          "code_description": "Localized, secondary osteoarthritis of unspecified site (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15722561000119106",
+          "code_description": "Osteoarthritis of first metatarsophalangeal joint of bilateral feet (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "138836001",
+          "code_description": "H/O: osteoarthritis (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201820006",
+          "code_description": "Generalized osteoarthritis of unspecified site (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1074511000119102",
+          "code_description": "Osteoarthritis of first metatarsophalangeal joint of left foot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "267898005",
+          "code_description": "Osteoarthritis NOS, of the lower leg (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "737057000",
+          "code_description": "Osteoarthritis of joint of left ankle and/or foot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1288014009",
+          "code_description": "Secondary osteoarthritis of joint of wrist (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "659571000000106",
+          "code_description": "Localized osteoarthritis, unspecified (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1074551000119101",
+          "code_description": "Secondary osteoarthritis of joint of left foot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700304006",
+          "code_description": "Primary osteoarthritis of calcaneocuboid joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879301000000100",
+          "code_description": "Osteoarthritis of calcaneocuboid joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239853002",
+          "code_description": "Toe osteoarthritis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201879005",
+          "code_description": "Oligoarticular osteoarthritis, unspecified, of hand (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "318691000119109",
+          "code_description": "Osteoarthritis of joint of right ankle and/or foot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201910000",
+          "code_description": "Osteoarthritis NOS, of ankle (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700314002",
+          "code_description": "Secondary osteoarthritis of subtalar joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700333007",
+          "code_description": "Primary osteoarthritis of first metatarsophalangeal joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "590901000000104",
+          "code_description": "Generalized osteoarthritis of unspecified site (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201873006",
+          "code_description": "Localized osteoarthritis, unspecified, NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "156492009",
+          "code_description": "Osteoarthritis of hip (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "650141000000104",
+          "code_description": "Osteoarthritis NOS, of the upper arm (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201818008",
+          "code_description": "Osteoarthritis (& [allied disorders])",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700318004",
+          "code_description": "Osteoarthritis of ankle secondary to inflammatory arthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239856005",
+          "code_description": "Osteoarthritis NOS, of knee (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "647121000000107",
+          "code_description": "Osteoarthritis NOS, of the hand (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "318711000119107",
+          "code_description": "Osteoarthritis of joint of right hand (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201882000",
+          "code_description": "Oligoarticular osteoarthritis, unspecified, of ankle and foot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "320401000119108",
+          "code_description": "Secondary osteoarthritis of right glenohumeral joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201838009",
+          "code_description": "Localized, primary osteoarthritis of other specified site (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201863009",
+          "code_description": "Localized osteoarthritis, unspecified, of unspecified site (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "679341000000108",
+          "code_description": "Osteoarthritis NOS, of the forearm (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16583201000119109",
+          "code_description": "Secondary osteoarthritis of joint of left ankle (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "664251000000109",
+          "code_description": "Osteoarthritis NOS, of other tarsal joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879261000000105",
+          "code_description": "Primary osteoarthritis of subtalar joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "558701000000107",
+          "code_description": "Oligoarticular osteoarthritis, unspecified, of unspecified sites (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "156489005",
+          "code_description": "Osteoarthritis of elbow (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201916006",
+          "code_description": "Osteoarthritis NOS, of interphalangeal joint of toe (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "267895008",
+          "code_description": "Osteoarthritis NOS, of the forearm (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1074451000119102",
+          "code_description": "Osteoarthritis of left sternoclavicular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201887006",
+          "code_description": "Osteoarthritis NOS, of unspecified site (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239855009",
+          "code_description": "Ankle osteoarthritis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "156486003",
+          "code_description": "Osteoarthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "156622007",
+          "code_description": "(Spondyloses: [cervical] or [lumbar] or [sacral]) or (arthritis - spine) or (osteoarthritis - spine) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201888001",
+          "code_description": "Osteoarthritis NOS, of shoulder region (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700294000",
+          "code_description": "Secondary osteoarthritis of ankle (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1197586007",
+          "code_description": "Short stature, advanced bone age, early-onset osteoarthritis syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201906003",
+          "code_description": "Osteoarthritis NOS, of sacroiliac joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "373623009",
+          "code_description": "Osteoarthritis of glenohumeral joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879351000000104",
+          "code_description": "Osteoarthritis of midfoot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "699991000000105",
+          "code_description": "Ankle osteoarthritis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "653461000000100",
+          "code_description": "Osteoarthritis NOS, of wrist (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201900009",
+          "code_description": "Osteoarthritis NOS, of distal radioulnar joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700328008",
+          "code_description": "Osteoarthritis of talonavicular joint secondary to trauma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201914009",
+          "code_description": "Osteoarthritis NOS, of 1st metatarsophalangeal joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "303041000119104",
+          "code_description": "Osteoarthritis of bilateral first carpometacarpal joints (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "667511000000103",
+          "code_description": "Osteoarthritis NOS, of sacroiliac joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "659591000000105",
+          "code_description": "Localized osteoarthritis, unspecified, of the shoulder region (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879281000000101",
+          "code_description": "Osteoarthritis of subtalar joint secondary to inflammatory arthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15723001000119109",
+          "code_description": "Secondary osteoarthritis of joints of bilateral ankles (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "318701000119109",
+          "code_description": "Osteoarthritis of joint of right elbow (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "667531000000106",
+          "code_description": "Osteoarthritis NOS, of knee (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201850003",
+          "code_description": "Localized, secondary osteoarthritis of the upper arm (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239858006",
+          "code_description": "Thumb osteoarthritis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "656661000000109",
+          "code_description": "Osteoarthritis NOS, of sternoclavicular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201844008",
+          "code_description": "Localised, primary osteoarthritis of toe (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "699971000000106",
+          "code_description": "Toe osteoarthritis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201913003",
+          "code_description": "Osteoarthritis NOS, of other tarsal joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "789000004",
+          "code_description": "Osteoarthritis of hip due to and following trauma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "703054007",
+          "code_description": "Osteoarthritis of midfoot secondary to inflammatory arthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700325006",
+          "code_description": "Primary osteoarthritis of talonavicular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "703053001",
+          "code_description": "Osteoarthritis of midfoot secondary to trauma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "558681000000105",
+          "code_description": "Localized osteoarthritis, unspecified, NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "647111000000101",
+          "code_description": "Osteoarthritis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "703052006",
+          "code_description": "Primary osteoarthritis of midfoot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "267899002",
+          "code_description": "Osteoarthritis NOS, of ankle and foot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201846005",
+          "code_description": "Localized, primary osteoarthritis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "320331000119107",
+          "code_description": "Secondary osteoarthritis of joint of left elbow (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201853001",
+          "code_description": "(Localised secondary osteoarthritis of the pelvic region and thigh) or (coxae malum senilis) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201898007",
+          "code_description": "Osteoarthritis NOS, of acromioclavicular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "659601000000104",
+          "code_description": "Localized osteoarthritis, unspecified, of the upper arm (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "576511000000100",
+          "code_description": "Osteoarthritis NOS, of elbow (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15723121000119104",
+          "code_description": "Secondary osteoarthritis of bilateral hip joints (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "682091000000104",
+          "code_description": "Oligoarticular osteoarthritis, unspecified, of the pelvic region and thigh (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1074521000119109",
+          "code_description": "Osteoarthritis of right foot due to trauma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "156488002",
+          "code_description": "Osteoarthritis of shoulder joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "107881000119100",
+          "code_description": "Advanced collapse of scapholunate joint due to osteoarthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "590911000000102",
+          "code_description": "Generalized osteoarthritis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "156495006",
+          "code_description": "Osteoarthritis - other joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "688481000000107",
+          "code_description": "Oligoarticular osteoarthritis, unspecified, of multiple sites (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "713826008",
+          "code_description": "Osteoarthritis of lumbar spinal facet joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1074571000119105",
+          "code_description": "Osteoarthritis of left sacroiliac joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201877007",
+          "code_description": "Oligoarticular osteoarthritis, unspecified, of upper arm (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15722961000119101",
+          "code_description": "Osteoarthritis of bilateral sacroiliac joints (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1074561000119104",
+          "code_description": "Osteoarthritis of right sacroiliac joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16583361000119101",
+          "code_description": "Osteoarthritis of joint right ankle (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "74885006",
+          "code_description": "Interphalangeal osteoarthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "267897000",
+          "code_description": "Osteoarthritis NOS, pelvic region/thigh (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879211000000108",
+          "code_description": "Osteoarthritis of ankle secondary to trauma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12241671000119104",
+          "code_description": "Osteoarthritis of finger joint of right hand (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "323171000119101",
+          "code_description": "Osteoarthritis of right hip joint due to dysplasia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700326007",
+          "code_description": "Secondary osteoarthritis of talonavicular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201874000",
+          "code_description": "Oligoarticular osteoarthritis, unspecified (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879251000000107",
+          "code_description": "Osteoarthritis of talonavicular joint secondary to trauma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879371000000108",
+          "code_description": "Primary osteoarthritis of midfoot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "113041000119108",
+          "code_description": "Osteoarthritis of bilateral shoulders (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239860008",
+          "code_description": "Osteoarthritis NOS, of wrist (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12241631000119102",
+          "code_description": "Osteoarthritis of finger joint of left hand (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201870009",
+          "code_description": "Localized osteoarthritis, unspecified, of the ankle and foot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "323161000119107",
+          "code_description": "Osteoarthritis of left hip joint due to dysplasia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201828004",
+          "code_description": "Generalized osteoarthritis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "318661000119102",
+          "code_description": "Osteoarthritis of joint of left hand (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239883006",
+          "code_description": "Endemic osteoarthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "558661000000101",
+          "code_description": "Localized osteoarthritis, unspecified, of other specified site (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "156490001",
+          "code_description": "Osteoarthritis of wrist (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201824002",
+          "code_description": "Idiopathic osteoarthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "625131000000101",
+          "code_description": "Localized osteoarthritis, unspecified, of the pelvic region and thigh (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201836008",
+          "code_description": "Localized, primary osteoarthritis of the lower leg (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700307004",
+          "code_description": "Secondary osteoarthritis of calcaneocuboid joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15722481000119101",
+          "code_description": "Osteoarthritis of bilateral subtalar joints (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1074481000119109",
+          "code_description": "Osteoarthritis of first metatarsophalangeal joint of right foot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15686081000119107",
+          "code_description": "Osteoarthritis of bilateral temporomandibular joints (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201875004",
+          "code_description": "Oligoarticular osteoarthritis, unspecified, of unspecified sites (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879321000000109",
+          "code_description": "Secondary osteoarthritis of calcaneocuboid joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "320311000119102",
+          "code_description": "Secondary osteoarthritis joint of elbow (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879341000000102",
+          "code_description": "Osteoarthritis of calcaneocuboid joint secondary to trauma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239859003",
+          "code_description": "Finger osteoarthritis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "697691000000106",
+          "code_description": "Oligoarticular osteoarthritis, unspecified, of ankle and foot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "590921000000108",
+          "code_description": "Localized, primary osteoarthritis of unspecified site (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "588381000000109",
+          "code_description": "Oligoarticular osteoarthritis, unspecified, of hand (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "664271000000100",
+          "code_description": "Osteoarthritis NOS, of lesser metatarsophalangeal joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1074321000119100",
+          "code_description": "Secondary osteoarthritis of left hip joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "653471000000107",
+          "code_description": "Osteoarthritis NOS, of metacarpophalangeal joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "156487007",
+          "code_description": "Osteoarthritis -multiple joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1074431000119108",
+          "code_description": "Osteoarthritis of left acromioclavicular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "667551000000104",
+          "code_description": "Osteoarthritis NOS, of subtalar joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "614721000000106",
+          "code_description": "Osteoarthritis NOS, of interphalangeal joint of toe (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239864004",
+          "code_description": "Osteoarthritis of shoulder joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1074541000119103",
+          "code_description": "Secondary osteoarthritis of joint of right foot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201878002",
+          "code_description": "Oligoarticular osteoarthritis, unspecified, of forearm (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "667141000000105",
+          "code_description": "Osteoarthritis NOS, of talonavicular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15722521000119101",
+          "code_description": "Osteoarthritis of right subtalar joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "267893001",
+          "code_description": "Osteoarthritis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "804671000000107",
+          "code_description": "Patellofemoral osteoarthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "667541000000102",
+          "code_description": "Osteoarthritis NOS, of tibiofibular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "657461000000108",
+          "code_description": "Oligoarticular osteoarthritis, unspecified, of lower leg (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15723161000119109",
+          "code_description": "Secondary osteoarthritis of joint of bilateral elbows (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "712504007",
+          "code_description": "Osteoarthritis of hip due to dysplasia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16010951000119105",
+          "code_description": "Osteoarthritis of bilateral feet due to trauma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201854007",
+          "code_description": "Localized, secondary osteoarthritis of the lower leg (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "287012000",
+          "code_description": "Osteoarthritis - ankle and/or foot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "647131000000109",
+          "code_description": "Osteoarthritis NOS, pelvic region/thigh (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700312003",
+          "code_description": "Osteoarthritis of calcaneocuboid joint secondary to trauma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201911001",
+          "code_description": "Osteoarthritis NOS, of subtalar joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1074491000119107",
+          "code_description": "Osteoarthritis of left foot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "688471000000105",
+          "code_description": "Oligoarticular osteoarthritis, unspecified, of other specified sites (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879181000000107",
+          "code_description": "Primary osteoarthritis of ankle (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201904000",
+          "code_description": "Osteoarthritis NOS, of distal interphalangeal joint of finger (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "254779008",
+          "code_description": "Osteoarthritis deformans (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "287011007",
+          "code_description": "Osteoarthritis - hand joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201851004",
+          "code_description": "Localized, secondary osteoarthritis of the forearm (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201862004",
+          "code_description": "Localized osteoarthritis, unspecified (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15723081000119101",
+          "code_description": "Secondary osteoarthritis of joint of bilateral hands (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879441000000108",
+          "code_description": "Osteoarthritis of first metatarsophalangeal joint secondary to trauma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879311000000103",
+          "code_description": "Primary osteoarthritis of calcaneocuboid joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201885003",
+          "code_description": "Osteoarthritis of more than one site, unspecified, NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201867005",
+          "code_description": "Localized osteoarthritis, unspecified, of the hand (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "320381000119108",
+          "code_description": "Secondary osteoarthritis of joint of right elbow (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "320391000119106",
+          "code_description": "Secondary osteoarthritis of joint of right hand (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "584701000000106",
+          "code_description": "Localized, secondary osteoarthritis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700121000000109",
+          "code_description": "Osteoarthritis NOS, of acromioclavicular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1074461000119100",
+          "code_description": "Osteoarthritis of right foot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201843002",
+          "code_description": "Localised, primary osteoarthritis of the wrist (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239854008",
+          "code_description": "Foot osteoarthritis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201881007",
+          "code_description": "Oligoarticular osteoarthritis, unspecified, of lower leg (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "156496007",
+          "code_description": "Osteoarthritis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "588341000000101",
+          "code_description": "Oligoarticular osteoarthritis, unspecified, of the shoulder region (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201917002",
+          "code_description": "Osteoarthritis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201845009",
+          "code_description": "Localised, primary osteoarthritis of elbow (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1288018007",
+          "code_description": "Secondary osteoarthritis of joint of foot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879421000000101",
+          "code_description": "Secondary osteoarthritis of first metatarsophalangeal joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "558691000000107",
+          "code_description": "Oligoarticular osteoarthritis, unspecified (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15686121000119109",
+          "code_description": "Osteoarthritis of left temporomandibular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879291000000104",
+          "code_description": "Osteoarthritis of subtalar joint secondary to trauma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "156494005",
+          "code_description": "Osteoarthritis - ankle/foot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1287058006",
+          "code_description": "Secondary osteoarthritis of knee joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "702191000000108",
+          "code_description": "Osteoarthritis - other joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "789001000",
+          "code_description": "Osteoarthritis of knee due to and following trauma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700316000",
+          "code_description": "Osteoarthritis of subtalar joint secondary to inflammatory arthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201880008",
+          "code_description": "Oligoarticular osteoarthritis, unspecified, of the pelvic region and thigh (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201896006",
+          "code_description": "Osteoarthritis NOS, of shoulder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "715670004",
+          "code_description": "Mild spondyloepiphyseal dysplasia with early onset osteoarthritis due to collagen type II alpha 1 mutation (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12367411000119102",
+          "code_description": "Osteoarthritis of left patellofemoral joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "682061000000105",
+          "code_description": "Oligoarticular osteoarthritis, unspecified, of forearm (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1074341000119106",
+          "code_description": "Secondary osteoarthritis of joint of bilateral knees (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "287013005",
+          "code_description": "Osteoarthritis - other joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201865002",
+          "code_description": "Localized osteoarthritis, unspecified, of the upper arm (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "594431000000107",
+          "code_description": "Localized, primary osteoarthritis of other specified site (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "320361000119104",
+          "code_description": "Secondary osteoarthritis of joint of left wrist (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "688501000000103",
+          "code_description": "Osteoarthritis NOS, of shoulder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "713482002",
+          "code_description": "Osteoarthritis of facet joint of thoracic spine (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "637101000000102",
+          "code_description": "Osteoarthritis NOS, of ankle and foot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1290147003",
+          "code_description": "Secondary osteoarthritis of glenohumeral joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879221000000102",
+          "code_description": "Primary osteoarthritis of talonavicular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201886002",
+          "code_description": "[Joint degeneration] or [osteoarthritis NOS] (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879331000000106",
+          "code_description": "Osteoarthritis of calcaneocuboid joint secondary to inflammatory arthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201895005",
+          "code_description": "Osteoarthritis NOS, other specified site (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879391000000107",
+          "code_description": "Osteoarthritis of midfoot secondary to inflammatory arthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "659621000000108",
+          "code_description": "Localized osteoarthritis, unspecified, of the forearm (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201864003",
+          "code_description": "Localized osteoarthritis, unspecified, of the shoulder region (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "267896009",
+          "code_description": "Osteoarthritis NOS, of the hand (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201848006",
+          "code_description": "Localized, secondary osteoarthritis of unspecified site (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16583241000119106",
+          "code_description": "Secondary osteoarthritis of joint of right ankle (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201833000",
+          "code_description": "Localized, primary osteoarthritis of the forearm (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "697701000000106",
+          "code_description": "Osteoarthritis of more than one site, unspecified, NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "703050003",
+          "code_description": "Secondary osteoarthritis of midfoot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "202701004",
+          "code_description": "(Spondylosis NOS) or (osteoarthritis spine) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "711531000000105",
+          "code_description": "Hip disability and osteoarthritis outcome score (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "699261008",
+          "code_description": "Post infectious osteoarthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16583281000119101",
+          "code_description": "Osteoarthritis of left ankle due to trauma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201903006",
+          "code_description": "Osteoarthritis NOS, of proximal interphalangeal joint of finger (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700336004",
+          "code_description": "Osteoarthritis of first metatarsophalangeal joint secondary to inflammatory arthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "113001000119106",
+          "code_description": "Osteoarthritis of joint of finger of bilateral hands (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "789002007",
+          "code_description": "Osteoarthritis of wrist and hand due to and following trauma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879401000000105",
+          "code_description": "Osteoarthritis of midfoot secondary to trauma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "594441000000103",
+          "code_description": "Osteoarthritis NOS, of 1st metatarsophalangeal joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1074501000119100",
+          "code_description": "Osteoarthritis of midtarsal joint of left foot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "619411000000107",
+          "code_description": "Localized, secondary osteoarthritis of other specified site (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1288016006",
+          "code_description": "Secondary osteoarthritis of joint of hand (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "318731000119102",
+          "code_description": "Osteoarthritis of joint of right wrist (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "303001000119101",
+          "code_description": "Osteoarthritis of hip co-occurrent and due to dysplasia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15723201000119104",
+          "code_description": "Secondary osteoarthritis of bilateral glenohumeral joints (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201908002",
+          "code_description": "Osteoarthritis NOS, of knee (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "393602007",
+          "code_description": "Exacerbation of osteoarthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "156491002",
+          "code_description": "Osteoarthritis - hand joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "699981000000108",
+          "code_description": "Foot osteoarthritis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879201000000106",
+          "code_description": "Osteoarthritis of ankle secondary to inflammatory arthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16015391000119105",
+          "code_description": "Osteoarthritis of midtarsal joints of bilateral feet (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "735598004",
+          "code_description": "Oligoosteoarthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1074371000119104",
+          "code_description": "Osteoarthritis of right acromioclavicular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201901008",
+          "code_description": "Osteoarthritis NOS, of wrist (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "318641000119101",
+          "code_description": "Osteoarthritis of joint of left ankle (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239861007",
+          "code_description": "Osteoarthritis NOS, of elbow (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "682051000000107",
+          "code_description": "Oligoarticular osteoarthritis, unspecified, of upper arm (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201871008",
+          "code_description": "Localized osteoarthritis, unspecified, of other specified site (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700315001",
+          "code_description": "Osteoarthritis of subtalar joint secondary to trauma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "318721000119100",
+          "code_description": "Osteoarthritis of joint of right shoulder region (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879231000000100",
+          "code_description": "Secondary osteoarthritis of talonavicular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "874561000000109",
+          "code_description": "Osteoarthritis of spinal facet joint",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "587201000000106",
+          "code_description": "Osteoarthritis NOS, of proximal interphalangeal joint of finger (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "659631000000105",
+          "code_description": "Localized osteoarthritis, unspecified, of the hand (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700011000000104",
+          "code_description": "Finger osteoarthritis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700295004",
+          "code_description": "Osteoarthritis of ankle secondary to trauma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12367461000119104",
+          "code_description": "Osteoarthritis of bilateral patellofemoral joints (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "785808002",
+          "code_description": "Aneurysm osteoarthritis syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201856009",
+          "code_description": "Localized, secondary osteoarthritis of other specified site (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879271000000103",
+          "code_description": "Secondary osteoarthritis of subtalar joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "587231000000100",
+          "code_description": "Osteoarthritis NOS, of hip (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201866001",
+          "code_description": "Localized osteoarthritis, unspecified, of the forearm (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201909005",
+          "code_description": "Osteoarthritis NOS, of tibiofibular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "320411000119106",
+          "code_description": "Secondary osteoarthritis of joint of right wrist (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1074411000119103",
+          "code_description": "Osteoarthritis of bilateral sternoclavicular joints (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "661531000000103",
+          "code_description": "Localized osteoarthritis, unspecified, of unspecified site (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15723041000119106",
+          "code_description": "Secondary osteoarthritis of joint of bilateral feet (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15723241000119102",
+          "code_description": "Secondary osteoarthritis of joint of bilateral wrists (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700001000000101",
+          "code_description": "Thumb osteoarthritis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15722441000119106",
+          "code_description": "Osteoarthritis of left subtalar joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "558651000000104",
+          "code_description": "Localized osteoarthritis, unspecified, of the ankle and foot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "267892006",
+          "code_description": "Localized osteoarthritis, unspecified, of the lower leg (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879381000000105",
+          "code_description": "Secondary osteoarthritis of midfoot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "318671000119108",
+          "code_description": "Osteoarthritis of joint of left shoulder region (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "320341000119103",
+          "code_description": "Secondary osteoarthritis of joint of left hand (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "699262001",
+          "code_description": "Post traumatic osteoarthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1074471000119106",
+          "code_description": "Osteoarthritis of midtarsal joint of right foot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15686041000119102",
+          "code_description": "Osteoarthritis of right temporomandibular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1071171000119104",
+          "code_description": "Secondary osteoarthritis of hip joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "112971000119109",
+          "code_description": "Osteoarthritis of joint of bilateral ankles (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201915005",
+          "code_description": "Osteoarthritis NOS, of lesser metatarsophalangeal joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201912008",
+          "code_description": "Osteoarthritis NOS, of talonavicular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201884004",
+          "code_description": "Oligoarticular osteoarthritis, unspecified, of multiple sites (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "703051004",
+          "code_description": "Osteoarthritis of midfoot (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700332002",
+          "code_description": "Secondary osteoarthritis of first metatarsophalangeal joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "267894007",
+          "code_description": "Osteoarthritis NOS, of the upper arm (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700335000",
+          "code_description": "Osteoarthritis of first metatarsophalangeal joint secondary to trauma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "112991000119105",
+          "code_description": "Osteoarthritis of bilateral hip joints (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "594451000000100",
+          "code_description": "Localized, primary osteoarthritis NOS (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "666431000000107",
+          "code_description": "Osteoarthritis NOS, of unspecified site (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879411000000107",
+          "code_description": "Primary osteoarthritis of first metatarsophalangeal joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "700293006",
+          "code_description": "Primary osteoarthritis of ankle (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "239857001",
+          "code_description": "Osteoarthritis NOS, of hip (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "112961000119103",
+          "code_description": "Osteoarthritis of joint of bilateral feet (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1074391000119103",
+          "code_description": "Osteoarthritis of right sternoclavicular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "318681000119106",
+          "code_description": "Osteoarthritis of joint of left wrist (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16583321000119106",
+          "code_description": "Osteoarthritis of right ankle due to trauma (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201899004",
+          "code_description": "Osteoarthritis NOS, of elbow (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201868000",
+          "code_description": "(Otto's pelvis) or (hip osteoarthitis NOS) or (localised osteoarthritis, unspecified, of the pelvic region and thigh) (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201897002",
+          "code_description": "Osteoarthritis NOS, of sternoclavicular joint (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201905004",
+          "code_description": "Osteoarthritis NOS, of hip (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "879431000000104",
+          "code_description": "Osteoarthritis of first metatarsophalangeal joint secondary to inflammatory arthritis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201876003",
+          "code_description": "Oligoarticular osteoarthritis, unspecified, of the shoulder region (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

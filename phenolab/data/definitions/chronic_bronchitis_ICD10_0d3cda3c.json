@@ -1,0 +1,43 @@
+{
+  "definition_id": "0d3cda3c",
+  "definition_name": "chronic_bronchitis_ICD10",
+  "definition_version": "chronic_bronchitis_ICD10_20250812_104823",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-12T10:48:23.992475",
+  "codelists": [
+    {
+      "codelist_id": "chronic_bronchitis_ICD10_ICD10_0d4db2fc",
+      "codelist_name": "chronic_bronchitis_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "chronic_bronchitis_ICD10_ICD10_0d4db2fc_20250812_104752",
+      "codes": [
+        {
+          "code": "J42",
+          "code_description": "Unspecified chronic bronchitis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J41.0",
+          "code_description": "Simple chronic bronchitis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J41.1",
+          "code_description": "Mucopurulent chronic bronchitis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J41",
+          "code_description": "Simple and mucopurulent chronic bronchitis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J41.8",
+          "code_description": "Mixed simple and mucopurulent chronic bronchitis",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

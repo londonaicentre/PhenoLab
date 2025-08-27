@@ -1,0 +1,28 @@
+{
+  "definition_id": "85779560",
+  "definition_name": "measurement_forced_vital_capacity_FVC_after_bronchodilation_percent_predicted_SNOMED",
+  "definition_version": "measurement_forced_vital_capacity_FVC_after_bronchodilation_percent_predicted_SNOMED_20250818_115724",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-18T11:57:24.983900",
+  "codelists": [
+    {
+      "codelist_id": "measurement_forced_vital_capacity_FVC_after_bronchodilation_percent_predicted_SNOMED_SNOMED_502f1587",
+      "codelist_name": "measurement_forced_vital_capacity_FVC_after_bronchodilation_percent_predicted_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_forced_vital_capacity_FVC_after_bronchodilation_percent_predicted_SNOMED_SNOMED_502f1587_20250818_115700",
+      "codes": [
+        {
+          "code": "903601000000107",
+          "code_description": "Percentage of predicted forced vital capacity after bronchodilation (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "903611000000109",
+          "code_description": "Percentage of predicted forced vital capacity after bronchodilation ",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

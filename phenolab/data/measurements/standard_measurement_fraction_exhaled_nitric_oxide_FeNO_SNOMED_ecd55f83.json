@@ -1,0 +1,57 @@
+{
+  "definition_id": "0e6e87e6",
+  "definition_name": "measurement_fraction_exhaled_nitric_oxide_FeNO_SNOMED",
+  "standard_units": [
+    "ppb"
+  ],
+  "primary_standard_unit": "ppb",
+  "lower_limit": null,
+  "upper_limit": null,
+  "unit_mappings": [
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "ppb",
+      "source_unit_count": 7914,
+      "source_unit_lq": 16.0,
+      "source_unit_median": 31.0,
+      "source_unit_uq": 54.5
+    },
+    {
+      "source_unit": "ppb",
+      "standard_unit": "ppb",
+      "source_unit_count": 6617,
+      "source_unit_lq": 13.0,
+      "source_unit_median": 23.0,
+      "source_unit_uq": 43.0
+    },
+    {
+      "source_unit": "Unk UoM",
+      "standard_unit": "ppb",
+      "source_unit_count": 171,
+      "source_unit_lq": 10.5,
+      "source_unit_median": 19.0,
+      "source_unit_uq": 41.0
+    },
+    {
+      "source_unit": "PPB",
+      "standard_unit": "ppb",
+      "source_unit_count": 32,
+      "source_unit_lq": 8.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 34.5
+    },
+    {
+      "source_unit": "%",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 54.0,
+      "source_unit_median": 54.0,
+      "source_unit_uq": 54.0
+    }
+  ],
+  "unit_conversions": [],
+  "created_datetime": "2025-08-18T09:59:09.730352",
+  "updated_datetime": "2025-08-18T11:36:26.002911",
+  "standard_measurement_config_id": "ecd55f83",
+  "standard_measurement_config_version": "measurement_fraction_exhaled_nitric_oxide_FeNO_SNOMED_20250818_113626"
+}

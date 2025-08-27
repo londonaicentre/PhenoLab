@@ -1,0 +1,82 @@
+{
+  "definition_id": "5d85ec20",
+  "definition_name": "measurement_partial_pressure_carbon_dioxide_arterial_blood_SNOMED",
+  "standard_units": [
+    "kPa",
+    "mmHg"
+  ],
+  "primary_standard_unit": "kPa",
+  "lower_limit": null,
+  "upper_limit": null,
+  "unit_mappings": [
+    {
+      "source_unit": "SI",
+      "standard_unit": "kPa",
+      "source_unit_count": 20394,
+      "source_unit_lq": 5.1,
+      "source_unit_median": 5.629661117717005,
+      "source_unit_uq": 6.3872800000000005
+    },
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "kPa",
+      "source_unit_count": 1361,
+      "source_unit_lq": 4.98,
+      "source_unit_median": 5.47,
+      "source_unit_uq": 6.395
+    },
+    {
+      "source_unit": "kPa",
+      "standard_unit": "kPa",
+      "source_unit_count": 381,
+      "source_unit_lq": 5.1,
+      "source_unit_median": 6.01,
+      "source_unit_uq": 6.72
+    },
+    {
+      "source_unit": "UNKNOWN UNITS",
+      "standard_unit": "kPa",
+      "source_unit_count": 37,
+      "source_unit_lq": 5.18,
+      "source_unit_median": 5.54,
+      "source_unit_uq": 6.06
+    },
+    {
+      "source_unit": "mmHg",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 3.75,
+      "source_unit_median": 4.295,
+      "source_unit_uq": 16.08
+    },
+    {
+      "source_unit": "kpal",
+      "standard_unit": "kPa",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.6,
+      "source_unit_median": 6.6,
+      "source_unit_uq": 6.6
+    },
+    {
+      "source_unit": "mmol/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 26.0,
+      "source_unit_median": 26.0,
+      "source_unit_uq": 26.0
+    },
+    {
+      "source_unit": "pCO2",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 7.84,
+      "source_unit_median": 7.84,
+      "source_unit_uq": 7.84
+    }
+  ],
+  "unit_conversions": [],
+  "created_datetime": "2025-08-18T15:28:55.377875",
+  "updated_datetime": "2025-08-18T15:43:31.247909",
+  "standard_measurement_config_id": "3740ee8d",
+  "standard_measurement_config_version": "measurement_partial_pressure_carbon_dioxide_arterial_blood_SNOMED_20250818_154331"
+}

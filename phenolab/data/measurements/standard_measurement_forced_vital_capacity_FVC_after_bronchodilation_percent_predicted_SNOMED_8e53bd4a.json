@@ -1,0 +1,31 @@
+{
+  "definition_id": "85779560",
+  "definition_name": "measurement_forced_vital_capacity_FVC_after_bronchodilation_percent_predicted_SNOMED",
+  "standard_units": [],
+  "primary_standard_unit": null,
+  "lower_limit": null,
+  "upper_limit": null,
+  "unit_mappings": [
+    {
+      "source_unit": "%",
+      "standard_unit": "",
+      "source_unit_count": 1148,
+      "source_unit_lq": 77.0,
+      "source_unit_median": 91.0,
+      "source_unit_uq": 103.0
+    },
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.56,
+      "source_unit_median": 3.56,
+      "source_unit_uq": 3.56
+    }
+  ],
+  "unit_conversions": [],
+  "created_datetime": "2025-08-18T13:40:12.435190",
+  "updated_datetime": "2025-08-18T13:40:23.978764",
+  "standard_measurement_config_id": "8e53bd4a",
+  "standard_measurement_config_version": "measurement_forced_vital_capacity_FVC_after_bronchodilation_percent_predicted_SNOMED_20250818_134023"
+}

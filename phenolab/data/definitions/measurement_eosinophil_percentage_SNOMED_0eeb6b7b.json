@@ -1,0 +1,28 @@
+{
+  "definition_id": "0eeb6b7b",
+  "definition_name": "measurement_eosinophil_percentage_SNOMED",
+  "definition_version": "measurement_eosinophil_percentage_SNOMED_20250812_165116",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-12T16:51:16.168524",
+  "codelists": [
+    {
+      "codelist_id": "measurement_eosinophil_percentage_SNOMED_SNOMED_3e7aae2d",
+      "codelist_name": "measurement_eosinophil_percentage_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_eosinophil_percentage_SNOMED_SNOMED_3e7aae2d_20250812_165058",
+      "codes": [
+        {
+          "code": "1015561000000104",
+          "code_description": "Percentage eosinophils (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "310540006",
+          "code_description": "Eosinophil percent differential count (procedure)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

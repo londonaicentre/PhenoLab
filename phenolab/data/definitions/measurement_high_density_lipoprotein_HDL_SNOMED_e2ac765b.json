@@ -1,0 +1,68 @@
+{
+  "definition_id": "e2ac765b",
+  "definition_name": "measurement_high_density_lipoprotein_HDL_SNOMED",
+  "definition_version": "measurement_high_density_lipoprotein_HDL_SNOMED_20250819_151543",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-08-19T15:15:43.133444",
+  "codelists": [
+    {
+      "codelist_id": "measurement_high_density_lipoprotein_HDL_SNOMED_SNOMED_f46b2597",
+      "codelist_name": "measurement_high_density_lipoprotein_HDL_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_high_density_lipoprotein_HDL_SNOMED_SNOMED_f46b2597_20250819_151316",
+      "codes": [
+        {
+          "code": "1005681000000107",
+          "code_description": "Serum high density lipoprotein cholesterol level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166832000",
+          "code_description": "Serum high density lipoprotein cholesterol measurement (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1026451000000102",
+          "code_description": "Serum fasting high density lipoprotein cholesterol level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1026461000000104",
+          "code_description": "Serum random high density lipoprotein cholesterol level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1028831000000106",
+          "code_description": "Plasma random high density lipoprotein cholesterol level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1028841000000102",
+          "code_description": "Plasma fasting high density lipoprotein cholesterol level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "102737005",
+          "code_description": "High density lipoprotein cholesterol (substance)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "28036006",
+          "code_description": "High density lipoprotein cholesterol measurement (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "9422000",
+          "code_description": "High density lipoprotein (substance)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "259557002",
+          "code_description": "High density lipoprotein triglyceride (substance)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

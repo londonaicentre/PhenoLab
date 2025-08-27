@@ -14,3 +14,4 @@ entities:
       - data
       - environment.yml
       - .env
+      - external_definitions.yml
