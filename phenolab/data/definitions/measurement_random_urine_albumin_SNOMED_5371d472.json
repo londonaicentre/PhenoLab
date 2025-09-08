@@ -1,0 +1,88 @@
+{
+  "definition_id": "5371d472",
+  "definition_name": "measurement_random_urine_albumin_SNOMED",
+  "definition_version": "measurement_random_urine_albumin_SNOMED_20250902_152719",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-09-02T15:27:19.585076",
+  "codelists": [
+    {
+      "codelist_id": "measurement_random_urine_albumin_SNOMED_SNOMED_8c83da33",
+      "codelist_name": "measurement_random_urine_albumin_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_random_urine_albumin_SNOMED_SNOMED_8c83da33_20250902_150011",
+      "codes": [
+        {
+          "code": "1003301000000109",
+          "code_description": "Urine albumin level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "271000000",
+          "code_description": "Urine albumin measurement (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1010251000000109",
+          "code_description": "Urine microalbumin level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "104820006",
+          "code_description": "Microalbumin measurement, urine, semi-quantitative (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "167581000",
+          "code_description": "Urine microalbumin (& level) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "3321000237102",
+          "code_description": "Mass concentration of microalbumin in urine (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "115411000000105",
+          "code_description": "Urine microalbumin profile",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "104819000",
+          "code_description": "Microalbumin measurement, urine, quantitative (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "167453009",
+          "code_description": "Urine albumin (& level) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "144807005",
+          "code_description": "Urine microalbumin positive (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "144806001",
+          "code_description": "Urine microalbumin (& level) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "144678001",
+          "code_description": "Urine albumin (& level) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "119991000000107",
+          "code_description": "Urine microalbumin profile",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "6311000237102",
+          "code_description": "Mass concentration of albumin in urine (observable entity)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

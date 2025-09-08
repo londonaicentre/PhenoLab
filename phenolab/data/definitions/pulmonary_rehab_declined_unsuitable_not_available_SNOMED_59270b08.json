@@ -1,0 +1,68 @@
+{
+  "definition_id": "59270b08",
+  "definition_name": "pulmonary_rehab_declined_unsuitable_not_available_SNOMED",
+  "definition_version": "pulmonary_rehab_declined_unsuitable_not_available_SNOMED_20250902_121811",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-09-02T12:18:11.385280",
+  "codelists": [
+    {
+      "codelist_id": "pulmonary_rehab_declined_unsuitable_not_available_SNOMED_SNOMED_473ccc15",
+      "codelist_name": "pulmonary_rehab_declined_unsuitable_not_available_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "pulmonary_rehab_declined_unsuitable_not_available_SNOMED_SNOMED_473ccc15_20250902_121711",
+      "codes": [
+        {
+          "code": "305371000000101",
+          "code_description": "Pulmonary rehabilitation declined (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "371611000000107",
+          "code_description": "Chronic obstructive pulmonary disease patient unsuitable for pulmonary rehabilitation (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "939851000000104",
+          "code_description": "Pulmonary rehabilitation programme not available (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1078921000000100",
+          "code_description": "Unsuitable for pulmonary rehabilitation (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1111361000000101",
+          "code_description": "Quality and Outcomes Framework - pulmonary rehabilitation service not available (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "305391000000102",
+          "code_description": "Pulmonary Rehabilitation declined ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "491091000000105",
+          "code_description": "Chronic obstructive pulmonary disease patient unsuitable for pulmonary rehabilitation - enhanced services administration ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "487261000000103",
+          "code_description": "Chronic obstructive pulmonary disease patient unsuitable for pulmonary rehabilitation - enhanced services administration ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "939861000000101",
+          "code_description": "Pulmonary rehabilitation programme not available ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "305381000000104",
+          "code_description": "Pulmonary Rehabilitation declined ",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

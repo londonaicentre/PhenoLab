@@ -1,0 +1,43 @@
+{
+  "definition_id": "036c3a1b",
+  "definition_name": "measurement_estimated_glomerular_filtration_rate_eGFR_creatinine_SNOMED",
+  "definition_version": "measurement_estimated_glomerular_filtration_rate_eGFR_creatinine_SNOMED_20250902_153123",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-09-02T15:31:23.424582",
+  "codelists": [
+    {
+      "codelist_id": "measurement_estimated_glomerular_filtration_rate_eGFR_creatinine_SNOMED_SNOMED_b4f290ab",
+      "codelist_name": "measurement_estimated_glomerular_filtration_rate_eGFR_creatinine_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_estimated_glomerular_filtration_rate_eGFR_creatinine_SNOMED_SNOMED_b4f290ab_20250902_153004",
+      "codes": [
+        {
+          "code": "1011481000000105",
+          "code_description": "Estimated glomerular filtration rate using creatinine Chronic Kidney Disease Epidemiology Collaboration equation per 1.73 square metres (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "963621000000102",
+          "code_description": "Estimated glomerular filtration rate using creatinine Chronic Kidney Disease Epidemiology Collaboration equation (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "857971000000104",
+          "code_description": "Estimated glomerular filtration rate using Chronic Kidney Disease Epidemiology Collaboration formula (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1107411000000104",
+          "code_description": "Estimated glomerular filtration rate by laboratory calculation (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "963631000000100",
+          "code_description": "Estimated glomerular filtration rate using serum creatinine per 1.73 square metres ",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

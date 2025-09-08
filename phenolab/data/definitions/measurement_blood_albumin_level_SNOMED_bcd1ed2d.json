@@ -1,0 +1,93 @@
+{
+  "definition_id": "bcd1ed2d",
+  "definition_name": "measurement_blood_albumin_level_SNOMED",
+  "definition_version": "measurement_blood_albumin_level_SNOMED_20250902_154642",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-09-02T15:46:42.449455",
+  "codelists": [
+    {
+      "codelist_id": "measurement_blood_albumin_level_SNOMED_SNOMED_f4130cea",
+      "codelist_name": "measurement_blood_albumin_level_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_blood_albumin_level_SNOMED_SNOMED_f4130cea_20250902_154336",
+      "codes": [
+        {
+          "code": "1000821000000103",
+          "code_description": "Serum albumin level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "104485008",
+          "code_description": "Albumin measurement, serum (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166783005",
+          "code_description": "Serum albumin within reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166784004",
+          "code_description": "Serum albumin low (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166782000",
+          "code_description": "Serum albumin (& level) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1153477009",
+          "code_description": "Serum albumin below reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "144062002",
+          "code_description": "Serum albumin (& level) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1105861000000106",
+          "code_description": "Mass concentration of albumin in serum (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1013361000000105",
+          "code_description": "Plasma albumin level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "390955003",
+          "code_description": "Plasma albumin level (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "443782001",
+          "code_description": "Quantitative measurement of mass concentration of albumin in serum or plasma specimen using bromcresol green technique (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "389603008",
+          "code_description": "Plasma albumin level (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1106251000000101",
+          "code_description": "Mass concentration of albumin in plasma by bromocresol purple dye binding method (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1106031000000104",
+          "code_description": "Mass concentration of albumin in plasma (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "390335005",
+          "code_description": "Plasma albumin level (procedure)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

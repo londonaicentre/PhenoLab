@@ -1,0 +1,108 @@
+{
+  "definition_id": "dfd00ed7",
+  "definition_name": "measurement_blood_platelet_count_SNOMED",
+  "definition_version": "measurement_blood_platelet_count_SNOMED_20250902_153833",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-09-02T15:38:33.327838",
+  "codelists": [
+    {
+      "codelist_id": "measurement_blood_platelet_count_SNOMED_SNOMED_6340f50f",
+      "codelist_name": "measurement_blood_platelet_count_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_blood_platelet_count_SNOMED_SNOMED_6340f50f_20250902_153713",
+      "codes": [
+        {
+          "code": "1022651000000100",
+          "code_description": "Platelet count (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "61928009",
+          "code_description": "Platelet count (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1020311000000107",
+          "code_description": "Plateletcrit (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "165555003",
+          "code_description": "Platelet count within reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1108041000000107",
+          "code_description": "Platelet count in blood (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "142971008",
+          "code_description": "Platelet count abnormal (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "142968000",
+          "code_description": "Platelet count normal (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "415115007",
+          "code_description": "Platelet count above reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "117249008",
+          "code_description": "Platelet count, Rees-Ecker method (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "415116008",
+          "code_description": "Platelet count below reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "165560004",
+          "code_description": "Platelet count NOS (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "365632008",
+          "code_description": "Finding of platelet count (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "441458001",
+          "code_description": "Platelet count below reference range at birth (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "545881000000101",
+          "code_description": "Platelet count NOS (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "142973006",
+          "code_description": "Platelet count NOS (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "104107006",
+          "code_description": "Platelet count, blood, automated (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "104106002",
+          "code_description": "Platelet count, blood, manual (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "142967005",
+          "code_description": "Platelet count (procedure)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

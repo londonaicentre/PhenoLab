@@ -1,4 +1,5 @@
 import os
+import re
 from decimal import Decimal
 from typing import Optional, List
 
@@ -235,6 +236,11 @@ def apply_conversions(df, config):
 
     return df_converted
 
+def escape_quotes(input_string: str) -> str:
+    """
+    Function to take a string and the escape any quotes in it
+    """
+    return re.sub("'", "\\'", input_string)
 
 def create_base_measurements_sql(eligible_configs):
     """
@@ -253,7 +259,7 @@ def create_base_measurements_sql(eligible_configs):
         for conv in config.unit_conversions:
             if conv.convert_to_unit == config.primary_standard_unit:
                 conversion_cases.append(f"""
-                    WHEN mapped_unit = '{conv.convert_from_unit}' THEN
+                    WHEN mapped_unit = '{escape_quotes(conv.convert_from_unit)}' THEN
                         (({conv.pre_offset} + TRY_CAST(source_result_value AS FLOAT)) * {conv.multiply_by}) + {conv.post_offset}
                 """)
                 explicit_conversions.add(conv.convert_from_unit)
@@ -261,16 +267,16 @@ def create_base_measurements_sql(eligible_configs):
         for standard_unit in mapped_standard_units:
             if standard_unit not in explicit_conversions:
                 conversion_cases.append(f"""
-                    WHEN mapped_unit = '{standard_unit}' THEN
+                    WHEN mapped_unit = '{escape_quotes(standard_unit)}' THEN
                         TRY_CAST(source_result_value AS FLOAT)
                 """)
 
         mapping_cases = []
         for source_unit, standard_unit in unit_mappings.items():
             if source_unit == 'No Unit':
-                mapping_cases.append(f"WHEN obs.RESULT_VALUE_UNITS IS NULL THEN '{standard_unit}'")
+                mapping_cases.append(f"WHEN obs.RESULT_VALUE_UNITS IS NULL THEN '{escape_quotes(standard_unit)}'")
             else:
-                mapping_cases.append(f"WHEN obs.RESULT_VALUE_UNITS = '{source_unit}' THEN '{standard_unit}'")
+                mapping_cases.append(f"WHEN obs.RESULT_VALUE_UNITS = '{escape_quotes(source_unit)}' THEN '{escape_quotes(standard_unit)}'")
 
         # Handle unitless measurements (like indices) that don't need mappings
         if not mapping_cases:

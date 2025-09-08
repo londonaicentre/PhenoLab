@@ -1,0 +1,93 @@
+{
+  "definition_id": "f9c6db02",
+  "definition_name": "pulmonary_rehab_referred_or_completed_SNOMED",
+  "definition_version": "pulmonary_rehab_referred_or_completed_SNOMED_20250902_121213",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-09-02T12:12:13.373474",
+  "codelists": [
+    {
+      "codelist_id": "pulmonary_rehab_referred_or_completed_SNOMED_SNOMED_962fb6ac",
+      "codelist_name": "pulmonary_rehab_referred_or_completed_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "pulmonary_rehab_referred_or_completed_SNOMED_SNOMED_962fb6ac_20250902_121046",
+      "codes": [
+        {
+          "code": "913981000000106",
+          "code_description": "Pulmonary rehabilitation offered (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "391130000",
+          "code_description": "Pulmonary rehabilitation program completed (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15081005",
+          "code_description": "Pulmonary rehabilitation (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "24461000000105",
+          "code_description": "Referral to pulmonary rehabilitation (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "391128002",
+          "code_description": "Pulmonary rehabilitation program commenced (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "229823004",
+          "code_description": "Pulmonary rehabilitation class (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "390655000",
+          "code_description": "Pulmonary rehabilitation programme commenced (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "913991000000108",
+          "code_description": "Pulmonary rehabilitation offered ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "389922001",
+          "code_description": "Pulmonary rehabilitation programme completed (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "389921008",
+          "code_description": "Pulmonary rehabilitation programme commenced (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "390739001",
+          "code_description": "Pulmonary rehabilitation (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "34821000000102",
+          "code_description": "Referral to pulmonary rehabilitation",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "390653007",
+          "code_description": "Pulmonary rehabilitation (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "34811000000108",
+          "code_description": "Referral to pulmonary rehabilitation",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "389919003",
+          "code_description": "Pulmonary rehabilitation (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

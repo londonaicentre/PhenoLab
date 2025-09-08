@@ -311,11 +311,19 @@
       "source_unit_lq": 97.0,
       "source_unit_median": 97.0,
       "source_unit_uq": 97.0
+    },
+    {
+      "source_unit": "% spO2",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 98.0,
+      "source_unit_median": 98.0,
+      "source_unit_uq": 98.0
     }
   ],
   "unit_conversions": [],
   "created_datetime": "2025-08-18T15:28:55.426852",
-  "updated_datetime": "2025-08-18T15:42:32.951445",
+  "updated_datetime": "2025-09-02T15:31:56.534138",
   "standard_measurement_config_id": "0c331596",
-  "standard_measurement_config_version": "measurement_oxygenated_haemoglobin_percentage_saturation_SNOMED_20250818_154232"
+  "standard_measurement_config_version": "measurement_oxygenated_haemoglobin_percentage_saturation_SNOMED_20250902_153156"
 }

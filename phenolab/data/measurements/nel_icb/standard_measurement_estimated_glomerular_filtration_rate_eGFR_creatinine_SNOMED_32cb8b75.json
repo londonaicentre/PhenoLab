@@ -1,0 +1,258 @@
+{
+  "definition_id": "036c3a1b",
+  "definition_name": "measurement_estimated_glomerular_filtration_rate_eGFR_creatinine_SNOMED",
+  "standard_units": [
+    "ml/min",
+    "no unit"
+  ],
+  "primary_standard_unit": "ml/min",
+  "lower_limit": null,
+  "upper_limit": null,
+  "unit_mappings": [
+    {
+      "source_unit": "mL/min",
+      "standard_unit": "ml/min",
+      "source_unit_count": 2366318,
+      "source_unit_lq": 67.00000000000003,
+      "source_unit_median": 83.00000000000004,
+      "source_unit_uq": 90.00000000000001
+    },
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "no unit",
+      "source_unit_count": 394538,
+      "source_unit_lq": 59.99999999999997,
+      "source_unit_median": 59.99999999999998,
+      "source_unit_uq": 59.999999999999986
+    },
+    {
+      "source_unit": "ml/min",
+      "standard_unit": "ml/min",
+      "source_unit_count": 29145,
+      "source_unit_lq": 69.6723355263158,
+      "source_unit_median": 87.00000000000001,
+      "source_unit_uq": 102.0
+    },
+    {
+      "source_unit": "mL/min/1.73m*2",
+      "standard_unit": "ml/min",
+      "source_unit_count": 10667,
+      "source_unit_lq": 74.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "mL/min/1.73m2",
+      "standard_unit": "ml/min",
+      "source_unit_count": 10376,
+      "source_unit_lq": 89.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "units=*",
+      "standard_unit": "",
+      "source_unit_count": 3132,
+      "source_unit_lq": 86.0,
+      "source_unit_median": 105.0,
+      "source_unit_uq": 119.0
+    },
+    {
+      "source_unit": "ml/min/1.73m*2",
+      "standard_unit": "ml/min",
+      "source_unit_count": 2541,
+      "source_unit_lq": 90.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "mL/min/1.73m^2",
+      "standard_unit": "ml/min",
+      "source_unit_count": 2145,
+      "source_unit_lq": 90.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": ".",
+      "standard_unit": "",
+      "source_unit_count": 1254,
+      "source_unit_lq": 90.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "ml/min/1.73m^2",
+      "standard_unit": "ml/min",
+      "source_unit_count": 1229,
+      "source_unit_lq": 89.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "mls/min",
+      "standard_unit": "ml/min",
+      "source_unit_count": 1050,
+      "source_unit_lq": 90.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "ml/min/bsa",
+      "standard_unit": "ml/min",
+      "source_unit_count": 801,
+      "source_unit_lq": 60.0,
+      "source_unit_median": 60.0,
+      "source_unit_uq": 60.0
+    },
+    {
+      "source_unit": "mL/min/1.73 m2",
+      "standard_unit": "ml/min",
+      "source_unit_count": 753,
+      "source_unit_lq": 87.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "units",
+      "standard_unit": "",
+      "source_unit_count": 516,
+      "source_unit_lq": 84.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "mL/min/1.73.ar",
+      "standard_unit": "ml/min",
+      "source_unit_count": 333,
+      "source_unit_lq": 68.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "mL/Min",
+      "standard_unit": "ml/min",
+      "source_unit_count": 248,
+      "source_unit_lq": 85.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "mL/min/1.73",
+      "standard_unit": "ml/min",
+      "source_unit_count": 165,
+      "source_unit_lq": 90.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "mL/min/1.73 m*2",
+      "standard_unit": "ml/min",
+      "source_unit_count": 97,
+      "source_unit_lq": 92.0,
+      "source_unit_median": 105.0,
+      "source_unit_uq": 120.0
+    },
+    {
+      "source_unit": "mL/min/1.73m",
+      "standard_unit": "ml/min",
+      "source_unit_count": 88,
+      "source_unit_lq": 80.5,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": ">",
+      "standard_unit": "",
+      "source_unit_count": 9,
+      "source_unit_lq": 60.0,
+      "source_unit_median": 60.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "#M ( )/L",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 90.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "%",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 13.75,
+      "source_unit_median": 20.5,
+      "source_unit_uq": 39.5
+    },
+    {
+      "source_unit": "m*2",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 101.25,
+      "source_unit_median": 101.5,
+      "source_unit_uq": 101.75
+    },
+    {
+      "source_unit": "Units",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 26.0,
+      "source_unit_median": 26.0,
+      "source_unit_uq": 26.0
+    },
+    {
+      "source_unit": "g/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 73.0,
+      "source_unit_median": 73.0,
+      "source_unit_uq": 73.0
+    },
+    {
+      "source_unit": "mL/min/1.7m^2",
+      "standard_unit": "ml/min",
+      "source_unit_count": 1,
+      "source_unit_lq": 88.0,
+      "source_unit_median": 88.0,
+      "source_unit_uq": 88.0
+    },
+    {
+      "source_unit": "ml/min/1",
+      "standard_unit": "ml/min",
+      "source_unit_count": 1,
+      "source_unit_lq": 37.0,
+      "source_unit_median": 37.0,
+      "source_unit_uq": 37.0
+    },
+    {
+      "source_unit": "mL/24h/1.73m*2",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 90.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "mL/min/BSA",
+      "standard_unit": "ml/min",
+      "source_unit_count": 1,
+      "source_unit_lq": 93.0,
+      "source_unit_median": 93.0,
+      "source_unit_uq": 93.0
+    },
+    {
+      "source_unit": "ml/mt",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 37.0,
+      "source_unit_median": 37.0,
+      "source_unit_uq": 37.0
+    }
+  ],
+  "unit_conversions": [],
+  "created_datetime": "2025-09-02T15:31:39.329290",
+  "updated_datetime": "2025-09-02T17:41:59.912724",
+  "standard_measurement_config_id": "32cb8b75",
+  "standard_measurement_config_version": "measurement_estimated_glomerular_filtration_rate_eGFR_creatinine_SNOMED_20250902_174159"
+}

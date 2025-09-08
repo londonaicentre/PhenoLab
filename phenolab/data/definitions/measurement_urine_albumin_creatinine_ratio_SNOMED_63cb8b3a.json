@@ -1,0 +1,53 @@
+{
+  "definition_id": "63cb8b3a",
+  "definition_name": "measurement_urine_albumin_creatinine_ratio_SNOMED",
+  "definition_version": "measurement_urine_albumin_creatinine_ratio_SNOMED_20250902_152834",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-09-02T15:28:34.152502",
+  "codelists": [
+    {
+      "codelist_id": "measurement_urine_albumin_creatinine_ratio_SNOMED_SNOMED_d8c54f56",
+      "codelist_name": "measurement_urine_albumin_creatinine_ratio_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_urine_albumin_creatinine_ratio_SNOMED_SNOMED_d8c54f56_20250902_152742",
+      "codes": [
+        {
+          "code": "1023491000000104",
+          "code_description": "Urine albumin:creatinine ratio (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "271075006",
+          "code_description": "Urine albumin/creatinine ratio measurement (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1027791000000103",
+          "code_description": "Urine microalbumin/creatinine ratio (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "271076007",
+          "code_description": "Urine microalbumin/creatinine ratio measurement (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "144766006",
+          "code_description": "Urine microalbumin:creatinine ratio (& level) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "144765005",
+          "code_description": "Urine albumin:creatinine ratio (& level) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "5801000237100",
+          "code_description": "Mass concentration ratio of microalbumin to creatinine in urine (observable entity)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

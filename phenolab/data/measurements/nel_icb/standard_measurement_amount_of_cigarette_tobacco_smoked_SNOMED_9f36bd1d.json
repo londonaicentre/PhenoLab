@@ -7637,6 +7637,30 @@
       "source_unit_lq": 0.0,
       "source_unit_median": 2.0,
       "source_unit_uq": 7.0
+    },
+    {
+      "source_unit": "10g",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "50g a day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "Daily",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
     }
   ],
   "unit_conversions": [
@@ -7677,7 +7701,7 @@
     }
   ],
   "created_datetime": "2025-08-18T13:40:12.437620",
-  "updated_datetime": "2025-08-18T15:01:22.202737",
+  "updated_datetime": "2025-09-02T15:49:21.944154",
   "standard_measurement_config_id": "9f36bd1d",
-  "standard_measurement_config_version": "measurement_amount_of_cigarette_tobacco_smoked_SNOMED_20250818_150122"
+  "standard_measurement_config_version": "measurement_amount_of_cigarette_tobacco_smoked_SNOMED_20250902_154921"
 }

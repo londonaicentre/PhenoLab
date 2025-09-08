@@ -1,0 +1,23 @@
+{
+  "definition_id": "59a97759",
+  "definition_name": "copd_annual_review_SNOMED",
+  "definition_version": "copd_annual_review_SNOMED_20250902_120848",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-09-02T12:08:48.795138",
+  "codelists": [
+    {
+      "codelist_id": "copd_annual_review_SNOMED_SNOMED_90c6d26e",
+      "codelist_name": "copd_annual_review_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "copd_annual_review_SNOMED_SNOMED_90c6d26e_20250902_120809",
+      "codes": [
+        {
+          "code": "394703002",
+          "code_description": "Chronic obstructive pulmonary disease annual review (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}
