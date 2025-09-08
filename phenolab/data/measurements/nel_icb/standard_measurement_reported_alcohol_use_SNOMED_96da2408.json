@@ -6399,6 +6399,22 @@
       "source_unit_lq": 1.0,
       "source_unit_median": 1.0,
       "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/mONTH",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "U/DAYS",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
     }
   ],
   "unit_conversions": [
@@ -6453,7 +6469,7 @@
     }
   ],
   "created_datetime": "2025-08-19T15:26:50.089493",
-  "updated_datetime": "2025-08-19T15:53:27.299156",
+  "updated_datetime": "2025-09-02T15:32:06.957067",
   "standard_measurement_config_id": "96da2408",
-  "standard_measurement_config_version": "measurement_reported_alcohol_use_SNOMED_20250819_155327"
+  "standard_measurement_config_version": "measurement_reported_alcohol_use_SNOMED_20250902_153206"
 }

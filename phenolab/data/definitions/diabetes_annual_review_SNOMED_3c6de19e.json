@@ -1,0 +1,93 @@
+{
+  "definition_id": "3c6de19e",
+  "definition_name": "diabetes_annual_review_SNOMED",
+  "definition_version": "diabetes_annual_review_SNOMED_20250902_145708",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-09-02T14:57:08.844593",
+  "codelists": [
+    {
+      "codelist_id": "diabetes_annual_review_SNOMED_SNOMED_e1d58d16",
+      "codelist_name": "diabetes_annual_review_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "diabetes_annual_review_SNOMED_SNOMED_e1d58d16_20250902_140054",
+      "codes": [
+        {
+          "code": "850581000000106",
+          "code_description": "High risk of diabetes mellitus annual review (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "394725008",
+          "code_description": "Diabetes medication review (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "279321000000104",
+          "code_description": "Diabetes type 2 review (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "887861000000105",
+          "code_description": "Diabetes Year of Care annual review (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "816711000000104",
+          "code_description": "Gestational diabetes mellitus annual review (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "279291000000109",
+          "code_description": "Diabetes type 1 review (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "2222141000000103",
+          "code_description": "Type 2 Diabetes in the Young review (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "393084006",
+          "code_description": "Diabetes medication review (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "279331000000102",
+          "code_description": "Diabetes type 2 review ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "816721000000105",
+          "code_description": "Gestational diabetes mellitus annual review ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "394035007",
+          "code_description": "Diabetes medication review (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "279341000000106",
+          "code_description": "Diabetes type 2 review ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "887871000000103",
+          "code_description": "Diabetes Year of Care annual review ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "850591000000108",
+          "code_description": "High risk of diabetes mellitus annual review ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "279311000000105",
+          "code_description": "Diabetes type 1 review ",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

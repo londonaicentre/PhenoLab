@@ -1,0 +1,28 @@
+{
+  "definition_id": "2639fe02",
+  "definition_name": "copd_or_asthma_annual_review_SNOMED",
+  "definition_version": "copd_or_asthma_annual_review_SNOMED_20250902_120939",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-09-02T12:09:39.750715",
+  "codelists": [
+    {
+      "codelist_id": "copd_or_asthma_annual_review_SNOMED_SNOMED_f22859dd",
+      "codelist_name": "copd_or_asthma_annual_review_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "copd_or_asthma_annual_review_SNOMED_SNOMED_f22859dd_20250902_120935",
+      "codes": [
+        {
+          "code": "394700004",
+          "code_description": "Asthma annual review (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "394703002",
+          "code_description": "Chronic obstructive pulmonary disease annual review (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

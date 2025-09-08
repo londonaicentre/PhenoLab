@@ -892,7 +892,7 @@
     }
   ],
   "created_datetime": "2025-07-15T13:53:17.513807",
-  "updated_datetime": "2025-07-23T13:28:19.701178",
+  "updated_datetime": "2025-09-02T17:38:06.922256",
   "standard_measurement_config_id": "8e6b35d9",
-  "standard_measurement_config_version": "measurement_serum_creatinine_SNOMED_20250723_132819"
+  "standard_measurement_config_version": "measurement_serum_creatinine_SNOMED_20250902_173806"
 }

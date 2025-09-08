@@ -1,0 +1,103 @@
+{
+  "definition_id": "1b80c6b0",
+  "definition_name": "measurement_blood_aspartate_transaminase_AST_SNOMED",
+  "definition_version": "measurement_blood_aspartate_transaminase_AST_SNOMED_20250902_153641",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-09-02T15:36:41.448516",
+  "codelists": [
+    {
+      "codelist_id": "measurement_blood_aspartate_transaminase_AST_SNOMED_SNOMED_f02f413d",
+      "codelist_name": "measurement_blood_aspartate_transaminase_AST_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_blood_aspartate_transaminase_AST_SNOMED_SNOMED_f02f413d_20250902_153530",
+      "codes": [
+        {
+          "code": "1000881000000102",
+          "code_description": "Serum aspartate aminotransferase level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1031101000000102",
+          "code_description": "Aspartate aminotransferase level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "250641004",
+          "code_description": "Aspartate aminotransferase serum measurement (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "160931000119108",
+          "code_description": "Aspartate transaminase level above reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1000891000000100",
+          "code_description": "Plasma aspartate transaminase level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "45896001",
+          "code_description": "Aspartate aminotransferase measurement (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166669000",
+          "code_description": "Aspartate aminotransferase serum level above reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166668008",
+          "code_description": "Serum aspartate aminotransferase level outside reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "313852007",
+          "code_description": "Plasma aspartate transaminase measurement (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "26091008",
+          "code_description": "Aspartate aminotransferase (substance)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "143976007",
+          "code_description": "AST - aspartate transam SGOT (& level) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166666007",
+          "code_description": "AST - aspartate transam SGOT (& level) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166676005",
+          "code_description": "Plasma aspartate transaminase level (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "889441000000104",
+          "code_description": "Measurement of aspartate transaminase activity (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "373679006",
+          "code_description": "Aspartate transaminase level (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "143983000",
+          "code_description": "Plasma aspartate transaminase level (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1162732002",
+          "code_description": "Aspartate transaminase below reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

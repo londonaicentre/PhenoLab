@@ -1,0 +1,113 @@
+{
+  "definition_id": "7de3406b",
+  "definition_name": "measurement_blood_alanine_transaminase_ALT_SNOMED",
+  "definition_version": "measurement_blood_alanine_transaminase_ALT_SNOMED_20250902_153524",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-09-02T15:35:24.448998",
+  "codelists": [
+    {
+      "codelist_id": "measurement_blood_alanine_transaminase_ALT_SNOMED_SNOMED_26a67539",
+      "codelist_name": "measurement_blood_alanine_transaminase_ALT_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_blood_alanine_transaminase_ALT_SNOMED_SNOMED_26a67539_20250902_153327",
+      "codes": [
+        {
+          "code": "1018251000000107",
+          "code_description": "Serum alanine aminotransferase level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201321000000108",
+          "code_description": "Serum alanine aminotransferase level (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "250637003",
+          "code_description": "Alanine aminotransferase - blood measurement (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1013211000000103",
+          "code_description": "Plasma alanine aminotransferase level (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166646003",
+          "code_description": "Alanine aminotransferase outside reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "390961000",
+          "code_description": "Plasma alanine aminotransferase level (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166645004",
+          "code_description": "Alanine aminotransferase level within reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "34608000",
+          "code_description": "Alanine aminotransferase measurement (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "56935002",
+          "code_description": "Alanine aminotransferase (substance)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1105851000000108",
+          "code_description": "Enzyme activity of alanine aminotransferase in plasma (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "409673008",
+          "code_description": "Alanine aminotransferase above reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "389586005",
+          "code_description": "Plasma alanine aminotransferase level (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "889391000000100",
+          "code_description": "Measurement of alanine transaminase activity (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1162723004",
+          "code_description": "Alanine aminotransferase below reference range (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "364571000119101",
+          "code_description": "Alanine transaminase in serum (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "390318006",
+          "code_description": "Plasma alanine aminotransferase level (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "250635006",
+          "code_description": "Alanine transaminase level (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "219661000000105",
+          "code_description": "Serum alanine aminotransferase level",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "219651000000107",
+          "code_description": "Serum alanine aminotransferase level",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

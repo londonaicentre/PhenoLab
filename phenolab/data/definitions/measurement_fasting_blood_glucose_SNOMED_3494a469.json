@@ -1,16 +1,16 @@
 {
   "definition_id": "3494a469",
   "definition_name": "measurement_fasting_blood_glucose_SNOMED",
-  "definition_version": "measurement_fasting_blood_glucose_SNOMED_20250819_152226",
+  "definition_version": "measurement_fasting_blood_glucose_SNOMED_20250902_154757",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "0001-01-01T00:00:00",
-  "version_datetime": "2025-08-19T15:22:26.080923",
+  "version_datetime": "2025-09-02T15:47:57.365628",
   "codelists": [
     {
-      "codelist_id": "measurement_fasting_blood_glucose_SNOMED_SNOMED_21f45073",
+      "codelist_id": "measurement_fasting_blood_glucose_SNOMED_SNOMED_67a6c60d",
       "codelist_name": "measurement_fasting_blood_glucose_SNOMED_SNOMED",
       "codelist_vocabulary": "SNOMED",
-      "codelist_version": "measurement_fasting_blood_glucose_SNOMED_SNOMED_21f45073_20250819_152159",
+      "codelist_version": "measurement_fasting_blood_glucose_SNOMED_SNOMED_67a6c60d_20250902_154726",
       "codes": [
         {
           "code": "1003131000000101",
@@ -43,13 +43,48 @@
           "code_vocabulary": "SNOMED"
         },
         {
-          "code": "58111000237107",
-          "code_description": "Fasting substance concentration of glucose in plasma (observable entity)",
+          "code": "144167005",
+          "code_description": "Fasting blood glucose (& level) (procedure)",
           "code_vocabulary": "SNOMED"
         },
         {
           "code": "166893007",
           "code_description": "Fasting blood glucose (& level) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "58111000237107",
+          "code_description": "Fasting substance concentration of glucose in plasma (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "166911009",
+          "code_description": "Fasting blood glucose level (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "52302001",
+          "code_description": "Glucose measurement, fasting (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "571000237106",
+          "code_description": "Fasting substance concentration of glucose in serum (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "144185003",
+          "code_description": "Fasting blood glucose level (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "144335002",
+          "code_description": "Plasma fasting glucose level (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "144325008",
+          "code_description": "Serum fasting glucose level (procedure)",
           "code_vocabulary": "SNOMED"
         }
       ]

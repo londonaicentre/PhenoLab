@@ -1392,11 +1392,19 @@
       "source_unit_lq": 11.1,
       "source_unit_median": 11.1,
       "source_unit_uq": 11.1
+    },
+    {
+      "source_unit": "cells/mm3",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
     }
   ],
   "unit_conversions": [],
   "created_datetime": "2025-08-18T13:40:12.430457",
-  "updated_datetime": "2025-08-18T16:04:47.023955",
+  "updated_datetime": "2025-09-02T15:32:04.430319",
   "standard_measurement_config_id": "b9f58186",
-  "standard_measurement_config_version": "measurement_white_blood_cell_count_SNOMED_20250818_160447"
+  "standard_measurement_config_version": "measurement_white_blood_cell_count_SNOMED_20250902_153204"
 }

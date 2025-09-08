@@ -1,0 +1,306 @@
+{
+  "definition_id": "1b80c6b0",
+  "definition_name": "measurement_blood_aspartate_transaminase_AST_SNOMED",
+  "standard_units": [
+    "U/L",
+    "no unit"
+  ],
+  "primary_standard_unit": "U/L",
+  "lower_limit": 2.0,
+  "upper_limit": 6000.0,
+  "unit_mappings": [
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "no unit",
+      "source_unit_count": 1008349,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 24.0,
+      "source_unit_uq": 31.389903846153846
+    },
+    {
+      "source_unit": "iu/L",
+      "standard_unit": "U/L",
+      "source_unit_count": 528010,
+      "source_unit_lq": 18.999999999999993,
+      "source_unit_median": 22.99999999999999,
+      "source_unit_uq": 27.999999999999993
+    },
+    {
+      "source_unit": "U/L",
+      "standard_unit": "U/L",
+      "source_unit_count": 508672,
+      "source_unit_lq": 17.99999999999999,
+      "source_unit_median": 21.00000000000001,
+      "source_unit_uq": 27.0
+    },
+    {
+      "source_unit": "u/L",
+      "standard_unit": "U/L",
+      "source_unit_count": 492766,
+      "source_unit_lq": 18.999999999999993,
+      "source_unit_median": 22.999999999999993,
+      "source_unit_uq": 28.0
+    },
+    {
+      "source_unit": "IU/L",
+      "standard_unit": "U/L",
+      "source_unit_count": 51616,
+      "source_unit_lq": 19.0,
+      "source_unit_median": 23.0,
+      "source_unit_uq": 30.999999999999996
+    },
+    {
+      "source_unit": "u/l",
+      "standard_unit": "U/L",
+      "source_unit_count": 42205,
+      "source_unit_lq": 18.0,
+      "source_unit_median": 22.0,
+      "source_unit_uq": 27.0
+    },
+    {
+      "source_unit": "IU/l",
+      "standard_unit": "U/L",
+      "source_unit_count": 36431,
+      "source_unit_lq": 16.999999999999996,
+      "source_unit_median": 20.000000000000004,
+      "source_unit_uq": 24.999999999999996
+    },
+    {
+      "source_unit": "[iU]/L",
+      "standard_unit": "U/L",
+      "source_unit_count": 30052,
+      "source_unit_lq": 19.0,
+      "source_unit_median": 23.000000000000004,
+      "source_unit_uq": 29.092631578947373
+    },
+    {
+      "source_unit": "U/l",
+      "standard_unit": "U/L",
+      "source_unit_count": 25216,
+      "source_unit_lq": 18.0,
+      "source_unit_median": 22.000000000000004,
+      "source_unit_uq": 27.999999999999996
+    },
+    {
+      "source_unit": "I.U./L",
+      "standard_unit": "U/L",
+      "source_unit_count": 5071,
+      "source_unit_lq": 19.0,
+      "source_unit_median": 23.000000000000004,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "iu/l",
+      "standard_unit": "U/L",
+      "source_unit_count": 2285,
+      "source_unit_lq": 18.0,
+      "source_unit_median": 22.0,
+      "source_unit_uq": 29.0
+    },
+    {
+      "source_unit": "I.U./l",
+      "standard_unit": "U/L",
+      "source_unit_count": 46,
+      "source_unit_lq": 18.25,
+      "source_unit_median": 22.5,
+      "source_unit_uq": 30.5
+    },
+    {
+      "source_unit": "unit/L",
+      "standard_unit": "U/L",
+      "source_unit_count": 17,
+      "source_unit_lq": 23.0,
+      "source_unit_median": 27.0,
+      "source_unit_uq": 35.0
+    },
+    {
+      "source_unit": "iu/L(37C)",
+      "standard_unit": "U/L",
+      "source_unit_count": 13,
+      "source_unit_lq": 32.0,
+      "source_unit_median": 33.0,
+      "source_unit_uq": 37.0
+    },
+    {
+      "source_unit": "IU",
+      "standard_unit": "",
+      "source_unit_count": 9,
+      "source_unit_lq": 19.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 25.0
+    },
+    {
+      "source_unit": "IUL",
+      "standard_unit": "U/L",
+      "source_unit_count": 7,
+      "source_unit_lq": 98.0,
+      "source_unit_median": 98.0,
+      "source_unit_uq": 98.0
+    },
+    {
+      "source_unit": "Unknown",
+      "standard_unit": "no unit",
+      "source_unit_count": 6,
+      "source_unit_lq": 26.0,
+      "source_unit_median": 32.0,
+      "source_unit_uq": 32.0
+    },
+    {
+      "source_unit": "mmol/l",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 18.0,
+      "source_unit_median": 24.0,
+      "source_unit_uq": 45.0
+    },
+    {
+      "source_unit": "iu",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 17.0,
+      "source_unit_median": 21.0,
+      "source_unit_uq": 23.5
+    },
+    {
+      "source_unit": "AST - aspartate transam.(SGOT)",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "IU/I",
+      "standard_unit": "U/L",
+      "source_unit_count": 4,
+      "source_unit_lq": 16.75,
+      "source_unit_median": 19.0,
+      "source_unit_uq": 21.25
+    },
+    {
+      "source_unit": "mu/L",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 22.0,
+      "source_unit_median": 23.5,
+      "source_unit_uq": 26.75
+    },
+    {
+      "source_unit": "u/litre",
+      "standard_unit": "U/L",
+      "source_unit_count": 3,
+      "source_unit_lq": 24.5,
+      "source_unit_median": 27.0,
+      "source_unit_uq": 28.0
+    },
+    {
+      "source_unit": "%",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 23.0,
+      "source_unit_median": 23.0,
+      "source_unit_uq": 23.0
+    },
+    {
+      "source_unit": "UI/L",
+      "standard_unit": "U/L",
+      "source_unit_count": 2,
+      "source_unit_lq": 24.75,
+      "source_unit_median": 29.5,
+      "source_unit_uq": 34.25
+    },
+    {
+      "source_unit": "Iu/L",
+      "standard_unit": "U/L",
+      "source_unit_count": 2,
+      "source_unit_lq": 34.0,
+      "source_unit_median": 34.0,
+      "source_unit_uq": 34.0
+    },
+    {
+      "source_unit": "U/L @ 30c",
+      "standard_unit": "U/L",
+      "source_unit_count": 2,
+      "source_unit_lq": 22.25,
+      "source_unit_median": 23.5,
+      "source_unit_uq": 24.75
+    },
+    {
+      "source_unit": "[iU]",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 23.0,
+      "source_unit_median": 23.0,
+      "source_unit_uq": 23.0
+    },
+    {
+      "source_unit": "units/L",
+      "standard_unit": "U/L",
+      "source_unit_count": 1,
+      "source_unit_lq": 19.0,
+      "source_unit_median": 19.0,
+      "source_unit_uq": 19.0
+    },
+    {
+      "source_unit": "mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.3,
+      "source_unit_median": 0.3,
+      "source_unit_uq": 0.3
+    },
+    {
+      "source_unit": "UI/l",
+      "standard_unit": "U/L",
+      "source_unit_count": 1,
+      "source_unit_lq": 28.0,
+      "source_unit_median": 28.0,
+      "source_unit_uq": 28.0
+    },
+    {
+      "source_unit": "umol/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "UML",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 18.0,
+      "source_unit_median": 18.0,
+      "source_unit_uq": 18.0
+    },
+    {
+      "source_unit": "unit/l",
+      "standard_unit": "U/L",
+      "source_unit_count": 1,
+      "source_unit_lq": 8.0,
+      "source_unit_median": 8.0,
+      "source_unit_uq": 8.0
+    },
+    {
+      "source_unit": "(Unknown)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 22.0,
+      "source_unit_median": 22.0,
+      "source_unit_uq": 22.0
+    },
+    {
+      "source_unit": "UNKNOWN UNITS",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 42.0,
+      "source_unit_median": 42.0,
+      "source_unit_uq": 42.0
+    }
+  ],
+  "unit_conversions": [],
+  "created_datetime": "2025-09-02T15:49:05.296211",
+  "updated_datetime": "2025-09-02T17:23:56.114551",
+  "standard_measurement_config_id": "694c2223",
+  "standard_measurement_config_version": "measurement_blood_aspartate_transaminase_AST_SNOMED_20250902_172356"
+}
