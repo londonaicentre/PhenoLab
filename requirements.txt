@@ -1,5 +1,5 @@
-name: app_environment
-channels:
-  - snowflake
-dependencies:
-  - pydeck=*
+streamlit
+pandas
+numpy
+pydeck
+snowflake-snowpark-python
