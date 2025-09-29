@@ -7,7 +7,16 @@ from bisect import bisect_right
 
 from snowflake.snowpark import Session
 
-session = Session.builder.config("connection_name", "sel").getOrCreate()
+session = Session.builder.configs({
+    "account": st.secrets["snowflake"]["account"],
+    "user": st.secrets["snowflake"]["user"],
+    "password": st.secrets["snowflake"]["password"],
+    "role": st.secrets["snowflake"]["role"],
+    "warehouse": st.secrets["snowflake"]["warehouse"],
+    "database": st.secrets["snowflake"]["database"],
+    "schema": st.secrets["snowflake"]["schema"],
+}).create()
+
 
 def fmt_int(n: int) -> str:
     return f"{int(n):,}"
