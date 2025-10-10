@@ -1,0 +1,23 @@
+{
+  "definition_id": "ecd4833a",
+  "definition_name": "palliative_or_eol_ICD10",
+  "definition_version": "palliative_or_eol_ICD10_20250925_193312",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-09-25T19:33:12.864443",
+  "codelists": [
+    {
+      "codelist_id": "palliative_or_eol_ICD10_ICD10_5660fabb",
+      "codelist_name": "palliative_or_eol_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "palliative_or_eol_ICD10_ICD10_5660fabb_20250925_193310",
+      "codes": [
+        {
+          "code": "Z51.5",
+          "code_description": "Palliative care",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

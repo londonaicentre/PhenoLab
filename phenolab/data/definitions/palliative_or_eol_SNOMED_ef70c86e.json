@@ -1,0 +1,1358 @@
+{
+  "definition_id": "ef70c86e",
+  "definition_name": "palliative_or_eol_SNOMED",
+  "definition_version": "palliative_or_eol_SNOMED_20250925_193000",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-09-25T19:30:00.861996",
+  "codelists": [
+    {
+      "codelist_id": "palliative_or_eol_SNOMED_SNOMED_9aaf8d75",
+      "codelist_name": "palliative_or_eol_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "palliative_or_eol_SNOMED_SNOMED_9aaf8d75_20250925_192417",
+      "codes": [
+        {
+          "code": "103735009",
+          "code_description": "Palliative care (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "414937009",
+          "code_description": "On gold standards palliative care framework (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "196121000000104",
+          "code_description": "Palliative care plan review (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "441874000",
+          "code_description": "Seen by palliative care service (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "395092004",
+          "code_description": "Specialist palliative care (qualifier value)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "201511000000105",
+          "code_description": "Under care of palliative care service (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "871021000000106",
+          "code_description": "Prescription of palliative care anticipatory medication (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "394806003",
+          "code_description": "Palliative medicine (qualifier value)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "443761007",
+          "code_description": "Anticipatory palliative care (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "246931000000107",
+          "code_description": "Under the care of community palliative care team (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "395086005",
+          "code_description": "Community specialist palliative care (qualifier value)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "306237005",
+          "code_description": "Referral to palliative care service (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1048611000000104",
+          "code_description": "Palliative care not currently clinically indicated (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "374511000000105",
+          "code_description": "Palliative care enhanced services administration (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "395695001",
+          "code_description": "Specialist palliative care treatment - outpatient (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "168528006",
+          "code_description": "Palliative course of radiotherapy (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "376201000000102",
+          "code_description": "Issue of palliative care anticipatory medication box (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1403151000000103",
+          "code_description": "On palliative care register (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "850951000000107",
+          "code_description": "Under care of palliative care specialist nurse (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "305496007",
+          "code_description": "Under care of palliative care physician (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "25411000000109",
+          "code_description": "Referred to community specialist palliative care team (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "492321000000103",
+          "code_description": "Notification to primary care out of hours service of palliative care plan in place (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "845021000000105",
+          "code_description": "Patient held palliative care record (record artifact)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "363676003",
+          "code_description": "Palliative - procedure intent (qualifier value)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "818361000000102",
+          "code_description": "Discharge from community specialist palliative care (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "846161000000108",
+          "code_description": "Palliative care handover form completed (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "716841000000107",
+          "code_description": "Excepted from palliative care quality indicators - patient unsuitable (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "961621000000103",
+          "code_description": "Palliative care plan (record artifact)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "305686008",
+          "code_description": "Seen by palliative care physician (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "305824005",
+          "code_description": "Seen by palliative care medicine service (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "846841000000101",
+          "code_description": "Current palliative oncology treatment (record artifact)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1841000124106",
+          "code_description": "Palliative care medication review (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "901741000000103",
+          "code_description": "Palliative Care Outcomes Collaboration Assessment Toolkit (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "395670002",
+          "code_description": "Specialist palliative care treatment - inpatient (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "395694002",
+          "code_description": "Specialist palliative care treatment - daycare (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "310073009",
+          "code_description": "Palliative care service (qualifier value)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "784741000000105",
+          "code_description": "Community specialist palliative care not required (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "715871000000106",
+          "code_description": "Exception reporting - palliative care quality indicators (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "840071000000102",
+          "code_description": "Planned palliative oncology treatment (record artifact)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "902441000000104",
+          "code_description": "Palliative Care Problem Severity Score (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "716851000000105",
+          "code_description": "Excepted from palliative care quality indicators - informed dissent (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "224556006",
+          "code_description": "Palliative care nurse (occupation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "193121000000109",
+          "code_description": "Provision of palliative care in hospital, hospice or care home (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "893641000000102",
+          "code_description": "Palliative medicine service (qualifier value)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "367681000000102",
+          "code_description": "Management of multiple sclerosis in palliative phase (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "309939001",
+          "code_description": "Palliative care department (environment)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "305381007",
+          "code_description": "Admission to palliative care department (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1078411000000101",
+          "code_description": "Referral to community specialist palliative care team (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1364051000000109",
+          "code_description": "Palliative medicine care plan (record artifact)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1083441000000100",
+          "code_description": "Signposting to palliative care team (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "718967002",
+          "code_description": "Integrated Palliative care Outcome Scale - Staff Version (1 week recall period) (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "712999003",
+          "code_description": "Palliative debulking of neoplasm for symptom relief (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "193111000000103",
+          "code_description": "Provision of palliative care in own home (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "902501000000103",
+          "code_description": "Palliative Care Problem Severity Score - pain (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "395669003",
+          "code_description": "Specialist palliative care treatment (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "961651000000108",
+          "code_description": "Community palliative care plan (record artifact)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "718975008",
+          "code_description": "Integrated Palliative care Outcome Scale Patient Version (1 week recall period) (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1364041000000106",
+          "code_description": "Paediatric palliative medicine care plan (record artifact)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "362964009",
+          "code_description": "Palliative procedure (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1061851000000101",
+          "code_description": "Palliative Care Therapy Outcome Measure activity score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "875221000000104",
+          "code_description": "Palliative care not indicated",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "718898004",
+          "code_description": "Assessment using Integrated Palliative care Outcome Scale 5 Patient Version (3 day recall period) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "306442004",
+          "code_description": "Discharge by palliative care physician (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1086071000000107",
+          "code_description": "Palliative care Outcome Scale symptom list for end-stage renal disease score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1061881000000107",
+          "code_description": "Palliative Care Therapy Outcome Measure participation score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1025191000000109",
+          "code_description": "Integrated Palliative care Outcome Scale - Staff Version (3 day recall period) (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "394053001",
+          "code_description": "Specialist palliative care (qualifier value)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "305981001",
+          "code_description": "Referral by palliative care physician (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1033311000000102",
+          "code_description": "Integrated Palliative care Outcome Scale - Patient Version (3 day recall period) (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "526141000000106",
+          "code_description": "Palliative treatment of lymphoedema (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "902461000000103",
+          "code_description": "Assessment using Palliative Care Problem Severity Score (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "196281000000109",
+          "code_description": "Excepted from palliative care quality indicators: Patient unsuitable (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "25761000087103",
+          "code_description": "Inpatient palliative care environment (environment)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1032421000000106",
+          "code_description": "IPOS 5 - Integrated Palliative care Outcome Scale 5",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1148679005",
+          "code_description": "Specialist palliative care service (qualifier value)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "394079005",
+          "code_description": "Palliative treatment (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "174701000000109",
+          "code_description": "On gold standards palliative care framework",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1033541000000106",
+          "code_description": "Assessment using Integrated Palliative care Outcome Scale - Patient Version (1 week recall period) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217541000000104",
+          "code_description": "Excepted from palliative care quality indicators: Informed dissent",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "761867005",
+          "code_description": "Assessment using Palliative care Outcome Scale symptom list for end-stage renal disease (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "718893008",
+          "code_description": "Assessment using Integrated Palliative care Outcome Scale 5 Patient Version (1 week recall period) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "170041000000104",
+          "code_description": "On gold standards palliative care framework",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "374531000000102",
+          "code_description": "Palliative care - enhanced services administration ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1092801000000106",
+          "code_description": "Palliative care phase measure phase (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "846171000000101",
+          "code_description": "Palliative care handover form completed ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1086061000000100",
+          "code_description": "Palliative care Outcome Scale symptom list for end-stage renal disease (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "2324931000000109",
+          "code_description": "Integrated Palliative care Outcome Scale for Dementia - Staff version overall score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "840081000000100",
+          "code_description": "Planned acute palliative oncology treatment ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "196271000000107",
+          "code_description": "Excepted from palliative care quality indicators: Informed dissent (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "784751000000108",
+          "code_description": "Community specialist palliative care not required ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217241000000102",
+          "code_description": "Exception reporting: palliative care quality indicators",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "444481003",
+          "code_description": "Haematopus palliatus (organism)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "901751000000100",
+          "code_description": "Palliative Care Outcomes Collaboration Assessment Toolkit ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1025201000000106",
+          "code_description": "Integrated Palliative care Outcome Scale",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "2037801000000103",
+          "code_description": "Specialist Palliative Care Record (record artifact)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "395586002",
+          "code_description": "Specialist palliative care treatment - inpatient (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "393128009",
+          "code_description": "Palliative treatment (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "875421000000103",
+          "code_description": "Discharge from palliative care service",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217701000000105",
+          "code_description": "Palliative care plan review",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1033321000000108",
+          "code_description": "IPOS (Integrated Palliative care Outcome Scale) Patient Version 3 day recall ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "718901003",
+          "code_description": "Assessment using Integrated Palliative care Outcome Scale 5 Staff Version (1 week recall period) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1033341000000101",
+          "code_description": "Assessment using Integrated Palliative care Outcome Scale 5 - Patient Version (3 day recall period) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "36621000000109",
+          "code_description": "Referred to community specialist palliative care team",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1061871000000105",
+          "code_description": "Palliative Care Therapy Outcome Measure impairment score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314604005",
+          "code_description": "Palliative course of deep X-ray therapy (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "274461000000103",
+          "code_description": "Under the care of community palliative care team ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "2324981000000108",
+          "code_description": "Assessment using Integrated Palliative care Outcome Scale for Dementia - Family version (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1033431000000103",
+          "code_description": "Integrated Palliative care Outcome Scale 5 - Staff Version (1 week recall period) (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "367701000000100",
+          "code_description": "Management of multiple sclerosis in palliative phase ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "492141000000108",
+          "code_description": "Anticipatory palliative care ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "761865002",
+          "code_description": "Palliative care Outcome Scale symptom list for end-stage renal disease (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "393102006",
+          "code_description": "Specialist palliative care (qualifier value)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1033421000000100",
+          "code_description": "IPOS (Integrated Palliative care Outcome Scale) Patient Version 1 week recall ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "718974007",
+          "code_description": "Integrated Palliative care Outcome Scale 5 Patient Version (3 day recall period) (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1255681002",
+          "code_description": "Palliative care nursing (qualifier value)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1061861000000103",
+          "code_description": "Palliative Care Therapy Outcome Measure carer wellbeing score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1033441000000107",
+          "code_description": "IPOS-5 (Integrated Palliative care Outcome Scale 5) Staff Version 1 week recall ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "305284002",
+          "code_description": "Admission by palliative care physician (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "773981004",
+          "code_description": "Palliative care plan (record artifact)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1033381000000109",
+          "code_description": "IPOS-5 (Integrated Palliative care Outcome Scale 5) Patient Version 3 day recall ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "2324951000000102",
+          "code_description": "Assessment using Integrated Palliative care Outcome Scale for Dementia - Self version (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "882931000000106",
+          "code_description": "Consent given for sharing palliative care coordination record ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "882991000000107",
+          "code_description": "Consent given by legitimate patient representative for sharing palliative care coordination record ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1032411000000100",
+          "code_description": "Integrated Palliative care Outcome Scale 5 - Staff Version (3 day recall period) (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "395633006",
+          "code_description": "Specialist palliative care treatment - outpatient (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1098471000000103",
+          "code_description": "Integrated Palliative care Outcome Scale 5 Staff Version (1 week recall period) overall score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1098501000000105",
+          "code_description": "Integrated Palliative care Outcome Scale Patient Version (3 day recall period) overall score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "2324971000000106",
+          "code_description": "Integrated Palliative care Outcome Scale for Dementia - Family version (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "470191000000109",
+          "code_description": "[V]Palliative care (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "2324961000000104",
+          "code_description": "Integrated Palliative care Outcome Scale for Dementia - Self version overall score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "718973001",
+          "code_description": "Integrated Palliative care Outcome Scale Patient Version (3 day recall period) (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "145721006",
+          "code_description": "Palliative course of radiotherapy (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217521000000106",
+          "code_description": "Excepted from palliative care quality indicators: Patient unsuitable",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "139351000119101",
+          "code_description": "History of palliative care consultation (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "36881000000106",
+          "code_description": "Discharged from community specialist palliative care team",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217711000000107",
+          "code_description": "Palliative care plan review",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "718957007",
+          "code_description": "Integrated Palliative care Outcome Scale 5 Staff Version (1 week recall period) (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "381861000000100",
+          "code_description": "Seen by palliative care service ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "394051004",
+          "code_description": "Community specialist palliative care (qualifier value)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "235513003",
+          "code_description": "Palliative procedure for pancreatic pain relief (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1098481000000101",
+          "code_description": "Integrated Palliative care Outcome Scale 5 Staff Version (3 day recall period) overall score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1033451000000105",
+          "code_description": "Integrated Palliative care Outcome Scale - Staff Version (1 week recall period) (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "874891000000101",
+          "code_description": "Under care of palliative care physician",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1033351000000103",
+          "code_description": "Assessment using Integrated Palliative care Outcome Scale - Patient Version (3 day recall period) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "718895001",
+          "code_description": "Assessment using Integrated Palliative care Outcome Scale Staff Version (1 week recall period) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "882951000000104",
+          "code_description": "Withdrawal of consent for sharing palliative care coordination record ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "309359006",
+          "code_description": "Palliative care physician (occupation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "871031000000108",
+          "code_description": "Prescription of palliative care anticipatory medication ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1078311000000105",
+          "code_description": "Emergency hospital admission to palliative medicine service (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "316324001",
+          "code_description": "[V]Palliative care (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "718903000",
+          "code_description": "Assessment using Integrated Palliative care Outcome Scale 5 Staff Version (3 day recall period) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1098491000000104",
+          "code_description": "Integrated Palliative care Outcome Scale Patient Version (1 week recall period) overall score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "492331000000101",
+          "code_description": "Notification to primary care out of hours service of palliative care plan ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1323841000000105",
+          "code_description": "Paediatric palliative medicine service (qualifier value)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1092791000000107",
+          "code_description": "Palliative care phase measure (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "2324911000000101",
+          "code_description": "Integrated Palliative care Outcome Scale for Dementia - Staff version (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "366889004",
+          "code_description": "Referral to palliative care service (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "105402000",
+          "code_description": "Visit of patient by chaplain during palliative care (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "761866001",
+          "code_description": "Palliative care Outcome Scale symptom list for end-stage renal disease score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1061891000000109",
+          "code_description": "Palliative Care Therapy Outcome Measure wellbeing score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1033401000000109",
+          "code_description": "IPOS-5 (Integrated Palliative care Outcome Scale 5) Patient Version 1 week recall ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "845031000000107",
+          "code_description": "Patient held palliative care record ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1033511000000105",
+          "code_description": "Assessment using Integrated Palliative care Outcome Scale - Staff Version (1 week recall period) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "492121000000101",
+          "code_description": "Anticipatory palliative care (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "490781000000102",
+          "code_description": "Issue of palliative care anticipatory medication box ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1032431000000108",
+          "code_description": "Assessment using Integrated Palliative care Outcome Scale 5 - Staff Version (3 day recall period) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "154471000001109",
+          "code_description": "General practice extraction - Antipsychotic medications excluding palliative care simple reference set (foundation metadata concept)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "713281006",
+          "code_description": "Consultation for palliative care (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217251000000104",
+          "code_description": "Exception reporting: palliative care quality indicators",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "2324921000000107",
+          "code_description": "Assessment using Integrated Palliative care Outcome Scale for Dementia - Staff version (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "492131000000104",
+          "code_description": "Anticipatory palliative care ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1255904006",
+          "code_description": "Administration of palliative antineoplastic agent (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "902531000000109",
+          "code_description": "Palliative Care Problem Severity Score - family/carer (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1092781000000105",
+          "code_description": "Assessment using palliative care phase measure (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "902521000000107",
+          "code_description": "Palliative Care Problem Severity Score - psychological/spiritual (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "718890006",
+          "code_description": "Assessment using Integrated Palliative care Outcome Scale Staff Version (3 day recall period) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "381851000000103",
+          "code_description": "Seen by palliative care service ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "381841000000101",
+          "code_description": "Seen by palliative care service (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1033391000000106",
+          "code_description": "Integrated Palliative care Outcome Scale 5 - Patient Version (1 week recall period) (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "395587006",
+          "code_description": "Specialist palliative care treatment - daycare (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "395079002",
+          "code_description": "Palliative treatment (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "2324941000000100",
+          "code_description": "Integrated Palliative care Outcome Scale for Dementia - Self version (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "486931000000100",
+          "code_description": "Issue of palliative care anticipatory medication box ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "36611000000103",
+          "code_description": "Referred to community specialist palliative care team",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "36871000000109",
+          "code_description": "Discharged from community specialist palliative care team",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "374521000000104",
+          "code_description": "Palliative care - enhanced services administration ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1098441000000109",
+          "code_description": "Integrated Palliative care Outcome Scale - Staff Version (1 week recall period) overall score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "79698002",
+          "code_description": "Insertion of catheter into spinal canal for infusion of palliative substances (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1033521000000104",
+          "code_description": "Assessment using Integrated Palliative care Outcome Scale 5 - Staff Version (1 week recall period) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "306288008",
+          "code_description": "Referral to palliative care physician (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "367691000000100",
+          "code_description": "Management of multiple sclerosis in palliative phase ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "492341000000105",
+          "code_description": "Notification to primary care out of hours service of palliative care plan ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "718899007",
+          "code_description": "Assessment using Integrated Palliative care Outcome Scale Patient Version (3 day recall period) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "395632001",
+          "code_description": "Specialist palliative care treatment - daycare (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1098451000000107",
+          "code_description": "Integrated Palliative care Outcome Scale 5 Patient Version (1 week recall period) overall score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217531000000108",
+          "code_description": "Excepted from palliative care quality indicators: Patient unsuitable",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "395631008",
+          "code_description": "Specialist palliative care treatment - inpatient (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1086081000000109",
+          "code_description": "Assessment using Palliative care Outcome Scale symptom list for end-stage renal disease (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "217551000000101",
+          "code_description": "Excepted from palliative care quality indicators: Informed dissent",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1098461000000105",
+          "code_description": "Integrated Palliative care Outcome Scale 5 Patient Version (3 day recall period) overall score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "196131000000102",
+          "code_description": "Exception reporting: palliative care quality indicators (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "366809002",
+          "code_description": "Referral to palliative care service (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "25251000000109",
+          "code_description": "Discharged from community specialist palliative care team (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "783851000000103",
+          "code_description": "Referral to community palliative care team declined ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16131000000109",
+          "code_description": "Palliative procedure (qualifier value)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1033461000000108",
+          "code_description": "IPOS (Integrated Palliative care Outcome Scale) Staff Version 1 week recall ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "718971004",
+          "code_description": "Integrated Palliative care Outcome Scale Staff Version (3 day recall period) (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "395588001",
+          "code_description": "Specialist palliative care treatment - outpatient (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "883011000000108",
+          "code_description": "Consent given by appointed person with lasting power of attorney for personal welfare for sharing palliative care coordination record ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1033531000000102",
+          "code_description": "Assessment using Integrated Palliative care Outcome Scale 5 - Patient Version (1 week recall period) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "902451000000101",
+          "code_description": "Palliative Care Problem Severity Score ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1033371000000107",
+          "code_description": "Integrated Palliative care Outcome Scale 5 - Patient Version (3 day recall period) (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "902511000000101",
+          "code_description": "Palliative Care Problem Severity Score - other symptoms (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "718904006",
+          "code_description": "Assessment using Integrated Palliative care Outcome Scale Patient Version (1 week recall period) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "718976009",
+          "code_description": "Integrated Palliative care Outcome Scale 5 Patient Version (1 week recall period) (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1099101000000108",
+          "code_description": "Assessment using Palliative Care Outcomes Collaboration assessment tools (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "960861000000101",
+          "code_description": "Specialist palliative care plan (record artifact)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "882971000000108",
+          "code_description": "Best interest decision taken for sharing palliative care coordination record ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "393100003",
+          "code_description": "Community specialist palliative care (qualifier value)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1025231000000100",
+          "code_description": "Assessment using Integrated Palliative care Outcome Scale - Staff Version (3 day recall period) (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "832081000000100",
+          "code_description": "Under care of palliative care service",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "393372000",
+          "code_description": "Palliative medicine (qualifier value)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "394322008",
+          "code_description": "Palliative medicine (qualifier value)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "251481000000106",
+          "code_description": "Under the care of community palliative care team ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "2324991000000105",
+          "code_description": "Integrated Palliative care Outcome Scale for Dementia - Family version overall score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "850961000000105",
+          "code_description": "Under care of specialist palliative care nurse ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1033411000000106",
+          "code_description": "Integrated Palliative care Outcome Scale - Patient Version (1 week recall period) (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "718969004",
+          "code_description": "Integrated Palliative care Outcome Scale 5 Staff Version (3 day recall period) (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "902471000000105",
+          "code_description": "Palliative Care Problem Severity Score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1098511000000107",
+          "code_description": "Integrated Palliative care Outcome Scale Staff Version (3 day recall period) overall score (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "846851000000103",
+          "code_description": "Current palliative oncology treatment ",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "806501000000107",
+          "code_description": "Review of end of life advance care plan (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "718637005",
+          "code_description": "End of life care planning offered (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "935911000000108",
+          "code_description": "Has end of life care plan (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "910451000000100",
+          "code_description": "Notification to primary care out of hours service of end of life care plan in place (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "526621000000106",
+          "code_description": "Has end of life care advanced care pathway",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "713602009",
+          "code_description": "Discussion about end of life care planning (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "781151000000109",
+          "code_description": "End of life advance care plan (record artifact)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "526631000000108",
+          "code_description": "On end of life care register (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "935921000000102",
+          "code_description": "End of life care plan (record artifact)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "713673000",
+          "code_description": "Has end of life care plan (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "847771000000100",
+          "code_description": "End of life care pathway (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1025611000000105",
+          "code_description": "End of life care plan offered (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "713058002",
+          "code_description": "End of life care planning (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "882921000000109",
+          "code_description": "Consent given for sharing end of life care coordination record (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1095141000000109",
+          "code_description": "Not suitable for end of life advance care planning (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1095151000000107",
+          "code_description": "Has end of life advance care plan (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "854021000000106",
+          "code_description": "Ambulance service notified of patient on end of life care register (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "737598000",
+          "code_description": "Counseling for end of life issues (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "882941000000102",
+          "code_description": "Withdrawal of consent for sharing end of life care coordination record (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1095081000000100",
+          "code_description": "End of life advance care plan (record artifact)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1034241000000106",
+          "code_description": "Has end of life care key general practitioner (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "874311000000104",
+          "code_description": "Integrated care priorities for end of life (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "882961000000101",
+          "code_description": "Best interest decision taken (Mental Capacity Act 2005) for sharing end of life care coordination record (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "883001000000106",
+          "code_description": "Consent given by appointed person with lasting power of attorney for personal welfare (Mental Capacity Act 2005) for sharing end of life care coordination record (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1095131000000100",
+          "code_description": "Offer of end of life advance care plan review (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "719240009",
+          "code_description": "Has end of life care key worker (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "719238004",
+          "code_description": "Has end of life care key nurse (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "802431000000101",
+          "code_description": "End of life care assessment (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "882981000000105",
+          "code_description": "Consent given by legitimate patient representative for sharing end of life care coordination record (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1095091000000103",
+          "code_description": "End of life advance care planning declined (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "736373009",
+          "code_description": "End of life care plan (record artifact)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1095161000000105",
+          "code_description": "End of life advance care plan review declined (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "908621000000106",
+          "code_description": "End of life care report (record artifact)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "805621000000107",
+          "code_description": "Provision of end of life patient information record (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "861411000000103",
+          "code_description": "End of Life Care Document (record artifact)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1082911000000102",
+          "code_description": "Treatment Escalation Plan decision - appropriate for end of life care plan (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "870351000000108",
+          "code_description": "End of life care management (procedure)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "definition_id": "9cb23069",
+  "definition_name": "end_stage_renal_failure_ICD10",
+  "definition_version": "end_stage_renal_failure_ICD10_20250925_180031",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-09-25T18:00:31.259491",
+  "codelists": [
+    {
+      "codelist_id": "end_stage_renal_failure_ICD10_ICD10_1f755f29",
+      "codelist_name": "end_stage_renal_failure_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "end_stage_renal_failure_ICD10_ICD10_1f755f29_20250925_175745",
+      "codes": [
+        {
+          "code": "T82.4",
+          "code_description": "Mechanical complication of vascular dialysis catheter",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "Y84.1",
+          "code_description": "Kidney dialysis as the cause of abnormal reaction of the patient, or of later complication, without mention of misadventure at the time of the procedure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "Z49.0",
+          "code_description": "Preparatory care for dialysis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "Z49.1",
+          "code_description": "Extracorporeal dialysis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "Z99.2",
+          "code_description": "Dependence on renal dialysis",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    },
+    {
+      "codelist_id": "end_stage_renal_failure_ICD10_OPCS4_e0c13d22",
+      "codelist_name": "end_stage_renal_failure_ICD10_OPCS4",
+      "codelist_vocabulary": "OPCS4",
+      "codelist_version": "end_stage_renal_failure_ICD10_OPCS4_e0c13d22_20250925_175745",
+      "codes": [
+        {
+          "code": "L74.6",
+          "code_description": "Creation of graft fistula for dialysis",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X40.1",
+          "code_description": "Renal dialysis",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X40.2",
+          "code_description": "Peritoneal dialysis NEC",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X40.3",
+          "code_description": "Haemodialysis NEC",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X40.5",
+          "code_description": "Automated peritoneal dialysis",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X40.6",
+          "code_description": "Continuous ambulatory peritoneal dialysis",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X41.1",
+          "code_description": "Insertion of ambulatory peritoneal dialysis catheter",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X41.2",
+          "code_description": "Removal of ambulatory peritoneal dialysis catheter",
+          "code_vocabulary": "OPCS4"
+        },
+        {
+          "code": "X42.1",
+          "code_description": "Insertion of temporary peritoneal dialysis catheter",
+          "code_vocabulary": "OPCS4"
+        }
+      ]
+    }
+  ]
+}
