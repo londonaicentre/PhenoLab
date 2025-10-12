@@ -1431,12 +1431,12 @@
       "convert_from_unit": "mg/dL",
       "convert_to_unit": "mmol/L",
       "pre_offset": 0.0,
-      "multiply_by": 0.055556,
+      "multiply_by": 0.01130966,
       "post_offset": 0.0
     }
   ],
   "created_datetime": "2025-05-19T23:23:56.058303",
-  "updated_datetime": "2025-08-23T09:22:24.762031",
+  "updated_datetime": "2025-10-12T15:52:35.003693",
   "standard_measurement_config_id": "579fb01a",
-  "standard_measurement_config_version": "measurement_blood_glucose_SNOMED_20250823_092224"
+  "standard_measurement_config_version": "measurement_blood_glucose_SNOMED_20251012_155235"
 }

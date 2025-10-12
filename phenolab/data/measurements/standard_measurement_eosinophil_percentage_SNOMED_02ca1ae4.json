@@ -135,11 +135,83 @@
       "source_unit_lq": 0.2,
       "source_unit_median": 0.2,
       "source_unit_uq": 0.2
+    },
+    {
+      "source_unit": "10*9/l",
+      "standard_unit": "",
+      "source_unit_count": 10,
+      "source_unit_lq": 0.1,
+      "source_unit_median": 0.2,
+      "source_unit_uq": 0.2
+    },
+    {
+      "source_unit": "/L",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 0.15,
+      "source_unit_median": 0.15,
+      "source_unit_uq": 0.15
+    },
+    {
+      "source_unit": "10/9 l(9.63%)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.5,
+      "source_unit_median": 0.5,
+      "source_unit_uq": 0.5
+    },
+    {
+      "source_unit": "x10",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.1,
+      "source_unit_median": 0.1,
+      "source_unit_uq": 0.1
+    },
+    {
+      "source_unit": "10/9 l(6.07%)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.4,
+      "source_unit_median": 0.4,
+      "source_unit_uq": 0.4
+    },
+    {
+      "source_unit": "10/9 l(2.31%)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.3,
+      "source_unit_median": 0.3,
+      "source_unit_uq": 0.3
+    },
+    {
+      "source_unit": "10^9/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.15,
+      "source_unit_median": 0.15,
+      "source_unit_uq": 0.15
+    },
+    {
+      "source_unit": "x10^9",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.7,
+      "source_unit_median": 0.7,
+      "source_unit_uq": 0.7
+    },
+    {
+      "source_unit": "10/9 l(2.59%)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.2,
+      "source_unit_median": 0.2,
+      "source_unit_uq": 0.2
     }
   ],
   "unit_conversions": [],
   "created_datetime": "2025-08-18T09:59:09.736642",
-  "updated_datetime": "2025-08-18T11:14:31.615863",
+  "updated_datetime": "2025-10-12T15:48:43.328650",
   "standard_measurement_config_id": "02ca1ae4",
-  "standard_measurement_config_version": "measurement_eosinophil_percentage_SNOMED_20250818_111431"
+  "standard_measurement_config_version": "measurement_eosinophil_percentage_SNOMED_20251012_154843"
 }

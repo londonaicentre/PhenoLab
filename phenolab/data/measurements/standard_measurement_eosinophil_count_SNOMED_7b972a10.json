@@ -1103,11 +1103,403 @@
       "source_unit_lq": 0.3,
       "source_unit_median": 0.3,
       "source_unit_uq": 0.3
+    },
+    {
+      "source_unit": "x10^9/1",
+      "standard_unit": "",
+      "source_unit_count": 342,
+      "source_unit_lq": 0.1,
+      "source_unit_median": 0.2,
+      "source_unit_uq": 0.3
+    },
+    {
+      "source_unit": "g/l",
+      "standard_unit": "",
+      "source_unit_count": 14,
+      "source_unit_lq": 0.1,
+      "source_unit_median": 0.3,
+      "source_unit_uq": 0.3
+    },
+    {
+      "source_unit": "x10*9 cells/L",
+      "standard_unit": "",
+      "source_unit_count": 12,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.05
+    },
+    {
+      "source_unit": "x 10 ^ 9/l",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 0.1,
+      "source_unit_median": 0.1,
+      "source_unit_uq": 0.1
+    },
+    {
+      "source_unit": "10*3 cells/uL",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 0.14,
+      "source_unit_median": 0.2,
+      "source_unit_uq": 0.3
+    },
+    {
+      "source_unit": "*10^9/1",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 0.05,
+      "source_unit_median": 0.05,
+      "source_unit_uq": 0.0625
+    },
+    {
+      "source_unit": "x10E6/uL",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 0.4,
+      "source_unit_median": 0.4,
+      "source_unit_uq": 0.4
+    },
+    {
+      "source_unit": "mmol/l",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 0.095,
+      "source_unit_median": 0.1,
+      "source_unit_uq": 0.135
+    },
+    {
+      "source_unit": "#G ( )/L",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 0.1,
+      "source_unit_median": 0.1,
+      "source_unit_uq": 0.1
+    },
+    {
+      "source_unit": "X10^9",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.1,
+      "source_unit_median": 0.1,
+      "source_unit_uq": 0.1
+    },
+    {
+      "source_unit": "IU",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.2,
+      "source_unit_median": 0.2,
+      "source_unit_uq": 0.2
+    },
+    {
+      "source_unit": "#k ( )/L",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.125,
+      "source_unit_median": 0.15000000000000002,
+      "source_unit_uq": 0.17500000000000002
+    },
+    {
+      "source_unit": "X 10*9/l",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.225,
+      "source_unit_median": 0.25,
+      "source_unit_uq": 0.275
+    },
+    {
+      "source_unit": "10/9 l(5%)",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.3,
+      "source_unit_median": 0.3,
+      "source_unit_uq": 0.3
+    },
+    {
+      "source_unit": "nmol/mmol",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 3720368547.77,
+      "source_unit_median": 3720368547.77,
+      "source_unit_uq": 3720368547.77
+    },
+    {
+      "source_unit": "x10^9/l(8.6%)",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.9,
+      "source_unit_median": 0.9,
+      "source_unit_uq": 0.9
+    },
+    {
+      "source_unit": "x10^9 cells/L",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.295,
+      "source_unit_median": 0.42999999999999994,
+      "source_unit_uq": 0.565
+    },
+    {
+      "source_unit": "abs",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.17,
+      "source_unit_median": 0.17,
+      "source_unit_uq": 0.17
+    },
+    {
+      "source_unit": "th/cmm",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.3,
+      "source_unit_median": 0.3,
+      "source_unit_uq": 0.3
+    },
+    {
+      "source_unit": "cells/cu.mm",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 196.0,
+      "source_unit_median": 196.0,
+      "source_unit_uq": 196.0
+    },
+    {
+      "source_unit": "*10^9 cells/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.2,
+      "source_unit_median": 0.2,
+      "source_unit_uq": 0.2
+    },
+    {
+      "source_unit": "/mm3",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 210.0,
+      "source_unit_median": 210.0,
+      "source_unit_uq": 210.0
+    },
+    {
+      "source_unit": "U",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.22,
+      "source_unit_median": 0.22,
+      "source_unit_uq": 0.22
+    },
+    {
+      "source_unit": "10x10",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.1,
+      "source_unit_median": 0.1,
+      "source_unit_uq": 0.1
+    },
+    {
+      "source_unit": "U/mL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 150.0,
+      "source_unit_median": 150.0,
+      "source_unit_uq": 150.0
+    },
+    {
+      "source_unit": "10*9 g/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.14,
+      "source_unit_median": 0.14,
+      "source_unit_uq": 0.14
+    },
+    {
+      "source_unit": "x 10",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.3,
+      "source_unit_median": 0.3,
+      "source_unit_uq": 0.3
+    },
+    {
+      "source_unit": "x10^9/l(1.6%)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.1,
+      "source_unit_median": 0.1,
+      "source_unit_uq": 0.1
+    },
+    {
+      "source_unit": "%0.22",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.6,
+      "source_unit_median": 2.6,
+      "source_unit_uq": 2.6
+    },
+    {
+      "source_unit": "x10^9/l(3.2%)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.2,
+      "source_unit_median": 0.2,
+      "source_unit_uq": 0.2
+    },
+    {
+      "source_unit": "x10E9/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.2,
+      "source_unit_median": 0.2,
+      "source_unit_uq": 0.2
+    },
+    {
+      "source_unit": "mL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.2,
+      "source_unit_median": 0.2,
+      "source_unit_uq": 0.2
+    },
+    {
+      "source_unit": "x10^9/l(1.1%)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.1,
+      "source_unit_median": 0.1,
+      "source_unit_uq": 0.1
+    },
+    {
+      "source_unit": "/cmm",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1181.4,
+      "source_unit_median": 1181.4,
+      "source_unit_uq": 1181.4
+    },
+    {
+      "source_unit": "X10^9/1",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.3,
+      "source_unit_median": 0.3,
+      "source_unit_uq": 0.3
+    },
+    {
+      "source_unit": "10/9 l(2.04%)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.1,
+      "source_unit_median": 0.1,
+      "source_unit_uq": 0.1
+    },
+    {
+      "source_unit": "x10^9/l(1.4%)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.1,
+      "source_unit_median": 0.1,
+      "source_unit_uq": 0.1
+    },
+    {
+      "source_unit": "/ul",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 114.0,
+      "source_unit_median": 114.0,
+      "source_unit_uq": 114.0
+    },
+    {
+      "source_unit": "k/ml",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.57,
+      "source_unit_median": 0.57,
+      "source_unit_uq": 0.57
+    },
+    {
+      "source_unit": "ug/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 9.8,
+      "source_unit_median": 9.8,
+      "source_unit_uq": 9.8
+    },
+    {
+      "source_unit": "L/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.01,
+      "source_unit_median": 0.01,
+      "source_unit_uq": 0.01
+    },
+    {
+      "source_unit": "Eosinophil count normal",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "10x9",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.2,
+      "source_unit_median": 0.2,
+      "source_unit_uq": 0.2
+    },
+    {
+      "source_unit": "x10^9/l(2.4%)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.2,
+      "source_unit_median": 0.2,
+      "source_unit_uq": 0.2
+    },
+    {
+      "source_unit": "lm",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.2,
+      "source_unit_median": 0.2,
+      "source_unit_uq": 0.2
+    },
+    {
+      "source_unit": "10/9 l(.829)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.1,
+      "source_unit_median": 0.1,
+      "source_unit_uq": 0.1
+    },
+    {
+      "source_unit": "1/1",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.07,
+      "source_unit_median": 0.07,
+      "source_unit_uq": 0.07
+    },
+    {
+      "source_unit": "x10^9/l(8.4%)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.2,
+      "source_unit_median": 1.2,
+      "source_unit_uq": 1.2
+    },
+    {
+      "source_unit": "X10",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.3,
+      "source_unit_median": 0.3,
+      "source_unit_uq": 0.3
     }
   ],
   "unit_conversions": [],
   "created_datetime": "2025-08-18T09:59:09.737396",
-  "updated_datetime": "2025-08-18T11:06:46.624410",
+  "updated_datetime": "2025-10-12T15:45:54.466447",
   "standard_measurement_config_id": "7b972a10",
-  "standard_measurement_config_version": "measurement_eosinophil_count_SNOMED_20250818_110646"
+  "standard_measurement_config_version": "measurement_eosinophil_count_SNOMED_20251012_154554"
 }

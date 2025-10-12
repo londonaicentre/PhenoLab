@@ -364,6 +364,14 @@
       "source_unit_lq": 5.0,
       "source_unit_median": 5.0,
       "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "this year",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
     }
   ],
   "unit_conversions": [
@@ -404,7 +412,7 @@
     }
   ],
   "created_datetime": "2025-05-19T23:23:56.061230",
-  "updated_datetime": "2025-08-23T09:20:34.137584",
+  "updated_datetime": "2025-10-12T15:51:09.038646",
   "standard_measurement_config_id": "268998f8",
-  "standard_measurement_config_version": "measurement_falls_number_SNOMED_20250823_092034"
+  "standard_measurement_config_version": "measurement_falls_number_SNOMED_20251012_155109"
 }

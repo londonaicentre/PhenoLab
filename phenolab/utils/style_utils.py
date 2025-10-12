@@ -2,19 +2,8 @@ import streamlit as st
 from packaging import version
 
 def set_font_lato():
-    st.markdown("""
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
-                
-    * {
-        font-family: 'Lato', sans-serif !important;
-        font-weight: 300 !important;
-    }
-    b {
-        font-weight: 800 !important;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+    # Custom fonts disabled
+    pass
 
 def container_object_with_height_if_possible(height: int):
     """

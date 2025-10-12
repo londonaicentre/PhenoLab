@@ -413,11 +413,195 @@
       "source_unit_lq": 2.7,
       "source_unit_median": 2.7,
       "source_unit_uq": 2.7
+    },
+    {
+      "source_unit": "mMol/l",
+      "standard_unit": "",
+      "source_unit_count": 420,
+      "source_unit_lq": 4.8,
+      "source_unit_median": 5.3,
+      "source_unit_uq": 5.8
+    },
+    {
+      "source_unit": "(Unknown)",
+      "standard_unit": "",
+      "source_unit_count": 374,
+      "source_unit_lq": 4.6,
+      "source_unit_median": 5.2,
+      "source_unit_uq": 6.475
+    },
+    {
+      "source_unit": "hours fasting",
+      "standard_unit": "",
+      "source_unit_count": 216,
+      "source_unit_lq": 12.0,
+      "source_unit_median": 14.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "fasting mmol/l",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.8,
+      "source_unit_uq": 7.1
+    },
+    {
+      "source_unit": "/hour",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 11.0,
+      "source_unit_median": 11.0,
+      "source_unit_uq": 12.0
+    },
+    {
+      "source_unit": "mg/L",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "h",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 10.5,
+      "source_unit_median": 11.0,
+      "source_unit_uq": 11.5
+    },
+    {
+      "source_unit": "IU/d",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 39.025000000000006,
+      "source_unit_median": 72.35000000000001,
+      "source_unit_uq": 105.67500000000001
+    },
+    {
+      "source_unit": "mol/l",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.8,
+      "source_unit_median": 4.8,
+      "source_unit_uq": 4.8
+    },
+    {
+      "source_unit": "g/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.86,
+      "source_unit_median": 0.86,
+      "source_unit_uq": 0.86
+    },
+    {
+      "source_unit": "min",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "pmol/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.5,
+      "source_unit_median": 6.5,
+      "source_unit_uq": 6.5
+    },
+    {
+      "source_unit": "Fasting blood glucose level",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "mmol/L6.2",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.2,
+      "source_unit_median": 6.2,
+      "source_unit_uq": 6.2
+    },
+    {
+      "source_unit": "ug/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.4,
+      "source_unit_median": 0.4,
+      "source_unit_uq": 0.4
+    },
+    {
+      "source_unit": "mml",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.5,
+      "source_unit_median": 4.5,
+      "source_unit_uq": 4.5
+    },
+    {
+      "source_unit": "kat",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.3,
+      "source_unit_median": 4.3,
+      "source_unit_uq": 4.3
+    },
+    {
+      "source_unit": "g/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 76.0,
+      "source_unit_median": 76.0,
+      "source_unit_uq": 76.0
+    },
+    {
+      "source_unit": "mmol/kg",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.8,
+      "source_unit_median": 6.8,
+      "source_unit_uq": 6.8
+    },
+    {
+      "source_unit": "ng",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.2,
+      "source_unit_median": 5.2,
+      "source_unit_uq": 5.2
+    },
+    {
+      "source_unit": "AU/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.1,
+      "source_unit_median": 5.1,
+      "source_unit_uq": 5.1
+    },
+    {
+      "source_unit": "iu/mL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 11.1,
+      "source_unit_median": 11.1,
+      "source_unit_uq": 11.1
+    },
+    {
+      "source_unit": "m/mols",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.9,
+      "source_unit_median": 4.9,
+      "source_unit_uq": 4.9
     }
   ],
   "unit_conversions": [],
   "created_datetime": "2025-08-19T15:26:50.093730",
-  "updated_datetime": "2025-08-19T15:26:53.475432",
+  "updated_datetime": "2025-10-12T15:44:38.377775",
   "standard_measurement_config_id": "41924aa2",
-  "standard_measurement_config_version": "measurement_fasting_blood_glucose_SNOMED_20250819_152653"
+  "standard_measurement_config_version": "measurement_fasting_blood_glucose_SNOMED_20251012_154438"
 }

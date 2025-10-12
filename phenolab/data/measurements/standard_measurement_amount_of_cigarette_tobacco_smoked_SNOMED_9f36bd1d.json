@@ -7637,6 +7637,4086 @@
       "source_unit_lq": 0.0,
       "source_unit_median": 2.0,
       "source_unit_uq": 7.0
+    },
+    {
+      "source_unit": "Undefined",
+      "standard_unit": "",
+      "source_unit_count": 21,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "Cig per day",
+      "standard_unit": "",
+      "source_unit_count": 16,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 2.5,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "4-5/day",
+      "standard_unit": "",
+      "source_unit_count": 13,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "2-3/day",
+      "standard_unit": "",
+      "source_unit_count": 12,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "15/DAY",
+      "standard_unit": "",
+      "source_unit_count": 9,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "3/DAY",
+      "standard_unit": "",
+      "source_unit_count": 9,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "5-7/day",
+      "standard_unit": "",
+      "source_unit_count": 8,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "2 week",
+      "standard_unit": "",
+      "source_unit_count": 8,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "Daily",
+      "standard_unit": "",
+      "source_unit_count": 7,
+      "source_unit_lq": 3.5,
+      "source_unit_median": 5.1,
+      "source_unit_uq": 7.55
+    },
+    {
+      "source_unit": "6/DAY",
+      "standard_unit": "",
+      "source_unit_count": 7,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "3 days",
+      "standard_unit": "",
+      "source_unit_count": 7,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "role ups",
+      "standard_unit": "",
+      "source_unit_count": 7,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "1 day",
+      "standard_unit": "",
+      "source_unit_count": 7,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "3-4/day",
+      "standard_unit": "",
+      "source_unit_count": 7,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "15-20/day",
+      "standard_unit": "",
+      "source_unit_count": 7,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "0z/wk",
+      "standard_unit": "",
+      "source_unit_count": 7,
+      "source_unit_lq": 0.75,
+      "source_unit_median": 1.5,
+      "source_unit_uq": 1.75
+    },
+    {
+      "source_unit": "/ a month",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.5,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "19/day",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 12.25,
+      "source_unit_median": 19.0,
+      "source_unit_uq": 19.0
+    },
+    {
+      "source_unit": "/week.",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 7.5,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "7/DAY",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 7.0,
+      "source_unit_median": 7.0,
+      "source_unit_uq": 7.0
+    },
+    {
+      "source_unit": "roll ups per week",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 7.25,
+      "source_unit_median": 17.0,
+      "source_unit_uq": 41.0
+    },
+    {
+      "source_unit": "/day (past)",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "oz/per wk",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 1.5,
+      "source_unit_median": 1.5,
+      "source_unit_uq": 1.5
+    },
+    {
+      "source_unit": "5-10/DAY",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "20 day",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "gms/day",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 12.5,
+      "source_unit_uq": 12.5
+    },
+    {
+      "source_unit": "3-5/day",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "3/per week",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "2/16",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "4 days",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "/2week",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "12.5g",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 12.0,
+      "source_unit_median": 12.0,
+      "source_unit_uq": 12.125
+    },
+    {
+      "source_unit": "5/10/day",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "10-12/day",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "2/Day",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "9 DAY",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 9.0,
+      "source_unit_median": 9.0,
+      "source_unit_uq": 9.0
+    },
+    {
+      "source_unit": "oz per week",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 6.075,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 12.0
+    },
+    {
+      "source_unit": "5 DAY",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "3 day",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "40/day",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 40.0,
+      "source_unit_median": 40.0,
+      "source_unit_uq": 40.0
+    },
+    {
+      "source_unit": "grammes",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 62.5
+    },
+    {
+      "source_unit": "1g",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "packs/day",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 0.8125,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "4-5/DAY",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "/m",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.25
+    },
+    {
+      "source_unit": "10-20/day",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 12.5
+    },
+    {
+      "source_unit": "cig per day",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 13.0,
+      "source_unit_median": 16.5,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "5or less/ day",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "up/day",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "cpd",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 9.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 22.5
+    },
+    {
+      "source_unit": "/weel",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 6.5,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "18-20/day",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 18.0,
+      "source_unit_median": 18.0,
+      "source_unit_uq": 18.0
+    },
+    {
+      "source_unit": "18/DAY",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 18.0,
+      "source_unit_median": 18.0,
+      "source_unit_uq": 18.0
+    },
+    {
+      "source_unit": "8/16",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 8.0,
+      "source_unit_median": 8.0,
+      "source_unit_uq": 8.0
+    },
+    {
+      "source_unit": "g/2 months",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 31.25,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "g/3 days",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 40.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "/3-4d",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "/day (e-Cig)",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 7.0,
+      "source_unit_median": 7.0,
+      "source_unit_uq": 7.0
+    },
+    {
+      "source_unit": "10/12roll ups",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "5/ day",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "g/5 days",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "packets",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 3.5
+    },
+    {
+      "source_unit": "L",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 2.285,
+      "source_unit_median": 2.39,
+      "source_unit_uq": 2.39
+    },
+    {
+      "source_unit": "OZ/week",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 2.25,
+      "source_unit_median": 3.5,
+      "source_unit_uq": 14.25
+    },
+    {
+      "source_unit": "g/ day",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "g/3days",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 16.75,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 40.0
+    },
+    {
+      "source_unit": "x week",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "4/weekly",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "50/day",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "grams per day",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 8.3,
+      "source_unit_median": 8.3,
+      "source_unit_uq": 9.15
+    },
+    {
+      "source_unit": "pack/year",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 18.5,
+      "source_unit_median": 25.0,
+      "source_unit_uq": 35.0
+    },
+    {
+      "source_unit": "units = /day",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 7.5
+    },
+    {
+      "source_unit": "6-7/day",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "30 g/week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "2 roll ups a day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "every so often",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "cigarettes /week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "1-/day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "120",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 90.0,
+      "source_unit_median": 100.0,
+      "source_unit_uq": 110.0
+    },
+    {
+      "source_unit": "cigs a week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "UNKNOWN",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "roll up daily",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 8.75,
+      "source_unit_median": 12.5,
+      "source_unit_uq": 16.25
+    },
+    {
+      "source_unit": "roll ups daily",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "/ months",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "one month",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 35.0,
+      "source_unit_median": 40.0,
+      "source_unit_uq": 45.0
+    },
+    {
+      "source_unit": "3/per month",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "g/1.5week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "grams/day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 23.75,
+      "source_unit_median": 32.5,
+      "source_unit_uq": 41.25
+    },
+    {
+      "source_unit": "15 per day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "17-20/day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 17.0,
+      "source_unit_median": 17.0,
+      "source_unit_uq": 17.0
+    },
+    {
+      "source_unit": "grams/weeks",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "/week]",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 3.5,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.5
+    },
+    {
+      "source_unit": "/weekly occasional",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "20/week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "7-8/day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 7.0,
+      "source_unit_median": 7.0,
+      "source_unit_uq": 7.0
+    },
+    {
+      "source_unit": "g/Week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 37.5,
+      "source_unit_median": 37.5,
+      "source_unit_uq": 37.5
+    },
+    {
+      "source_unit": "each",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "5-8 rolls/day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "1/PER WEEK",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "oz / week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "on an off",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "/g for 4 days",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "/box",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "/15 - day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "P/week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "8-10/day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 8.0,
+      "source_unit_median": 8.0,
+      "source_unit_uq": 8.0
+    },
+    {
+      "source_unit": "4/week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "15g",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "Cigs",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 9.0,
+      "source_unit_uq": 12.0
+    },
+    {
+      "source_unit": "10-15 /day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "One week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "30g/ week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "1/weekly",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "how many",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "ciggs/day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "1 per month",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.25,
+      "source_unit_median": 0.5,
+      "source_unit_uq": 0.75
+    },
+    {
+      "source_unit": "roll-ups/per day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "per day at weekends",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "/pack a day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.125,
+      "source_unit_median": 1.25,
+      "source_unit_uq": 1.375
+    },
+    {
+      "source_unit": "TWO WEEKS",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "u/week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 15.75,
+      "source_unit_median": 30.5,
+      "source_unit_uq": 45.25
+    },
+    {
+      "source_unit": "30/DAY",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 22.5,
+      "source_unit_median": 25.0,
+      "source_unit_uq": 27.5
+    },
+    {
+      "source_unit": "\\day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "u/day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 9.0,
+      "source_unit_uq": 12.0
+    },
+    {
+      "source_unit": "/ year",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "Roll Ups",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "every other weekend",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "twice a wk",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "1-3/day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "1/weekend",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "ex",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "20-30/day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "4/5/day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "cig/daily",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "50g/w",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "cigg/day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.25,
+      "source_unit_median": 2.5,
+      "source_unit_uq": 2.75
+    },
+    {
+      "source_unit": "60/day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "roll-up/day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 6.25,
+      "source_unit_median": 7.5,
+      "source_unit_uq": 8.75
+    },
+    {
+      "source_unit": "10-/day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "9 day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 9.0,
+      "source_unit_median": 9.0,
+      "source_unit_uq": 9.0
+    },
+    {
+      "source_unit": "15-20/DAY",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "8-9/day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 8.0,
+      "source_unit_median": 8.0,
+      "source_unit_uq": 8.0
+    },
+    {
+      "source_unit": "roll ups a week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 16.0,
+      "source_unit_uq": 22.0
+    },
+    {
+      "source_unit": "6-8/day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "ozs/week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 6.25,
+      "source_unit_median": 7.5,
+      "source_unit_uq": 8.75
+    },
+    {
+      "source_unit": "5 day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "unk",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "5/16",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "2 WEEK",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "g a week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 35.0,
+      "source_unit_median": 40.0,
+      "source_unit_uq": 45.0
+    },
+    {
+      "source_unit": "/weeek",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "oz's per day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "3/month",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "5 daily",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "20g week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "g/ 3 weeks",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 12.5,
+      "source_unit_median": 12.5,
+      "source_unit_uq": 12.5
+    },
+    {
+      "source_unit": "1 week 1/2",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "0z/wek",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "g/10days",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 22.5,
+      "source_unit_median": 25.0,
+      "source_unit_uq": 27.5
+    },
+    {
+      "source_unit": "/occaisionally",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "10/20",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "10 days",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "number per day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "won't answer",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "10+/day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "- total unknown",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "0nces/week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "occasonally",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "not given",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "/ every 2 weeks",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "10g/week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "/2 days",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "g of tabaco a week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 60.0,
+      "source_unit_median": 60.0,
+      "source_unit_uq": 60.0
+    },
+    {
+      "source_unit": "cigs per week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 70.0,
+      "source_unit_median": 70.0,
+      "source_unit_uq": 70.0
+    },
+    {
+      "source_unit": "Two weeks",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "every 3 days",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "every 3/4 days",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "g/9 days",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "pack per year",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "number of roll ups",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "/half hour",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "5 roll ups/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "roll-ups",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "stopped smoking",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "/12 a day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "g week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "g/6 days",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "30+/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "smoke social 1 amont",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.01,
+      "source_unit_median": 0.01,
+      "source_unit_uq": 0.01
+    },
+    {
+      "source_unit": "/(year)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "9/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 9.0,
+      "source_unit_median": 9.0,
+      "source_unit_uq": 9.0
+    },
+    {
+      "source_unit": "gram per week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "4 DAYS",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "g/week50",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "50g/month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "P/DAY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "rollies/per day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "g/three weeks",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 12.0,
+      "source_unit_median": 12.0,
+      "source_unit_uq": 12.0
+    },
+    {
+      "source_unit": "oz p/w",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "/8 mths",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "occaisionally",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "1.day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "CIGARETTES",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "electric",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "os per week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "/M",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "cigarrettes",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "/g/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "/rolls",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 45.0,
+      "source_unit_median": 45.0,
+      "source_unit_uq": 45.0
+    },
+    {
+      "source_unit": "</day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "Roll ups/ day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 12.0,
+      "source_unit_median": 12.0,
+      "source_unit_uq": 12.0
+    },
+    {
+      "source_unit": "/3day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "2/3/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "13/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 13.0,
+      "source_unit_median": 13.0,
+      "source_unit_uq": 13.0
+    },
+    {
+      "source_unit": "roll ups/daily",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "/day15",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "roll-ups a day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "2 Weeks",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "large roll ups p/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "15+/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "Per Fortnight",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "per  day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "/Pack day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "a year",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "per roll up",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 12.0,
+      "source_unit_median": 12.0,
+      "source_unit_uq": 12.0
+    },
+    {
+      "source_unit": "no answer",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "Packs/Year",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 40.0,
+      "source_unit_median": 40.0,
+      "source_unit_uq": 40.0
+    },
+    {
+      "source_unit": "day/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "5-8/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "every 3 months",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "g/4 - 5 days",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "packets/wk",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.5,
+      "source_unit_median": 1.5,
+      "source_unit_uq": 1.5
+    },
+    {
+      "source_unit": "Rollups/ day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 12.0,
+      "source_unit_median": 12.0,
+      "source_unit_uq": 12.0
+    },
+    {
+      "source_unit": "cigarettes - day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "g/2-3days",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "when having a pint",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "roll up/daily",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "week social smoker",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "7-10 cigarettes / da",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "10/15 day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "/oz week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 25.0,
+      "source_unit_median": 25.0,
+      "source_unit_uq": 25.0
+    },
+    {
+      "source_unit": "12.5 grams",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "2 /week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "g/mont",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "30-40/DAY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 40.0,
+      "source_unit_median": 40.0,
+      "source_unit_uq": 40.0
+    },
+    {
+      "source_unit": "none",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "50/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "/9 a day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "not disclosed amount",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "g/ every 4 days",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "pack per week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "2-/3/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "/20day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 11.0,
+      "source_unit_median": 11.0,
+      "source_unit_uq": 11.0
+    },
+    {
+      "source_unit": "cigs/perday",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "25 g/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 25.0,
+      "source_unit_median": 25.0,
+      "source_unit_uq": 25.0
+    },
+    {
+      "source_unit": "10 PER DAY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "g/over 4 days",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "Yrs",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 16.0,
+      "source_unit_median": 16.0,
+      "source_unit_uq": 16.0
+    },
+    {
+      "source_unit": "1/2/ rarely",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "oz/d",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.5,
+      "source_unit_median": 0.5,
+      "source_unit_uq": 0.5
+    },
+    {
+      "source_unit": "Trival",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "tanks of vape per da",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "2g",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "OUNCE",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.5,
+      "source_unit_median": 0.5,
+      "source_unit_uq": 0.5
+    },
+    {
+      "source_unit": "g/7 days",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "NOT OFTEN",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "Joints",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "/bi-monthly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "9 days",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "10/20 day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "/grammes",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "1/2/per wk",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "Ocasionally",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "1/2 oz daily",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "yearly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "3/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "/occasional pack",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "/gram/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "30 g",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "/day monthly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "Grammes/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 12.5,
+      "source_unit_median": 12.5,
+      "source_unit_uq": 12.5
+    },
+    {
+      "source_unit": "pack",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "/3 week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "packs/year",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.8,
+      "source_unit_median": 6.8,
+      "source_unit_uq": 6.8
+    },
+    {
+      "source_unit": "g/2weeeks",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "mg/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "30/day roll ups",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "/day 1",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "15/20 daily",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "4oz/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "mmol/mol",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 38.0,
+      "source_unit_median": 38.0,
+      "source_unit_uq": 38.0
+    },
+    {
+      "source_unit": "two week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "/gms",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 25.0,
+      "source_unit_median": 25.0,
+      "source_unit_uq": 25.0
+    },
+    {
+      "source_unit": "1/5 per day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "/occasion",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "#roll ups",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "ROLL UPS DAILY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "2 oz",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.4,
+      "source_unit_median": 1.4,
+      "source_unit_uq": 1.4
+    },
+    {
+      "source_unit": "6-15/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "g/ week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "55 grams",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 55.0,
+      "source_unit_median": 55.0,
+      "source_unit_uq": 55.0
+    },
+    {
+      "source_unit": "0z/3 weekly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "g/5 weeks",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "1-0/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "g/1week and half",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "cigarette/ day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 16.0,
+      "source_unit_median": 16.0,
+      "source_unit_uq": 16.0
+    },
+    {
+      "source_unit": "trival",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "monthy",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "Roll Ups per day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "on occasion",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "24 A WEEK",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 24.0,
+      "source_unit_median": 24.0,
+      "source_unit_uq": 24.0
+    },
+    {
+      "source_unit": "graMS",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 7.0,
+      "source_unit_median": 7.0,
+      "source_unit_uq": 7.0
+    },
+    {
+      "source_unit": "/pack/month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "3-5 day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "g/week10gram",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "20/daY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "canabis & tobacco pd",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "amount/ day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "20 roll up/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "puffs through day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "?/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "6mthly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "20?",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "gms/wk",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "cigarettes/d",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "50grams weekly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "One month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "week/quitting slowly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "20/16",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "/every 3 day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "gram a week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "45/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 45.0,
+      "source_unit_median": 45.0,
+      "source_unit_uq": 45.0
+    },
+    {
+      "source_unit": "half oz a day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "g/10-14 days",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "g 3 days",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "1-2- week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "oz./week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.5,
+      "source_unit_median": 0.5,
+      "source_unit_uq": 0.5
+    },
+    {
+      "source_unit": "150",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 150.0,
+      "source_unit_median": 150.0,
+      "source_unit_uq": 150.0
+    },
+    {
+      "source_unit": "20/25/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "/ pack per year",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 65.0,
+      "source_unit_median": 65.0,
+      "source_unit_uq": 65.0
+    },
+    {
+      "source_unit": "ROLL UPS P/DAY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "Pack year",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 22.0,
+      "source_unit_median": 22.0,
+      "source_unit_uq": 22.0
+    },
+    {
+      "source_unit": "grams /week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 250.0,
+      "source_unit_median": 250.0,
+      "source_unit_uq": 250.0
+    },
+    {
+      "source_unit": "g/2.5 days",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "roll up/a day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "/g day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 35.0,
+      "source_unit_median": 35.0,
+      "source_unit_uq": 35.0
+    },
+    {
+      "source_unit": "g/Year",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 25.0,
+      "source_unit_median": 25.0,
+      "source_unit_uq": 25.0
+    },
+    {
+      "source_unit": "rollups/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 21.0,
+      "source_unit_median": 21.0,
+      "source_unit_uq": 21.0
+    },
+    {
+      "source_unit": "25 day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 25.0,
+      "source_unit_median": 25.0,
+      "source_unit_uq": 25.0
+    },
+    {
+      "source_unit": "CANNABIS",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "g/10-12days",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "6 roll up/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "/14",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 14.0,
+      "source_unit_median": 14.0,
+      "source_unit_uq": 14.0
+    },
+    {
+      "source_unit": "12g/wk",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 12.0,
+      "source_unit_median": 12.0,
+      "source_unit_uq": 12.0
+    },
+    {
+      "source_unit": "g/2 days",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "/day5",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "g/6week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "0/DAY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "100g /week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 70.0,
+      "source_unit_median": 70.0,
+      "source_unit_uq": 70.0
+    },
+    {
+      "source_unit": "10per/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "once",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.5,
+      "source_unit_median": 0.5,
+      "source_unit_uq": 0.5
+    },
+    {
+      "source_unit": "1 / day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "/15day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "every 6month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "g/ 5 days",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "roll per week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "0.4",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.4,
+      "source_unit_median": 0.4,
+      "source_unit_uq": 0.4
+    },
+    {
+      "source_unit": "rolls a week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "leaves/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "1-3/DAY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "16 DAY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 16.0,
+      "source_unit_median": 16.0,
+      "source_unit_uq": 16.0
+    },
+    {
+      "source_unit": "Roll up/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "/annual",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 12.0,
+      "source_unit_median": 12.0,
+      "source_unit_uq": 12.0
+    },
+    {
+      "source_unit": "7-15",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 7.0,
+      "source_unit_median": 7.0,
+      "source_unit_uq": 7.0
+    },
+    {
+      "source_unit": "ounces a day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.5,
+      "source_unit_median": 0.5,
+      "source_unit_uq": 0.5
+    },
+    {
+      "source_unit": "Cig/Day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "per week/social smok",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "/sticks",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "6-10/DAY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "skinny roll ups",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "small packs/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "weed rool up a day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "smokes",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "/5 week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "9/10/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 9.0,
+      "source_unit_median": 9.0,
+      "source_unit_uq": 9.0
+    },
+    {
+      "source_unit": "cigaretts/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "e only/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "1G",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "two/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "40/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 40.0,
+      "source_unit_median": 40.0,
+      "source_unit_uq": 40.0
+    },
+    {
+      "source_unit": "10-20 roll-ups/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "4-8/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "30-35/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "CPD",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "PER/DAY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "/mnth",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "grms/wk",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "-20 /day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "No amount given",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "/25grams",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "/gm",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "/every 3-6 months",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "2/say",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "50mg",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "25 gram",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 25.0,
+      "source_unit_median": 25.0,
+      "source_unit_uq": 25.0
+    },
+    {
+      "source_unit": "4g",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "1-2/DAY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "g/48hrs",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "ROLL/DAY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "g/6 weeks",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 25.0,
+      "source_unit_median": 25.0,
+      "source_unit_uq": 25.0
+    },
+    {
+      "source_unit": "/day20",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "50grams",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "not everyday",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "6.25",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.25,
+      "source_unit_median": 6.25,
+      "source_unit_uq": 6.25
+    },
+    {
+      "source_unit": "PER  DAY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 7.0,
+      "source_unit_median": 7.0,
+      "source_unit_uq": 7.0
+    },
+    {
+      "source_unit": "4/16",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "12.5g/wk",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "10grams",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 7.0,
+      "source_unit_median": 7.0,
+      "source_unit_uq": 7.0
+    },
+    {
+      "source_unit": "grams/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 75.0,
+      "source_unit_median": 75.0,
+      "source_unit_uq": 75.0
+    },
+    {
+      "source_unit": "roll-up /day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "pack years",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "g/10 Days",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "10/daY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "day/ 2",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "ex smoker",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 11012005.0,
+      "source_unit_median": 11012005.0,
+      "source_unit_uq": 11012005.0
+    },
+    {
+      "source_unit": "< day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "ozs",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "10-11/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "22/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 22.0,
+      "source_unit_median": 22.0,
+      "source_unit_uq": 22.0
+    },
+    {
+      "source_unit": "stick/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "cig daily",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 9.0,
+      "source_unit_median": 9.0,
+      "source_unit_uq": 9.0
+    },
+    {
+      "source_unit": "only at xmas",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "amonth",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "30-40/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "night",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "ciggarettes/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "every 6 months",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "Not given",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "10/15/DAY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "weely",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "/every weekend",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "no./week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 70.0,
+      "source_unit_median": 70.0,
+      "source_unit_uq": 70.0
+    },
+    {
+      "source_unit": "7 days",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "10/15 a day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "/6week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "dAY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "5/per week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "quartly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "ROOL UP A DAY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "1 per day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "1-5/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "/15 day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "10-15",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "5-10-/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "per year",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 40.0,
+      "source_unit_median": 40.0,
+      "source_unit_uq": 40.0
+    },
+    {
+      "source_unit": "/da",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 7.0,
+      "source_unit_median": 7.0,
+      "source_unit_uq": 7.0
+    },
+    {
+      "source_unit": "3-4",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "g/fornightly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 12.5,
+      "source_unit_median": 12.5,
+      "source_unit_uq": 12.5
+    },
+    {
+      "source_unit": "10/weekends",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "/pack year",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "0z",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "nk/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "g/8 weeks",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "4-6/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "packet/Day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "gr/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "pk years",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 25.0,
+      "source_unit_median": 25.0,
+      "source_unit_uq": 25.0
+    },
+    {
+      "source_unit": "/ 3 months",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "g/week and a half",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 40.0,
+      "source_unit_median": 40.0,
+      "source_unit_uq": 40.0
+    },
+    {
+      "source_unit": "/day1-2",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "10 gram/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "no amount provided",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "Vape",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "5-10 DAY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "cannibis joints/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "3week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "3/4/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "2/weeky",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "g/in 3 week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "/lifetime",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "OZ/Week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.5,
+      "source_unit_median": 1.5,
+      "source_unit_uq": 1.5
+    },
+    {
+      "source_unit": "a night out",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "Ozs/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "1 gram/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.5,
+      "source_unit_median": 0.5,
+      "source_unit_uq": 0.5
+    },
+    {
+      "source_unit": "consumption unkown",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "/ aweek",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "10/15",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1015.0,
+      "source_unit_median": 1015.0,
+      "source_unit_uq": 1015.0
+    },
+    {
+      "source_unit": ".05",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.05,
+      "source_unit_median": 0.05,
+      "source_unit_uq": 0.05
+    },
+    {
+      "source_unit": "1 oz",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "10 roll ups/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "w",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "pk/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "gr/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "packages a week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "20g/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "/packs per day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "Packets per week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "roles/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "two weeks",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "60 g/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 60.0,
+      "source_unit_median": 60.0,
+      "source_unit_uq": 60.0
+    },
+    {
+      "source_unit": "rolled up cigarettes",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 12.0,
+      "source_unit_median": 12.0,
+      "source_unit_uq": 12.0
+    },
+    {
+      "source_unit": "Smokes 2 cigs a week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "5g",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "/packs a day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.5,
+      "source_unit_median": 1.5,
+      "source_unit_uq": 1.5
+    },
+    {
+      "source_unit": "shisha",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "10 - 19/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "roll/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "2-3/per month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "single",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 35.0,
+      "source_unit_median": 35.0,
+      "source_unit_uq": 35.0
     }
   ],
   "unit_conversions": [
@@ -7677,7 +11757,7 @@
     }
   ],
   "created_datetime": "2025-08-18T13:40:12.437620",
-  "updated_datetime": "2025-08-18T15:01:22.202737",
+  "updated_datetime": "2025-10-12T15:51:20.186727",
   "standard_measurement_config_id": "9f36bd1d",
-  "standard_measurement_config_version": "measurement_amount_of_cigarette_tobacco_smoked_SNOMED_20250818_150122"
+  "standard_measurement_config_version": "measurement_amount_of_cigarette_tobacco_smoked_SNOMED_20251012_155120"
 }

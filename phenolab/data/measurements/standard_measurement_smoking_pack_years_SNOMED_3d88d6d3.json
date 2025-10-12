@@ -648,11 +648,259 @@
       "source_unit_lq": 4.0,
       "source_unit_median": 4.0,
       "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "PY",
+      "standard_unit": "",
+      "source_unit_count": 9,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 17.0,
+      "source_unit_uq": 32.0
+    },
+    {
+      "source_unit": "Week",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 1.5,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 36.0
+    },
+    {
+      "source_unit": "pack/years",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 13.0
+    },
+    {
+      "source_unit": "cigs per day",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 8.5,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "Days",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "1",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "5",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "unit/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "yr",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 18.0,
+      "source_unit_median": 18.0,
+      "source_unit_uq": 18.0
+    },
+    {
+      "source_unit": "p/d",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "cigarrettes per day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "p/wk",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "cigarettes per day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "pack/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "0.5",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.5,
+      "source_unit_median": 0.5,
+      "source_unit_uq": 0.5
+    },
+    {
+      "source_unit": "wk",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 85.0,
+      "source_unit_median": 85.0,
+      "source_unit_uq": 85.0
+    },
+    {
+      "source_unit": "dAY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "Yrs",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "WEEKLY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "Not known",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "No of years",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "35",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "unknown",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "Pk/yrs",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "Yrs as a smoker",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "50",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "/MONTHLY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "Weekly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "13",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 13.0,
+      "source_unit_median": 13.0,
+      "source_unit_uq": 13.0
+    },
+    {
+      "source_unit": "pk/yrs",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 8.0,
+      "source_unit_median": 8.0,
+      "source_unit_uq": 8.0
+    },
+    {
+      "source_unit": "pkyrs",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
     }
   ],
   "unit_conversions": [],
   "created_datetime": "2025-08-18T15:28:55.648771",
-  "updated_datetime": "2025-08-18T15:59:49.601351",
+  "updated_datetime": "2025-10-12T15:49:55.208283",
   "standard_measurement_config_id": "3d88d6d3",
-  "standard_measurement_config_version": "measurement_smoking_pack_years_SNOMED_20250818_155949"
+  "standard_measurement_config_version": "measurement_smoking_pack_years_SNOMED_20251012_154955"
 }

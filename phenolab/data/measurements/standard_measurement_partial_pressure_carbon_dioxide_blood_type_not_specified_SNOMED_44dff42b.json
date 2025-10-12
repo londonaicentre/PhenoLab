@@ -63,11 +63,67 @@
       "source_unit_lq": 2.0,
       "source_unit_median": 2.0,
       "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "%",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "/mL",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "mg",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 27.0,
+      "source_unit_median": 27.0,
+      "source_unit_uq": 27.0
+    },
+    {
+      "source_unit": "mu/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.85,
+      "source_unit_median": 6.85,
+      "source_unit_uq": 6.85
+    },
+    {
+      "source_unit": "meq/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 27.0,
+      "source_unit_median": 27.0,
+      "source_unit_uq": 27.0
+    },
+    {
+      "source_unit": "(ppm)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 35.0,
+      "source_unit_median": 35.0,
+      "source_unit_uq": 35.0
+    },
+    {
+      "source_unit": "ppm",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
     }
   ],
   "unit_conversions": [],
   "created_datetime": "2025-08-18T15:28:55.722110",
-  "updated_datetime": "2025-08-18T15:43:53.731101",
+  "updated_datetime": "2025-10-12T15:46:14.941826",
   "standard_measurement_config_id": "44dff42b",
-  "standard_measurement_config_version": "measurement_partial_pressure_carbon_dioxide_blood_type_not_specified_SNOMED_20250818_154353"
+  "standard_measurement_config_version": "measurement_partial_pressure_carbon_dioxide_blood_type_not_specified_SNOMED_20251012_154614"
 }

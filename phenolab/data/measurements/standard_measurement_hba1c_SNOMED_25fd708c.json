@@ -1856,6 +1856,14 @@
       "source_unit_lq": 6.3,
       "source_unit_median": 6.3,
       "source_unit_uq": 6.3
+    },
+    {
+      "source_unit": "mmol/",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 55.0,
+      "source_unit_median": 55.0,
+      "source_unit_uq": 55.0
     }
   ],
   "unit_conversions": [
@@ -1868,7 +1876,7 @@
     }
   ],
   "created_datetime": "2025-05-19T23:23:56.063613",
-  "updated_datetime": "2025-08-23T09:20:08.296932",
+  "updated_datetime": "2025-10-12T15:48:24.378336",
   "standard_measurement_config_id": "25fd708c",
-  "standard_measurement_config_version": "measurement_hba1c_SNOMED_20250823_092008"
+  "standard_measurement_config_version": "measurement_hba1c_SNOMED_20251012_154824"
 }

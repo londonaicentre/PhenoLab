@@ -6399,6 +6399,3702 @@
       "source_unit_lq": 1.0,
       "source_unit_median": 1.0,
       "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/4 times per week",
+      "standard_unit": "",
+      "source_unit_count": 39,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "A month",
+      "standard_unit": "",
+      "source_unit_count": 31,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.6,
+      "source_unit_uq": 9.1
+    },
+    {
+      "source_unit": "U/3month",
+      "standard_unit": "",
+      "source_unit_count": 30,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.75
+    },
+    {
+      "source_unit": "U/2month",
+      "standard_unit": "",
+      "source_unit_count": 22,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "mmHg",
+      "standard_unit": "",
+      "source_unit_count": 19,
+      "source_unit_lq": 69.0,
+      "source_unit_median": 77.0,
+      "source_unit_uq": 80.0
+    },
+    {
+      "source_unit": "drinks/week",
+      "standard_unit": "",
+      "source_unit_count": 12,
+      "source_unit_lq": 2.75,
+      "source_unit_median": 3.5,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "times a month",
+      "standard_unit": "",
+      "source_unit_count": 11,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "l/mth",
+      "standard_unit": "",
+      "source_unit_count": 9,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "A Month",
+      "standard_unit": "",
+      "source_unit_count": 9,
+      "source_unit_lq": 3.3,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.6
+    },
+    {
+      "source_unit": "U/3week",
+      "standard_unit": "",
+      "source_unit_count": 8,
+      "source_unit_lq": 1.75,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/3 times per month",
+      "standard_unit": "",
+      "source_unit_count": 7,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "d/month",
+      "standard_unit": "",
+      "source_unit_count": 7,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "drinks per week",
+      "standard_unit": "",
+      "source_unit_count": 7,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "U/ a month",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 3.5
+    },
+    {
+      "source_unit": "units week",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 11.5
+    },
+    {
+      "source_unit": "U/4week",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "glasses",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "units per",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 8.0,
+      "source_unit_median": 9.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "2 units",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/ monthly or less",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "U/4times per month",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "pint/day",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/4month",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "Monthly or less",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 2.825,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.25
+    },
+    {
+      "source_unit": "U/2-3 times per week",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 7.75,
+      "source_unit_median": 9.0,
+      "source_unit_uq": 9.0
+    },
+    {
+      "source_unit": "U/3 times a week",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 3.625,
+      "source_unit_median": 6.5,
+      "source_unit_uq": 9.0
+    },
+    {
+      "source_unit": "U/ 4 times per month",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 4.5
+    },
+    {
+      "source_unit": "U/bi-monthly",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/fortmonthly",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "11",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 8.5,
+      "source_unit_uq": 11.0
+    },
+    {
+      "source_unit": "6/week",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 8.25
+    },
+    {
+      "source_unit": "Cans",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 13.0,
+      "source_unit_uq": 16.0
+    },
+    {
+      "source_unit": "bottle/week",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 1.75,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/monthy or less",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.5
+    },
+    {
+      "source_unit": "U/3 times week",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 9.0,
+      "source_unit_median": 9.0,
+      "source_unit_uq": 9.0
+    },
+    {
+      "source_unit": "units per day",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.5
+    },
+    {
+      "source_unit": "u/mon",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "U/10month",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/wee",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 0.5,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "25U/week",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 25.0,
+      "source_unit_median": 25.0,
+      "source_unit_uq": 25.0
+    },
+    {
+      "source_unit": "a Month",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 3.4499999999999997,
+      "source_unit_median": 4.6,
+      "source_unit_uq": 10.75
+    },
+    {
+      "source_unit": "U/3monthly",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/4times per week",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "glass/day",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "u/mth",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 2.5,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "2.3",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 2.3,
+      "source_unit_median": 2.3,
+      "source_unit_uq": 2.3
+    },
+    {
+      "source_unit": "weekend",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 1.5,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 16.0
+    },
+    {
+      "source_unit": "Yearly",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.5
+    },
+    {
+      "source_unit": "u/2 weeks",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 6.5,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "unknown",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "pint/daily",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "U/forthnight",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.5
+    },
+    {
+      "source_unit": "Glass/week",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 1.5,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.5
+    },
+    {
+      "source_unit": "U/4 times a month",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "Cans/Day",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.5
+    },
+    {
+      "source_unit": "3 U/week",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "U/Montly",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 2.5,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "U/3weekly",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.5
+    },
+    {
+      "source_unit": "U/4 timesper month",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "21",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 21.0,
+      "source_unit_median": 21.0,
+      "source_unit_uq": 21.0
+    },
+    {
+      "source_unit": "U/quater",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/MON",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.5,
+      "source_unit_median": 0.5,
+      "source_unit_uq": 0.5
+    },
+    {
+      "source_unit": "U/6weeks",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "Occassional",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.5,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.5
+    },
+    {
+      "source_unit": "litres/week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "U/alcohol",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "On a typical day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "L/MTH",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 8.0,
+      "source_unit_median": 8.0,
+      "source_unit_uq": 8.0
+    },
+    {
+      "source_unit": "5/week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "U/ 3months",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.75,
+      "source_unit_median": 4.5,
+      "source_unit_uq": 6.25
+    },
+    {
+      "source_unit": "u/Wk",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "0/ week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "Beers/Day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "U/quaterly",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "60",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 60.0,
+      "source_unit_median": 60.0,
+      "source_unit_uq": 60.0
+    },
+    {
+      "source_unit": "NONE",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "times monthly / less",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "U/annual",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.625,
+      "source_unit_median": 4.75,
+      "source_unit_uq": 4.875
+    },
+    {
+      "source_unit": "Glasses",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 5.75,
+      "source_unit_median": 8.5,
+      "source_unit_uq": 11.25
+    },
+    {
+      "source_unit": "85",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 85.0,
+      "source_unit_median": 85.0,
+      "source_unit_uq": 85.0
+    },
+    {
+      "source_unit": "U/4+ times per week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 5.5,
+      "source_unit_median": 7.0,
+      "source_unit_uq": 8.5
+    },
+    {
+      "source_unit": "U/week 8",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 8.0,
+      "source_unit_median": 8.0,
+      "source_unit_uq": 8.0
+    },
+    {
+      "source_unit": "U/ in 2 months",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "Litres/week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "Occassionally",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 5.25,
+      "source_unit_median": 5.5,
+      "source_unit_uq": 5.75
+    },
+    {
+      "source_unit": "2 to 4 per week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "U/ 3 times per week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.5,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.5
+    },
+    {
+      "source_unit": "U/ motnhly or less",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/monnth",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "less per month",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.25,
+      "source_unit_median": 3.5,
+      "source_unit_uq": 4.75
+    },
+    {
+      "source_unit": "LESS MONTH",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "over 4 times a week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 8.0,
+      "source_unit_median": 8.0,
+      "source_unit_uq": 8.0
+    },
+    {
+      "source_unit": "U/6monthly",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.25,
+      "source_unit_median": 1.5,
+      "source_unit_uq": 1.75
+    },
+    {
+      "source_unit": "days",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.5,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.5
+    },
+    {
+      "source_unit": "drinks/month",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.25,
+      "source_unit_median": 2.5,
+      "source_unit_uq": 2.75
+    },
+    {
+      "source_unit": "UNITS/WK",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "U/ in 2 month",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/5month",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/3 times in a week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 9.0,
+      "source_unit_median": 9.0,
+      "source_unit_uq": 9.0
+    },
+    {
+      "source_unit": "U/2 times per week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "5-6",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "over two days",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 9.0,
+      "source_unit_median": 9.0,
+      "source_unit_uq": 9.0
+    },
+    {
+      "source_unit": "U/ less than monthly",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 3.5,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 6.5
+    },
+    {
+      "source_unit": "6U/week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "Cap",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "times/week - daily",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "Pints /week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "Liters/Day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 8.0,
+      "source_unit_median": 8.0,
+      "source_unit_uq": 8.0
+    },
+    {
+      "source_unit": "Average U/week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 8.25,
+      "source_unit_median": 9.5,
+      "source_unit_uq": 10.75
+    },
+    {
+      "source_unit": "U/per fortnight",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U monthly or less",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/2 times per month",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.5,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.5
+    },
+    {
+      "source_unit": "cans/week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 39.5,
+      "source_unit_median": 73.0,
+      "source_unit_uq": 106.5
+    },
+    {
+      "source_unit": "U/week0",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "pints of beer",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 7.0,
+      "source_unit_median": 7.0,
+      "source_unit_uq": 7.0
+    },
+    {
+      "source_unit": "U/3 times perweek",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.5,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.5
+    },
+    {
+      "source_unit": "Bottles/week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.75,
+      "source_unit_median": 4.5,
+      "source_unit_uq": 6.25
+    },
+    {
+      "source_unit": "Cl/Daily",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 70.0,
+      "source_unit_median": 70.0,
+      "source_unit_uq": 70.0
+    },
+    {
+      "source_unit": "/quarterly",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U2/week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "units /month",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 16.0,
+      "source_unit_median": 16.0,
+      "source_unit_uq": 16.0
+    },
+    {
+      "source_unit": "trivial",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "Umonthly or less",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "2/4u",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/2-3times per week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.5,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.5
+    },
+    {
+      "source_unit": "U/alternate month",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "6/day",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "Unit/month",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "U/occasional drinker",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "LESS THAN MTH",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "times per month",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "IU",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "2/4 month",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.75,
+      "source_unit_median": 3.5,
+      "source_unit_uq": 4.25
+    },
+    {
+      "source_unit": "U/half yearly",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 8.0,
+      "source_unit_median": 8.0,
+      "source_unit_uq": 8.0
+    },
+    {
+      "source_unit": "U/4momth",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "average U/week",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 7.0,
+      "source_unit_median": 7.0,
+      "source_unit_uq": 7.0
+    },
+    {
+      "source_unit": "U/week not weekly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 21.0,
+      "source_unit_median": 21.0,
+      "source_unit_uq": 21.0
+    },
+    {
+      "source_unit": "time/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "3/year",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "90",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 90.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "U/3 TIMES PER WEEK",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "200",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 200.0,
+      "source_unit_median": 200.0,
+      "source_unit_uq": 200.0
+    },
+    {
+      "source_unit": "U/3-monthly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "U/every 3weeks",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "ts/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "1 monthly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/3 to 6 months",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "1 BOTTLE OF WINE",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/3times per week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "5UNITS/WEEK",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/  a month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 8.0,
+      "source_unit_median": 8.0,
+      "source_unit_uq": 8.0
+    },
+    {
+      "source_unit": "0/per week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "cans of beer / day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "U/4 times per months",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "U/ every 2-3 weeks",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "49/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 7.0,
+      "source_unit_median": 7.0,
+      "source_unit_uq": 7.0
+    },
+    {
+      "source_unit": "U/2-4 times /month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U//month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "L/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "U/ 4 + per week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "10/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "Not known",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "U/every 2week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "days per week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "U/ per day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "Week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "1 month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/in 2 months",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "36",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 36.0,
+      "source_unit_median": 36.0,
+      "source_unit_uq": 36.0
+    },
+    {
+      "source_unit": "1 UNIT",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "40/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 40.0,
+      "source_unit_median": 40.0,
+      "source_unit_uq": 40.0
+    },
+    {
+      "source_unit": "U/> 4 times a week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "U/3 week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "2to 3/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "2 to 3 /month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "functions",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "1 u/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "2-4 months",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "I/MTH",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/4 times / month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "glass/daily",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "AUDIT-C",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "2/3/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "U/week 14",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 14.0,
+      "source_unit_median": 14.0,
+      "source_unit_uq": 14.0
+    },
+    {
+      "source_unit": "d/per day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/mounth",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "less than in a day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "3months",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "Liters /week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 570.0,
+      "source_unit_median": 570.0,
+      "source_unit_uq": 570.0
+    },
+    {
+      "source_unit": "Can/Day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "monthley",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/yearley",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.9,
+      "source_unit_median": 6.9,
+      "source_unit_uq": 6.9
+    },
+    {
+      "source_unit": "Currently Pregnant",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "u/Week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "6/monthly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "units/Occassionally",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "U/4times per monthly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "U/w21eek",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 21.0,
+      "source_unit_median": 21.0,
+      "source_unit_uq": 21.0
+    },
+    {
+      "source_unit": "U/week 126",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 126.0,
+      "source_unit_median": 126.0,
+      "source_unit_uq": 126.0
+    },
+    {
+      "source_unit": "2 units/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "U/annually",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 11.5,
+      "source_unit_median": 11.5,
+      "source_unit_uq": 11.5
+    },
+    {
+      "source_unit": "U/ occassionally",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "Pint/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "3-9",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "2-3 week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "3/ units",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "spirits per week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "2to4 month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.5,
+      "source_unit_median": 4.5,
+      "source_unit_uq": 4.5
+    },
+    {
+      "source_unit": "2 - 4 month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "2/3 times week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "units/mth",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/4 times a week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "some week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 40.0,
+      "source_unit_median": 40.0,
+      "source_unit_uq": 40.0
+    },
+    {
+      "source_unit": "mls PER DAY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "ml/ daily",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 100.0,
+      "source_unit_median": 100.0,
+      "source_unit_uq": 100.0
+    },
+    {
+      "source_unit": "unit per week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "2/3/month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "No Alcohol",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "litres a week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "Occassional/u",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/ MONTH",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "2to 3 units a weeken",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "unit week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "5/ monthly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "3/monthly or less",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "Pints/daily",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "times a drink",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "PINTS",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "U/less then monthly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/every two weeks",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "0/ WEEK",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "u/per month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 18.0,
+      "source_unit_median": 18.0,
+      "source_unit_uq": 18.0
+    },
+    {
+      "source_unit": "Less than monthly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 14.0,
+      "source_unit_median": 14.0,
+      "source_unit_uq": 14.0
+    },
+    {
+      "source_unit": "/2week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "per wk",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/motnthly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 9.0,
+      "source_unit_median": 9.0,
+      "source_unit_uq": 9.0
+    },
+    {
+      "source_unit": "U less than monthly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "every day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "Auidt Score",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 7.0,
+      "source_unit_median": 7.0,
+      "source_unit_uq": 7.0
+    },
+    {
+      "source_unit": "Cans/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "litres",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "L/Daily",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.5,
+      "source_unit_median": 1.5,
+      "source_unit_uq": 1.5
+    },
+    {
+      "source_unit": "18U/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 18.0,
+      "source_unit_median": 18.0,
+      "source_unit_uq": 18.0
+    },
+    {
+      "source_unit": "Monthly / less",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "U/2-3months",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "cl/Day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 35.0,
+      "source_unit_median": 35.0,
+      "source_unit_uq": 35.0
+    },
+    {
+      "source_unit": "Uday",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "p/d",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "beer/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "1u/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/Fortnightly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 11.0,
+      "source_unit_median": 11.0,
+      "source_unit_uq": 11.0
+    },
+    {
+      "source_unit": "U/week4",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "0 - 21",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "10u/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "10 week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "Litres per week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "per fortnight",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "1ltrp/w",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "bottle",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.5,
+      "source_unit_median": 0.5,
+      "source_unit_uq": 0.5
+    },
+    {
+      "source_unit": "U/mmonth",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/2-3times/wk",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 9.0,
+      "source_unit_median": 9.0,
+      "source_unit_uq": 9.0
+    },
+    {
+      "source_unit": "18 U/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "less than a month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "2/4month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "U/2-3weeks",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 8.0,
+      "source_unit_median": 8.0,
+      "source_unit_uq": 8.0
+    },
+    {
+      "source_unit": "OU/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "Bottle/Day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.5,
+      "source_unit_median": 0.5,
+      "source_unit_uq": 0.5
+    },
+    {
+      "source_unit": "U/monthly or les",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "2 months",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "UMonths",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/Monthly or less",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "glass/wk",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "U/trivial",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/ every two weeks",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "U/mouth",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.7,
+      "source_unit_median": 1.7,
+      "source_unit_uq": 1.7
+    },
+    {
+      "source_unit": "U/wee10k",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "times a weeek",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "U/monthley",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "/MONTH",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "U/6week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/week unknown",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "2U",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "/U per month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "t/month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/motnhly or less",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/14",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "U/quarterly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "10 unites a week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "Brandy Bottle/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/Mothly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.4,
+      "source_unit_median": 1.4,
+      "source_unit_uq": 1.4
+    },
+    {
+      "source_unit": "3 beers a week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "bottles/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "U/2-4 times permonth",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "WEEKENDS",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "U/MONTLY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "Units/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "on occassion",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "u/annual",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 11.0,
+      "source_unit_median": 11.0,
+      "source_unit_uq": 11.0
+    },
+    {
+      "source_unit": "U/2weekS",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "2-3/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 14.0,
+      "source_unit_median": 14.0,
+      "source_unit_uq": 14.0
+    },
+    {
+      "source_unit": "Drinks",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 8.0,
+      "source_unit_median": 8.0,
+      "source_unit_uq": 8.0
+    },
+    {
+      "source_unit": "1 glass",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "6 units",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "28/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 28.0,
+      "source_unit_median": 28.0,
+      "source_unit_uq": 28.0
+    },
+    {
+      "source_unit": "times/months",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "units/month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "Monthley",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "only special occ",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "U/8months",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "standard amount",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "/monthly or less",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/momth",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "30 a day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.0,
+      "source_unit_median": 30.0,
+      "source_unit_uq": 30.0
+    },
+    {
+      "source_unit": "2/4 times month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "U/every 3month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "U/ 4 times a month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "2-3times per month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "U/2-4times monthly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "U/2monthly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/every 3months",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "unkown",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "bottle per day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "99",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 99.0,
+      "source_unit_median": 99.0,
+      "source_unit_uq": 99.0
+    },
+    {
+      "source_unit": "nk",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 90.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "None",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "U/ mth",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/Almost Daily",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "every week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "cans beer/ day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "pints of beer/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/week 1",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "24U/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 24.0,
+      "source_unit_median": 24.0,
+      "source_unit_uq": 24.0
+    },
+    {
+      "source_unit": "U/fortunight",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "U/two months",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "DRINKS PER WEEK",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 25.0,
+      "source_unit_median": 25.0,
+      "source_unit_uq": 25.0
+    },
+    {
+      "source_unit": "bottle of vodka/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "5/month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "beers/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/moths",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.8,
+      "source_unit_median": 4.8,
+      "source_unit_uq": 4.8
+    },
+    {
+      "source_unit": "U/4 times per a week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/bi-weekly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 8.0,
+      "source_unit_median": 8.0,
+      "source_unit_uq": 8.0
+    },
+    {
+      "source_unit": "15 U/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "U/ 2weekly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "Small amount",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/twice a week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "2to4/month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "A MONTH",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "couple times a year",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/twice a month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 12.0,
+      "source_unit_median": 12.0,
+      "source_unit_uq": 12.0
+    },
+    {
+      "source_unit": "D/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/monthly.",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "4/month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "pints/ week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.5,
+      "source_unit_median": 2.5,
+      "source_unit_uq": 2.5
+    },
+    {
+      "source_unit": "U/day (some days)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 18.0,
+      "source_unit_median": 18.0,
+      "source_unit_uq": 18.0
+    },
+    {
+      "source_unit": "U/2 WEEKS",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 28.0,
+      "source_unit_median": 28.0,
+      "source_unit_uq": 28.0
+    },
+    {
+      "source_unit": "beer cans/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "2/ Month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "4-5",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "U/monch",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/4+times per week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "10 days",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "L/mth",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 8.0,
+      "source_unit_median": 8.0,
+      "source_unit_uq": 8.0
+    },
+    {
+      "source_unit": "Weekends",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "less/mth",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "Drinks/<monthly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "glass per day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/week/lessthan",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "Times/Month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "U/monthlly or less",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "09",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "U/ twice a week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 14.0,
+      "source_unit_median": 14.0,
+      "source_unit_uq": 14.0
+    },
+    {
+      "source_unit": "/m",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "bottle wine",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "occassional month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "u/fort monthly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "drinks per day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "WEEKEND",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "cans",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 14.0,
+      "source_unit_median": 14.0,
+      "source_unit_uq": 14.0
+    },
+    {
+      "source_unit": "pints on weekend",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 7.0,
+      "source_unit_median": 7.0,
+      "source_unit_uq": 7.0
+    },
+    {
+      "source_unit": "<U/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "100",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 99.0,
+      "source_unit_median": 99.0,
+      "source_unit_uq": 99.0
+    },
+    {
+      "source_unit": "U/ 4 times per week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U / year",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "U/Month or Less",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "U/times per month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "drink per month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/week 21",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 21.0,
+      "source_unit_median": 21.0,
+      "source_unit_uq": 21.0
+    },
+    {
+      "source_unit": "less /mth",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "units per MONTH",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/ occassional drink",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "Bottles of whisky",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "PINT/MONTH",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "U/4monthly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/2wwekly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 8.0,
+      "source_unit_median": 8.0,
+      "source_unit_uq": 8.0
+    },
+    {
+      "source_unit": "14U/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 75.0,
+      "source_unit_median": 75.0,
+      "source_unit_uq": 75.0
+    },
+    {
+      "source_unit": "bottle/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "occasssionally",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "Montly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 7.0,
+      "source_unit_median": 7.0,
+      "source_unit_uq": 7.0
+    },
+    {
+      "source_unit": "Once in two week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.3,
+      "source_unit_median": 2.3,
+      "source_unit_uq": 2.3
+    },
+    {
+      "source_unit": "llitre/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "1-2 / day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "U/pm",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "drinks monthly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "20U/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "2/ wee",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "Wine Bottles.",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "/mnth",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "wrote \"lots\"",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "U/week12",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 12.0,
+      "source_unit_median": 12.0,
+      "source_unit_uq": 12.0
+    },
+    {
+      "source_unit": "p/mnth",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "Bottle/Daily",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "9U/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 9.0,
+      "source_unit_median": 9.0,
+      "source_unit_uq": 9.0
+    },
+    {
+      "source_unit": "litres/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "LESS THEN MONTHLY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "UMonth",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "u/yearly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "U/week2",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "Per day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "cans of beer/ day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "times",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "34 /week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 34.0,
+      "source_unit_median": 34.0,
+      "source_unit_uq": 34.0
+    },
+    {
+      "source_unit": "0.0",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "U/0",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "U 2-4 times/month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.5,
+      "source_unit_median": 2.5,
+      "source_unit_uq": 2.5
+    },
+    {
+      "source_unit": "at weekends",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "4 times a wk",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "2-4month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "U/3weeks",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 12.0,
+      "source_unit_median": 12.0,
+      "source_unit_uq": 12.0
+    },
+    {
+      "source_unit": "U/on occasions",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "U/week15",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "u month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "120",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 120.0,
+      "source_unit_median": 120.0,
+      "source_unit_uq": 120.0
+    },
+    {
+      "source_unit": "U/less than a month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "12WEEKS",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "a day ( when drinks)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "times /week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "7U/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 7.0,
+      "source_unit_median": 7.0,
+      "source_unit_uq": 7.0
+    },
+    {
+      "source_unit": "U month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "day/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 9.0,
+      "source_unit_median": 9.0,
+      "source_unit_uq": 9.0
+    },
+    {
+      "source_unit": "PER DAY",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 12.0,
+      "source_unit_median": 12.0,
+      "source_unit_uq": 12.0
+    },
+    {
+      "source_unit": "month/",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "2/Month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "Glass/Week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "2.3 units",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.7,
+      "source_unit_median": 1.7,
+      "source_unit_uq": 1.7
+    },
+    {
+      "source_unit": "U / day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "1 bottle",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "Not drunk for 2 year",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "max 2 U/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "bottles of wine/wk",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "/daily",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "d/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "u/less month",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "60U/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "u/2 months",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "shots/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "U/week O",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "U/week]",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "5-10 U/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "Audit-C Score",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 11.0,
+      "source_unit_median": 11.0,
+      "source_unit_uq": 11.0
+    },
+    {
+      "source_unit": "UNITS/week",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 70.0,
+      "source_unit_median": 70.0,
+      "source_unit_uq": 70.0
+    },
+    {
+      "source_unit": "2-4 times monthly",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.5,
+      "source_unit_median": 2.5,
+      "source_unit_uq": 2.5
+    },
+    {
+      "source_unit": "U/ on occasions",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 9.0,
+      "source_unit_median": 9.0,
+      "source_unit_uq": 9.0
     }
   ],
   "unit_conversions": [
@@ -6453,7 +10149,7 @@
     }
   ],
   "created_datetime": "2025-08-19T15:26:50.089493",
-  "updated_datetime": "2025-08-19T15:53:27.299156",
+  "updated_datetime": "2025-10-12T15:47:34.733085",
   "standard_measurement_config_id": "96da2408",
-  "standard_measurement_config_version": "measurement_reported_alcohol_use_SNOMED_20250819_155327"
+  "standard_measurement_config_version": "measurement_reported_alcohol_use_SNOMED_20251012_154734"
 }

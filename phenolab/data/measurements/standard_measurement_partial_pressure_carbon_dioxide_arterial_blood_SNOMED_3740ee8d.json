@@ -72,11 +72,27 @@
       "source_unit_lq": 7.84,
       "source_unit_median": 7.84,
       "source_unit_uq": 7.84
+    },
+    {
+      "source_unit": "units",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 23.974999999999998,
+      "source_unit_median": 24.049999999999997,
+      "source_unit_uq": 24.125
+    },
+    {
+      "source_unit": "mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 25.0,
+      "source_unit_median": 25.0,
+      "source_unit_uq": 25.0
     }
   ],
   "unit_conversions": [],
   "created_datetime": "2025-08-18T15:28:55.377875",
-  "updated_datetime": "2025-08-18T15:43:31.247909",
+  "updated_datetime": "2025-10-12T15:47:45.015076",
   "standard_measurement_config_id": "3740ee8d",
-  "standard_measurement_config_version": "measurement_partial_pressure_carbon_dioxide_arterial_blood_SNOMED_20250818_154331"
+  "standard_measurement_config_version": "measurement_partial_pressure_carbon_dioxide_arterial_blood_SNOMED_20251012_154745"
 }

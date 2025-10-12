@@ -399,11 +399,299 @@
       "source_unit_lq": 0.7,
       "source_unit_median": 0.7,
       "source_unit_uq": 0.7
+    },
+    {
+      "source_unit": "u",
+      "standard_unit": "",
+      "source_unit_count": 29,
+      "source_unit_lq": 12.4,
+      "source_unit_median": 28.1,
+      "source_unit_uq": 114.1
+    },
+    {
+      "source_unit": "umol/l",
+      "standard_unit": "",
+      "source_unit_count": 23,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 9.5
+    },
+    {
+      "source_unit": "%",
+      "standard_unit": "",
+      "source_unit_count": 9,
+      "source_unit_lq": 0.6,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "m/gl",
+      "standard_unit": "",
+      "source_unit_count": 9,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 12.0
+    },
+    {
+      "source_unit": "g/dL",
+      "standard_unit": "",
+      "source_unit_count": 8,
+      "source_unit_lq": 9.3,
+      "source_unit_median": 11.05,
+      "source_unit_uq": 12.15
+    },
+    {
+      "source_unit": "Plasma C reactive protein",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "ug/L",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 3.8,
+      "source_unit_median": 4.1,
+      "source_unit_uq": 52.0
+    },
+    {
+      "source_unit": "10^9",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 5.775,
+      "source_unit_median": 6.0649999999999995,
+      "source_unit_uq": 6.6875
+    },
+    {
+      "source_unit": "units",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 45.974999999999994,
+      "source_unit_median": 49.9,
+      "source_unit_uq": 53.25
+    },
+    {
+      "source_unit": "mg/L <5",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 1.0499999999999998,
+      "source_unit_median": 8.6,
+      "source_unit_uq": 16.25
+    },
+    {
+      "source_unit": "(Unknown)",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 1.5,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.75
+    },
+    {
+      "source_unit": "mq/l",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 6.5,
+      "source_unit_median": 7.6,
+      "source_unit_uq": 20.4
+    },
+    {
+      "source_unit": "mgL",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 2.2,
+      "source_unit_median": 2.2,
+      "source_unit_uq": 4.15
+    },
+    {
+      "source_unit": "IU/L",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 11.95
+    },
+    {
+      "source_unit": "10*9/L",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 8.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 15.0
+    },
+    {
+      "source_unit": "mg/l [H]",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 39.5,
+      "source_unit_median": 46.0,
+      "source_unit_uq": 52.5
+    },
+    {
+      "source_unit": "mm/Hr",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 19.0,
+      "source_unit_median": 19.0,
+      "source_unit_uq": 19.0
+    },
+    {
+      "source_unit": "microgram/L",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.4100000000000001,
+      "source_unit_median": 2.52,
+      "source_unit_uq": 3.63
+    },
+    {
+      "source_unit": "< mg/l",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": ">",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.6,
+      "source_unit_median": 0.6,
+      "source_unit_uq": 0.6
+    },
+    {
+      "source_unit": "mg/l <5",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "IU/dL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 73.2,
+      "source_unit_median": 73.2,
+      "source_unit_uq": 73.2
+    },
+    {
+      "source_unit": "g/mL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 11.5,
+      "source_unit_median": 11.5,
+      "source_unit_uq": 11.5
+    },
+    {
+      "source_unit": "mg/m*3",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
+    },
+    {
+      "source_unit": "iu/dL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 75.6,
+      "source_unit_median": 75.6,
+      "source_unit_uq": 75.6
+    },
+    {
+      "source_unit": "IU/mL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "mg/L<5",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 86.2,
+      "source_unit_median": 86.2,
+      "source_unit_uq": 86.2
+    },
+    {
+      "source_unit": "mg/Lm",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "s",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 7.8,
+      "source_unit_median": 7.8,
+      "source_unit_uq": 7.8
+    },
+    {
+      "source_unit": "microgram/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.31,
+      "source_unit_median": 1.31,
+      "source_unit_uq": 1.31
+    },
+    {
+      "source_unit": "mu/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 200.0,
+      "source_unit_median": 200.0,
+      "source_unit_uq": 200.0
+    },
+    {
+      "source_unit": "H",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.8,
+      "source_unit_median": 6.8,
+      "source_unit_uq": 6.8
+    },
+    {
+      "source_unit": "ng",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "mg/mL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "st",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 39.0,
+      "source_unit_median": 39.0,
+      "source_unit_uq": 39.0
+    },
+    {
+      "source_unit": "ug/ml",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 60.0,
+      "source_unit_median": 60.0,
+      "source_unit_uq": 60.0
     }
   ],
   "unit_conversions": [],
   "created_datetime": "2025-08-18T13:40:12.429334",
-  "updated_datetime": "2025-08-18T15:38:34.199268",
+  "updated_datetime": "2025-10-12T15:49:03.499572",
   "standard_measurement_config_id": "a75ec06c",
-  "standard_measurement_config_version": "measurement_c_reactive_protein_CRP_SNOMED_20250818_153834"
+  "standard_measurement_config_version": "measurement_c_reactive_protein_CRP_SNOMED_20251012_154903"
 }
