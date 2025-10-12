@@ -1,0 +1,43 @@
+{
+  "definition_id": "608c45a2",
+  "definition_name": "end_stage_heart_failure_SNOMED",
+  "definition_version": "end_stage_heart_failure_SNOMED_20250925_180954",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-09-25T18:09:54.746948",
+  "codelists": [
+    {
+      "codelist_id": "end_stage_heart_failure_SNOMED_SNOMED_efa41d3b",
+      "codelist_name": "end_stage_heart_failure_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "end_stage_heart_failure_SNOMED_SNOMED_efa41d3b_20250925_180538",
+      "codes": [
+        {
+          "code": "314206003",
+          "code_description": "Refractory heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "422293003",
+          "code_description": "New York Heart Association Classification - Class IV (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "407608005",
+          "code_description": "New York Heart Association classification - class IV (assessment scale)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "87761000000102",
+          "code_description": "New York Heart Association classification - class IV",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "98061000000102",
+          "code_description": "New York Heart Association classification - class IV",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

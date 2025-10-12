@@ -1,0 +1,58 @@
+{
+  "definition_id": "80767551",
+  "definition_name": "end_stage_liver_disease_ICD10",
+  "definition_version": "end_stage_liver_disease_ICD10_20250925_182447",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-09-25T18:24:47.363456",
+  "codelists": [
+    {
+      "codelist_id": "end_stage_liver_disease_ICD10_ICD10_760eb473",
+      "codelist_name": "end_stage_liver_disease_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "end_stage_liver_disease_ICD10_ICD10_760eb473_20250925_182120",
+      "codes": [
+        {
+          "code": "R18",
+          "code_description": "Ascites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I98.2",
+          "code_description": "Oesophageal varices without bleeding in diseases classified elsewhere",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I85.9",
+          "code_description": "Oesophageal varices without bleeding",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I86.4",
+          "code_description": "Gastric varices",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I98.3",
+          "code_description": "Oesophageal varices with bleeding in diseases classified elsewhere",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I85.0",
+          "code_description": "Oesophageal varices with bleeding",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I85",
+          "code_description": "Oesophageal varices",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K76.7",
+          "code_description": "Hepatorenal syndrome",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

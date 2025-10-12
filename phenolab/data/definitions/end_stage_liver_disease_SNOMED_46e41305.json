@@ -1,0 +1,133 @@
+{
+  "definition_id": "46e41305",
+  "definition_name": "end_stage_liver_disease_SNOMED",
+  "definition_version": "end_stage_liver_disease_SNOMED_20250925_182032",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-09-25T18:20:32.150579",
+  "codelists": [
+    {
+      "codelist_id": "end_stage_liver_disease_SNOMED_SNOMED_42f62903",
+      "codelist_name": "end_stage_liver_disease_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "end_stage_liver_disease_SNOMED_SNOMED_42f62903_20250925_181535",
+      "codes": [
+        {
+          "code": "13920009",
+          "code_description": "Hepatic encephalopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "449901005",
+          "code_description": "Hepatic encephalopathy in fulminant hepatic failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "232534061000119102",
+          "code_description": "Delirium due to hepatic encephalopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "17709002",
+          "code_description": "Bleeding esophageal varices (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "173641003",
+          "code_description": "Fiberoptic esophagoscopy and banding of esophageal varices (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "309783001",
+          "code_description": "Esophageal varices in alcoholic cirrhosis of the liver (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "308129003",
+          "code_description": "Esophageal varices in cirrhosis of the liver (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "67364009",
+          "code_description": "Ligation of esophageal varices (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "173639004",
+          "code_description": "Fiberoptic esophagoscopy and injection sclerotherapy of varices (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426841006",
+          "code_description": "Fiberoptic endoscopic rubber band ligation of upper gastrointestinal tract varices (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195474004",
+          "code_description": "Esophageal varices associated with another disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "897004000",
+          "code_description": "Esophageal varices due to cirrhosis of liver (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195475003",
+          "code_description": "Esophageal varices with bleeding, associated with another disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195476002",
+          "code_description": "Esophageal varices without bleeding, associated with another disorder (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "897005004",
+          "code_description": "Esophageal varices due to cirrhosis of liver caused by alcohol (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "235236006",
+          "code_description": "Sclerotherapy of gastric varices (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "14223005",
+          "code_description": "Esophageal varices without bleeding (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "717865007",
+          "code_description": "Gastric varices without bleeding (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "264974007",
+          "code_description": "Peritoneal to venous drainage of ascites (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1082601000119104",
+          "code_description": "Ascites due to alcoholic cirrhosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "178012008",
+          "code_description": "Percutaneous drainage of ascites (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "302455000",
+          "code_description": "Drainage of ascites (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "389026000",
+          "code_description": "Ascites (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

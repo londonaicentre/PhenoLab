@@ -1,0 +1,333 @@
+{
+  "definition_id": "f1a63e8f",
+  "definition_name": "end_stage_renal_failure_SNOMED",
+  "definition_version": "end_stage_renal_failure_SNOMED_20250925_175517",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-09-25T17:55:17.810043",
+  "codelists": [
+    {
+      "codelist_id": "end_stage_renal_failure_SNOMED_SNOMED_dd26a02f",
+      "codelist_name": "end_stage_renal_failure_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "end_stage_renal_failure_SNOMED_SNOMED_dd26a02f_20250925_174733",
+      "codes": [
+        {
+          "code": "1035471000000100",
+          "code_description": "Dialysis therapy started by renal service (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1035491000000101",
+          "code_description": "Dialysis therapy stopped by renal service (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "105502003",
+          "code_description": "Dependence on renal dialysis (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "108241001",
+          "code_description": "Dialysis procedure (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1196993005",
+          "code_description": "Repositioning of peritoneal dialysis catheter using imaging guidance (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "17778006",
+          "code_description": "Mechanical complication of dialysis catheter (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "180272001",
+          "code_description": "Insertion of chronic ambulatory peritoneal dialysis catheter (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "180273006",
+          "code_description": "Removal of chronic ambulatory peritoneal dialysis catheter (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "180277007",
+          "code_description": "Insertion of temporary peritoneal dialysis catheter (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1853671000000101",
+          "code_description": "Percutaneous transluminal angioplasty of arteriovenous dialysis fistula of left upper limb using fluoroscopic guidance with contrast (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "19765000",
+          "code_description": "Complication of dialysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197755007",
+          "code_description": "End stage renal failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "225281003",
+          "code_description": "Reversing hemodialysis lines (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233575001",
+          "code_description": "Intermittent hemodialysis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "236434000",
+          "code_description": "End stage renal failure untreated by renal replacement therapy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "236435004",
+          "code_description": "End stage renal failure on dialysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "236436003",
+          "code_description": "End stage renal failure with renal transplant (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "236539007",
+          "code_description": "First use syndrome of dialysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "236556004",
+          "code_description": "Bloodstained peritoneal dialysis effluent (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "238317004",
+          "code_description": "Flushing of chronic ambulatory peritoneal dialysis catheter (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "238318009",
+          "code_description": "Continuous ambulatory peritoneal dialysis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "238319001",
+          "code_description": "Continuous cycling peritoneal dialysis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "238323009",
+          "code_description": "Night-time intermittent peritoneal dialysis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "251859005",
+          "code_description": "Dialysis finding (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "265764009",
+          "code_description": "Renal dialysis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "271418008",
+          "code_description": "Chronic ambulatory peritoneal dialysis catheter procedure (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "276883000",
+          "code_description": "Peritoneal dialysis-associated peritonitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "302497006",
+          "code_description": "Hemodialysis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "32599008",
+          "code_description": "Hemodialysis-associated amyloidosis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "33461007",
+          "code_description": "Complication of peritoneal dialysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "398471000000102",
+          "code_description": "[V]Aftercare involving intermittent dialysis (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "398481000000100",
+          "code_description": "[V]Preparatory care for dialysis (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "423062001",
+          "code_description": "Stenosis of arteriovenous dialysis fistula (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426340003",
+          "code_description": "Creation of graft fistula for dialysis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426351000000102",
+          "code_description": "[V]Other specified aftercare involving intermittent dialysis (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426361000000104",
+          "code_description": "[V]Unspecified aftercare involving intermittent dialysis (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "427053002",
+          "code_description": "Extracorporeal albumin hemodialysis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "428648006",
+          "code_description": "Automated peritoneal dialysis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "429211000000100",
+          "code_description": "[X] Peritoneal dialysis associated peritonitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "430332005",
+          "code_description": "Infection of arteriovenous graft for hemodialysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "438546008",
+          "code_description": "Ligation of arteriovenous dialysis fistula (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "438548009",
+          "code_description": "Ligation of arteriovenous dialysis graft (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "449288005",
+          "code_description": "Infection of arteriovenous fistula for hemodialysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "473034005",
+          "code_description": "Complication associated with dialysis catheter (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "699235009",
+          "code_description": "Continuous ambulatory peritoneal dialysis associated peritonitis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "71192002",
+          "code_description": "Peritoneal dialysis (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "714152005",
+          "code_description": "Chronic kidney disease stage 5 on dialysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "846731000000104",
+          "code_description": "Aneurysm of dialysis arteriovenous fistula (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "846801000000104",
+          "code_description": "Aneurysm of anastomotic site of dialysis arteriovenous fistula (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "853631000000103",
+          "code_description": "Stenosis of dialysis vascular access (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "853651000000105",
+          "code_description": "Thrombosis of dialysis vascular access (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "854131000000107",
+          "code_description": "Thrombus in peritoneal dialysis catheter (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "865761000000105",
+          "code_description": "Occlusion of dialysis vascular access (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "865781000000101",
+          "code_description": "Infection of dialysis vascular access (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "865841000000102",
+          "code_description": "Stenosis of dialysis arteriovenous graft (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "865981000000103",
+          "code_description": "Thrombosis of dialysis arteriovenous graft (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "866001000000102",
+          "code_description": "Thrombosis of dialysis arteriovenous fistula (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "866061000000103",
+          "code_description": "Occlusion of dialysis arteriovenous fistula (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "867011000000102",
+          "code_description": "Haemorrhage of dialysis arteriovenous fistula (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "872481000000106",
+          "code_description": "Stenosis of venous side of dialysis arteriovenous shunt (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "88351001",
+          "code_description": "Hypercalcemia associated with chronic dialysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "129721000119106",
+          "code_description": "Acute renal failure on dialysis (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "87235005",
+          "code_description": "Dialysis disequilibrium syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}
