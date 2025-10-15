@@ -1,0 +1,148 @@
+{
+  "definition_id": "430955b2",
+  "definition_name": "ex_smoker_SNOMED",
+  "definition_version": "ex_smoker_SNOMED_20251015_161345",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-10-15T16:13:45.979594",
+  "codelists": [
+    {
+      "codelist_id": "ex_smoker_SNOMED_SNOMED_8131013b",
+      "codelist_name": "ex_smoker_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "ex_smoker_SNOMED_SNOMED_8131013b_20251015_161143",
+      "codes": [
+        {
+          "code": "1092031000000100",
+          "code_description": "Ex-smoker amount unknown (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1092041000000100",
+          "code_description": "Ex-very heavy smoker (40+/day) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1092071000000100",
+          "code_description": "Ex-heavy smoker (20-39/day) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1092091000000100",
+          "code_description": "Ex-moderate smoker (10-19/day) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1092111000000100",
+          "code_description": "Ex-light smoker (1-9/day) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1092131000000100",
+          "code_description": "Ex-trivial smoker (<1/day) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "160617001",
+          "code_description": "Stopped smoking (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "160620009",
+          "code_description": "Ex-pipe smoker (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "160621008",
+          "code_description": "Ex-cigar smoker (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "160625004",
+          "code_description": "Date ceased smoking (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "228486009",
+          "code_description": "Time since stopped smoking (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266921000",
+          "code_description": "Ex-trivial cigarette smoker (<1/day) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266922007",
+          "code_description": "Ex-light cigarette smoker (1-9/day) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266923002",
+          "code_description": "Ex-moderate cigarette smoker (10-19/day) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266924008",
+          "code_description": "Ex-heavy cigarette smoker (20-39/day) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266925009",
+          "code_description": "Ex-very heavy cigarette smoker (40+/day) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266928006",
+          "code_description": "Ex-cigarette smoker amount unknown (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "281018007",
+          "code_description": "Ex-cigarette smoker (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "360890004",
+          "code_description": "Intolerant ex-smoker (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "360900008",
+          "code_description": "Aggressive ex-smoker (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "48031000119106",
+          "code_description": "Ex-smoker for more than 1 year (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "492191000000103",
+          "code_description": "Ex roll-up cigarette smoker (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "53896009",
+          "code_description": "Tolerant ex-smoker (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "735112005",
+          "code_description": "Date ceased using moist tobacco (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "735128000",
+          "code_description": "Ex-smoker for less than 1 year (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "8517006",
+          "code_description": "Ex-smoker (finding)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

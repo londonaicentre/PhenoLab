@@ -1,0 +1,218 @@
+{
+  "definition_id": "1a7047e9",
+  "definition_name": "current_smoker_SNOMED",
+  "definition_version": "current_smoker_SNOMED_20251015_160844",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-10-15T16:08:44.019108",
+  "codelists": [
+    {
+      "codelist_id": "current_smoker_SNOMED_SNOMED_6f06849e",
+      "codelist_name": "current_smoker_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "current_smoker_SNOMED_SNOMED_6f06849e_20251015_160335",
+      "codes": [
+        {
+          "code": "134406006",
+          "code_description": "Smoking reduced (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "160603005",
+          "code_description": "Light cigarette smoker (1-9 cigs/day) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "160604004",
+          "code_description": "Moderate cigarette smoker (10-19 cigs/day) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "160605003",
+          "code_description": "Heavy cigarette smoker (20-39 cigs/day) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "160606002",
+          "code_description": "Very heavy cigarette smoker (40+ cigs/day) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "160612007",
+          "code_description": "Keeps trying to stop smoking (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "160613002",
+          "code_description": "Admitted tobacco consumption possibly untrue (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "160616005",
+          "code_description": "Trying to give up smoking (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "160619003",
+          "code_description": "Rolls own cigarettes (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "203191000000107",
+          "code_description": "Wants to stop smoking (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "225934006",
+          "code_description": "Smokes in bed (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230056004",
+          "code_description": "Cigarette consumption (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230057008",
+          "code_description": "Cigar consumption (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230058003",
+          "code_description": "Pipe tobacco consumption (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230059006",
+          "code_description": "Occasional cigarette smoker (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230060001",
+          "code_description": "Light cigarette smoker (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230062009",
+          "code_description": "Moderate cigarette smoker (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230063004",
+          "code_description": "Heavy cigarette smoker (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230064005",
+          "code_description": "Very heavy cigarette smoker (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230065006",
+          "code_description": "Chain smoker (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266918002",
+          "code_description": "Tobacco smoking consumption (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266920004",
+          "code_description": "Trivial cigarette smoker (less than one cigarette/day) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266929003",
+          "code_description": "Smoking started (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "308438006",
+          "code_description": "Smoking restarted (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "394871007",
+          "code_description": "Thinking about stopping smoking (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "394872000",
+          "code_description": "Ready to stop smoking (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "394873005",
+          "code_description": "Not interested in stopping smoking (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401159003",
+          "code_description": "Reason for restarting smoking (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401201003",
+          "code_description": "Cigarette pack-years (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "413173009",
+          "code_description": "Minutes from waking to first tobacco consumption (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "428041000124106",
+          "code_description": "Occasional tobacco smoker (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "446172000",
+          "code_description": "Failed attempt to stop smoking (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "449868002",
+          "code_description": "Smokes tobacco daily (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "56578002",
+          "code_description": "Moderate smoker (20 or less per day) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "56771006",
+          "code_description": "Heavy smoker (over 20 per day) (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "59978006",
+          "code_description": "Cigar smoker (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "65568007",
+          "code_description": "Cigarette smoker (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "77176002",
+          "code_description": "Smoker (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82302008",
+          "code_description": "Pipe smoker (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "836001000000109",
+          "code_description": "Waterpipe tobacco consumption (observable entity)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}
