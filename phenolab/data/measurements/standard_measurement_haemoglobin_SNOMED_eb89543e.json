@@ -867,10 +867,10 @@
       "post_offset": 0.0
     },
     {
-      "convert_from_unit": "g/dL",
+      "convert_from_unit": "g/L",
       "convert_to_unit": "g/L",
       "pre_offset": 0.0,
-      "multiply_by": 10.0,
+      "multiply_by": 1.0,
       "post_offset": 0.0
     }
   ],
