@@ -5,6 +5,11 @@ megalith:
   endpoint_type: "authoring"
   refset_name_filters:
     - "diagnoses simple reference set"
+    - "chronic liver diseases at risk"
+    - "systemic lupus disorders simple reference set"
+    - "rheumatoid arthritis disorders simple reference set"
+    - "diagnosis simple reference set"
+    - "learning disability simple reference set"
     # - "diagnosis"
     # - "diagnoses"
     # - "disorder"
