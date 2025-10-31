@@ -920,11 +920,579 @@
       "source_unit_lq": 18.9,
       "source_unit_median": 18.9,
       "source_unit_uq": 18.9
+    },
+    {
+      "source_unit": "mmhg",
+      "standard_unit": "",
+      "source_unit_count": 43,
+      "source_unit_lq": 22.1,
+      "source_unit_median": 26.4,
+      "source_unit_uq": 28.35
+    },
+    {
+      "source_unit": "Kgs",
+      "standard_unit": "",
+      "source_unit_count": 32,
+      "source_unit_lq": 24.0,
+      "source_unit_median": 27.34,
+      "source_unit_uq": 33.9375
+    },
+    {
+      "source_unit": "BMI 25-29 - overweight",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "43",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 26.125,
+      "source_unit_median": 28.5,
+      "source_unit_uq": 28.5
+    },
+    {
+      "source_unit": "54",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 17.4,
+      "source_unit_median": 17.4,
+      "source_unit_uq": 20.5
+    },
+    {
+      "source_unit": "kg/sq. m",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 28.7,
+      "source_unit_median": 30.5,
+      "source_unit_uq": 32.25
+    },
+    {
+      "source_unit": "33",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 15.0,
+      "source_unit_median": 15.0,
+      "source_unit_uq": 19.95
+    },
+    {
+      "source_unit": "kg/cm2",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 22.9525,
+      "source_unit_median": 23.405,
+      "source_unit_uq": 23.857499999999998
+    },
+    {
+      "source_unit": "350",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 19.2,
+      "source_unit_median": 19.2,
+      "source_unit_uq": 19.2
+    },
+    {
+      "source_unit": "/24",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 32.0,
+      "source_unit_median": 32.0,
+      "source_unit_uq": 32.0
+    },
+    {
+      "source_unit": "65",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 15.6,
+      "source_unit_median": 15.6,
+      "source_unit_uq": 15.6
+    },
+    {
+      "source_unit": "85",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 21.1,
+      "source_unit_median": 21.1,
+      "source_unit_uq": 21.1
+    },
+    {
+      "source_unit": "kg/m-2",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 35.8,
+      "source_unit_median": 35.8,
+      "source_unit_uq": 35.8
+    },
+    {
+      "source_unit": "35",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 19.5,
+      "source_unit_median": 19.5,
+      "source_unit_uq": 19.5
+    },
+    {
+      "source_unit": "265",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 26.3,
+      "source_unit_median": 26.3,
+      "source_unit_uq": 26.3
+    },
+    {
+      "source_unit": "g/cm2",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 21.35,
+      "source_unit_median": 21.4,
+      "source_unit_uq": 21.45
+    },
+    {
+      "source_unit": "119",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 20.325,
+      "source_unit_median": 22.75,
+      "source_unit_uq": 25.175
+    },
+    {
+      "source_unit": "/month",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 24.1625,
+      "source_unit_median": 30.575,
+      "source_unit_uq": 36.9875
+    },
+    {
+      "source_unit": ".",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 20.425,
+      "source_unit_median": 21.15,
+      "source_unit_uq": 21.875
+    },
+    {
+      "source_unit": "224",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 26.1,
+      "source_unit_median": 26.1,
+      "source_unit_uq": 26.1
+    },
+    {
+      "source_unit": "60",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 26.3,
+      "source_unit_median": 26.3,
+      "source_unit_uq": 26.3
+    },
+    {
+      "source_unit": "mmol/1",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 22.875,
+      "source_unit_median": 22.950000000000003,
+      "source_unit_uq": 23.025000000000002
+    },
+    {
+      "source_unit": "59",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 19.55,
+      "source_unit_median": 22.0,
+      "source_unit_uq": 24.45
+    },
+    {
+      "source_unit": "142",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 25.0,
+      "source_unit_median": 25.0,
+      "source_unit_uq": 25.0
+    },
+    {
+      "source_unit": "106",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 24.3,
+      "source_unit_median": 24.3,
+      "source_unit_uq": 24.3
+    },
+    {
+      "source_unit": "88",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 15.2,
+      "source_unit_median": 15.2,
+      "source_unit_uq": 15.2
+    },
+    {
+      "source_unit": "56.9/175",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 56.9,
+      "source_unit_median": 56.9,
+      "source_unit_uq": 56.9
+    },
+    {
+      "source_unit": "140",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.7,
+      "source_unit_median": 20.7,
+      "source_unit_uq": 20.7
+    },
+    {
+      "source_unit": "in",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 32.0,
+      "source_unit_median": 32.0,
+      "source_unit_uq": 32.0
+    },
+    {
+      "source_unit": "75",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 24.2,
+      "source_unit_median": 24.2,
+      "source_unit_uq": 24.2
+    },
+    {
+      "source_unit": "113",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.2,
+      "source_unit_median": 30.2,
+      "source_unit_uq": 30.2
+    },
+    {
+      "source_unit": "umol/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 41.0,
+      "source_unit_median": 41.0,
+      "source_unit_uq": 41.0
+    },
+    {
+      "source_unit": "223",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 27.6,
+      "source_unit_median": 27.6,
+      "source_unit_uq": 27.6
+    },
+    {
+      "source_unit": "/min",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 45.0,
+      "source_unit_median": 45.0,
+      "source_unit_uq": 45.0
+    },
+    {
+      "source_unit": "117",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 26.7,
+      "source_unit_median": 26.7,
+      "source_unit_uq": 26.7
+    },
+    {
+      "source_unit": "453",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 19.9,
+      "source_unit_median": 19.9,
+      "source_unit_uq": 19.9
+    },
+    {
+      "source_unit": "40",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.7,
+      "source_unit_median": 20.7,
+      "source_unit_uq": 20.7
+    },
+    {
+      "source_unit": "mmHg",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 20.0,
+      "source_unit_median": 20.0,
+      "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "31",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 26.8,
+      "source_unit_median": 26.8,
+      "source_unit_uq": 26.8
+    },
+    {
+      "source_unit": "201",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 14.5,
+      "source_unit_median": 14.5,
+      "source_unit_uq": 14.5
+    },
+    {
+      "source_unit": "ug/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 22.0,
+      "source_unit_median": 22.0,
+      "source_unit_uq": 22.0
+    },
+    {
+      "source_unit": "105",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 16.6,
+      "source_unit_median": 16.6,
+      "source_unit_uq": 16.6
+    },
+    {
+      "source_unit": "200",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 21.4,
+      "source_unit_median": 21.4,
+      "source_unit_uq": 21.4
+    },
+    {
+      "source_unit": "234",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 17.2,
+      "source_unit_median": 17.2,
+      "source_unit_uq": 17.2
+    },
+    {
+      "source_unit": "20",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 21.6,
+      "source_unit_median": 21.6,
+      "source_unit_uq": 21.6
+    },
+    {
+      "source_unit": "164",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 22.4,
+      "source_unit_median": 22.4,
+      "source_unit_uq": 22.4
+    },
+    {
+      "source_unit": "250",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 24.3,
+      "source_unit_median": 24.3,
+      "source_unit_uq": 24.3
+    },
+    {
+      "source_unit": "123",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 21.9,
+      "source_unit_median": 21.9,
+      "source_unit_uq": 21.9
+    },
+    {
+      "source_unit": "18.7kg/m2",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 18.7,
+      "source_unit_median": 18.7,
+      "source_unit_uq": 18.7
+    },
+    {
+      "source_unit": "98",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.4,
+      "source_unit_median": 30.4,
+      "source_unit_uq": 30.4
+    },
+    {
+      "source_unit": "36",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 13.8,
+      "source_unit_median": 13.8,
+      "source_unit_uq": 13.8
+    },
+    {
+      "source_unit": "st",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 91.0,
+      "source_unit_median": 91.0,
+      "source_unit_uq": 91.0
+    },
+    {
+      "source_unit": "24.65",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 24.65,
+      "source_unit_median": 24.65,
+      "source_unit_uq": 24.65
+    },
+    {
+      "source_unit": "77",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 26.4,
+      "source_unit_median": 26.4,
+      "source_unit_uq": 26.4
+    },
+    {
+      "source_unit": "47",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 14.9,
+      "source_unit_median": 14.9,
+      "source_unit_uq": 14.9
+    },
+    {
+      "source_unit": "bpm",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 25.5,
+      "source_unit_median": 25.5,
+      "source_unit_uq": 25.5
+    },
+    {
+      "source_unit": "103",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 18.8,
+      "source_unit_median": 18.8,
+      "source_unit_uq": 18.8
+    },
+    {
+      "source_unit": "211",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 33.7,
+      "source_unit_median": 33.7,
+      "source_unit_uq": 33.7
+    },
+    {
+      "source_unit": "/day",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 30.77,
+      "source_unit_median": 30.77,
+      "source_unit_uq": 30.77
+    },
+    {
+      "source_unit": "94",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 17.2,
+      "source_unit_median": 17.2,
+      "source_unit_uq": 17.2
+    },
+    {
+      "source_unit": "52",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 13.7,
+      "source_unit_median": 13.7,
+      "source_unit_uq": 13.7
+    },
+    {
+      "source_unit": "31.3 kg/m2",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 31.3,
+      "source_unit_median": 31.3,
+      "source_unit_uq": 31.3
+    },
+    {
+      "source_unit": "169",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 18.6,
+      "source_unit_median": 18.6,
+      "source_unit_uq": 18.6
+    },
+    {
+      "source_unit": "92",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 23.1,
+      "source_unit_median": 23.1,
+      "source_unit_uq": 23.1
+    },
+    {
+      "source_unit": "mm/Hg",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 120.0,
+      "source_unit_median": 120.0,
+      "source_unit_uq": 120.0
+    },
+    {
+      "source_unit": "sq/m2",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 21.4,
+      "source_unit_median": 21.4,
+      "source_unit_uq": 21.4
+    },
+    {
+      "source_unit": "Kg/ m2",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 41.0,
+      "source_unit_median": 41.0,
+      "source_unit_uq": 41.0
+    },
+    {
+      "source_unit": "l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 38.5,
+      "source_unit_median": 38.5,
+      "source_unit_uq": 38.5
+    },
+    {
+      "source_unit": "99",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 14.3,
+      "source_unit_median": 14.3,
+      "source_unit_uq": 14.3
+    },
+    {
+      "source_unit": "325",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 16.6,
+      "source_unit_median": 16.6,
+      "source_unit_uq": 16.6
+    },
+    {
+      "source_unit": "kgm^2",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 28.8,
+      "source_unit_median": 28.8,
+      "source_unit_uq": 28.8
     }
   ],
   "unit_conversions": [],
   "created_datetime": "2025-08-18T16:08:44.771404",
-  "updated_datetime": "2025-08-18T16:17:50.890944",
+  "updated_datetime": "2025-10-12T15:50:17.785882",
   "standard_measurement_config_id": "77540680",
-  "standard_measurement_config_version": "measurement_body_mass_index_SNOMED_20250818_161750"
+  "standard_measurement_config_version": "measurement_body_mass_index_SNOMED_20251012_155017"
 }

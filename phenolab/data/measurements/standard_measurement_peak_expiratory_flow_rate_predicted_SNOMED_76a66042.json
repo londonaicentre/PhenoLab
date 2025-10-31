@@ -135,11 +135,27 @@
       "source_unit_lq": 530.0,
       "source_unit_median": 530.0,
       "source_unit_uq": 530.0
+    },
+    {
+      "source_unit": ":",
+      "standard_unit": "",
+      "source_unit_count": 232,
+      "source_unit_lq": 340.0,
+      "source_unit_median": 415.0,
+      "source_unit_uq": 517.75
+    },
+    {
+      "source_unit": "L/sec",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 11.0,
+      "source_unit_median": 11.0,
+      "source_unit_uq": 11.0
     }
   ],
   "unit_conversions": [],
   "created_datetime": "2025-08-18T15:28:55.546971",
-  "updated_datetime": "2025-08-18T15:51:41.499868",
+  "updated_datetime": "2025-10-12T15:50:28.064923",
   "standard_measurement_config_id": "76a66042",
-  "standard_measurement_config_version": "measurement_peak_expiratory_flow_rate_predicted_SNOMED_20250818_155141"
+  "standard_measurement_config_version": "measurement_peak_expiratory_flow_rate_predicted_SNOMED_20251012_155028"
 }

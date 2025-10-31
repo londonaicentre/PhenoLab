@@ -47,11 +47,19 @@
       "source_unit_lq": 54.0,
       "source_unit_median": 54.0,
       "source_unit_uq": 54.0
+    },
+    {
+      "source_unit": "ppbn",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.0,
+      "source_unit_median": 5.0,
+      "source_unit_uq": 5.0
     }
   ],
   "unit_conversions": [],
   "created_datetime": "2025-08-18T09:59:09.730352",
-  "updated_datetime": "2025-08-18T11:36:26.002911",
+  "updated_datetime": "2025-10-12T15:46:43.510565",
   "standard_measurement_config_id": "ecd55f83",
-  "standard_measurement_config_version": "measurement_fraction_exhaled_nitric_oxide_FeNO_SNOMED_20250818_113626"
+  "standard_measurement_config_version": "measurement_fraction_exhaled_nitric_oxide_FeNO_SNOMED_20251012_154643"
 }

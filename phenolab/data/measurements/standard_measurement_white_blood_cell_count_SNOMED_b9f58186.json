@@ -1392,11 +1392,475 @@
       "source_unit_lq": 11.1,
       "source_unit_median": 11.1,
       "source_unit_uq": 11.1
+    },
+    {
+      "source_unit": "#G ( )/L",
+      "standard_unit": "",
+      "source_unit_count": 12,
+      "source_unit_lq": 5.75,
+      "source_unit_median": 6.8,
+      "source_unit_uq": 7.8
+    },
+    {
+      "source_unit": "10X9/L",
+      "standard_unit": "",
+      "source_unit_count": 12,
+      "source_unit_lq": 4.9075,
+      "source_unit_median": 5.529999999999999,
+      "source_unit_uq": 5.68
+    },
+    {
+      "source_unit": "X10^9/1",
+      "standard_unit": "",
+      "source_unit_count": 12,
+      "source_unit_lq": 5.775,
+      "source_unit_median": 6.65,
+      "source_unit_uq": 7.654999999999999
+    },
+    {
+      "source_unit": "10*9 cells/L [H]",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 11.0,
+      "source_unit_median": 13.25,
+      "source_unit_uq": 15.425
+    },
+    {
+      "source_unit": "* 10^9/l",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 5.3,
+      "source_unit_median": 5.3,
+      "source_unit_uq": 6.575
+    },
+    {
+      "source_unit": "10x9",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 5.7,
+      "source_unit_median": 6.3,
+      "source_unit_uq": 6.7
+    },
+    {
+      "source_unit": "mm",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 150.0,
+      "source_unit_median": 150.0,
+      "source_unit_uq": 150.0
+    },
+    {
+      "source_unit": "*10^9/1",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 5.47,
+      "source_unit_median": 5.47,
+      "source_unit_uq": 6.04
+    },
+    {
+      "source_unit": "x10^9 cells/L",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 8.72,
+      "source_unit_median": 9.4,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "WBC/ml",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "1000/mm3",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 8.129999999999999,
+      "source_unit_median": 9.95,
+      "source_unit_uq": 9.95
+    },
+    {
+      "source_unit": "umol/l",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 7.4,
+      "source_unit_median": 7.4,
+      "source_unit_uq": 8.850000000000001
+    },
+    {
+      "source_unit": "x10*6/l",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1263.5,
+      "source_unit_median": 2499.0,
+      "source_unit_uq": 3734.5
+    },
+    {
+      "source_unit": "/mm3",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 5895.0,
+      "source_unit_median": 6170.0,
+      "source_unit_uq": 6445.0
+    },
+    {
+      "source_unit": "x109/L",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.125,
+      "source_unit_median": 4.65,
+      "source_unit_uq": 5.175000000000001
+    },
+    {
+      "source_unit": "Total white cell count NOS",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "high",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 13.5,
+      "source_unit_median": 13.5,
+      "source_unit_uq": 13.5
+    },
+    {
+      "source_unit": "IU",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 6.9,
+      "source_unit_median": 6.9,
+      "source_unit_uq": 6.9
+    },
+    {
+      "source_unit": "X 10 9/l",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 5.7,
+      "source_unit_median": 5.7,
+      "source_unit_uq": 5.7
+    },
+    {
+      "source_unit": "x10E3/uL",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 7.4,
+      "source_unit_median": 7.4,
+      "source_unit_uq": 7.4
+    },
+    {
+      "source_unit": "units",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.6,
+      "source_unit_median": 4.6,
+      "source_unit_uq": 4.6
+    },
+    {
+      "source_unit": "fg",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 8.875,
+      "source_unit_median": 9.350000000000001,
+      "source_unit_uq": 9.825000000000001
+    },
+    {
+      "source_unit": "ug/L",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 8.15,
+      "source_unit_median": 11.7,
+      "source_unit_uq": 15.25
+    },
+    {
+      "source_unit": "*10^9 cells/L",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 8.175,
+      "source_unit_median": 12.150000000000002,
+      "source_unit_uq": 16.125
+    },
+    {
+      "source_unit": "Not given",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 9.5,
+      "source_unit_median": 9.5,
+      "source_unit_uq": 9.5
+    },
+    {
+      "source_unit": "umol/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.45,
+      "source_unit_median": 2.45,
+      "source_unit_uq": 2.45
+    },
+    {
+      "source_unit": "cell//cumm",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 9710.0,
+      "source_unit_median": 9710.0,
+      "source_unit_uq": 9710.0
+    },
+    {
+      "source_unit": "x10^9.1",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.9,
+      "source_unit_median": 5.9,
+      "source_unit_uq": 5.9
+    },
+    {
+      "source_unit": "c.mm",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 9800.0,
+      "source_unit_median": 9800.0,
+      "source_unit_uq": 9800.0
+    },
+    {
+      "source_unit": "cms",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 70.0,
+      "source_unit_median": 70.0,
+      "source_unit_uq": 70.0
+    },
+    {
+      "source_unit": "kg",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 16.5,
+      "source_unit_median": 16.5,
+      "source_unit_uq": 16.5
+    },
+    {
+      "source_unit": "u/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "10-9/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.5,
+      "source_unit_median": 6.5,
+      "source_unit_uq": 6.5
+    },
+    {
+      "source_unit": "10x10",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.9,
+      "source_unit_median": 3.9,
+      "source_unit_uq": 3.9
+    },
+    {
+      "source_unit": "10^12 cells/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.17,
+      "source_unit_median": 4.17,
+      "source_unit_uq": 4.17
+    },
+    {
+      "source_unit": "WBC/mL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 100.0,
+      "source_unit_median": 100.0,
+      "source_unit_uq": 100.0
+    },
+    {
+      "source_unit": "10*3 cells/micL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.0,
+      "source_unit_median": 6.0,
+      "source_unit_uq": 6.0
+    },
+    {
+      "source_unit": "cells/cu.mm",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5300.0,
+      "source_unit_median": 5300.0,
+      "source_unit_uq": 5300.0
+    },
+    {
+      "source_unit": "10\"9/1",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.8,
+      "source_unit_median": 4.8,
+      "source_unit_uq": 4.8
+    },
+    {
+      "source_unit": "#k ( )/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.9,
+      "source_unit_median": 4.9,
+      "source_unit_uq": 4.9
+    },
+    {
+      "source_unit": "mmHg",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.37,
+      "source_unit_median": 5.37,
+      "source_unit_uq": 5.37
+    },
+    {
+      "source_unit": "cell/cumm",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 9190.0,
+      "source_unit_median": 9190.0,
+      "source_unit_uq": 9190.0
+    },
+    {
+      "source_unit": "x10^12/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.54,
+      "source_unit_median": 4.54,
+      "source_unit_uq": 4.54
+    },
+    {
+      "source_unit": "X 10",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.9,
+      "source_unit_median": 4.9,
+      "source_unit_uq": 4.9
+    },
+    {
+      "source_unit": "10*3/micl",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.7,
+      "source_unit_median": 5.7,
+      "source_unit_uq": 5.7
+    },
+    {
+      "source_unit": "x10E9/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 12.0,
+      "source_unit_median": 12.0,
+      "source_unit_uq": 12.0
+    },
+    {
+      "source_unit": "ratio",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.44,
+      "source_unit_median": 0.44,
+      "source_unit_uq": 0.44
+    },
+    {
+      "source_unit": "h",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 9.55,
+      "source_unit_median": 9.55,
+      "source_unit_uq": 9.55
+    },
+    {
+      "source_unit": "cmm",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 10.0,
+      "source_unit_median": 10.0,
+      "source_unit_uq": 10.0
+    },
+    {
+      "source_unit": "ng",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.5,
+      "source_unit_median": 5.5,
+      "source_unit_uq": 5.5
+    },
+    {
+      "source_unit": "10*9/L [H]",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 11.1,
+      "source_unit_median": 11.1,
+      "source_unit_uq": 11.1
+    },
+    {
+      "source_unit": "Thousand/uL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.5,
+      "source_unit_median": 5.5,
+      "source_unit_uq": 5.5
+    },
+    {
+      "source_unit": "10^3/mm3",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.73,
+      "source_unit_median": 2.73,
+      "source_unit_uq": 2.73
+    },
+    {
+      "source_unit": "AU/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.65,
+      "source_unit_median": 4.65,
+      "source_unit_uq": 4.65
+    },
+    {
+      "source_unit": "10*10",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 8.8,
+      "source_unit_median": 8.8,
+      "source_unit_uq": 8.8
+    },
+    {
+      "source_unit": "mixed",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.86,
+      "source_unit_median": 0.86,
+      "source_unit_uq": 0.86
+    },
+    {
+      "source_unit": "11.3",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 11.3,
+      "source_unit_median": 11.3,
+      "source_unit_uq": 11.3
+    },
+    {
+      "source_unit": "cells/cmm",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.4,
+      "source_unit_median": 6.4,
+      "source_unit_uq": 6.4
     }
   ],
   "unit_conversions": [],
   "created_datetime": "2025-08-18T13:40:12.430457",
-  "updated_datetime": "2025-08-18T16:04:47.023955",
+  "updated_datetime": "2025-10-12T15:47:04.411495",
   "standard_measurement_config_id": "b9f58186",
-  "standard_measurement_config_version": "measurement_white_blood_cell_count_SNOMED_20250818_160447"
+  "standard_measurement_config_version": "measurement_white_blood_cell_count_SNOMED_20251012_154704"
 }

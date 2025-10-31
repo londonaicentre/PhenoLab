@@ -1,21 +1,21 @@
 icb_name: NCL
 deployment:
   warehouse: NCL_ANALYTICS_XS
-  database: DATA_LAB_OLIDS_UAT
+  database: DATA_LAKE__NCL
   schema: PHENOLAB_DEV
   app_title: PhenoLab_dev
 definition_library:
-  database: DATA_LAB_OLIDS_UAT
+  database: DATA_LAKE__NCL
   schema: PHENOLAB_DEV
 feature_store:
-  database: DATA_LAB_OLIDS_UAT
+  database: DATA_LAKE__NCL
   schema: PHENOLAB_DEV
 measurement_configs:
-  database: DATA_LAB_OLIDS_UAT
+  database: DATA_LAKE__NCL
   schema: PHENOLAB_DEV
-gp_observation_table: DATA_LAB_OLIDS_UAT.JZ_DEV.STG_GP__OBSERVATION
-gp_concept_table: DATA_LAB_OLIDS_UAT.JZ_DEV.STG_GP__CONCEPT
-gp_concept_map_table: DATA_LAB_OLIDS_UAT.JZ_DEV.STG_GP__CONCEPT_MAP
-vocabulary_table: DATA_LAB_OLIDS_UAT.JZ_DEV.STG_CONCEPT__STATS
-sus_icd10_table: DATA_LAB_OLIDS_UAT.JZ_DEV.STG_SUS__APC_DIAGNOSIS_ICD10
-sus_opcs4_table: DATA_LAB_OLIDS_UAT.JZ_DEV.STG_SUS__APC_PROCEDURE_OPCS4
+gp_observation_table: DATA_LAKE__NCL.AIC_DEV.STG_GP__OBSERVATION
+gp_concept_table: DATA_LAKE__NCL.AIC_DEV.STG_GP__CONCEPT
+gp_concept_map_table: DATA_LAKE__NCL.AIC_DEV.STG_GP__CONCEPT_MAP
+vocabulary_table: DATA_LAKE__NCL.AIC_DEV.STG_CONCEPT__STATS
+sus_icd10_table: DATA_LAKE__NCL.AIC_DEV.STG_SUS__APC_DIAGNOSIS_ICD10
+sus_opcs4_table: DATA_LAKE__NCL.AIC_DEV.STG_SUS__APC_PROCEDURE_OPCS4

@@ -461,8 +461,11 @@ def display_configs_in_tables():
             AND STANDARD_UNIT != ''
         """).to_pandas()['MAPPED_COUNT'].iloc[0]
 
-    if not mapped_measurements:
+    if not mapped_measurements or pd.isna(mapped_measurements):
         mapped_measurements = 0
+
+    if not total_measurements or pd.isna(total_measurements):
+        total_measurements = 0
 
     # Display all statistics together
     # First row - configuration settings
@@ -545,6 +548,11 @@ def get_selected_config(selected_measurement: str):
         return
 
     if selected_measurement:
+        if selected_measurement not in config_options:
+            st.error(f"**{selected_measurement}** has not been configured with standard units and mappings yet. "
+                     "Please configure it in the **Create/Update configs** tab and upload to Snowflake.")
+            return
+
         config = config_options[selected_measurement]
 
         if not config.primary_standard_unit:

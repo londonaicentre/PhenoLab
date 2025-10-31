@@ -232,6 +232,150 @@
       "source_unit_lq": 2.3,
       "source_unit_median": 2.9454895735964457,
       "source_unit_uq": 3.664827678531586
+    },
+    {
+      "source_unit": "mmmol/L",
+      "standard_unit": "",
+      "source_unit_count": 309,
+      "source_unit_lq": 2.08,
+      "source_unit_median": 2.72,
+      "source_unit_uq": 3.5
+    },
+    {
+      "source_unit": "(Unknown)",
+      "standard_unit": "",
+      "source_unit_count": 58,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 1.9000000000000001,
+      "source_unit_uq": 3.4725
+    },
+    {
+      "source_unit": "UNKNOWN UNITS",
+      "standard_unit": "",
+      "source_unit_count": 7,
+      "source_unit_lq": 2.6,
+      "source_unit_median": 2.6,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "mmol/L [H]",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 3.2,
+      "source_unit_median": 3.3,
+      "source_unit_uq": 3.3499999999999996
+    },
+    {
+      "source_unit": "U/L",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 178.0,
+      "source_unit_median": 188.0,
+      "source_unit_uq": 198.0
+    },
+    {
+      "source_unit": "mg%",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 142.7,
+      "source_unit_median": 142.7,
+      "source_unit_uq": 142.7
+    },
+    {
+      "source_unit": "g/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.77,
+      "source_unit_median": 0.77,
+      "source_unit_uq": 0.77
+    },
+    {
+      "source_unit": "c",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 9.0,
+      "source_unit_median": 9.0,
+      "source_unit_uq": 9.0
+    },
+    {
+      "source_unit": "mg",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 106.0,
+      "source_unit_median": 106.0,
+      "source_unit_uq": 106.0
+    },
+    {
+      "source_unit": "mmol/L 1.0-3.0",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.9,
+      "source_unit_median": 4.9,
+      "source_unit_uq": 4.9
+    },
+    {
+      "source_unit": "u/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 457.0,
+      "source_unit_median": 457.0,
+      "source_unit_uq": 457.0
+    },
+    {
+      "source_unit": "mol/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.13,
+      "source_unit_median": 5.13,
+      "source_unit_uq": 5.13
+    },
+    {
+      "source_unit": "nmol/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.0,
+      "source_unit_median": 2.0,
+      "source_unit_uq": 2.0
+    },
+    {
+      "source_unit": "mmol/mol",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.14,
+      "source_unit_median": 1.14,
+      "source_unit_uq": 1.14
+    },
+    {
+      "source_unit": "umol/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.5,
+      "source_unit_median": 3.5,
+      "source_unit_uq": 3.5
+    },
+    {
+      "source_unit": "uL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 335.0,
+      "source_unit_median": 335.0,
+      "source_unit_uq": 335.0
+    },
+    {
+      "source_unit": "ng",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.3,
+      "source_unit_median": 2.3,
+      "source_unit_uq": 2.3
+    },
+    {
+      "source_unit": "{1-3]mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.5,
+      "source_unit_median": 1.5,
+      "source_unit_uq": 1.5
     }
   ],
   "unit_conversions": [
@@ -244,7 +388,7 @@
     }
   ],
   "created_datetime": "2025-07-16T11:41:09.975346",
-  "updated_datetime": "2025-08-18T11:49:38.297637",
+  "updated_datetime": "2025-10-12T15:46:25.329265",
   "standard_measurement_config_id": "70a41e1d",
-  "standard_measurement_config_version": "measurement_serum_low_density_lipoprotein_LDL_SNOMED_20250818_114938"
+  "standard_measurement_config_version": "measurement_serum_low_density_lipoprotein_LDL_SNOMED_20251012_154625"
 }

@@ -96,6 +96,22 @@
       "source_unit_lq": 4.5,
       "source_unit_median": 4.5,
       "source_unit_uq": 4.5
+    },
+    {
+      "source_unit": "L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 7.57,
+      "source_unit_median": 7.57,
+      "source_unit_uq": 7.57
+    },
+    {
+      "source_unit": "RA",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 99.0,
+      "source_unit_median": 99.0,
+      "source_unit_uq": 99.0
     }
   ],
   "unit_conversions": [
@@ -108,7 +124,7 @@
     }
   ],
   "created_datetime": "2025-08-18T15:28:55.724986",
-  "updated_datetime": "2025-08-18T15:37:22.372985",
+  "updated_datetime": "2025-10-12T15:47:54.452241",
   "standard_measurement_config_id": "1b1a92d7",
-  "standard_measurement_config_version": "measurement_arterial_oxygen_partial_pressure_SNOMED_20250818_153722"
+  "standard_measurement_config_version": "measurement_arterial_oxygen_partial_pressure_SNOMED_20251012_154754"
 }

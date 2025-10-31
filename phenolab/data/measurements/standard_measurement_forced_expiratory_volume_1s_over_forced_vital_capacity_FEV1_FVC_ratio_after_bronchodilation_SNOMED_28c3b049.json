@@ -63,11 +63,51 @@
       "source_unit_lq": 38.0,
       "source_unit_median": 38.0,
       "source_unit_uq": 38.0
+    },
+    {
+      "source_unit": "per cent",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 74.44999999999999,
+      "source_unit_median": 75.6,
+      "source_unit_uq": 75.6
+    },
+    {
+      "source_unit": "lit",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 83.0,
+      "source_unit_median": 83.0,
+      "source_unit_uq": 84.0
+    },
+    {
+      "source_unit": "L/min",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 10.675,
+      "source_unit_median": 19.55,
+      "source_unit_uq": 28.425
+    },
+    {
+      "source_unit": "litre",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.69,
+      "source_unit_median": 0.69,
+      "source_unit_uq": 0.69
+    },
+    {
+      "source_unit": "Ratio",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 45.0,
+      "source_unit_median": 45.0,
+      "source_unit_uq": 45.0
     }
   ],
   "unit_conversions": [],
   "created_datetime": "2025-08-18T10:03:51.303200",
-  "updated_datetime": "2025-08-18T11:25:16.766343",
+  "updated_datetime": "2025-10-12T15:48:03.242203",
   "standard_measurement_config_id": "28c3b049",
-  "standard_measurement_config_version": "measurement_forced_expiratory_volume_1s_over_forced_vital_capacity_FEV1_FVC_ratio_after_bronchodilation_SNOMED_20250818_112516"
+  "standard_measurement_config_version": "measurement_forced_expiratory_volume_1s_over_forced_vital_capacity_FEV1_FVC_ratio_after_bronchodilation_SNOMED_20251012_154803"
 }

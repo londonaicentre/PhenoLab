@@ -1,8 +1,5 @@
 urls:
   - "https://www.opencodelists.org/codelist/opensafely/hypertension-snomed/2020-04-28/"
-  - "https://www.opencodelists.org/codelist/nhsd-primary-care-domain-refsets/abpm_cod/20241205/"
-  - "https://www.opencodelists.org/codelist/opensafely/height-snomed/3b4a3891/"
-  - "https://www.opencodelists.org/codelist/opensafely/weight-snomed/5459abc6/"
   - "https://www.opencodelists.org/codelist/opensafely/stroke-snomed/2020-04-21/"
   - "https://www.opencodelists.org/codelist/opensafely/medication-reviews-all-types/69f99fda/"
   - "https://www.opencodelists.org/codelist/opensafely/symptoms-dizzy/5c7be00c/"

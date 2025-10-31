@@ -69,11 +69,27 @@
       "source_unit_lq": 0.0,
       "source_unit_median": 0.0,
       "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "mMol/l",
+      "standard_unit": "",
+      "source_unit_count": 43,
+      "source_unit_lq": 5.7,
+      "source_unit_median": 7.1,
+      "source_unit_uq": 10.15
+    },
+    {
+      "source_unit": "mmol/mol",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 8.7,
+      "source_unit_median": 8.7,
+      "source_unit_uq": 8.7
     }
   ],
   "unit_conversions": [],
   "created_datetime": "2025-08-19T15:26:50.086162",
-  "updated_datetime": "2025-08-19T15:27:41.607738",
+  "updated_datetime": "2025-10-12T15:50:47.678562",
   "standard_measurement_config_id": "770c4b99",
-  "standard_measurement_config_version": "measurement_oral_glucose_tolerance_test_result_SNOMED_20250819_152741"
+  "standard_measurement_config_version": "measurement_oral_glucose_tolerance_test_result_SNOMED_20251012_155047"
 }

@@ -23,11 +23,27 @@
       "source_unit_lq": 6.15,
       "source_unit_median": 6.3,
       "source_unit_uq": 6.449999999999999
+    },
+    {
+      "source_unit": "kPa",
+      "standard_unit": "",
+      "source_unit_count": 14,
+      "source_unit_lq": 4.75,
+      "source_unit_median": 5.145,
+      "source_unit_uq": 6.6525
+    },
+    {
+      "source_unit": "units",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 21.0,
+      "source_unit_median": 21.0,
+      "source_unit_uq": 21.0
     }
   ],
   "unit_conversions": [],
   "created_datetime": "2025-08-18T15:28:55.725354",
-  "updated_datetime": "2025-08-18T15:44:21.119037",
+  "updated_datetime": "2025-10-12T15:47:24.666382",
   "standard_measurement_config_id": "cc54f054",
-  "standard_measurement_config_version": "measurement_partial_pressure_carbon_dioxide_venous_blood_SNOMED_20250818_154421"
+  "standard_measurement_config_version": "measurement_partial_pressure_carbon_dioxide_venous_blood_SNOMED_20251012_154724"
 }

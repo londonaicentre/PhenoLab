@@ -61,11 +61,67 @@
       "source_unit_lq": 96.0,
       "source_unit_median": 96.0,
       "source_unit_uq": 96.0
+    },
+    {
+      "source_unit": "percent",
+      "standard_unit": "",
+      "source_unit_count": 11,
+      "source_unit_lq": 82.0,
+      "source_unit_median": 92.0,
+      "source_unit_uq": 105.0
+    },
+    {
+      "source_unit": "% of pred",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 103.0,
+      "source_unit_median": 105.5,
+      "source_unit_uq": 108.75
+    },
+    {
+      "source_unit": "ratio",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 78.25,
+      "source_unit_median": 93.5,
+      "source_unit_uq": 108.75
+    },
+    {
+      "source_unit": "Ratio",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 24.35,
+      "source_unit_median": 47.9,
+      "source_unit_uq": 71.45
+    },
+    {
+      "source_unit": "#T ( )/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 70.0,
+      "source_unit_median": 70.0,
+      "source_unit_uq": 70.0
+    },
+    {
+      "source_unit": "litre",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.3,
+      "source_unit_median": 4.3,
+      "source_unit_uq": 4.3
+    },
+    {
+      "source_unit": "/(hpf)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 86.0,
+      "source_unit_median": 86.0,
+      "source_unit_uq": 86.0
     }
   ],
   "unit_conversions": [],
   "created_datetime": "2025-08-18T13:40:12.424383",
-  "updated_datetime": "2025-08-18T13:40:40.610354",
+  "updated_datetime": "2025-10-12T15:51:31.229569",
   "standard_measurement_config_id": "a1430357",
-  "standard_measurement_config_version": "measurement_forced_vital_capacity_FVC_no_bronchodilation_percent_predicted_SNOMED_20250818_134040"
+  "standard_measurement_config_version": "measurement_forced_vital_capacity_FVC_no_bronchodilation_percent_predicted_SNOMED_20251012_155131"
 }

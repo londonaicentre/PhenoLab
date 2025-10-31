@@ -240,6 +240,134 @@
       "source_unit_lq": 0.94,
       "source_unit_median": 0.94,
       "source_unit_uq": 0.94
+    },
+    {
+      "source_unit": "/minute",
+      "standard_unit": "",
+      "source_unit_count": 31,
+      "source_unit_lq": 1.55,
+      "source_unit_median": 2.1,
+      "source_unit_uq": 2.35
+    },
+    {
+      "source_unit": "#G ( )/L",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 2.34,
+      "source_unit_median": 2.41,
+      "source_unit_uq": 3.26
+    },
+    {
+      "source_unit": "Ltrs.",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 2.01,
+      "source_unit_median": 2.01,
+      "source_unit_uq": 2.01
+    },
+    {
+      "source_unit": "/min",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.75,
+      "source_unit_median": 2.75,
+      "source_unit_uq": 2.75
+    },
+    {
+      "source_unit": "L/sec",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
+    },
+    {
+      "source_unit": "lit/min",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.58,
+      "source_unit_median": 2.58,
+      "source_unit_uq": 2.58
+    },
+    {
+      "source_unit": "kua/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.01,
+      "source_unit_median": 3.01,
+      "source_unit_uq": 3.01
+    },
+    {
+      "source_unit": "kU/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.22,
+      "source_unit_median": 2.22,
+      "source_unit_uq": 2.22
+    },
+    {
+      "source_unit": "#M ( )/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.57,
+      "source_unit_median": 0.57,
+      "source_unit_uq": 0.57
+    },
+    {
+      "source_unit": "Mls",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 650.0,
+      "source_unit_median": 650.0,
+      "source_unit_uq": 650.0
+    },
+    {
+      "source_unit": "N/A",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.44,
+      "source_unit_median": 3.44,
+      "source_unit_uq": 3.44
+    },
+    {
+      "source_unit": "L/Sec",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.79,
+      "source_unit_median": 5.79,
+      "source_unit_uq": 5.79
+    },
+    {
+      "source_unit": "Lt",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.44,
+      "source_unit_median": 2.44,
+      "source_unit_uq": 2.44
+    },
+    {
+      "source_unit": "kg/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.95,
+      "source_unit_median": 1.95,
+      "source_unit_uq": 1.95
+    },
+    {
+      "source_unit": "kPa",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.27,
+      "source_unit_median": 3.27,
+      "source_unit_uq": 3.27
+    },
+    {
+      "source_unit": "L/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.06,
+      "source_unit_median": 2.06,
+      "source_unit_uq": 2.06
     }
   ],
   "unit_conversions": [
@@ -252,7 +380,7 @@
     }
   ],
   "created_datetime": "2025-08-18T09:59:09.727890",
-  "updated_datetime": "2025-08-18T11:12:06.581080",
+  "updated_datetime": "2025-10-12T15:49:13.102162",
   "standard_measurement_config_id": "dab0f836",
-  "standard_measurement_config_version": "measurement_forced_expiratory_volume_1s_fev1_after_bronchodilation_SNOMED_20250818_111206"
+  "standard_measurement_config_version": "measurement_forced_expiratory_volume_1s_fev1_after_bronchodilation_SNOMED_20251012_154913"
 }

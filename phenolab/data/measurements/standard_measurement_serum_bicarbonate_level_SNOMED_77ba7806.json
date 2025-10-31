@@ -73,11 +73,83 @@
       "source_unit_lq": 20.0,
       "source_unit_median": 20.0,
       "source_unit_uq": 20.0
+    },
+    {
+      "source_unit": "units",
+      "standard_unit": "",
+      "source_unit_count": 6,
+      "source_unit_lq": 22.0,
+      "source_unit_median": 22.5,
+      "source_unit_uq": 23.75
+    },
+    {
+      "source_unit": "MMOLL",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 1.2,
+      "source_unit_median": 9.1,
+      "source_unit_uq": 17.0
+    },
+    {
+      "source_unit": "mmol/mol",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 26.5,
+      "source_unit_median": 27.0,
+      "source_unit_uq": 27.0
+    },
+    {
+      "source_unit": "kPa",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 6.8,
+      "source_unit_median": 6.8,
+      "source_unit_uq": 6.8
+    },
+    {
+      "source_unit": "ng/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1808.0,
+      "source_unit_median": 1808.0,
+      "source_unit_uq": 1808.0
+    },
+    {
+      "source_unit": "nmol/mmol",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 13.5,
+      "source_unit_median": 13.5,
+      "source_unit_uq": 13.5
+    },
+    {
+      "source_unit": "mmol/L [L]",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 21.0,
+      "source_unit_median": 21.0,
+      "source_unit_uq": 21.0
+    },
+    {
+      "source_unit": "L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 18.0,
+      "source_unit_median": 18.0,
+      "source_unit_uq": 18.0
+    },
+    {
+      "source_unit": "mmo/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 22.0,
+      "source_unit_median": 22.0,
+      "source_unit_uq": 22.0
     }
   ],
   "unit_conversions": [],
   "created_datetime": "2025-08-18T15:28:55.723196",
-  "updated_datetime": "2025-08-18T15:54:13.410562",
+  "updated_datetime": "2025-10-12T15:50:58.021188",
   "standard_measurement_config_id": "77ba7806",
-  "standard_measurement_config_version": "measurement_serum_bicarbonate_level_SNOMED_20250818_155413"
+  "standard_measurement_config_version": "measurement_serum_bicarbonate_level_SNOMED_20251012_155058"
 }

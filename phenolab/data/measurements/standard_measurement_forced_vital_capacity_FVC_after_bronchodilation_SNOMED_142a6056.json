@@ -152,6 +152,38 @@
       "source_unit_lq": 3.86,
       "source_unit_median": 3.86,
       "source_unit_uq": 3.86
+    },
+    {
+      "source_unit": "#T ( )/L",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 86.0,
+      "source_unit_median": 86.0,
+      "source_unit_uq": 86.0
+    },
+    {
+      "source_unit": "% predicted",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 51.0,
+      "source_unit_median": 51.0,
+      "source_unit_uq": 51.0
+    },
+    {
+      "source_unit": "lit/min",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.27,
+      "source_unit_median": 3.27,
+      "source_unit_uq": 3.27
+    },
+    {
+      "source_unit": "#G ( )/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.53,
+      "source_unit_median": 3.53,
+      "source_unit_uq": 3.53
     }
   ],
   "unit_conversions": [
@@ -164,7 +196,7 @@
     }
   ],
   "created_datetime": "2025-08-18T09:59:09.731106",
-  "updated_datetime": "2025-08-18T11:35:58.405958",
+  "updated_datetime": "2025-10-12T15:46:33.753816",
   "standard_measurement_config_id": "142a6056",
-  "standard_measurement_config_version": "measurement_forced_vital_capacity_FVC_after_bronchodilation_SNOMED_20250818_113558"
+  "standard_measurement_config_version": "measurement_forced_vital_capacity_FVC_after_bronchodilation_SNOMED_20251012_154633"
 }

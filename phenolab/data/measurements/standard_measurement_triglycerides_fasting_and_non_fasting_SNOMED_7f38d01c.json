@@ -290,6 +290,198 @@
       "source_unit_lq": 2.57,
       "source_unit_median": 2.57,
       "source_unit_uq": 2.57
+    },
+    {
+      "source_unit": "(Unknown)",
+      "standard_unit": "",
+      "source_unit_count": 64,
+      "source_unit_lq": 1.2825,
+      "source_unit_median": 1.56,
+      "source_unit_uq": 2.6325
+    },
+    {
+      "source_unit": "ratio",
+      "standard_unit": "",
+      "source_unit_count": 14,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "Serum fasting triglyceride level",
+      "standard_unit": "",
+      "source_unit_count": 11,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "H",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 5.9,
+      "source_unit_uq": 5.9
+    },
+    {
+      "source_unit": "umol/L",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 12.0,
+      "source_unit_median": 12.0,
+      "source_unit_uq": 12.0
+    },
+    {
+      "source_unit": "mg/DL",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 42.0,
+      "source_unit_median": 42.0,
+      "source_unit_uq": 42.0
+    },
+    {
+      "source_unit": "mU/L",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 4.31,
+      "source_unit_median": 6.739999999999999,
+      "source_unit_uq": 9.169999999999998
+    },
+    {
+      "source_unit": "mmmo",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.96,
+      "source_unit_median": 1.96,
+      "source_unit_uq": 1.96
+    },
+    {
+      "source_unit": "mg%",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 124.8,
+      "source_unit_median": 124.8,
+      "source_unit_uq": 124.8
+    },
+    {
+      "source_unit": "mmol/L [H]",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "mmo/",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.44,
+      "source_unit_median": 1.44,
+      "source_unit_uq": 1.44
+    },
+    {
+      "source_unit": "b",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.0,
+      "source_unit_median": 4.0,
+      "source_unit_uq": 4.0
+    },
+    {
+      "source_unit": "{ 0.5- 2 }mmol/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.1,
+      "source_unit_median": 1.1,
+      "source_unit_uq": 1.1
+    },
+    {
+      "source_unit": "ug/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.24,
+      "source_unit_median": 1.24,
+      "source_unit_uq": 1.24
+    },
+    {
+      "source_unit": "Normal",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.56,
+      "source_unit_median": 1.56,
+      "source_unit_uq": 1.56
+    },
+    {
+      "source_unit": "mol/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.32,
+      "source_unit_median": 3.32,
+      "source_unit_uq": 3.32
+    },
+    {
+      "source_unit": "mmol/24h",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.92,
+      "source_unit_median": 0.92,
+      "source_unit_uq": 0.92
+    },
+    {
+      "source_unit": "(H)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.5,
+      "source_unit_median": 2.5,
+      "source_unit_uq": 2.5
+    },
+    {
+      "source_unit": "ng/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "mmoll",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.84,
+      "source_unit_median": 0.84,
+      "source_unit_uq": 0.84
+    },
+    {
+      "source_unit": "mMOL/L",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.3,
+      "source_unit_median": 1.3,
+      "source_unit_uq": 1.3
+    },
+    {
+      "source_unit": "miu/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.42,
+      "source_unit_median": 1.42,
+      "source_unit_uq": 1.42
+    },
+    {
+      "source_unit": "mmol/L [L]",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 0.2,
+      "source_unit_median": 0.2,
+      "source_unit_uq": 0.2
+    },
+    {
+      "source_unit": "mcmol/l",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.5,
+      "source_unit_median": 1.5,
+      "source_unit_uq": 1.5
     }
   ],
   "unit_conversions": [
@@ -302,7 +494,7 @@
     }
   ],
   "created_datetime": "2025-08-19T15:26:50.081065",
-  "updated_datetime": "2025-08-19T16:03:05.635131",
+  "updated_datetime": "2025-10-12T15:50:06.468305",
   "standard_measurement_config_id": "7f38d01c",
-  "standard_measurement_config_version": "measurement_triglycerides_fasting_and_non_fasting_SNOMED_20250819_160305"
+  "standard_measurement_config_version": "measurement_triglycerides_fasting_and_non_fasting_SNOMED_20251012_155006"
 }

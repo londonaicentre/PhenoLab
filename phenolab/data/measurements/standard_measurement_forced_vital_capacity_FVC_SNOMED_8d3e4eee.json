@@ -400,6 +400,174 @@
       "source_unit_lq": 3140.0,
       "source_unit_median": 3140.0,
       "source_unit_uq": 3140.0
+    },
+    {
+      "source_unit": "liter",
+      "standard_unit": "",
+      "source_unit_count": 47,
+      "source_unit_lq": 0.8,
+      "source_unit_median": 1.1,
+      "source_unit_uq": 1.7000000000000002
+    },
+    {
+      "source_unit": "% predicted",
+      "standard_unit": "",
+      "source_unit_count": 19,
+      "source_unit_lq": 80.0,
+      "source_unit_median": 90.0,
+      "source_unit_uq": 111.0
+    },
+    {
+      "source_unit": "Litres/Sec",
+      "standard_unit": "",
+      "source_unit_count": 9,
+      "source_unit_lq": 2.9,
+      "source_unit_median": 2.9,
+      "source_unit_uq": 3.06
+    },
+    {
+      "source_unit": "#/[tot]",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 0.92,
+      "source_unit_median": 1.19,
+      "source_unit_uq": 1.24
+    },
+    {
+      "source_unit": "litre/sec",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 3.0275,
+      "source_unit_median": 3.9,
+      "source_unit_uq": 4.8100000000000005
+    },
+    {
+      "source_unit": "%%",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 42.0,
+      "source_unit_median": 42.0,
+      "source_unit_uq": 42.0
+    },
+    {
+      "source_unit": "L/Min",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.9375,
+      "source_unit_median": 2.035,
+      "source_unit_uq": 2.1325
+    },
+    {
+      "source_unit": "L/L",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 1.4725,
+      "source_unit_median": 1.665,
+      "source_unit_uq": 1.8575
+    },
+    {
+      "source_unit": "Ratio",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 0.6575,
+      "source_unit_median": 0.7050000000000001,
+      "source_unit_uq": 0.7525000000000001
+    },
+    {
+      "source_unit": "ng/l",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 264.0,
+      "source_unit_median": 264.0,
+      "source_unit_uq": 264.0
+    },
+    {
+      "source_unit": "Ltr",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.22,
+      "source_unit_median": 3.22,
+      "source_unit_uq": 3.22
+    },
+    {
+      "source_unit": "(bdsk u)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 110.0,
+      "source_unit_median": 110.0,
+      "source_unit_uq": 110.0
+    },
+    {
+      "source_unit": "PERCENT PREDICTED",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 78.0,
+      "source_unit_median": 78.0,
+      "source_unit_uq": 78.0
+    },
+    {
+      "source_unit": "lites",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.95,
+      "source_unit_median": 3.95,
+      "source_unit_uq": 3.95
+    },
+    {
+      "source_unit": "4.11",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 4.11,
+      "source_unit_median": 4.11,
+      "source_unit_uq": 4.11
+    },
+    {
+      "source_unit": "lt",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 5.2,
+      "source_unit_median": 5.2,
+      "source_unit_uq": 5.2
+    },
+    {
+      "source_unit": "CL",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 110.0,
+      "source_unit_median": 110.0,
+      "source_unit_uq": 110.0
+    },
+    {
+      "source_unit": "L/24h",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 2.09,
+      "source_unit_median": 2.09,
+      "source_unit_uq": 2.09
+    },
+    {
+      "source_unit": "lit/min",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.2,
+      "source_unit_median": 3.2,
+      "source_unit_uq": 3.2
+    },
+    {
+      "source_unit": "fg",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 39.0,
+      "source_unit_median": 39.0,
+      "source_unit_uq": 39.0
+    },
+    {
+      "source_unit": "Litre",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.4,
+      "source_unit_median": 1.4,
+      "source_unit_uq": 1.4
     }
   ],
   "unit_conversions": [
@@ -412,7 +580,7 @@
     }
   ],
   "created_datetime": "2025-08-18T09:59:09.733823",
-  "updated_datetime": "2025-08-18T11:28:52.783725",
+  "updated_datetime": "2025-10-12T15:49:45.237584",
   "standard_measurement_config_id": "8d3e4eee",
-  "standard_measurement_config_version": "measurement_forced_vital_capacity_FVC_SNOMED_20250818_112852"
+  "standard_measurement_config_version": "measurement_forced_vital_capacity_FVC_SNOMED_20251012_154945"
 }
