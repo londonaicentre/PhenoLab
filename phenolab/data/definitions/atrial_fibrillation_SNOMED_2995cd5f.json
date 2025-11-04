@@ -1,10 +1,10 @@
 {
   "definition_id": "2995cd5f",
   "definition_name": "atrial_fibrillation_SNOMED",
-  "definition_version": "atrial_fibrillation_SNOMED_20251101_121556",
+  "definition_version": "atrial_fibrillation_SNOMED_20251104_113156",
   "definition_source": "AICENTRE",
   "uploaded_datetime": "0001-01-01T00:00:00",
-  "version_datetime": "2025-11-01T12:15:56.707044",
+  "version_datetime": "2025-11-04T11:31:56.515456",
   "codelists": [
     {
       "codelist_id": "atrial_fibrillation_SNOMED_SNOMED_d9024d8f",
@@ -38,43 +38,8 @@
           "code_vocabulary": "SNOMED"
         },
         {
-          "code": "134377004",
-          "code_description": "Atrial fibrillation monitoring (regime/therapy)",
-          "code_vocabulary": "SNOMED"
-        },
-        {
           "code": "847611000000104",
           "code_description": "Atrial fibrillation care pathway (regime/therapy)",
-          "code_vocabulary": "SNOMED"
-        },
-        {
-          "code": "717221000000101",
-          "code_description": "Atrial fibrillation monitoring first letter (procedure)",
-          "code_vocabulary": "SNOMED"
-        },
-        {
-          "code": "711411000000101",
-          "code_description": "Atrial fibrillation monitoring invitation (procedure)",
-          "code_vocabulary": "SNOMED"
-        },
-        {
-          "code": "716721000000107",
-          "code_description": "Atrial fibrillation monitoring telephone invitation (procedure)",
-          "code_vocabulary": "SNOMED"
-        },
-        {
-          "code": "716981000000106",
-          "code_description": "Atrial fibrillation monitoring second letter (procedure)",
-          "code_vocabulary": "SNOMED"
-        },
-        {
-          "code": "716181000000109",
-          "code_description": "Atrial fibrillation monitoring third letter (procedure)",
-          "code_vocabulary": "SNOMED"
-        },
-        {
-          "code": "713801000000102",
-          "code_description": "Atrial fibrillation monitoring administration (record artifact)",
           "code_vocabulary": "SNOMED"
         },
         {
@@ -100,11 +65,6 @@
         {
           "code": "1066831000000104",
           "code_description": "Atrial fibrillation detected (finding)",
-          "code_vocabulary": "SNOMED"
-        },
-        {
-          "code": "717011000000100",
-          "code_description": "Atrial fibrillation monitoring verbal invitation (procedure)",
           "code_vocabulary": "SNOMED"
         },
         {
