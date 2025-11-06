@@ -11717,6 +11717,30 @@
       "source_unit_lq": 35.0,
       "source_unit_median": 35.0,
       "source_unit_uq": 35.0
+    },
+    {
+      "source_unit": "/every few months",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "/day?",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.0,
+      "source_unit_median": 1.0,
+      "source_unit_uq": 1.0
+    },
+    {
+      "source_unit": "roll-ups daily",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 3.0,
+      "source_unit_median": 3.0,
+      "source_unit_uq": 3.0
     }
   ],
   "unit_conversions": [
@@ -11757,7 +11781,7 @@
     }
   ],
   "created_datetime": "2025-08-18T13:40:12.437620",
-  "updated_datetime": "2025-10-12T15:51:20.186727",
+  "updated_datetime": "2025-11-06T16:58:44.664121",
   "standard_measurement_config_id": "9f36bd1d",
-  "standard_measurement_config_version": "measurement_amount_of_cigarette_tobacco_smoked_SNOMED_20251012_155120"
+  "standard_measurement_config_version": "measurement_amount_of_cigarette_tobacco_smoked_SNOMED_20251106_165844"
 }

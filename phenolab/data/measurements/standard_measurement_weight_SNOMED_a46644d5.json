@@ -1,0 +1,321 @@
+{
+  "definition_id": "675eacdb",
+  "definition_name": "measurement_weight_SNOMED",
+  "standard_units": [
+    "kg"
+  ],
+  "primary_standard_unit": "kg",
+  "lower_limit": null,
+  "upper_limit": 600.0,
+  "unit_mappings": [
+    {
+      "source_unit": "kg",
+      "standard_unit": "kg",
+      "source_unit_count": 12346658,
+      "source_unit_lq": 59.000000000000014,
+      "source_unit_median": 71.9757485194076,
+      "source_unit_uq": 86.69192996944571
+    },
+    {
+      "source_unit": "Kg",
+      "standard_unit": "kg",
+      "source_unit_count": 8758536,
+      "source_unit_lq": 60.000000000000014,
+      "source_unit_median": 72.5453839503044,
+      "source_unit_uq": 86.99975842061656
+    },
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "kg",
+      "source_unit_count": 124324,
+      "source_unit_lq": 63.0,
+      "source_unit_median": 75.0,
+      "source_unit_uq": 87.0
+    },
+    {
+      "source_unit": "Kgs",
+      "standard_unit": "kg",
+      "source_unit_count": 2397,
+      "source_unit_lq": 45.085,
+      "source_unit_median": 68.77222222222221,
+      "source_unit_uq": 80.84375
+    },
+    {
+      "source_unit": "%",
+      "standard_unit": "",
+      "source_unit_count": 1634,
+      "source_unit_lq": 25.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 75.0
+    },
+    {
+      "source_unit": "kilogram",
+      "standard_unit": "kg",
+      "source_unit_count": 972,
+      "source_unit_lq": 58.0,
+      "source_unit_median": 63.5,
+      "source_unit_uq": 71.0
+    },
+    {
+      "source_unit": "kgs",
+      "standard_unit": "kg",
+      "source_unit_count": 606,
+      "source_unit_lq": 59.0,
+      "source_unit_median": 71.0,
+      "source_unit_uq": 84.0
+    },
+    {
+      "source_unit": "Unk UoM",
+      "standard_unit": "",
+      "source_unit_count": 546,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 69.0,
+      "source_unit_uq": 88.05000000000001
+    },
+    {
+      "source_unit": "gm",
+      "standard_unit": "",
+      "source_unit_count": 71,
+      "source_unit_lq": 2862.5,
+      "source_unit_median": 3170.0,
+      "source_unit_uq": 3520.0
+    },
+    {
+      "source_unit": "cm",
+      "standard_unit": "",
+      "source_unit_count": 65,
+      "source_unit_lq": 69.0,
+      "source_unit_median": 145.7,
+      "source_unit_uq": 164.0
+    },
+    {
+      "source_unit": "g",
+      "standard_unit": "",
+      "source_unit_count": 32,
+      "source_unit_lq": 1833.75,
+      "source_unit_median": 2400.0,
+      "source_unit_uq": 3001.0
+    },
+    {
+      "source_unit": "stones",
+      "standard_unit": "",
+      "source_unit_count": 16,
+      "source_unit_lq": 8.665000000000001,
+      "source_unit_median": 9.725,
+      "source_unit_uq": 11.1
+    },
+    {
+      "source_unit": "mmhg",
+      "standard_unit": "",
+      "source_unit_count": 13,
+      "source_unit_lq": 66.5,
+      "source_unit_median": 75.1,
+      "source_unit_uq": 86.3
+    },
+    {
+      "source_unit": "KG",
+      "standard_unit": "kg",
+      "source_unit_count": 13,
+      "source_unit_lq": 35.3,
+      "source_unit_median": 41.5,
+      "source_unit_uq": 62.0
+    },
+    {
+      "source_unit": "mm/Hg",
+      "standard_unit": "",
+      "source_unit_count": 13,
+      "source_unit_lq": 110.0,
+      "source_unit_median": 120.0,
+      "source_unit_uq": 130.0
+    },
+    {
+      "source_unit": "kg/m2",
+      "standard_unit": "",
+      "source_unit_count": 13,
+      "source_unit_lq": 26.8,
+      "source_unit_median": 49.54,
+      "source_unit_uq": 92.35
+    },
+    {
+      "source_unit": "kilos",
+      "standard_unit": "kg",
+      "source_unit_count": 13,
+      "source_unit_lq": 4.48,
+      "source_unit_median": 5.5,
+      "source_unit_uq": 16.0
+    },
+    {
+      "source_unit": "kilograms",
+      "standard_unit": "kg",
+      "source_unit_count": 12,
+      "source_unit_lq": 14.55,
+      "source_unit_median": 39.3,
+      "source_unit_uq": 65.25
+    },
+    {
+      "source_unit": "kg.",
+      "standard_unit": "",
+      "source_unit_count": 10,
+      "source_unit_lq": 23.925,
+      "source_unit_median": 29.0,
+      "source_unit_uq": 31.575000000000003
+    },
+    {
+      "source_unit": "/min",
+      "standard_unit": "",
+      "source_unit_count": 9,
+      "source_unit_lq": 55.5,
+      "source_unit_median": 64.2,
+      "source_unit_uq": 90.0
+    },
+    {
+      "source_unit": "st",
+      "standard_unit": "",
+      "source_unit_count": 8,
+      "source_unit_lq": 13.0,
+      "source_unit_median": 13.0,
+      "source_unit_uq": 16.275
+    },
+    {
+      "source_unit": "m",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 1.665,
+      "source_unit_median": 1.725,
+      "source_unit_uq": 26.215
+    },
+    {
+      "source_unit": "O/E - weight NOS",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 0.0,
+      "source_unit_median": 0.0,
+      "source_unit_uq": 0.0
+    },
+    {
+      "source_unit": "ft",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 5.3825,
+      "source_unit_median": 5.545,
+      "source_unit_uq": 5.6025
+    },
+    {
+      "source_unit": "grams",
+      "standard_unit": "",
+      "source_unit_count": 4,
+      "source_unit_lq": 3440.0,
+      "source_unit_median": 4227.5,
+      "source_unit_uq": 4825.0
+    },
+    {
+      "source_unit": "Weight in Kg",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 54.0,
+      "source_unit_median": 58.0,
+      "source_unit_uq": 58.0
+    },
+    {
+      "source_unit": "g/l",
+      "standard_unit": "",
+      "source_unit_count": 3,
+      "source_unit_lq": 3437.5,
+      "source_unit_median": 3525.0,
+      "source_unit_uq": 3535.0
+    },
+    {
+      "source_unit": "decimal stones",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 3.5,
+      "source_unit_median": 3.5,
+      "source_unit_uq": 3.5
+    },
+    {
+      "source_unit": "beats/min",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 82.0,
+      "source_unit_median": 82.0,
+      "source_unit_uq": 82.0
+    },
+    {
+      "source_unit": "litres/minute",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 22.0,
+      "source_unit_median": 22.0,
+      "source_unit_uq": 22.0
+    },
+    {
+      "source_unit": "metres",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 53.0,
+      "source_unit_median": 53.0,
+      "source_unit_uq": 53.0
+    },
+    {
+      "source_unit": "lb",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 190.0,
+      "source_unit_median": 190.0,
+      "source_unit_uq": 190.0
+    },
+    {
+      "source_unit": "mmol/mol",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 68.1,
+      "source_unit_median": 68.1,
+      "source_unit_uq": 68.1
+    },
+    {
+      "source_unit": "Kilos",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 50.0,
+      "source_unit_median": 50.0,
+      "source_unit_uq": 50.0
+    },
+    {
+      "source_unit": "mmHg",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 137.0,
+      "source_unit_median": 137.0,
+      "source_unit_uq": 137.0
+    },
+    {
+      "source_unit": "EGTONWA2.0000008",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 97.0,
+      "source_unit_median": 97.0,
+      "source_unit_uq": 97.0
+    },
+    {
+      "source_unit": "0639",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 106.36,
+      "source_unit_median": 106.36,
+      "source_unit_uq": 106.36
+    },
+    {
+      "source_unit": "(Unknown)",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 22.0,
+      "source_unit_median": 22.0,
+      "source_unit_uq": 22.0
+    }
+  ],
+  "unit_conversions": [],
+  "created_datetime": "2025-11-06T16:44:46.119204",
+  "updated_datetime": "2025-11-06T17:00:41.969684",
+  "standard_measurement_config_id": "a46644d5",
+  "standard_measurement_config_version": "measurement_weight_SNOMED_20251106_170041"
+}
