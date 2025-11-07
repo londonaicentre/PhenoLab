@@ -1,0 +1,23 @@
+{
+  "definition_id": "e3f99e9e",
+  "definition_name": "home_or_long_term_oxygen_OPCS4",
+  "definition_version": "home_or_long_term_oxygen_OPCS4_20251107_220220",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-11-07T22:02:20.314558",
+  "codelists": [
+    {
+      "codelist_id": "home_or_long_term_oxygen_OPCS4_OPCS4_e01d088b",
+      "codelist_name": "home_or_long_term_oxygen_OPCS4_OPCS4",
+      "codelist_vocabulary": "OPCS4",
+      "codelist_version": "home_or_long_term_oxygen_OPCS4_OPCS4_e01d088b_20251107_220148",
+      "codes": [
+        {
+          "code": "E87.1",
+          "code_description": "Home oxygen support",
+          "code_vocabulary": "OPCS4"
+        }
+      ]
+    }
+  ]
+}

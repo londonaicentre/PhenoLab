@@ -1,0 +1,126 @@
+{
+  "definition_id": "988be7b5",
+  "definition_name": "right_heart_failure_and_cor_pulmonale_SNOMEDICD10",
+  "definition_version": "right_heart_failure_and_cor_pulmonale_SNOMEDICD10_20251107_215659",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-11-07T21:56:59.542647",
+  "codelists": [
+    {
+      "codelist_id": "right_heart_failure_and_cor_pulmonale_SNOMEDICD10_SNOMED_1f65cbd6",
+      "codelist_name": "right_heart_failure_and_cor_pulmonale_SNOMEDICD10_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "right_heart_failure_and_cor_pulmonale_SNOMEDICD10_SNOMED_1f65cbd6_20251107_215101",
+      "codes": [
+        {
+          "code": "128404006",
+          "code_description": "Right heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "23341000119109",
+          "code_description": "Congestive heart failure with right heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426012001",
+          "code_description": "Right heart failure due to pulmonary hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "44313006",
+          "code_description": "Right heart failure secondary to left heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "79955004",
+          "code_description": "Chronic cor pulmonale (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "49584005",
+          "code_description": "Acute cor pulmonale (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "83291003",
+          "code_description": "Cor pulmonale (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15964701000119109",
+          "code_description": "Acute cor pulmonale co-occurrent and due to saddle embolus of pulmonary artery (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15964661000119102",
+          "code_description": "Acute cor pulmonale due to septic pulmonary embolism (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "253522006",
+          "code_description": "Dilatation of right cardiac ventricle (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "473365008",
+          "code_description": "Dysfunction of right cardiac ventricle (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "367363000",
+          "code_description": "Right ventricular failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "416158002",
+          "code_description": "Right ventricular systolic dysfunction (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "281170005",
+          "code_description": "Arrhythmogenic right ventricular cardiomyopathy (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10335000",
+          "code_description": "Chronic right-sided heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "66989003",
+          "code_description": "Chronic right-sided congestive heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16838951000119100",
+          "code_description": "Acute on chronic right-sided congestive heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "359617009",
+          "code_description": "Acute right-sided heart failure (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    },
+    {
+      "codelist_id": "right_heart_failure_and_cor_pulmonale_SNOMEDICD10_ICD10_24470b06",
+      "codelist_name": "right_heart_failure_and_cor_pulmonale_SNOMEDICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "right_heart_failure_and_cor_pulmonale_SNOMEDICD10_ICD10_24470b06_20251107_215319",
+      "codes": [
+        {
+          "code": "I27.9",
+          "code_description": "Pulmonary heart disease, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I27.8",
+          "code_description": "Other specified pulmonary heart diseases",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}
