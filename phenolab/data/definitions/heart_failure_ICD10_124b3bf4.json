@@ -1,0 +1,43 @@
+{
+  "definition_id": "124b3bf4",
+  "definition_name": "heart_failure_ICD10",
+  "definition_version": "heart_failure_ICD10_20251101_121759",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-11-01T12:17:59.245527",
+  "codelists": [
+    {
+      "codelist_id": "heart_failure_ICD10_ICD10_a61852e4",
+      "codelist_name": "heart_failure_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "heart_failure_ICD10_ICD10_a61852e4_20251101_121323",
+      "codes": [
+        {
+          "code": "I50",
+          "code_description": "Heart failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I50.1",
+          "code_description": "Left ventricular failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I50.9",
+          "code_description": "Heart failure, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I50.0",
+          "code_description": "Congestive heart failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I13.0",
+          "code_description": "Hypertensive heart and renal disease with (congestive) heart failure",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

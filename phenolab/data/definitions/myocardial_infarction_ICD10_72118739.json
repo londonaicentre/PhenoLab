@@ -1,0 +1,53 @@
+{
+  "definition_id": "72118739",
+  "definition_name": "myocardial_infarction_ICD10",
+  "definition_version": "myocardial_infarction_ICD10_20251101_121909",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-11-01T12:19:09.999779",
+  "codelists": [
+    {
+      "codelist_id": "myocardial_infarction_ICD10_ICD10_23cee343",
+      "codelist_name": "myocardial_infarction_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "myocardial_infarction_ICD10_ICD10_23cee343_20251101_121849",
+      "codes": [
+        {
+          "code": "I21",
+          "code_description": "Acute myocardial infarction",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I21.3",
+          "code_description": "Acute transmural myocardial infarction of unspecified site",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I21.9",
+          "code_description": "Acute myocardial infarction, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I21.0",
+          "code_description": "Acute transmural myocardial infarction of anterior wall",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I21.1",
+          "code_description": "Acute transmural myocardial infarction of inferior wall",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I21.2",
+          "code_description": "Acute transmural myocardial infarction of other sites",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I21.4",
+          "code_description": "Acute subendocardial myocardial infarction",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

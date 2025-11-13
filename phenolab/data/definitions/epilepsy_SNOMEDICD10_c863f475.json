@@ -1,0 +1,1146 @@
+{
+  "definition_id": "c863f475",
+  "definition_name": "epilepsy_SNOMEDICD10",
+  "definition_version": "epilepsy_SNOMEDICD10_20251101_120127",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-11-01T12:01:27.975378",
+  "codelists": [
+    {
+      "codelist_id": "epilepsy_SNOMEDICD10_SNOMED_ce1171c6",
+      "codelist_name": "epilepsy_SNOMEDICD10_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "epilepsy_SNOMEDICD10_SNOMED_ce1171c6_20251101_115959",
+      "codes": [
+        {
+          "code": "1156803005",
+          "code_description": "Neonatal glycine encephalopathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1156826003",
+          "code_description": "Infantile glycine encephalopathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1163527006",
+          "code_description": "Epilepsy due to parasitic disease",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1163529009",
+          "code_description": "Epilepsy due to bacterial endocarditis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "116401000119105",
+          "code_description": "Recurrent complex partial epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1167371007",
+          "code_description": "Polyhydramnios, megalencephaly, symptomatic epilepsy syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1172627007",
+          "code_description": "Early-onset epilepsy, intellectual disability, brain anomalies syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1172630000",
+          "code_description": "Global developmental delay, neuro-ophthalmological abnormalities, seizures, intellectual disability syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1179360000",
+          "code_description": "Fetal epilepsy due to perinatal stroke",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1179547007",
+          "code_description": "Neonatal epilepsy due to perinatal stroke",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1187042007",
+          "code_description": "Early-onset seizures, distal limb anomalies, facial dysmorphism, global developmental delay syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1187278006",
+          "code_description": "Spastic paraplegia, severe developmental delay, epilepsy syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1197587003",
+          "code_description": "Lethal neonatal spasticity, epileptic encephalopathy syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1208939001",
+          "code_description": "Progressive myoclonic epilepsy type 7",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1220594007",
+          "code_description": "Pierpont syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "122601000000109",
+          "code_description": "Juvenile myoclonic epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1228857005",
+          "code_description": "Progressive myoclonic epilepsy type 9",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1230376005",
+          "code_description": "CNTNAP2-related developmental and epileptic encephalopathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1236807002",
+          "code_description": "Encephalopathy due to mitochondrial and peroxisomal fission defect",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1260117009",
+          "code_description": "Combined focal and generalised epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1260368003",
+          "code_description": "Epilepsy due to Rasmussen syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1260369006",
+          "code_description": "Epilepsy due to perinatal intraventricular haemorrhage",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1260370007",
+          "code_description": "Epilepsy due to perinatal periventricular haemorrhage",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1260371006",
+          "code_description": "Epilepsy due to perinatal cerebral ischaemia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1260374003",
+          "code_description": "Epilepsy due to congenital infectious disease",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1260375002",
+          "code_description": "Epilepsy due to glucose transporter protein type 1 deficiency syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1260377005",
+          "code_description": "Epilepsy due to congenital anomaly of brain",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1260407007",
+          "code_description": "Genetic generalised epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "127324008",
+          "code_description": "Myoclonic disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1275631007",
+          "code_description": "Developmental and epileptic encephalopathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "13973009",
+          "code_description": "Tonic-clonic status epilepticus",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "189198006",
+          "code_description": "Epileptic drop attack",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "192845009",
+          "code_description": "Myoclonic encephalopathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "192979009",
+          "code_description": "Generalised non-convulsive epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "192983009",
+          "code_description": "Juvenile absence epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "192990004",
+          "code_description": "Myoclonic epilepsy in infancy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "192992007",
+          "code_description": "Epileptic seizures - myoclonic",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "192999003",
+          "code_description": "Partial epilepsy with impairment of consciousness",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "193000002",
+          "code_description": "Temporal lobe epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "193002005",
+          "code_description": "Psychosensory epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "193003000",
+          "code_description": "Mesiobasal limbic epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "193004006",
+          "code_description": "Epileptic automatism",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "193008009",
+          "code_description": "Somatosensory epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "193009001",
+          "code_description": "Partial epilepsy with autonomic symptoms",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "193010006",
+          "code_description": "Visual reflex epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "193011005",
+          "code_description": "Unilateral epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "193021002",
+          "code_description": "Cursive (running) epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "193022009",
+          "code_description": "Localization-related(focal)(partial)idiopathic epilepsy and epileptic syndromes with seizures of localised onset",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "19598007",
+          "code_description": "Generalised epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "199451000000106",
+          "code_description": "Simple partial epileptic seizure",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230191005",
+          "code_description": "Rasmussen syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230381009",
+          "code_description": "Focal epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230387008",
+          "code_description": "Self-limited epilepsy with autonomic seizures",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230389006",
+          "code_description": "Primary inherited reading epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230390002",
+          "code_description": "Localisation-related symptomatic epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230391003",
+          "code_description": "Amygdalo-hippocampal epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230392005",
+          "code_description": "Rhinencephalic epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230393000",
+          "code_description": "Lateral temporal epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230394006",
+          "code_description": "Frontal lobe epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230395007",
+          "code_description": "Supplementary motor epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230396008",
+          "code_description": "Cingulate epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230397004",
+          "code_description": "Anterior frontopolar epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230398009",
+          "code_description": "Orbitofrontal epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230399001",
+          "code_description": "Dorsolateral epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230400008",
+          "code_description": "Opercular epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230401007",
+          "code_description": "Non-progressive Kozhevnikow syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230403005",
+          "code_description": "Parietal lobe epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230404004",
+          "code_description": "Occipital lobe epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230405003",
+          "code_description": "Chronic progressive epilepsia partialis continua of childhood",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230406002",
+          "code_description": "Localisation-related symptomatic epilepsy with specific precipitant",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230407006",
+          "code_description": "Hemiplegia-hemiconvulsion-epilepsy syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230408001",
+          "code_description": "Localisation-related cryptogenic epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230413002",
+          "code_description": "Juvenile absence epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230414008",
+          "code_description": "Epilepsy with generalised tonic-clonic seizures alone",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230415009",
+          "code_description": "Cryptogenic generalised epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230416005",
+          "code_description": "Cryptogenic West syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230417001",
+          "code_description": "Symptomatic West syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230418006",
+          "code_description": "Lennox-Gastaut syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230419003",
+          "code_description": "Cryptogenic Lennox-Gastaut syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230420009",
+          "code_description": "Symptomatic Lennox-Gastaut syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230421008",
+          "code_description": "Epilepsy with myoclonic-atonic seizures",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230422001",
+          "code_description": "Epilepsy with myoclonic absence",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230423006",
+          "code_description": "Unverricht-Lundborg syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230425004",
+          "code_description": "Lafora disease",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230426003",
+          "code_description": "Myoclonic epilepsy with ragged red fibres",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230427007",
+          "code_description": "Cryptogenic myoclonic epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230428002",
+          "code_description": "Idiopathic myoclonic epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230429005",
+          "code_description": "Early infantile epileptic encephalopathy with suppression bursts",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230430000",
+          "code_description": "Symptomatic myoclonic epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230435005",
+          "code_description": "Epilepsy undetermined whether focal or generalised",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230437002",
+          "code_description": "Severe myoclonic epilepsy in infancy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230439004",
+          "code_description": "Epilepsy with continuous spike wave during slow-wave sleep",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230440002",
+          "code_description": "Secondary reading epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230441003",
+          "code_description": "Drug-induced epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230443000",
+          "code_description": "Narcotic withdrawal epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230444006",
+          "code_description": "Menstrual epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230445007",
+          "code_description": "Nocturnal epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230448009",
+          "code_description": "Writing epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230450001",
+          "code_description": "Eating epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230452009",
+          "code_description": "Toothbrushing epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230453004",
+          "code_description": "Decision-making epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230454005",
+          "code_description": "Aquagenic epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230455006",
+          "code_description": "Self-induced non-photosensitive epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230456007",
+          "code_description": "Status epilepticus",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230457003",
+          "code_description": "Typical absence status epilepticus",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230458008",
+          "code_description": "Atypical absence status epilepticus",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230459000",
+          "code_description": "Non-convulsive simple partial status epilepticus",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "230460005",
+          "code_description": "Complex partial status epilepticus",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "241006",
+          "code_description": "Epilepsia partialis continua",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "267581004",
+          "code_description": "Progressive myoclonic epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "267592003",
+          "code_description": "Motor cortex epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "278510009",
+          "code_description": "Localisation-related idiopathic epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "28055006",
+          "code_description": "West syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "290741000119102",
+          "code_description": "Intractable idiopathic partial epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "290871000119101",
+          "code_description": "Infantile spasms co-occurrent with status epilepticus",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "291311000119108",
+          "code_description": "Status epilepticus in benign Rolandic epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "307356008",
+          "code_description": "Motor epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "307357004",
+          "code_description": "Jacksonian, focal or motor epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "322112361000132104",
+          "code_description": "Scar epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "352818000",
+          "code_description": "Tonic-clonic epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "35691006",
+          "code_description": "Combined deficiency of sialidase AND beta galactosidase",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "361123003",
+          "code_description": "Psychomotor epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "361268000",
+          "code_description": "Alcohol-induced epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "37356005",
+          "code_description": "Myoclonic seizure",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "380941000000104",
+          "code_description": "PEHO (progressive encephalopathy with oedema, hypsarrhythmia and optic atrophy) syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "407675009",
+          "code_description": "Focal onset impaired awareness epileptic seizure",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "40816002",
+          "code_description": "Retropulsion petit mal",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "413101007",
+          "code_description": "Stress-induced epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "434541000124109",
+          "code_description": "Benign childhood epilepsy with centrotemporal spikes, refractory",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "434551000124106",
+          "code_description": "Benign childhood epilepsy with centrotemporal spikes, non-refractory",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "44145005",
+          "code_description": "Self-limited epilepsy with centrotemporal spikes",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "442511009",
+          "code_description": "Progressive encephalopathy with oedema, hypsarrhythmia and optic atrophy syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "44423001",
+          "code_description": "Early myoclonic encephalopathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "491261000000105",
+          "code_description": "PEHO (progressive encephalopathy with oedema, hypsarrhythmia and optic atrophy) syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "50866000",
+          "code_description": "Childhood absence epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "509341000000107",
+          "code_description": "Petit-mal epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "527611000000103",
+          "code_description": "Childhood absence epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "6204001",
+          "code_description": "Juvenile myoclonic epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "65120008",
+          "code_description": "Generalised convulsive epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "698761003",
+          "code_description": "Refractory juvenile myoclonic epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "698762005",
+          "code_description": "Refractory myoclonic epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "698767004",
+          "code_description": "Post-cerebrovascular accident epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "702326000",
+          "code_description": "Progressive myoclonus epilepsy with ataxia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "716278005",
+          "code_description": "Epilepsy with eyelid myoclonia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "71831005",
+          "code_description": "Symptomatic generalised epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "725163002",
+          "code_description": "X-linked spasticity, intellectual disability, epilepsy syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "733082001",
+          "code_description": "Early-onset Lafora body disease",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "734434007",
+          "code_description": "Pyridoxine-dependent epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "75023009",
+          "code_description": "Post-traumatic epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "763349002",
+          "code_description": "Progressive myoclonic epilepsy with dystonia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "763534009",
+          "code_description": "Hot water reflex epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "763622006",
+          "code_description": "Thinking epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "763632004",
+          "code_description": "Startle epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "763802009",
+          "code_description": "Micturition induced epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "763827002",
+          "code_description": "Orgasm induced epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "764453009",
+          "code_description": "Action myoclonus renal failure syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "764522009",
+          "code_description": "Familial focal epilepsy with variable foci",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "765089003",
+          "code_description": "Focal epilepsy, intellectual disability, cerebro-cerebellar malformation syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "765093009",
+          "code_description": "Rolandic epilepsy, speech dyspraxia syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "765170001",
+          "code_description": "SCN8A-related epilepsy with encephalopathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "765216006",
+          "code_description": "Audiogenic epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "766815007",
+          "code_description": "Perioral myoclonia with absences",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "766932005",
+          "code_description": "Hypothalamic hamartoma with gelastic seizure",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "768666006",
+          "code_description": "STXBP1 encephalopathy with epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "770405003",
+          "code_description": "Familial mesial temporal lobe epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "770431001",
+          "code_description": "Early-onset epileptic encephalopathy and intellectual disability due to GRIN2A mutation",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "770560008",
+          "code_description": "Lissencephaly due to LIS1 mutation",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "770622009",
+          "code_description": "Benign infantile focal epilepsy with midline spikes and waves during sleep",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "770623004",
+          "code_description": "Benign occipital lobe epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "770624005",
+          "code_description": "Benign partial epilepsy of infancy with complex partial seizures",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "770643005",
+          "code_description": "Mesial temporal lobe epilepsy with hippocampal sclerosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "770678005",
+          "code_description": "Progressive encephalopathy with oedema, hypsarrhythmia, and optic atrophy-like syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "770758009",
+          "code_description": "New-onset refractory status epilepticus",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "771141002",
+          "code_description": "Benign partial epilepsy with secondarily generalised seizures in infancy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "771142009",
+          "code_description": "Cortical dysplasia with focal epilepsy syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "771223000",
+          "code_description": "Infantile epileptic dyskinetic encephalopathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "771303004",
+          "code_description": "Severe neonatal onset encephalopathy with microcephaly",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "771448004",
+          "code_description": "Autism epilepsy syndrome due to branched chain ketoacid dehydrogenase kinase deficiency",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "771469002",
+          "code_description": "Early-onset spastic ataxia, myoclonic epilepsy, neuropathy syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "773230003",
+          "code_description": "Cyclin-dependent kinase-like 5 deficiency",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "773421009",
+          "code_description": "Infantile-onset mesial temporal lobe epilepsy with severe cognitive regression",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "773497001",
+          "code_description": "Partial corpus callosum agenesis, cerebellar vermis hypoplasia with posterior fossa cysts syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "773548008",
+          "code_description": "Early-onset epileptic encephalopathy, cortical blindness, intellectual disability, facial dysmorphism syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "773643006",
+          "code_description": "Multiple congenital anomalies, hypotonia, seizures syndrome type 2",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "778001003",
+          "code_description": "KCNQ2-related epileptic encephalopathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "778047006",
+          "code_description": "Myoclonic epilepsy in non-progressive encephalopathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "778063003",
+          "code_description": "Cryptogenic late-onset epileptic spasms",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "782737003",
+          "code_description": "Diffuse cerebral and cerebellar atrophy, intractable seizures, progressive microcephaly syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "782744007",
+          "code_description": "Lipoic acid synthetase deficiency",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "783055005",
+          "code_description": "Progressive myoclonic epilepsy type 5",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "783062001",
+          "code_description": "Progressive myoclonic epilepsy type 6",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "783064000",
+          "code_description": "Progressive myoclonic epilepsy type 3",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "783139000",
+          "code_description": "Progressive myoclonic epilepsy type 8",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "783739005",
+          "code_description": "Familial temporal lobe epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "784342008",
+          "code_description": "Familial infantile myoclonic epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "784345005",
+          "code_description": "Malignant migrating partial seizures of infancy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "784372002",
+          "code_description": "Familial mesial temporal lobe epilepsy with febrile seizures",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "784377008",
+          "code_description": "Familial epilepsy with auditory features",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "785303004",
+          "code_description": "Multiple congenital anomalies, hypotonia, seizures syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "788417006",
+          "code_description": "Alopecia, epilepsy, intellectual disability syndrome Moynahan type",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "789063000",
+          "code_description": "Primary hyperaldosteronism, seizures, neurological abnormalities syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "79745005",
+          "code_description": "Reflex epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "80651009",
+          "code_description": "Aicardi's syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "84201000119105",
+          "code_description": "Intractable partial temporal lobe epilepsy with impairment of consciousness",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "84757009",
+          "code_description": "Epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "860804005",
+          "code_description": "Epilepsy due to infectious encephalitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "860806007",
+          "code_description": "Epilepsy due to infectious meningitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "860815000",
+          "code_description": "Epilepsy due to neonatal central nervous system infection",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "89525009",
+          "code_description": "Focal onset emotional epileptic seizure with laughing",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "95208000",
+          "code_description": "Photogenic epilepsy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "170702005",
+          "code_description": "Epilepsy monitoring (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "401062003",
+          "code_description": "Epilepsy medication review (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "840261000000103",
+          "code_description": "Epilepsy management plan given (situation)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    },
+    {
+      "codelist_id": "epilepsy_SNOMEDICD10_ICD10_f8e19b92",
+      "codelist_name": "epilepsy_SNOMEDICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "epilepsy_SNOMEDICD10_ICD10_f8e19b92_20251101_120037",
+      "codes": [
+        {
+          "code": "G40",
+          "code_description": "Epilepsy",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "G40.2",
+          "code_description": "Localization-related (focal)(partial) symptomatic epilepsy and epileptic syndromes with complex partial seizures",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "G40.4",
+          "code_description": "Other generalized epilepsy and epileptic syndromes",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "G40.0",
+          "code_description": "Localization-related (focal)(partial) idiopathic epilepsy and epileptic syndromes with seizures of localized onset",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "G40.6",
+          "code_description": "Grand mal seizures, unspecified (with or without petit mal)",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "G40.5",
+          "code_description": "Special epileptic syndromes",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "G40.8",
+          "code_description": "Other epilepsy",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "G40.1",
+          "code_description": "Localization-related (focal)(partial) symptomatic epilepsy and epileptic syndromes with simple partial seizures",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "G40.7",
+          "code_description": "Petit mal, unspecified, without grand mal seizures",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "G40.3",
+          "code_description": "Generalized idiopathic epilepsy and epileptic syndromes",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "G40.9",
+          "code_description": "Epilepsy, unspecified",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

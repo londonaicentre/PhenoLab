@@ -1,0 +1,23 @@
+{
+  "definition_id": "dab22cc4",
+  "definition_name": "measurement_predicted_forced_expiratory_volume_1s_fev1_SNOMED",
+  "definition_version": "measurement_predicted_forced_expiratory_volume_1s_fev1_SNOMED_20251107_220916",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-11-07T22:09:16.616382",
+  "codelists": [
+    {
+      "codelist_id": "measurement_predicted_forced_expiratory_volume_1s_fev1_SNOMED_SNOMED_737eeb7e",
+      "codelist_name": "measurement_predicted_forced_expiratory_volume_1s_fev1_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_predicted_forced_expiratory_volume_1s_fev1_SNOMED_SNOMED_737eeb7e_20251107_220848",
+      "codes": [
+        {
+          "code": "313223002",
+          "code_description": "Percent predicted forced expired volume in one second (observable entity)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

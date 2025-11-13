@@ -1,0 +1,188 @@
+{
+  "definition_id": "4a4fcc2d",
+  "definition_name": "chronic_liver_disease_ICD10",
+  "definition_version": "chronic_liver_disease_ICD10_20251101_123254",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-11-01T12:32:54.953746",
+  "codelists": [
+    {
+      "codelist_id": "chronic_liver_disease_ICD10_ICD10_ea45ffc0",
+      "codelist_name": "chronic_liver_disease_ICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "chronic_liver_disease_ICD10_ICD10_ea45ffc0_20251101_123122",
+      "codes": [
+        {
+          "code": "K70",
+          "code_description": "Alcoholic liver disease",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K70.0",
+          "code_description": "Alcoholic fatty liver",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K70.2",
+          "code_description": "Alcoholic fibrosis and sclerosis of liver",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K70.9",
+          "code_description": "Alcoholic liver disease, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K70.3",
+          "code_description": "Alcoholic cirrhosis of liver",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K70.1",
+          "code_description": "Alcoholic hepatitis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K70.4",
+          "code_description": "Alcoholic hepatic failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K72",
+          "code_description": "Hepatic failure, not elsewhere classified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K72.9",
+          "code_description": "Hepatic failure, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K72.1",
+          "code_description": "Chronic hepatic failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K72.0",
+          "code_description": "Acute and subacute hepatic failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K73",
+          "code_description": "Chronic hepatitis, not elsewhere classified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K73.2",
+          "code_description": "Chronic active hepatitis, not elsewhere classified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K73.1",
+          "code_description": "Chronic lobular hepatitis, not elsewhere classified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K73.0",
+          "code_description": "Chronic persistent hepatitis, not elsewhere classified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K73.9",
+          "code_description": "Chronic hepatitis, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K73.8",
+          "code_description": "Other chronic hepatitis, not elsewhere classified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K74.0",
+          "code_description": "Hepatic fibrosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K74.6",
+          "code_description": "Other and unspecified cirrhosis of liver",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K74.3",
+          "code_description": "Primary biliary cirrhosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K74.5",
+          "code_description": "Biliary cirrhosis, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K74.4",
+          "code_description": "Secondary biliary cirrhosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K74.1",
+          "code_description": "Hepatic sclerosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K75.2",
+          "code_description": "Nonspecific reactive hepatitis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K75.3",
+          "code_description": "Granulomatous hepatitis, not elsewhere classified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K75.9",
+          "code_description": "Inflammatory liver disease, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K75.0",
+          "code_description": "Abscess of liver",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K75.8",
+          "code_description": "Other specified inflammatory liver diseases",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K75.4",
+          "code_description": "Autoimmune hepatitis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K76.7",
+          "code_description": "Hepatorenal syndrome",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K76.1",
+          "code_description": "Chronic passive congestion of liver",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K76.9",
+          "code_description": "Liver disease, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K76.8",
+          "code_description": "Other specified diseases of liver",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K76.6",
+          "code_description": "Portal hypertension",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

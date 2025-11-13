@@ -1,0 +1,186 @@
+{
+  "definition_id": "ad34c741",
+  "definition_name": "measurement_height_SNOMED",
+  "standard_units": [
+    "cm",
+    "m"
+  ],
+  "primary_standard_unit": "cm",
+  "lower_limit": null,
+  "upper_limit": 280.0,
+  "unit_mappings": [
+    {
+      "source_unit": "cm",
+      "standard_unit": "cm",
+      "source_unit_count": 13165897,
+      "source_unit_lq": 159.0000000000001,
+      "source_unit_median": 166.6775651818478,
+      "source_unit_uq": 174.00000000000017
+    },
+    {
+      "source_unit": "m",
+      "standard_unit": "m",
+      "source_unit_count": 155584,
+      "source_unit_lq": 1.5900000000000003,
+      "source_unit_median": 1.67,
+      "source_unit_uq": 1.7499999999999993
+    },
+    {
+      "source_unit": "No Unit",
+      "standard_unit": "cm",
+      "source_unit_count": 120150,
+      "source_unit_lq": 159.00738216145834,
+      "source_unit_median": 165.953444474529,
+      "source_unit_uq": 172.7
+    },
+    {
+      "source_unit": "cms",
+      "standard_unit": "cm",
+      "source_unit_count": 11148,
+      "source_unit_lq": 156.99999999999994,
+      "source_unit_median": 167.00000000000003,
+      "source_unit_uq": 175.99999999999997
+    },
+    {
+      "source_unit": "CM",
+      "standard_unit": "cm",
+      "source_unit_count": 3154,
+      "source_unit_lq": 157.5,
+      "source_unit_median": 166.0,
+      "source_unit_uq": 174.0
+    },
+    {
+      "source_unit": "centimeter",
+      "standard_unit": "cm",
+      "source_unit_count": 1666,
+      "source_unit_lq": 161.0625,
+      "source_unit_median": 165.0,
+      "source_unit_uq": 170.0
+    },
+    {
+      "source_unit": "metres",
+      "standard_unit": "m",
+      "source_unit_count": 309,
+      "source_unit_lq": 1.6,
+      "source_unit_median": 1.66,
+      "source_unit_uq": 1.75
+    },
+    {
+      "source_unit": "kg",
+      "standard_unit": "",
+      "source_unit_count": 236,
+      "source_unit_lq": 103.875,
+      "source_unit_median": 158.3,
+      "source_unit_uq": 167.125
+    },
+    {
+      "source_unit": "Centimeter",
+      "standard_unit": "cm",
+      "source_unit_count": 101,
+      "source_unit_lq": 160.0,
+      "source_unit_median": 165.0,
+      "source_unit_uq": 170.0
+    },
+    {
+      "source_unit": "Kgs",
+      "standard_unit": "",
+      "source_unit_count": 21,
+      "source_unit_lq": 85.0,
+      "source_unit_median": 147.0,
+      "source_unit_uq": 164.0
+    },
+    {
+      "source_unit": "ft",
+      "standard_unit": "",
+      "source_unit_count": 18,
+      "source_unit_lq": 5.265,
+      "source_unit_median": 5.415,
+      "source_unit_uq": 5.58
+    },
+    {
+      "source_unit": "Cm",
+      "standard_unit": "cm",
+      "source_unit_count": 9,
+      "source_unit_lq": 132.0,
+      "source_unit_median": 132.0,
+      "source_unit_uq": 132.0
+    },
+    {
+      "source_unit": "M",
+      "standard_unit": "",
+      "source_unit_count": 7,
+      "source_unit_lq": 1.165,
+      "source_unit_median": 1.19,
+      "source_unit_uq": 1.65
+    },
+    {
+      "source_unit": "kg/m2",
+      "standard_unit": "",
+      "source_unit_count": 5,
+      "source_unit_lq": 1.78,
+      "source_unit_median": 57.0,
+      "source_unit_uq": 133.0
+    },
+    {
+      "source_unit": "/min",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 150.25,
+      "source_unit_median": 157.5,
+      "source_unit_uq": 164.75
+    },
+    {
+      "source_unit": "1243",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 167.2,
+      "source_unit_median": 167.2,
+      "source_unit_uq": 167.2
+    },
+    {
+      "source_unit": "mm/Hg",
+      "standard_unit": "",
+      "source_unit_count": 2,
+      "source_unit_lq": 115.0,
+      "source_unit_median": 120.0,
+      "source_unit_uq": 125.0
+    },
+    {
+      "source_unit": "169.5cm",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.695,
+      "source_unit_median": 1.695,
+      "source_unit_uq": 1.695
+    },
+    {
+      "source_unit": "mM/M",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 1.8,
+      "source_unit_median": 1.8,
+      "source_unit_uq": 1.8
+    },
+    {
+      "source_unit": "mmHg",
+      "standard_unit": "",
+      "source_unit_count": 1,
+      "source_unit_lq": 107.0,
+      "source_unit_median": 107.0,
+      "source_unit_uq": 107.0
+    }
+  ],
+  "unit_conversions": [
+    {
+      "convert_from_unit": "m",
+      "convert_to_unit": "cm",
+      "pre_offset": 0.0,
+      "multiply_by": 100.0,
+      "post_offset": 0.0
+    }
+  ],
+  "created_datetime": "2025-11-06T16:44:46.119473",
+  "updated_datetime": "2025-11-06T16:53:00.875495",
+  "standard_measurement_config_id": "8a92b227",
+  "standard_measurement_config_version": "measurement_height_SNOMED_20251106_165300"
+}
