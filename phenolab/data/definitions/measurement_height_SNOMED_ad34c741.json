@@ -1,0 +1,43 @@
+{
+  "definition_id": "ad34c741",
+  "definition_name": "measurement_height_SNOMED",
+  "definition_version": "measurement_height_SNOMED_20251106_164343",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-11-06T16:43:43.234457",
+  "codelists": [
+    {
+      "codelist_id": "measurement_height_SNOMED_SNOMED_d65b5e81",
+      "codelist_name": "measurement_height_SNOMED_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "measurement_height_SNOMED_SNOMED_d65b5e81_20251106_164314",
+      "codes": [
+        {
+          "code": "162755006",
+          "code_description": "On examination - height (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "248333004",
+          "code_description": "Standing height (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "50373000",
+          "code_description": "Body height measure (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "54871000237100",
+          "code_description": "Patient height (observable entity)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1162419008",
+          "code_description": "Self reported body height (observable entity)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1236 @@
+{
+  "definition_id": "b2261f52",
+  "definition_name": "chronic_liver_disease_SNOMEDICD10",
+  "definition_version": "chronic_liver_disease_SNOMEDICD10_20251106_163901",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-11-06T16:39:01.976020",
+  "codelists": [
+    {
+      "codelist_id": "chronic_liver_disease_SNOMEDICD10_SNOMED_133a438a",
+      "codelist_name": "chronic_liver_disease_SNOMEDICD10_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "chronic_liver_disease_SNOMEDICD10_SNOMED_133a438a_20251106_163326",
+      "codes": [
+        {
+          "code": "1003567000",
+          "code_description": "Agenesis of bile duct",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10295004",
+          "code_description": "Chronic viral hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1116000",
+          "code_description": "Chronic aggressive type B viral hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1155841005",
+          "code_description": "Progressive familial intrahepatic cholestasis type 2",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1155913007",
+          "code_description": "Progressive familial intrahepatic cholestasis type 1",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1156870007",
+          "code_description": "Absence of liver",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1186865008",
+          "code_description": "Progressive familial intrahepatic cholestasis type 3",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1197150002",
+          "code_description": "Recurrent hepatitis C virus induced liver disease following liver transplant",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1197694007",
+          "code_description": "Bleeding oesophageal varices due to toxic liver disease",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1197696009",
+          "code_description": "Bleeding oesophageal varices due to hepatic fibrosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1197697000",
+          "code_description": "Oesophageal varices with bleeding due to primary biliary cholangitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1197698005",
+          "code_description": "Bleeding oesophageal varices due to alcoholic liver disease",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1197700001",
+          "code_description": "Bleeding oesophageal varices due to autoimmune hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1197704005",
+          "code_description": "Autoantibody negative autoimmune hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1197736003",
+          "code_description": "Chronic hepatic failure due to portosystemic shunt",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12224501000119108",
+          "code_description": "Infection of liver transplant",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1230291009",
+          "code_description": "Primary biliary cholangitis and/or primary sclerosing cholangitis and autoimmune hepatitis overlap syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1230342001",
+          "code_description": "Hepatitis B reinfection following liver transplantation",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1234778004",
+          "code_description": "Alcoholic steatohepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1259465009",
+          "code_description": "Dementia due to hepatic failure",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1263507006",
+          "code_description": "Myoclonic disorder due to hepatic failure",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1268390002",
+          "code_description": "Metastatic undifferentiated carcinoma to liver and intrahepatic biliary tract",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "128302006",
+          "code_description": "Chronic hepatitis C",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1287007",
+          "code_description": "Congenital absence of bile duct",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16098491000119109",
+          "code_description": "Chronic autoimmune hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "161671001",
+          "code_description": "H/O: liver recipient",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16623921000119105",
+          "code_description": "Viral hepatitis C in mother during pregnancy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16859701000119109",
+          "code_description": "Chronic hepatitis B during pregnancy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "174425003",
+          "code_description": "Orthotopic liver transplant",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "174426002",
+          "code_description": "Heterotopic liver transplant",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "174427006",
+          "code_description": "Replacement of previous liver transplant",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "18027006",
+          "code_description": "Transplantation of liver",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "186639003",
+          "code_description": "Chronic viral hepatitis B without delta-agent",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "19682006",
+          "code_description": "Lupus hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197279005",
+          "code_description": "Cirrhosis and chronic liver disease",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197284004",
+          "code_description": "Chronic active hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197286002",
+          "code_description": "Recurrent hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197359004",
+          "code_description": "Toxic liver disease with chronic persistent hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197360009",
+          "code_description": "Toxic liver disease with chronic lobular hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197361008",
+          "code_description": "Toxic liver disease with chronic active hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "204781002",
+          "code_description": "Congenital absence of hepatic ducts",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "204782009",
+          "code_description": "Atresia of hepatic ducts",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "213153001",
+          "code_description": "Liver transplant failure and rejection",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "235458006",
+          "code_description": "Exploration of liver transplant",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "235869004",
+          "code_description": "Chronic viral hepatitis B with hepatitis D",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "235870003",
+          "code_description": "Chronic non-A non-B hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "235886005",
+          "code_description": "Chronic hepatic failure",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "235889003",
+          "code_description": "Drug-induced chronic hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "235899008",
+          "code_description": "Hepatic sclerosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "235901004",
+          "code_description": "Hepatic fibrosis with hepatic sclerosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "235902006",
+          "code_description": "Intrahepatic phlebosclerosis and fibrosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "235910007",
+          "code_description": "Liver transplant disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "235911006",
+          "code_description": "Liver transplant rejection",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "235912004",
+          "code_description": "Liver transplant failure",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "235916001",
+          "code_description": "Ichthyosis congenita with biliary atresia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "253807009",
+          "code_description": "Intrahepatic biliary atresia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "27280000",
+          "code_description": "Liver transplant with recipient hepatectomy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "28009009",
+          "code_description": "Liver transplant without recipient hepatectomy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "307757001",
+          "code_description": "Chronic alcoholic hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "31155007",
+          "code_description": "Benign recurrent intrahepatic cholestasis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "314963000",
+          "code_description": "Local recurrence of malignant tumour of liver",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "31712002",
+          "code_description": "Primary biliary cholangitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "328383001",
+          "code_description": "Chronic liver disease",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "33167004",
+          "code_description": "Complication of transplanted liver",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "34736002",
+          "code_description": "Chronic passive congestion of liver",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "38662009",
+          "code_description": "Chronic persistent type B viral hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "408335007",
+          "code_description": "Autoimmune hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "41889008",
+          "code_description": "Chronic persistent hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426356008",
+          "code_description": "Orthotopic transplantation of whole liver",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "431222008",
+          "code_description": "Acute rejection of liver transplant",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "432772009",
+          "code_description": "Hyperacute rejection of liver transplant",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "432777003",
+          "code_description": "Accelerated rejection of liver transplant",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "432908002",
+          "code_description": "Chronic rejection of liver transplant",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "450880008",
+          "code_description": "Chronic hepatitis E",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "50167007",
+          "code_description": "Chronic active type B viral hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "57339008",
+          "code_description": "Chronic lobular hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "60037002",
+          "code_description": "Chronic persistent viral hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "61977001",
+          "code_description": "Chronic type B viral hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "66870002",
+          "code_description": "Chronic active viral hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "702969000",
+          "code_description": "Reactivation of hepatitis C viral hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "703866000",
+          "code_description": "Chronic hepatitis C with stage 2 fibrosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "708198006",
+          "code_description": "Chronic active hepatitis C",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "713181003",
+          "code_description": "Chronic alcoholic liver disease",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "713966008",
+          "code_description": "Occult chronic type B viral hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "717156002",
+          "code_description": "Biliary atresia with splenic malformation syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "721711009",
+          "code_description": "Autoimmune hepatitis type 1",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "721712002",
+          "code_description": "Autoimmune hepatitis type 2",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "721713007",
+          "code_description": "Autoimmune hepatitis type 3",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "73475009",
+          "code_description": "Hepatogenous chronic copper poisoning",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "735451005",
+          "code_description": "Chronic viral hepatitis D",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "735732003",
+          "code_description": "Liver disease co-occurrent and due to mitochondrial disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "737297006",
+          "code_description": "Transplanted liver present",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "74162007",
+          "code_description": "Progressive intrahepatic cholestasis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "765482002",
+          "code_description": "Alcoholic steatohepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "767809001",
+          "code_description": "Chronic hepatitis C caused by hepatitis C virus genotype 6",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "767810006",
+          "code_description": "Chronic hepatitis C caused by hepatitis C virus genotype 5",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "76783007",
+          "code_description": "Chronic hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "768006009",
+          "code_description": "Chronic hepatitis C caused by Hepatitis C virus genotype 3",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "768125005",
+          "code_description": "Chronic hepatitis C caused by Hepatitis C virus genotype 2",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "768126006",
+          "code_description": "Chronic hepatitis C caused by Hepatitis C virus genotype 4",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "768127002",
+          "code_description": "Chronic hepatitis C caused by Hepatitis C virus genotype 1",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "768288001",
+          "code_description": "Chronic hepatitis C caused by Hepatitis C virus genotype 1b",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "768289009",
+          "code_description": "Chronic hepatitis C caused by Hepatitis C virus genotype 1a",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "774204006",
+          "code_description": "Growth retardation, mild developmental delay, chronic hepatitis syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "77480004",
+          "code_description": "Congenital biliary atresia",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "79720007",
+          "code_description": "Chronic nonalcoholic liver disease",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "81675001",
+          "code_description": "Chronic yellow atrophy of liver",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "818951009",
+          "code_description": "Congenital respiratory biliary fistula",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82611000000107",
+          "code_description": "Hepatitis C screening - infected with hepatitis C virus",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "82821008",
+          "code_description": "Congenital atresia of extrahepatic bile duct",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "838377003",
+          "code_description": "Chronic hepatitis C co-occurrent with human immunodeficiency virus infection",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "838380002",
+          "code_description": "Chronic hepatitis B co-occurrent with hepatitis C and hepatitis D",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "853761000000103",
+          "code_description": "Living donor liver transplantation",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "863957008",
+          "code_description": "Chronic necrosis of liver",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "890201000",
+          "code_description": "Congenital absence of cystic duct",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "89789003",
+          "code_description": "Chronic aggressive viral hepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "9843006",
+          "code_description": "Chronic lymphocytic cholangitis-cholangiohepatitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1010616001",
+          "code_description": "Liver cirrhosis due to classical cystic fibrosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "103611000119102",
+          "code_description": "Cirrhosis of liver due to hepatitis B",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "10690671000119109",
+          "code_description": "Stage 3 hepatic fibrosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1082601000119104",
+          "code_description": "Ascites due to alcoholic cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1092801000119102",
+          "code_description": "Hepatic ascites co-occurrent with chronic active hepatitis due to toxic liver disease",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "109819003",
+          "code_description": "Obstructive biliary cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "111370006",
+          "code_description": "Cirrhosis of liver not due to alcohol",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "123604002",
+          "code_description": "Toxic cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "123605001",
+          "code_description": "Nutritional cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "123606000",
+          "code_description": "Cholangiolitic cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "12368000",
+          "code_description": "Secondary biliary cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "123716002",
+          "code_description": "Latent cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "123717006",
+          "code_description": "Advanced cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "128072003",
+          "code_description": "Acquired portal-systemic shunt due to cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "15999000",
+          "code_description": "Mixed micro and macronodular cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16070004",
+          "code_description": "Syphilitic cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1761006",
+          "code_description": "Biliary cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197291001",
+          "code_description": "Unilobular portal cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197293003",
+          "code_description": "Diffuse nodular cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197294009",
+          "code_description": "Fatty portal cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197296006",
+          "code_description": "Capsular portal cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197299004",
+          "code_description": "Pigmentary portal cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197301006",
+          "code_description": "Toxic portal cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197303009",
+          "code_description": "Bacterial portal cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197305002",
+          "code_description": "Syphilitic portal cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197306001",
+          "code_description": "Zooparasitic portal cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197310003",
+          "code_description": "Biliary cirrhosis of children",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197362001",
+          "code_description": "Toxic liver disease with fibrosis and cirrhosis of liver",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197553002",
+          "code_description": "[X]Other and unspecified cirrhosis of liver",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "19943007",
+          "code_description": "Cirrhosis of liver",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "21861000",
+          "code_description": "Micronodular cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "235894003",
+          "code_description": "Portal cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "235895002",
+          "code_description": "Laennec's cirrhosis, non-alcoholic",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "235896001",
+          "code_description": "Infectious cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "235897005",
+          "code_description": "Hypoxia-associated cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266468003",
+          "code_description": "Cirrhosis - non-alcoholic",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266469006",
+          "code_description": "Multilobular portal cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266470007",
+          "code_description": "Cardiac portal cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266471006",
+          "code_description": "Juvenile portal cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "271440004",
+          "code_description": "Cirrhosis secondary to cholestasis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "27156006",
+          "code_description": "Posthepatitic cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "308129003",
+          "code_description": "Oesophageal varices in cirrhosis of the liver",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "309783001",
+          "code_description": "Oesophageal varices in alcoholic cirrhosis of the liver",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "33144001",
+          "code_description": "Parasitic cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "347891000119103",
+          "code_description": "Chronic hepatitis C with stage 3 fibrosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "371139006",
+          "code_description": "Early cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "37688005",
+          "code_description": "Clonorchiasis with biliary cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "419728003",
+          "code_description": "Portal cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "420054005",
+          "code_description": "Alcoholic cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "425413006",
+          "code_description": "Drug-induced cirrhosis of liver",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "43904005",
+          "code_description": "Macronodular cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "45256007",
+          "code_description": "Cruveilhier-Baumgarten syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "470971000000107",
+          "code_description": "[X]Other and unspecified cirrhosis of liver",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "536002",
+          "code_description": "Glissonian cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "589541000000101",
+          "code_description": "Infectious cirrhosis NOS",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "589551000000103",
+          "code_description": "Portal cirrhosis unspecified",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "589561000000100",
+          "code_description": "Biliary cirrhosis NOS",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "6183001",
+          "code_description": "Indian childhood cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "662341000000105",
+          "code_description": "Cirrhosis of liver NOS",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "671731000000104",
+          "code_description": "Non-alcoholic cirrhosis NOS",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "699189004",
+          "code_description": "North American Indian childhood cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "702377007",
+          "code_description": "Hypermanganesemia with dystonia, polycythaemia, and cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "708248004",
+          "code_description": "End stage liver disease",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "710065009",
+          "code_description": "Child-Pugh score class A",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "710066005",
+          "code_description": "Child-Pugh score class B",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "710067001",
+          "code_description": "Child-Pugh score class C",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "715401008",
+          "code_description": "Reynolds syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "715864007",
+          "code_description": "Idiopathic copper associated cirrhosis of liver",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "716203000",
+          "code_description": "Decompensated cirrhosis of liver",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "725416005",
+          "code_description": "Cirrhotic cardiomyopathy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "725938001",
+          "code_description": "Cirrhosis of liver caused by methotrexate",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "725939009",
+          "code_description": "Cirrhosis of liver caused by amiodarone",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "725940006",
+          "code_description": "Cirrhosis of liver caused by methyldopa",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "735733008",
+          "code_description": "Cirrhosis of liver with primary sclerosing cholangitis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "74669004",
+          "code_description": "Cardiac cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "76301009",
+          "code_description": "Florid cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "776981000000103",
+          "code_description": "Cirrhosis associated with cystic fibrosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "778131000000103",
+          "code_description": "Cystic fibrosis related cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "78208005",
+          "code_description": "Pigment cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "831000119103",
+          "code_description": "Cirrhosis of liver due to chronic hepatitis C",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "86454000",
+          "code_description": "Postnecrotic cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "871619002",
+          "code_description": "Cirrhosis of liver due to and following cardiac procedure",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "89580002",
+          "code_description": "Cryptogenic cirrhosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "897004000",
+          "code_description": "Oesophageal varices due to cirrhosis of liver",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "897005004",
+          "code_description": "Oesophageal varices due to alcoholic cirrhosis of liver",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197318005",
+          "code_description": "Hepatic sclerosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "197319002",
+          "code_description": "Hepatic fibrosis with hepatic sclerosis",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "235880004",
+          "code_description": "Alcoholic fibrosis and sclerosis of liver",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "153091000119109",
+          "code_description": "Hepatic coma due to chronic hepatitis B with delta agent",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "186638006",
+          "code_description": "Chronic viral hepatitis B with hepatitis D",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "424340000",
+          "code_description": "Chronic hepatitis B with hepatic coma",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "875211000000105",
+          "code_description": "Chronic viral hepatitis B",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "128971000119101",
+          "code_description": "Cryoglobulinaemia due to chronic hepatitis C",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "146371000119104",
+          "code_description": "Hepatic coma due to chronic hepatitis C",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "186640001",
+          "code_description": "Chronic viral hepatitis C",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    },
+    {
+      "codelist_id": "chronic_liver_disease_SNOMEDICD10_ICD10_fe8ac527",
+      "codelist_name": "chronic_liver_disease_SNOMEDICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "chronic_liver_disease_SNOMEDICD10_ICD10_fe8ac527_20251106_163504",
+      "codes": [
+        {
+          "code": "K70.3",
+          "code_description": "Alcoholic cirrhosis of liver",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K74",
+          "code_description": "Fibrosis and cirrhosis of liver",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K74.5",
+          "code_description": "Biliary cirrhosis, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K74.4",
+          "code_description": "Secondary biliary cirrhosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K74.6",
+          "code_description": "Other and unspecified cirrhosis of liver",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K74.3",
+          "code_description": "Primary biliary cirrhosis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K75",
+          "code_description": "Other inflammatory liver diseases",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K75.1",
+          "code_description": "Phlebitis of portal vein",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K75.0",
+          "code_description": "Abscess of liver",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K75.9",
+          "code_description": "Inflammatory liver disease, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K75.8",
+          "code_description": "Other specified inflammatory liver diseases",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K70",
+          "code_description": "Alcoholic liver disease",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K70.2",
+          "code_description": "Alcoholic fibrosis and sclerosis of liver",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K70.9",
+          "code_description": "Alcoholic liver disease, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K70.0",
+          "code_description": "Alcoholic fatty liver",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K72",
+          "code_description": "Hepatic failure, not elsewhere classified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K72.1",
+          "code_description": "Chronic hepatic failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K72.0",
+          "code_description": "Acute and subacute hepatic failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K70.4",
+          "code_description": "Alcoholic hepatic failure",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "K72.9",
+          "code_description": "Hepatic failure, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "B18",
+          "code_description": "Chronic viral hepatitis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "B18.10",
+          "code_description": "Chronic viral hepatitis B without delta-agent, immune-tolerant phase",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "B18.09",
+          "code_description": "Chronic viral hepatitis B with delta-agent, other and unspecified phase",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "B18.19",
+          "code_description": "Chronic viral hepatitis B without delta-agent, other and unspecified phase",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "B18.00",
+          "code_description": "Chronic viral hepatitis B with delta-agent, immune-tolerant phase",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "B18.8",
+          "code_description": "Other chronic viral hepatitis",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "B18.9",
+          "code_description": "Chronic viral hepatitis, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "B18.0",
+          "code_description": "Chronic viral hepatitis B with delta-agent",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "B18.2",
+          "code_description": "Chronic viral hepatitis C",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "B18.1",
+          "code_description": "Chronic viral hepatitis B without delta-agent",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

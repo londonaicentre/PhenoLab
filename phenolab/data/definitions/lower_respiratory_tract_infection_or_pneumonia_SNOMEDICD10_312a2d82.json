@@ -1,0 +1,291 @@
+{
+  "definition_id": "312a2d82",
+  "definition_name": "lower_respiratory_tract_infection_or_pneumonia_SNOMEDICD10",
+  "definition_version": "lower_respiratory_tract_infection_or_pneumonia_SNOMEDICD10_20251106_161000",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-11-06T16:10:00.201655",
+  "codelists": [
+    {
+      "codelist_id": "lower_respiratory_tract_infection_or_pneumonia_SNOMEDICD10_SNOMED_dee7cabf",
+      "codelist_name": "lower_respiratory_tract_infection_or_pneumonia_SNOMEDICD10_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "lower_respiratory_tract_infection_or_pneumonia_SNOMEDICD10_SNOMED_dee7cabf_20251106_160537",
+      "codes": [
+        {
+          "code": "385093006",
+          "code_description": "Community acquired pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233604007",
+          "code_description": "Pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "278516003",
+          "code_description": "Lobar pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "312342009",
+          "code_description": "Infective pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "422588002",
+          "code_description": "Aspiration pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "882784691000119100",
+          "code_description": "Pneumonia caused by severe acute respiratory syndrome coronavirus 2 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "425464007",
+          "code_description": "Nosocomial pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195878008",
+          "code_description": "Pneumonia and influenza (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "396285007",
+          "code_description": "Bronchopneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266350000",
+          "code_description": "Pneumococcal lobar pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "53084003",
+          "code_description": "Bacterial pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "75570004",
+          "code_description": "Viral pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233606009",
+          "code_description": "Atypical pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "300999006",
+          "code_description": "Basal pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "129452008",
+          "code_description": "Nonspecific interstitial pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "719218000",
+          "code_description": "Cryptogenic organizing pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "46970008",
+          "code_description": "Pneumonia caused by Mycoplasma pneumoniae (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "64667001",
+          "code_description": "Interstitial pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "415125002",
+          "code_description": "Pneumocystosis jirovecii pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "64479007",
+          "code_description": "Pneumonia caused by Klebsiella pneumoniae (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195889001",
+          "code_description": "Legionella pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "34020007",
+          "code_description": "Pneumonia caused by Streptococcus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "301000005",
+          "code_description": "Left lower zone pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "44549008",
+          "code_description": "Aspiration pneumonia resulting from a procedure (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "1240551000000105",
+          "code_description": "Pneumonia caused by severe acute respiratory syndrome coronavirus 2 (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "448421008",
+          "code_description": "Sepsis caused by Streptococcus pneumoniae (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "440990006",
+          "code_description": "Mycoplasma pneumoniae present (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "425996009",
+          "code_description": "Bilateral basal pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "301001009",
+          "code_description": "Right lower zone pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "407671000",
+          "code_description": "Bilateral pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "64917006",
+          "code_description": "Parainfluenza virus pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "301003007",
+          "code_description": "Right middle zone pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "195911009",
+          "code_description": "Chickenpox pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "41381004",
+          "code_description": "Pneumonia caused by Pseudomonas (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "70036007",
+          "code_description": "Haemophilus influenzae pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "445096001",
+          "code_description": "Pneumonia caused by Human metapneumovirus (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "56415008",
+          "code_description": "Klebsiella pneumoniae (organism)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "44274007",
+          "code_description": "Lymphoid interstitial pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "301004001",
+          "code_description": "Right upper zone pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "22754005",
+          "code_description": "Staphylococcal pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "301002002",
+          "code_description": "Left upper zone pneumonia (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "196001008",
+          "code_description": "Chronic obstructive pulmonary disease with acute lower respiratory infection (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "312134000",
+          "code_description": "Viral lower respiratory infection (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "312119006",
+          "code_description": "Bacterial lower respiratory infection (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "285381006",
+          "code_description": "Acute infective exacerbation of chronic obstructive airways disease (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    },
+    {
+      "codelist_id": "lower_respiratory_tract_infection_or_pneumonia_SNOMEDICD10_ICD10_035bc8fe",
+      "codelist_name": "lower_respiratory_tract_infection_or_pneumonia_SNOMEDICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "lower_respiratory_tract_infection_or_pneumonia_SNOMEDICD10_ICD10_035bc8fe_20251106_160838",
+      "codes": [
+        {
+          "code": "J18",
+          "code_description": "Pneumonia, organism unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J18.8",
+          "code_description": "Other pneumonia, organism unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J18.1",
+          "code_description": "Lobar pneumonia, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J18.2",
+          "code_description": "Hypostatic pneumonia, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J18.9",
+          "code_description": "Pneumonia, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J18.0",
+          "code_description": "Bronchopneumonia, unspecified",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J44.0",
+          "code_description": "Chronic obstructive pulmonary disease with acute lower respiratory infection",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "J22",
+          "code_description": "Unspecified acute lower respiratory infection",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,395 @@
+{
+  "definition_id": "8ceaa8af",
+  "definition_name": "obesity_SNOMEDICD10",
+  "definition_version": "obesity_SNOMEDICD10_20251106_163208",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-11-06T16:32:08.486860",
+  "codelists": [
+    {
+      "codelist_id": "obesity_SNOMEDICD10_SNOMED_371bf348",
+      "codelist_name": "obesity_SNOMEDICD10_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "obesity_SNOMEDICD10_SNOMED_371bf348_20251106_163151",
+      "codes": [
+        {
+          "code": "10977641000119108",
+          "code_description": "History of removal of gastric banding device (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "16093531000119101",
+          "code_description": "History of adult obesity (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "161453001",
+          "code_description": "H/O: obesity",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "162690006",
+          "code_description": "O/E - obese",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "162864005",
+          "code_description": "Body mass index 30+ - obesity",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "170794003",
+          "code_description": "Initial obesity assessment",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "170795002",
+          "code_description": "Follow-up obesity assessment",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "170797005",
+          "code_description": "Has seen dietitian - obesity",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "170798000",
+          "code_description": "Treatment of obesity changed",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "170799008",
+          "code_description": "Treatment of obesity started",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "170807005",
+          "code_description": "Reason for obesity therapy - occupational",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "173748000",
+          "code_description": "Bypass of stomach by anastomosis of stomach to transposed jejunum",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "173911002",
+          "code_description": "Bypass of jejunum",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "173913004",
+          "code_description": "Bypass of jejunum by anastomosis of jejunum to ileum",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "173914005",
+          "code_description": "Jejunocolostomy (& [Dewind] or [Payne] or [Scott])",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "185741002",
+          "code_description": "Attends obesity monitoring",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "185742009",
+          "code_description": "Refuses obesity monitoring",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "185743004",
+          "code_description": "Obesity monitoring default",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "185744005",
+          "code_description": "Obesity monitoring first letter",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "185745006",
+          "code_description": "Obesity monitoring second letter",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "185746007",
+          "code_description": "Obesity monitoring third letter",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "185747003",
+          "code_description": "Obesity monitoring verbal invite",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "185748008",
+          "code_description": "Obesity monitoring telephone invite",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "185750000",
+          "code_description": "Obesity monitoring check done",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "18692006",
+          "code_description": "Bypass gastroenterostomy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190965006",
+          "code_description": "Drug-induced obesity",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "190966007",
+          "code_description": "Extreme obesity with alveolar hypoventilation",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "235408004",
+          "code_description": "Jejunocolostomy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "238134004",
+          "code_description": "Generalized obesity",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "238136002",
+          "code_description": "Morbid obesity",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "248311001",
+          "code_description": "Centripetal obesity",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "248325000",
+          "code_description": "Undernourished",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "265364006",
+          "code_description": "Partitioning of stomach",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "265365007",
+          "code_description": "Bypass of stomach by anastomosis of stomach to duodenum",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "265380001",
+          "code_description": "Jejunojejunal bypass",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "265381002",
+          "code_description": "Bypass of jejunum by anastomosis of jejunum to colon",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "266724001",
+          "code_description": "Patient advised about weight-reducing diet",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "268522006",
+          "code_description": "Obesity monitoring",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "268551005",
+          "code_description": "Obesity screening",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "268916007",
+          "code_description": "O/E - weight greater than 20% over ideal",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "275919002",
+          "code_description": "Weight loss advised",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "276792008",
+          "code_description": "Pulmonary hypertension with extreme obesity",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "284352003",
+          "code_description": "Dietary advice for obesity",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "294493008",
+          "code_description": "Lifelong obesity",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "296526005",
+          "code_description": "Adult-onset obesit",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "302872003",
+          "code_description": "Disorder of hyperalimentation",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "307818003",
+          "code_description": "Weight monitoring",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "30803004",
+          "code_description": "Printen and Mason operation, high gastric bypass",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "329281000119107",
+          "code_description": "History of sleeve gastrectomy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "363247006",
+          "code_description": "Obesity associated disorder",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "408512008",
+          "code_description": "Body mass index 40+ - severely obese (finding)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "414574004",
+          "code_description": "Laparoscopic adjustable gastric banding (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "414916001",
+          "code_description": "Obesity (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "415530009",
+          "code_description": "Simple obesity (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "424753004",
+          "code_description": "Dietary management education, guidance, and counseling (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426273008",
+          "code_description": "Partitioning of stomach using band (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426559000",
+          "code_description": "Removal of gastric band (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "426738005",
+          "code_description": "Duodenal switch (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "427029008",
+          "code_description": "Partitioning of stomach using staples (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "427074001",
+          "code_description": "Laparoscopic sleeve gastrectomy (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "427980007",
+          "code_description": "Sleeve gastrectomy with duodenal switch (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "428754001",
+          "code_description": "Dietary education for food intolerance (procedure)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "429538006",
+          "code_description": "History of laparoscopic adjustable gastric banding (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "442261001",
+          "code_description": "Maintenance of gastric band",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "49245001",
+          "code_description": "Bypass gastrojejunostomy",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "63702009",
+          "code_description": "Alstrom syndrome",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "698450007",
+          "code_description": "History of bypass of stomach (situation)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "703316004",
+          "code_description": "Lymphedema associated with obesity (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "708983005",
+          "code_description": "Laparoscopic bypass of stomach",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "715279006",
+          "code_description": "Telehealth obesity monitoring (regime/therapy)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "722051004",
+          "code_description": "Obesity, colitis, hypothyroidism, cardiac hypertrophy, developmental delay syndrome (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "763085007",
+          "code_description": "Obesity monitoring refused",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "87604009",
+          "code_description": "Sleeve resection of stomach",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "E66",
+          "code_description": "Obesity",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    },
+    {
+      "codelist_id": "obesity_SNOMEDICD10_ICD10_6983e269",
+      "codelist_name": "obesity_SNOMEDICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "obesity_SNOMEDICD10_ICD10_6983e269_20251106_163158",
+      "codes": []
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "definition_id": "f1a6597b",
+  "definition_name": "pulmonary_hypertension_SNOMEDICD10",
+  "definition_version": "pulmonary_hypertension_SNOMEDICD10_20251107_215816",
+  "definition_source": "AICENTRE",
+  "uploaded_datetime": "0001-01-01T00:00:00",
+  "version_datetime": "2025-11-07T21:58:16.556046",
+  "codelists": [
+    {
+      "codelist_id": "pulmonary_hypertension_SNOMEDICD10_SNOMED_e3805e42",
+      "codelist_name": "pulmonary_hypertension_SNOMEDICD10_SNOMED",
+      "codelist_vocabulary": "SNOMED",
+      "codelist_version": "pulmonary_hypertension_SNOMEDICD10_SNOMED_e3805e42_20251107_215731",
+      "codes": [
+        {
+          "code": "70995007",
+          "code_description": "Pulmonary hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "88223008",
+          "code_description": "Secondary pulmonary hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        },
+        {
+          "code": "233947005",
+          "code_description": "Thromboembolic pulmonary hypertension (disorder)",
+          "code_vocabulary": "SNOMED"
+        }
+      ]
+    },
+    {
+      "codelist_id": "pulmonary_hypertension_SNOMEDICD10_ICD10_c6783629",
+      "codelist_name": "pulmonary_hypertension_SNOMEDICD10_ICD10",
+      "codelist_vocabulary": "ICD10",
+      "codelist_version": "pulmonary_hypertension_SNOMEDICD10_ICD10_c6783629_20251107_215755",
+      "codes": [
+        {
+          "code": "I27.2",
+          "code_description": "Other secondary pulmonary hypertension",
+          "code_vocabulary": "ICD10"
+        },
+        {
+          "code": "I27.0",
+          "code_description": "Primary pulmonary hypertension",
+          "code_vocabulary": "ICD10"
+        }
+      ]
+    }
+  ]
+}
