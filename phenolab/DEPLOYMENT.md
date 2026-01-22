@@ -168,7 +168,7 @@ chmod +x deploy.sh
 ./deploy.sh sel prod    # SEL ICB production
 ```
 
-_Note: If deploying from windows you may need a python3 symlink or equivalent to run this script._
+_Note: If deploying from windows you may need a python3 alias or equivalent to run this script._
 
 The `deploy.sh` script does the following:
 
