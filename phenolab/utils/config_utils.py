@@ -29,8 +29,8 @@ def load_config(session: Session = None, deploy_env: str = None) -> dict:
     """
 
     load_dotenv(override=True)
-    if os.environ['HOME'] == "/home/udf":
-        # This is a hideous hack, but this env variable exists on streamlit in snowflake
+    if os.path.expanduser("~") == "/home/udf":
+        # This is a hideous hack, but this path exists on streamlit in snowflake
         local_development = False
     else:
         local_development = True

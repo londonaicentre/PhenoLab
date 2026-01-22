@@ -168,6 +168,8 @@ chmod +x deploy.sh
 ./deploy.sh sel prod    # SEL ICB production
 ```
 
+_Note: If deploying from windows you may need a python3 alias or equivalent to run this script._
+
 The `deploy.sh` script does the following:
 
 1. Checks that `configs/<icb>_icb_<env>.yml` exists
