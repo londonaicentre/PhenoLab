@@ -57,7 +57,7 @@ if [ $? -eq 0 ]; then
 
   # runs setup.py to load all tables and definitions
   echo "Running setup.py to load definitions and configurations..."
-  python setup.py ${ICB}_icb $DEPLOY_ENV 
+  python3 setup.py ${ICB}_icb $DEPLOY_ENV 
 
   if [ $? -eq 0 ]; then
     echo "Setup completed successfully."
